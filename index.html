@@ -392,6 +392,22 @@ body{padding-bottom:78px}
 .ltags i{font-style:normal;font-size:10.5px;background:var(--bg);border-radius:6px;padding:2px 8px;margin-right:5px;color:var(--sub)}
 .lfoot{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--sub);margin-top:auto;padding-top:4px}
 .lfoot b{color:var(--navy)}
+
+#pledgeacc{margin-top:12px}
+#pledgeacc details{background:#fff;border:1px solid var(--line);border-radius:13px;margin-bottom:9px;overflow:hidden}
+#pledgeacc summary{cursor:pointer;padding:13px 15px;font-size:13.5px;font-weight:800;display:flex;align-items:center;gap:8px;list-style:none}
+#pledgeacc summary::-webkit-details-marker{display:none}
+#pledgeacc summary .cnt{margin-left:auto;background:var(--bg);border-radius:99px;padding:1px 10px;font-size:11px;font-weight:700;color:var(--sub)}
+.prow{display:flex;align-items:center;gap:9px;width:100%;text-align:left;padding:10px 15px;border-top:1px solid var(--line);font-size:12.8px}
+.prow:hover{background:var(--bg)}
+.pno{flex:none;width:26px;height:26px;border-radius:8px;background:var(--navy);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.pt{line-height:1.4;font-weight:600}
+.pn{margin-left:auto;flex:none;font-size:10.5px;font-weight:700;color:#E8590C;border:1px solid #E8590C;border-radius:99px;padding:1px 8px}
+.pn.zero{color:var(--sub);border-color:var(--line)}
+.pnews{padding:4px 15px 12px 50px;border-top:1px dashed var(--line);background:#FBFCFE}
+.pnews a{display:block;font-size:12px;padding:6px 0;color:var(--ink)}
+.pnews a b{color:var(--sub);font-weight:600;font-size:11px}
+.pnews .none{font-size:11.5px;color:var(--sub);padding:8px 0}
 </style>
 </head>
 <body>
@@ -546,6 +562,14 @@ body{padding-bottom:78px}
   <div id="lawgrid"></div>
   <div class="notecard">
     <b>출처</b> — 법제처 국가법령정보 OPEN API · 「법령 보기」는 국가법령정보센터 원문으로 직결됩니다.
+  </div>
+
+  <div class="newssec" style="margin-top:22px">
+    <div class="dh"><h2>민선9기 제주도정 100대 정책과제</h2><span class="sub">도민과 함께! 미래를 만나는 제주</span></div>
+    <div style="font-size:11px;color:var(--sub);margin-top:2px">제40대 도지사직인수위원회 발표 기준 · 과제를 누르면 최근 2주 관련 보도가 표시됩니다</div>
+    <div class="uni" style="margin-top:10px"><span class="mag">🔍</span>
+      <input id="plq" type="search" autocomplete="off" placeholder="과제 검색 — 예: 돌봄, AI, 4·3, 감귤, 주거"></div>
+    <div id="pledgeacc"></div>
   </div>
 </div>
 </div><!-- /lawbot -->
@@ -884,7 +908,7 @@ function show(v,push=true){
   if(v==='explore'){renderRail();renderList();}
   if(v==='news')renderNews();
   if(v==='support')renderSupport();
-  if(v==='lawbot')renderLaws();
+  if(v==='lawbot'){renderLaws();renderPledges();}
 }
 history.replaceState({v:'home'},'','#home');
 window.addEventListener('popstate',e=>{
@@ -969,7 +993,7 @@ document.addEventListener('click',e=>{
 
 /* ══ 정책비서(법령) ══ */
 const LAWTY={'법률':'#1B5FAF','시행령':'#0CA678','시행규칙':'#12B0C9','조례':'#E8590C','규칙':'#7B61FF','훈령':'#5C6784','예규':'#98A2B3'};
-let lawMax=60;
+let lawMax=6;
 let lawTy='';
 function lawUrl(l){if(l.url)return l.url;const kind=(l.ty==='조례'||l.ty==='규칙'||l.ty==='훈령'||l.ty==='예규')?'자치법규':'법령';
   return 'https://www.law.go.kr/'+kind+'/'+encodeURIComponent(l.t.replace(/ /g,''));}
@@ -995,7 +1019,7 @@ function renderLaws(){
 }
 document.addEventListener('click',e=>{
   const b=e.target.closest('.lc[data-ty]');
-  if(b){lawTy=(lawTy===b.dataset.ty?'':b.dataset.ty);lawMax=60;renderLaws();}
+  if(b){lawTy=(lawTy===b.dataset.ty?'':b.dataset.ty);lawMax=6;renderLaws();}
   if(e.target.id==='lawmore'){lawMax+=120;renderLaws();}
 });
 document.addEventListener('change',e=>{if(e.target.id==='lawf')renderLaws();});
@@ -1605,6 +1629,35 @@ fetch('data/news.json').then(r=>r.ok?r.json():null).then(j=>{
   const el=document.getElementById('rankasof');
   if(el&&j&&j.meta&&j.meta.collected_at)el.textContent=j.meta.collected_at;
 }).catch(()=>{});
+
+let PLEDGES=[];
+const PSTOP=new Set(['제주','제주형','제주도','추진','구축','조성','확대','강화','실현','마련','운영','활성화','체계','기반','위한','통한','도민','지원','사업','대전환','전면','대응','혁신','전환','중심','단계적']);
+function pTokens(t){return (t.match(/[가-힣A-Za-z0-9]{2,}/g)||[]).filter(w=>!PSTOP.has(w));}
+function pMatch(t){const tk=pTokens(t);
+  return NEWS.filter(n=>tk.some(w=>n.t.includes(w))).slice(0,3);}
+function renderPledges(){
+  const el=document.getElementById('pledgeacc'); if(!el||!PLEDGES.length)return;
+  const q=(document.getElementById('plq')?.value||'').trim();
+  const rows=PLEDGES.filter(x=>!q||x.t.includes(q));
+  const gs=[]; rows.forEach(x=>{if(!gs.includes(x.g))gs.push(x.g);});
+  el.innerHTML=gs.map((g,gi)=>{const its=rows.filter(x=>x.g===g);
+    return `<details ${q||gi===0?'open':''}><summary>${g}<span class="cnt">${its.length}과제</span></summary>`+
+      its.map(x=>{const m=pMatch(x.t);
+        return `<button class="prow" data-no="${x.no}">
+          <span class="pno">${String(x.no).padStart(2,'0')}</span>
+          <span class="pt">${x.t}</span>
+          <span class="pn ${m.length?'':'zero'}">${m.length?'보도 '+m.length:'보도 없음'}</span></button>
+        <div class="pnews" id="pn${x.no}" hidden>${
+          m.length?m.map(n=>`<a href="${n.link}" target="_blank" rel="noopener">${n.t} <b>— ${n.src||''} · ${n.d?n.d.slice(5).replace('-','.'):''}</b></a>`).join('')
+          :'<div class="none">최근 2주 관련 보도가 없수다 — 수집이 쌓이면 자동 연결됩니다</div>'}</div>`;
+      }).join('')+`</details>`;}).join('');
+}
+fetch('data/pledges.json').then(r=>r.ok?r.json():null).then(j=>{if(j){PLEDGES=j;renderPledges();}}).catch(()=>{});
+document.addEventListener('click',e=>{
+  const r=e.target.closest('.prow');
+  if(r){const d=document.getElementById('pn'+r.dataset.no);if(d)d.hidden=!d.hidden;}
+});
+document.addEventListener('input',e=>{if(e.target.id==='plq')renderPledges();});
 </script>
 </body>
 </html>
