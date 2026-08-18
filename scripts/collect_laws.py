@@ -32,7 +32,7 @@ def main():
     if not OC: print("LAW_OC 미설정 — open.law.go.kr 아이디를 Secrets에 등록"); return
     items=[]
     # ① 자치법규(도 조례·규칙·훈령 등)
-    for pg in range(1,16):
+    for pg in range(1,20):
         j=call("ordin","제주특별자치도",pg)
         if not j: break
         body=j.get("OrdinSearch") or j.get("Law") or {}
