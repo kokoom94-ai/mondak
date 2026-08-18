@@ -529,6 +529,7 @@ body{padding-bottom:78px}
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">정책비서</div>
   <div class="viewsub">제주 관련 특별법·시행령·조례·규칙을 한눈에 — 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
+  <div class="metarow" style="margin-top:6px"><span class="livebadge" id="lawsrc">큐레이션 14건 · 법제처 API 연동 대기</span></div>
   <div class="lawchips" id="lawchips"></div>
   <div class="uni" style="margin-top:10px">
     <span class="mag">🔍</span>
@@ -544,8 +545,7 @@ body{padding-bottom:78px}
   </div>
   <div id="lawgrid"></div>
   <div class="notecard">
-    <b>안내</b> — 「법령 보기」는 국가법령정보센터(법제처) 한글주소로 직결됩니다. 법령 명칭이 개정된 경우 후보 목록 화면이 뜰 수 있습니다.
-    심사·계류 중인 의안은 <b>우리동네의원</b> 탭에서 다룹니다. 향후 국가법령정보센터·자치법규정보시스템 API(korea-public-data-mcp 방식)로 개정 이력까지 연동 예정.
+    <b>출처</b> — 법제처 국가법령정보 OPEN API · 「법령 보기」는 국가법령정보센터 원문으로 직결됩니다.
   </div>
 </div>
 </div><!-- /lawbot -->
@@ -968,29 +968,35 @@ document.addEventListener('click',e=>{
 });
 
 /* ══ 정책비서(법령) ══ */
-const LAWTY={'법률':'#1B5FAF','시행령':'#0CA678','조례':'#E8590C','규칙':'#7B61FF'};
+const LAWTY={'법률':'#1B5FAF','시행령':'#0CA678','시행규칙':'#12B0C9','조례':'#E8590C','규칙':'#7B61FF','훈령':'#5C6784','예규':'#98A2B3'};
+let lawMax=60;
 let lawTy='';
-function lawUrl(l){const kind=(l.ty==='조례'||l.ty==='규칙')?'자치법규':'법령';
+function lawUrl(l){if(l.url)return l.url;const kind=(l.ty==='조례'||l.ty==='규칙'||l.ty==='훈령'||l.ty==='예규')?'자치법규':'법령';
   return 'https://www.law.go.kr/'+kind+'/'+encodeURIComponent(l.t.replace(/ /g,''));}
 function renderLaws(){
   const q=($('#lawq')&&$('#lawq').value.trim())||'';
   const lf=($('#lawf')&&$('#lawf').value)||'';
   const cnt={};LAWS.forEach(l=>cnt[l.ty]=(cnt[l.ty]||0)+1);
   $('#lawchips').innerHTML=`<span class="lc tot">총 ${LAWS.length}건</span>`+
-    ['법률','시행령','조례','규칙'].map(k=>`<button class="lc ${lawTy===k?'on':''}" data-ty="${k}" style="--c:${LAWTY[k]}">${k} ${cnt[k]||0}</button>`).join('');
-  const rows=LAWS.filter(l=>(!lawTy||l.ty===lawTy)&&(!lf||l.f===lf)&&(!q||(l.t+l.k+l.s).includes(q)));
+    ['법률','시행령','시행규칙','조례','규칙','훈령','예규'].filter(k=>cnt[k]).map(k=>`<button class="lc ${lawTy===k?'on':''}" data-ty="${k}" style="--c:${LAWTY[k]}">${k} ${cnt[k]||0}</button>`).join('');
+  const rows=LAWS.filter(l=>(!lawTy||l.ty===lawTy)&&(!lf||l.f===lf)&&(!q||(l.t+(l.k||'')+(l.s||'')).includes(q)));
   $('#lawcnt').textContent=rows.length;
-  $('#lawgrid').innerHTML=rows.map(l=>`<a class="lawcardx" href="${lawUrl(l)}" target="_blank" rel="noopener" style="--c:${LAWTY[l.ty]}">
+  const shown=rows.slice(0,lawMax);
+  $('#lawgrid').innerHTML=shown.map(l=>`<a class="lawcardx" href="${lawUrl(l)}" target="_blank" rel="noopener" style="--c:${LAWTY[l.ty]}">
     <div class="lct"><span class="lty">${l.ty}</span><span class="lf">${l.f}</span></div>
     <div class="lname">${l.t}</div>
-    <div class="lsum">${l.s}</div>
+    ${l.s?`<div class="lsum">${l.s}</div>`:''}
+    ${l.d?`<div class="lsum" style="font-size:10.5px">공포 ${l.d}</div>`:''}
     <div class="ltags">${(l.tags||[]).map(t=>`<i>${t}</i>`).join('')}</div>
     <div class="lfoot"><span>🏛 국가법령정보센터</span><b>법령 보기 ↗</b></div></a>`).join('')
     ||'<div class="lawgroup">조건에 맞는 법령이 없수다</div>';
+  if(rows.length>lawMax)$('#lawgrid').insertAdjacentHTML('beforeend',
+    `<button class="morebtn" id="lawmore" style="grid-column:1/-1">더보기 · 남은 법령 ${rows.length-lawMax}건</button>`);
 }
 document.addEventListener('click',e=>{
   const b=e.target.closest('.lc[data-ty]');
-  if(b){lawTy=(lawTy===b.dataset.ty?'':b.dataset.ty);renderLaws();}
+  if(b){lawTy=(lawTy===b.dataset.ty?'':b.dataset.ty);lawMax=60;renderLaws();}
+  if(e.target.id==='lawmore'){lawMax+=120;renderLaws();}
 });
 document.addEventListener('change',e=>{if(e.target.id==='lawf')renderLaws();});
 document.getElementById('lawq').addEventListener('input',e=>renderLaws(e.target.value.trim()));
@@ -1238,6 +1244,14 @@ fetch('data/policies.json').then(r=>r.ok?r.json():null).then(j=>{
     if(b)b.textContent='기관 공고 자동 수집: '+j.meta.collected_at+' · '+j.meta.count+'건 (직링크)';
     renderHome();renderRail();renderList();renderCouncilFeed();
   }
+}).catch(()=>{});
+fetch('data/laws.json').then(r=>r.ok?r.json():null).then(j=>{
+  if(!j||!j.items||!j.items.length)return;
+  LAWS.length=0;
+  j.items.forEach(x=>LAWS.push({ty:x.ty,f:x.f,t:x.t,s:'',k:x.t,d:x.d,tags:[],url:x.url}));
+  const b=document.getElementById('lawsrc');
+  if(b)b.textContent='법제처 국가법령정보 API 자동 수집: '+j.meta.collected_at+' · 총 '+j.meta.count+'건';
+  renderLaws();
 }).catch(()=>{});
 fetch('data/news.json').then(r=>r.ok?r.json():null).then(j=>{
   if(j&&j.items&&j.items.length){
