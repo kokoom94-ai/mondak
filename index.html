@@ -374,6 +374,24 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 @media(max-width:1180px){.lsub{display:none}}
 body{padding-bottom:78px}
 @media(max-width:640px){#landing .ldesc br{display:none}}
+
+.lawchips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 2px}
+.lc{font-size:12px;font-weight:700;padding:5px 13px;border-radius:99px;border:1.5px solid var(--c,#999);color:var(--c,#333);background:#fff}
+.lc.on{background:var(--c);color:#fff}
+.lc.tot{border-color:var(--navy);background:var(--navy);color:#fff}
+.lawbar{display:flex;gap:10px;margin-top:10px}
+.lawbar select{border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:12.5px;background:#fff}
+#lawgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-top:14px}
+.lawcardx{background:#fff;border:1px solid var(--line);border-left:4px solid var(--c);border-radius:13px;padding:14px 15px;display:flex;flex-direction:column;gap:8px}
+.lawcardx:hover{box-shadow:0 8px 22px rgba(20,40,90,.09)}
+.lct{display:flex;gap:6px}
+.lty{font-size:10.5px;font-weight:800;color:var(--c);border:1px solid var(--c);border-radius:6px;padding:1px 8px}
+.lf{font-size:10.5px;color:var(--sub);border:1px solid var(--line);border-radius:6px;padding:1px 8px}
+.lname{font-size:14.5px;font-weight:800;line-height:1.4;color:var(--ink)}
+.lsum{font-size:12.3px;color:var(--sub);line-height:1.55}
+.ltags i{font-style:normal;font-size:10.5px;background:var(--bg);border-radius:6px;padding:2px 8px;margin-right:5px;color:var(--sub)}
+.lfoot{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--sub);margin-top:auto;padding-top:4px}
+.lfoot b{color:var(--navy)}
 </style>
 </head>
 <body>
@@ -510,16 +528,24 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">정책비서</div>
-  <div class="viewsub">제주특별자치도의 정책 정보와 법규 — 특별법·조례·규칙을 나무 구조로 탐색합니다</div>
-  <div class="uni" style="margin-top:12px">
+  <div class="viewsub">제주 관련 특별법·시행령·조례·규칙을 한눈에 — 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
+  <div class="lawchips" id="lawchips"></div>
+  <div class="uni" style="margin-top:10px">
     <span class="mag">🔍</span>
-    <input id="lawq" type="search" placeholder="법령·조례 검색 — 예: 돌봄, AI, 환경">
+    <input id="lawq" type="search" autocomplete="off" placeholder="법령명·키워드 검색 — 예: 감귤, 풍력, 청년, 4·3">
   </div>
-  <div class="lawtree" id="lawtree"></div>
+  <div class="lawbar">
+    <select id="lawf">
+      <option value="">전체 분야</option>
+      <option>행정</option><option>문화/관광</option><option>1차산업</option>
+      <option>환경/에너지</option><option>교육/청년</option><option>안전/민원행정</option>
+    </select>
+    <span style="font-size:12px;color:var(--sub);align-self:center">검색 결과 <b id="lawcnt">0</b>건</span>
+  </div>
+  <div id="lawgrid"></div>
   <div class="notecard">
-    <b>연동 예정</b> — 국가법령정보센터(법제처)·자치법규정보시스템·공공데이터포털 API를 통합하는
-    korea-public-data-mcp 방식으로 제주 법령 전문·개정 이력·관련 판례까지 연결합니다.
-    AI 법령 비서(법제처, 2026.7 시범)의 자치법규 우선 반영 지역에 제주가 빠져 있어, 그 공백을 지역에서 먼저 메웁니다.
+    <b>안내</b> — 「법령 보기」는 국가법령정보센터(법제처) 한글주소로 직결됩니다. 법령 명칭이 개정된 경우 후보 목록 화면이 뜰 수 있습니다.
+    심사·계류 중인 의안은 <b>우리동네의원</b> 탭에서 다룹니다. 향후 국가법령정보센터·자치법규정보시스템 API(korea-public-data-mcp 방식)로 개정 이력까지 연동 예정.
   </div>
 </div>
 </div><!-- /lawbot -->
@@ -653,7 +679,7 @@ body{padding-bottom:78px}
 <nav class="bottomnav" id="bottomnav">
   <button data-v="home" class="on"><span class="ic">🏠</span>홈</button>
   <button data-v="news"><span class="ic">📰</span>새소식</button>
-  <button data-v="support"><span class="ic">🎁</span>지원사업</button>
+  <button data-v="lawbot"><span class="ic">⚖️</span>정책비서</button>
   <button data-v="biseo"><span class="ic">💬</span>민원비서</button>
   <button id="openmenu2"><span class="ic">☰</span>전체 메뉴</button>
 </nav>
@@ -802,12 +828,20 @@ const NEWSSECS=['전체','문화/관광','복지/사회보험','신산업/AX','�
 const secN=s=>s==='관광'?'문화/관광':(s||'기타');
 let newsMax=10;
 const LAWS=[
- {g:'법률',t:'제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법',s:'law',k:'특별법 자치 분권'},
- {g:'조례 · 신산업',t:'제주특별자치도 인공지능 도입 및 디지털 전환 촉진 조례',s:'enact',k:'AI 인공지능 디지털 AX'},
- {g:'조례 · 복지',t:'제주특별자치도 통합돌봄 지원 조례 (일부개정안 심사 중)',s:'pend',k:'돌봄 복지 통합돌봄'},
- {g:'조례 · 환경',t:'해양쓰레기 관리 조례안 (발의·계류)',s:'pend',k:'환경 해양 쓰레기 바다'},
- {g:'조례 · 관광',t:'관광진흥 및 관광불편 처리 관련 조례',s:'enact',k:'관광 불편 진흥'},
- {g:'조례 · 청년',t:'청년 기본 조례 및 주거 지원 관련 규정',s:'enact',k:'청년 주거 보증금'},
+ {ty:'법률',f:'행정',t:'제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법',s:'제주형 자치분권과 국제자유도시 조성의 근거가 되는 제주 최상위 특별법.',k:'특별법 분권 국제자유도시 JDC 특행',tags:['특별자치','국제자유도시','분권']},
+ {ty:'법률',f:'행정',t:'제주4·3사건 진상규명 및 희생자 명예회복에 관한 특별법',s:'4·3사건 진상규명, 희생자·유족 명예회복과 보상의 법적 근거.',k:'4·3 사삼 진상규명 보상 명예회복',tags:['4·3','진상규명','보상']},
+ {ty:'시행령',f:'행정',t:'제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법 시행령',s:'제주특별법이 위임한 세부 사항을 정하는 대통령령.',k:'특별법 시행령',tags:['위임사항','대통령령']},
+ {ty:'시행령',f:'행정',t:'제주4·3사건 진상규명 및 희생자 명예회복에 관한 특별법 시행령',s:'4·3특별법의 보상 절차·위원회 운영 등 세부 사항.',k:'4·3 시행령 보상 절차',tags:['4·3','보상절차']},
+ {ty:'조례',f:'1차산업',t:'제주특별자치도 감귤생산 및 유통에 관한 조례',s:'감귤의 품질 기준, 강제착색 금지 등 생산·유통 질서를 정한 제주 대표 조례.',k:'감귤 유통 품질 강제착색 비상품',tags:['감귤','품질기준','유통']},
+ {ty:'조례',f:'환경/에너지',t:'제주특별자치도 풍력발전사업 허가 및 지구 지정 등에 관한 조례',s:'풍력자원을 공공의 자원으로 관리하는, 전국 최초의 풍력 공공자원화 조례.',k:'풍력 에너지 공공자원 개발이익',tags:['풍력','공공자원화']},
+ {ty:'조례',f:'환경/에너지',t:'제주특별자치도 곶자왈 보전 및 관리 조례',s:'곶자왈의 체계적 보전·관리와 실태조사의 근거.',k:'곶자왈 보전 환경 생태',tags:['곶자왈','보전']},
+ {ty:'조례',f:'문화/관광',t:'제주특별자치도 해녀문화 보존 및 전승에 관한 조례',s:'유네스코 인류무형문화유산 제주해녀문화의 보존·전승 지원 근거.',k:'해녀 유네스코 무형문화유산',tags:['해녀','유네스코']},
+ {ty:'조례',f:'문화/관광',t:'제주특별자치도 제주관광공사 설립 및 운영 조례',s:'제주관광공사(JTO)의 설립 근거와 사업 범위·운영 사항.',k:'관광공사 JTO 관광 마케팅',tags:['JTO','관광진흥']},
+ {ty:'조례',f:'교육/청년',t:'제주특별자치도 청년 기본 조례',s:'청년 정책의 기본 방향과 청년의 참여 보장을 정한 기본 조례.',k:'청년 참여 기본조례',tags:['청년','참여보장']},
+ {ty:'조례',f:'안전/민원행정',t:'제주특별자치도 도시계획 조례',s:'용도지역별 건축 제한, 개발행위 허가 기준 등 도시계획의 세부 기준.',k:'도시계획 용도지역 개발행위 건폐율 용적률',tags:['도시계획','개발행위']},
+ {ty:'조례',f:'안전/민원행정',t:'제주특별자치도 주민참여예산제 운영 조례',s:'도민이 예산 편성에 직접 참여하는 주민참여예산제의 운영 근거.',k:'참여예산 주민참여 예산',tags:['참여예산','주민참여']},
+ {ty:'규칙',f:'안전/민원행정',t:'제주특별자치도 도시계획 조례 시행규칙',s:'도시계획 조례가 위임한 세부 절차·서식을 정한 규칙.',k:'도시계획 시행규칙',tags:['시행규칙']},
+ {ty:'규칙',f:'1차산업',t:'제주특별자치도 감귤생산 및 유통에 관한 조례 시행규칙',s:'감귤 상품 기준(크기·당도) 등 감귤조례의 세부 기준을 정한 규칙.',k:'감귤 시행규칙 상품기준 당도',tags:['감귤','상품기준']},
 ];
 const EDU=[
  {t:'2026학년도 2학기 늘봄학교 운영 안내',d:'2026-08-12'},
@@ -850,6 +884,7 @@ function show(v,push=true){
   if(v==='explore'){renderRail();renderList();}
   if(v==='news')renderNews();
   if(v==='support')renderSupport();
+  if(v==='lawbot')renderLaws();
 }
 history.replaceState({v:'home'},'','#home');
 window.addEventListener('popstate',e=>{
@@ -933,16 +968,31 @@ document.addEventListener('click',e=>{
 });
 
 /* ══ 정책비서(법령) ══ */
-function renderLaws(q=''){
-  const rows=LAWS.filter(l=>!q||(l.t+l.k).includes(q));
-  const groups={};
-  rows.forEach(l=>{(groups[l.g]=groups[l.g]||[]).push(l);});
-  $('#lawtree').innerHTML=Object.entries(groups).map(([g,items])=>
-    `<div class="lawgroup"><h3>${g}</h3>`+items.map(l=>
-      `<button class="lawitem"><span class="lt">${l.t}</span>
-       <span class="ls ${l.s}">${l.s==='law'?'법률':l.s==='enact'?'시행 중':'심사·계류'}</span></button>`).join('')+`</div>`
-  ).join('')||'<div class="lawgroup">검색 결과가 없수다</div>';
+const LAWTY={'법률':'#1B5FAF','시행령':'#0CA678','조례':'#E8590C','규칙':'#7B61FF'};
+let lawTy='';
+function lawUrl(l){const kind=(l.ty==='조례'||l.ty==='규칙')?'자치법규':'법령';
+  return 'https://www.law.go.kr/'+kind+'/'+encodeURIComponent(l.t.replace(/ /g,''));}
+function renderLaws(){
+  const q=($('#lawq')&&$('#lawq').value.trim())||'';
+  const lf=($('#lawf')&&$('#lawf').value)||'';
+  const cnt={};LAWS.forEach(l=>cnt[l.ty]=(cnt[l.ty]||0)+1);
+  $('#lawchips').innerHTML=`<span class="lc tot">총 ${LAWS.length}건</span>`+
+    ['법률','시행령','조례','규칙'].map(k=>`<button class="lc ${lawTy===k?'on':''}" data-ty="${k}" style="--c:${LAWTY[k]}">${k} ${cnt[k]||0}</button>`).join('');
+  const rows=LAWS.filter(l=>(!lawTy||l.ty===lawTy)&&(!lf||l.f===lf)&&(!q||(l.t+l.k+l.s).includes(q)));
+  $('#lawcnt').textContent=rows.length;
+  $('#lawgrid').innerHTML=rows.map(l=>`<a class="lawcardx" href="${lawUrl(l)}" target="_blank" rel="noopener" style="--c:${LAWTY[l.ty]}">
+    <div class="lct"><span class="lty">${l.ty}</span><span class="lf">${l.f}</span></div>
+    <div class="lname">${l.t}</div>
+    <div class="lsum">${l.s}</div>
+    <div class="ltags">${(l.tags||[]).map(t=>`<i>${t}</i>`).join('')}</div>
+    <div class="lfoot"><span>🏛 국가법령정보센터</span><b>법령 보기 ↗</b></div></a>`).join('')
+    ||'<div class="lawgroup">조건에 맞는 법령이 없수다</div>';
 }
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.lc[data-ty]');
+  if(b){lawTy=(lawTy===b.dataset.ty?'':b.dataset.ty);renderLaws();}
+});
+document.addEventListener('change',e=>{if(e.target.id==='lawf')renderLaws();});
 document.getElementById('lawq').addEventListener('input',e=>renderLaws(e.target.value.trim()));
 
 /* ══ 우리동네의원 피드 ══ */
