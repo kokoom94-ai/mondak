@@ -15,15 +15,15 @@ PKEY=os.environ.get("ASM_PROC_KEY","").strip()
 DISTRICTS=["제주시갑","제주시을","서귀포시"]
 
 import time
-def get(url,tries=3):
+def get(url,tries=2):
     ctx=ssl.create_default_context(); ctx.check_hostname=False; ctx.verify_mode=ssl.CERT_NONE
     last=None
     for i in range(tries):
         try:
-            raw=urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (mondak)"}),timeout=45,context=ctx).read()
+            raw=urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (mondak)"}),timeout=20,context=ctx).read()
             return raw.decode("utf-8","ignore")
         except Exception as e:
-            last=e; time.sleep(3*(i+1))
+            last=e; time.sleep(2)
     raise last
 
 def try_json(t):
@@ -82,7 +82,7 @@ def find_member(dist):
 def bills_for(name):
     if not name: return []
     allrows=[]
-    for pg in range(1,7):   # 최대 6페이지×100 = 600건 (22대 전체 커버)
+    for pg in range(1,4):   # 최대 3페이지×100 = 300건 (초선 대표발의 충분)
         try:
             u=f"https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?KEY={urllib.parse.quote(BKEY)}&Type=json&pIndex={pg}&pSize=100&AGE=22&RST_PROPOSER={urllib.parse.quote(name)}"
             j=try_json(get(u)); rows=rows_from(j)
@@ -120,7 +120,7 @@ def bills_for(name):
         except Exception as e: print("bill err",name,e); return []
     return []
 
-PROC_CODES=["TVBPMBILL11","nknalejkafmvgzmpb"]
+PROC_CODES=[]  # 발의 API 자체 필드로 처리결과 판정, 무거운 처리의안 API 미사용
 def load_proc_results():
     """처리의안 API에서 22대 BILL_ID→처리결과 맵 구축"""
     if not PKEY: return {}
