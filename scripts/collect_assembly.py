@@ -11,10 +11,17 @@ MKEY=os.environ.get("ASM_MEMBER_KEY","").strip()
 BKEY=os.environ.get("ASM_BILL_KEY","").strip()
 DISTRICTS=["제주시갑","제주시을","서귀포시"]
 
-def get(url):
+import time
+def get(url,tries=3):
     ctx=ssl.create_default_context(); ctx.check_hostname=False; ctx.verify_mode=ssl.CERT_NONE
-    raw=urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"mondak"}),timeout=30,context=ctx).read()
-    return raw.decode("utf-8","ignore")
+    last=None
+    for i in range(tries):
+        try:
+            raw=urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (mondak)"}),timeout=45,context=ctx).read()
+            return raw.decode("utf-8","ignore")
+        except Exception as e:
+            last=e; time.sleep(3*(i+1))
+    raise last
 
 def try_json(t):
     try: return json.loads(t)
