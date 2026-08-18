@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<title>몬딱 — 제주 정책·민원 데이터베이스</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --ink:#1B2A4A;--sub:#66738F;--line:#E2E7F0;--bg:#F4F6FA;--card:#FFFFFF;
+  --navy:#1B2A4A;--gyul:#F08A24;--gyul-soft:#FDF0E1;--ok:#0E7C7B;--ok-soft:#E4F4F3;
+  --danger:#C6392F;--good:#2E7D32;--good-soft:#E7F3E8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);
+  font-family:'Pretendard','IBM Plex Sans KR',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
+  padding-bottom:74px}
+@media(min-width:900px){body{padding-bottom:20px}}
+button,input{font-family:inherit}
+button{cursor:pointer;border:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gyul);outline-offset:2px;border-radius:4px}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+
+/* ── 상단바 ── */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topin{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:baseline;gap:8px;white-space:nowrap;flex:none}
+.logo .lg{font-size:22px;font-weight:800;letter-spacing:-.5px}
+.logo .lg em{font-style:normal;color:var(--gyul)}
+.logo .lsub{font-size:10.5px;color:var(--sub);letter-spacing:.2px}
+@media(max-width:420px){.logo .lsub{display:none}}
+.deskmenu{display:none;gap:2px;margin-left:8px}
+@media(min-width:900px){.deskmenu{display:flex}}
+.deskmenu button{font-size:13.5px;color:var(--sub);padding:6px 12px;border-radius:9px}
+.deskmenu button:hover{background:var(--bg)}
+.deskmenu button.on{color:var(--ink);font-weight:700;background:var(--bg)}
+.topbtn{margin-left:auto;display:flex;gap:8px;align-items:center}
+.biseobtn{background:var(--gyul);color:#fff;border-radius:99px;padding:6px 14px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.hamb{width:38px;height:38px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:16px;line-height:1}
+@media(min-width:900px){.hamb{display:none}}
+
+/* ── 통합 검색 ── */
+.uni{position:relative;margin:12px 0 4px}
+.uni input{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:99px;color:var(--ink);padding:12px 18px 12px 42px;font-size:14.5px}
+.uni input::placeholder{color:#9AA5BE}
+.uni input:focus{border-color:var(--navy);outline:none}
+.uni .mag{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#9AA5BE;font-size:15px;pointer-events:none}
+.unipanel{display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 44px rgba(27,42,74,.16);overflow:hidden}
+.unipanel.on{display:block}
+.usec{padding:7px 0 4px}
+.usec + .usec{border-top:1px solid var(--line)}
+.usec .ut{font-size:10.5px;letter-spacing:.6px;color:var(--sub);padding:3px 16px 3px}
+.urow{display:flex;gap:9px;align-items:baseline;width:100%;text-align:left;padding:8px 16px;font-size:13.5px}
+.urow:hover{background:var(--bg)}
+.urow .ud{width:8px;height:8px;border-radius:50%;flex:none;align-self:center;background:var(--c,#888)}
+.urow .um{color:var(--sub);font-size:11.5px;margin-left:auto;white-space:nowrap}
+.urow b{color:var(--ok);font-weight:600}
+.unone{padding:14px 16px;color:var(--sub);font-size:13px}
+
+/* ── 홈: 최근 7일 바뀐 것 ── */
+.h1row{padding:16px 0 2px}
+h1{font-size:23px;font-weight:800;letter-spacing:-.5px}
+.stamp{font-size:12.5px;color:var(--sub);margin-top:4px}
+.stamp b{color:var(--ink);font-weight:700}
+.metarow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:7px;font-size:12.5px}
+.srclink{color:var(--ink);font-weight:600}
+.srclink:after{content:" >"}
+.livebadge{background:var(--good-soft);color:var(--good);border-radius:99px;padding:3px 12px;font-weight:600;font-size:12px}
+.stats{margin-top:12px;border-top:1.5px solid var(--line)}
+.stat{display:flex;align-items:center;gap:16px;padding:15px 2px;border-bottom:1px solid var(--line);width:100%;text-align:left}
+.stat:hover{background:#fff}
+.stat .n{font-size:29px;font-weight:800;letter-spacing:-1px;min-width:96px;font-variant-numeric:tabular-nums}
+.stat .lb b{font-size:15px;font-weight:700;display:block}
+.stat .lb span{font-size:12px;color:var(--sub)}
+.stat .chip{margin-left:auto;background:var(--good-soft);color:var(--good);font-size:11.5px;font-weight:600;border-radius:8px;padding:3px 10px;white-space:nowrap}
+.stat .chip.gy{background:var(--gyul-soft);color:#9A5A10}
+
+/* 오늘의 제주 */
+.todaycard{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.todaycard .th{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.todaycard .th h2{font-size:15px;font-weight:800}
+.todaycard .th .pm{margin-left:auto;font-size:11.5px;color:var(--ok);border:1px solid var(--ok);border-radius:99px;padding:2.5px 10px;font-weight:600}
+.todaycard .th .pm:hover{background:var(--ok-soft)}
+.tstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.tcell{background:var(--bg);border-radius:10px;padding:8px 12px}
+.tcell .l{font-size:11px;color:var(--sub)}
+.tcell .v{font-size:16.5px;font-weight:800;font-variant-numeric:tabular-nums}
+.tcell .v.g{color:var(--gyul)}
+.todaycard + .todaycard{margin-top:8px}
+
+/* 지금 신청할 수 있습니다 */
+.applycard{margin-top:16px;background:#fff;border:1.5px solid var(--navy);border-radius:16px;padding:16px}
+.applycard h2{font-size:19px;font-weight:800;letter-spacing:-.4px}
+.applycard .sub{font-size:12.5px;color:var(--sub);margin:3px 0 11px}
+.arow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:13.5px;background:#fff}
+.arow + .arow{margin-top:6px}
+.arow:hover{border-color:var(--navy)}
+.dday{flex:none;font-weight:800;font-size:12px;color:#fff;background:var(--gyul);border-radius:8px;padding:3px 9px;font-variant-numeric:tabular-nums}
+.dday.warn{background:var(--danger)}
+.ddot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--c,#888)}
+.dtitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.dmeta{margin-left:auto;flex:none;font-size:11.5px;color:var(--sub)}
+
+/* 새 소식 */
+.newssec{margin-top:18px}
+.newssec .dh{display:flex;align-items:baseline;gap:8px}
+.newssec .dh h2{font-size:17px;font-weight:800}
+.newssec .dh .sub{font-size:12px;color:var(--sub)}
+.newssec .dh .go{margin-left:auto;font-size:12.5px;color:var(--navy);font-weight:700;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 14px}
+.newssec .dh .go:hover{border-color:var(--navy)}
+.nrow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;margin-top:7px}
+.nrow:hover{border-color:var(--navy)}
+.norg{flex:none;font-size:11px;color:var(--sub);min-width:44px}
+.ntitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.ndate{margin-left:auto;flex:none;font-size:11.5px;color:var(--sub);font-variant-numeric:tabular-nums}
+
+footer{margin-top:24px;padding:16px 0 18px;color:var(--sub);font-size:11.5px;line-height:1.75;border-top:1px solid var(--line)}
+footer b{color:var(--ink)}
+
+/* ── 하단 내비 (모바일) ── */
+.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:35;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr)}
+@media(min-width:900px){.bottomnav{display:none}}
+.bottomnav button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 9px;font-size:10.5px;color:var(--sub)}
+.bottomnav button .ic{font-size:18px;line-height:1}
+.bottomnav button.on{color:var(--ink);font-weight:700}
+
+/* ── 전체메뉴 서랍 (밤바다) ── */
+#drawer{position:fixed;inset:0;z-index:60;display:none}
+#drawer.on{display:block}
+#drawer .dim{position:absolute;inset:0;background:rgba(10,17,40,.45)}
+#drawer .sheet{position:absolute;top:0;right:0;bottom:0;width:min(340px,88%);background:#111A38;color:#EEF2FA;padding:18px 20px;overflow-y:auto;box-shadow:-16px 0 44px rgba(0,0,0,.35)}
+#drawer .dhd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+#drawer .dhd .lg{font-size:21px;font-weight:800}
+#drawer .dhd .lg em{font-style:normal;color:var(--gyul)}
+#drawer .dhd .ds{font-size:10.5px;color:#8B96B8}
+#drawer .close{margin-left:auto;width:36px;height:36px;background:#fff;color:#111A38;border-radius:11px;font-size:15px;font-weight:700}
+#drawer .mitem{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font-size:16px;font-weight:600;padding:13px 12px;border-radius:12px;color:#EEF2FA}
+#drawer .mitem:hover{background:rgba(255,255,255,.08)}
+#drawer .mitem.on{background:#fff;color:#111A38}
+#drawer .mitem .mx{margin-left:auto;font-size:12px;color:#8B96B8}
+#drawer .msep{border-top:1px solid rgba(255,255,255,.14);margin:10px 0}
+#drawer .mcredit{font-size:12.5px;color:#B9C2DA;line-height:1.8;padding:8px 12px}
+#drawer .mcredit b{color:#fff}
+
+/* ── 탐색 ── */
+#view-explore .xhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 0 10px}
+.backbtn{background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 15px;font-size:13px;font-weight:600}
+.backbtn:hover{border-color:var(--navy)}
+.xcounts{font-size:12.5px;color:var(--sub)}
+.xcounts b{color:var(--gyul);font-weight:800}
+.xsort{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.xsort button{font-size:12px;padding:6px 12px;color:var(--sub)}
+.xsort button.on{background:var(--navy);color:#fff;font-weight:600}
+.xgrid{display:grid;grid-template-columns:216px 1fr;gap:14px;align-items:start}
+@media(max-width:860px){.xgrid{grid-template-columns:1fr}}
+.rail{display:flex;flex-direction:column;gap:10px;position:sticky;top:70px}
+@media(max-width:860px){.rail{position:static;flex-direction:row;flex-wrap:wrap;gap:8px}}
+.railsec{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+@media(max-width:860px){.railsec{flex:1;min-width:150px}}
+.railsec h3{font-size:11px;color:var(--sub);letter-spacing:.5px;margin-bottom:6px;font-weight:700}
+.railsec .ritem{display:flex;align-items:center;gap:7px;width:100%;text-align:left;font-size:12.5px;padding:4.5px 7px;border-radius:8px}
+.railsec .ritem:hover{background:var(--bg)}
+.railsec .ritem.on{background:var(--navy);color:#fff}
+.railsec .ritem.on .rc{color:rgba(255,255,255,.7)}
+.railsec .ritem .rd{width:8px;height:8px;border-radius:50%;background:var(--c,#999);flex:none}
+.railsec .ritem .rc{margin-left:auto;font-size:11px;color:var(--sub);font-variant-numeric:tabular-nums}
+.xmain{min-width:0}
+.xrow{display:flex;gap:9px;align-items:baseline;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px}
+.xrow + .xrow{margin-top:6px}
+.xrow:hover{border-color:var(--navy)}
+.xrow.sel{border-color:var(--gyul);box-shadow:0 0 0 1.5px var(--gyul)}
+.xrow .xd{font-size:11px;color:var(--sub);flex:none;font-variant-numeric:tabular-nums}
+.xrow .xo{font-size:11px;flex:none;padding:1.5px 8px;border-radius:99px;background:var(--bg);font-weight:600}
+.xrow .xo.council{background:var(--ok-soft);color:var(--ok)}
+.xrow .xf{width:8px;height:8px;border-radius:50%;background:var(--c,#888);flex:none;align-self:center}
+.xrow .xt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.xrow .xdue{margin-left:auto;flex:none;font-size:11px;color:var(--gyul);font-weight:700}
+#detail{background:#fff;border:1.5px solid var(--navy);border-radius:14px;padding:16px 18px;margin-top:10px;display:none}
+#detail.on{display:block}
+#detail .dt-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:7px}
+#detail h2{font-size:17px;font-weight:800;line-height:1.5;margin-bottom:9px;letter-spacing:-.3px}
+#detail dl{display:grid;grid-template-columns:72px 1fr;gap:6px 0;border-top:1px dashed var(--line);padding-top:10px}
+#detail dt{font-size:12px;color:var(--gyul);font-weight:700}
+#detail dd{font-size:13.5px}
+#detail dd.mut{color:var(--sub)}
+#detail .srcbtn{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--ok);border:1px solid var(--ok);border-radius:99px;padding:4px 14px;font-weight:600}
+.tag{font-size:11px;padding:2.5px 9px;border-radius:99px;font-weight:600}
+.tag.org{background:var(--bg);color:var(--ink)}
+.tag.org.council{background:var(--ok-soft);color:var(--ok)}
+.tag.field{color:#fff;background:var(--c)}
+.council{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.council h2{font-size:15px;font-weight:800}
+.council h2 em{font-style:normal;color:var(--ok)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-top:10px}
+.cstat{background:var(--bg);border-radius:10px;padding:9px 12px}
+.cstat .lbl{font-size:11px;color:var(--sub)}
+.cstat .num{font-size:19px;font-weight:800;color:var(--ok)}
+
+/* ── 궤도 뷰 ── */
+#view-orbit .obox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:12px}
+#orbit{width:100%;display:block}
+.legendrings{display:flex;flex-wrap:wrap;gap:6px 12px;padding:8px 4px 2px;font-size:11.5px;color:var(--sub)}
+.legendrings b{color:var(--ink);font-weight:700}
+
+/* ── 위키 뷰 ── */
+.wikigrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px}
+.wikigrid button{background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px 13px;text-align:left;font-size:13px;color:var(--ok);font-weight:600}
+.wikigrid button:hover{border-color:var(--ok)}
+
+/* 위키 인라인/팝오버 */
+w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;font-style:normal;font-weight:600}
+#wikipop{position:fixed;z-index:70;display:none;max-width:290px;background:#fff;border:1.5px solid var(--ok);border-radius:12px;padding:12px 15px;box-shadow:0 14px 38px rgba(27,42,74,.22);font-size:12.5px;line-height:1.6}
+#wikipop .wtag{font-size:10px;color:var(--ok);letter-spacing:.5px;margin-bottom:3px;font-weight:700}
+#wikipop .wterm{font-weight:800;font-size:13.5px;margin-bottom:3px}
+#wikipop .wbody{color:#42506E}
+#tip{position:fixed;pointer-events:none;z-index:50;display:none;background:var(--navy);color:#fff;border-radius:9px;padding:7px 11px;font-size:12px;max-width:230px;line-height:1.45}
+#tip .t-org{color:#B9C2DA;font-size:10.5px}
+.viewtitle{font-size:20px;font-weight:800;padding-top:14px;letter-spacing:-.4px}
+.viewsub{font-size:12.5px;color:var(--sub);margin-top:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ── v7 추가 ── */
+.logo{cursor:pointer}
+.uni.big input{padding:15px 20px 15px 46px;font-size:15.5px;border-radius:18px;border-width:2px}
+.uni.big .mag{left:18px;font-size:17px}
+.extbtn{background:#fff;border:1.5px solid var(--danger);color:var(--danger);border-radius:99px;padding:6px 13px;font-size:12px;font-weight:700;white-space:nowrap}
+.extbtn:hover{background:#FDEBE9}
+@media(max-width:560px){.extbtn .xl{display:none}}
+.deskmenu button{padding:6px 10px;font-size:13px}
+
+/* 새소식 */
+.secchips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 4px}
+.secchips button{font-size:12.5px;padding:5px 14px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--sub);font-weight:600}
+.secchips button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.newsrow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:13.5px;margin-top:7px}
+.newsrow .nsec{flex:none;font-size:10.5px;font-weight:700;border-radius:7px;padding:2px 8px;background:var(--bg);color:var(--sub)}
+.newsrow .nt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.newsrow .nn{margin-left:auto;flex:none;font-size:11px;color:var(--sub)}
+.rankcard{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.rankcard h2{font-size:15px;font-weight:800;margin-bottom:8px}
+.rankrow{display:flex;align-items:baseline;gap:10px;padding:6px 2px;border-bottom:1px solid var(--bg);font-size:13.5px}
+.rankrow .rk{font-weight:800;color:var(--gyul);min-width:22px;font-variant-numeric:tabular-nums}
+.rankrow .rn{margin-left:auto;font-size:11.5px;color:var(--sub)}
+
+/* 정책비서(법령) */
+.lawtree{margin-top:12px}
+.lawgroup{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:8px}
+.lawgroup h3{font-size:13px;font-weight:800;color:var(--sub);letter-spacing:.3px;margin-bottom:6px}
+.lawitem{display:flex;align-items:baseline;gap:9px;width:100%;text-align:left;padding:8px 8px;border-radius:9px;font-size:13.5px}
+.lawitem:hover{background:var(--bg)}
+.lawitem .lt{font-weight:600}
+.lawitem .ls{margin-left:auto;flex:none;font-size:10.5px;font-weight:700;border-radius:7px;padding:2px 9px}
+.ls.enact{background:var(--good-soft);color:var(--good)}
+.ls.pend{background:var(--gyul-soft);color:#9A5A10}
+.ls.law{background:#E3E9F6;color:#33487A}
+.notecard{margin-top:12px;background:var(--ok-soft);border:1px solid rgba(14,124,123,.3);border-radius:12px;padding:12px 15px;font-size:12.5px;color:#0A5B5A;line-height:1.7}
+
+/* 우리동네의원 */
+.memgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:12px}
+.memcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.memcard .md{font-size:11px;color:var(--sub);font-weight:700}
+.memcard .mn{font-size:16px;font-weight:800;margin:2px 0 6px}
+.memcard .ms{font-size:12px;color:var(--sub);line-height:1.6}
+.linkcard{display:block;margin-top:12px;background:#fff;border:1.5px solid var(--navy);border-radius:14px;padding:14px 16px}
+.linkcard b{font-size:14.5px}
+.linkcard span{display:block;font-size:12px;color:var(--sub);margin-top:2px}
+
+/* 지원사업 */
+.whochips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 6px}
+.whochips button{font-size:12.5px;padding:5px 14px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--sub);font-weight:600}
+.whochips button.on{background:var(--gyul);border-color:var(--gyul);color:#fff}
+
+/* 교육 */
+.edurow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:13.5px;margin-top:7px}
+.edurow .et{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.edurow .ed{margin-left:auto;flex:none;font-size:11.5px;color:var(--sub)}
+#view-biseo{
+  --ink:#17233B; --sub:#5B6B8C; --line:#DDE4F0; --bg:#F5F8FC; --card:#FFFFFF;
+  --jeju:#0E7C7B;       
+  --jeju-soft:#E4F4F3;
+  --gyul:#F08A24;       
+  --gyul-soft:#FDEEDC;
+  --danger:#C6392F;
+}#view-biseo *{margin:0;padding:0;box-sizing:border-box}#view-biseo{background:var(--bg);color:var(--ink);
+  font-family:'IBM Plex Sans KR','Pretendard',-apple-system,'Apple SD Gothic Neo',sans-serif;
+  font-size:15px;line-height:1.65}#view-biseo button, #view-biseo input{font-family:inherit}#view-biseo :focus-visible{outline:2px solid var(--jeju);outline-offset:2px;border-radius:4px}#view-biseo .app{max-width:760px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;
+  padding:0 14px}#view-biseo header{padding:22px 4px 12px}#view-biseo .brand{display:flex;gap:14px;align-items:center}#view-biseo .mark{background:var(--jeju);color:#fff;border-radius:14px;padding:9px 12px;
+  font-weight:700;font-size:13px;line-height:1.25;text-align:center;flex:none}#view-biseo .brandtext h1{font-size:23px;letter-spacing:-.4px}#view-biseo .brandtext p{font-size:13px;color:var(--sub);margin-top:2px}#view-biseo .meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}#view-biseo .pill{font-size:11.5px;color:var(--sub);border:1px solid var(--line);background:#fff;
+  border-radius:99px;padding:3px 11px}#view-biseo .pill b{color:var(--jeju)}#view-biseo .pill.amber{background:var(--gyul-soft);border-color:#F3D3AC;color:#8A5312}#view-biseo .regionbar{display:flex;align-items:center;gap:10px;padding:4px;font-size:12.5px;color:var(--sub)}#view-biseo .regbtns{display:flex;gap:6px}#view-biseo .regbtns button{font-size:12.5px;padding:5px 13px;border-radius:99px;border:1px solid var(--line);
+  background:#fff;color:var(--sub);cursor:pointer}#view-biseo .regbtns button.on{background:var(--jeju);border-color:var(--jeju);color:#fff}#view-biseo main{flex:1;display:flex;flex-direction:column;gap:14px;padding:14px 0 8px}#view-biseo .msg{display:flex;gap:10px;max-width:100%}#view-biseo .msg.user{justify-content:flex-end}#view-biseo .avatar{width:34px;height:34px;flex:none;border-radius:50%;background:var(--jeju);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}#view-biseo .bubble{background:var(--card);border:1px solid var(--line);border-radius:4px 16px 16px 16px;
+  padding:13px 16px;max-width:88%;font-size:14px}#view-biseo .msg.user .bubble{background:var(--jeju);color:#fff;border:none;border-radius:16px 4px 16px 16px}#view-biseo .bubble .dim{color:var(--sub);font-size:12.5px}#view-biseo .bubble b{font-weight:600}#view-biseo .cards{display:flex;flex-direction:column;gap:8px;margin-top:11px}#view-biseo .ccard{border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:#FBFCFE}#view-biseo .ccard.top{border-color:var(--jeju);background:var(--jeju-soft)}#view-biseo .ccard .l1{display:flex;align-items:center;gap:8px;flex-wrap:wrap}#view-biseo .ccard .orgname{font-weight:600;font-size:13.5px}#view-biseo .badge{font-size:10.5px;padding:2px 8px;border-radius:99px;font-weight:500}#view-biseo .badge.direct{background:#DCEEDC;color:#256029}#view-biseo .badge.rep{background:var(--gyul-soft);color:#8A5312}#view-biseo .badge.national{background:#E3E9F6;color:#33487A}#view-biseo .badge.sim-h{background:var(--jeju);color:#fff}#view-biseo .badge.sim-m{background:#CBD6E8;color:#33487A}#view-biseo .badge.sim-l{background:#EEF1F7;color:var(--sub)}#view-biseo .ccard .role{font-size:12.5px;color:var(--sub);margin-top:3px}#view-biseo .ccard .callrow{display:flex;align-items:center;gap:10px;margin-top:7px}#view-biseo .ccard .phone{font-size:17px;font-weight:700;letter-spacing:.3px;color:var(--jeju);
+  font-variant-numeric:tabular-nums;text-decoration:none}#view-biseo .ccard.top .phone{color:#0A5B5A}#view-biseo .ccard .phone.pending{font-size:13px;font-weight:500;color:#8A5312}#view-biseo .ccard .evid{font-size:11px;color:#93A0BC;margin-top:6px}#view-biseo .quick{display:flex;gap:7px;flex-wrap:wrap;padding:6px 0 10px}#view-biseo .quick button{font-size:12.5px;padding:6px 13px;border-radius:99px;border:1px solid var(--line);
+  background:#fff;color:var(--ink);cursor:pointer}#view-biseo .quick button:hover{border-color:var(--jeju);color:var(--jeju)}#view-biseo .ask{display:flex;gap:8px;position:sticky;bottom:0;background:var(--bg);padding:8px 0 12px}#view-biseo .ask input{flex:1;border:1.5px solid var(--line);border-radius:14px;padding:13px 16px;
+  font-size:14.5px;background:#fff}#view-biseo .ask input:focus{border-color:var(--jeju);outline:none}#view-biseo .ask button{background:var(--gyul);color:#fff;border:none;border-radius:14px;
+  padding:0 22px;font-size:14.5px;font-weight:600;cursor:pointer}#view-biseo .ask button:hover{filter:brightness(1.05)}#view-biseo footer{padding:10px 4px 26px;font-size:11px;color:#93A0BC;line-height:1.7}
+
+@media(max-width:560px){#view-biseo .bubble{max-width:100%}#view-biseo .brandtext h1{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){#view-biseo *{transition:none!important;animation:none!important}}
+
+#view-biseo{min-height:calc(100vh - 140px)}
+#view-biseo .app{font-family:'Pretendard','IBM Plex Sans KR',sans-serif}
+#view-biseo .backbar{max-width:760px;margin:0 auto;padding:14px 14px 0;display:flex;align-items:center;gap:12px}
+#view-biseo .backbar button{background:#fff;border:1.5px solid var(--jeju);color:var(--jeju);border-radius:99px;padding:7px 16px;font-size:13px;font-weight:700;cursor:pointer}
+#view-biseo .backbar button:hover{background:var(--jeju);color:#fff}
+#view-biseo .backbar span{font-size:12px;color:var(--sub)}
+
+
+/* 알리미 연동 */
+a.memcard.alink:hover{border-color:var(--ok)}
+.alrimicard{margin-top:12px;background:#fff;border:1.5px solid var(--ok);border-radius:14px;padding:14px 16px}
+.alrimicard .ah{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.alrimicard .ah h2{font-size:15px;font-weight:800}
+.alrimicard .ah a{margin-left:auto;font-size:12px;color:var(--ok);border:1px solid var(--ok);border-radius:99px;padding:3px 12px;font-weight:600}
+.alrimicard .ah a:hover{background:var(--ok-soft)}
+.alrimicard .asub{font-size:11.5px;color:var(--sub);margin:4px 0 10px}
+.alrimicard .asub code{background:var(--bg);border-radius:5px;padding:1px 6px;font-size:11px}
+.alrimicard iframe{width:100%;height:620px;border:1px solid var(--line);border-radius:11px;background:#fff}
+@media(max-width:600px){.alrimicard iframe{height:520px}}
+a.newsrow:hover{border-color:var(--navy)}
+a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:underline}
+.rankrow{align-items:flex-start}
+.rankrow .rtxt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.rankrow .rout{font-size:11px;color:var(--sub)}
+.rn.nbadge{background:var(--gyul-soft);color:#9A5A10;font-weight:800;border-radius:8px;padding:2px 9px;font-size:11.5px;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topin">
+    <div class="logo" id="logohome"><span class="lg">몬<em>딱</em></span><span class="lsub">제주 정책·민원 데이터베이스</span></div>
+    <nav class="deskmenu" id="deskmenu">
+      <button data-v="home" class="on">홈</button>
+      <button data-v="news">새소식</button>
+      <button data-v="lawbot">정책비서</button>
+      <button data-v="council">우리동네의원</button>
+      <button data-v="support">지원사업</button>
+      <button data-v="edu">교육정책</button>
+      <button data-v="terms">제도설명</button>
+    </nav>
+    <div class="topbtn">
+      <button class="biseobtn" data-v="biseo">🗨 민원비서</button>
+      <a class="extbtn" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 <span class="xl">모바일 재난방송</span> 신청</a>
+      <button class="hamb" id="openmenu" aria-label="전체 메뉴">☰</button>
+    </div>
+  </div>
+</div>
+
+<div id="view-home">
+<div class="wrap">
+  <div class="todaycard" style="margin-top:14px">
+    <div class="th"><h2>제주 인구</h2>
+      <a class="pm" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">더보기 · 제주통계포털 ↗</a></div>
+    <div class="tstats">
+      <div class="tcell"><div class="l">내국인</div><div class="v">669,231명</div></div>
+      <div class="tcell"><div class="l">외국인</div><div class="v">26,169명</div></div>
+      <div class="tcell"><div class="l">세대수</div><div class="v">313,468세대</div></div>
+    </div>
+  </div>
+  <div class="todaycard">
+    <div class="th"><h2>제주 관광객 현황 <span style="font-size:10.5px;color:var(--sub);font-weight:500">2026 누적</span></h2>
+      <a class="pm" href="https://data.ijto.or.kr/bigdata/index.do" target="_blank" rel="noopener">더보기 · 관광빅데이터플랫폼 ↗</a></div>
+    <div class="tstats">
+      <div class="tcell"><div class="l">내국인</div><div class="v g">7,845,120명</div></div>
+      <div class="tcell"><div class="l">외국인</div><div class="v g">1,036,540명</div></div>
+      <div class="tcell"><div class="l">크루즈 입도객</div><div class="v g">341,200명</div></div>
+    </div>
+  </div>
+
+  <div class="uni big">
+    <span class="mag">🔍</span>
+    <input id="uniq" type="search" autocomplete="off" placeholder="정책, 행정 용어, 기관 연락처를 검색하세요">
+    <div class="unipanel" id="unipanel"></div>
+  </div>
+
+  <div class="h1row">
+    <h1>최근 일주일 업데이트 정책</h1>
+    <div class="stamp"><b>2026.08.17 기준</b> · 직전 7일 집계 · 도청·행정시·읍면동·도의회 공개 데이터</div>
+    <div class="metarow">
+      <a class="srclink" href="#" onclick="return false">데이터 출처 보기</a>
+      <span class="livebadge">시연 데이터 · 자동 수집 연동 예정</span>
+    </div>
+  </div>
+  <div class="stats">
+    <button class="stat" data-v="news"><span class="n" id="st-new">0건</span>
+      <span class="lb"><b>새로 올라온 정책 소식</b><span>게시일 기준</span></span>
+      <span class="chip">▲ 직전 7일</span></button>
+    <button class="stat" data-v="support"><span class="n" id="st-dead">0건</span>
+      <span class="lb"><b>신청 가능한 지원사업</b><span>마감일이 남은 사업</span></span>
+      <span class="chip gy">D-day 표시</span></button>
+    <button class="stat" data-v="council"><span class="n" id="st-council">0건</span>
+      <span class="lb"><b>도의회 새 의안·질의</b><span>접수·처리일 기준</span></span>
+      <span class="chip">▲ 직전 7일</span></button>
+  </div>
+
+  <div class="applycard" id="applycard">
+    <h2>지금 신청할 수 있습니다</h2>
+    <div class="sub">신청 기한이 진행 중인 지원사업 · 마감 임박순 · <button data-v="support" style="color:var(--navy);font-weight:700;text-decoration:underline">맞춤형 안내 보기</button></div>
+    <div id="deadlines"></div>
+  </div>
+
+  <div class="newssec">
+    <div class="dh"><h2>이번 주 새 소식</h2><span class="sub">최근 7일</span>
+      <button class="go" data-v="news">전체 보기 →</button></div>
+    <div id="weekly"></div>
+  </div>
+
+  <footer>
+    <b>몬딱</b> — 공무원에게는 정책비서·제주위키가 있습니다. 몬딱은 그 도민판입니다.<br>
+    개인이 운영하는 무료 공익 서비스입니다 · 광고·수익모델 없음 · 시연용 데이터 (정식판: 기관 공개자료·제주통계포털·관광빅데이터플랫폼·국가법령정보센터 연동) · 문의 @maekkera_official
+  </footer>
+</div>
+</div><!-- /home -->
+
+<div id="view-news" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">새소식</div>
+  <div class="viewsub">이번 주 정책 소식과 제주 관련 기사 스크랩 — 분야별 분류 · 보도량 기반 인기뉴스</div>
+  <div class="metarow" style="margin-top:6px"><span class="livebadge" id="newsbadge">기사 원문 직링크 · 2026-08-18 10:02 수집 · 자동 수집 가동 시 지역지 5곳+전체 매체수 집계</span></div>
+  <div class="secchips" id="secchips"></div>
+  <div id="newslist"></div>
+  <div class="rankcard">
+    <h2>이번 주 인기뉴스</h2>
+    <div style="font-size:11px;color:var(--sub);margin:-4px 0 8px">같은 사안끼리 묶어 <b>보도한 매체 수</b>로 순위를 매깁니다 · 조회수가 아닙니다 · 매체 수 집계는 자동 수집 첫 실행부터</div>
+    <div id="ranklist"></div>
+  </div>
+  <div class="newssec" style="margin-top:18px">
+    <div class="dh"><h2>정책 새 소식</h2><span class="sub">최근 7일 · 기관 발표</span>
+      <button class="go" data-v="explore">정책 탐색 →</button></div>
+    <div id="weekly2"></div>
+  </div>
+</div>
+</div><!-- /news -->
+
+<div id="view-lawbot" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">정책비서</div>
+  <div class="viewsub">제주특별자치도의 정책 정보와 법규 — 특별법·조례·규칙을 나무 구조로 탐색합니다</div>
+  <div class="uni" style="margin-top:12px">
+    <span class="mag">🔍</span>
+    <input id="lawq" type="search" placeholder="법령·조례 검색 — 예: 돌봄, AI, 환경">
+  </div>
+  <div class="lawtree" id="lawtree"></div>
+  <div class="notecard">
+    <b>연동 예정</b> — 국가법령정보센터(법제처)·자치법규정보시스템·공공데이터포털 API를 통합하는
+    korea-public-data-mcp 방식으로 제주 법령 전문·개정 이력·관련 판례까지 연결합니다.
+    AI 법령 비서(법제처, 2026.7 시범)의 자치법규 우선 반영 지역에 제주가 빠져 있어, 그 공백을 지역에서 먼저 메웁니다.
+  </div>
+</div>
+</div><!-- /lawbot -->
+
+<div id="view-council" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">우리동네의원</div>
+  <div class="viewsub">제주 국회의원과 도의원의 활동·입법·발의 현황 알리미</div>
+  <div class="memgrid">
+    <div class="memcard"><div class="md">국회 · 제주시갑</div><div class="mn">지역구 의원</div><div class="ms">발의 법안 · 표결 · 상임위 활동<br>국회 공공 API 연동 예정</div></div>
+    <div class="memcard"><div class="md">국회 · 제주시을</div><div class="mn">지역구 의원</div><div class="ms">발의 법안 · 표결 · 상임위 활동<br>국회 공공 API 연동 예정</div></div>
+    <div class="memcard"><div class="md">국회 · 서귀포시</div><div class="mn">지역구 의원</div><div class="ms">발의 법안 · 표결 · 상임위 활동<br>국회 공공 API 연동 예정</div></div>
+    <a class="memcard alink" href="urido-alrimi.html" target="_blank" rel="noopener"><div class="md">도의회</div><div class="mn">도의원 45인 ↗</div><div class="ms">지도에서 우리 동네 선거구를 눌러<br>의원·활동을 바로 확인 — <b style="color:var(--ok)">알리미 열기</b></div></a>
+  </div>
+  <div class="alrimicard">
+    <div class="ah">
+      <h2>도의원 45인 — 우리 동네의원 알리미</h2>
+      <a href="urido-alrimi.html" target="_blank" rel="noopener">새 창에서 크게 보기 ↗</a>
+    </div>
+    <div class="asub">선거구 지도를 누르면 해당 지역 도의원과 활동 현황이 나옵니다 · 몬딱과 같은 폴더의 <code>urido-alrimi.html</code>을 불러옵니다</div>
+    <iframe src="urido-alrimi.html" loading="lazy" title="우리 동네의원 알리미 — 제주 도의원 45인"></iframe>
+  </div>
+  <div class="council">
+    <h2>도의회는 지금 <em>무엇을 다루나</em> <span style="font-size:11px;color:var(--sub);font-weight:500">시연 수치</span></h2>
+    <div class="cgrid">
+      <div class="cstat"><div class="lbl">접수 의안</div><div class="num">128</div></div>
+      <div class="cstat"><div class="lbl">가결</div><div class="num">86</div></div>
+      <div class="cstat"><div class="lbl">심사 중</div><div class="num">31</div></div>
+      <div class="cstat"><div class="lbl">이번 주 상임위</div><div class="num">4</div></div>
+    </div>
+  </div>
+  <div id="councilfeed" style="margin-top:10px"></div>
+  <div class="notecard">
+    <b>연동 예정</b> — 국회 공공 API(assembly-api-mcp 방식)와 도의회 의안정보를 결합해
+    의원별 트랙레코드(발의·표결·회의록 발언)를 근거 문서와 함께 제공합니다.
+  </div>
+</div>
+</div><!-- /council -->
+
+<div id="view-support" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">지원사업</div>
+  <div class="viewsub">지금 신청할 수 있는 사업을 내 상황에 맞게 — 마감 임박순</div>
+  <div class="whochips" id="supwho"></div>
+  <div id="suplist"></div>
+  <a class="linkcard" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">
+    <b>맞춤형 지원서비스 신청포털 ↗</b>
+    <span>제주도 공식 신청 창구 — 여기서 확인한 사업을 실제로 신청할 수 있습니다</span>
+  </a>
+</div>
+</div><!-- /support -->
+
+<div id="view-edu" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">교육정책</div>
+  <div class="viewsub">제주특별자치도교육청 공지·이슈 안내</div>
+  <div id="edulist" style="margin-top:8px"></div>
+  <div class="notecard">
+    <b>연동 예정</b> — 도교육청 공지사항 자동 수집과 교육정책 통합검색(EduPolicy Search 방식)으로
+    유·초·중·고 학부모가 필요한 정책만 골라 보게 합니다.
+  </div>
+</div>
+</div><!-- /edu -->
+
+<div id="view-terms" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">제도설명</div>
+  <div class="viewsub">몬딱위키 — 제주위키의 도민판. 용어를 누르면 세 줄 설명이 뜹니다.</div>
+  <div class="rankcard">
+    <h2>제주 정책 기사 빈출 단어 TOP 20 <span style="font-size:11px;color:var(--sub);font-weight:500">시연 집계</span></h2>
+    <div id="wordrank"></div>
+  </div>
+  <div class="viewtitle" style="font-size:16px;padding-top:16px">용어 색인</div>
+  <div class="wikigrid" id="wikigrid"></div>
+  <a class="linkcard" href="https://hosungseo.github.io/korea100/#institutions" target="_blank" rel="noopener">
+    <b>한 장으로 끝내는 대한민국 제도 지도 ↗</b>
+    <span>대한민국 제도 100선 — 몬딱은 이 형식을 이식해 「제주 제도 지도」로 확장할 예정입니다</span>
+  </a>
+</div>
+</div><!-- /terms -->
+
+<div id="view-explore" hidden>
+<div class="wrap">
+  <div class="xhead">
+    <button class="backbtn" data-v="home">← 홈</button>
+    <span class="xcounts">기관 <b>5</b> · 분야 <b>8</b> · 정책 <b id="xcnt">0</b>건</span>
+    <span class="xsort" id="xsort">
+      <button data-s="date" class="on">최신순</button>
+      <button data-s="org">기관순</button>
+      <button data-s="due">마감순</button>
+    </span>
+  </div>
+  <div class="xgrid">
+    <div class="rail">
+      <div class="railsec"><h3>기관</h3><div id="railorg"></div></div>
+      <div class="railsec"><h3>분야</h3><div id="railfield"></div></div>
+      <div class="railsec"><h3>누구꽈?</h3><div id="railwho"></div></div>
+    </div>
+    <div class="xmain">
+      <div id="xlist"></div>
+      <div id="detail"></div>
+    </div>
+  </div>
+</div>
+</div><!-- /explore -->
+
+<div id="view-orbit" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">제주 정책 궤도</div>
+  <div class="viewsub">기관 층위(안쪽부터 읍면동 → 행정시 → 도청 → 도의회)와 8개 분야로 도정 전체를 조감합니다</div>
+  <div class="obox">
+    <canvas id="orbit" aria-label="기관별 분야별 정책 궤도"></canvas>
+    <div class="legendrings"><span>안쪽부터 —</span><span><b>읍면동</b></span><span><b>행정시</b></span><span><b>도청</b></span><span><b>도의회</b> 입법·감시</span></div>
+  </div>
+</div>
+</div><!-- /orbit -->
+
+<nav class="bottomnav" id="bottomnav">
+  <button data-v="home" class="on"><span class="ic">🏠</span>홈</button>
+  <button data-v="news"><span class="ic">📰</span>새소식</button>
+  <button data-v="support"><span class="ic">🎁</span>지원사업</button>
+  <button data-v="biseo"><span class="ic">💬</span>민원비서</button>
+  <button id="openmenu2"><span class="ic">☰</span>전체 메뉴</button>
+</nav>
+
+<div id="drawer">
+  <div class="dim"></div>
+  <div class="sheet">
+    <div class="dhd">
+      <div><div class="lg">몬<em>딱</em></div><div class="ds">제주 정책·민원 데이터베이스</div></div>
+      <button class="close" id="closemenu">✕</button>
+    </div>
+    <button class="mitem on" data-v="home">홈</button>
+    <button class="mitem" data-v="news">새소식 <span class="mx">기사 스크랩 · 인기뉴스</span></button>
+    <button class="mitem" data-v="lawbot">정책비서 <span class="mx">정책 · 법규 · 조례</span></button>
+    <button class="mitem" data-v="council">우리동네의원 <span class="mx">국회 · 도의회</span></button>
+    <button class="mitem" data-v="support">지원사업 <span class="mx">맞춤형 안내</span></button>
+    <button class="mitem" data-v="edu">교육정책 <span class="mx">도교육청</span></button>
+    <button class="mitem" data-v="terms">제도설명 <span class="mx">몬딱위키 · 빈출 단어</span></button>
+    <div class="msep"></div>
+    <button class="mitem" data-v="biseo">민원비서 <span class="mx">뭐든 물어봅서</span></button>
+    <button class="mitem" data-v="explore">정책 탐색 <span class="mx">기관·분야·대상별</span></button>
+    <button class="mitem" data-v="orbit">정책 궤도 <span class="mx">도정 조감</span></button>
+    <div class="msep"></div>
+    <a class="mitem" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 모바일 재난방송 신청 <span class="mx">↗</span></a>
+    <a class="mitem" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">제주통계포털 <span class="mx">↗</span></a>
+    <a class="mitem" href="https://data.ijto.or.kr/bigdata/index.do" target="_blank" rel="noopener">관광빅데이터플랫폼 <span class="mx">↗</span></a>
+    <div class="msep"></div>
+    <div class="mcredit"><b>개인이 운영하는 무료 공익 서비스입니다.</b><br>광고·수익모델이 없으며, 공식 공개 데이터를 근거와 함께 안내합니다.</div>
+  </div>
+</div>
+
+
+<div id="view-biseo" hidden>
+  <div class="backbar">
+    <button data-v="home">← 몬딱 홈으로</button>
+    <span>정책은 몬딱에서, 연락처는 비서에게</span>
+  </div>
+<div class="app">
+
+  <header>
+    <div class="brand">
+      <div class="mark">제주<br>민원비서</div>
+      <div class="brandtext">
+        <h1>뭐든 물어봅서</h1>
+        <p>한 문장으로 물어보면, 공식 데이터 기반으로 담당 기관·부서·전화번호를 근거와 함께 답합니다.</p>
+      </div>
+    </div>
+    <div class="meta">
+      <span class="pill">AI API 호출 없음 · 로컬 규칙</span>
+      <span class="pill">연락처 <b id="dbcount">0</b>건</span>
+      <span class="pill amber">시드 데이터판 — 직통번호 수집 전</span>
+    </div>
+  </header>
+
+  <div class="regionbar">
+    <span>내 지역</span>
+    <div class="regbtns" id="regbtns">
+      <button data-r="제주도" class="on">제주도 전체</button>
+      <button data-r="제주시">제주시</button>
+      <button data-r="서귀포시">서귀포시</button>
+    </div>
+  </div>
+
+  <main id="chat" aria-live="polite">
+    <div class="msg bot">
+      <div class="avatar">濟</div>
+      <div class="bubble">
+        혼저 옵서예. 저는 <b>제주 민원비서</b>우다.<br>
+        어느 부서에 전화해야 할지 막막할 때, 상황을 그냥 말로 적어봅서.<br>
+        <span class="dim">예: "월급을 못 받았어요" · "집 앞 클린하우스가 넘쳐요" · "감귤원 관수 지원 받고 싶어요" · 전화번호를 넣으면 어느 기관인지 역검색도 됩니다.</span>
+      </div>
+    </div>
+  </main>
+
+  <div class="quick" id="quick">
+    <button>임금이 체불되었어요</button>
+    <button>불법주정차 신고하려면</button>
+    <button>어르신 혼자 계신데 걱정돼요</button>
+    <button>감귤원 지원사업 문의</button>
+    <button>휠체어로 갈 수 있는 관광 문의</button>
+    <button>이사 와서 전입신고 하려면</button>
+    <button>삼다수 관련 문의는 어디로</button>
+    <button>소상공인 대출 보증 상담</button>
+  </div>
+
+  <form class="ask" id="askform">
+    <input id="askinput" type="text" autocomplete="off"
+      placeholder="상황을 한 문장으로 — 또는 전화번호를 입력해 역검색" aria-label="질문 입력">
+    <button type="submit">물어보기</button>
+  </form>
+
+  <footer>
+    개인이 예산 0원으로 만든 공익 프로젝트 · 답변은 안내용이며 최종 확인은 해당 기관에서 ·
+    전화번호는 개편·정책에 따라 달라질 수 있어 출처와 수집일, 직통/대표 여부를 함께 표시합니다 ·
+    제주도청·행정시·읍면동 직통번호는 공식 조직도 수집·검증 후 반영됩니다
+  </footer>
+</div>
+</div><!-- /biseo -->
+
+<div id="tip"></div>
+<div id="wikipop" role="tooltip"></div>
+<script>
+const FIELDS=[
+ {id:'welfare',name:'복지·사회보험',c:'#F47FA0'},
+ {id:'ax',name:'신산업·AX',c:'#7FA7F4'},
+ {id:'tour',name:'관광',c:'#FF9E4F'},
+ {id:'startup',name:'스타트업·경제',c:'#F4D06F'},
+ {id:'agri',name:'1차산업',c:'#8FD47F'},
+ {id:'env',name:'환경·에너지',c:'#4FD8C4'},
+ {id:'youth',name:'교육·청년',c:'#C99AF2'},
+ {id:'civic',name:'안전·민원행정',c:'#9BAAC9'},
+];
+const ORGS=[
+ {id:'do',name:'도청',ring:3},{id:'jeju',name:'제주시',ring:2},{id:'seog',name:'서귀포시',ring:2},
+ {id:'eup',name:'읍면동',ring:1},{id:'council',name:'도의회',ring:4},
+];
+const WHO=['모든 도민','청년·신혼','육아·양육','농어업인','소상공인·창업','이동약자·어르신','외국인 주민'];
+
+/* ── 몬딱위키 (제주위키의 도민판) ── */
+const WIKI={
+ '예시용어':'이렇게 뜹니다. 행정 문서에 자주 나오지만 도민에게 낯선 말을 세 줄 안으로 풀어씁니다.',
+ 'AX':'인공지능 대전환(AI Transformation). 행정·산업·생활 전반에 AI를 입히겠다는 민선 9기 도정의 최우선 정책 방향입니다.',
+ 'AI 도민비서':'관광·복지·민원 정보를 한 곳에서 물어보고 답을 받는 도민용 AI 서비스. 도는 2027년부터 단계적으로 운영할 계획입니다.',
+ '정보화 사업':'행정을 디지털로 운영하기 위한 시스템·데이터·AI 관련 사업의 묶음. 2026년 제주도 예산은 총 1,015억 원 규모입니다.',
+ '건강주치의제':'도민 한 사람마다 담당 의사를 정해 평소 건강을 관리해주는 제도. 제주가 전국 최초로 시작했습니다.',
+ '자율상권구역':'상인들이 스스로 규약을 만들어 상권을 운영하면 행정이 지원하는 국가 시범사업. 제주시 원도심이 대상지입니다.',
+ 'RISE':'지역혁신중심 대학지원체계. 대학 지원 권한을 지자체로 옮겨, 지역에 필요한 인재를 지역 대학이 키우게 하는 정부 정책입니다.',
+ '분산에너지 특화지역':'전기를 쓰는 곳 가까이에서 만들어 쓰도록 규제를 풀어주는 지역. 제주의 남는 재생에너지를 산업에 쓰는 근거가 됩니다.',
+ '통합돌봄':'의료·요양·주거 지원을 따로따로가 아니라 한 창구에서 이어서 받도록 묶은 복지 체계입니다.',
+ 'NFT 디지털관광증':'제주 방문을 블록체인으로 인증해주는 디지털 기념증. 재방문 혜택과 연결됩니다.',
+ '수눌음':'품을 서로 나눈다는 제주의 오랜 상부상조 문화. 주민 참여형 사업의 이름에 자주 쓰입니다.',
+ '조례':'도의회가 만드는 제주도 안에서만 적용되는 법. 도민 생활 규칙의 상당수가 조례로 정해집니다.',
+ '도정질문':'도의원이 본회의장에서 도지사·간부에게 정책을 공개적으로 따져 묻는 절차입니다.',
+ '상임위':'상임위원회. 분야별로 나눠 의안을 먼저 깊게 심사하는 도의회의 소위원회입니다.',
+};
+const wterm=t=>`<w data-w="${t}">${t}</w>`;
+
+/* ── 시연 데이터 : 6필드 카드 스키마 ──
+   what(t)=무엇을 / who=누구에게 / due=언제까지 / amt=얼마나 / where=어디서 / src=원문 */
+const DATA=[
+ {org:'do',f:'ax',d:'2026-08-13',who:['모든 도민'],t:"AI 대전환, 행정에서 산업·도민 생활로 확산 시작",s:`민선 9기 최우선 정책 ${wterm('AX')}를 행정 내부 성과에서 도민 생활 전반으로 넓히는 '혁신산업국+' 워크숍 개최.`,due:'—',amt:'—',where:'제주도 혁신산업국'},
+ {org:'do',f:'ax',d:'2026-08-07',who:['모든 도민'],t:"올해 'AI 행정비서' 시범 → 내년 'AI 도민비서' 운영",s:`관광·복지·민원을 한 번에 물어보는 ${wterm('AI 도민비서')}를 2027년부터 단계 운영. 올해는 공무원용 행정비서부터 시범 적용.`,due:'2027년 개시',amt:'—',where:'제주도'},
+ {org:'do',f:'ax',d:'2026-01-09',who:['모든 도민'],t:"올해 디지털·AI에 1,015억 원을 씁니다",s:`2026년 ${wterm('정보화 사업')} 예산 총 1,015억 원. AI·클라우드·디지털트윈을 행정과 생활 전반에 확산.`,due:'2026년 내',amt:'1,015억 원',where:'제주도'},
+ {org:'do',f:'civic',d:'2026-01-09',who:['모든 도민'],t:"공공서비스, 인증 한 번으로 — 통합 신원인증 구축",s:'행정·복지·문화 서비스를 하나의 로그인으로 이용하는 디지털 통합 신원인증 시스템.',due:'연내 구축',amt:'15억 원',where:'제주도'},
+ {org:'do',f:'welfare',d:'2026-01-09',who:['외국인 주민'],t:"외국인 주민 포털이 생깁니다",s:'생활·행정 정보를 한 곳에 모아 외국인 주민의 정착을 돕는 전용 포털 구축.',due:'연내 구축',amt:'6.2억 원',where:'제주도'},
+ {org:'do',f:'welfare',d:'2026-01-02',who:['모든 도민','육아·양육'],t:"내 주치의가 생깁니다 — 건강주치의제 전 생애로 확대",s:`전국 최초 ${wterm('건강주치의제')}를 어린이·부모 등 생애 전주기로 확대. AI 헬스케어와 결합해 예방 중심 의료로.`,due:'단계 확대',amt:'—',where:'도내 지정 의료기관'},
+ {org:'do',f:'civic',d:'2026-01-02',who:['모든 도민'],t:"모든 교차로에 AI 긴급차량 우선신호",s:'구급차가 다가오면 AI가 신호를 먼저 열어 골든타임을 확보. 응급이송 핫라인과 연계.',due:'운영 중',amt:'—',where:'도내 전 교차로'},
+ {org:'do',f:'tour',d:'2026-08-10',who:['이동약자·어르신'],t:"무장애 관광 혁신 협의체 운영",s:`이동약자의 관광 접근성을 민관이 함께 개선. 대학 ${wterm('RISE')} 사업과 연계.`,due:'연중',amt:'—',where:'제주도 관광 부서'},
+ {org:'do',f:'startup',d:'2026-08-05',who:['소상공인·창업'],t:"AX 스타트업 실증 과제 공모",s:'AI 도입 촉진 조례에 따라 민간기업과 신규 과제를 발굴해 시범 운영. 실증 기회 + 행정 데이터 연계.',due:'~9월 접수',deadline:'2026-09-30',amt:'과제별 상이',where:'제주도 혁신산업국'},
+ {org:'do',f:'env',d:'2026-06-12',who:['모든 도민'],t:"남는 재생에너지, 산업으로 — 분산에너지 후속 계획",s:`${wterm('분산에너지 특화지역')} 지정 후속으로 잉여전력 활용 신산업 모델을 구체화.`,due:'—',amt:'—',where:'제주도'},
+ {org:'do',f:'tour',d:'2026-07-22',who:['모든 도민'],t:"디지털관광증 발급 확대",s:`${wterm('NFT 디지털관광증')} 발급을 확대하고 재방문 혜택과 연결.`,due:'운영 중',amt:'무료 발급',where:'온라인'},
+ {org:'do',f:'agri',d:'2026-06-30',who:['농어업인'],t:"농업 디지털전환 플랫폼 구축",s:'생산·유통 데이터를 통합해 농가의 판매 시점·가격 판단을 돕는 플랫폼.',due:'연내',amt:'—',where:'제주도 농축산식품국'},
+ {org:'do',f:'youth',d:'2026-08-01',who:['모든 도민','청년·신혼'],t:"도민 누구나 AI 배우기 — 리터러시 교육 확대",s:'창조학습도시 구축의 하나로 도민 AI 활용 교육을 확대.',due:'연중 수시',amt:'무료',where:'도내 평생학습기관'},
+ {org:'jeju',f:'youth',d:'2026-08-06',who:['청년·신혼'],t:"제주시 청년 임차보증금 이자 지원 접수",s:'청년 주거 안정을 위한 임차보증금 대출이자 지원 하반기 접수.',due:'~9.30 접수',deadline:'2026-09-30',amt:'이자 일부 지원',where:'제주시 주택 부서'},
+ {org:'jeju',f:'civic',d:'2026-08-11',who:['소상공인·창업'],t:"원도심 자율상권구역 활성화 2단계",s:`${wterm('자율상권구역')} 상인 자율규약·공동마케팅 지원. 주민 협의체 중심 운영.`,due:'연중',amt:'—',where:'제주시 원도심 일대'},
+ {org:'jeju',f:'welfare',d:'2026-07-28',who:['이동약자·어르신'],t:"통합돌봄 상담 창구 확대",s:`의료·요양·주거를 한 창구에서 잇는 ${wterm('통합돌봄')} 상담 확대.`,due:'운영 중',amt:'상담 무료',where:'제주시 각 동 주민센터'},
+ {org:'jeju',f:'startup',d:'2026-07-18',who:['소상공인·창업'],t:"소상공인 디지털 전환 바우처",s:'POS·온라인 판로·스마트오더 도입 비용을 바우처로 지원.',due:'예산 소진 시까지',amt:'업체당 최대 지원',where:'제주시 경제 부서'},
+ {org:'seog',f:'welfare',d:'2026-06-02',who:['모든 도민'],t:"서귀포시, 직원이 만든 AI '복지톡' 전 부서 확산",s:'8급 주무관이 현장 애로를 바탕으로 직접 개발한 복지상담 AI를 공식 도입 — 현장 발 혁신의 선례.',due:'운영 중',amt:'—',where:'서귀포시청'},
+ {org:'seog',f:'agri',d:'2026-07-30',who:['농어업인'],t:"감귤원 스마트 관수 설치 지원",s:'가뭄 대응 자동 관수 시설 설치비 지원.',due:'~8월 말 신청',deadline:'2026-08-31',amt:'설치비 일부',where:'서귀포시 감귤농정과'},
+ {org:'seog',f:'tour',d:'2026-08-04',who:['모든 도민'],t:"올레길 안심 인프라 정비",s:'안내체계·비상벨·야간조명 보강으로 안심 탐방 환경 조성.',due:'연내',amt:'—',where:'서귀포시 관할 코스'},
+ {org:'seog',f:'youth',d:'2026-07-10',who:['청년·신혼','농어업인'],t:"청년 창업농 정착 지원",s:'영농 정착금과 멘토링을 묶어 청년 농업인 정착을 지원.',due:'수시',amt:'정착금 지원',where:'서귀포시'},
+ {org:'eup',f:'welfare',d:'2026-08-12',who:['이동약자·어르신'],t:"화북동, 홀몸 어르신 AI 안부전화 시범",s:'응답이 없으면 맞춤형복지팀이 바로 방문하는 AI 안부 확인 체계.',due:'시범 운영',amt:'무료',where:'화북동 주민센터'},
+ {org:'eup',f:'civic',d:'2026-08-09',who:['모든 도민'],t:"애월읍, 마을회관을 주민 공유공간으로",s:'유휴 마을회관을 커뮤니티 공간으로 개방.',due:'상시',amt:'무료',where:'애월읍사무소'},
+ {org:'eup',f:'env',d:'2026-07-26',who:['모든 도민'],t:"성산읍, 해안 정화 주민참여단 모집",s:`${wterm('수눌음')} 방식의 정기 해안 정화활동 참여자 모집.`,due:'상시 모집',amt:'—',where:'성산읍사무소'},
+ {org:'eup',f:'youth',d:'2026-08-02',who:['육아·양육'],t:"일도2동, 방학 돌봄교실 확대",s:'맞벌이 가정 초등학생 오후 돌봄 확대 운영.',due:'방학 기간',amt:'무료',where:'일도2동 주민센터'},
+ {org:'eup',f:'startup',d:'2026-07-14',who:['청년·신혼','소상공인·창업'],t:"한림읍, 전통시장 청년몰 입점 모집",s:'임대료 지원 + 창업 교육 패키지로 청년 입점을 지원.',due:'~8월 접수',deadline:'2026-08-31',amt:'임대료 지원',where:'한림읍 전통시장'},
+ {org:'council',f:'ax',d:'2026-08-14',who:['모든 도민'],t:"[의안] AI 예산 1,015억, 도민 체감 성과 보고 요구",s:'정보화 예산의 도민 체감성과 지표를 정기 보고하도록 요구.',due:'—',amt:'—',where:'도의회 상임위'},
+ {org:'council',f:'welfare',d:'2026-08-08',who:['이동약자·어르신'],t:"[조례] 통합돌봄 조례 개정안 상임위 통과",s:`돌봄 사각지대 발굴 책무를 명시한 ${wterm('조례')} 개정. 본회의 상정 예정.`,due:'본회의 예정',amt:'—',where:'도의회'},
+ {org:'council',f:'tour',d:'2026-07-31',who:['이동약자·어르신'],t:"[질의] 무장애 관광 예산 집행률 점검",s:'이동약자 관광 인프라 예산의 실제 집행 현황 서면질의.',due:'—',amt:'—',where:'도의회'},
+ {org:'council',f:'env',d:'2026-07-21',who:['모든 도민'],t:"[조례] 해양쓰레기 관리 조례안 발의",s:'발생원 관리와 수거 체계를 일원화하는 근거 마련.',due:'심사 중',amt:'—',where:'도의회'},
+ {org:'council',f:'startup',d:'2026-07-11',who:['소상공인·창업'],t:"[의안] 디지털 전환 지원 형평성 개선 촉구",s:'행정시별 소상공인 바우처의 형평성 개선을 촉구하는 결의.',due:'—',amt:'—',where:'도의회'},
+ {org:'council',f:'youth',d:'2026-06-27',who:['청년·신혼'],t:"[질의] 청년 주거 지원, 실수요에 닿고 있나",s:`임차보증금 지원의 실수요 도달률을 ${wterm('도정질문')}으로 점검.`,due:'—',amt:'—',where:'도의회 본회의'},
+];
+
+/* ── 시연 시드: 기사 스크랩 · 법규 · 교육 · 빈출단어 ── */
+let NEWSMETA=null;
+let NEWS=[{"sec": "교육/청년", "t": "제주 삼화초 소리울림 윈드오케스트라, 관악경연 전국대회 '대상'", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597570"}, {"sec": "1차산업", "t": "서귀포시축협, 8월 가축시장서 암송아지 낙찰가 66만원↑", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597569"}, {"sec": "관광", "t": "제주항공 국제선 환승객 4명 중 1명은 중국인 — 전년比 74%↑", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597567"}, {"sec": "관광", "t": "서귀포시, 관광극장 활용방안 시민 공개 간담회 19일 개최", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597566"}, {"sec": "교육/청년", "t": "서귀포시, 2027년 학교숲 조성사업 참여학교 모집", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597564"}, {"sec": "복지/사회보험", "t": "꿈만 같았던 제주 바다…물 밖으로 나오자 다시 '장벽' — 휠체어 이용 장애인의 여름", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597556"}, {"sec": "교육/청년", "t": "학교폭력 피해 학생·가족 지원 '해맑음 제주센터' 본격 운영", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597558"}, {"sec": "스타트업/경제", "t": "제주 수출 역대 최고치 이면엔 '쏠림' — 상위 5개사에 92% 집중", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597553"}, {"sec": "관광", "t": "제주시 첫 매리어트 브랜드, 쉐라톤 제주 호텔 9월 14일 정식 개관", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597554"}, {"sec": "안전/민원행정", "t": "제주에 376㎜ 폭우 — 가뭄 해갈 기쁨도 잠시, 곳곳 호우 피해", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597550"}, {"sec": "안전/민원행정", "t": "휴대폰 충전 중 보조배터리 폭발 — 제주 다세대주택 화재 소동", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597549"}, {"sec": "환경/에너지", "t": "제주의 자연을 정원으로 — '정원도시' 조성 기본계획 수립 착수", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597547"}, {"sec": "환경/에너지", "t": "제주올레, 외국인 여행자 대상 '에코 여행' 캠페인 운영", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597546"}, {"sec": "복지/사회보험", "t": "제주시, 100세 생일 맞은 어르신에 장수축하금 100만원 지급", "src": "헤드라인제주", "d": "2026-08-17", "n": 2, "outlets": ["헤드라인제주", "뉴스제주"], "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597498"}, {"sec": "복지/사회보험", "t": "제주시, 의료급여 수급자 요양비 연중 지원", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597499"}, {"sec": "행정", "t": "제주도의회, 입법·법률고문 3명 위촉 — 의정 지원체계 강화", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597504"}, {"sec": "행정", "t": "이창흠 부지사 인사청문 특위 첫 회의 — 위원장 임정은 선임", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597502"}, {"sec": "1차산업", "t": "제주서 직접 생산 '딸기묘' 농가 첫 보급 — 12월 첫 수확", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597490"}, {"sec": "안전/민원행정", "t": "제주시, 보조금 투입 '자기 차고지' 이용실태 전수점검", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597494"}, {"sec": "복지/사회보험", "t": "유니버설디자인 도민참여단, 수월봉·삼다수숲길 탐방 개선안 제안", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597489"}, {"sec": "환경/에너지", "t": "제주 5·16도로, 단계적 정비 — 친환경 도로로 탈바꿈", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597488"}, {"sec": "1차산업", "t": "제주 메밀, 일상식·간편식으로 변신 — 소비 확대 나선다", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597491"}, {"sec": "안전/민원행정", "t": "을지연습 18~21일 실시 — 20일 오후 2시 민방위 공습경보 훈련", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597496"}, {"sec": "1차산업", "t": "김한규 의원, 구좌읍 가뭄 대응 농업용 저수조 공사 현장 점검", "src": "헤드라인제주", "d": "2026-08-15", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597524"}, {"sec": "환경/에너지", "t": "섬 속의 섬 우도, 일회용컵 줄이기 확산 — \"이젠 다회용컵으로\"", "src": "헤드라인제주", "d": "2026-08-15", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597517"}, {"sec": "행정", "t": "빗물받이 막힘에 답을 찾다 — 제주 공직자 혁신성과, 감사원도 인정", "src": "헤드라인제주", "d": "2026-08-14", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597419"}];
+const NEWSSECS=['전체','복지/사회보험','신산업/AX','관광','스타트업/경제','1차산업','환경/에너지','교육/청년','안전/민원행정','행정'];
+const LAWS=[
+ {g:'법률',t:'제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법',s:'law',k:'특별법 자치 분권'},
+ {g:'조례 · 신산업',t:'제주특별자치도 인공지능 도입 및 디지털 전환 촉진 조례',s:'enact',k:'AI 인공지능 디지털 AX'},
+ {g:'조례 · 복지',t:'제주특별자치도 통합돌봄 지원 조례 (일부개정안 심사 중)',s:'pend',k:'돌봄 복지 통합돌봄'},
+ {g:'조례 · 환경',t:'해양쓰레기 관리 조례안 (발의·계류)',s:'pend',k:'환경 해양 쓰레기 바다'},
+ {g:'조례 · 관광',t:'관광진흥 및 관광불편 처리 관련 조례',s:'enact',k:'관광 불편 진흥'},
+ {g:'조례 · 청년',t:'청년 기본 조례 및 주거 지원 관련 규정',s:'enact',k:'청년 주거 보증금'},
+];
+const EDU=[
+ {t:'2026학년도 2학기 늘봄학교 운영 안내',d:'2026-08-12'},
+ {t:'다혼디배움학교(제주형 자율학교) 운영 계획 공지',d:'2026-08-08'},
+ {t:'고교학점제 학부모 설명회 일정 안내',d:'2026-08-05'},
+ {t:'IB 교육 프로그램 운영교 현황 및 성과 공유회',d:'2026-07-30'},
+];
+const WORDS=[['AI',14],['관광',11],['지원',10],['청년',8],['돌봄',7],['감귤',6],['디지털',6],['조례',5],['예산',5],['무장애',4],['스타트업',4],['안전',4],['환경',4],['주거',3],['해녀',3],['교육',3],['크루즈',3],['복지',3],['데이터',3],['상권',2]];
+
+
+const $=s=>document.querySelector(s);
+const F=id=>FIELDS.find(f=>f.id===id), O=id=>ORGS.find(o=>o.id===id);
+const TODAY=new Date('2026-08-17');
+const daysAgo=d=>(TODAY-new Date(d))/86400000;
+const ddayOf=x=>Math.ceil((new Date(x.deadline)-TODAY)/86400000);
+const xstate={org:null,field:null,who:null,sort:'date'};
+const VIEWS=['home','news','lawbot','council','support','edu','terms','explore','orbit','biseo'];
+let selIdx=null, supWho=null, newsSec='전체';
+
+/* ══ 뷰 전환 + 브라우저 히스토리 ══ */
+function show(v,push=true){
+  if(!VIEWS.includes(v))v='home';
+  VIEWS.forEach(k=>{const el=document.getElementById('view-'+k);if(el)el.hidden=(k!==v);});
+  document.querySelectorAll('[data-v]').forEach(b=>{
+    if(b.classList.contains('mitem')||b.closest('#bottomnav')||b.closest('#deskmenu'))
+      b.classList.toggle('on',b.dataset.v===v);
+  });
+  closeDrawer();window.scrollTo(0,0);
+  if(push){
+    if(v==='home')history.pushState({v:'home'},'','#home');
+    else history.pushState({v},'','#'+v);
+  }
+  if(v==='orbit')requestAnimationFrame(()=>drawOrbit(DATA.slice()));
+  if(v==='explore'){renderRail();renderList();}
+  if(v==='news')renderNews();
+  if(v==='support')renderSupport();
+}
+history.replaceState({v:'home'},'','#home');
+window.addEventListener('popstate',e=>{
+  show((e.state&&e.state.v)||'home',false);
+});
+document.getElementById('logohome').addEventListener('click',()=>show('home'));
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-v]');
+  if(b&&!e.target.closest('.xrow')&&!e.target.closest('.ritem'))show(b.dataset.v);
+});
+function closeDrawer(){document.getElementById('drawer').classList.remove('on')}
+document.getElementById('openmenu').addEventListener('click',()=>document.getElementById('drawer').classList.add('on'));
+document.getElementById('openmenu2').addEventListener('click',()=>document.getElementById('drawer').classList.add('on'));
+document.getElementById('closemenu').addEventListener('click',closeDrawer);
+document.querySelector('#drawer .dim').addEventListener('click',closeDrawer);
+
+/* ══ 홈 ══ */
+function renderHome(){
+  const wk=DATA.filter(x=>daysAgo(x.d)<=7);
+  const dls=DATA.filter(x=>x.deadline&&ddayOf(x)>=0).sort((a,b)=>ddayOf(a)-ddayOf(b));
+  $('#st-new').textContent=wk.length+'건';
+  $('#st-dead').textContent=dls.length+'건';
+  $('#st-council').textContent=DATA.filter(x=>x.org==='council'&&daysAgo(x.d)<=7).length+'건';
+  $('#deadlines').innerHTML=dls.map(x=>{
+    const dd=ddayOf(x),f=F(x.f);
+    return `<button class="arow" data-i="${DATA.indexOf(x)}">
+      <span class="dday ${dd<=7?'warn':''}">D-${dd}</span>
+      <span class="ddot" style="--c:${f.c}"></span>
+      <span class="dtitle">${x.t}</span>
+      <span class="dmeta">${O(x.org).name} · ${x.amt!=='—'?x.amt:x.due}</span></button>`;
+  }).join('');
+  const rows=wk.sort((a,b)=>b.d.localeCompare(a.d)).slice(0,6).map(x=>{
+    const f=F(x.f),o=O(x.org);
+    return `<button class="nrow" data-i="${DATA.indexOf(x)}">
+      <span class="ddot" style="--c:${f.c}"></span><span class="norg">${o.name}</span>
+      <span class="ntitle">${x.t}</span><span class="ndate">${x.d.slice(5).replace('-','.')}</span></button>`;
+  }).join('');
+  $('#weekly').innerHTML=rows;
+  const w2=document.getElementById('weekly2'); if(w2)w2.innerHTML=rows;
+}
+document.addEventListener('click',e=>{
+  const r=e.target.closest('.arow[data-i],.nrow[data-i]');
+  if(r)openDetail(+r.dataset.i);
+});
+
+/* ══ 새소식 ══ */
+function renderNews(){
+  $('#secchips').innerHTML=NEWSSECS.map(s=>
+    `<button class="${newsSec===s?'on':''}" data-sec="${s}">${s}</button>`).join('');
+  const rows=NEWS.filter(n=>newsSec==='전체'||n.sec===newsSec)
+    .sort((a,b)=>(b.d||'').localeCompare(a.d||''));
+  $('#newslist').innerHTML=rows.map(n=>{
+    const inner=`<span class="nsec">${n.sec}</span><span class="nt">${n.t}</span>
+     <span class="nn">${n.src?n.src+' · ':''}${n.n>1?'보도 '+n.n+'건 · ':''}${n.d?n.d.slice(5).replace('-','.'):'최근'}</span>`;
+    return n.link
+      ?`<a class="newsrow" href="${n.link}" target="_blank" rel="noopener">${inner}</a>`
+      :`<div class="newsrow">${inner}</div>`;
+  }).join('')||'<div class="newsrow" style="color:var(--sub)">이 분야의 최근 기사가 없수다</div>';
+  $('#ranklist').innerHTML=NEWS.slice()
+    .sort((a,b)=>(b.n-a.n)||((b.d||'').localeCompare(a.d||''))).slice(0,5).map((n,i)=>{
+    const outs=(n.outlets&&n.outlets.length?n.outlets:[n.src]).filter(Boolean);
+    const oshow=outs.slice(0,3).join(' · ')+(outs.length>3?` 외 ${outs.length-3}`:'');
+    const inner=`<span class="rk">${i+1}</span>
+     <span class="rtxt">${n.t}<span class="rout">${oshow}${n.d?' · '+n.d.slice(5).replace('-','.'):''}</span></span>
+     <span class="rn nbadge">${n.n}개사</span>`;
+    return n.link?`<a class="rankrow" href="${n.link}" target="_blank" rel="noopener">${inner}</a>`
+                 :`<div class="rankrow">${inner}</div>`;}).join('');
+}
+document.addEventListener('click',e=>{
+  const c=e.target.closest('#secchips button');
+  if(c){newsSec=c.dataset.sec;renderNews();}
+});
+
+/* ══ 정책비서(법령) ══ */
+function renderLaws(q=''){
+  const rows=LAWS.filter(l=>!q||(l.t+l.k).includes(q));
+  const groups={};
+  rows.forEach(l=>{(groups[l.g]=groups[l.g]||[]).push(l);});
+  $('#lawtree').innerHTML=Object.entries(groups).map(([g,items])=>
+    `<div class="lawgroup"><h3>${g}</h3>`+items.map(l=>
+      `<button class="lawitem"><span class="lt">${l.t}</span>
+       <span class="ls ${l.s}">${l.s==='law'?'법률':l.s==='enact'?'시행 중':'심사·계류'}</span></button>`).join('')+`</div>`
+  ).join('')||'<div class="lawgroup">검색 결과가 없수다</div>';
+}
+document.getElementById('lawq').addEventListener('input',e=>renderLaws(e.target.value.trim()));
+
+/* ══ 우리동네의원 피드 ══ */
+function renderCouncilFeed(){
+  $('#councilfeed').innerHTML=DATA.filter(x=>x.org==='council')
+    .sort((a,b)=>b.d.localeCompare(a.d)).map(x=>{
+      const f=F(x.f);
+      return `<button class="nrow" data-i="${DATA.indexOf(x)}">
+        <span class="ddot" style="--c:${f.c}"></span><span class="norg">도의회</span>
+        <span class="ntitle">${x.t}</span><span class="ndate">${x.d.slice(5).replace('-','.')}</span></button>`;
+    }).join('');
+}
+
+/* ══ 지원사업 ══ */
+function renderSupport(){
+  $('#supwho').innerHTML=[null,...WHO].map(w=>
+    `<button class="${supWho===w?'on':''}" data-sw="${w??''}">${w||'전체'}</button>`).join('');
+  const dls=DATA.filter(x=>x.deadline&&ddayOf(x)>=0&&(!supWho||x.who.includes(supWho)))
+    .sort((a,b)=>ddayOf(a)-ddayOf(b));
+  $('#suplist').innerHTML=dls.map(x=>{
+    const dd=ddayOf(x),f=F(x.f);
+    return `<button class="arow" data-i="${DATA.indexOf(x)}" style="margin-top:6px">
+      <span class="dday ${dd<=7?'warn':''}">D-${dd}</span>
+      <span class="ddot" style="--c:${f.c}"></span>
+      <span class="dtitle">${x.t}</span>
+      <span class="dmeta">${O(x.org).name} · ${x.amt!=='—'?x.amt:x.due}</span></button>`;
+  }).join('')||'<div class="arow" style="color:var(--sub);margin-top:6px">이 대상 조건의 진행 중 사업이 없습니다</div>';
+}
+document.addEventListener('click',e=>{
+  const c=e.target.closest('#supwho button');
+  if(c){supWho=c.dataset.sw||null;renderSupport();}
+});
+
+/* ══ 교육 ══ */
+document.getElementById('edulist').innerHTML=EDU.map(x=>
+  `<div class="edurow"><span class="ddot" style="--c:#C99AF2"></span>
+   <span class="et">${x.t}</span><span class="ed">${x.d.slice(5).replace('-','.')}</span></div>`).join('');
+
+/* ══ 제도설명 ══ */
+document.getElementById('wordrank').innerHTML=WORDS.map((w,i)=>
+  `<div class="rankrow"><span class="rk">${i+1}</span>
+   <span>${WIKI[w[0]]?`<w data-w="${w[0]}">${w[0]}</w>`:w[0]}</span>
+   <span class="rn">${w[1]}회</span></div>`).join('');
+
+/* ══ 탐색 ══ */
+function xfiltered(){
+  let rows=DATA.filter(x=>
+    (!xstate.org||x.org===xstate.org)&&(!xstate.field||x.f===xstate.field)&&
+    (!xstate.who||x.who.includes(xstate.who)));
+  if(xstate.sort==='date')rows.sort((a,b)=>b.d.localeCompare(a.d));
+  else if(xstate.sort==='org')rows.sort((a,b)=>ORGS.findIndex(o=>o.id===a.org)-ORGS.findIndex(o=>o.id===b.org)||b.d.localeCompare(a.d));
+  else rows.sort((a,b)=>((a.deadline?ddayOf(a):9e9)-(b.deadline?ddayOf(b):9e9)));
+  return rows;
+}
+function renderRail(){
+  $('#railorg').innerHTML=[{id:null,name:'전체'},...ORGS].map(o=>{
+    const n=o.id?DATA.filter(x=>x.org===o.id).length:DATA.length;
+    return `<button class="ritem ${xstate.org===o.id?'on':''}" data-k="org" data-va="${o.id??''}">${o.name}<span class="rc">${n}</span></button>`;}).join('');
+  $('#railfield').innerHTML=[{id:null,name:'전체',c:'#999'},...FIELDS].map(f=>{
+    const n=f.id?DATA.filter(x=>x.f===f.id).length:DATA.length;
+    return `<button class="ritem ${xstate.field===f.id?'on':''}" data-k="field" data-va="${f.id??''}"><span class="rd" style="--c:${f.c}"></span>${f.name}<span class="rc">${n}</span></button>`;}).join('');
+  $('#railwho').innerHTML=[null,...WHO].map(w=>{
+    const n=w?DATA.filter(x=>x.who.includes(w)).length:DATA.length;
+    return `<button class="ritem ${xstate.who===w?'on':''}" data-k="who" data-va="${w??''}">${w||'전체'}<span class="rc">${n}</span></button>`;}).join('');
+}
+function renderList(){
+  const rows=xfiltered();
+  $('#xcnt').textContent=rows.length;
+  $('#xlist').innerHTML=rows.map(x=>{
+    const f=F(x.f),o=O(x.org),i=DATA.indexOf(x);
+    const due=x.deadline&&ddayOf(x)>=0?`D-${ddayOf(x)}`:(x.due&&x.due!=='—'?x.due:'');
+    return `<button class="xrow ${selIdx===i?'sel':''}" data-x="${i}">
+      <span class="xd">${x.d.slice(5).replace('-','.')}</span>
+      <span class="xo ${x.org==='council'?'council':''}">${o.name}</span>
+      <span class="xf" style="--c:${f.c}"></span>
+      <span class="xt">${x.t}</span>
+      ${due?`<span class="xdue">${due}</span>`:''}</button>`;
+  }).join('')||'<div class="xrow" style="color:var(--sub)">조건에 맞는 정책이 없수다</div>';
+}
+function openDetail(i){
+  selIdx=i;const x=DATA[i],f=F(x.f),o=O(x.org);
+  show('explore');
+  const d=$('#detail');d.className='on';
+  d.innerHTML=`<div class="dt-top">
+      <span class="tag org ${x.org==='council'?'council':''}">${o.name}</span>
+      <span class="tag field" style="--c:${f.c}">${f.name}</span>
+      <span style="font-size:11.5px;color:var(--sub)">${x.d.replace(/-/g,'.')}</span></div>
+    <h2>${x.t}</h2>
+    <dl>
+      <dt>무엇을</dt><dd>${x.s}</dd>
+      <dt>누구에게</dt><dd>${x.who.join(' · ')}</dd>
+      <dt>언제까지</dt><dd class="${x.due==='—'?'mut':''}">${x.due}${x.deadline&&ddayOf(x)>=0?` <b style="color:var(--gyul)">(D-${ddayOf(x)})</b>`:''}</dd>
+      <dt>얼마나</dt><dd class="${x.amt==='—'?'mut':''}">${x.amt}</dd>
+      <dt>어디서</dt><dd>${x.where}</dd>
+    </dl>
+    ${x.deadline
+      ?`<a class="srcbtn" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">맞춤형 지원서비스 신청포털에서 확인 ↗</a>`
+      :`<a class="srcbtn" href="#" onclick="return false">원문 보기 → (보도자료 수집 연동 시 기관 공고 직결)</a>`}`;
+  renderRail();renderList();
+  d.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+document.addEventListener('click',e=>{
+  const r=e.target.closest('.xrow[data-x]');if(r){openDetail(+r.dataset.x);return;}
+  const ri=e.target.closest('.ritem');if(ri){
+    const k=ri.dataset.k,v=ri.dataset.va||null;
+    xstate[k]=(xstate[k]===v)?null:v;selIdx=null;
+    $('#detail').className='';renderRail();renderList();}
+});
+$('#xsort').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  xstate.sort=e.target.dataset.s;
+  document.querySelectorAll('#xsort button').forEach(b=>b.classList.toggle('on',b===e.target));
+  renderList();
+});
+
+/* ══ 통합 검색 ══ */
+function uniSearch(q){
+  q=q.trim();if(q.length<2)return null;
+  const pol=DATA.filter(x=>(x.t+x.s+x.who.join('')+O(x.org).name).includes(q)).slice(0,3);
+  const wik=Object.keys(WIKI).filter(k=>k!=='예시용어'&&(k.includes(q)||WIKI[k].includes(q))).slice(0,2);
+  const law=LAWS.filter(l=>(l.t+l.k).includes(q)).slice(0,2);
+  const con=(window.GOVCALL_CONTACTS||[]).map(c=>{
+    let s=0;(c.keywords||[]).forEach(k=>{if(q.includes(k)||k.includes(q))s+=2});
+    if(c.org.includes(q))s+=2;if(c.role.includes(q))s+=1;if(c.dept.includes(q))s+=1.5;
+    return {c,s};}).filter(r=>r.s>0).sort((a,b)=>b.s-a.s).slice(0,2);
+  return {pol,wik,con,law};
+}
+const upanel=$('#unipanel');
+$('#uniq').addEventListener('input',e=>{
+  const r=uniSearch(e.target.value);
+  if(!r){upanel.className='unipanel';return;}
+  let h='';
+  if(r.pol.length)h+=`<div class="usec"><div class="ut">정책</div>`+r.pol.map(x=>{
+    const f=F(x.f);return `<button class="urow" data-i2="${DATA.indexOf(x)}"><span class="ud" style="--c:${f.c}"></span>${x.t}<span class="um">${O(x.org).name}</span></button>`;}).join('')+'</div>';
+  if(r.law.length)h+=`<div class="usec"><div class="ut">법규 — 정책비서</div>`+r.law.map(l=>
+    `<button class="urow" data-law="1">§ ${l.t}<span class="um">법규</span></button>`).join('')+'</div>';
+  if(r.con.length)h+=`<div class="usec"><div class="ut">연락처 — 민원비서</div>`+r.con.map(({c})=>
+    `<button class="urow" data-ask="${c.org} ${c.dept}">☎ ${c.org} · ${c.dept}<span class="um">${c.phone||'대표 경유'}</span></button>`).join('')+'</div>';
+  if(r.wik.length)h+=`<div class="usec"><div class="ut">몬딱위키</div>`+r.wik.map(k=>
+    `<button class="urow" data-w2="${k}"><b>${k}</b><span class="um">용어 설명</span></button>`).join('')+'</div>';
+  if(!h)h='<div class="unone">아직 결과가 없수다. 표현을 바꿔봅서 — 예: 청년 주거, 돌봄 조례, 삼다수</div>';
+  upanel.innerHTML=h;upanel.className='unipanel on';
+});
+document.addEventListener('click',e=>{
+  const a=e.target.closest('.urow[data-ask]');
+  if(a){upanel.className='unipanel';show('biseo');if(window.biseoAsk)window.biseoAsk(a.dataset.ask);return;}
+  const l=e.target.closest('.urow[data-law]');
+  if(l){upanel.className='unipanel';show('lawbot');return;}
+  const w2=e.target.closest('.urow[data-w2]');
+  if(w2){showWiki(w2.dataset.w2,e.clientX,e.clientY);return;}
+  const p=e.target.closest('.urow[data-i2]');
+  if(p){upanel.className='unipanel';openDetail(+p.dataset.i2);return;}
+  if(!e.target.closest('.uni'))upanel.className='unipanel';
+});
+
+/* ══ 위키 팝오버 ══ */
+const pop=document.getElementById('wikipop');
+function showWiki(term,x,y){
+  const body=WIKI[term];if(!body)return;
+  pop.innerHTML=`<div class="wtag">몬딱위키 — 제주위키의 도민판</div><div class="wterm">${term}</div><div class="wbody">${body}</div>`;
+  pop.style.display='block';
+  pop.style.left=Math.min(Math.max(10,x-40),window.innerWidth-300)+'px';
+  pop.style.top=(y+16)+'px';
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('w');
+  if(t){e.stopPropagation();showWiki(t.dataset.w,e.clientX,e.clientY);}
+  else if(!e.target.closest('#wikipop'))pop.style.display='none';
+});
+Object.keys(WIKI).filter(k=>k!=='예시용어').forEach(k=>{
+  const b=document.createElement('button');b.textContent=k;
+  b.onclick=e=>{e.stopPropagation();const r=b.getBoundingClientRect();showWiki(k,r.left,r.bottom)};
+  document.getElementById('wikigrid').appendChild(b);
+});
+
+/* ══ 궤도 ══ */
+const cv=document.getElementById('orbit'),ctx=cv.getContext('2d'),tip=document.getElementById('tip');
+let dots=[];
+function drawOrbit(rows){
+  const dpr=window.devicePixelRatio||1;
+  const W=cv.clientWidth||cv.parentElement.clientWidth-24;
+  if(!W)return;
+  const H=Math.min(W,520);
+  cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  const cx=W/2,cy=H/2,R=Math.min(W,H)/2-34;
+  const rings=[0,.34,.55,.76,.97].map(r=>R*r);
+  const N=FIELDS.length;
+  FIELDS.forEach((f,i)=>{
+    const a0=-Math.PI/2+i*2*Math.PI/N;
+    ctx.strokeStyle='rgba(27,42,74,.10)';ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(cx+Math.cos(a0)*rings[1]*.7,cy+Math.sin(a0)*rings[1]*.7);
+    ctx.lineTo(cx+Math.cos(a0)*(R+6),cy+Math.sin(a0)*(R+6));ctx.stroke();
+    const am=a0+Math.PI/N;
+    ctx.fillStyle=f.c;ctx.font='700 10.5px Pretendard,sans-serif';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(f.name,cx+Math.cos(am)*(R+18),cy+Math.sin(am)*(R+18));
+  });
+  rings.slice(1).forEach(r=>{ctx.strokeStyle='rgba(27,42,74,.18)';ctx.setLineDash([2,5]);
+    ctx.beginPath();ctx.arc(cx,cy,r,0,7);ctx.stroke();ctx.setLineDash([]);});
+  ctx.fillStyle='rgba(240,138,36,.10)';ctx.beginPath();ctx.arc(cx,cy,rings[1]*.62,0,7);ctx.fill();
+  ctx.fillStyle='#F08A24';ctx.font='800 16px Pretendard,sans-serif';ctx.textAlign='center';ctx.fillText('제주',cx,cy-9);
+  ctx.fillStyle='#1B2A4A';ctx.font='700 13px Pretendard,sans-serif';ctx.fillText('87.1만 명',cx,cy+8);
+  ctx.fillStyle='#66738F';ctx.font='500 9.5px Pretendard,sans-serif';ctx.fillText('지금 섬에 (추정)',cx,cy+22);
+  dots=[];
+  const groups={};
+  rows.forEach(x=>{const k=O(x.org).ring+'-'+x.f;(groups[k]=groups[k]||[]).push(x);});
+  Object.entries(groups).forEach(([k,items])=>{
+    const [ring,fid]=k.split('-');
+    const fi=FIELDS.findIndex(f=>f.id===fid);
+    const a0=-Math.PI/2+fi*2*Math.PI/N,span=2*Math.PI/N;
+    items.forEach((x,j)=>{
+      const a=a0+span*(j+1)/(items.length+1),r=rings[+ring];
+      const px=cx+Math.cos(a)*r,py=cy+Math.sin(a)*r;
+      const isC=x.org==='council';
+      ctx.beginPath();ctx.arc(px,py,isC?5.5:5,0,7);
+      ctx.fillStyle=F(fid).c;ctx.fill();
+      if(isC){ctx.strokeStyle='#0E7C7B';ctx.lineWidth=2;ctx.stroke();}
+      dots.push({x:px,y:py,item:x});
+    });
+  });
+}
+function hit(e){const r=cv.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;
+  return dots.find(d=>Math.hypot(d.x-x,d.y-y)<11);}
+cv.addEventListener('mousemove',e=>{
+  const d=hit(e);
+  if(d){cv.style.cursor='pointer';tip.style.display='block';
+    tip.style.left=Math.min(e.clientX+14,window.innerWidth-240)+'px';tip.style.top=(e.clientY+14)+'px';
+    tip.innerHTML=`<div class="t-org">${O(d.item.org).name} · ${F(d.item.f).name}</div>${d.item.t}`;}
+  else{cv.style.cursor='default';tip.style.display='none';}
+});
+cv.addEventListener('mouseleave',()=>tip.style.display='none');
+cv.addEventListener('click',e=>{const d=hit(e);if(d)openDetail(DATA.indexOf(d.item));});
+window.addEventListener('resize',()=>{if(!document.getElementById('view-orbit').hidden)drawOrbit(DATA.slice());});
+
+renderHome();renderLaws();renderCouncilFeed();renderNews();renderSupport();renderRail();renderList();
+
+/* ══ 라이브 데이터 로더 (GitHub Pages 배포 시) ══ */
+fetch('data/news.json').then(r=>r.ok?r.json():null).then(j=>{
+  if(j&&j.items&&j.items.length){
+    NEWS=j.items;NEWSMETA=j.meta;
+    const b=document.getElementById('newsbadge');
+    if(b)b.textContent='자동 수집: '+j.meta.collected_at+' · '+j.meta.count+'건';
+    renderNews();
+  }
+}).catch(()=>{});
+
+</script>
+<script>
+/* 제주 민원비서 — 시드 연락처 데이터
+ * link_type: direct(직통) | representative(대표번호 경유) | national(전국 공통)
+ * verified: 전국 공통 번호만 true. 제주 기관 직통번호는 scripts/build_database.py 로
+ *           공식 조직도에서 수집·검증 후 채웁니다. 시드 단계에서는 절대 임의 기재하지 않습니다.
+ */
+window.GOVCALL_CONTACTS = [
+  /* ── 긴급전화 (전국 공통, 검증됨) ── */
+  {id:1, org:"소방청", dept:"화재·구조·구급", role:"화재 신고, 구급차 요청, 인명 구조, 재난 신고", phone:"119", region:"전국", link_type:"national", verified:true, keywords:["불","화재","구급","구급차","응급","다쳤","쓰러졌","숨을","심정지","구조","익수","물에 빠"]},
+  {id:2, org:"경찰청", dept:"범죄 신고", role:"범죄 신고, 폭력, 도난, 교통사고 신고", phone:"112", region:"전국", link_type:"national", verified:true, keywords:["도둑","폭행","싸움","범죄","신고","교통사고","뺑소니","위협","스토킹","보이스피싱"]},
+  {id:3, org:"국민권익위원회", dept:"정부민원안내콜센터", role:"어느 기관에 물어야 할지 모를 때 정부민원 통합 안내", phone:"110", region:"전국", link_type:"national", verified:true, keywords:["민원","문의","어디에","모르겠","안내","상담"]},
+  {id:4, org:"보건복지부", dept:"보건복지상담센터", role:"복지제도, 긴급복지, 기초생활보장 상담", phone:"129", region:"전국", link_type:"national", verified:true, keywords:["복지","기초생활","긴급복지","수급","생계","의료급여"]},
+  {id:5, org:"여성가족부", dept:"여성긴급전화", role:"가정폭력, 성폭력, 데이트폭력 긴급 상담", phone:"1366", region:"전국", link_type:"national", verified:true, keywords:["가정폭력","성폭력","데이트폭력","맞았","남편이","아내가","보호"]},
+  {id:6, org:"여성가족부", dept:"청소년상담전화", role:"청소년 고민, 가출, 학교 문제 상담", phone:"1388", region:"전국", link_type:"national", verified:true, keywords:["청소년","가출","학교폭력","왕따","자녀 고민"]},
+  {id:7, org:"보건복지부", dept:"자살예방상담전화", role:"자살 위기 상담 (24시간)", phone:"109", region:"전국", link_type:"national", verified:true, keywords:["자살","죽고 싶","힘들어","위기상담"]},
+  {id:8, org:"노인보호전문기관", dept:"노인학대 신고", role:"노인학대 신고·상담", phone:"1577-1389", region:"전국", link_type:"national", verified:true, keywords:["노인학대","어르신 학대","요양원 학대"]},
+  {id:9, org:"중앙장애인권익옹호기관", dept:"장애인학대 신고", role:"장애인 학대 신고·상담", phone:"1644-8295", region:"전국", link_type:"national", verified:true, keywords:["장애인학대","장애인 인권"]},
+  {id:10, org:"고용노동부", dept:"고객상담센터", role:"임금체불, 실업급여, 근로기준 상담", phone:"1350", region:"전국", link_type:"national", verified:true, keywords:["임금","월급","체불","실업급여","퇴직금","근로계약","야근수당"]},
+  {id:11, org:"법무부", dept:"외국인종합안내센터", role:"외국인 체류, 비자, 국적 안내 (다국어)", phone:"1345", region:"전국", link_type:"national", verified:true, keywords:["외국인","비자","체류","국적","외국인등록"]},
+  {id:12, org:"국민건강보험공단", dept:"고객센터", role:"건강보험 자격, 보험료, 환급 상담", phone:"1577-1000", region:"전국", link_type:"national", verified:true, keywords:["건강보험","보험료","피부양자","환급"]},
+  {id:13, org:"국민연금공단", dept:"고객센터", role:"국민연금 가입, 납부, 수령 상담", phone:"1355", region:"전국", link_type:"national", verified:true, keywords:["국민연금","연금 수령","추납","반환일시금"]},
+
+  /* ── 제주 공통 관문 (대표 경유 — 수집기로 직통 승격 예정) ── */
+  {id:100, org:"제주특별자치도", dept:"120 제주콜센터", role:"제주도정 민원 통합 상담 창구. 담당 부서를 모를 때 첫 관문", phone:"064-120", region:"제주도", link_type:"representative", verified:false, keywords:["도청","제주도","민원","문의","상담","안내"]},
+  {id:101, org:"제주시", dept:"종합민원 안내", role:"제주시 관할 민원 안내 (대표 경유)", phone:"064-120", region:"제주시", link_type:"representative", verified:false, keywords:["제주시","시청"]},
+  {id:102, org:"서귀포시", dept:"종합민원 안내", role:"서귀포시 관할 민원 안내 (대표 경유)", phone:"064-120", region:"서귀포시", link_type:"representative", verified:false, keywords:["서귀포","서귀포시"]},
+
+  /* ── 제주 부서 역할 템플릿 (직통번호는 수집기가 채움. phone:null → 대표 경유 안내) ──
+     역할 문구는 제주도·행정시 조직 기능 일반명 기준. 수집 후 공식 명칭·직통으로 교체 */
+  {id:200, org:"제주특별자치도", dept:"관광 관련 부서", role:"관광정책, 관광불편 처리, 관광사업 등록", phone:null, region:"제주도", link_type:"representative", verified:false, keywords:["관광","여행","관광불편","숙박업 등록","여행사","관광지"]},
+  {id:201, org:"제주특별자치도", dept:"교통 관련 부서", role:"버스 노선, 렌터카 총량, 주차 정책", phone:null, region:"제주도", link_type:"representative", verified:false, keywords:["버스","노선","렌터카","교통","주차"]},
+  {id:202, org:"제주특별자치도", dept:"환경 관련 부서", role:"환경보전, 지하수, 쓰레기 정책, 곶자왈", phone:null, region:"제주도", link_type:"representative", verified:false, keywords:["환경","지하수","곶자왈","오름 보전","쓰레기 정책"]},
+  {id:203, org:"제주특별자치도", dept:"1차산업 관련 부서", role:"감귤, 밭작물, 수산, 해녀 지원", phone:null, region:"제주도", link_type:"representative", verified:false, keywords:["감귤","농사","밭작물","수산","해녀","어업"]},
+  {id:204, org:"제주특별자치도", dept:"복지 관련 부서", role:"도 단위 복지정책, 통합돌봄, 장애인 지원", phone:null, region:"제주도", link_type:"representative", verified:false, keywords:["복지정책","통합돌봄","장애인 지원","무장애"]},
+  {id:205, org:"제주특별자치도", dept:"혁신산업 관련 부서", role:"AI·디지털 정책, 스타트업, 정보화", phone:null, region:"제주도", link_type:"representative", verified:false, keywords:["AI","인공지능","디지털","스타트업","창업 지원","정보화"]},
+  {id:210, org:"제주시", dept:"불법주정차·교통행정", role:"불법주정차 신고, 과태료, 거주자우선주차", phone:null, region:"제주시", link_type:"representative", verified:false, keywords:["불법주정차","주정차 신고","과태료","견인"]},
+  {id:211, org:"제주시", dept:"청소·생활환경", role:"쓰레기 배출, 재활용도움센터, 대형폐기물", phone:null, region:"제주시", link_type:"representative", verified:false, keywords:["쓰레기","재활용","대형폐기물","클린하우스","음식물"]},
+  {id:212, org:"제주시", dept:"주택 관련 부서", role:"청년 임차보증금, 주거급여, 공동주택", phone:null, region:"제주시", link_type:"representative", verified:false, keywords:["보증금","주거급여","전세","월세 지원","청년 주거"]},
+  {id:220, org:"서귀포시", dept:"감귤농정 관련 부서", role:"감귤원 지원, 스마트 관수, 농업 보조", phone:null, region:"서귀포시", link_type:"representative", verified:false, keywords:["감귤원","관수","농업 보조","과수"]},
+  {id:221, org:"서귀포시", dept:"통합돌봄 관련 부서", role:"돌봄 상담, 복지톡 운영 부서", phone:null, region:"서귀포시", link_type:"representative", verified:false, keywords:["돌봄","복지 상담","어르신 돌봄"]},
+
+  {id:14, org:"한국관광공사", dept:"관광안내전화", role:"관광 안내, 관광불편 상담, 통역 안내 (24시간·다국어)", phone:"1330", region:"전국", link_type:"national", verified:true, keywords:["관광안내","여행 문의","관광불편","통역","1330"]},
+
+  /* ── 제주 공공기관 (지방공사·출자출연·국가공공기관)
+     대표번호는 클린아이(지방공공기관 통합공시)·기관 공식 누리집 수집 후 승격. 임의 기재 금지 ── */
+
+  /* 제주관광공사 계열 — 기관 재직자 확인 번호 (2026-08) */
+  {id:400, org:"제주관광공사", dept:"관광정보 안내", role:"제주 관광정보 종합 안내, 여행 문의", phone:"064-740-6000", region:"제주도", cat:"institution", link_type:"direct", verified:true, src:"기관 확인 (2026-08)", keywords:["관광공사","JTO","관광정보","관광안내","여행 문의","여행 정보"]},
+  {id:416, org:"제주관광공사", dept:"시설·회의실 대관 안내", role:"공사 시설 및 회의실 대관 문의", phone:"064-740-6003", region:"제주도", cat:"institution", link_type:"direct", verified:true, src:"기관 확인 (2026-08)", keywords:["회의실 대관","시설 대관","대관 문의"]},
+  {id:417, org:"제주관광협회", dept:"관광 민원접수", role:"관광불편 신고, 관광 민원 접수", phone:"1533-0082", region:"제주도", cat:"institution", link_type:"direct", verified:true, src:"기관 확인 (2026-08)", keywords:["관광불편","관광 민원","바가지","불친절 신고","관광협회"]},
+  {id:418, org:"제주공항 종합관광안내센터", dept:"관광안내", role:"공항 도착 관광객 종합 안내", phone:"064-742-8866", region:"제주시", cat:"institution", link_type:"direct", verified:true, src:"기관 확인 (2026-08)", keywords:["공항 관광안내","공항 안내","제주공항"]},
+  {id:419, org:"제주공항 종합관광안내센터", dept:"국제선 관광안내", role:"국제선 이용 관광객 안내 (다국어)", phone:"064-742-0032", region:"제주시", cat:"institution", link_type:"direct", verified:true, src:"기관 확인 (2026-08)", keywords:["국제선","외국인 관광객","공항 국제선 안내"]},
+  {id:420, org:"제주연안여객터미널 관광안내센터", dept:"관광안내", role:"연안 여객선 이용객 관광 안내", phone:"064-758-7181", region:"제주시", cat:"institution", link_type:"direct", verified:true, src:"기관 확인 (2026-08)", keywords:["연안여객터미널","여객선","배편 관광안내"]},
+  {id:421, org:"제주국제여객터미널 관광안내센터", dept:"관광안내", role:"국제 여객선·크루즈 이용객 관광 안내", phone:"064-759-3210", region:"제주시", cat:"institution", link_type:"direct", verified:true, src:"기관 확인 (2026-08)", keywords:["국제여객터미널","크루즈","국제 여객선"]},
+  /* 관광안내소 — 번호 수집 대기 */
+  {id:422, org:"성산포항 관광안내소", dept:"관광안내", role:"성산 일대 관광 안내", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["성산포항","성산 관광","성산일출봉 안내"]},
+  {id:423, org:"용두암 관광안내소", dept:"관광안내", role:"용두암 일대 관광 안내", phone:null, region:"제주시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["용두암","용두암 안내"]},
+  {id:424, org:"탑동 관광안내소", dept:"관광안내", role:"탑동·원도심 관광 안내", phone:null, region:"제주시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["탑동","원도심 관광"]},
+  {id:425, org:"서귀포시 관광안내소", dept:"관광안내", role:"서귀포 일대 관광 안내", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["서귀포 관광안내"]},
+  {id:426, org:"제주월드컵경기장 관광안내소", dept:"관광안내", role:"월드컵경기장 일대 관광 안내", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["월드컵경기장"]},
+  {id:427, org:"정방폭포 관광안내소", dept:"관광안내", role:"정방폭포 일대 관광 안내", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["정방폭포"]},
+  {id:428, org:"대포주상절리 관광안내소", dept:"관광안내", role:"주상절리 일대 관광 안내", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["주상절리","대포주상절리"]},
+  {id:429, org:"천제연폭포 관광안내소", dept:"관광안내", role:"천제연·중문 일대 관광 안내", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"번호 수집 예정 — 관광정보 안내 064-740-6000 경유", keywords:["천제연","중문 관광"]},
+  {id:401, org:"제주특별자치도개발공사", dept:"고객센터", role:"삼다수, 먹는샘물, 감귤가공 관련 문의", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["삼다수","개발공사","먹는샘물","생수","감귤 가공"]},
+  {id:402, org:"제주에너지공사", dept:"대표", role:"풍력·신재생에너지 개발, 에너지 사업 문의", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["에너지공사","풍력","신재생","태양광 사업"]},
+  {id:403, org:"제주연구원", dept:"대표", role:"제주 정책 연구, 연구보고서 문의", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["제주연구원","정책 연구","연구보고서"]},
+  {id:404, org:"제주테크노파크", dept:"기업지원 안내", role:"도내 기업 지원, 바이오·화장품 산업, 시험분석", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["테크노파크","JTP","기업지원","바이오","화장품","시험분석"]},
+  {id:405, org:"제주신용보증재단", dept:"보증 상담", role:"소상공인·자영업자 신용보증, 대출 보증 상담", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["신용보증","보증서","소상공인 대출","자영업 자금"]},
+  {id:406, org:"제주문화예술재단", dept:"지원사업 안내", role:"문화예술 지원사업, 예술인 지원, 공연·전시", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["문화예술","예술인 지원","공연","전시","문화재단"]},
+  {id:407, org:"제주영상·문화산업진흥원", dept:"콘텐츠 지원 안내", role:"영상·콘텐츠 산업 지원, 촬영 지원, 웹툰·게임", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["영상","콘텐츠","촬영 지원","웹툰","게임 산업"]},
+  {id:408, org:"제주국제컨벤션센터", dept:"대표", role:"국제회의·마이스 행사, 컨벤션 대관", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["컨벤션","마이스","MICE","국제회의","대관","ICC"]},
+  {id:409, org:"제주의료원", dept:"대표·진료 안내", role:"공공의료, 진료 예약, 요양병원", phone:null, region:"제주시", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["제주의료원","공공병원","진료 예약"]},
+  {id:410, org:"서귀포의료원", dept:"대표·진료 안내", role:"산남 지역 공공의료, 응급실, 진료 예약", phone:null, region:"서귀포시", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["서귀포의료원","공공병원","응급실","진료"]},
+  {id:411, org:"제주사회서비스원", dept:"돌봄 서비스 안내", role:"공공 돌봄 서비스, 종합재가, 긴급돌봄", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["사회서비스원","공공 돌봄","재가","긴급돌봄"]},
+  {id:412, org:"제주창조경제혁신센터", dept:"창업 지원 안내", role:"스타트업 보육, 창업 상담, 투자 연계", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["창조경제혁신센터","스타트업","창업 보육","투자","액셀러레이팅"]},
+  {id:413, org:"제주평생교육장학진흥원", dept:"장학·교육 안내", role:"장학금, 평생교육 프로그램 안내", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["장학금","평생교육","장학 신청"]},
+  {id:414, org:"제주더큰내일센터", dept:"교육 안내", role:"청년 인재양성, 취업·창업 연계 교육", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["더큰내일","청년 교육","인재양성","취업 연계"]},
+  {id:415, org:"제주국제자유도시개발센터", dept:"대표 (국가공공기관)", role:"JDC 지정면세점, 국제자유도시 개발사업", phone:null, region:"제주도", cat:"institution", link_type:"representative", verified:false, note:"대표번호 수집 전 — 공식 누리집 확인", keywords:["JDC","국제자유도시","JDC 면세점","개발사업"]},
+
+  /* ── 읍면동 관문 (43개 전체는 수집기가 생성. 시드는 유형 예시) ── */
+  {id:300, org:"읍면동 주민센터", dept:"맞춤형복지팀", role:"긴급복지, 위기가구 발굴, 복지 신청 첫 창구", phone:null, region:"읍면동", link_type:"representative", verified:false, keywords:["주민센터","동사무소","복지 신청","긴급복지","위기가구","전입"]},
+  {id:301, org:"읍면동 주민센터", dept:"민원팀", role:"전입신고, 등본, 인감, 각종 증명서", phone:null, region:"읍면동", link_type:"representative", verified:false, keywords:["전입신고","등본","인감","증명서","가족관계"]},
+];
+
+/* 제주 민원비서 — 공용 동의어 사전 (브라우저 + 검증기 공용)
+ * 민원콜 방식: 사용자 표현 → 공식 업무 용어 확장. 제주어·구어체 특화 계층 포함 */
+window.GOVCALL_SYNONYMS = {
+  /* 긴급 구어 → 표준 */
+  "불났": ["화재","119"], "불이야": ["화재","119"], "연기가": ["화재","119"],
+  "다쳤": ["구급","응급","119"], "쓰러졌": ["구급","응급","119"], "숨을 안": ["구급","심정지","119"],
+  "물에 빠": ["구조","익수","119"], "도둑": ["절도","범죄","112"], "때렸": ["폭행","112"], "맞았": ["폭행","가정폭력"],
+
+  /* 제주어·지역 구어 */
+  "삼춘": ["어르신","노인"], "할망": ["어르신","노인","여성"], "하르방": ["어르신","노인"],
+  "괸당": ["친족","가족"], "정낭": ["마을"], "올레": ["올레길","관광","탐방로"],
+  "돔베": ["음식점","식품"], "바당": ["바다","해양","수산"], "밭담": ["농지","경작"],
+  "구좌": ["구좌읍"], "성산": ["성산읍"], "애월": ["애월읍"], "한림": ["한림읍"], "화북": ["화북동"],
+
+  /* 생활 표현 → 행정 용어 */
+  "쓰레기 버리": ["쓰레기 배출","재활용","클린하우스"],
+  "클린하우스": ["쓰레기 배출","재활용도움센터"],
+  "차 대놨": ["불법주정차","주정차 신고"], "주차 단속": ["불법주정차","교통행정"],
+  "이사": ["전입신고","전출"], "이사왔": ["전입신고"],
+  "등본": ["주민등록등본","증명서"], "등본 떼": ["주민등록등본","증명서","민원팀"],
+  "월급 못 받": ["임금체불","1350"], "돈 못 받": ["임금체불"],
+  "잘렸": ["실업급여","해고"], "회사 그만": ["실업급여","퇴직"],
+  "집 구하": ["주거","임차보증금","전세"], "보증금": ["임차보증금","전세","주거"],
+  "귤": ["감귤"], "귤 농사": ["감귤원","농업"], "하우스": ["시설농업","감귤원"],
+  "물질": ["해녀","수산"], "해녀": ["수산","어업"],
+  "차 빌리": ["렌터카"], "렌트카": ["렌터카"],
+  "여행 왔": ["관광","관광불편"], "바가지": ["관광불편","물가"],
+  "휠체어": ["무장애","이동약자","장애인"], "무장애": ["이동약자","장애인","접근성"],
+  "애 봐줄": ["돌봄","보육"], "아이 맡길": ["돌봄","보육","늘봄"],
+  "어르신 혼자": ["홀몸 어르신","노인 돌봄","안부"],
+  "비자": ["체류","외국인","1345"], "외국인 등록": ["체류","외국인","1345"],
+  "연금": ["국민연금"], "추후납부": ["추납","국민연금"],
+  "보험료": ["건강보험","국민건강보험"],
+  "창업": ["스타트업","창업 지원"], "가게 차리": ["창업","소상공인"],
+  "지원금": ["보조금","지원사업"], "혜택": ["지원사업","복지"],
+};
+
+/* 제주 민원비서 — 로컬 규칙 검색 + 답변 합성 엔진
+ * AI API 호출 없음. 데이터: data/contacts.js, 동의어: data/search_synonyms.js */
+(function(){
+"use strict";
+const DB = window.GOVCALL_CONTACTS || [];
+const SYN = window.GOVCALL_SYNONYMS || {};
+const $ = s=>document.querySelector(s);
+
+/* ── 상태 ── */
+let region = "제주도";
+document.getElementById("dbcount").textContent = DB.length.toLocaleString();
+
+/* ── 한국어 전처리: 조사/어미 제거 ── */
+const PARTICLES = ["은","는","이","가","을","를","에","의","에서","으로","로","도","만","와","과","랑","이나","나","까지","부터","보다","한테","께","께서","요","해요","했어요","하려면","하고 싶어요","싶어요","어요","아요","됐어요","되었어요","인데","인데요","니까","네요"];
+function stripParticle(tok){
+  for(const p of PARTICLES.sort((a,b)=>b.length-a.length)){
+    if(tok.length>p.length+0 && tok.endsWith(p)){ return tok.slice(0,-p.length); }
+  }
+  return tok;
+}
+function normalize(q){ return q.trim().replace(/\s+/g," "); }
+
+/* ── 동의어/의도 확장 ── */
+function expand(q){
+  const bag = new Set();
+  for(const key of Object.keys(SYN)){
+    if(q.includes(key)) SYN[key].forEach(v=>bag.add(v));
+  }
+  return [...bag];
+}
+
+/* ── 토큰화 ── */
+function tokens(q){
+  const raw = q.split(/[\s,\.\?!·]+/).filter(Boolean);
+  const set = new Set();
+  raw.forEach(t=>{ set.add(t); const s=stripParticle(t); if(s.length>=2) set.add(s); });
+  return [...set].filter(t=>t.length>=2);
+}
+
+/* ── 경량 IDF: 토큰의 문서빈도 낮을수록 가중 ── */
+const docText = DB.map(c=>[c.org,c.dept,c.role,(c.keywords||[]).join(" ")].join(" "));
+function idf(tok){
+  let df=0; for(const d of docText) if(d.includes(tok)) df++;
+  return Math.log(1 + DB.length/(1+df)); // 0.0~
+}
+
+/* ── 전화번호 역검색 ── */
+function digitsOnly(s){ return s.replace(/^\+82/,"0").replace(/[^0-9]/g,""); }
+function phoneSearch(q){
+  const d = digitsOnly(q);
+  if(d.length<4) return null;
+  const hits = DB.filter(c=>{
+    if(!c.phone) return false;
+    const p = digitsOnly(c.phone);
+    return p===d || p.endsWith(d) || p.startsWith(d);
+  });
+  return hits.length?hits:null;
+}
+function looksLikePhone(q){ const d=digitsOnly(q); return d.length>=3 && d.length>=q.replace(/[\s\-\(\)]/g,"").length*0.7; }
+
+/* ── 스코어링 ── */
+function score(q){
+  const toks = tokens(q);
+  const exp = expand(q);
+  const all = [...new Set([...toks, ...exp])];
+  const results = DB.map(c=>{
+    let s=0;
+    const kw = c.keywords||[];
+    // 원문 키워드 부분매칭 (질문 원문 ↔ 키워드)
+    for(const k of kw){ if(q.includes(k)) s += 3.2 + idf(k); }
+    // 토큰 ↔ 필드 매칭
+    for(const t of all){
+      const w = 1 + idf(t)*0.9;
+      if(kw.some(k=>k.includes(t)||t.includes(k))) s += 2.0*w;
+      if(c.role.includes(t)) s += 1.4*w;
+      if(c.dept.includes(t)) s += 1.6*w;
+      if(c.org.includes(t))  s += 1.2*w;
+    }
+    // 긴급전화 우선 규칙
+    if(c.link_type==="national" && c.phone && ["119","112","109","1366"].includes(c.phone) && s>0) s *= 1.35;
+    // 지역 보정
+    if(c.region===region) s *= 1.25;
+    else if(region!=="제주도" && c.region==="제주도") s *= 1.1;
+    else if(c.region==="전국") s *= 1.0;
+    else if(region!=="제주도" && c.region!=="전국" && c.region!=="읍면동" && c.region!==region) s *= 0.55;
+    return {c, s};
+  }).filter(r=>r.s>0.9).sort((a,b)=>b.s-a.s);
+  return results;
+}
+function tier(s, max){
+  const r = s/max;
+  if(r>0.62) return "높음";
+  if(r>0.34) return "중간";
+  return "낮음";
+}
+
+/* ── 답변 합성 (템플릿 자연어) ── */
+function composeAnswer(q, results){
+  if(!results.length){
+    return {text:`"${q}" — 아직 제가 아는 범위에서 딱 맞는 창구를 못 찾았수다. 이럴 땐 <b>110(정부민원안내)</b> 또는 <b>120 제주콜센터(064-120)</b>가 첫 관문입니다. 표현을 조금 바꿔 다시 물어봐 주시면 더 찾아볼게요.`, cards:[]};
+  }
+  const max = results[0].s;
+  const highs = results.filter(r=>tier(r.s,max)==="높음");
+  const show = (highs.length>=6? results.slice(0,Math.min(30,results.length)) : results.slice(0,5));
+  const top = show[0].c;
+  let lead;
+  if(top.link_type==="national" && ["119","112"].includes(top.phone)){
+    lead = `지금 위급한 상황이면 다른 것보다 먼저 <b>${top.phone}</b>에 전화합서. 아래는 이어서 도움될 창구들입니다.`;
+  } else if(top.phone){
+    lead = `이 상황이면 <b>${top.org} ${top.dept}</b>이 담당입니다. <b>${top.phone}</b>으로 연락해봅서.`;
+  } else {
+    lead = (top.cat==="institution")
+      ? `이 일은 <b>${top.org}</b> 소관으로 보입니다. 대표번호는 아직 수집 전이라 공식 누리집을 확인하거나, <b>120 제주콜센터(064-120)</b>에 물어봅서.`
+      : `이 일은 <b>${top.org} ${top.dept}</b> 소관으로 보입니다. 직통번호는 아직 수집 전이라, <b>120 제주콜센터(064-120)</b>에 "${top.dept} 연결해줍서"라고 하면 이어줍니다.`;
+  }
+  return {text:lead, cards:show.map(r=>({...r, t:tier(r.s,max)}))};
+}
+function composePhoneAnswer(q, hits){
+  if(!hits){ return {text:`번호 "${q}"는 아직 제 데이터에 없는 번호우다. 직통번호 수집이 끝나면 더 많이 알아볼 수 있습니다.`, cards:[]}; }
+  const lead = hits.length===1
+    ? `그 번호는 <b>${hits[0].org} ${hits[0].dept}</b>입니다.`
+    : `그 번호와 맞는 곳이 ${hits.length}곳 있수다. 번호를 몇 자리 더 넣으면 좁혀집니다.`;
+  return {text:lead, cards:hits.slice(0,30).map(c=>({c, s:1, t:"높음"}))};
+}
+
+/* ── 렌더 ── */
+const chat = $("#chat");
+function addUser(q){
+  const el = document.createElement("div");
+  el.className="msg user";
+  el.innerHTML = `<div class="bubble"></div>`;
+  el.querySelector(".bubble").textContent = q;
+  chat.appendChild(el);
+}
+function cardHTML(r, isTop){
+  const c=r.c;
+  const link = c.link_type==="national"?'<span class="badge national">전국 공통</span>'
+    : c.link_type==="direct"?'<span class="badge direct">직통</span>'
+    : '<span class="badge rep">대표 경유</span>';
+  const sim = r.t==="높음"?'<span class="badge sim-h">유사도 높음</span>'
+    : r.t==="중간"?'<span class="badge sim-m">중간</span>':'<span class="badge sim-l">낮음</span>';
+  const phone = c.phone
+    ? `<a class="phone" href="tel:${c.phone.replace(/[^0-9]/g,"")}">${c.phone}</a>`
+    : `<span class="phone pending">${c.note || "직통 수집 전 → 064-120 경유"}</span>`;
+  const evid = c.verified
+    ? `근거: ${c.src || "공식 공표 번호"} · 검증됨`
+    : `근거: 시드 데이터 · 공식 출처 수집 후 직통 승격 예정`;
+  return `<div class="ccard ${isTop?"top":""}">
+    <div class="l1"><span class="orgname">${c.org} · ${c.dept}</span>${link}${sim}</div>
+    <div class="role">${c.role} <span style="color:#B6BFD4">· ${c.region}</span></div>
+    <div class="callrow">${phone}</div>
+    <div class="evid">${evid}</div>
+  </div>`;
+}
+function addBot(ans){
+  const el = document.createElement("div");
+  el.className="msg bot";
+  el.innerHTML = `<div class="avatar">濟</div><div class="bubble">${ans.text}
+    ${ans.cards.length?`<div class="cards">${ans.cards.map((r,i)=>cardHTML(r,i===0)).join("")}</div>`:""}
+  </div>`;
+  chat.appendChild(el);
+  el.scrollIntoView({behavior:"smooth", block:"end"});
+}
+
+/* ── 질의 처리 ── */
+function ask(qRaw){
+  const q = normalize(qRaw);
+  if(!q) return;
+  addUser(q);
+  setTimeout(()=>{
+    const ans = looksLikePhone(q)
+      ? composePhoneAnswer(q, phoneSearch(q))
+      : composeAnswer(q, score(q));
+    addBot(ans);
+  }, 120);
+}
+
+/* ── 이벤트 ── */
+$("#askform").addEventListener("submit", e=>{
+  e.preventDefault();
+  const inp=$("#askinput");
+  ask(inp.value); inp.value="";
+});
+document.getElementById("quick").addEventListener("click", e=>{
+  if(e.target.tagName==="BUTTON") ask(e.target.textContent);
+});
+document.getElementById("regbtns").addEventListener("click", e=>{
+  if(e.target.tagName!=="BUTTON") return;
+  region = e.target.dataset.r;
+  document.querySelectorAll("#regbtns button").forEach(b=>b.classList.toggle("on", b===e.target));
+});
+window.biseoAsk = ask;
+})();
+
+</script>
+</body>
+</html>
