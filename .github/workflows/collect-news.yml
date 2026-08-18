@@ -1,7 +1,7 @@
 name: collect-news
 on:
   schedule:
-    - cron: '0 21,3,9 * * *'
+    - cron: '0 */3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -24,6 +24,12 @@ jobs:
         env:
           GOV24_KEY: ${{ secrets.GOV24_KEY }}
         run: python scripts/collect_notices.py || true
+      - name: Collect Jeju laws
+        env:
+          LAW_OC: ${{ secrets.LAW_OC }}
+        run: python scripts/collect_laws.py || true
+      - name: Collect Jeju stats
+        run: python scripts/collect_stats.py || true
       - name: Commit results
         run: |
           git config user.name "mondak-bot"
