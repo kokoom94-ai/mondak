@@ -14,12 +14,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Collect Jeju news
         env:
           NAVER_ID: ${{ secrets.NAVER_ID }}
           NAVER_SECRET: ${{ secrets.NAVER_SECRET }}
-        run: python scripts/collect_news.py
+        run: python scripts/collect_news.py || true
       - name: Collect Jeju notices
         env:
           GOV24_KEY: ${{ secrets.GOV24_KEY }}
@@ -39,7 +39,9 @@ jobs:
       - name: Commit results
         run: |
           git config user.name "mondak-bot"
-          git config user.email "bot@mondak"
+          git config user.email "bot@users.noreply.github.com"
           git add data/*.json
-          git diff --cached --quiet || git commit -m "자동 수집 $(date -u +'%Y-%m-%d %H:%M')"
-          git push
+          git diff --cached --quiet && echo "변경 없음" && exit 0
+          git commit -m "자동 수집 $(date -u +'%Y-%m-%d %H:%M')"
+          git pull --rebase --autostash origin main || true
+          git push origin main
