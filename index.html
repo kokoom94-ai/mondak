@@ -1632,9 +1632,21 @@ fetch('data/news.json').then(r=>r.ok?r.json():null).then(j=>{
 
 let PLEDGES=[];
 const PSTOP=new Set(['제주','제주형','제주도','추진','구축','조성','확대','강화','실현','마련','운영','활성화','체계','기반','위한','통한','도민','지원','사업','대전환','전면','대응','혁신','전환','중심','단계적']);
-function pTokens(t){return (t.match(/[가-힣A-Za-z0-9]{2,}/g)||[]).filter(w=>!PSTOP.has(w));}
+function pTokens(t){const a=(t.match(/[가-힣A-Za-z0-9]{2,}/g)||[]).filter(w=>!PSTOP.has(w));
+  if(t.includes('4·3'))a.push('4·3');return a;}
+/* 행정 주체(도·행정시·산하기관)가 주어인 보도만 인정 */
+const PACT=/제주도[가는,를\s]|제주도정|도정[이은,\s]|제주특별자치도|도지사|제주도청|제주시[가는,\s]|서귀포시[가는,\s]|제주[,·]|제주관광공사|제주개발공사|제주에너지공사|제주테크노파크|제주연구원|제주도교육청|JDC|양 행정시/;
+const PEXC=/의원|의회|의정|후보|선거|정당|규탄|촉구|성명/;
 function pMatch(t){const tk=pTokens(t);
-  return NEWS.filter(n=>tk.some(w=>n.t.includes(w))).slice(0,3);}
+  const scored=[];
+  NEWS.forEach(n=>{
+    if(!PACT.test(n.t)||PEXC.test(n.t))return;
+    const hits=tk.filter(w=>n.t.includes(w));
+    const strong=hits.some(w=>w.length>=4||w==='4·3');
+    if(hits.length>=2||strong)scored.push({n,h:hits.length+(strong?2:0)});
+  });
+  scored.sort((a,b)=>b.h-a.h||((b.n.d||'').localeCompare(a.n.d||'')));
+  return scored.map(x=>x.n).slice(0,3);}
 function renderPledges(){
   const el=document.getElementById('pledgeacc'); if(!el||!PLEDGES.length)return;
   const q=(document.getElementById('plq')?.value||'').trim();
