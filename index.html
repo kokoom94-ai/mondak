@@ -436,6 +436,10 @@ body{padding-bottom:78px}
 .segdot.pass{background:#0CA678}.segdot.pend{background:#E8590C}.segdot.done{background:#98A2B3}
 .rs.done{color:#98A2B3;border:1px solid #d5d9e0}
 .morebtn{width:100%;margin-top:8px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px;font-size:12px;font-weight:700;color:var(--navy)}
+.kindtabs{display:flex;gap:6px;margin:8px 0 4px}
+.kt{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:7px;font-size:12px;font-weight:700;color:var(--sub);cursor:pointer}
+.kt.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.kt b{font-weight:800}
 </style>
 </head>
 <body>
@@ -1691,7 +1695,7 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{if(e.target.id==='plq')renderPledges();});
 
 /* ══ 우리동네의원 ══ */
-let ASM=null, CB=null, npSel=0, npLimit={};
+let ASM=null, CB=null, npSel=0, npLimit={}, npKind='all';
 function renderNP(){
   const g=document.getElementById('npeople'); if(!g)return;
   if(!ASM||!ASM.members){g.innerHTML='<div class="bempty">국회 API 연동 후 3개 지역구(제주시갑·을·서귀포시) 현직 의원이 표시됩니다.</div>';return;}
@@ -1702,7 +1706,10 @@ function renderNP(){
     <div class="cm">${m.cmit||'상임위 정보 준비 중'}</div></div>`).join('');
   const m=ASM.members[npSel];
   if(!m){document.getElementById('npdetail').innerHTML='';return;}
-  const bills=m.bills||[];
+  const all=m.bills||[];
+  const kind=npKind||'all';
+  const bills=all.filter(b=>kind==='all'||(kind==='rep'&&b.kind==='rep')||(kind==='co'&&b.kind==='co'));
+  const nrep=all.filter(b=>b.kind==='rep').length, nco=all.filter(b=>b.kind==='co').length;
   const grp={통과:[],계류:[],종료:[]};
   bills.forEach(b=>{(grp[b.stage||'계류']||grp['계류']).push(b);});
   const seg=(key,label,cls)=>{
@@ -1714,10 +1721,16 @@ function renderNP(){
     const more=arr.length>lim?`<button class="morebtn npmore" data-k="${key}">${label} 더보기 · ${arr.length-lim}건</button>`:'';
     return `<div class="billseg"><div class="segh"><span class="segdot ${cls}"></span>${label} <b>${arr.length}</b></div>${rows}${more}</div>`;
   };
-  document.getElementById('npdetail').innerHTML=bills.length?
-    `<div class="npbox"><h3>${m.name} 대표발의 법률안 <span style="font-size:11px;color:var(--sub)">22대 · 총 ${bills.length}건</span></h3>
-     ${seg('통과','통과','pass')}${seg('계류','심사 중(계류)','pend')}${seg('종료','폐기·철회','done')}</div>`
-    :`<div class="npbox"><h3>${m.name}</h3><div class="bempty">발의법률안 데이터 연동 대기</div></div>`;
+  const tabs=`<div class="kindtabs">
+    <button class="kt ${kind==='all'?'on':''}" data-kind="all">전체 <b>${all.length}</b></button>
+    <button class="kt ${kind==='rep'?'on':''}" data-kind="rep">대표발의 <b>${nrep}</b></button>
+    <button class="kt ${kind==='co'?'on':''}" data-kind="co">공동발의 <b>${nco}</b></button></div>`;
+  document.getElementById('npdetail').innerHTML=all.length?
+    `<div class="npbox"><h3>${m.name} 발의법률안 <span style="font-size:11px;color:var(--sub)">제22대</span></h3>
+     ${tabs}
+     ${seg('통과','통과','pass')}${seg('계류','심사 중(계류)','pend')}${seg('종료','폐기·철회','done')}
+     ${bills.length?'':'<div class="bempty">이 분류에 해당하는 법안이 없습니다.</div>'}</div>`
+    :`<div class="npbox"><h3>${m.name}</h3><div class="bempty">발의법률안 데이터 연동 대기 — 워크플로우 재실행 후 표시됩니다.</div></div>`;
 }
 function renderCB(){
   const st=document.getElementById('cbstat'), bl=document.getElementById('cbills');
@@ -1738,7 +1751,8 @@ fetch('data/assembly.json').then(r=>r.ok?r.json():null).then(j=>{ASM=j;renderNP(
   const n=document.getElementById('cbmeta');}).catch(()=>{});
 fetch('data/council.json').then(r=>r.ok?r.json():null).then(j=>{CB=j;renderCB();}).catch(()=>{});
 document.addEventListener('click',e=>{
-  const c=e.target.closest('.npcard');if(c){npSel=+c.dataset.i;npLimit={};renderNP();}
+  const c=e.target.closest('.npcard');if(c){npSel=+c.dataset.i;npLimit={};npKind='all';renderNP();}
+  const kt=e.target.closest('.kt');if(kt){npKind=kt.dataset.kind;npLimit={};renderNP();}
   const mo=e.target.closest('.npmore');if(mo){npLimit[mo.dataset.k]=(npLimit[mo.dataset.k]||3)+10;renderNP();}
 });
 </script>
