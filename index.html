@@ -328,6 +328,8 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 .rankrow .rtxt{display:flex;flex-direction:column;gap:2px;min-width:0}
 .rankrow .rout{font-size:11px;color:var(--sub)}
 .rn.nbadge{background:var(--gyul-soft);color:#9A5A10;font-weight:800;border-radius:8px;padding:2px 9px;font-size:11.5px;white-space:nowrap}
+#detail .srcbtn.alt{margin-left:6px;color:var(--navy);border-color:var(--navy)}
+#detail .srcbtn{margin-top:12px}
 </style>
 </head>
 <body>
@@ -512,6 +514,10 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">교육정책</div>
   <div class="viewsub">제주특별자치도교육청 공지·이슈 안내</div>
+  <a class="linkcard" href="http://www.jje.go.kr/" target="_blank" rel="noopener" style="margin-top:12px">
+    <b>제주특별자치도교육청 ↗</b>
+    <span>공지사항 · 채용 · 보도자료 원문 — 공식 누리집</span>
+  </a>
   <div id="edulist" style="margin-top:8px"></div>
   <div class="notecard">
     <b>연동 예정</b> — 도교육청 공지사항 자동 수집과 교육정책 통합검색(EduPolicy Search 방식)으로
@@ -603,6 +609,7 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
     <button class="mitem" data-v="orbit">정책 궤도 <span class="mx">도정 조감</span></button>
     <div class="msep"></div>
     <a class="mitem" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 모바일 재난방송 신청 <span class="mx">↗</span></a>
+    <a class="mitem" href="http://sido.jeju.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchList&flag=gosiGL&svp=Y" target="_blank" rel="noopener">제주도 고시·공고 <span class="mx">↗</span></a>
     <a class="mitem" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">제주통계포털 <span class="mx">↗</span></a>
     <a class="mitem" href="https://data.ijto.or.kr/bigdata/index.do" target="_blank" rel="noopener">관광빅데이터플랫폼 <span class="mx">↗</span></a>
     <div class="msep"></div>
@@ -747,6 +754,12 @@ const TODAY=new Date('2026-08-17');
 const daysAgo=d=>(TODAY-new Date(d))/86400000;
 const ddayOf=x=>Math.ceil((new Date(x.deadline)-TODAY)/86400000);
 const xstate={org:null,field:null,who:null,sort:'date'};
+const BOARD={
+ do:"http://sido.jeju.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchList&flag=gosiGL&svp=Y",
+ jeju:"https://www.jejusi.go.kr/information/intro/notice.do",
+ seog:"https://seogwipo.go.kr/info/news/law/law.htm",
+ eup:"https://www.jejusi.go.kr/information/intro/notice.do",
+ council:"https://www.council.jeju.kr"};
 const VIEWS=['home','news','lawbot','council','support','edu','terms','explore','orbit','biseo'];
 let selIdx=null, supWho=null, newsSec='전체';
 
@@ -945,7 +958,8 @@ function openDetail(i){
       <dt>누구에게</dt><dd>${x.who.join(' · ')}</dd>
       <dt>언제까지</dt><dd class="${x.due==='—'?'mut':''}">${x.due}${x.url
       ?`<a class="srcbtn" href="${x.url}" target="_blank" rel="noopener">기관 공고·보도 원문 보기 ↗</a>`
-      :`<a class="srcbtn" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">맞춤형 지원서비스 신청포털에서 확인 ↗</a>`}`;
+      :`<a class="srcbtn" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">맞춤형 지원서비스 신청포털에서 확인 ↗</a>`}
+    <a class="srcbtn alt" href="${BOARD[x.org]}" target="_blank" rel="noopener">${o.name} 고시·공고 게시판 ↗</a>`;
   renderRail();renderList();
   d.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
@@ -1086,6 +1100,15 @@ window.addEventListener('resize',()=>{if(!document.getElementById('view-orbit').
 renderHome();renderLaws();renderCouncilFeed();renderNews();renderSupport();renderRail();renderList();
 
 /* ══ 라이브 데이터 로더 (GitHub Pages 배포 시) ══ */
+fetch('data/policies.json').then(r=>r.ok?r.json():null).then(j=>{
+  if(j&&j.items&&j.items.length){
+    const keep=DATA.filter(x=>x.org==='council'||x.org==='eup');
+    DATA.length=0; j.items.forEach(x=>DATA.push(x)); keep.forEach(x=>DATA.push(x));
+    const b=document.querySelector('#view-home .livebadge');
+    if(b)b.textContent='기관 공고 자동 수집: '+j.meta.collected_at+' · '+j.meta.count+'건 (직링크)';
+    renderHome();renderRail();renderList();renderCouncilFeed();
+  }
+}).catch(()=>{});
 fetch('data/news.json').then(r=>r.ok?r.json():null).then(j=>{
   if(j&&j.items&&j.items.length){
     NEWS=j.items;NEWSMETA=j.meta;
