@@ -155,8 +155,13 @@ def main():
         else:
             m["bills"]=[]; print(d,"→",m["name"] or "미확인")
         mems.append(m)
+    got=sum(1 for m in mems if m.get("name")) 
+    total_bills=sum(len(m.get("bills",[])) for m in mems)
+    if got<1 or total_bills<1:
+        print(f"⚠ 유효 데이터 부족(이름 {got}·법안 {total_bills}) — 기존 assembly.json 보존, 덮어쓰기 안 함")
+        return
     OUT.write_text(json.dumps({"meta":{"collected_at":NOW.strftime("%Y-%m-%d %H:%M KST"),
-        "source":"국회사무처 열린국회정보 OPEN API · 22대","note":"지역구 현직 의원 및 대표발의 최근 15건"},
+        "source":"국회사무처 열린국회정보 OPEN API · 22대","note":"22대 대표발의·공동발의 (본회의 처리결과 포함)"},
         "members":mems},ensure_ascii=False,indent=1),encoding="utf-8")
-    print("wrote assembly.json")
+    print(f"wrote assembly.json — 의원 {got}명 · 법안 {total_bills}건")
 if __name__=="__main__": main()
