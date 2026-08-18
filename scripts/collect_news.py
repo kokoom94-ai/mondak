@@ -15,17 +15,17 @@ LOCAL_FEEDS=[("헤드라인제주","https://www.headlinejeju.co.kr/rss/allArticl
  ("제주의소리","https://www.jejusori.net/rss/allArticle.xml"),
  ("뉴스N제주","https://newsnjeju.com/rss/allArticle.xml"),
  ("제주일보","https://www.jejunews.com/rss/allArticle.xml")]
-GOOGLE_QUERIES=["제주도 when:7d","제주도청 OR 제주도의회 when:7d","제주 관광 when:7d",
- "제주 (AI OR 스타트업) when:7d","제주 (복지 OR 돌봄) when:7d",
- "제주 (감귤 OR 농업 OR 어업) when:7d","제주 (환경 OR 에너지) when:7d","제주 (사고 OR 폭우 OR 안전) when:7d"]
+GOOGLE_QUERIES=["제주도 when:14d","제주도청 OR 제주도의회 when:14d","제주 관광 when:14d",
+ "제주 (AI OR 스타트업) when:14d","제주 (복지 OR 돌봄) when:14d",
+ "제주 (감귤 OR 농업 OR 어업) when:14d","제주 (환경 OR 에너지) when:14d","제주 (사고 OR 폭우 OR 안전) when:14d"]
 
 RULES=[("안전/민원행정",r"태풍|호우|폭우|폭염|지진|화재|침수|사고|재난|안전|특보|경보|구조|해경|119|민방위|단속|민원|점검"),
  ("복지/사회보험",r"복지|돌봄|어르신|노인|장애|취약|아동|보육|의료급여|건강보험|국민연금|바우처|지원금|장수"),
  ("1차산업",r"감귤|만감류|한라봉|농가|농업|어업|어민|해녀|축산|한우|월동|당근|메밀|딸기|가뭄|조업|수산|양식|품종|노지|하우스|재배|과수|출하|묘"),
+ ("신산업/AX",r"AI|인공지능|AX|디지털|데이터센터|데이터|UAM|드론|우주|위성|발사체|ICT|클라우드|바이오|반도체|로봇|모빌리티|과기원|과학기술원|KAIST|카이스트|스타링크"),
  ("환경/에너지",r"환경|에너지|탄소|재활용|일회용|다회용|정원도시|그린수소|풍력|태양광|생태|곶자왈|오름"),
  ("교육/청년",r"학교|학생|교육|청년|늘봄|학점제|IB|장학|대학|청소년"),
  ("문화/관광",r"관광|여행|크루즈|올레|축제|페스티벌|공연|전시|문화|미술|박물관|콘서트|영화|호텔|리조트|방문객|워케이션|면세|MICE"),
- ("신산업/AX",r"AI|인공지능|디지털|데이터|UAM|드론|우주|ICT|클라우드|바이오"),
  ("스타트업/경제",r"스타트업|창업|수출|기업|경제|투자|고용|일자리|소상공인|상권"),
  ("행정",r"도정|도청|도지사|도의회|의원|조례|예산|행정|공무원|인사청문|감사|위촉|읍면동|4·3|제주시|서귀포")]
 # 제주 관련성: 이 중 하나는 제목에 있어야 함
@@ -127,7 +127,7 @@ def main():
                 if it["link"] in seen_links: continue
                 seen_links.add(it["link"]); it["direct"]=False; all_items.append(it)
         except Exception as e: print("skip google",q,e)
-    cutoff=(NOW-timedelta(days=7)).strftime("%Y-%m-%d")
+    cutoff=(NOW-timedelta(days=14)).strftime("%Y-%m-%d")
     all_items=[i for i in all_items if not i["d"] or i["d"]>=cutoff]
     today=NOW.strftime("%Y-%m-%d")
     for i in all_items:
@@ -158,7 +158,7 @@ def main():
     if not out: print("no items; keeping previous"); return
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps({"meta":{"collected_at":NOW.strftime("%Y-%m-%d %H:%M KST"),
-        "window_days":7,"source":"지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계","count":len(out)},
+        "window_days":14,"source":"지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계","count":len(out)},
         "items":out},ensure_ascii=False,indent=1),encoding="utf-8")
     top=out[0]; print("wrote",len(out),"items · top:",top["n"],"개사 —",top["t"][:40])
 

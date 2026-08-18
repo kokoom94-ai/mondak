@@ -225,7 +225,8 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 /* ── v7 추가 ── */
 .logo{cursor:pointer}
-.uni.big input{padding:15px 20px 15px 46px;font-size:15.5px;border-radius:18px;border-width:2px}
+.uni.big{width:100%;margin-left:0;margin-right:0}
+.uni.big input{width:100%;padding:21px 22px 21px 50px;font-size:16px;border-radius:18px;border-width:2px;box-sizing:border-box}
 .uni.big .mag{left:18px;font-size:17px}
 .extbtn{background:#fff;border:1.5px solid var(--danger);color:var(--danger);border-radius:99px;padding:6px 13px;font-size:12px;font-weight:700;white-space:nowrap}
 .extbtn:hover{background:#FDEBE9}
@@ -331,6 +332,28 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 #detail .srcbtn.alt{margin-left:6px;color:var(--navy);border-color:var(--navy)}
 #detail .srcbtn{margin-top:12px}
 .morebtn{display:block;width:100%;margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--navy);font-weight:700;font-size:14px;cursor:pointer}
+
+/* 탭 라벨 한 줄 고정 */
+.deskmenu{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.deskmenu button,.bottomnav button{white-space:nowrap}
+/* ── 파크뉴스형 분야 보드 ── */
+#newsstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:8px;margin:12px 0 4px}
+.statc{background:#fff;border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:10px;padding:9px 12px}
+.statc .sl{font-size:11px;color:var(--sub);font-weight:700;display:block}
+.statc b{font-size:21px;letter-spacing:-.5px}
+.statc .su{font-size:11px;margin-left:2px}
+.statc .sm{font-size:10.5px;color:var(--sub);display:block;margin-top:2px}
+#newsboard{display:grid;grid-auto-flow:column;grid-auto-columns:266px;gap:10px;overflow-x:auto;padding:6px 2px 10px;margin-top:6px}
+.bcol{background:#fff;border:1px solid var(--line);border-radius:13px;display:flex;flex-direction:column;max-height:540px}
+.bhd{display:flex;align-items:center;gap:7px;padding:11px 13px;border-bottom:1px solid var(--line);font-size:13.5px;font-weight:800}
+.bdot{width:8px;height:8px;border-radius:50%;flex:none}
+.bhd .bn{margin-left:auto;background:var(--bg);border-radius:99px;padding:1px 10px;font-size:11px;font-weight:700;color:var(--sub)}
+.bscroll{overflow-y:auto;padding:4px 6px 8px}
+.bitem{display:block;padding:9px 8px;border-radius:9px}
+.bitem:hover{background:var(--bg)}
+.bitem .bt{display:block;font-size:12.8px;font-weight:600;line-height:1.44}
+.bitem .bm{display:block;font-size:10.8px;color:var(--sub);margin-top:3px}
+.bempty{padding:16px 12px;font-size:12px;color:var(--sub)}
 </style>
 </head>
 <body>
@@ -357,6 +380,11 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 
 <div id="view-home">
 <div class="wrap">
+  <div class="uni big" style="margin-top:16px">
+    <span class="mag">🔍</span>
+    <input id="uniq" type="search" autocomplete="off" placeholder="정책, 행정 용어, 기관 연락처를 검색하세요">
+    <div class="unipanel" id="unipanel"></div>
+  </div>
   <div class="todaycard" style="margin-top:14px">
     <div class="th"><h2>제주 인구</h2>
       <a class="pm" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">더보기 · 제주통계포털 ↗</a></div>
@@ -374,12 +402,6 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
       <div class="tcell"><div class="l">외국인</div><div class="v g">1,036,540명</div></div>
       <div class="tcell"><div class="l">크루즈 입도객</div><div class="v g">341,200명</div></div>
     </div>
-  </div>
-
-  <div class="uni big">
-    <span class="mag">🔍</span>
-    <input id="uniq" type="search" autocomplete="off" placeholder="정책, 행정 용어, 기관 연락처를 검색하세요">
-    <div class="unipanel" id="unipanel"></div>
   </div>
 
   <div class="h1row">
@@ -425,17 +447,24 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">새소식</div>
-  <div class="viewsub">이번 주 정책 소식과 제주 관련 기사 스크랩 — 분야별 분류 · 보도량 기반 인기뉴스</div>
-  <div class="metarow" style="margin-top:6px"><span class="livebadge" id="newsbadge">기사 원문 직링크 · 2026-08-18 10:02 수집 · 자동 수집 가동 시 지역지 5곳+전체 매체수 집계</span></div>
-  <div class="secchips" id="secchips"></div>
-  <div id="newslist"></div>
-  <div class="rankcard">
+  <div class="viewsub">이번 주 인기뉴스 · 언론으로 알아보는 제주소식(최근 2주) · 정책소식요약 — 전부 원문 직링크</div>
+  <div class="metarow" style="margin-top:6px"><span class="livebadge" id="newsbadge">기사 원문 직링크 · 하루 3회 자동 수집</span></div>
+
+  <div class="rankcard" style="margin-top:14px">
     <h2>이번 주 인기뉴스</h2>
-    <div style="font-size:11px;color:var(--sub);margin:-4px 0 8px">같은 사안끼리 묶어 <b>보도한 매체 수</b>로 순위를 매깁니다 · 조회수가 아닙니다 · 매체 수 집계는 자동 수집 첫 실행부터</div>
+    <div style="font-size:11px;color:var(--sub);margin:-4px 0 8px">같은 사안끼리 묶어 <b>보도한 매체 수</b>로 순위를 매깁니다 · 조회수가 아닙니다</div>
     <div id="ranklist"></div>
   </div>
+
+  <div class="newssec">
+    <div class="dh"><h2>언론으로 알아보는 제주소식</h2><span class="sub">오늘 ~ 최근 2주</span></div>
+    <div style="font-size:11px;color:var(--sub);margin-top:2px">기사 제목·요약 키워드 기반 자동 분류라 일부 오분류가 있을 수 있습니다 · 숫자는 2주간 기사 수</div>
+    <div id="newsstats"></div>
+    <div id="newsboard"></div>
+  </div>
+
   <div class="newssec" style="margin-top:18px">
-    <div class="dh"><h2>정책 새 소식</h2><span class="sub">최근 7일 · 기관 발표</span>
+    <div class="dh"><h2>정책소식요약</h2><span class="sub">정부24 제주 지원서비스 · 기관 발표</span>
       <button class="go" data-v="explore">정책 탐색 →</button></div>
     <div id="weekly2"></div>
   </div>
@@ -547,6 +576,10 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 
 <div id="view-explore" hidden>
 <div class="wrap">
+  <div class="uni" style="margin-top:14px">
+    <span class="mag">🔍</span>
+    <input id="xq" type="search" autocomplete="off" placeholder="정책·지원사업 검색 — 예: 청년, 감귤, 돌봄, 창업">
+  </div>
   <div class="xhead">
     <button class="backbtn" data-v="home">← 홈</button>
     <span class="xcounts">기관 <b>5</b> · 분야 <b>8</b> · 정책 <b id="xcnt">0</b>건</span>
@@ -610,7 +643,6 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
     <button class="mitem" data-v="orbit">정책 궤도 <span class="mx">도정 조감</span></button>
     <div class="msep"></div>
     <a class="mitem" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 모바일 재난방송 신청 <span class="mx">↗</span></a>
-    <a class="mitem" href="http://sido.jeju.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchList&flag=gosiGL&svp=Y" target="_blank" rel="noopener">제주도 고시·공고 <span class="mx">↗</span></a>
     <a class="mitem" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">제주통계포털 <span class="mx">↗</span></a>
     <a class="mitem" href="https://data.ijto.or.kr/bigdata/index.do" target="_blank" rel="noopener">관광빅데이터플랫폼 <span class="mx">↗</span></a>
     <div class="msep"></div>
@@ -830,21 +862,9 @@ document.addEventListener('click',e=>{
 });
 
 /* ══ 새소식 ══ */
+const SECCOLOR={'문화/관광':'#E8590C','복지/사회보험':'#5B8DEF','신산업/AX':'#7B61FF','스타트업/경제':'#0CA678','1차산업':'#F59F00','환경/에너지':'#2F9E44','교육/청년':'#12B0C9','안전/민원행정':'#E03131','행정':'#5C6784','기타':'#98A2B3'};
+function timeAgo(d){if(!d)return'최근';const n=Math.round((Date.now()-new Date(d+'T12:00:00+09:00'))/864e5);return n<=0?'오늘':n===1?'1일 전':n+'일 전';}
 function renderNews(){
-  $('#secchips').innerHTML=NEWSSECS.map(s=>
-    `<button class="${newsSec===s?'on':''}" data-sec="${s}">${s}</button>`).join('');
-  const rows=NEWS.filter(n=>newsSec==='전체'||secN(n.sec)===newsSec)
-    .sort((a,b)=>(b.d||'').localeCompare(a.d||''));
-  const shown=rows.slice(0,newsMax);
-  $('#newslist').innerHTML=shown.map(n=>{
-    const inner=`<span class="nsec">${secN(n.sec)}</span><span class="nt">${n.t}</span>
-     <span class="nn">${n.src?n.src+' · ':''}${n.n>1?'보도 '+n.n+'건 · ':''}${n.d?n.d.slice(5).replace('-','.'):'최근'}</span>`;
-    return n.link
-      ?`<a class="newsrow" href="${n.link}" target="_blank" rel="noopener">${inner}</a>`
-      :`<div class="newsrow">${inner}</div>`;
-  }).join('')||'<div class="newsrow" style="color:var(--sub)">이 분야의 최근 기사가 없수다</div>';
-  if(rows.length>newsMax)$('#newslist').insertAdjacentHTML('beforeend',
-    `<button class="morebtn" id="newsmore">더보기 · 남은 기사 ${rows.length-newsMax}건</button>`);
   $('#ranklist').innerHTML=NEWS.slice()
     .sort((a,b)=>(b.n-a.n)||((b.d||'').localeCompare(a.d||''))).slice(0,5).map((n,i)=>{
     const outs=(n.outlets&&n.outlets.length?n.outlets:[n.src]).filter(Boolean);
@@ -854,11 +874,27 @@ function renderNews(){
      <span class="rn nbadge">${n.n}개사</span>`;
     return n.link?`<a class="rankrow" href="${n.link}" target="_blank" rel="noopener">${inner}</a>`
                  :`<div class="rankrow">${inner}</div>`;}).join('');
+  const by={};
+  NEWS.forEach(n=>{const k=secN(n.sec);(by[k]=by[k]||[]).push(n);});
+  Object.values(by).forEach(a=>a.sort((x,y)=>(y.d||'').localeCompare(x.d||'')));
+  const secs=NEWSSECS.slice(1).filter(k=>k!=='전체');
+  if(by['기타']&&!secs.includes('기타'))secs.push('기타');
+  $('#newsstats').innerHTML=secs.map(k=>{const a=by[k]||[];
+    return `<div class="statc" data-sec="${k}" style="border-left-color:${SECCOLOR[k]||'#888'};cursor:pointer">
+      <span class="sl">${k}</span><b>${a.length}</b><span class="su">건</span>
+      <span class="sm">${a.length?'최신 '+timeAgo(a[0].d):'기사 없음'}</span></div>`;}).join('');
+  $('#newsboard').innerHTML=secs.map(k=>{const a=by[k]||[];
+    const rows=a.map(n=>`<a class="bitem" href="${n.link}" target="_blank" rel="noopener">
+      <span class="bt">${n.t}</span>
+      <span class="bm">${n.src||''}${n.n>1?' · 보도 '+n.n+'건':''} · ${timeAgo(n.d)}</span></a>`).join('')
+      ||'<div class="bempty">최근 2주 기사 없음</div>';
+    return `<div class="bcol" data-sec="${k}"><div class="bhd"><span class="bdot" style="background:${SECCOLOR[k]||'#888'}"></span>${k}<span class="bn">${a.length}</span></div><div class="bscroll">${rows}</div></div>`;}).join('');
 }
+
 document.addEventListener('click',e=>{
-  const c=e.target.closest('#secchips button');
-  if(c){newsSec=c.dataset.sec;newsMax=10;renderNews();}
-  if(e.target.id==='newsmore'){newsMax+=20;renderNews();}
+  const c=e.target.closest('.statc[data-sec]');
+  if(c){const col=document.querySelector(`.bcol[data-sec="${c.dataset.sec}"]`);
+    if(col)col.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});}
 });
 
 /* ══ 정책비서(법령) ══ */
@@ -918,9 +954,11 @@ document.getElementById('wordrank').innerHTML=WORDS.map((w,i)=>
 
 /* ══ 탐색 ══ */
 function xfiltered(){
+  const q=($('#xq')&&$('#xq').value.trim())||'';
   let rows=DATA.filter(x=>
     (!xstate.org||x.org===xstate.org)&&(!xstate.field||x.f===xstate.field)&&
-    (!xstate.who||x.who.includes(xstate.who)));
+    (!xstate.who||x.who.includes(xstate.who))&&
+    (!q||((x.t||'')+(x.s||'')+(x.where||'')).includes(q)));
   if(xstate.sort==='date')rows.sort((a,b)=>b.d.localeCompare(a.d));
   else if(xstate.sort==='org')rows.sort((a,b)=>ORGS.findIndex(o=>o.id===a.org)-ORGS.findIndex(o=>o.id===b.org)||b.d.localeCompare(a.d));
   else rows.sort((a,b)=>((a.deadline?ddayOf(a):9e9)-(b.deadline?ddayOf(b):9e9)));
@@ -951,6 +989,7 @@ function renderList(){
       ${due?`<span class="xdue">${due}</span>`:''}</button>`;
   }).join('')||'<div class="xrow" style="color:var(--sub)">조건에 맞는 정책이 없수다</div>';
 }
+document.addEventListener('input',e=>{if(e.target.id==='xq')renderList();});
 function openDetail(i){
   selIdx=i;const x=DATA[i],f=F(x.f),o=O(x.org);
   show('explore');
@@ -965,8 +1004,7 @@ function openDetail(i){
       <dt>누구에게</dt><dd>${x.who.join(' · ')}</dd>
       <dt>언제까지</dt><dd class="${x.due==='—'?'mut':''}">${x.due}${x.url
       ?`<a class="srcbtn" href="${x.url}" target="_blank" rel="noopener">기관 공고·보도 원문 보기 ↗</a>`
-      :`<a class="srcbtn" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">맞춤형 지원서비스 신청포털에서 확인 ↗</a>`}
-    <a class="srcbtn alt" href="${BOARD[x.org]}" target="_blank" rel="noopener">${o.name} 고시·공고 게시판 ↗</a>`;
+      :`<a class="srcbtn" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">맞춤형 지원서비스 신청포털에서 확인 ↗</a>`}`;
   renderRail();renderList();
   d.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
