@@ -6,6 +6,7 @@ import json, os, re, ssl, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 _diag=False
+_flt={}
 KST=timezone(timedelta(hours=9)); NOW=datetime.now(KST)
 OUT=Path(__file__).resolve().parent.parent/"data"/"assembly.json"
 MKEY=os.environ.get("ASM_MEMBER_KEY","").strip()
@@ -80,17 +81,32 @@ def find_member(dist):
 
 def bills_for(name):
     if not name: return []
-    for tmpl in [
-     "https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?KEY={k}&Type=json&pIndex=1&pSize=60&AGE=22&RST_PROPOSER={n}",
-    ]:
+    allrows=[]
+    for pg in range(1,7):   # 최대 6페이지×100 = 600건 (22대 전체 커버)
         try:
-            u=tmpl.format(k=urllib.parse.quote(BKEY),n=urllib.parse.quote(name))
-            j=try_json(get(u)); rows=rows_from(j); out=[]
+            u=f"https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?KEY={urllib.parse.quote(BKEY)}&Type=json&pIndex={pg}&pSize=100&AGE=22&RST_PROPOSER={urllib.parse.quote(name)}"
+            j=try_json(get(u)); rows=rows_from(j)
+            if not rows: break
+            allrows+=rows
+            if len(rows)<100: break
+        except Exception as e: print("bill err",name,pg,e); break
+    if True:
+        try:
+            rows=allrows; out=[]
             global _diag
             if rows and not _diag:
                 _diag=True; print("★ 발의API 필드:",list(rows[0].keys()))
                 print("★ 샘플행:",{k:rows[0][k] for k in list(rows[0].keys())[:14]})
+            kept=[]
             for r in rows:
+                rst=gv(r,"RST_PROPOSER")
+                if name not in rst:            # 대표발의자 본인만 (API 필터 불안정 대비)
+                    continue
+                kept.append(r)
+            if not _flt.get(name):
+                _flt[name]=True
+                print("  [필터]",name,": 원본",len(rows),"→ 대표발의",len(kept),"건")
+            for r in kept:
                 res=gv(r,"PROC_RESULT")                       # 본회의 최종결과
                 cmt=gv(r,"CMT_PROC_RESULT_CD")                # 위원회 처리결과 코드
                 if not res and cmt: res=CMT_CD.get(cmt,"위원회 심사")
@@ -100,8 +116,8 @@ def bills_for(name):
                     "stage":stage_of(res),
                     "cmit":gv(r,"COMMITTEE"),"url":gv(r,"DETAIL_LINK"),
                     "pdt":pdt,"bid":gv(r,"BILL_ID")})
-            if out: return out
-        except Exception as e: print("bill err",name,e)
+            return out
+        except Exception as e: print("bill err",name,e); return []
     return []
 
 PROC_CODES=["TVBPMBILL11","nknalejkafmvgzmpb"]
