@@ -3,21 +3,26 @@ on:
   schedule:
     - cron: '0 21,3,9 * * *'
   workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   collect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: '3.12' }
+        with:
+          python-version: '3.11'
       - name: Collect Jeju news
         run: python scripts/collect_news.py
-      - name: Commit if changed
+      - name: Collect Jeju notices
+        run: python scripts/collect_notices.py || true
+      - name: Commit results
         run: |
-          git config user.name  "mondak-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add data/news.json
-          git diff --cached --quiet || git commit -m "news: auto-update"
+          git config user.name "mondak-bot"
+          git config user.email "bot@mondak"
+          git add data/*.json
+          git diff --cached --quiet || git commit -m "자동 수집 $(date -u +'%Y-%m-%d %H:%M')"
           git push
