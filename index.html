@@ -1728,8 +1728,9 @@ function renderNP(){
   document.getElementById('npdetail').innerHTML=all.length?
     `<div class="npbox"><h3>${m.name} 발의법률안 <span style="font-size:11px;color:var(--sub)">제22대</span></h3>
      ${tabs}
-     ${seg('통과','통과','pass')}${seg('계류','심사 중(계류)','pend')}${seg('종료','폐기·철회','done')}
-     ${bills.length?'':'<div class="bempty">이 분류에 해당하는 법안이 없습니다.</div>'}</div>`
+     ${seg('계류','심사 진행 중','pend')}${seg('종료','처리 완료','done')}
+     ${bills.length?'':'<div class="bempty">이 분류에 해당하는 법안이 없습니다.</div>'}
+     <div style="font-size:10.5px;color:var(--sub);margin-top:8px;line-height:1.5">· 본회의 통과·대안반영 등 세부 처리결과는 각 법안의 <b>원문(의안정보시스템)</b>에서 확인하세요.<br>· 발의일 최신순 · 대표발의는 의원이 직접 낸 법안, 공동발의는 함께 이름을 올린 법안입니다.</div></div>`
     :`<div class="npbox"><h3>${m.name}</h3><div class="bempty">발의법률안 데이터 연동 대기 — 워크플로우 재실행 후 표시됩니다.</div></div>`;
 }
 function renderCB(){
