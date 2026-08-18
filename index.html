@@ -369,7 +369,7 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 .noticeitem b{color:var(--navy);margin-right:6px}
 .noticeitem span{color:var(--sub)}
 
-.dmham{font-size:13.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.dmham{font-size:18px;color:var(--ink);display:flex;align-items:center;padding:5px 12px;flex:none;border:1px solid var(--line);border-radius:10px;background:#fff}
 .dmham:hover{border-color:var(--navy)}
 @media(max-width:1180px){.lsub{display:none}}
 body{padding-bottom:78px}
@@ -402,7 +402,7 @@ body{padding-bottom:78px}
       <button data-v="home" class="on">홈</button>
       <button data-v="news">새소식</button>
       <button data-v="lawbot">정책비서</button>
-      <button class="dmham" data-open-drawer aria-label="전체 메뉴">☰ 전체메뉴</button>
+      <button class="dmham" data-open-drawer aria-label="전체 메뉴" title="전체메뉴">☰</button>
     </nav>
     <div class="topbtn">
       <button class="biseobtn" data-v="biseo">🗨 민원비서</button>
@@ -420,14 +420,13 @@ body{padding-bottom:78px}
     <div class="unipanel" id="unipanel"></div>
   </div>
   <div class="todaycard" style="margin-top:14px">
-    <div class="th"><h2>제주 인구 현황</h2>
+    <div class="th"><h2>제주 인구 현황 <span style="font-size:10.5px;color:var(--sub);font-weight:500">’26.6~7 · 도청 인구빅데이터 발표 기준</span></h2>
       <a class="pm" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">더보기 · 제주통계포털 ↗</a></div>
     <div class="tstats">
       <div class="tcell"><div class="l" id="pv1l">총인구 ('26.6)</div><div class="v" id="pv1">691,268명</div></div>
       <div class="tcell"><div class="l" id="pv2l">주민등록 ('26.7)</div><div class="v" id="pv2">662,680명</div></div>
       <div class="tcell"><div class="l" id="pv3l">등록외국인 ('26.6)</div><div class="v" id="pv3">28,476명</div></div>
     </div>
-    <div style="font-size:10.5px;color:var(--sub);margin-top:7px">’26.6~7 · 도청 인구빅데이터 발표 기준</div>
   </div>
   <div class="todaycard">
     <div class="th"><h2>제주 관광객 현황 <span style="font-size:10.5px;color:var(--sub);font-weight:500">관광빅데이터플랫폼·한국은행 제주본부</span></h2>
