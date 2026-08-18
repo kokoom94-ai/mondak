@@ -55,7 +55,12 @@ def main():
         org=str(r.get("소관기관명",""))
         summary=str(r.get("서비스목적요약") or r.get("서비스목적") or "")[:120]
         due=str(r.get("신청기한") or "상시/공고 참조").strip()[:60]
-        dept="jeju" if "제주시" in org else ("seog" if "서귀포" in org else "do")
+        # 소관기관명으로 층위 판별 (읍면동 > 행정시 > 도청 순, 세부기관 우선)
+        if re.search(r"(읍|면|동)\s*$|주민센터|행정복지센터",org): dept="eup"
+        elif "서귀포" in org: dept="seog"
+        elif "제주시" in org: dept="jeju"
+        elif re.search(r"교육|학교",org): dept="do"
+        else: dept="do"
         blob=t+" "+summary
         f=next((f for f,p in RULES if re.search(p,blob)),"welfare")
         w=[k for k,p in WHO if re.search(p,blob)] or ["모든 도민"]
