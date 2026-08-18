@@ -32,6 +32,7 @@ jobs:
         env:
           ASM_MEMBER_KEY: ${{ secrets.ASM_MEMBER_KEY }}
           ASM_BILL_KEY: ${{ secrets.ASM_BILL_KEY }}
+          ASM_PROC_KEY: ${{ secrets.ASM_PROC_KEY }}
         run: python scripts/collect_assembly.py || true
       - name: Collect Jeju stats
         run: python scripts/collect_stats.py || true
