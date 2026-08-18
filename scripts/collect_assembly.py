@@ -5,10 +5,12 @@ Secrets: ASM_MEMBER_KEY(국회의원정보), ASM_BILL_KEY(발의법률안)"""
 import json, os, re, ssl, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+_diag=False
 KST=timezone(timedelta(hours=9)); NOW=datetime.now(KST)
 OUT=Path(__file__).resolve().parent.parent/"data"/"assembly.json"
 MKEY=os.environ.get("ASM_MEMBER_KEY","").strip()
 BKEY=os.environ.get("ASM_BILL_KEY","").strip()
+PKEY=os.environ.get("ASM_PROC_KEY","").strip()
 DISTRICTS=["제주시갑","제주시을","서귀포시"]
 
 import time
@@ -82,22 +84,52 @@ def bills_for(name):
         try:
             u=tmpl.format(k=urllib.parse.quote(BKEY),n=urllib.parse.quote(name))
             j=try_json(get(u)); rows=rows_from(j); out=[]
+            global _diag
+            if rows and not _diag:
+                _diag=True; print("★ 발의API 필드:",list(rows[0].keys()))
+                print("★ 샘플행:",{k:rows[0][k] for k in list(rows[0].keys())[:14]})
             for r in rows:
+                res=gv(r,"PROC_RESULT","PROC_RESULT_CD","RGS_RSLN_RSLT","PROC_STAGE_CD")
                 out.append({"t":gv(r,"BILL_NAME"),"no":gv(r,"BILL_NO"),
-                    "d":gv(r,"PROPOSE_DT"),"result":gv(r,"PROC_RESULT") or "계류",
-                    "stage":stage_of(gv(r,"PROC_RESULT")),
-                    "cmit":gv(r,"COMMITTEE"),"url":gv(r,"DETAIL_LINK")})
+                    "d":gv(r,"PROPOSE_DT"),"result":res or "계류",
+                    "stage":stage_of(res),
+                    "cmit":gv(r,"COMMITTEE"),"url":gv(r,"DETAIL_LINK"),
+                    "bid":gv(r,"BILL_ID")})
             if out: return out
         except Exception as e: print("bill err",name,e)
     return []
 
+PROC_CODES=["TVBPMBILL11","nknalejkafmvgzmpb"]
+def load_proc_results():
+    """처리의안 API에서 22대 BILL_ID→처리결과 맵 구축"""
+    if not PKEY: return {}
+    for code in PROC_CODES:
+        m={}
+        try:
+            for pg in range(1,40):
+                u=f"https://open.assembly.go.kr/portal/openapi/{code}?KEY={urllib.parse.quote(PKEY)}&Type=json&pIndex={pg}&pSize=1000&AGE=22"
+                j=try_json(get(u)); rows=rows_from(j)
+                if not rows: break
+                for r in rows:
+                    bid=gv(r,"BILL_ID"); res=gv(r,"PROC_RESULT_CD","PROC_RESULT","RGS_RSLN_RSLT")
+                    if bid and res: m[bid]=res
+                if len(rows)<1000: break
+            if m: print(f"처리의안({code}):",len(m),"건 매핑"); return m
+        except Exception as e: print("proc err",code,e)
+    return {}
+
 def main():
     if not MKEY: print("ASM_MEMBER_KEY 미설정"); 
+    PROC=load_proc_results()
     mems=[]
     for d in DISTRICTS:
         m=find_member(d) if MKEY else {"dist":d,"name":""}
         if m["name"] and BKEY:
-            m["bills"]=bills_for(m["name"])
+            bl=bills_for(m["name"])
+            for b in bl:
+                r=PROC.get(b.get("bid"))
+                if r: b["result"]=r; b["stage"]=stage_of(r)
+            m["bills"]=bl
             print(d,"→",m["name"],"발의",len(m.get("bills",[])),"건")
         else:
             m["bills"]=[]; print(d,"→",m["name"] or "미확인")
