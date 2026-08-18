@@ -43,6 +43,12 @@ def rows_from(j):
         if isinstance(items,dict): return [items]
     return []
 
+def stage_of(res):
+    if not res: return "계류"
+    if any(k in res for k in ("가결","공포","통과","반영")): return "통과"
+    if any(k in res for k in ("폐기","부결","철회","임기만료")): return "종료"
+    return "계류"
+
 def gv(d,*ks):
     for k in ks:
         if isinstance(d,dict) and d.get(k) not in (None,""): return str(d[k]).strip()
@@ -71,7 +77,7 @@ def find_member(dist):
 def bills_for(name):
     if not name: return []
     for tmpl in [
-     "https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?KEY={k}&Type=json&pIndex=1&pSize=15&AGE=22&RST_PROPOSER={n}",
+     "https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?KEY={k}&Type=json&pIndex=1&pSize=60&AGE=22&RST_PROPOSER={n}",
     ]:
         try:
             u=tmpl.format(k=urllib.parse.quote(BKEY),n=urllib.parse.quote(name))
@@ -79,6 +85,7 @@ def bills_for(name):
             for r in rows:
                 out.append({"t":gv(r,"BILL_NAME"),"no":gv(r,"BILL_NO"),
                     "d":gv(r,"PROPOSE_DT"),"result":gv(r,"PROC_RESULT") or "계류",
+                    "stage":stage_of(gv(r,"PROC_RESULT")),
                     "cmit":gv(r,"COMMITTEE"),"url":gv(r,"DETAIL_LINK")})
             if out: return out
         except Exception as e: print("bill err",name,e)
