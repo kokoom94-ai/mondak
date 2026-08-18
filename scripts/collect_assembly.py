@@ -5,7 +5,7 @@ Secrets: ASM_MEMBER_KEY(국회의원정보), ASM_BILL_KEY(발의법률안)"""
 import json, os, re, ssl, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-_diag=False
+_diag=[False]
 _flt={}
 KST=timezone(timedelta(hours=9)); NOW=datetime.now(KST)
 OUT=Path(__file__).resolve().parent.parent/"data"/"assembly.json"
@@ -80,45 +80,42 @@ def find_member(dist):
     return {"dist":dist,"name":"","party":"","cmit":"","since":"","photo":""}
 
 def bills_for(name):
+    """이름 필터 파라미터가 불안정 → 22대 전체를 넉넉히 훑어 대표/공동발의 모두 코드필터"""
     if not name: return []
     allrows=[]
-    for pg in range(1,4):   # 최대 3페이지×100 = 300건 (초선 대표발의 충분)
-        try:
-            u=f"https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?KEY={urllib.parse.quote(BKEY)}&Type=json&pIndex={pg}&pSize=100&AGE=22&RST_PROPOSER={urllib.parse.quote(name)}"
-            j=try_json(get(u)); rows=rows_from(j)
-            if not rows: break
-            allrows+=rows
-            if len(rows)<100: break
-        except Exception as e: print("bill err",name,pg,e); break
-    if True:
-        try:
-            rows=allrows; out=[]
-            global _diag
-            if rows and not _diag:
-                _diag=True; print("★ 발의API 필드:",list(rows[0].keys()))
-                print("★ 샘플행:",{k:rows[0][k] for k in list(rows[0].keys())[:14]})
-            kept=[]
-            for r in rows:
-                rst=gv(r,"RST_PROPOSER")
-                if name not in rst:            # 대표발의자 본인만 (API 필터 불안정 대비)
-                    continue
-                kept.append(r)
-            if not _flt.get(name):
-                _flt[name]=True
-                print("  [필터]",name,": 원본",len(rows),"→ 대표발의",len(kept),"건")
-            for r in kept:
-                res=gv(r,"PROC_RESULT")                       # 본회의 최종결과
-                cmt=gv(r,"CMT_PROC_RESULT_CD")                # 위원회 처리결과 코드
-                if not res and cmt: res=CMT_CD.get(cmt,"위원회 심사")
-                pdt=gv(r,"PROC_DT","CMT_PROC_DT")
-                out.append({"t":gv(r,"BILL_NAME"),"no":gv(r,"BILL_NO"),
-                    "d":gv(r,"PROPOSE_DT"),"result":res or "계류",
-                    "stage":stage_of(res),
-                    "cmit":gv(r,"COMMITTEE"),"url":gv(r,"DETAIL_LINK"),
-                    "pdt":pdt,"bid":gv(r,"BILL_ID")})
-            return out
-        except Exception as e: print("bill err",name,e); return []
-    return []
+    for pg in range(1,26):        # 최대 2500건 (22대 접수 최신순, 세 의원 발의 커버)
+        r=_fetch_bills("",None,pg)
+        if not r: break
+        allrows+=r
+        if len(r)<100: break
+    rep=[r for r in allrows if name in gv(r,"RST_PROPOSER")]                       # 대표발의
+    co =[r for r in allrows if name in gv(r,"PUBL_PROPOSER") and name not in gv(r,"RST_PROPOSER")]  # 공동발의
+    if not _flt.get(name):
+        _flt[name]=True
+        print(f"  [{name}] 훑음 {len(allrows)}건 → 대표발의 {len(rep)} · 공동발의 {len(co)}")
+    return _pack(rep,"rep")+_pack(co,"co")
+
+def _fetch_bills(name,param,page=1):
+    try:
+        q={"KEY":BKEY,"Type":"json","pIndex":page,"pSize":100,"AGE":"22"}
+        if param and name: q[param]=name
+        u="https://open.assembly.go.kr/portal/openapi/nzmimeepazxkubdpn?"+urllib.parse.urlencode(q)
+        return rows_from(try_json(get(u)))
+    except Exception as e:
+        print("fetch err",name,param,page,e); return []
+
+def _pack(rows,kind):
+    out=[]
+    for r in rows:
+        res=gv(r,"PROC_RESULT")
+        cmt=gv(r,"CMT_PROC_RESULT_CD")
+        if not res and cmt: res=CMT_CD.get(cmt,"위원회 심사")
+        out.append({"t":gv(r,"BILL_NAME"),"no":gv(r,"BILL_NO"),
+            "d":gv(r,"PROPOSE_DT"),"result":res or "계류","stage":stage_of(res),
+            "kind":kind,   # rep=대표발의, co=공동발의
+            "cmit":gv(r,"COMMITTEE"),"url":gv(r,"DETAIL_LINK"),"bid":gv(r,"BILL_ID")})
+    out.sort(key=lambda x:x["d"],reverse=True)
+    return out
 
 PROC_CODES=[]  # 발의 API 자체 필드로 처리결과 판정, 무거운 처리의안 API 미사용
 def load_proc_results():
