@@ -429,6 +429,13 @@ body{padding-bottom:78px}
 .cbillrow{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:13px;line-height:1.5}
 .cbillrow .bno{font-size:11px;color:var(--sub)}
 .cbillrow .prop{font-size:11.5px;color:var(--navy);font-weight:600;margin-top:3px}
+.billseg{margin-top:10px}
+.segh{font-size:12px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:7px;margin:8px 0 2px}
+.segh b{color:var(--sub)}
+.segdot{width:8px;height:8px;border-radius:50%}
+.segdot.pass{background:#0CA678}.segdot.pend{background:#E8590C}.segdot.done{background:#98A2B3}
+.rs.done{color:#98A2B3;border:1px solid #d5d9e0}
+.morebtn{width:100%;margin-top:8px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px;font-size:12px;font-weight:700;color:var(--navy)}
 </style>
 </head>
 <body>
@@ -1684,7 +1691,7 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{if(e.target.id==='plq')renderPledges();});
 
 /* ══ 우리동네의원 ══ */
-let ASM=null, CB=null, npSel=0;
+let ASM=null, CB=null, npSel=0, npLimit={};
 function renderNP(){
   const g=document.getElementById('npeople'); if(!g)return;
   if(!ASM||!ASM.members){g.innerHTML='<div class="bempty">국회 API 연동 후 3개 지역구(제주시갑·을·서귀포시) 현직 의원이 표시됩니다.</div>';return;}
@@ -1694,12 +1701,23 @@ function renderNP(){
     <div class="pt">${m.party||''}</div>
     <div class="cm">${m.cmit||'상임위 정보 준비 중'}</div></div>`).join('');
   const m=ASM.members[npSel];
-  document.getElementById('npdetail').innerHTML=m&&m.bills&&m.bills.length?
-    `<div class="npbox"><h3>${m.name} 대표발의 법률안 <span style="font-size:11px;color:var(--sub)">최근 ${m.bills.length}건</span></h3>`+
-    m.bills.map(b=>`<a class="billrow" href="${b.url||'#'}" target="_blank" rel="noopener">
-      <span class="bt">${b.t}<span class="rs ${/가결|공포|통과|원안|수정/.test(b.result)?'pass':'pend'}">${b.result}</span></span>
-      <span class="bm">의안 ${b.no||'-'} · ${b.cmit||''} · 발의 ${b.d||''}</span></a>`).join('')+'</div>'
-    :(m?`<div class="npbox"><h3>${m.name}</h3><div class="bempty">발의법률안 데이터 연동 대기</div></div>`:'');
+  if(!m){document.getElementById('npdetail').innerHTML='';return;}
+  const bills=m.bills||[];
+  const grp={통과:[],계류:[],종료:[]};
+  bills.forEach(b=>{(grp[b.stage||'계류']||grp['계류']).push(b);});
+  const seg=(key,label,cls)=>{
+    const arr=grp[key]; if(!arr.length)return '';
+    const lim=npLimit[key]||3;
+    const rows=arr.slice(0,lim).map(b=>`<a class="billrow" href="${b.url||'#'}" target="_blank" rel="noopener">
+      <span class="bt">${b.t}<span class="rs ${cls}">${b.result}</span></span>
+      <span class="bm">의안번호 ${b.no||'-'} · ${b.cmit||'소관위 미상'} · 발의 ${b.d||''} · 원문 ↗</span></a>`).join('');
+    const more=arr.length>lim?`<button class="morebtn npmore" data-k="${key}">${label} 더보기 · ${arr.length-lim}건</button>`:'';
+    return `<div class="billseg"><div class="segh"><span class="segdot ${cls}"></span>${label} <b>${arr.length}</b></div>${rows}${more}</div>`;
+  };
+  document.getElementById('npdetail').innerHTML=bills.length?
+    `<div class="npbox"><h3>${m.name} 대표발의 법률안 <span style="font-size:11px;color:var(--sub)">22대 · 총 ${bills.length}건</span></h3>
+     ${seg('통과','통과','pass')}${seg('계류','심사 중(계류)','pend')}${seg('종료','폐기·철회','done')}</div>`
+    :`<div class="npbox"><h3>${m.name}</h3><div class="bempty">발의법률안 데이터 연동 대기</div></div>`;
 }
 function renderCB(){
   const st=document.getElementById('cbstat'), bl=document.getElementById('cbills');
@@ -1719,7 +1737,10 @@ function renderCB(){
 fetch('data/assembly.json').then(r=>r.ok?r.json():null).then(j=>{ASM=j;renderNP();
   const n=document.getElementById('cbmeta');}).catch(()=>{});
 fetch('data/council.json').then(r=>r.ok?r.json():null).then(j=>{CB=j;renderCB();}).catch(()=>{});
-document.addEventListener('click',e=>{const c=e.target.closest('.npcard');if(c){npSel=+c.dataset.i;renderNP();}});
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.npcard');if(c){npSel=+c.dataset.i;npLimit={};renderNP();}
+  const mo=e.target.closest('.npmore');if(mo){npLimit[mo.dataset.k]=(npLimit[mo.dataset.k]||3)+10;renderNP();}
+});
 </script>
 </body>
 </html>
