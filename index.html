@@ -408,6 +408,27 @@ body{padding-bottom:78px}
 .pnews a{display:block;font-size:12px;padding:6px 0;color:var(--ink)}
 .pnews a b{color:var(--sub);font-weight:600;font-size:11px}
 .pnews .none{font-size:11.5px;color:var(--sub);padding:8px 0}
+
+.csec .dh{display:flex;align-items:baseline;gap:8px;margin-bottom:2px}
+.npgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px;margin-top:12px}
+.npcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;cursor:pointer;transition:.15s}
+.npcard:hover{box-shadow:0 8px 22px rgba(20,40,90,.1);border-color:var(--navy)}
+.npcard .dist{font-size:11px;font-weight:800;color:var(--navy)}
+.npcard .nm{font-size:19px;font-weight:800;margin-top:6px;letter-spacing:-.5px}
+.npcard .pt{font-size:12px;color:var(--sub);margin-top:2px}
+.npcard .cm{font-size:11px;color:var(--sub);margin-top:8px;border-top:1px solid var(--line);padding-top:7px}
+.npcard.on{border-color:var(--navy);background:#F5F9FF}
+#npdetail{margin-top:12px}
+.npbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.npbox h3{font-size:14px;font-weight:800;margin-bottom:8px}
+.billrow{display:block;padding:10px 0;border-top:1px solid var(--line);font-size:12.8px}
+.billrow .bt{font-weight:600;line-height:1.45}
+.billrow .bm{font-size:11px;color:var(--sub);margin-top:3px}
+.billrow .rs{font-size:10.5px;font-weight:700;border-radius:99px;padding:1px 8px;margin-left:6px}
+.rs.pass{color:#0CA678;border:1px solid #0CA678}.rs.pend{color:#E8590C;border:1px solid #E8590C}
+.cbillrow{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:13px;line-height:1.5}
+.cbillrow .bno{font-size:11px;color:var(--sub)}
+.cbillrow .prop{font-size:11.5px;color:var(--navy);font-weight:600;margin-top:3px}
 </style>
 </head>
 <body>
@@ -566,7 +587,7 @@ body{padding-bottom:78px}
 
   <div class="newssec" style="margin-top:22px">
     <div class="dh"><h2>민선9기 제주도정 100대 정책과제</h2><span class="sub">도민과 함께! 미래를 만나는 제주</span></div>
-    <div style="font-size:11px;color:var(--sub);margin-top:2px">제40대 도지사직인수위원회 발표 기준 · 과제를 누르면 최근 2주 관련 보도가 표시됩니다</div>
+    <div style="font-size:11px;color:var(--sub);margin-top:2px">제40대 도지사직인수위원회 발표 기준 · 추후 언론보도자료를 통해 추진현황을 알려드립니다</div>
     <div class="uni" style="margin-top:10px"><span class="mag">🔍</span>
       <input id="plq" type="search" autocomplete="off" placeholder="과제 검색 — 예: 돌봄, AI, 4·3, 감귤, 주거"></div>
     <div id="pledgeacc"></div>
@@ -578,34 +599,30 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">우리동네의원</div>
-  <div class="viewsub">제주 국회의원과 도의원의 활동·입법·발의 현황 알리미</div>
-  <div class="memgrid">
-    <div class="memcard"><div class="md">국회 · 제주시갑</div><div class="mn">지역구 의원</div><div class="ms">발의 법안 · 표결 · 상임위 활동<br>국회 공공 API 연동 예정</div></div>
-    <div class="memcard"><div class="md">국회 · 제주시을</div><div class="mn">지역구 의원</div><div class="ms">발의 법안 · 표결 · 상임위 활동<br>국회 공공 API 연동 예정</div></div>
-    <div class="memcard"><div class="md">국회 · 서귀포시</div><div class="mn">지역구 의원</div><div class="ms">발의 법안 · 표결 · 상임위 활동<br>국회 공공 API 연동 예정</div></div>
-    <a class="memcard alink" href="urido-alrimi.html" target="_blank" rel="noopener"><div class="md">도의회</div><div class="mn">도의원 45인 ↗</div><div class="ms">지도에서 우리 동네 선거구를 눌러<br>의원·활동을 바로 확인 — <b style="color:var(--ok)">알리미 열기</b></div></a>
+  <div class="viewsub">병 고치는 동네의원처럼, 제주를 돌보는 국회의원·도의원 활동 알리미</div>
+
+  <div class="csec">
+    <div class="dh"><h2>제주 국회의원 현황</h2><span class="sub">제22대 · 2022년 이후 입법활동</span></div>
+    <div id="npeople" class="npgrid"></div>
+    <div id="npdetail"></div>
   </div>
-  <div class="alrimicard">
-    <div class="ah">
-      <h2>도의원 45인 — 우리 동네의원 알리미</h2>
-      <a href="urido-alrimi.html" target="_blank" rel="noopener">새 창에서 크게 보기 ↗</a>
-    </div>
-    <div class="asub">선거구 지도를 누르면 해당 지역 도의원과 활동 현황이 나옵니다 · AI 제주정책 부보상과 같은 폴더의 <code>urido-alrimi.html</code>을 불러옵니다</div>
-    <iframe src="urido-alrimi.html" loading="lazy" title="우리 동네의원 알리미 — 제주 도의원 45인"></iframe>
-  </div>
-  <div class="council">
-    <h2>도의회는 지금 <em>무엇을 다루나</em> <span style="font-size:11px;color:var(--sub);font-weight:500">시연 수치</span></h2>
-    <div class="cgrid">
-      <div class="cstat"><div class="lbl">접수 의안</div><div class="num">128</div></div>
-      <div class="cstat"><div class="lbl">가결</div><div class="num">86</div></div>
-      <div class="cstat"><div class="lbl">심사 중</div><div class="num">31</div></div>
-      <div class="cstat"><div class="lbl">이번 주 상임위</div><div class="num">4</div></div>
+
+  <div class="csec" style="margin-top:22px">
+    <div class="dh"><h2>제주도의원 현황</h2><span class="sub">제13대 제주도의회 45인</span></div>
+    <div class="alrimicard">
+      <div class="ah"><h2>우리 동네의원 알리미</h2>
+        <a href="urido-alrimi.html" target="_blank" rel="noopener">새 창에서 크게 보기 ↗</a></div>
+      <iframe src="urido-alrimi.html" loading="lazy" title="제주 도의원 45인 알리미"></iframe>
     </div>
   </div>
-  <div id="councilfeed" style="margin-top:10px"></div>
-  <div class="notecard">
-    <b>연동 예정</b> — 국회 공공 API(assembly-api-mcp 방식)와 도의회 의안정보를 결합해
-    의원별 트랙레코드(발의·표결·회의록 발언)를 근거 문서와 함께 제공합니다.
+
+  <div class="csec" style="margin-top:22px">
+    <div class="dh"><h2>도의회는 지금 무엇을 다루나</h2><span class="sub" id="cbmeta">의안정보 연동 대기</span></div>
+    <div class="cgrid" id="cbstat"></div>
+    <div id="cbills" style="margin-top:12px"></div>
+  </div>
+  <div class="notecard" id="cnote">
+    <b>출처</b> — 국회 열린국회정보 OPEN API · 중앙선거관리위원회 · 제주도의회 의안정보. 국회의원 정보는 2022년 이후 재보궐·총선 결과를 반영합니다.
   </div>
 </div>
 </div><!-- /council -->
@@ -909,6 +926,7 @@ function show(v,push=true){
   if(v==='news')renderNews();
   if(v==='support')renderSupport();
   if(v==='lawbot'){renderLaws();renderPledges();}
+  if(v==='council'){renderNP();renderCB();}
 }
 history.replaceState({v:'home'},'','#home');
 window.addEventListener('popstate',e=>{
@@ -1257,7 +1275,7 @@ cv.addEventListener('mouseleave',()=>tip.style.display='none');
 cv.addEventListener('click',e=>{const d=hit(e);if(d)openDetail(DATA.indexOf(d.item));});
 window.addEventListener('resize',()=>{if(!document.getElementById('view-orbit').hidden)drawOrbit(DATA.slice());});
 
-renderHome();renderLaws();renderCouncilFeed();renderNews();renderSupport();renderRail();renderList();
+renderHome();renderLaws();renderNews();renderSupport();renderRail();renderList();
 
 /* ══ 라이브 데이터 로더 (GitHub Pages 배포 시) ══ */
 fetch('data/policies.json').then(r=>r.ok?r.json():null).then(j=>{
@@ -1266,7 +1284,7 @@ fetch('data/policies.json').then(r=>r.ok?r.json():null).then(j=>{
     DATA.length=0; j.items.forEach(x=>DATA.push(x)); keep.forEach(x=>DATA.push(x));
     const b=document.querySelector('#view-home .livebadge');
     if(b)b.textContent='기관 공고 자동 수집: '+j.meta.collected_at+' · '+j.meta.count+'건 (직링크)';
-    renderHome();renderRail();renderList();renderCouncilFeed();
+    renderHome();renderRail();renderList();
   }
 }).catch(()=>{});
 fetch('data/laws.json').then(r=>r.ok?r.json():null).then(j=>{
@@ -1654,15 +1672,9 @@ function renderPledges(){
   const gs=[]; rows.forEach(x=>{if(!gs.includes(x.g))gs.push(x.g);});
   el.innerHTML=gs.map((g,gi)=>{const its=rows.filter(x=>x.g===g);
     return `<details ${q||gi===0?'open':''}><summary>${g}<span class="cnt">${its.length}과제</span></summary>`+
-      its.map(x=>{const m=pMatch(x.t);
-        return `<button class="prow" data-no="${x.no}">
+      its.map(x=>`<div class="prow">
           <span class="pno">${String(x.no).padStart(2,'0')}</span>
-          <span class="pt">${x.t}</span>
-          <span class="pn ${m.length?'':'zero'}">${m.length?'보도 '+m.length:'보도 없음'}</span></button>
-        <div class="pnews" id="pn${x.no}" hidden>${
-          m.length?m.map(n=>`<a href="${n.link}" target="_blank" rel="noopener">${n.t} <b>— ${n.src||''} · ${n.d?n.d.slice(5).replace('-','.'):''}</b></a>`).join('')
-          :'<div class="none">최근 2주 관련 보도가 없수다 — 수집이 쌓이면 자동 연결됩니다</div>'}</div>`;
-      }).join('')+`</details>`;}).join('');
+          <span class="pt">${x.t}</span></div>`).join('')+`</details>`;}).join('');
 }
 fetch('data/pledges.json').then(r=>r.ok?r.json():null).then(j=>{if(j){PLEDGES=j;renderPledges();}}).catch(()=>{});
 document.addEventListener('click',e=>{
@@ -1670,6 +1682,44 @@ document.addEventListener('click',e=>{
   if(r){const d=document.getElementById('pn'+r.dataset.no);if(d)d.hidden=!d.hidden;}
 });
 document.addEventListener('input',e=>{if(e.target.id==='plq')renderPledges();});
+
+/* ══ 우리동네의원 ══ */
+let ASM=null, CB=null, npSel=0;
+function renderNP(){
+  const g=document.getElementById('npeople'); if(!g)return;
+  if(!ASM||!ASM.members){g.innerHTML='<div class="bempty">국회 API 연동 후 3개 지역구(제주시갑·을·서귀포시) 현직 의원이 표시됩니다.</div>';return;}
+  g.innerHTML=ASM.members.map((m,i)=>`<div class="npcard ${i===npSel?'on':''}" data-i="${i}">
+    <div class="dist">${m.dist}</div>
+    <div class="nm">${m.name||'—'}</div>
+    <div class="pt">${m.party||''}</div>
+    <div class="cm">${m.cmit||'상임위 정보 준비 중'}</div></div>`).join('');
+  const m=ASM.members[npSel];
+  document.getElementById('npdetail').innerHTML=m&&m.bills&&m.bills.length?
+    `<div class="npbox"><h3>${m.name} 대표발의 법률안 <span style="font-size:11px;color:var(--sub)">최근 ${m.bills.length}건</span></h3>`+
+    m.bills.map(b=>`<a class="billrow" href="${b.url||'#'}" target="_blank" rel="noopener">
+      <span class="bt">${b.t}<span class="rs ${/가결|공포|통과|원안|수정/.test(b.result)?'pass':'pend'}">${b.result}</span></span>
+      <span class="bm">의안 ${b.no||'-'} · ${b.cmit||''} · 발의 ${b.d||''}</span></a>`).join('')+'</div>'
+    :(m?`<div class="npbox"><h3>${m.name}</h3><div class="bempty">발의법률안 데이터 연동 대기</div></div>`:'');
+}
+function renderCB(){
+  const st=document.getElementById('cbstat'), bl=document.getElementById('cbills');
+  if(!st)return;
+  if(!CB){st.innerHTML='<div class="bempty" style="grid-column:1/-1">제주도의회 의안정보 연동 후 접수·가결·심사중 현황과 발의 의안이 표시됩니다.</div>';return;}
+  document.getElementById('cbmeta').textContent=CB.meta.collected_at+' 기준';
+  const s=CB.stat||{};
+  st.innerHTML=[['접수 의안',s.total],['가결',s.pass],['심사 중',s.pending],['이번 회기',s.session]]
+    .map(([l,v])=>`<div class="cstat"><div class="lbl">${l}</div><div class="num">${v??'-'}</div></div>`).join('');
+  bl.innerHTML=(CB.bills||[]).map(b=>`<div class="cbillrow">
+    <b>${b.t}</b><span class="rs ${/가결|원안|수정|채택/.test(b.result||'')?'pass':'pend'}" style="margin-left:6px">${b.result||'심사중'}</span>
+    <div class="bno">의안 ${b.no||'-'} · ${b.cmit||''} · ${b.d||''}</div>
+    <div class="prop">발의: ${b.proposer||'-'}</div>
+    ${b.summary?`<div style="font-size:12px;color:var(--sub);margin-top:5px">${b.summary}</div>`:''}</div>`).join('')
+    ||'<div class="bempty">표시할 의안이 없습니다.</div>';
+}
+fetch('data/assembly.json').then(r=>r.ok?r.json():null).then(j=>{ASM=j;renderNP();
+  const n=document.getElementById('cbmeta');}).catch(()=>{});
+fetch('data/council.json').then(r=>r.ok?r.json():null).then(j=>{CB=j;renderCB();}).catch(()=>{});
+document.addEventListener('click',e=>{const c=e.target.closest('.npcard');if(c){npSel=+c.dataset.i;renderNP();}});
 </script>
 </body>
 </html>
