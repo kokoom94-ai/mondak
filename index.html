@@ -613,7 +613,7 @@ body{padding-bottom:78px}
   <div class="viewsub">병 고치는 동네의원처럼, 제주를 돌보는 국회의원·도의원 활동 알리미</div>
 
   <div class="csec">
-    <div class="dh"><h2>제주 국회의원 현황</h2><span class="sub">제22대 · 2022년 이후 입법활동</span></div>
+    <div class="dh"><h2>제주 국회의원 현황</h2><span class="sub" id="npmeta">제22대 · 2022년 이후 입법활동</span></div>
     <div id="npeople" class="npgrid"></div>
     <div id="npdetail"></div>
   </div>
@@ -1748,7 +1748,10 @@ function renderCB(){
     ${b.summary?`<div style="font-size:12px;color:var(--sub);margin-top:5px">${b.summary}</div>`:''}</div>`).join('')
     ||'<div class="bempty">표시할 의안이 없습니다.</div>';
 }
-fetch('data/assembly.json').then(r=>r.ok?r.json():null).then(j=>{ASM=j;renderNP();
+fetch('data/assembly.json').then(r=>r.ok?r.json():null).then(j=>{ASM=j;
+  if(j&&j.meta&&j.meta.collected_at){var nm=document.getElementById('npmeta');
+    if(nm){var dt=j.meta.collected_at.split(' ')[0].replace(/-/g,'.');nm.textContent='제22대 · '+dt+' 기준';}}
+  renderNP();
   const n=document.getElementById('cbmeta');}).catch(()=>{});
 fetch('data/council.json').then(r=>r.ok?r.json():null).then(j=>{CB=j;renderCB();}).catch(()=>{});
 document.addEventListener('click',e=>{
