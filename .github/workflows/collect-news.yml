@@ -16,8 +16,13 @@ jobs:
         with:
           python-version: '3.11'
       - name: Collect Jeju news
+        env:
+          NAVER_ID: ${{ secrets.NAVER_ID }}
+          NAVER_SECRET: ${{ secrets.NAVER_SECRET }}
         run: python scripts/collect_news.py
       - name: Collect Jeju notices
+        env:
+          GOV24_KEY: ${{ secrets.GOV24_KEY }}
         run: python scripts/collect_notices.py || true
       - name: Commit results
         run: |
