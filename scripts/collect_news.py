@@ -21,10 +21,10 @@ GOOGLE_QUERIES=["제주도 when:7d","제주도청 OR 제주도의회 when:7d","�
 
 RULES=[("안전/민원행정",r"태풍|호우|폭우|폭염|지진|화재|침수|사고|재난|안전|특보|경보|구조|해경|119|민방위|단속|민원|점검"),
  ("복지/사회보험",r"복지|돌봄|어르신|노인|장애|취약|아동|보육|의료급여|건강보험|국민연금|바우처|지원금|장수"),
- ("1차산업",r"감귤|농가|농업|어업|어민|해녀|축산|월동|당근|메밀|가뭄|조업|수산"),
+ ("1차산업",r"감귤|만감류|한라봉|농가|농업|어업|어민|해녀|축산|한우|월동|당근|메밀|딸기|가뭄|조업|수산|양식|품종|노지|하우스|재배|과수|출하|묘"),
  ("환경/에너지",r"환경|에너지|탄소|재활용|일회용|다회용|정원도시|그린수소|풍력|태양광|생태|곶자왈|오름"),
  ("교육/청년",r"학교|학생|교육|청년|늘봄|학점제|IB|장학|대학|청소년"),
- ("관광",r"관광|여행|크루즈|올레|축제|호텔|리조트|방문객|워케이션|면세|MICE"),
+ ("문화/관광",r"관광|여행|크루즈|올레|축제|페스티벌|공연|전시|문화|미술|박물관|콘서트|영화|호텔|리조트|방문객|워케이션|면세|MICE"),
  ("신산업/AX",r"AI|인공지능|디지털|데이터|UAM|드론|우주|ICT|클라우드|바이오"),
  ("스타트업/경제",r"스타트업|창업|수출|기업|경제|투자|고용|일자리|소상공인|상권"),
  ("행정",r"도정|도청|도지사|도의회|의원|조례|예산|행정|공무원|인사청문|감사|위촉|읍면동|4·3|제주시|서귀포")]
@@ -74,6 +74,38 @@ def parse_rss(xml_bytes, force_src=None):
         items.append({"t":title,"link":link,"src":src,"d":d})
     return items
 
+
+import os
+NAVER_ID=os.environ.get("NAVER_ID","").strip(); NAVER_SECRET=os.environ.get("NAVER_SECRET","").strip()  # NAVER API HUB(ncloud)
+DOMAP={"headlinejeju.co.kr":"헤드라인제주","newsjeju.net":"뉴스제주","jejusori.net":"제주의소리",
+ "newsnjeju.com":"뉴스N제주","jejunews.com":"제주일보","jejudomin.co.kr":"제주도민일보","jejuilbo.net":"제주新보",
+ "yna.co.kr":"연합뉴스","news1.kr":"뉴스1","newsis.com":"뉴시스","joongang.co.kr":"중앙일보","chosun.com":"조선일보",
+ "donga.com":"동아일보","hani.co.kr":"한겨레","khan.co.kr":"경향신문","kbs.co.kr":"KBS","imnews.imbc.com":"MBC",
+ "sbs.co.kr":"SBS","jtbc.co.kr":"JTBC","ytn.co.kr":"YTN","mk.co.kr":"매일경제","hankyung.com":"한국경제",
+ "jibs.co.kr":"JIBS","kctvjeju.com":"KCTV제주방송","ihalla.com":"한라일보"}
+def naver_news():
+    if not (NAVER_ID and NAVER_SECRET): print("naver(API HUB): 키 미설정, 건너뜀"); return []
+    out=[]
+    for q in ("제주","제주도청 OR 제주도의회","제주 관광","제주 감귤 OR 농업","제주 축제"):
+        try:
+            u="https://naverapihub.apigw.ntruss.com/search/v1/news.json?display=100&sort=date&query="+urllib.parse.quote(q)
+            req=urllib.request.Request(u,headers={"x-ncp-apigw-api-key-id":NAVER_ID,"x-ncp-apigw-api-key":NAVER_SECRET})
+            with urllib.request.urlopen(req,timeout=20,context=ssl.create_default_context()) as r:
+                j=json.loads(r.read().decode("utf-8"))
+            for it in j.get("items",[]):
+                t=re.sub(r"<[^>]+>","",it.get("title","")).replace("&quot;",'"').replace("&amp;","&").replace("&lt;","<").replace("&gt;",">").strip()
+                link=(it.get("originallink") or it.get("link") or "").strip()
+                if not t or not link or re.search(EXCLUDE,t) or not jeju_ok(t): continue
+                d=None
+                try: d=parsedate_to_datetime(it["pubDate"]).astimezone(KST).strftime("%Y-%m-%d")
+                except Exception: pass
+                dom=re.sub(r"^www\.","",urllib.parse.urlparse(link).netloc)
+                src=DOMAP.get(dom) or DOMAP.get(".".join(dom.split(".")[-2:])) or dom
+                out.append({"t":t,"link":link,"src":src,"d":d,"direct":True})
+        except Exception as e: print("skip naver",q,repr(e))
+    print("naver:",len(out),"건")
+    return out
+
 def main():
     all_items=[]; seen_links=set()
     for name,url in LOCAL_FEEDS:
@@ -84,6 +116,9 @@ def main():
                 if it["link"] in seen_links: continue
                 seen_links.add(it["link"]); it["direct"]=True; all_items.append(it)
         except Exception as e: print("skip local",name,e)
+    for it in naver_news():                              # 네이버: 원문 직링크·매체 폭
+        if it["link"] in seen_links: continue
+        seen_links.add(it["link"]); all_items.append(it)
     for q in GOOGLE_QUERIES:
         try:
             u="https://news.google.com/rss/search?q="+urllib.parse.quote(q)+"&hl=ko&gl=KR&ceid=KR:ko"
@@ -94,6 +129,9 @@ def main():
         except Exception as e: print("skip google",q,e)
     cutoff=(NOW-timedelta(days=7)).strftime("%Y-%m-%d")
     all_items=[i for i in all_items if not i["d"] or i["d"]>=cutoff]
+    today=NOW.strftime("%Y-%m-%d")
+    for i in all_items:
+        if not i["d"]: i["d"]=today
     print("수집",len(all_items),"건")
     clusters=[]
     for it in all_items:
@@ -115,7 +153,7 @@ def main():
         rep["outlets"]=outlets[:8]; rep["n"]=max(len(outlets),1)
         rep["sec"]=classify(rep["t"]); rep.pop("direct",None)
         out.append(rep)
-    out.sort(key=lambda x:(x["n"],x["d"] or "0000"), reverse=True)  # 매체수→최신 순
+    out.sort(key=lambda x:(x["d"] or "0000",x["n"]), reverse=True)  # 최신→매체수 순
     out=out[:100]
     if not out: print("no items; keeping previous"); return
     OUT.parent.mkdir(parents=True,exist_ok=True)

@@ -330,6 +330,7 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 .rn.nbadge{background:var(--gyul-soft);color:#9A5A10;font-weight:800;border-radius:8px;padding:2px 9px;font-size:11.5px;white-space:nowrap}
 #detail .srcbtn.alt{margin-left:6px;color:var(--navy);border-color:var(--navy)}
 #detail .srcbtn{margin-top:12px}
+.morebtn{display:block;width:100%;margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--navy);font-weight:700;font-size:14px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -730,7 +731,9 @@ const DATA=[{"org": "do", "f": "env", "d": "2026-08-17", "t": "'정원도시 제
 /* ── 시연 시드: 기사 스크랩 · 법규 · 교육 · 빈출단어 ── */
 let NEWSMETA=null;
 let NEWS=[{"sec": "교육/청년", "t": "제주 삼화초 소리울림 윈드오케스트라, 관악경연 전국대회 '대상'", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597570"}, {"sec": "1차산업", "t": "서귀포시축협, 8월 가축시장서 암송아지 낙찰가 66만원↑", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597569"}, {"sec": "관광", "t": "제주항공 국제선 환승객 4명 중 1명은 중국인 — 전년比 74%↑", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597567"}, {"sec": "관광", "t": "서귀포시, 관광극장 활용방안 시민 공개 간담회 19일 개최", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597566"}, {"sec": "교육/청년", "t": "서귀포시, 2027년 학교숲 조성사업 참여학교 모집", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597564"}, {"sec": "복지/사회보험", "t": "꿈만 같았던 제주 바다…물 밖으로 나오자 다시 '장벽' — 휠체어 이용 장애인의 여름", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597556"}, {"sec": "교육/청년", "t": "학교폭력 피해 학생·가족 지원 '해맑음 제주센터' 본격 운영", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597558"}, {"sec": "스타트업/경제", "t": "제주 수출 역대 최고치 이면엔 '쏠림' — 상위 5개사에 92% 집중", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597553"}, {"sec": "관광", "t": "제주시 첫 매리어트 브랜드, 쉐라톤 제주 호텔 9월 14일 정식 개관", "src": "헤드라인제주", "d": "2026-08-18", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597554"}, {"sec": "안전/민원행정", "t": "제주에 376㎜ 폭우 — 가뭄 해갈 기쁨도 잠시, 곳곳 호우 피해", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597550"}, {"sec": "안전/민원행정", "t": "휴대폰 충전 중 보조배터리 폭발 — 제주 다세대주택 화재 소동", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597549"}, {"sec": "환경/에너지", "t": "제주의 자연을 정원으로 — '정원도시' 조성 기본계획 수립 착수", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597547"}, {"sec": "환경/에너지", "t": "제주올레, 외국인 여행자 대상 '에코 여행' 캠페인 운영", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597546"}, {"sec": "복지/사회보험", "t": "제주시, 100세 생일 맞은 어르신에 장수축하금 100만원 지급", "src": "헤드라인제주", "d": "2026-08-17", "n": 2, "outlets": ["헤드라인제주", "뉴스제주"], "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597498"}, {"sec": "복지/사회보험", "t": "제주시, 의료급여 수급자 요양비 연중 지원", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597499"}, {"sec": "행정", "t": "제주도의회, 입법·법률고문 3명 위촉 — 의정 지원체계 강화", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597504"}, {"sec": "행정", "t": "이창흠 부지사 인사청문 특위 첫 회의 — 위원장 임정은 선임", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597502"}, {"sec": "1차산업", "t": "제주서 직접 생산 '딸기묘' 농가 첫 보급 — 12월 첫 수확", "src": "헤드라인제주", "d": "2026-08-17", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597490"}, {"sec": "안전/민원행정", "t": "제주시, 보조금 투입 '자기 차고지' 이용실태 전수점검", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597494"}, {"sec": "복지/사회보험", "t": "유니버설디자인 도민참여단, 수월봉·삼다수숲길 탐방 개선안 제안", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597489"}, {"sec": "환경/에너지", "t": "제주 5·16도로, 단계적 정비 — 친환경 도로로 탈바꿈", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597488"}, {"sec": "1차산업", "t": "제주 메밀, 일상식·간편식으로 변신 — 소비 확대 나선다", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597491"}, {"sec": "안전/민원행정", "t": "을지연습 18~21일 실시 — 20일 오후 2시 민방위 공습경보 훈련", "src": "헤드라인제주", "d": "2026-08-16", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597496"}, {"sec": "1차산업", "t": "김한규 의원, 구좌읍 가뭄 대응 농업용 저수조 공사 현장 점검", "src": "헤드라인제주", "d": "2026-08-15", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597524"}, {"sec": "환경/에너지", "t": "섬 속의 섬 우도, 일회용컵 줄이기 확산 — \"이젠 다회용컵으로\"", "src": "헤드라인제주", "d": "2026-08-15", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597517"}, {"sec": "행정", "t": "빗물받이 막힘에 답을 찾다 — 제주 공직자 혁신성과, 감사원도 인정", "src": "헤드라인제주", "d": "2026-08-14", "n": 1, "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597419"}];
-const NEWSSECS=['전체','복지/사회보험','신산업/AX','관광','스타트업/경제','1차산업','환경/에너지','교육/청년','안전/민원행정','행정'];
+const NEWSSECS=['전체','문화/관광','복지/사회보험','신산업/AX','스타트업/경제','1차산업','환경/에너지','교육/청년','안전/민원행정','행정'];
+const secN=s=>s==='관광'?'문화/관광':(s||'기타');
+let newsMax=10;
 const LAWS=[
  {g:'법률',t:'제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법',s:'law',k:'특별법 자치 분권'},
  {g:'조례 · 신산업',t:'제주특별자치도 인공지능 도입 및 디지털 전환 촉진 조례',s:'enact',k:'AI 인공지능 디지털 AX'},
@@ -830,15 +833,18 @@ document.addEventListener('click',e=>{
 function renderNews(){
   $('#secchips').innerHTML=NEWSSECS.map(s=>
     `<button class="${newsSec===s?'on':''}" data-sec="${s}">${s}</button>`).join('');
-  const rows=NEWS.filter(n=>newsSec==='전체'||n.sec===newsSec)
+  const rows=NEWS.filter(n=>newsSec==='전체'||secN(n.sec)===newsSec)
     .sort((a,b)=>(b.d||'').localeCompare(a.d||''));
-  $('#newslist').innerHTML=rows.map(n=>{
-    const inner=`<span class="nsec">${n.sec}</span><span class="nt">${n.t}</span>
+  const shown=rows.slice(0,newsMax);
+  $('#newslist').innerHTML=shown.map(n=>{
+    const inner=`<span class="nsec">${secN(n.sec)}</span><span class="nt">${n.t}</span>
      <span class="nn">${n.src?n.src+' · ':''}${n.n>1?'보도 '+n.n+'건 · ':''}${n.d?n.d.slice(5).replace('-','.'):'최근'}</span>`;
     return n.link
       ?`<a class="newsrow" href="${n.link}" target="_blank" rel="noopener">${inner}</a>`
       :`<div class="newsrow">${inner}</div>`;
   }).join('')||'<div class="newsrow" style="color:var(--sub)">이 분야의 최근 기사가 없수다</div>';
+  if(rows.length>newsMax)$('#newslist').insertAdjacentHTML('beforeend',
+    `<button class="morebtn" id="newsmore">더보기 · 남은 기사 ${rows.length-newsMax}건</button>`);
   $('#ranklist').innerHTML=NEWS.slice()
     .sort((a,b)=>(b.n-a.n)||((b.d||'').localeCompare(a.d||''))).slice(0,5).map((n,i)=>{
     const outs=(n.outlets&&n.outlets.length?n.outlets:[n.src]).filter(Boolean);
@@ -851,7 +857,8 @@ function renderNews(){
 }
 document.addEventListener('click',e=>{
   const c=e.target.closest('#secchips button');
-  if(c){newsSec=c.dataset.sec;renderNews();}
+  if(c){newsSec=c.dataset.sec;newsMax=10;renderNews();}
+  if(e.target.id==='newsmore'){newsMax+=20;renderNews();}
 });
 
 /* ══ 정책비서(법령) ══ */
