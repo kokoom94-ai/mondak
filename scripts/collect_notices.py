@@ -9,6 +9,7 @@ from pathlib import Path
 KST=timezone(timedelta(hours=9)); NOW=datetime.now(KST)
 OUT=Path(__file__).resolve().parent.parent/"data"/"policies.json"
 KEY=os.environ.get("GOV24_KEY","").strip()
+if "%" in KEY: KEY=urllib.parse.unquote(KEY)   # Encoding 키 입력 시 자동 변환
 BASE="https://api.odcloud.kr/api/gov24/v3/serviceList"
 
 RULES=[("welfare",r"복지|돌봄|어르신|노인|장애|아동|보육|의료|건강|바우처|지원금|생리대|임산부|수당|급여"),
@@ -28,7 +29,8 @@ def call(page):
        "cond[소관기관명::LIKE]":"제주"}
     url=BASE+"?"+urllib.parse.urlencode(q)
     ctx=ssl.create_default_context()
-    with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"mondak"}),timeout=30,context=ctx) as r:
+    hdr={"User-Agent":"mondak","Authorization":"Infuser "+KEY}
+    with urllib.request.urlopen(urllib.request.Request(url,headers=hdr),timeout=30,context=ctx) as r:
         return json.loads(r.read().decode("utf-8"))
 
 def main():
@@ -42,7 +44,9 @@ def main():
             print("page",pg,":",len(data),"건 (총",j.get("totalCount"),")")
             if len(data)<100: break
     except Exception as e:
-        print("API ERR",repr(e)); return
+        print("API ERR",repr(e))
+        if "401" in str(e): print("→ 점검: (1)키 활성화 대기 최대 1시간 (2)Decoding 키인지 (3)활용신청한 API의 End Point가 api.odcloud.kr/api/gov24 인지")
+        return
     items=[]
     for r in rows:
         sid=str(r.get("서비스ID") or r.get("서비스아이디") or "").strip()
@@ -59,7 +63,7 @@ def main():
             "s":summary or "정부24 상세페이지에서 지원내용·신청방법을 확인하세요.",
             "who":w,"due":due,"amt":str(r.get("지원내용",""))[:80] or "상세 참조",
             "where":org or "제주특별자치도",
-            "url":f"https://www.gov.kr/portal/rcvfvrSvc/dtlEx/{sid}","apply":1})
+            "url":str(r.get("상세조회URL") or "").strip() or f"https://www.gov.kr/portal/rcvfvrSvc/dtlEx/{sid}","apply":1})
     if not items:
         print("0건 — 응답 샘플:",json.dumps(rows[:1],ensure_ascii=False)[:800]); return
     seen=set(); uniq=[x for x in items if not (x["t"] in seen or seen.add(x["t"]))]
