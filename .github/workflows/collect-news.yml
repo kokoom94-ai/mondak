@@ -28,6 +28,11 @@ jobs:
         env:
           LAW_OC: ${{ secrets.LAW_OC }}
         run: python scripts/collect_laws.py || true
+      - name: Collect Jeju assembly
+        env:
+          ASM_MEMBER_KEY: ${{ secrets.ASM_MEMBER_KEY }}
+          ASM_BILL_KEY: ${{ secrets.ASM_BILL_KEY }}
+        run: python scripts/collect_assembly.py || true
       - name: Collect Jeju stats
         run: python scripts/collect_stats.py || true
       - name: Commit results
