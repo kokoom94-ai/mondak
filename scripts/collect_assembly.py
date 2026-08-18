@@ -45,10 +45,12 @@ def rows_from(j):
         if isinstance(items,dict): return [items]
     return []
 
+CMT_CD={"01":"원안가결","02":"수정가결","03":"대안반영폐기","04":"폐기","05":"철회",
+ "13":"수정가결","19":"부결"}
 def stage_of(res):
     if not res: return "계류"
-    if any(k in res for k in ("가결","공포","통과","반영")): return "통과"
-    if any(k in res for k in ("폐기","부결","철회","임기만료")): return "종료"
+    if any(k in res for k in ("가결","공포","통과","반영","수용")): return "통과"
+    if any(k in res for k in ("폐기","부결","철회","임기만료","각하")): return "종료"
     return "계류"
 
 def gv(d,*ks):
@@ -89,12 +91,15 @@ def bills_for(name):
                 _diag=True; print("★ 발의API 필드:",list(rows[0].keys()))
                 print("★ 샘플행:",{k:rows[0][k] for k in list(rows[0].keys())[:14]})
             for r in rows:
-                res=gv(r,"PROC_RESULT","PROC_RESULT_CD","RGS_RSLN_RSLT","PROC_STAGE_CD")
+                res=gv(r,"PROC_RESULT")                       # 본회의 최종결과
+                cmt=gv(r,"CMT_PROC_RESULT_CD")                # 위원회 처리결과 코드
+                if not res and cmt: res=CMT_CD.get(cmt,"위원회 심사")
+                pdt=gv(r,"PROC_DT","CMT_PROC_DT")
                 out.append({"t":gv(r,"BILL_NAME"),"no":gv(r,"BILL_NO"),
                     "d":gv(r,"PROPOSE_DT"),"result":res or "계류",
                     "stage":stage_of(res),
                     "cmit":gv(r,"COMMITTEE"),"url":gv(r,"DETAIL_LINK"),
-                    "bid":gv(r,"BILL_ID")})
+                    "pdt":pdt,"bid":gv(r,"BILL_ID")})
             if out: return out
         except Exception as e: print("bill err",name,e)
     return []
@@ -127,8 +132,11 @@ def main():
         if m["name"] and BKEY:
             bl=bills_for(m["name"])
             for b in bl:
-                r=PROC.get(b.get("bid"))
-                if r: b["result"]=r; b["stage"]=stage_of(r)
+                if b["stage"]=="계류":            # 발의필드로 못 정한 것만 보조 매핑
+                    r=PROC.get(b.get("bid"))
+                    if r: b["result"]=r; b["stage"]=stage_of(r)
+            from collections import Counter
+            print("  ",m["name"],"분류:",dict(Counter(b["stage"] for b in bl)))
             m["bills"]=bl
             print(d,"→",m["name"],"발의",len(m.get("bills",[])),"건")
         else:
