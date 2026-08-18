@@ -45,9 +45,10 @@ def main():
             t=gv(r,"자치법규명","법령명한글","법령명")
             if not t or "제주" not in t: continue
             ty=gv(r,"자치법규종류","법령구분명") or "조례"
+            link=gv(r,"자치법규상세링크","법령상세링크")
+            url=("https://www.law.go.kr"+link) if link.startswith("/") else                 "https://www.law.go.kr/자치법규/"+urllib.parse.quote(t.replace(" ",""))
             items.append({"ty":ty if ty in("조례","규칙","훈령","예규") else "조례",
-                "f":cls(t),"t":t,"d":dt(gv(r,"공포일자")),
-                "url":"https://www.law.go.kr/자치법규/"+urllib.parse.quote(t.replace(" ",""))})
+                "f":cls(t),"t":t,"d":dt(gv(r,"공포일자")),"url":url})
         if len(rows)<100: break
     # ② 국가 법령(법률·시행령·시행규칙 중 '제주' 포함)
     for pg in (1,2):
@@ -63,8 +64,9 @@ def main():
             g=gv(r,"법령구분명")
             ty="법률" if "법률" in g else "시행령" if "대통령령" in g else "시행규칙" if ("부령" in g or "총리령" in g) else ""
             if not ty: continue
-            items.append({"ty":ty,"f":cls(t),"t":t,"d":dt(gv(r,"공포일자")),
-                "url":"https://www.law.go.kr/법령/"+urllib.parse.quote(t.replace(" ",""))})
+            link=gv(r,"법령상세링크")
+            url=("https://www.law.go.kr"+link) if link.startswith("/") else                 "https://www.law.go.kr/법령/"+urllib.parse.quote(t.replace(" ",""))
+            items.append({"ty":ty,"f":cls(t),"t":t,"d":dt(gv(r,"공포일자")),"url":url})
         if len(rows)<100: break
     seen=set(); uniq=[]
     for it in items:
