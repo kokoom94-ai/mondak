@@ -88,7 +88,7 @@ def naver_news():
     out=[]
     for q in ("제주","제주도청 OR 제주도의회","제주 관광","제주 감귤 OR 농업","제주 축제"):
         try:
-            u="https://naverapihub.apigw.ntruss.com/search/v1/news.json?display=100&sort=date&query="+urllib.parse.quote(q)
+            u="https://naverapihub.apigw.ntruss.com/search/v1/news?display=100&sort=date&query="+urllib.parse.quote(q)
             req=urllib.request.Request(u,headers={"x-ncp-apigw-api-key-id":NAVER_ID,"x-ncp-apigw-api-key":NAVER_SECRET})
             with urllib.request.urlopen(req,timeout=20,context=ssl.create_default_context()) as r:
                 j=json.loads(r.read().decode("utf-8"))
