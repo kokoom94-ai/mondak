@@ -36,7 +36,10 @@ EXCLUDE=r"프로야구|프로축구|프로농구|배구|골프|K리그|KBO|연�
 BRAND=r"제주항공|제주은행|제주유나이티드|제주드림타워"
 def jeju_ok(t): return bool(re.search(JEJU, re.sub(BRAND,"",t)))
 
+ETC=r"인사 난맥|인사 논란|인사 참사|재공모|경질|사퇴|내정설?"
+QUO=r"[\"\u201c][^\"\u201d]{0,70}(환영|촉구|규탄|반대|우려|마련하라|해야)"
 def classify(t):
+    if re.search(ETC,t) or re.search(QUO,t) or re.search(r"성명서? |논평",t): return "기타"
     for s,p in RULES:
         if re.search(p,t): return s
     return "기타"
@@ -108,6 +111,16 @@ def naver_news():
 
 def main():
     all_items=[]; seen_links=set()
+    # 누적: 직전 결과를 합산해 14일 창 안에서 매체수·기사수가 줄지 않게 함
+    try:
+        for pv in json.loads(OUT.read_text()).get("items",[]):
+            lk=pv.get("link","")
+            if not lk or lk in seen_links: continue
+            seen_links.add(lk)
+            all_items.append({"t":pv["t"],"link":lk,"src":pv.get("src",""),"d":pv.get("d"),
+                              "direct":True,"outlets_prev":pv.get("outlets",[])})
+        print("이전 누적",len(all_items),"건 병합")
+    except Exception: pass
     for name,url in LOCAL_FEEDS:
         try:
             for it in parse_rss(fetch(url), force_src=name):
@@ -150,15 +163,17 @@ def main():
         for i in cl["items"]:
             s=(i.get("src") or "").strip()
             if s and s not in outlets: outlets.append(s)
+            for s2 in i.get("outlets_prev",[]):
+                if s2 and s2 not in outlets: outlets.append(s2)
         rep["outlets"]=outlets[:8]; rep["n"]=max(len(outlets),1)
         rep["sec"]=classify(rep["t"]); rep.pop("direct",None)
         out.append(rep)
     out.sort(key=lambda x:(x["d"] or "0000",x["n"]), reverse=True)  # 최신→매체수 순
-    out=out[:100]
+    out=out[:400]
     if not out: print("no items; keeping previous"); return
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps({"meta":{"collected_at":NOW.strftime("%Y-%m-%d %H:%M KST"),
-        "window_days":14,"source":"지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계","count":len(out)},
+        "window_days":14,"cadence":"3h","source":"지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계","count":len(out)},
         "items":out},ensure_ascii=False,indent=1),encoding="utf-8")
     top=out[0]; print("wrote",len(out),"items · top:",top["n"],"개사 —",top["t"][:40])
 
