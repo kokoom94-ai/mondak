@@ -179,8 +179,11 @@ footer b{color:var(--ink)}
 .xrow .xf{width:8px;height:8px;border-radius:50%;background:var(--c,#888);flex:none;align-self:center}
 .xrow .xt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
 .xrow .xdue{margin-left:auto;flex:none;font-size:11px;color:var(--gyul);font-weight:700}
-#detail{background:#fff;border:1.5px solid var(--navy);border-radius:14px;padding:16px 18px;margin-top:10px;display:none}
-#detail.on{display:block}
+#detail{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);z-index:200;width:min(92vw,440px);max-height:82vh;overflow-y:auto;background:#fff;border:1.5px solid var(--navy);border-radius:16px;padding:20px 18px 18px;box-shadow:0 18px 50px rgba(0,0,0,.28);display:none;opacity:0;transition:opacity .18s,transform .18s}
+#detail.on{display:block;opacity:1;transform:translate(-50%,-50%) scale(1)}
+#detailbg{position:fixed;inset:0;background:rgba(15,23,42,.42);z-index:199;display:none}
+#detailbg.on{display:block}
+#detail .xclose{position:absolute;top:10px;right:12px;width:30px;height:30px;border-radius:50%;background:#f1f5f9;color:#334155;font-size:17px;line-height:30px;text-align:center;font-weight:700}
 #detail .dt-top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:7px}
 #detail h2{font-size:17px;font-weight:800;line-height:1.5;margin-bottom:9px;letter-spacing:-.3px}
 #detail dl{display:grid;grid-template-columns:72px 1fr;gap:6px 0;border-top:1px dashed var(--line);padding-top:10px}
@@ -695,16 +698,14 @@ body{padding-bottom:78px}
   </div>
   <div class="xhead">
     <button class="backbtn" data-v="home">← 홈</button>
-    <span class="xcounts">기관 <b>5</b> · 분야 <b>8</b> · 정책 <b id="xcnt">0</b>건</span>
+    <span class="xcounts">분야 <b>8</b> · 정책 <b id="xcnt">0</b>건</span>
     <span class="xsort" id="xsort">
       <button data-s="date" class="on">최신순</button>
-      <button data-s="org">기관순</button>
       <button data-s="due">마감순</button>
     </span>
   </div>
   <div class="xgrid">
     <div class="rail">
-      <div class="railsec"><h3>기관</h3><div id="railorg"></div></div>
       <div class="railsec"><h3>분야</h3><div id="railfield"></div></div>
       <div class="railsec"><h3>누구꽈?</h3><div id="railwho"></div></div>
     </div>
@@ -715,6 +716,7 @@ body{padding-bottom:78px}
   </div>
 </div>
 </div><!-- /explore -->
+<div id="detailbg"></div>
 
 <div id="view-orbit" hidden>
 <div class="wrap">
@@ -871,7 +873,7 @@ const wterm=t=>`<w data-w="${t}">${t}</w>`;
 
 /* ── 시연 데이터 : 6필드 카드 스키마 ──
    what(t)=무엇을 / who=누구에게 / due=언제까지 / amt=얼마나 / where=어디서 / src=원문 */
-const DATA=[{"org": "do", "f": "env", "d": "2026-08-17", "t": "'정원도시 제주' 기본계획 수립 착수", "s": "제주의 자연을 정원으로 잇는 실행계획 용역 착수. 도민 생활권 정원 확충 방향 설계.", "who": ["모든 도민"], "due": "—", "amt": "—", "where": "도청 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597547", "apply": 0}, {"org": "do", "f": "welfare", "d": "2026-08-16", "t": "유니버설디자인 도민참여단, 수월봉·삼다수숲길 개선안 제안", "s": "장애인·영유아 가족 등 도민 18명이 탐방로를 직접 점검하고 무장애 개선안 도출.", "who": ["이동약자·어르신", "육아·양육"], "due": "—", "amt": "—", "where": "도청 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597489", "apply": 0}, {"org": "do", "f": "agri", "d": "2026-08-17", "t": "제주산 딸기묘 농가 첫 보급 — 12월 첫 수확", "s": "육지 구입에 의존하던 딸기묘를 제주 자체 생산·공급하는 첫 사례. 농업기술원 주관.", "who": ["농어업인"], "due": "—", "amt": "—", "where": "농업기술원", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597490", "apply": 0}, {"org": "do", "f": "env", "d": "2026-08-15", "t": "우도 일회용컵 줄이기 확산 — 다회용컵 전환 캠페인", "s": "섬 속의 섬 우도에서 주민·관광객 참여형 일회용품 감축 캠페인 전개.", "who": ["모든 도민"], "due": "—", "amt": "—", "where": "도청·우도면", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597517", "apply": 0}, {"org": "do", "f": "civic", "d": "2026-08-16", "t": "을지연습 18~21일 — 20일 오후 2시 민방위 공습경보 훈련", "s": "비상사태 대응역량 점검. 20일 전국 민방위 훈련 시 사이렌·대피 훈련 실시.", "who": ["모든 도민"], "due": "8.18~21 진행", "amt": "—", "where": "도 재난안전대책본부", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597496", "apply": 0}, {"org": "jeju", "f": "welfare", "d": "2026-08-17", "t": "100세 어르신 장수축하금 100만원 지급", "s": "노인 공경 분위기 조성을 위해 100세 생일 어르신에게 축하금 지원 (2023.6 조례 근거).", "who": ["이동약자·어르신"], "due": "읍면동 신청", "amt": "100만원", "where": "제주시·읍면동 주민센터", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597498", "apply": 1}, {"org": "jeju", "f": "welfare", "d": "2026-08-17", "t": "의료급여 수급자 요양비 연중 지원", "s": "자동복막투석 소모성 재료비 등 요양비를 연중 상시 신청·지급.", "who": ["이동약자·어르신"], "due": "연중 신청", "amt": "공고 참조", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597499", "apply": 1}, {"org": "jeju", "f": "startup", "d": "2026-08-16", "t": "모범음식점·음식문화 개선 실천업소 모집", "s": "위생·서비스 우수 업소 지정 및 인센티브 제공. 외식업 소상공인 대상.", "who": ["소상공인·창업"], "due": "모집 중", "amt": "—", "where": "제주시 위생관리과", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597493", "apply": 1}, {"org": "jeju", "f": "civic", "d": "2026-08-16", "t": "보조금 투입 '자기 차고지' 이용실태 전수점검 (11월 말까지)", "s": "2017~2025년 자기 차고지 갖기 사업 참여 차고지의 실제 이용 여부 점검.", "who": ["모든 도민"], "due": "~11월 말", "amt": "—", "where": "제주시 교통행정과", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597494", "apply": 0}, {"org": "jeju", "f": "welfare", "d": "2026-08-16", "t": "지역사회보장계획안 수립 공청회 — 8월 31일", "s": "제주시 지역사회보장계획(2027~) 수립을 위한 시민 의견 수렴 공청회.", "who": ["모든 도민"], "due": "8.31 공청회", "amt": "—", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597497", "apply": 0}, {"org": "jeju", "f": "civic", "d": "2026-08-18", "t": "「주민주도 마을공동체 활성화 지원사업」 추가 공모", "s": "마을 단위 공동체 활동 지원. 주민모임·마을회 대상 추가 모집.", "who": ["모든 도민"], "due": "추가 공모 중", "amt": "공고 참조", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84688", "apply": 1}, {"org": "jeju", "f": "welfare", "d": "2026-08-18", "t": "공공생리대 지원 사업 운영 안내", "s": "여성 청소년 대상 생리대 구입비 지원. 신청 방법·대상 공고 참조.", "who": ["청년·신혼", "육아·양육"], "due": "연중 신청", "amt": "공고 참조", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84708", "apply": 1}, {"org": "seog", "f": "welfare", "d": "2026-08-18", "t": "임산부 친환경농산물 지원사업 안내", "s": "임산부 대상 친환경농산물 꾸러미 지원. 신청 자격·방법 공고 참조.", "who": ["육아·양육"], "due": "신청 접수", "amt": "공고 참조", "where": "서귀포시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84715", "apply": 1}, {"org": "seog", "f": "env", "d": "2026-08-18", "t": "2027년 학교숲 조성사업 참여학교 모집", "s": "학교 유휴공간을 녹지·숲으로 조성. 초·중·고 대상 공모.", "who": ["모든 도민"], "due": "모집 중", "amt": "—", "where": "서귀포시 공원녹지과", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597564", "apply": 1}, {"org": "seog", "f": "tour", "d": "2026-08-18", "t": "관광극장 활용방안 시민 공개 간담회 — 8월 19일", "s": "서귀포 원도심 관광극장의 미래 활용을 시민과 함께 논의.", "who": ["모든 도민"], "due": "8.19 간담회", "amt": "—", "where": "서귀포시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597566", "apply": 0}, {"org": "seog", "f": "youth", "d": "2026-08-18", "t": "서귀포시평생학습관 9월 수강생 모집", "s": "9월 개강 평생학습 프로그램 수강생 모집. 과정·일정 공고 참조.", "who": ["모든 도민"], "due": "모집 중", "amt": "—", "where": "서귀포시평생학습관", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84696", "apply": 1}, {"org": "seog", "f": "youth", "d": "2026-08-18", "t": "자기주도학습지원센터 9월 프로그램 운영", "s": "학생 대상 자기주도학습 프로그램 9월 운영 안내.", "who": ["육아·양육"], "due": "공고 참조", "amt": "—", "where": "서귀포시 자기주도학습지원센터", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84714", "apply": 1}, {"org": "eup", "f": "youth", "d": "2026-08-18", "t": "삼양동 주민자치센터 하반기 프로그램 수강생 모집", "s": "2026 하반기 주민자치 프로그램 수강생 모집. 과목·시간 공고 참조.", "who": ["모든 도민"], "due": "모집 중", "amt": "—", "where": "삼양동 주민센터", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84707", "apply": 1}, {"org": "eup", "f": "startup", "d": "2026-08-18", "t": "삼양동 공공근로(공중화장실 환경정비) 참여자 모집", "s": "공공근로 일자리 참여자 모집. 신청 자격·기간 공고 참조.", "who": ["모든 도민"], "due": "모집 중", "amt": "공고 참조", "where": "삼양동 주민센터", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84706", "apply": 1}, {"org": "eup", "f": "youth", "d": "2026-08-18", "t": "천지동 '나만의 도마 만들기' 특화 프로그램 운영", "s": "주민자치위원회 특화 프로그램. 참여 신청 안내.", "who": ["모든 도민"], "due": "신청 접수", "amt": "—", "where": "천지동 주민센터", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597561", "apply": 1}, {"org": "council", "f": "civic", "d": "2026-08-17", "t": "도의회, 입법·법률고문 3명 위촉 — 의정 지원체계 강화", "s": "조례 입안·법률 검토 역량 강화를 위한 전문가 위촉.", "who": ["모든 도민"], "due": "—", "amt": "—", "where": "도의회 사무처", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597504", "apply": 0}, {"org": "council", "f": "env", "d": "2026-08-17", "t": "이창흠 기후경제부지사 인사청문 특위 구성 — 청문회 26일", "s": "민선 9기 첫 기후경제부지사 후보자 검증. 위원장 임정은 의원 선임.", "who": ["모든 도민"], "due": "8.26 청문회", "amt": "—", "where": "도의회", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597502", "apply": 0}];
+const DATA=[{"org": "do", "f": "env", "d": "2026-08-17", "t": "'정원도시 제주' 기본계획 수립 착수", "s": "제주의 자연을 정원으로 잇는 실행계획 용역 착수. 도민 생활권 정원 확충 방향 설계.", "who": ["모든 도민"], "due": "—", "amt": "—", "where": "도청 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597547", "apply": 0}, {"org": "do", "f": "welfare", "d": "2026-08-16", "t": "유니버설디자인 도민참여단, 수월봉·삼다수숲길 개선안 제안", "s": "장애인·영유아 가족 등 도민 18명이 탐방로를 직접 점검하고 무장애 개선안 도출.", "who": ["이동약자·어르신", "육아·양육"], "due": "—", "amt": "—", "where": "도청 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597489", "apply": 0}, {"org": "do", "f": "agri", "d": "2026-08-17", "t": "제주산 딸기묘 농가 첫 보급 — 12월 첫 수확", "s": "육지 구입에 의존하던 딸기묘를 제주 자체 생산·공급하는 첫 사례. 농업기술원 주관.", "who": ["농어업인"], "due": "—", "amt": "—", "where": "농업기술원", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597490", "apply": 0}, {"org": "do", "f": "env", "d": "2026-08-15", "t": "우도 일회용컵 줄이기 확산 — 다회용컵 전환 캠페인", "s": "섬 속의 섬 우도에서 주민·관광객 참여형 일회용품 감축 캠페인 전개.", "who": ["모든 도민"], "due": "—", "amt": "—", "where": "도청·우도면", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597517", "apply": 0}, {"org": "do", "f": "civic", "d": "2026-08-16", "t": "을지연습 18~21일 — 20일 오후 2시 민방위 공습경보 훈련", "s": "비상사태 대응역량 점검. 20일 전국 민방위 훈련 시 사이렌·대피 훈련 실시.", "who": ["모든 도민"], "due": "8.18~21 진행", "amt": "—", "where": "도 재난안전대책본부", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597496", "apply": 0}, {"org": "jeju", "f": "welfare", "d": "2026-08-17", "t": "100세 어르신 장수축하금 100만원 지급", "s": "노인 공경 분위기 조성을 위해 100세 생일 어르신에게 축하금 지원 (2023.6 조례 근거).", "who": ["이동약자·어르신"], "due": "읍면동 신청", "amt": "100만원", "where": "제주시·읍면동 주민센터", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597498", "apply": 1}, {"org": "jeju", "f": "welfare", "d": "2026-08-17", "t": "의료급여 수급자 요양비 연중 지원", "s": "자동복막투석 소모성 재료비 등 요양비를 연중 상시 신청·지급.", "who": ["이동약자·어르신"], "due": "연중 신청", "amt": "공고 참조", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597499", "apply": 1}, {"org": "jeju", "f": "startup", "d": "2026-08-16", "t": "모범음식점·음식문화 개선 실천업소 모집", "s": "위생·서비스 우수 업소 지정 및 인센티브 제공. 외식업 소상공인 대상.", "who": ["소상공인·창업"], "due": "모집 중", "amt": "—", "where": "제주시 위생관리과", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597493", "apply": 1}, {"org": "jeju", "f": "civic", "d": "2026-08-16", "t": "보조금 투입 '자기 차고지' 이용실태 전수점검 (11월 말까지)", "s": "2017~2025년 자기 차고지 갖기 사업 참여 차고지의 실제 이용 여부 점검.", "who": ["모든 도민"], "due": "~11월 말", "amt": "—", "where": "제주시 교통행정과", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597494", "apply": 0}, {"org": "jeju", "f": "welfare", "d": "2026-08-16", "t": "지역사회보장계획안 수립 공청회 — 8월 31일", "s": "제주시 지역사회보장계획(2027~) 수립을 위한 시민 의견 수렴 공청회.", "who": ["모든 도민"], "due": "8.31 공청회", "amt": "—", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597497", "apply": 0}, {"org": "jeju", "f": "civic", "d": "2026-08-18", "t": "「주민주도 마을공동체 활성화 지원사업」 추가 공모", "s": "마을 단위 공동체 활동 지원. 주민모임·마을회 대상 추가 모집.", "who": ["모든 도민"], "due": "추가 공모 중", "amt": "공고 참조", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84688", "apply": 1}, {"org": "jeju", "f": "welfare", "d": "2026-08-18", "t": "공공생리대 지원 사업 운영 안내", "s": "여성 청소년 대상 생리대 구입비 지원. 신청 방법·대상 공고 참조.", "who": ["청년·신혼", "육아·양육"], "due": "연중 신청", "amt": "공고 참조", "where": "제주시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84708", "apply": 1}, {"org": "seog", "f": "welfare", "d": "2026-08-18", "t": "임산부 친환경농산물 지원사업 안내", "s": "임산부 대상 친환경농산물 꾸러미 지원. 신청 자격·방법 공고 참조.", "who": ["육아·양육"], "due": "신청 접수", "amt": "공고 참조", "where": "서귀포시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84715", "apply": 1}, {"org": "seog", "f": "env", "d": "2026-08-18", "t": "2027년 학교숲 조성사업 참여학교 모집", "s": "학교 유휴공간을 녹지·숲으로 조성. 초·중·고 대상 공모.", "who": ["모든 도민"], "due": "모집 중", "amt": "—", "where": "서귀포시 공원녹지과", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597564", "apply": 1}, {"org": "seog", "f": "tour", "d": "2026-08-18", "t": "관광극장 활용방안 시민 공개 간담회 — 8월 19일", "s": "서귀포 원도심 관광극장의 미래 활용을 시민과 함께 논의.", "who": ["모든 도민"], "due": "8.19 간담회", "amt": "—", "where": "서귀포시 (공고 원문 참조)", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597566", "apply": 0}, {"org": "seog", "f": "youth", "d": "2026-08-18", "t": "서귀포시평생학습관 9월 수강생 모집", "s": "9월 개강 평생학습 프로그램 수강생 모집. 과정·일정 공고 참조.", "who": ["모든 도민"], "due": "모집 중", "amt": "—", "where": "서귀포시평생학습관", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84696", "apply": 1}, {"org": "seog", "f": "youth", "d": "2026-08-18", "t": "자기주도학습지원센터 9월 프로그램 운영", "s": "학생 대상 자기주도학습 프로그램 9월 운영 안내.", "who": ["육아·양육"], "due": "공고 참조", "amt": "—", "where": "서귀포시 자기주도학습지원센터", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84714", "apply": 1}, {"org": "eup", "f": "youth", "d": "2026-08-18", "t": "삼양동 주민자치센터 하반기 프로그램 수강생 모집", "s": "2026 하반기 주민자치 프로그램 수강생 모집. 과목·시간 공고 참조.", "who": ["모든 도민"], "due": "모집 중", "amt": "—", "where": "삼양동 주민센터", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84707", "apply": 1}, {"org": "eup", "f": "startup", "d": "2026-08-18", "t": "삼양동 공공근로(공중화장실 환경정비) 참여자 모집", "s": "공공근로 일자리 참여자 모집. 신청 자격·기간 공고 참조.", "who": ["모든 도민"], "due": "모집 중", "amt": "공고 참조", "where": "삼양동 주민센터", "url": "https://www.headlinejeju.co.kr/bbs/view.html?idxno=84706", "apply": 1}, {"org": "eup", "f": "youth", "d": "2026-08-18", "t": "천지동 '나만의 도마 만들기' 특화 프로그램 운영", "s": "주민자치위원회 특화 프로그램. 참여 신청 안내.", "who": ["모든 도민"], "due": "신청 접수", "amt": "—", "where": "천지동 주민센터", "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597561", "apply": 1}];
 
 /* ── 시연 시드: 기사 스크랩 · 법규 · 교육 · 빈출단어 ── */
 let NEWSMETA=null;
@@ -909,7 +911,7 @@ const F=id=>FIELDS.find(f=>f.id===id), O=id=>ORGS.find(o=>o.id===id);
 const TODAY=new Date('2026-08-17');
 const daysAgo=d=>(TODAY-new Date(d))/86400000;
 const ddayOf=x=>Math.ceil((new Date(x.deadline)-TODAY)/86400000);
-const xstate={org:null,field:null,who:null,sort:'date'};
+const xstate={field:null,who:null,sort:'date'};
 const BOARD={
  do:"http://sido.jeju.go.kr/citynet/jsp/sap/SAPGosiBizProcess.do?command=searchList&flag=gosiGL&svp=Y",
  jeju:"https://www.jejusi.go.kr/information/intro/notice.do",
@@ -1100,18 +1102,14 @@ document.getElementById('wordrank').innerHTML=WORDS.map((w,i)=>
 function xfiltered(){
   const q=($('#xq')&&$('#xq').value.trim())||'';
   let rows=DATA.filter(x=>
-    (!xstate.org||x.org===xstate.org)&&(!xstate.field||x.f===xstate.field)&&
+    (!xstate.field||x.f===xstate.field)&&
     (!xstate.who||x.who.includes(xstate.who))&&
     (!q||((x.t||'')+(x.s||'')+(x.where||'')).includes(q)));
   if(xstate.sort==='date')rows.sort((a,b)=>b.d.localeCompare(a.d));
-  else if(xstate.sort==='org')rows.sort((a,b)=>ORGS.findIndex(o=>o.id===a.org)-ORGS.findIndex(o=>o.id===b.org)||b.d.localeCompare(a.d));
   else rows.sort((a,b)=>((a.deadline?ddayOf(a):9e9)-(b.deadline?ddayOf(b):9e9)));
   return rows;
 }
 function renderRail(){
-  $('#railorg').innerHTML=[{id:null,name:'전체'},...ORGS].map(o=>{
-    const n=o.id?DATA.filter(x=>x.org===o.id).length:DATA.length;
-    return `<button class="ritem ${xstate.org===o.id?'on':''}" data-k="org" data-va="${o.id??''}">${o.name}<span class="rc">${n}</span></button>`;}).join('');
   $('#railfield').innerHTML=[{id:null,name:'전체',c:'#999'},...FIELDS].map(f=>{
     const n=f.id?DATA.filter(x=>x.f===f.id).length:DATA.length;
     return `<button class="ritem ${xstate.field===f.id?'on':''}" data-k="field" data-va="${f.id??''}"><span class="rd" style="--c:${f.c}"></span>${f.name}<span class="rc">${n}</span></button>`;}).join('');
@@ -1123,11 +1121,10 @@ function renderList(){
   const rows=xfiltered();
   $('#xcnt').textContent=rows.length;
   $('#xlist').innerHTML=rows.map(x=>{
-    const f=F(x.f),o=O(x.org),i=DATA.indexOf(x);
+    const f=F(x.f),i=DATA.indexOf(x);
     const due=x.deadline&&ddayOf(x)>=0?`D-${ddayOf(x)}`:(x.due&&x.due!=='—'?x.due:'');
     return `<button class="xrow ${selIdx===i?'sel':''}" data-x="${i}">
       <span class="xd">${x.d.slice(5).replace('-','.')}</span>
-      <span class="xo ${x.org==='council'?'council':''}">${o.name}</span>
       <span class="xf" style="--c:${f.c}"></span>
       <span class="xt">${x.t}</span>
       ${due?`<span class="xdue">${due}</span>`:''}</button>`;
@@ -1135,11 +1132,11 @@ function renderList(){
 }
 document.addEventListener('input',e=>{if(e.target.id==='xq')renderList();});
 function openDetail(i){
-  selIdx=i;const x=DATA[i],f=F(x.f),o=O(x.org);
-  show('explore');
+  selIdx=i;const x=DATA[i],f=F(x.f);
   const d=$('#detail');d.className='on';
+  const bg=document.getElementById('detailbg');if(bg)bg.className='on';
+  document.body.style.overflow='hidden';
   d.innerHTML=`<div class="dt-top">
-      <span class="tag org ${x.org==='council'?'council':''}">${o.name}</span>
       <span class="tag field" style="--c:${f.c}">${f.name}</span>
       <span style="font-size:11.5px;color:var(--sub)">${x.d.replace(/-/g,'.')}</span></div>
     <h2>${x.t}</h2>
@@ -1149,15 +1146,21 @@ function openDetail(i){
       <dt>언제까지</dt><dd class="${x.due==='—'?'mut':''}">${x.due}${x.url
       ?`<a class="srcbtn" href="${x.url}" target="_blank" rel="noopener">기관 공고·보도 원문 보기 ↗</a>`
       :`<a class="srcbtn" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">맞춤형 지원서비스 신청포털에서 확인 ↗</a>`}`;
-  renderRail();renderList();
-  d.scrollIntoView({behavior:'smooth',block:'nearest'});
+  d.insertAdjacentHTML('afterbegin','<button class="xclose" onclick="closeDetail()">×</button>');
 }
+function closeDetail(){
+  const d=$('#detail');if(d)d.className='';
+  const bg=document.getElementById('detailbg');if(bg)bg.className='';
+  document.body.style.overflow='';
+}
+document.addEventListener('click',e=>{if(e.target.id==='detailbg')closeDetail();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
 document.addEventListener('click',e=>{
   const r=e.target.closest('.xrow[data-x]');if(r){openDetail(+r.dataset.x);return;}
   const ri=e.target.closest('.ritem');if(ri){
     const k=ri.dataset.k,v=ri.dataset.va||null;
     xstate[k]=(xstate[k]===v)?null:v;selIdx=null;
-    $('#detail').className='';renderRail();renderList();}
+    closeDetail();renderRail();renderList();}
 });
 $('#xsort').addEventListener('click',e=>{
   if(e.target.tagName!=='BUTTON')return;
@@ -1184,7 +1187,7 @@ $('#uniq').addEventListener('input',e=>{
   if(!r){upanel.className='unipanel';return;}
   let h='';
   if(r.pol.length)h+=`<div class="usec"><div class="ut">정책</div>`+r.pol.map(x=>{
-    const f=F(x.f);return `<button class="urow" data-i2="${DATA.indexOf(x)}"><span class="ud" style="--c:${f.c}"></span>${x.t}<span class="um">${O(x.org).name}</span></button>`;}).join('')+'</div>';
+    const f=F(x.f);return `<button class="urow" data-i2="${DATA.indexOf(x)}"><span class="ud" style="--c:${f.c}"></span>${x.t}</button>`;}).join('')+'</div>';
   if(r.law.length)h+=`<div class="usec"><div class="ut">법규 — 정책비서</div>`+r.law.map(l=>
     `<button class="urow" data-law="1">§ ${l.t}<span class="um">법규</span></button>`).join('')+'</div>';
   if(r.con.length)h+=`<div class="usec"><div class="ut">연락처 — 민원비서</div>`+r.con.map(({c})=>
