@@ -35,12 +35,12 @@ def fmt_date(raw):
     return raw.strip()
 
 def grab(html,label_kw):
-    for m in re.finditer(r'card-item[^>]*>(.*?)(?=<div class="flex-item|</li>|$)',html,re.S):
-        block=m.group(1)
-        if not re.search(r'class="label">[^<]*'+label_kw+r'[^<]*</span>',block):continue
-        date=re.search(r'class="date">([^<]+)</span>',block)
-        val=re.search(r'class="value">\s*([\d,]+)명\s*</span>',block)
-        if val:return (date.group(1).strip() if date else ''),val.group(1)
+    # flex-item 단위로 카드를 나누고, label 바로 뒤 value만 매칭(카드 혼선 방지)
+    for c in re.split(r'<div class="flex-item',html):
+        fw=re.search(r'class="label">\s*'+label_kw+r'[^<]*</span>\s*<span class="value">\s*([\d,]+)명',c)
+        if fw:
+            date=re.search(r'class="date">([^<]+)</span>',c)
+            return (date.group(1).strip() if date else ''),fw.group(1)
     return None,None
 
 try:
@@ -52,7 +52,7 @@ try:
     d,v=grab(h,"외국인 일일 입도")
     if v:C["tv2"]={"l":f"외국인 일일 입도 ('{fmt_date(d)})","v":v+"명"};print("frn_daily:",v,d)
     # tv3 크루즈 누적
-    d,v=grab(h,"크루즈")
+    d,v=grab(h,"연간 누적 크루즈")
     if v:C["tv3"]={"l":f"크루즈 누적 ('{fmt_date(d)})","v":v+"명"};print("cruise:",v,d)
 except Exception as e:print("tour skip",e)
 
