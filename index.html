@@ -13,6 +13,60 @@
   --danger:#C6392F;--good:#2E7D32;--good-soft:#E7F3E8;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* ── AI 챗봇 히어로 (공공데이터포털 스타일, 푸른 그라데이션) ── */
+.aihero{margin:16px 0 18px;border-radius:20px;padding:44px 32px 36px;
+  background:linear-gradient(135deg,#0f2a56 0%,#1B3A6D 45%,#245089 100%);
+  box-shadow:0 18px 50px rgba(15,42,86,.28);position:relative;overflow:hidden}
+.aihero::before{content:"";position:absolute;top:-60px;right:-40px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(90,150,230,.25),transparent 70%);pointer-events:none}
+.aihero h2{color:#fff;text-align:center;font-size:27px;font-weight:800;letter-spacing:-.6px;line-height:1.35;position:relative}
+.aihero .sub{color:rgba(255,255,255,.72);text-align:center;font-size:14px;margin-top:10px;position:relative}
+.aibox{max-width:760px;margin:22px auto 0;background:#fff;border-radius:16px;
+  padding:16px 16px 12px;box-shadow:0 10px 30px rgba(0,0,0,.18);position:relative}
+.aibox textarea{width:100%;border:none;outline:none;resize:none;font-size:16px;
+  color:var(--ink);line-height:1.5;min-height:46px;font-family:inherit;background:transparent}
+.aibox textarea::placeholder{color:#9aa0b0}
+.aibox .row{display:flex;justify-content:flex-end;margin-top:6px}
+.aibox .send{width:44px;height:44px;border:none;border-radius:50%;background:#1B3A6D;
+  color:#fff;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.aibox .send:hover{background:#245089}
+.aibox .send:disabled{background:#b0b6c8;cursor:not-allowed}
+.aichips{max-width:760px;margin:16px auto 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.aichip{padding:9px 15px;font-size:13.5px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);border-radius:20px;color:#fff;cursor:pointer;transition:.2s}
+.aichip:hover{background:rgba(255,255,255,.24)}
+/* 챗봇 답변 영역 */
+.airesult{max-width:760px;margin:18px auto 0}
+.aimsg-user{background:rgba(255,255,255,.16);color:#fff;border-radius:14px 14px 4px 14px;
+  padding:11px 15px;font-size:14.5px;margin:12px 0 12px auto;width:fit-content;max-width:85%}
+.aimsg-bot{background:#fff;color:var(--ink);border-radius:4px 14px 14px 14px;padding:15px 17px;
+  font-size:14.5px;line-height:1.7;box-shadow:0 6px 22px rgba(0,0,0,.14);white-space:pre-wrap;max-width:92%}
+.aimsg-bot.loading{color:#6a7080}
+.aibadge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;margin-bottom:8px;font-weight:600}
+.aibadge-rag{background:#e3f0ff;color:#1e5bb8}
+.aibadge-web{background:#e0f7e9;color:#0a8a4a}
+.aibadge-fb{background:#fff0e0;color:#c07000}
+.ailinkbtns{margin-top:13px;display:flex;flex-direction:column;gap:8px}
+.ailinkbtn{display:flex;align-items:center;gap:8px;padding:11px 14px;background:#1B3A6D;
+  color:#fff !important;border-radius:10px;font-size:13.5px;font-weight:600;text-decoration:none;transition:.2s}
+.ailinkbtn:hover{background:#245089}
+.ailinkbtn .ar{margin-left:auto;opacity:.7}
+.aisrc{margin-top:11px;padding-top:11px;border-top:1px solid #eee}
+.aisrc .t{font-size:11.5px;color:#8a90a0;margin-bottom:5px;font-weight:600}
+.aisrc a{font-size:12.5px;color:#1e5bb8;text-decoration:none;display:block;margin:2px 0}
+.aispin{display:inline-block;width:13px;height:13px;border:2px solid #ccc;border-top-color:#1B3A6D;
+  border-radius:50%;animation:aispin .8s linear infinite;vertical-align:middle}
+@keyframes aispin{to{transform:rotate(360deg)}}
+/* 관리자 공지 */
+.notice{margin-top:16px;background:var(--gyul-soft);border:1px solid #f0d4b0;border-radius:14px;padding:14px 16px}
+.notice .nt{font-size:12px;font-weight:700;color:var(--gyul);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.notice .ni{font-size:13.5px;color:var(--ink);line-height:1.6}
+@media(min-width:900px){
+  .aihero{padding:56px 40px 44px}
+  .aihero h2{font-size:32px}
+  .aibox,.aichips,.airesult{max-width:820px}
+}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);
   font-family:'Pretendard','IBM Plex Sans KR',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
@@ -92,7 +146,7 @@ h1{font-size:23px;font-weight:800;letter-spacing:-.5px}
 .tcell .v.g{color:var(--gyul)}
 .todaycard + .todaycard{margin-top:8px}
 
-/* 지금 신청할 수 있습니다 */
+
 .applycard{margin-top:16px;background:#fff;border:1.5px solid var(--navy);border-radius:16px;padding:16px}
 .applycard h2{font-size:19px;font-weight:800;letter-spacing:-.4px}
 .applycard .sub{font-size:12.5px;color:var(--sub);margin:3px 0 11px}
@@ -473,7 +527,6 @@ body{padding-bottom:78px}
       <button class="dmham" data-open-drawer aria-label="전체 메뉴" title="전체메뉴">☰</button>
     </nav>
     <div class="topbtn">
-      <button class="biseobtn" data-v="biseo">🗨 민원비서</button>
       <a class="extbtn" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 <span class="xl">모바일 재난방송</span> 신청</a>
       <button class="hamb" id="openmenu" aria-label="전체 메뉴">☰</button>
     </div>
@@ -482,11 +535,29 @@ body{padding-bottom:78px}
 
 <div id="view-home">
 <div class="wrap">
-  <div class="uni big" style="margin-top:16px">
-    <span class="mag">🔍</span>
-    <input id="uniq" type="search" autocomplete="off" placeholder="정책, 행정 용어, 기관 연락처를 검색하세요">
-    <div class="unipanel" id="unipanel"></div>
+  <!-- ── AI 챗봇 히어로 ── -->
+  <div class="aihero">
+    <h2>제주 정책, AI에게 물어보세요</h2>
+    <div class="sub">지원사업·정책을 찾지 말고, 물어보고 받아보세요</div>
+    <div class="aibox">
+      <textarea id="aiq" rows="1" placeholder="예) 어르신이 받을 수 있는 지원이 있을까요?"></textarea>
+      <div class="row"><button class="send" id="aisend" onclick="aiAsk()">↑</button></div>
+    </div>
+    <div class="aichips">
+      <span class="aichip" onclick="aiFill(this)">어르신 지원사업 알려줘</span>
+      <span class="aichip" onclick="aiFill(this)">제주 전기차 보조금 얼마야</span>
+      <span class="aichip" onclick="aiFill(this)">농사 지원 뭐 있어?</span>
+      <span class="aichip" onclick="aiFill(this)">장애인 교통비 지원돼?</span>
+    </div>
+    <div class="airesult" id="airesult"></div>
   </div>
+
+  <!-- ── 관리자 공지사항 ── -->
+  <div class="notice" id="noticebox">
+    <div class="nt">📢 관리자 공지사항</div>
+    <div class="ni" id="noticein">보부상 AI 챗봇이 새로 열렸습니다. 제주 지원사업·정책을 자연어로 물어보세요. 정확한 신청은 각 답변의 공식 링크·문의처를 이용하시기 바랍니다.</div>
+  </div>
+
   <div class="todaycard" style="margin-top:14px">
     <div class="th"><h2>제주 인구 현황 <span style="font-size:10.5px;color:var(--sub);font-weight:500">’26.6~7 · 도청 인구빅데이터 발표 기준</span></h2>
       <a class="pm" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">더보기 · 제주통계포털 ↗</a></div>
@@ -506,31 +577,6 @@ body{padding-bottom:78px}
     </div>
   </div>
 
-  <div class="h1row">
-    <h1>최근 일주일 업데이트 정책</h1>
-    <div class="stamp"><b>2026.08.17 기준</b> · 직전 7일 집계 · 도청·행정시·읍면동·도의회 공개 데이터</div>
-    <div class="metarow">
-      <a class="srclink" href="#" onclick="return false">데이터 출처 보기</a>
-      <span class="livebadge">기관 공고·보도 실데이터 (원문 직링크) · 게시일 일부는 확인일 기준</span>
-    </div>
-  </div>
-  <div class="stats">
-    <button class="stat" data-v="news"><span class="n" id="st-new">0건</span>
-      <span class="lb"><b>새로 올라온 정책 소식</b><span>게시일 기준</span></span>
-      <span class="chip">▲ 직전 7일</span></button>
-    <button class="stat" data-v="support"><span class="n" id="st-dead">0건</span>
-      <span class="lb"><b>신청 가능한 지원사업</b><span>마감일이 남은 사업</span></span>
-      <span class="chip gy">D-day 표시</span></button>
-    <button class="stat" data-v="council"><span class="n" id="st-council">0건</span>
-      <span class="lb"><b>도의회 새 의안·질의</b><span>접수·처리일 기준</span></span>
-      <span class="chip">▲ 직전 7일</span></button>
-  </div>
-
-  <div class="applycard" id="applycard">
-    <h2>지금 신청할 수 있습니다</h2>
-    <div class="sub">신청 기한이 진행 중인 지원사업 · 마감 임박순 · <button data-v="support" style="color:var(--navy);font-weight:700;text-decoration:underline">맞춤형 안내 보기</button></div>
-    <div id="deadlines"></div>
-  </div>
 
   <div class="newssec">
     <div class="dh"><h2>관리자 공지사항</h2><span class="sub">AI 제주정책 보부상 운영 소식</span>
@@ -836,6 +882,52 @@ body{padding-bottom:78px}
 <div id="tip"></div>
 <div id="wikipop" role="tooltip"></div>
 <script>
+/* ── AI 챗봇 (Netlify 함수 호출) ── */
+const AI_API="https://exquisite-snickerdoodle-60f4c2.netlify.app/.netlify/functions/chat";
+function aiEsc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");}
+function aiFill(el){document.getElementById('aiq').value=el.textContent;aiAsk();}
+async function aiAsk(){
+  const qEl=document.getElementById('aiq'), res=document.getElementById('airesult'), btn=document.getElementById('aisend');
+  const question=qEl.value.trim(); if(!question)return; btn.disabled=true;
+  res.insertAdjacentHTML('beforeend','<div class="aimsg-user">'+aiEsc(question)+'</div>');
+  const lid='ail'+Date.now();
+  res.insertAdjacentHTML('beforeend','<div class="aimsg-bot loading" id="'+lid+'"><span class="aispin"></span> 제주 정책 자료를 찾고 있습니다…</div>');
+  qEl.value=''; qEl.style.height='auto';
+  try{
+    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});
+    const d=await r.json(); const el=document.getElementById(lid); el.classList.remove('loading');
+    const badge = d.source==='rag' ? '<span class="aibadge aibadge-rag">📚 자료 기반 답변</span><br>'
+      : d.source==='web' ? '<span class="aibadge aibadge-web">🌐 웹 검색 결과</span><br>'
+      : '<span class="aibadge aibadge-fb">📞 문의처 안내</span><br>';
+    let html=badge+aiEsc(d.answer||'답변을 생성하지 못했습니다.');
+    if(d.links&&d.links.length){
+      html+='<div class="ailinkbtns">';
+      d.links.forEach(lk=>{
+        if(lk.url) html+='<a class="ailinkbtn" href="'+aiEsc(lk.url)+'" target="_blank" rel="noopener">🔗 '+aiEsc(lk.title)+' 바로가기<span class="ar">→</span></a>';
+        if(lk.contact) html+='<div class="aisrc" style="border:none;padding-top:2px">📞 문의: '+aiEsc(lk.contact)+'</div>';
+      });
+      html+='</div>';
+    }
+    if(d.websources&&d.websources.length){
+      html+='<div class="aisrc"><div class="t">웹 출처 (참고용)</div>';
+      const seen=new Set();
+      d.websources.slice(0,5).forEach(s=>{const u=s.url||s.link||'';const t=(s.title||u||'').slice(0,50);
+        if(u&&!seen.has(u)){seen.add(u);html+='<a href="'+aiEsc(u)+'" target="_blank" rel="noopener">• '+aiEsc(t)+'</a>';}});
+      html+='</div>';
+    }
+    el.innerHTML=html;
+  }catch(e){
+    const el=document.getElementById(lid); el.classList.remove('loading');
+    el.innerHTML='일시적으로 응답을 받지 못했습니다. 잠시 후 다시 시도해주세요.';
+  }
+  btn.disabled=false;
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const q=document.getElementById('aiq'); if(!q)return;
+  q.addEventListener('input',()=>{q.style.height='auto';q.style.height=q.scrollHeight+'px';});
+  q.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();aiAsk();}});
+});
+
 const FIELDS=[
  {id:'welfare',name:'복지·사회보험',c:'#F47FA0'},
  {id:'ax',name:'신산업·AX',c:'#7FA7F4'},
@@ -961,10 +1053,11 @@ function renderHome(){
   const wk=DATA.filter(x=>daysAgo(x.d)<=7);
   const dls=DATA.filter(x=>x.apply||(x.deadline&&ddayOf(x)>=0))
     .sort((a,b)=>((a.deadline?ddayOf(a):9e9)-(b.deadline?ddayOf(b):9e9))||b.d.localeCompare(a.d));
-  $('#st-new').textContent=wk.length+'건';
-  $('#st-dead').textContent=dls.length+'건';
-  $('#st-council').textContent=DATA.filter(x=>x.org==='council'&&daysAgo(x.d)<=7).length+'건';
-  $('#deadlines').innerHTML=dls.slice(0,6).map(x=>{
+  const _stn=$('#st-new');if(_stn)_stn.textContent=wk.length+'건';
+  const _std=$('#st-dead');if(_std)_std.textContent=dls.length+'건';
+  const _stc=$('#st-council');if(_stc)_stc.textContent=DATA.filter(x=>x.org==='council'&&daysAgo(x.d)<=7).length+'건';
+  const _dl=$('#deadlines');if(!_dl)return;
+  _dl.innerHTML=dls.slice(0,6).map(x=>{
     const f=F(x.f),hasD=x.deadline&&ddayOf(x)>=0;
     return `<button class="arow" data-i="${DATA.indexOf(x)}">
       <span class="dday ${hasD&&ddayOf(x)<=7?'warn':''}" ${hasD?'':'style="background:var(--ok)"'}>${hasD?'D-'+ddayOf(x):'접수 중'}</span>
@@ -1182,7 +1275,8 @@ function uniSearch(q){
   return {pol,wik,con,law};
 }
 const upanel=$('#unipanel');
-$('#uniq').addEventListener('input',e=>{
+const _uniq=$('#uniq');
+if(_uniq)_uniq.addEventListener('input',e=>{
   const r=uniSearch(e.target.value);
   if(!r){upanel.className='unipanel';return;}
   let h='';
