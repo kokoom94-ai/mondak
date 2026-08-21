@@ -598,9 +598,9 @@ body{padding-bottom:78px}
     <div class="topright">
       <nav class="deskmenu" id="deskmenu">
         <button data-v="home" class="on">홈</button>
-        <button data-v="news">새소식</button>
+        <button data-v="news">호외요</button>
         <button data-v="lawbot">정책비서</button>
-        <button data-v="council">우리동네의원</button>
+        <button data-v="council">동네의원</button>
         <button class="dmham" data-open-drawer aria-label="전체 메뉴" title="전체메뉴">☰</button>
       </nav>
       <div class="navclock" id="navclock"></div>
@@ -687,8 +687,8 @@ body{padding-bottom:78px}
 <div id="view-news" hidden>
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
-  <div class="viewtitle">새소식</div>
-  <div class="viewsub">이번 주 인기뉴스 · 언론으로 알아보는 제주소식(최근 2주) · 정책소식요약 — 전부 원문 직링크</div>
+  <div class="viewtitle">호외요, 호외!</div>
+  <div class="viewsub">이번 주 인기뉴스 · 언론으로 알아보는 제주소식(최근 2주) — 전부 원문 직링크</div>
   <div class="metarow" style="margin-top:6px"><span class="livebadge" id="newsbadge">기사 원문 직링크 · 하루 3회 자동 수집</span></div>
 
   <div class="rankcard" style="margin-top:14px">
@@ -702,12 +702,6 @@ body{padding-bottom:78px}
     <div style="font-size:11px;color:var(--sub);margin-top:2px">기사 제목·요약 키워드 기반 자동 분류라 일부 오분류가 있을 수 있습니다 · 숫자는 2주간 기사 수</div>
     <div id="newsstats"></div>
     <div id="newsboard"></div>
-  </div>
-
-  <div class="newssec" style="margin-top:18px">
-    <div class="dh"><h2>정책소식요약</h2><span class="sub">정부24 제주 지원서비스 · 기관 발표</span>
-      <button class="go" data-v="explore">정책 탐색 →</button></div>
-    <div id="weekly2"></div>
   </div>
 </div>
 </div><!-- /news -->
@@ -749,7 +743,7 @@ body{padding-bottom:78px}
 <div id="view-council" hidden>
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
-  <div class="viewtitle">우리동네의원</div>
+  <div class="viewtitle">동네의원</div>
   <div class="viewsub">병 고치는 동네의원처럼, 제주를 돌보는 국회의원·도의원 활동 알리미</div>
 
   <div class="csec">
@@ -761,7 +755,7 @@ body{padding-bottom:78px}
   <div class="csec" style="margin-top:22px">
     <div class="dh"><h2>제주도의원 현황</h2><span class="sub">제13대 제주도의회 45인</span></div>
     <div class="alrimicard">
-      <div class="ah"><h2>우리 동네의원 알리미</h2>
+      <div class="ah"><h2>동네의원 알리미</h2>
         <a href="urido-alrimi.html" target="_blank" rel="noopener">새 창에서 크게 보기 ↗</a></div>
       <iframe src="urido-alrimi.html" loading="lazy" title="제주 도의원 45인 알리미"></iframe>
     </div>
@@ -781,7 +775,7 @@ body{padding-bottom:78px}
 <div id="view-support" hidden>
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
-  <div class="viewtitle">지원사업</div>
+  <div class="viewtitle">주목합써</div>
   <div class="viewsub">지금 신청할 수 있는 사업을 내 상황에 맞게 — 마감 임박순</div>
   <div class="whochips" id="supwho"></div>
   <div id="suplist"></div>
@@ -789,6 +783,8 @@ body{padding-bottom:78px}
     <b>맞춤형 지원서비스 신청포털 ↗</b>
     <span>제주도 공식 신청 창구 — 여기서 확인한 사업을 실제로 신청할 수 있습니다</span>
   </a>
+  <div class="dh" style="margin-top:20px"><h2>상시지원사업</h2><span class="sub">최근 1주일 정책·지원 소식 (정부24 제주 지원서비스·기관 발표)</span></div>
+  <div id="weekly2"></div>
 </div>
 </div><!-- /support -->
 
@@ -812,7 +808,7 @@ body{padding-bottom:78px}
 <div id="view-terms" hidden>
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
-  <div class="viewtitle">제도설명</div>
+  <div class="viewtitle">보부상위키</div>
   <div class="viewsub">보부상위키 — 제주위키의 도민판. 용어를 누르면 세 줄 설명이 뜹니다.</div>
   <div class="rankcard">
     <h2>제주 정책 기사 빈출 단어 TOP 20 <span style="font-size:11px;color:var(--sub);font-weight:500">시연 집계</span></h2>
@@ -869,9 +865,9 @@ body{padding-bottom:78px}
 
 <nav class="bottomnav" id="bottomnav">
   <button data-v="home" class="on"><span class="ic">🏠</span>홈</button>
-  <button data-v="news"><span class="ic">📰</span>새소식</button>
+  <button data-v="news"><span class="ic">📰</span>호외요</button>
   <button data-v="lawbot"><span class="ic">⚖️</span>정책비서</button>
-  <button data-v="council"><span class="ic">🏛️</span>우리동네의원</button>
+  <button data-v="council"><span class="ic">🏛️</span>동네의원</button>
   <button id="openmenu2"><span class="ic">☰</span>전체 메뉴</button>
 </nav>
 
@@ -883,12 +879,12 @@ body{padding-bottom:78px}
       <button class="close" id="closemenu">✕</button>
     </div>
     <button class="mitem on" data-v="home">홈</button>
-    <button class="mitem" data-v="news">새소식 <span class="mx">기사 스크랩 · 인기뉴스</span></button>
+    <button class="mitem" data-v="news">호외요, 호외! <span class="mx">인기뉴스 · 분야별 소식</span></button>
     <button class="mitem" data-v="lawbot">정책비서 <span class="mx">정책 · 법규 · 조례</span></button>
-    <button class="mitem" data-v="council">우리동네의원 <span class="mx">국회 · 도의회</span></button>
-    <button class="mitem" data-v="support">지원사업 <span class="mx">맞춤형 안내</span></button>
+    <button class="mitem" data-v="council">동네의원 <span class="mx">국회 · 도의회</span></button>
+    <button class="mitem" data-v="support">주목합써 <span class="mx">공공지원사업 알아보기</span></button>
     <button class="mitem" data-v="edu">교육정책 <span class="mx">도교육청</span></button>
-    <button class="mitem" data-v="terms">제도설명 <span class="mx">AI 제주정책 보부상위키 · 빈출 단어</span></button>
+    <button class="mitem" data-v="terms">보부상위키 <span class="mx">용어색인 · 빈출단어</span></button>
     <div class="msep"></div>
     <button class="mitem" data-v="biseo">민원비서 <span class="mx">뭐든 물어봅서</span></button>
     <button class="mitem" data-v="explore">정책 탐색 <span class="mx">기관·분야·대상별</span></button>
@@ -1960,7 +1956,7 @@ function renderPledges(){
   const rows=PLEDGES.filter(x=>!q||x.t.includes(q));
   const gs=[]; rows.forEach(x=>{if(!gs.includes(x.g))gs.push(x.g);});
   el.innerHTML=gs.map((g,gi)=>{const its=rows.filter(x=>x.g===g);
-    return `<details ${q||gi===0?'open':''}><summary>${g}<span class="cnt">${its.length}과제</span></summary>`+
+    return `<details ${q?'open':''}><summary>${g}<span class="cnt">${its.length}과제</span></summary>`+
       its.map(x=>`<div class="prow">
           <span class="pno">${String(x.no).padStart(2,'0')}</span>
           <span class="pt">${x.t}</span></div>`).join('')+`</details>`;}).join('');
