@@ -54,5 +54,21 @@ jobs:
           git add data/*.json
           git diff --cached --quiet && echo "변경 없음" && exit 0
           git commit -m "자동 수집 $(date -u +'%Y-%m-%d %H:%M')"
-          git pull --rebase --autostash origin main || true
-          git push origin main
+          # 충돌에 강한 push: 최대 5회 재시도, 원격 갱신분은 우리 데이터 우선(-X ours)으로 병합
+          for i in 1 2 3 4 5; do
+            if git push origin main; then
+              echo "✅ push 성공 (시도 $i)"
+              exit 0
+            fi
+            echo "⚠ push 거부됨 — 원격 변경 병합 후 재시도 ($i/5)"
+            git fetch origin main
+            # data/*.json은 방금 수집한 우리 것을 우선 채택하여 충돌 자동 해소
+            git merge -X ours --no-edit origin/main || {
+              git checkout --ours -- data/*.json 2>/dev/null || true
+              git add data/*.json
+              git commit --no-edit || true
+            }
+            sleep $((RANDOM % 5 + 2))
+          done
+          echo "❌ 5회 재시도 후에도 push 실패"
+          exit 1
