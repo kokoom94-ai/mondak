@@ -23,6 +23,7 @@ LIST_COUNT = 100
 KEEP = 150                       # 저장할 최근 의안 수
 SCAN_PAGES = 30                  # 폴백 전국스캔 최대 페이지(30*100=3000건 훑음)
 PROBE_KEYWORDS = ["제주특별자치도의회", "제주특별자치도", "제주"]
+DIAG_ONLY = os.environ.get("COUNCIL_DIAG", "").strip() == "1"  # 진단만 하고 종료
 
 def get(url, tries=3):
     ctx = ssl.create_default_context(); ctx.check_hostname=False; ctx.verify_mode=ssl.CERT_NONE
@@ -73,6 +74,20 @@ def discover_rid():
             print(f"  [probe kw='{kw}' type={stype}] code={code} total={total} rows={len(rows)}")
             if code!="SUCCESS" or not rows: 
                 continue
+            # ── 진단: 첫 행의 전체 필드 구조를 그대로 출력 ──
+            if rows:
+                print("  [진단] 첫 행 전체 필드:", json.dumps(rows[0], ensure_ascii=False)[:600])
+                print("  [진단] 필드 키 목록:", list(rows[0].keys()))
+            # ── 진단: BI_SJ(제목)에 '제주'가 든 행을 찾아 그 RASMBLY_ID/필드 확인 ──
+            for r in rows:
+                sj=(r.get("BI_SJ") or "")
+                if "제주" in sj:
+                    print("  [진단★] 제목에 '제주' 포함 행 발견:")
+                    print("         BI_SJ:", sj[:60])
+                    print("         RASMBLY_ID:", r.get("RASMBLY_ID"))
+                    print("         RASMBLY_NM:", r.get("RASMBLY_NM"))
+                    print("         전체:", json.dumps(r, ensure_ascii=False)[:500])
+                    break
             for r in rows:
                 nm=(r.get("RASMBLY_NM") or "").strip()
                 if COUNCIL in nm:
