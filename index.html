@@ -33,9 +33,10 @@
 .aibox .send:hover{background:#245089}
 .aibox .send:disabled{background:#b0b6c8;cursor:not-allowed}
 .aichips{max-width:760px;margin:16px auto 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
-.aichip{padding:9px 15px;font-size:13.5px;background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.22);border-radius:20px;color:#fff;cursor:pointer;transition:.2s}
+.aichip{padding:9px 15px;font-size:13.5px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:20px;color:#fff;cursor:pointer;transition:.2s}
 .aichip:hover{background:rgba(255,255,255,.24)}
+.ainote{max-width:760px;margin:14px auto 0;position:relative}
+.ainote p{font-size:11.5px;color:rgba(255,255,255,.62);line-height:1.7;margin:0}
 /* 챗봇 답변 영역 */
 .airesult{max-width:760px;margin:18px auto 0}
 .aimsg-user{background:rgba(255,255,255,.16);color:#fff;border-radius:14px 14px 4px 14px;
@@ -70,27 +71,30 @@
 
 /* ── 상단바 시계 ── */
 .navclock{display:none;flex-direction:column;align-items:flex-end;line-height:1.15;margin-left:6px;padding-left:14px;border-left:1px solid var(--line)}
-@media(min-width:760px){.navclock{display:flex}}
+@media(min-width:900px){.navclock{display:flex}}
 .navclock .cd{font-size:11px;color:var(--sub);font-weight:600}
 .navclock .ct{font-size:15.5px;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums;letter-spacing:.5px}
 
-/* ── 인구·관광 티커 (PARKNEWS 스타일, 2줄 흐름) ── */
-.ticker{margin:14px 0 2px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 2px 10px rgba(27,42,74,.05)}
-.tickrow{display:flex;align-items:stretch;height:40px;border-bottom:1px solid var(--line)}
+/* ── 실시간 티커 (인구·관광·날씨, 스크롤 고정) ── */
+.ticker{position:sticky;top:56px;z-index:20;margin:14px 0 2px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 14px rgba(27,42,74,.10)}
+.tickrow{display:flex;align-items:stretch;height:38px;border-bottom:1px solid var(--line)}
 .tickrow:last-child{border-bottom:none}
-.tklabel{flex:0 0 auto;padding:0 14px;display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,#1B3A6D,#245089);white-space:nowrap}
+.tklabel{flex:0 0 96px;justify-content:center;padding:0 10px;display:flex;align-items:center;gap:5px;font-size:12.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,#1B3A6D,#245089);white-space:nowrap}
 .tklabel.alt{background:linear-gradient(135deg,#0d7a63,#12967a)}
+.tklabel.wx{background:linear-gradient(135deg,#c77a1a,#e0972b)}
 .tkview{flex:1 1 auto;overflow:hidden;position:relative;display:flex;align-items:center}
-.tktrack{display:inline-flex;align-items:center;white-space:nowrap;animation:tkscroll 30s linear infinite;will-change:transform}
-.tktrack.alt{animation-duration:38s}
+.tktrack{display:inline-flex;align-items:center;white-space:nowrap;animation:tkscroll 42s linear infinite;will-change:transform;padding-left:8px}
+.tktrack.alt{animation-duration:48s}
+.tktrack.wx{animation-duration:60s}
 .ticker:hover .tktrack{animation-play-state:paused}
 @keyframes tkscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.tk{display:inline-flex;align-items:center;gap:7px;padding:0 20px;font-size:13.5px;color:var(--ink)}
+.tk{display:inline-flex;align-items:center;gap:7px;padding:0 18px;font-size:13.5px;color:var(--ink)}
 .tk em{font-style:normal;color:var(--sub);font-size:12px}
 .tk b{font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
 .tktrack.alt .tk b{color:#0d7a63}
+.tktrack.wx .tk b{color:#c77a1a}
 .tkdot{color:var(--line);font-weight:400}
-.tkmore{flex:0 0 auto;padding:0 13px;font-size:11.5px;color:var(--sub);white-space:nowrap;border-left:1px solid var(--line);display:flex;align-items:center;text-decoration:none}
+.tkmore{flex:0 0 auto;padding:0 13px;font-size:11.5px;color:var(--sub);white-space:nowrap;border-left:1px solid var(--line);display:flex;align-items:center;text-decoration:none;background:#fff}
 .tkmore:hover{color:var(--navy)}
 
 /* ── 관리자 공지사항 (챗봇 바로 아래, 크게) ── */
@@ -152,7 +156,8 @@ a{color:inherit;text-decoration:none}
 .logo .lg em{font-style:normal;color:var(--gyul)}
 .logo .lsub{font-size:10.5px;color:var(--sub);letter-spacing:.2px}
 @media(max-width:420px){.logo .lsub{display:none}}
-.deskmenu{display:none;gap:2px;margin-left:8px}
+.topright{margin-left:auto;display:flex;align-items:center;gap:10px}
+.deskmenu{display:none;gap:2px}
 @media(min-width:900px){.deskmenu{display:flex}}
 .deskmenu button{font-size:13.5px;color:var(--sub);padding:6px 12px;border-radius:9px}
 .deskmenu button:hover{background:var(--bg)}
@@ -585,14 +590,15 @@ body{padding-bottom:78px}
 <div class="topbar">
   <div class="topin">
     <div class="logo" id="logohome"><span class="lg">AI 제주정책 <em>보부상</em></span><span class="lsub">도민의 혜택을 짊어지고 찾아가는 정책 길잡이</span></div>
-    <nav class="deskmenu" id="deskmenu">
-      <button data-v="home" class="on">홈</button>
-      <button data-v="news">새소식</button>
-      <button data-v="lawbot">정책비서</button>
-      <button class="dmham" data-open-drawer aria-label="전체 메뉴" title="전체메뉴">☰</button>
-    </nav>
-    <div class="navclock" id="navclock"></div>
-    <div class="topbtn">
+    <div class="topright">
+      <nav class="deskmenu" id="deskmenu">
+        <button data-v="home" class="on">홈</button>
+        <button data-v="news">새소식</button>
+        <button data-v="lawbot">정책비서</button>
+        <button data-v="council">우리동네의원</button>
+        <button class="dmham" data-open-drawer aria-label="전체 메뉴" title="전체메뉴">☰</button>
+      </nav>
+      <div class="navclock" id="navclock"></div>
       <a class="extbtn" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 <span class="xl">모바일 재난방송</span> 신청</a>
       <button class="hamb" id="openmenu" aria-label="전체 메뉴">☰</button>
     </div>
@@ -602,23 +608,28 @@ body{padding-bottom:78px}
 <div id="view-home">
 <div class="wrap">
 
-  <!-- ── 인구·관광 티커 (PARKNEWS 스타일, 2줄 흐름) ── -->
+  <!-- ── 실시간 티커 (인구·관광·날씨, 3줄 흐름) ── -->
   <div class="ticker">
     <div class="tickrow">
-      <span class="tklabel">👥 인구</span>
+      <span class="tklabel">👥 인구현황</span>
       <div class="tkview"><div class="tktrack" id="tickpop"></div></div>
       <a class="tkmore" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">제주통계포털 ↗</a>
     </div>
     <div class="tickrow">
-      <span class="tklabel alt">✈ 관광객</span>
+      <span class="tklabel alt">✈ 관광객현황</span>
       <div class="tkview"><div class="tktrack alt" id="ticktour"></div></div>
       <a class="tkmore" href="https://data.ijto.or.kr/bigdata/index.do" target="_blank" rel="noopener">관광빅데이터 ↗</a>
+    </div>
+    <div class="tickrow">
+      <span class="tklabel wx">🌤 날씨현황</span>
+      <div class="tkview"><div class="tktrack wx" id="tickwx"><span class="tk" style="color:#8a90a0">지역별 날씨를 불러오는 중…</span></div></div>
+      <a class="tkmore" href="https://www.weather.go.kr/w/weather/forecast/short-term.do" target="_blank" rel="noopener">기상청 ↗</a>
     </div>
   </div>
 
   <!-- ── AI 챗봇 히어로 ── -->
   <div class="aihero">
-    <h2>제주 정책, AI에게 물어보세요</h2>
+    <h2>제주 정책, AI보부상으로 검색하세요</h2>
     <div class="sub">지원사업·정책을 찾지 말고, 물어보고 받아보세요</div>
     <div class="aibox">
       <textarea id="aiq" rows="1" placeholder="예) 어르신이 받을 수 있는 지원이 있을까요?"></textarea>
@@ -629,6 +640,10 @@ body{padding-bottom:78px}
       <span class="aichip" onclick="aiFill(this)">제주 전기차 보조금 얼마야</span>
       <span class="aichip" onclick="aiFill(this)">농사 지원 뭐 있어?</span>
       <span class="aichip" onclick="aiFill(this)">장애인 교통비 지원돼?</span>
+    </div>
+    <div class="ainote">
+      <p>*AI보부상은 계속 업데이트 중입니다. 답변이 어려운 경우도 있으니 참고 바랍니다.</p>
+      <p>*부적절 용어 및 욕설, 속어, 은어 등은 해석이 어려울 수 있으니 참고 바랍니다.</p>
     </div>
     <div class="airesult" id="airesult"></div>
   </div>
@@ -646,7 +661,7 @@ body{padding-bottom:78px}
   <!-- ── 2열: 인기 정책단어 | 실시간 인기 뉴스 ── -->
   <div class="twocol">
     <div class="col">
-      <div class="colh"><h3>🔥 인기 정책단어</h3><span>언론보도 노출 건수</span></div>
+      <div class="colh"><h3>🔥 실시간 이슈 단어</h3><span>언론보도 노출 건수</span></div>
       <div id="kwlist"></div>
     </div>
     <div class="col">
@@ -985,7 +1000,7 @@ function renderTicker(){
 
 /* ── 인기 정책단어 (언론보도 노출 건수) ── */
 const KWSTOP=new Set(['제주','제주시','서귀포시','제주도','도민','지원','사업','운영','추진','개최','안내','모집','신청','확대','오픈','제주형','올해','올레','대상','통해','위해','관련','예정','계획','실시','진행','첫','및','등','도내','도정','시민','주민','활용','조성','마련','강화','참여','방안','개선']);
-function kwTokens(t){return (t.match(/[가-힣A-Za-z0-9]{2,}/g)||[]).filter(w=>!KWSTOP.has(w)&&!/^\d+$/.test(w)&&!/^\d+%$/.test(w));}
+function kwTokens(t){return (t.match(/[가-힣A-Za-z0-9]{2,}/g)||[]).filter(w=>!KWSTOP.has(w)&&!/^\d+$/.test(w)&&!/^\d+%$/.test(w)&&!/^\d+[월일년원명건차호]$/.test(w));}
 function renderKeywords(){
   const box=document.getElementById('kwlist'); if(!box)return;
   const cnt={};
@@ -1014,11 +1029,29 @@ function renderHotNews(){
   }).join('');
 }
 
+/* ── 지역별 실시간 날씨 (Open-Meteo · 무료·무키·전세계) ── */
+const WXN=['제주시','서귀포시','한림읍','애월읍','조천읍','구좌읍','한경면','대정읍','안덕면','남원읍','표선면','성산읍','중문'];
+const WXC=[[33.51,126.52],[33.25,126.56],[33.41,126.27],[33.46,126.33],[33.53,126.63],[33.52,126.84],[33.35,126.18],[33.22,126.25],[33.26,126.31],[33.28,126.72],[33.33,126.83],[33.44,126.91],[33.25,126.42]];
+function wxIco(c){return c===0?'☀️':c<=2?'⛅':c===3?'☁️':c<=48?'🌫️':c<=57?'🌦️':c<=67?'🌧️':c<=77?'❄️':c<=82?'🌦️':c<=86?'❄️':'⛈️';}
+async function loadWeather(){
+  const el=document.getElementById('tickwx'); if(!el)return;
+  try{
+    const la=WXC.map(w=>w[0]).join(','), lo=WXC.map(w=>w[1]).join(',');
+    const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude='+la+'&longitude='+lo+'&current=temperature_2m,weather_code&timezone=Asia%2FSeoul');
+    const j=await r.json(); const arr=Array.isArray(j)?j:[j];
+    const list=arr.map((d,i)=>({n:WXN[i],ic:wxIco(d.current?.weather_code??0),t:Math.round(d.current?.temperature_2m??0)}));
+    const one=list.map(w=>'<span class="tk"><em>'+w.n+'</em> '+w.ic+' <b>'+w.t+'°</b></span>').join('<span class="tkdot">·</span>')+'<span class="tkdot">·</span>';
+    el.innerHTML=one+one;   // 2배 복제 → 무한 루프
+  }catch(e){ el.innerHTML='<span class="tk" style="color:#8a90a0">날씨 정보를 불러오지 못했습니다</span>'; }
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
   tickClock();
   renderTicker();
   renderKeywords();
   renderHotNews();
+  loadWeather();
+  setInterval(loadWeather,600000); // 10분마다 갱신
 });
 </script>
 <script>
