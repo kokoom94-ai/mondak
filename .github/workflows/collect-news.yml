@@ -39,6 +39,10 @@ jobs:
         run: python scripts/collect_assembly.py || true
       - name: Collect Jeju stats
         run: python scripts/collect_stats.py || true
+      - name: Collect Jeju council
+        env:
+          CLIK_KEY: ${{ secrets.CLIK_KEY }}
+        run: python scripts/collect_council.py || true
       - name: Collect VisitJeju
         env:
           VISITJEJU_KEY: ${{ secrets.VISITJEJU_KEY }}
