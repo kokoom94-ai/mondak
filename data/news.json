@@ -1,27 +1,12 @@
 {
  "meta": {
-  "collected_at": "2026-08-22 00:50 KST",
+  "collected_at": "2026-08-22 01:07 KST",
   "window_days": 14,
   "cadence": "3h",
   "source": "지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계",
   "count": 400
  },
  "items": [
-  {
-   "t": "서귀포시 하반기 인사 463명…자치행정국장 부미선·복지위생국장 강연실",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424880",
-   "src": "뉴스제주",
-   "d": "2026-08-22",
-   "outlets": [
-    "제주일보",
-    "뉴스제주",
-    "jemin.com",
-    "samdailbo.com",
-    "mediajeju.com"
-   ],
-   "n": 5,
-   "sec": "복지/사회보험"
-  },
   {
    "t": "'나혼자산다' 유리 제주도 찜질방·빵집(나혼산)",
    "link": "https://www.bntnews.co.kr/article/view/bnt202608210288",
@@ -153,6 +138,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505783",
    "src": "제주의소리",
    "d": "2026-08-22",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -164,11 +152,36 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227291",
    "src": "제주일보",
    "d": "2026-08-22",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
    "n": 1,
    "sec": "안전/민원행정"
+  },
+  {
+   "t": "KT 제주지사-제주관광대 외국인 통신 편의 지원 협약",
+   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269313",
+   "src": "samdailbo.com",
+   "d": "2026-08-22",
+   "outlets": [
+    "samdailbo.com"
+   ],
+   "n": 1,
+   "sec": "문화/관광"
+  },
+  {
+   "t": "유리, 20년 경력 요가 실력 공개..김신영 \"제주도에 '이효리 상' 있어\" [...",
+   "link": "https://www.starnewskorea.com/broadcast-show/2026/08/22/2026082123532276237",
+   "src": "starnewskorea.com",
+   "d": "2026-08-22",
+   "outlets": [
+    "starnewskorea.com"
+   ],
+   "n": 1,
+   "sec": "기타"
   },
   {
    "t": "민선 9기 제주도 첫 정기인사...기획실장 양제윤·안전실장 조상범",
@@ -350,7 +363,8 @@
     "뉴스21 통신",
     "youngjuilbo.com",
     "뉴스제주",
-    "뉴시스"
+    "뉴시스",
+    "삼다일보"
    ],
    "outlets": [
     "뉴스N제주",
@@ -496,6 +510,29 @@
    "sec": "행정"
   },
   {
+   "t": "서귀포시 정기인사 463명 발령...'행정국장 부미선, 복지국장 강연실'",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597804",
+   "src": "헤드라인제주",
+   "d": "2026-08-21",
+   "outlets_prev": [
+    "헤드라인제주",
+    "mediajeju.com",
+    "뉴스제주",
+    "samdailbo.com",
+    "jemin.com"
+   ],
+   "outlets": [
+    "뉴스제주",
+    "제주일보",
+    "jemin.com",
+    "samdailbo.com",
+    "mediajeju.com",
+    "헤드라인제주"
+   ],
+   "n": 6,
+   "sec": "복지/사회보험"
+  },
+  {
    "t": "대성히트에너시스, 제주 난방전기화 사업 '1호 가구 현판식' 개최",
    "link": "https://www.gasnews.com/news/articleView.html?idxno=126450",
    "src": "gasnews.com",
@@ -608,28 +645,6 @@
    ],
    "n": 5,
    "sec": "기타"
-  },
-  {
-   "t": "서귀포시 정기인사 463명 발령...'행정국장 부미선, 복지국장 강연실'",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597804",
-   "src": "헤드라인제주",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "헤드라인제주",
-    "mediajeju.com",
-    "뉴스제주",
-    "samdailbo.com",
-    "jemin.com"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "mediajeju.com",
-    "뉴스제주",
-    "samdailbo.com",
-    "jemin.com"
-   ],
-   "n": 5,
-   "sec": "복지/사회보험"
   },
   {
    "t": "제주도 699명 첫 정기인사… 핵심 2급 3자리 '70년대생' 전진배치",
@@ -2390,6 +2405,21 @@
    "sec": "기타"
   },
   {
+   "t": "간부부터 달라져야...제주도, 성평등·청렴 리더십 교육 실시",
+   "link": "https://www.womennews.co.kr/news/articleView.html?idxno=281270",
+   "src": "womennews.co.kr",
+   "d": "2026-08-21",
+   "outlets_prev": [
+    "womennews.co.kr"
+   ],
+   "outlets": [
+    "womennews.co.kr",
+    "여성신문"
+   ],
+   "n": 2,
+   "sec": "교육/청년"
+  },
+  {
    "t": "제18호 태풍 '사우델', 심상치 않은 진로...우리나라 영향 가능성은?",
    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597750",
    "src": "헤드라인제주",
@@ -3774,20 +3804,6 @@
    ],
    "n": 1,
    "sec": "스타트업/경제"
-  },
-  {
-   "t": "간부부터 달라져야...제주도, 성평등·청렴 리더십 교육 실시",
-   "link": "https://www.womennews.co.kr/news/articleView.html?idxno=281270",
-   "src": "womennews.co.kr",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "womennews.co.kr"
-   ],
-   "outlets": [
-    "womennews.co.kr"
-   ],
-   "n": 1,
-   "sec": "교육/청년"
   },
   {
    "t": "“승객 만들면 항공사가 알아서 띄운다?”… 제주~인천 ‘졸속’ 질책,...",
@@ -6112,20 +6128,6 @@
    ],
    "n": 1,
    "sec": "기타"
-  },
-  {
-   "t": "하루 2000석 줄어든 제주 국내선…제주도, 관광 위축에 공급 안정화 총...",
-   "link": "https://www.hankyung.com/article/2026082153667",
-   "src": "한국경제",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "한국경제"
-   ],
-   "outlets": [
-    "한국경제"
-   ],
-   "n": 1,
-   "sec": "문화/관광"
   }
  ]
 }
