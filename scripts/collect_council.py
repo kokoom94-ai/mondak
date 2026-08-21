@@ -71,7 +71,7 @@ def norm(r):
         "proposer": (r.get("PROPSR") or "").strip(),
         "date": dt(r.get("ITNC_DE")),
         "numpr": (r.get("RASMBLY_NUMPR") or "").strip(),
-        "url": "https://clik.nanet.go.kr/potal/search/searchView.do?collection=assemblybill&DOCID="+urllib.parse.quote(docid),
+        "url": "https://clik.nanet.go.kr/potal/search/searchView.do?collection=bill&DOCID="+urllib.parse.quote(docid),
         "_docid": docid,
     }
 
