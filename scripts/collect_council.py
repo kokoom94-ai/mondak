@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """제주특별자치도의회 의안정보 수집 — 국회도서관 지방의정포털(CLIK) Open API.
-bill.do를 searchType=RASMBLY_NM(지방의회명)으로 조회 → 제주 의안 최신순 → data/council.json
+
+전략(3단):
+  1) ID 자동탐색: 여러 키워드로 bill.do를 조회, 응답행의 RASMBLY_NM에서
+     '제주특별자치도의회'를 찾아 RASMBLY_ID 확보.
+  2) rasmblyId 정조회: 찾은 ID를 rasmblyId 파라미터로 넣어 제주 의안만 수집.
+  3) 폴백 전국스캔: ID를 못 찾으면 여러 페이지를 넓게 훑으며 RASMBLY_NM으로 제주만 필터.
+
 Secret: CLIK_KEY (지방의정포털 인증키)
 출처표시: '국회도서관 CLIK 공공데이터' (약관 제10조 준수)
 """
@@ -14,9 +20,9 @@ KEY = os.environ.get("CLIK_KEY", "").strip()
 BASE = "https://clik.nanet.go.kr/openapi/bill.do"
 COUNCIL = "제주특별자치도의회"
 LIST_COUNT = 100
-MAX_PAGES = 3          # 최근 의안 위주 (100*3=최대 300건 훑음)
-KEEP = 120             # 저장할 최근 의안 수
-SEARCH_TYPES = ["RASMBLY_NM", "ALL"]  # RASMBLY_NM 우선, 안되면 ALL로 폴백
+KEEP = 150                       # 저장할 최근 의안 수
+SCAN_PAGES = 30                  # 폴백 전국스캔 최대 페이지(30*100=3000건 훑음)
+PROBE_KEYWORDS = ["제주특별자치도의회", "제주특별자치도", "제주"]
 
 def get(url, tries=3):
     ctx = ssl.create_default_context(); ctx.check_hostname=False; ctx.verify_mode=ssl.CERT_NONE
@@ -32,7 +38,7 @@ def get(url, tries=3):
 def parse(txt):
     try: j=json.loads(txt)
     except Exception: return None
-    if isinstance(j,list): j = j[0] if j else {}   # bill.do는 [ {...} ] 배열로 감싸옴
+    if isinstance(j,list): j = j[0] if j else {}   # bill.do는 [ {...} ] 배열로 감쌀 수 있음
     return j
 
 def dt(v):
@@ -41,64 +47,125 @@ def dt(v):
         return f"{v[:4]}-{v[4:6]}-{v[6:8]}"
     return ""
 
-def fetch_pages(stype):
-    """한 searchType으로 페이지 순회. (items, rasmbly_id, ok) 반환"""
-    items=[]; seen=set(); rid=None; ok=False; dbg=True
-    for pg in range(MAX_PAGES):
-        q={"key":KEY,"type":"json","displayType":"list","startCount":pg*LIST_COUNT,
-           "listCount":LIST_COUNT,"searchType":stype,"searchKeyword":COUNCIL}
-        url=BASE+"?"+urllib.parse.urlencode(q)
-        try: j=parse(get(url))
-        except Exception as e:
-            print(f"  [{stype}] p{pg} 요청 실패:", e); break
-        if not j:
-            print(f"  [{stype}] p{pg} 파싱 실패"); break
-        code=j.get("RESULT_CODE"); msg=j.get("RESULT_MESSAGE")
-        total=j.get("TOTAL_COUNT","?"); lst=j.get("LIST") or []
-        print(f"  [{stype}] p{pg}: code={code} total={total} rows={len(lst)}")
-        if code!="SUCCESS":
-            print(f"  ⚠ [{stype}] 오류: {msg}"); break
-        ok=True
-        if dbg and lst:
-            print("  ★ 첫 행:", json.dumps(lst[0], ensure_ascii=False)[:400]); dbg=False
-        if not lst: break
-        for it in lst:
-            r=it.get("ROW") or it
+def rows_of(j):
+    lst = j.get("LIST") or []
+    out=[]
+    for it in lst:
+        out.append(it.get("ROW") or it)
+    return out
+
+def call(params):
+    """단일 호출 → (code, msg, total, rows[])"""
+    q={"key":KEY,"type":"json","displayType":"list","listCount":LIST_COUNT}
+    q.update(params)
+    url=BASE+"?"+urllib.parse.urlencode(q)
+    try: j=parse(get(url))
+    except Exception as e:
+        return "REQFAIL", str(e), "?", []
+    if not j: return "PARSEFAIL","",("?"),[]
+    return j.get("RESULT_CODE"), j.get("RESULT_MESSAGE"), j.get("TOTAL_COUNT","?"), rows_of(j)
+
+# ── 1단계: 제주 RASMBLY_ID 자동탐색 ──────────────────────────────
+def discover_rid():
+    for kw in PROBE_KEYWORDS:
+        for stype in ("ALL","BI_SJ"):
+            code,msg,total,rows = call({"startCount":0,"searchType":stype,"searchKeyword":kw})
+            print(f"  [probe kw='{kw}' type={stype}] code={code} total={total} rows={len(rows)}")
+            if code!="SUCCESS" or not rows: 
+                continue
+            for r in rows:
+                nm=(r.get("RASMBLY_NM") or "").strip()
+                if COUNCIL in nm:
+                    rid=(r.get("RASMBLY_ID") or "").strip()
+                    if rid:
+                        print(f"  ✔ 제주 RASMBLY_ID 발견: {rid} (from kw='{kw}')")
+                        return rid
+            time.sleep(0.3)
+    print("  ✖ 자동탐색으로 제주 ID 못 찾음")
+    return None
+
+def norm(r):
+    docid=(r.get("DOCID") or "").strip()
+    return {
+        "t": (r.get("BI_SJ") or "").strip(),
+        "kind": (r.get("BI_KND_NM") or "").strip(),
+        "status": (r.get("CL_STD_NM") or "").strip(),
+        "no": (r.get("BI_NO") or "").strip(),
+        "proposer": (r.get("PROPSR") or "").strip(),
+        "date": dt(r.get("ITNC_DE")),
+        "numpr": (r.get("RASMBLY_NUMPR") or "").strip(),
+        "url": "https://clik.nanet.go.kr/potal/search/searchView.do?collection=assemblybill&DOCID="+urllib.parse.quote(docid),
+        "_docid": docid,
+    }
+
+# ── 2단계: rasmblyId로 제주 의안 정조회 ─────────────────────────
+def fetch_by_rid(rid):
+    items=[]; seen=set()
+    for pg in range(SCAN_PAGES):
+        # rasmblyId 파라미터로 직접 필터. searchKeyword는 비워 전체(해당 의회) 최신순.
+        code,msg,total,rows = call({"startCount":pg*LIST_COUNT,"rasmblyId":rid,
+                                    "searchType":"ALL","searchKeyword":""})
+        print(f"  [rid p{pg}] code={code} total={total} rows={len(rows)}")
+        if code!="SUCCESS": 
+            print(f"  ⚠ rid 조회 오류: {msg}"); break
+        if pg==0 and rows:
+            print("  ★ 첫 행:", json.dumps(rows[0], ensure_ascii=False)[:400])
+        if not rows: break
+        added=0
+        for r in rows:
             nm=(r.get("RASMBLY_NM") or "").strip()
-            if COUNCIL not in nm: continue          # 제주도의회만 정확히
-            if not rid: rid=r.get("RASMBLY_ID")
-            docid=(r.get("DOCID") or "").strip()
-            if not docid or docid in seen: continue
-            seen.add(docid)
-            items.append({
-                "t": (r.get("BI_SJ") or "").strip(),
-                "kind": (r.get("BI_KND_NM") or "").strip(),
-                "status": (r.get("CL_STD_NM") or "").strip(),
-                "no": (r.get("BI_NO") or "").strip(),
-                "proposer": (r.get("PROPSR") or "").strip(),
-                "date": dt(r.get("ITNC_DE")),
-                "numpr": (r.get("RASMBLY_NUMPR") or "").strip(),
-                "url": "https://clik.nanet.go.kr/potal/search/searchView.do?collection=assemblybill&DOCID="+urllib.parse.quote(docid),
-            })
+            # rasmblyId가 무시될 수 있으니 이름으로 한번 더 확인
+            if COUNCIL not in nm: continue
+            d=norm(r)
+            if not d["_docid"] or d["_docid"] in seen: continue
+            seen.add(d["_docid"]); items.append(d); added+=1
+        if added==0 and pg>0: break     # 제주가 더 안 나오면 종료
+        if len(rows)<LIST_COUNT: break
         time.sleep(0.3)
-        if len(lst)<LIST_COUNT: break
-    return items, rid, ok
+    return items
+
+# ── 3단계(폴백): 전국스캔하며 제주만 필터 ───────────────────────
+def fetch_by_scan():
+    items=[]; seen=set()
+    for pg in range(SCAN_PAGES):
+        code,msg,total,rows = call({"startCount":pg*LIST_COUNT,
+                                    "searchType":"ALL","searchKeyword":COUNCIL})
+        if code!="SUCCESS":
+            print(f"  [scan p{pg}] 오류 {msg}"); break
+        if not rows: break
+        added=0
+        for r in rows:
+            nm=(r.get("RASMBLY_NM") or "").strip()
+            if COUNCIL not in nm: continue
+            d=norm(r)
+            if not d["_docid"] or d["_docid"] in seen: continue
+            seen.add(d["_docid"]); items.append(d); added+=1
+        print(f"  [scan p{pg}] rows={len(rows)} 제주누적={len(items)}")
+        if len(rows)<LIST_COUNT: break
+        time.sleep(0.3)
+    return items
 
 def main():
     if not KEY:
         print("CLIK_KEY 미설정 — 지방의정포털 인증키를 Secrets에 등록"); return
-    items=[]; rid=None
-    for stype in SEARCH_TYPES:
-        items, rid, ok = fetch_pages(stype)
-        if items:                       # 이 searchType으로 제주 의안을 얻었으면 끝
-            print(f"  → searchType={stype} 성공 ({len(items)}건)")
-            break
-        if not ok:                      # 오류로 실패했으면 다음 searchType 시도
-            continue
+
+    print("[1] 제주 RASMBLY_ID 자동탐색")
+    rid = discover_rid()
+
+    items=[]
+    if rid:
+        print(f"[2] rasmblyId={rid}로 제주 의안 조회")
+        items = fetch_by_rid(rid)
 
     if not items:
-        print("제주 의안 0건 — 위 로그의 code/오류 확인 필요"); return
+        print("[3] 폴백: 전국스캔 필터")
+        items = fetch_by_scan()
 
+    if not items:
+        print("제주 의안 0건 — API 응답 확인 필요"); return
+
+    # _docid 내부필드 제거
+    for x in items: x.pop("_docid", None)
     items.sort(key=lambda x: x["date"], reverse=True)
     items = items[:KEEP]
 
@@ -114,6 +181,6 @@ def main():
         "items":items}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(out,ensure_ascii=False,indent=1),encoding="utf-8")
-    print(f"wrote {len(items)}건 · 상태:{by_status} · 종류:{by_kind}")
+    print(f"✅ wrote {len(items)}건 · 상태:{by_status} · 종류:{by_kind}")
 
 if __name__=="__main__": main()
