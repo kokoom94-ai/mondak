@@ -22,6 +22,7 @@ JEJU_RID = "064001"              # ★ 제주특별자치도의회 코드 (확�
 LIST_COUNT = 100
 MAX_PAGES = 20                   # 제목검색 '제주특별자치도' 결과를 훑을 최대 페이지
 KEEP = 150                       # 저장할 최근 의안 수
+TERM13_START = "2026-07-01"      # 제13대 제주도의회 임기 시작 (이후 의안만 노출)
 # 제목검색 키워드(넓게 잡고 RID로 정밀필터). 제주 의안은 대부분 제목에 '제주' 포함.
 SEARCH_KEYWORD = "제주특별자치도"
 
@@ -114,6 +115,8 @@ def main():
         print(f"제주 의안 0건 (훑은 행={scanned}) — RASMBLY_ID={JEJU_RID} 확인 필요"); return
 
     for x in items: x.pop("_docid", None)
+    # 제13대 도의회(2026-07-01~) 의안만 노출 — 그 이전 임기 의안 제외
+    items = [x for x in items if x.get("date","") >= TERM13_START]
     items.sort(key=lambda x: x["date"], reverse=True)
     items = items[:KEEP]
 
