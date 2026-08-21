@@ -1773,10 +1773,13 @@ function renderCB(){
   const shown=cur==='all'?items:items.filter(x=>x.kind===cur);
   const lim=CBlimit||8;
   const isPass=s=>/가결|원안|수정|채택|동의|승인/.test(s||'');
-  const cards=shown.slice(0,lim).map(b=>`<a class="cbillrow" href="${b.url||'#'}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit">
+  const cards=shown.slice(0,lim).map(b=>{
+    // 옛 데이터(collection=assemblybill)도 즉시 정상 링크로 보정
+    const url=(b.url||'#').replace('collection=assemblybill','collection=bill');
+    return `<a class="cbillrow" href="${url}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit">
     <b>${b.t}</b><span class="rs ${isPass(b.status)?'pass':'pend'}" style="margin-left:6px">${b.status||'심사중'}</span>
     <div class="bno">${b.kind||''} · 의안 ${b.no||'-'} · ${b.date||''} · 원문 ↗</div>
-    <div class="prop">발의: ${b.proposer||'-'}</div></a>`).join('');
+    <div class="prop">제안: ${b.proposer||'-'}</div></a>`;}).join('');
   const more=shown.length>lim?`<button class="morebtn cbmore">더보기 · ${shown.length-lim}건</button>`:'';
   bl.innerHTML=tabs+(cards||'<div class="bempty">이 종류의 의안이 없습니다.</div>')+more;
 }
