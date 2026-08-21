@@ -31,25 +31,39 @@ def dt(v): return f"{v[:4]}-{v[4:6]}-{v[6:8]}" if v and len(v)>=8 and v.isdigit(
 def main():
     if not OC: print("LAW_OC 미설정 — open.law.go.kr 아이디를 Secrets에 등록"); return
     items=[]
-    # ① 자치법규(도 조례·규칙·훈령 등)
-    for pg in range(1,80):
-        j=call("ordin","제주",pg)
-        if not j: break
-        body=j.get("OrdinSearch") or j.get("Law") or {}
-        rows=body.get("law") or body.get("ordin") or []
-        if isinstance(rows,dict): rows=[rows]
-        tot=body.get("totalCnt","?")
-        print("ordin p",pg,":",len(rows),"건 / 총",tot)
-        if not rows: break
-        for r in rows:
-            t=gv(r,"자치법규명","법령명한글","법령명")
-            if not t or "제주" not in t: continue
-            ty=gv(r,"자치법규종류","법령구분명") or "조례"
-            link=gv(r,"자치법규상세링크","법령상세링크")
-            url=("https://www.law.go.kr"+link) if link.startswith("/") else                 "https://www.law.go.kr/자치법규/"+urllib.parse.quote(t.replace(" ",""))
-            items.append({"ty":ty if ty in("조례","규칙","훈령","예규") else "조례",
-                "f":cls(t),"t":t,"d":dt(gv(r,"공포일자")),"url":url})
-        if len(rows)<100: break
+    seen_ids=set()
+    def add_ordin(r):
+        t=gv(r,"자치법규명","법령명한글","법령명")
+        if not t: return
+        org=gv(r,"지자체기관명","지자체명","소관부처명","기관명","기관","지방자치단체명","제정개정부처명")
+        # 명칭에 '제주'가 있거나, 발령 지자체가 '제주'면 채택 (관광공사처럼 명칭에 특별자치도 없는 것 포함)
+        if "제주" not in t and "제주" not in org: return
+        oid=gv(r,"자치법규일련번호","자치법규ID","법령일련번호","MST","ID") or t
+        if oid in seen_ids: return
+        seen_ids.add(oid)
+        ty=gv(r,"자치법규종류","법령구분명") or "조례"
+        link=gv(r,"자치법규상세링크","법령상세링크")
+        url=("https://www.law.go.kr"+link) if link.startswith("/") else "https://www.law.go.kr/자치법규/"+urllib.parse.quote(t.replace(" ",""))
+        items.append({"ty":ty if ty in("조례","규칙","훈령","예규") else "조례",
+            "f":cls(t),"t":t,"d":dt(gv(r,"공포일자")),"url":url})
+    # ① 자치법규 — 메인 스윕(제주) + 산하기관 타깃 스윕(명칭에 '제주' 없는 조례 대비)
+    ORD_QUERIES=[("제주",80),("관광공사",3),("개발공사",3),("에너지공사",3),
+        ("국제자유도시",3),("테크노파크",3),("출자출연",3),("공사 설립",3),("공단 설립",3),("재단 설립",3)]
+    dbg=True
+    for qword,maxpg in ORD_QUERIES:
+        for pg in range(1,maxpg+1):
+            j=call("ordin",qword,pg)
+            if not j: break
+            body=j.get("OrdinSearch") or j.get("Law") or {}
+            rows=body.get("law") or body.get("ordin") or []
+            if isinstance(rows,dict): rows=[rows]
+            tot=body.get("totalCnt","?")
+            print(f"ordin[{qword}] p{pg} : {len(rows)}건 / 총 {tot}")
+            if dbg and rows:
+                print("★ 첫 행 실제필드:", json.dumps(rows[0],ensure_ascii=False)[:500]); dbg=False
+            if not rows: break
+            for r in rows: add_ordin(r)
+            if len(rows)<100: break
     # ② 국가 법령(법률·시행령·시행규칙 중 '제주' 포함)
     for pg in (1,2):
         j=call("law","제주",pg)
