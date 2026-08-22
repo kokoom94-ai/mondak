@@ -1,0 +1,6820 @@
+{
+ "meta": {
+  "updated": "2026-08-23",
+  "basis": "도청 조직도(소속·유관기관), 제주도 국가공공기관 리스트, 정부조직도",
+  "note": "L1(도청 본청 15실·국 70과)은 민선9기 조직개편 확정 후 반영 예정",
+  "id_policy": "id는 최초 부여 후 고정. 신규 기관은 뒤에 append.",
+  "layers": {
+   "L0": "중앙행정기관",
+   "L1": "도청 본청(미반영)",
+   "L2": "도 소속기관",
+   "L3": "행정시·읍면동(미반영)",
+   "L4": "도 공공기관",
+   "L5": "도내 국가공공기관",
+   "L6": "민간·위탁 중간지원조직",
+   "L7": "국가행정기관(관공서)"
+  },
+  "nav_order": [
+   "정부부처",
+   "도청",
+   "행정시·읍면동",
+   "도 소속기관",
+   "도 공공기관",
+   "국가공공기관",
+   "국가행정기관",
+   "민간·위탁"
+  ],
+  "count": 282,
+  "count_by_layer": {
+   "L0": 55,
+   "L2": 26,
+   "L3": 45,
+   "L4": 22,
+   "L5": 84,
+   "L6": 3,
+   "L7": 47
+  }
+ },
+ "items": [
+  {
+   "id": "gov_001",
+   "layer": "L0",
+   "name": "감사원",
+   "alias": [],
+   "type": "대통령 소속",
+   "parent": "대통령",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_002",
+   "layer": "L0",
+   "name": "국가정보원",
+   "alias": [],
+   "type": "대통령 소속",
+   "parent": "대통령",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_003",
+   "layer": "L0",
+   "name": "방송미디어통신위원회",
+   "alias": [],
+   "type": "대통령 소속",
+   "parent": "대통령",
+   "region": "전국",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_004",
+   "layer": "L0",
+   "name": "고위공직자범죄수사청",
+   "alias": [],
+   "type": "독립기구",
+   "parent": "대통령",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_005",
+   "layer": "L0",
+   "name": "국가인권위원회",
+   "alias": [],
+   "type": "독립기구",
+   "parent": "대통령",
+   "region": "전국",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_006",
+   "layer": "L0",
+   "name": "국가교육위원회",
+   "alias": [],
+   "type": "독립기구",
+   "parent": "대통령",
+   "region": "전국",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_007",
+   "layer": "L0",
+   "name": "국무조정실",
+   "alias": [],
+   "type": "총리 직속",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_008",
+   "layer": "L0",
+   "name": "기획예산처",
+   "alias": [],
+   "type": "처",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_009",
+   "layer": "L0",
+   "name": "인사혁신처",
+   "alias": [],
+   "type": "처",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_010",
+   "layer": "L0",
+   "name": "법제처",
+   "alias": [],
+   "type": "처",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_011",
+   "layer": "L0",
+   "name": "식품의약품안전처",
+   "alias": [],
+   "type": "처",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_012",
+   "layer": "L0",
+   "name": "국가데이터처",
+   "alias": [],
+   "type": "처",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_013",
+   "layer": "L0",
+   "name": "지식재산처",
+   "alias": [],
+   "type": "처",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_014",
+   "layer": "L0",
+   "name": "공정거래위원회",
+   "alias": [],
+   "type": "위원회",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_015",
+   "layer": "L0",
+   "name": "국민권익위원회",
+   "alias": [],
+   "type": "위원회",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_016",
+   "layer": "L0",
+   "name": "금융위원회",
+   "alias": [],
+   "type": "위원회",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_017",
+   "layer": "L0",
+   "name": "개인정보보호위원회",
+   "alias": [],
+   "type": "위원회",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_018",
+   "layer": "L0",
+   "name": "원자력안전위원회",
+   "alias": [],
+   "type": "위원회",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_019",
+   "layer": "L0",
+   "name": "재정경제부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_020",
+   "layer": "L0",
+   "name": "과학기술정보통신부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_021",
+   "layer": "L0",
+   "name": "교육부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_022",
+   "layer": "L0",
+   "name": "외교부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_023",
+   "layer": "L0",
+   "name": "통일부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_024",
+   "layer": "L0",
+   "name": "법무부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_025",
+   "layer": "L0",
+   "name": "국방부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_026",
+   "layer": "L0",
+   "name": "행정안전부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_027",
+   "layer": "L0",
+   "name": "국가보훈부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_028",
+   "layer": "L0",
+   "name": "문화체육관광부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_029",
+   "layer": "L0",
+   "name": "농림축산식품부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_030",
+   "layer": "L0",
+   "name": "산업통상부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_031",
+   "layer": "L0",
+   "name": "보건복지부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_032",
+   "layer": "L0",
+   "name": "기후에너지환경부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_033",
+   "layer": "L0",
+   "name": "고용노동부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "고용·노동"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_034",
+   "layer": "L0",
+   "name": "성평등가족부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_035",
+   "layer": "L0",
+   "name": "국토교통부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "국토·주택"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_036",
+   "layer": "L0",
+   "name": "해양수산부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_037",
+   "layer": "L0",
+   "name": "중소벤처기업부",
+   "alias": [],
+   "type": "부",
+   "parent": "국무총리",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_038",
+   "layer": "L0",
+   "name": "국세청",
+   "alias": [],
+   "type": "청",
+   "parent": "재정경제부",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_039",
+   "layer": "L0",
+   "name": "관세청",
+   "alias": [],
+   "type": "청",
+   "parent": "재정경제부",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_040",
+   "layer": "L0",
+   "name": "조달청",
+   "alias": [],
+   "type": "청",
+   "parent": "재정경제부",
+   "region": "전국",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_041",
+   "layer": "L0",
+   "name": "우주항공청",
+   "alias": [],
+   "type": "청",
+   "parent": "재정경제부",
+   "region": "전국",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_042",
+   "layer": "L0",
+   "name": "재외동포청",
+   "alias": [],
+   "type": "청",
+   "parent": "외교부",
+   "region": "전국",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_043",
+   "layer": "L0",
+   "name": "검찰청",
+   "alias": [],
+   "type": "청",
+   "parent": "법무부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_044",
+   "layer": "L0",
+   "name": "병무청",
+   "alias": [],
+   "type": "청",
+   "parent": "국방부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_045",
+   "layer": "L0",
+   "name": "방위사업청",
+   "alias": [],
+   "type": "청",
+   "parent": "국방부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_046",
+   "layer": "L0",
+   "name": "경찰청",
+   "alias": [],
+   "type": "청",
+   "parent": "행정안전부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_047",
+   "layer": "L0",
+   "name": "소방청",
+   "alias": [],
+   "type": "청",
+   "parent": "행정안전부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_048",
+   "layer": "L0",
+   "name": "국가유산청",
+   "alias": [],
+   "type": "청",
+   "parent": "문화체육관광부",
+   "region": "전국",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_049",
+   "layer": "L0",
+   "name": "농촌진흥청",
+   "alias": [],
+   "type": "청",
+   "parent": "농림축산식품부",
+   "region": "전국",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_050",
+   "layer": "L0",
+   "name": "산림청",
+   "alias": [],
+   "type": "청",
+   "parent": "농림축산식품부",
+   "region": "전국",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_051",
+   "layer": "L0",
+   "name": "질병관리청",
+   "alias": [],
+   "type": "청",
+   "parent": "보건복지부",
+   "region": "전국",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_052",
+   "layer": "L0",
+   "name": "기상청",
+   "alias": [],
+   "type": "청",
+   "parent": "기후에너지환경부",
+   "region": "전국",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_053",
+   "layer": "L0",
+   "name": "행정중심복합도시건설청",
+   "alias": [],
+   "type": "청",
+   "parent": "국토교통부",
+   "region": "전국",
+   "fields": [
+    "국토·주택"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_054",
+   "layer": "L0",
+   "name": "새만금개발청",
+   "alias": [],
+   "type": "청",
+   "parent": "국토교통부",
+   "region": "전국",
+   "fields": [
+    "국토·주택"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "gov_055",
+   "layer": "L0",
+   "name": "해양경찰청",
+   "alias": [],
+   "type": "청",
+   "parent": "해양수산부",
+   "region": "전국",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "정부조직도(2026, 국가데이터처 개편 반영)",
+   "nav": "정부부처",
+   "nav_order": 1
+  },
+  {
+   "id": "dept_001",
+   "layer": "L2",
+   "name": "감사위원회",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "감사·조사",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_002",
+   "layer": "L2",
+   "name": "공공정책연수원",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "교육·연수",
+   "fields": [
+    "교육·문화시설",
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_003",
+   "layer": "L2",
+   "name": "농업기술원",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "농업",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_004",
+   "layer": "L2",
+   "name": "도립미술관",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "문화시설",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_005",
+   "layer": "L2",
+   "name": "돌문화공원관리소",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "문화시설",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_006",
+   "layer": "L2",
+   "name": "동물위생시험소",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "축산방역",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_007",
+   "layer": "L2",
+   "name": "동부소방서",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "소방",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_008",
+   "layer": "L2",
+   "name": "문화예술진흥원",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "문화진흥",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_009",
+   "layer": "L2",
+   "name": "민속자연사박물관",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "문화시설",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_010",
+   "layer": "L2",
+   "name": "보건환경연구원",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "보건·환경",
+   "fields": [
+    "에너지·환경",
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_011",
+   "layer": "L2",
+   "name": "보훈청",
+   "alias": [],
+   "type": "특별지방행정기관(이관)",
+   "parent": "do",
+   "region": "제주도",
+   "role": "보훈",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_012",
+   "layer": "L2",
+   "name": "상하수도본부",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "상하수도",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_013",
+   "layer": "L2",
+   "name": "서귀포소방서",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "소방",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_014",
+   "layer": "L2",
+   "name": "서부소방서",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "소방",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_015",
+   "layer": "L2",
+   "name": "설문대여성문화센터",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "여성·문화",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_016",
+   "layer": "L2",
+   "name": "세계유산본부",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "세계유산·환경",
+   "fields": [
+    "관광·MICE",
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_017",
+   "layer": "L2",
+   "name": "자치경찰단",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "자치경찰",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_018",
+   "layer": "L2",
+   "name": "자치경찰위원회",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "자치경찰",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_019",
+   "layer": "L2",
+   "name": "제주소방서",
+   "alias": [
+    "소방서"
+   ],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "소방",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_020",
+   "layer": "L2",
+   "name": "제주안전체험관",
+   "alias": [
+    "안전체험관"
+   ],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "안전교육",
+   "fields": [
+    "교육·문화시설",
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_021",
+   "layer": "L2",
+   "name": "제주환경자원순환센터",
+   "alias": [
+    "환경자원순환센터"
+   ],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "폐기물·환경",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_022",
+   "layer": "L2",
+   "name": "중앙협력본부",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "대외협력",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_023",
+   "layer": "L2",
+   "name": "지방노동위원회",
+   "alias": [],
+   "type": "특별지방행정기관(이관)",
+   "parent": "do",
+   "region": "제주도",
+   "role": "노동",
+   "fields": [
+    "고용·노동"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_024",
+   "layer": "L2",
+   "name": "축산생명연구원",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "축산",
+   "fields": [
+    "농수축산·해양",
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_025",
+   "layer": "L2",
+   "name": "한라도서관",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "도서관",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "dept_026",
+   "layer": "L2",
+   "name": "해양수산연구원",
+   "alias": [],
+   "type": "도 소속기관",
+   "parent": "do",
+   "region": "제주도",
+   "role": "해양수산",
+   "fields": [
+    "농수축산·해양",
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "도청 조직도(소속기관 26)",
+   "nav": "도 소속기관",
+   "nav_order": 4
+  },
+  {
+   "id": "pub_001",
+   "layer": "L4",
+   "name": "제주창조경제혁신센터",
+   "alias": [
+    "창조경제혁신센터",
+    "제주창경",
+    "JCCEI"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "(재)제주창조경제혁신센터",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_002",
+   "layer": "L4",
+   "name": "제주테크노파크",
+   "alias": [
+    "테크노파크",
+    "JTP"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.jejutp.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "(재)제주테크노파크",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_003",
+   "layer": "L4",
+   "name": "제주평생교육장학진흥원",
+   "alias": [
+    "평생교육장학진흥원"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://jiles.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "(재)제주평생교육장학진흥원",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_004",
+   "layer": "L4",
+   "name": "제주국제컨벤션센터",
+   "alias": [
+    "ICC JEJU",
+    "ICC제주",
+    "컨벤션센터"
+   ],
+   "type": "출자기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://www.iccjeju.co.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "(주)제주국제컨벤션센터",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_005",
+   "layer": "L4",
+   "name": "제주특별자치도관광협회",
+   "alias": [
+    "제주도관광협회",
+    "관광협회"
+   ],
+   "type": "위탁·협회",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://www.visitjeju.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "사단법인제주특별자치도관광협회",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_006",
+   "layer": "L4",
+   "name": "제주문화예술재단",
+   "alias": [
+    "문화예술재단",
+    "JFAC"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://www.jfac.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "재단법인제주문화예술재단",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_007",
+   "layer": "L4",
+   "name": "제주여성가족연구원",
+   "alias": [
+    "여성가족연구원"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.jewfri.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "재단법인제주여성가족연구원",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_008",
+   "layer": "L4",
+   "name": "제주콘텐츠진흥원",
+   "alias": [
+    "제주영상·문화산업진흥원",
+    "영상문화산업진흥원",
+    "콘텐츠진흥원",
+    "JEFA"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.ofjeju.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "재단법인제주영상문화산업진흥원",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_009",
+   "layer": "L4",
+   "name": "제주특별자치도사회서비스원",
+   "alias": [
+    "사회서비스원"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://jeju.pass.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "재단법인제주특별자치도사회서비스원",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_010",
+   "layer": "L4",
+   "name": "제주4·3평화재단",
+   "alias": [
+    "4·3평화재단",
+    "43평화재단"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://jeju43peace.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주4.3평화재단",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_011",
+   "layer": "L4",
+   "name": "제주관광공사",
+   "alias": [
+    "JTO",
+    "관광공사"
+   ],
+   "type": "지방공기업",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "관광·MICE"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.ijto.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주관광공사",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_012",
+   "layer": "L4",
+   "name": "제주신용보증재단",
+   "alias": [
+    "신용보증재단"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://jcgf.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주신용보증재단",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_013",
+   "layer": "L4",
+   "name": "제주에너지공사",
+   "alias": [
+    "에너지공사"
+   ],
+   "type": "지방공기업",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.jejuenergy.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주에너지공사",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_014",
+   "layer": "L4",
+   "name": "제주특별자치도개발공사",
+   "alias": [
+    "개발공사",
+    "삼다수",
+    "JPDC"
+   ],
+   "type": "지방공기업",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.jpdc.co.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주특별자치도개발공사",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_015",
+   "layer": "L4",
+   "name": "제주특별자치도경제통상진흥원",
+   "alias": [
+    "경제통상진흥원",
+    "JEDI"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://jba.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주특별자치도경제통상진흥원",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_016",
+   "layer": "L4",
+   "name": "서귀포의료원",
+   "alias": [
+    "서귀포의료원"
+   ],
+   "type": "출연기관(지방의료원)",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://www.jjsmc.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주특별자치도서귀포의료원",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_017",
+   "layer": "L4",
+   "name": "제주의료원",
+   "alias": [
+    "제주의료원"
+   ],
+   "type": "출연기관(지방의료원)",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://www.jejumed.com/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "제주특별자치도제주의료원",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_018",
+   "layer": "L4",
+   "name": "제주특별자치도 도시재생지원센터",
+   "alias": [
+    "도시재생지원센터"
+   ],
+   "type": "위탁·센터",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "국토·주택"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "도청 조직도(유관기관 20)",
+   "display_name": "도시재생지원센터",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_019",
+   "layer": "L4",
+   "name": "제주연구원",
+   "alias": [
+    "JRI"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.jri.re.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도의회 공공기관 링크(교차·확인완료)",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_020",
+   "layer": "L4",
+   "name": "제주한의약연구원",
+   "alias": [],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://jikom.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도의회 공공기관 링크(교차·확인완료)",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_021",
+   "layer": "L4",
+   "name": "제주특별자치도체육회",
+   "alias": [
+    "도체육회"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://www.jejusports.or.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도의회 공공기관 링크(교차·확인완료)",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "pub_022",
+   "layer": "L4",
+   "name": "제주더큰내일센터",
+   "alias": [
+    "더큰내일센터"
+   ],
+   "type": "출연기관",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "중소기업·창업",
+    "고용·노동"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "도의회 공공기관 링크(교차·확인완료)",
+   "nav": "도 공공기관",
+   "nav_order": 5
+  },
+  {
+   "id": "nat_001",
+   "layer": "L5",
+   "name": "가축위생방역지원본부 제주사무소",
+   "group": "가축위생방역지원본부",
+   "alias": [
+    "가축위생방역지원본부"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 애월읍 고성1길 21-20 21-20",
+   "phone": "064-745-8480",
+   "fax": "064-745-4061",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_002",
+   "layer": "L5",
+   "name": "건강보험심사평가원 제주본부",
+   "group": "건강보험심사평가원",
+   "alias": [
+    "건강보험심사평가원"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 도령로 33 (노형동) 11층",
+   "phone": "1644-2000",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_003",
+   "layer": "L5",
+   "name": "건설근로자공제회 제주센터",
+   "group": "건설근로자공제회",
+   "alias": [
+    "건설근로자공제회"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 중앙로 150 (이도일동) 5층",
+   "phone": "1666-1122",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_004",
+   "layer": "L5",
+   "name": "공무원연금공단",
+   "group": "공무원연금공단",
+   "alias": [
+    "공무원연금공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 서호중앙로 63 (서호동) 공무원연금공단",
+   "phone": "1588-4321",
+   "fax": "",
+   "email": "",
+   "hq": true,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_005",
+   "layer": "L5",
+   "name": "공무원연금공단 제주지부",
+   "group": "공무원연금공단",
+   "alias": [
+    "공무원연금공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 도령로 33 (노형동) 12층, 제주지부",
+   "phone": "064-720-1600",
+   "fax": "064-802-1650",
+   "email": "kakao@geps.or.kr",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_006",
+   "layer": "L5",
+   "name": "국민건강보험공단 서귀포지사",
+   "group": "국민건강보험공단",
+   "alias": [
+    "국민건강보험공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 신서귀로51번길 38 (강정동) 서귀포지사",
+   "phone": "064-735-6310",
+   "fax": "064-750-0920",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_007",
+   "layer": "L5",
+   "name": "국민건강보험공단 제주지사",
+   "group": "국민건강보험공단",
+   "alias": [
+    "국민건강보험공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 중앙로 353 (이도이동) 제주지사",
+   "phone": "064-740-1110",
+   "fax": "064-750-0900",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_008",
+   "layer": "L5",
+   "name": "국민연금공단 서귀포지사",
+   "group": "국민연금공단",
+   "alias": [
+    "국민연금공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 일주동로 8532 (동홍동) 서귀포시농협(축협 )5층",
+   "phone": "064-800-4516",
+   "fax": "064-720-5721",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_009",
+   "layer": "L5",
+   "name": "국민연금공단 제주지사",
+   "group": "국민연금공단",
+   "alias": [
+    "국민연금공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 청사로3길 11-1 (도남동) 국민연금 제주지사",
+   "phone": "064-720-4110",
+   "fax": "064-720-5700",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_010",
+   "layer": "L5",
+   "name": "근로복지공단 제주지사",
+   "group": "근로복지공단",
+   "alias": [
+    "근로복지공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연신로 14 (이도이동) 2층",
+   "phone": "064-754-6707",
+   "fax": "0502-710-1100",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동",
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_011",
+   "layer": "L5",
+   "name": "기술보증기금 제주영업소",
+   "group": "기술보증기금",
+   "alias": [
+    "기술보증기금"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연삼로 473 (이도이동) 중소기업종합지원센터 3층",
+   "phone": "064-727-0271",
+   "fax": "064-727-0276",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_012",
+   "layer": "L5",
+   "name": "대한법률구조공단 제주지부",
+   "group": "대한법률구조공단",
+   "alias": [
+    "대한법률구조공단"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 중앙로 359 (이도이동) 신해빌딩 2층",
+   "phone": "064-753-9955",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_013",
+   "layer": "L5",
+   "name": "대한적십자사 제주지사",
+   "group": "대한적십자사",
+   "alias": [
+    "대한적십자사"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 전농로 7 (용담일동) 제주지사",
+   "phone": "064-758-3501",
+   "fax": "064-758-3507",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_014",
+   "layer": "L5",
+   "name": "대한적십자사 제주특별자치도혈액원",
+   "group": "대한적십자사",
+   "alias": [
+    "대한적십자사"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 오남로 45 (도남동) 제주특별자치도혈액원",
+   "phone": "064-720-7800",
+   "fax": "064-720-7808",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_015",
+   "layer": "L5",
+   "name": "서민금융진흥원 제주 서민금융통합지원센터",
+   "group": "서민금융진흥원",
+   "alias": [
+    "서민금융진흥원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 중앙로 165 (이도일동) 제주고용복지플러스센터 3층",
+   "phone": "1397",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_016",
+   "layer": "L5",
+   "name": "소상공인시장진흥공단 (제주)제주센터",
+   "group": "소상공인시장진흥공단",
+   "alias": [
+    "소상공인시장진흥공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연삼로 473 (이도이동) 제주도중소기업종합지원센터 4층",
+   "phone": "064-751-2101",
+   "fax": "064-751-2103",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_017",
+   "layer": "L5",
+   "name": "신용보증기금 서귀포지점",
+   "group": "신용보증기금",
+   "alias": [
+    "신용보증기금"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 일주동로 8671(서귀동) 4층",
+   "phone": "064-730-4300",
+   "fax": "064-730-4311",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_018",
+   "layer": "L5",
+   "name": "신용보증기금 제주지점",
+   "group": "신용보증기금",
+   "alias": [
+    "신용보증기금"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 신대로 143 1층",
+   "phone": "064-740-9400",
+   "fax": "064-740-9499",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_019",
+   "layer": "L5",
+   "name": "재단법인 국악방송 서귀포국악방송(보조국 FM106.9)",
+   "group": "재단법인 국악방송",
+   "alias": [
+    "재단법인 국악방송"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 남성로115번길 53 (서홍동) 서귀포국악방송(보조국)",
+   "phone": "02-300-9990",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "문화·정보"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_020",
+   "layer": "L5",
+   "name": "재단법인 국악방송 제주국악방송(보조국 FM91.3)",
+   "group": "재단법인 국악방송",
+   "alias": [
+    "재단법인 국악방송"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 명림로 584 (봉개동) 제주국악방송(보조국)",
+   "phone": "02-300-9990",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "문화·정보"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_021",
+   "layer": "L5",
+   "name": "재단법인 대한건설기계안전관리원 제주건설기계검사소",
+   "group": "재단법인 대한건설기계안전관리원",
+   "alias": [
+    "재단법인 대한건설기계안전관리원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 조천읍 신흥남2길 47 47",
+   "phone": "064-755-3502",
+   "fax": "064-722-3123",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_022",
+   "layer": "L5",
+   "name": "재단법인 장애인기업종합지원센터 제주지역센터",
+   "group": "재단법인 장애인기업종합지원센터",
+   "alias": [
+    "재단법인 장애인기업종합지원센터"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 진군남4길 5 (노형동, 더힐) (재)장애인기업종합지원센터 제주지역센터",
+   "phone": "064-749-8234",
+   "fax": "064-749-8235",
+   "email": "hjs@debc.or.kr",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_023",
+   "layer": "L5",
+   "name": "제주국제자유도시개발센터",
+   "group": "제주국제자유도시개발센터",
+   "alias": [
+    "제주국제자유도시개발센터"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 첨단로 213-4 (영평동) 엘리트빌딩",
+   "phone": "064-797-5502",
+   "fax": "",
+   "email": "",
+   "hq": true,
+   "fields": [
+    "관광·MICE"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_024",
+   "layer": "L5",
+   "name": "제주대학교병원",
+   "group": "제주대학교병원",
+   "alias": [
+    "제주대학교병원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 아란13길 15 (아라일동) 제주대학교병원",
+   "phone": "064-717-1114",
+   "fax": "064-757-8276",
+   "email": "jejunuh@jejunuh.co.kr",
+   "hq": true,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_025",
+   "layer": "L5",
+   "name": "주택관리공단(주) 제주지사",
+   "group": "주택관리공단(주)",
+   "alias": [
+    "주택관리공단(주)"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 1100로 3349 (노형동, 인텔리전트한빛아파트) 101호",
+   "phone": "064-746-2929",
+   "fax": "064-900-2297",
+   "email": "370000@kohom.or.kr",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_026",
+   "layer": "L5",
+   "name": "주택도시보증공사 제주출장소",
+   "group": "주택도시보증공사",
+   "alias": [
+    "주택도시보증공사"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 은남길 8(연동) 삼성화재빌딩 6층",
+   "phone": "064-909-7600",
+   "fax": "064-909-7666",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_027",
+   "layer": "L5",
+   "name": "중소벤처기업진흥공단 제주지역본부",
+   "group": "중소벤처기업진흥공단",
+   "alias": [
+    "중소벤처기업진흥공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연삼로 473 (이도이동) 3층 중소벤처기업진흥공단 제주지역본부",
+   "phone": "064-754-5154",
+   "fax": "064-754-5158",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_028",
+   "layer": "L5",
+   "name": "축산물품질평가원 제주지원",
+   "group": "축산물품질평가원",
+   "alias": [
+    "축산물품질평가원"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 도리로 48(이호일동) 축산물품질평가원",
+   "phone": "064-744-7691",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_029",
+   "layer": "L5",
+   "name": "학교법인한국폴리텍 제주캠퍼스",
+   "group": "학교법인한국폴리텍",
+   "alias": [
+    "학교법인한국폴리텍"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 산천단동3길 2 (아라일동) 한국폴리텍대학 제주캠퍼스",
+   "phone": "064-754-7100",
+   "fax": "064-754-7112",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_030",
+   "layer": "L5",
+   "name": "한국가스공사 제주LNG본부",
+   "group": "한국가스공사",
+   "alias": [
+    "한국가스공사"
+   ],
+   "old_name": "",
+   "type": "공기업(시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 애월읍 애월해안로 59-38 .",
+   "phone": "064-766-3600",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_031",
+   "layer": "L5",
+   "name": "한국가스안전공사 제주본부",
+   "group": "한국가스안전공사",
+   "alias": [
+    "한국가스안전공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 첨단로 213-4 (영평동) 엘리트빌딩 207호",
+   "phone": "064-748-0019",
+   "fax": "0505-106-4529",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_032",
+   "layer": "L5",
+   "name": "한국공항공사 제주공항",
+   "group": "한국공항공사",
+   "alias": [
+    "한국공항공사"
+   ],
+   "old_name": "",
+   "type": "공기업(시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 공항로 2 (용담이동) 한국공항공사 제주공항",
+   "phone": "1661-2626",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "교통·안전"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_033",
+   "layer": "L5",
+   "name": "한국관광공사 제주지사",
+   "group": "한국관광공사",
+   "alias": [
+    "한국관광공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 중문관광로72번길 60 (색달동) 한국관광공사 제주지사",
+   "phone": "064-735-7200",
+   "fax": "064-738-2052",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "관광·MICE"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_034",
+   "layer": "L5",
+   "name": "한국교통안전공단 제주본부",
+   "group": "한국교통안전공단",
+   "alias": [
+    "한국교통안전공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 삼봉로 79 (도련이동) 한국교통안전공단 제주본부",
+   "phone": "064-723-3111",
+   "fax": "064-723-3120",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "교통·안전"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_035",
+   "layer": "L5",
+   "name": "한국국제교류재단",
+   "group": "한국국제교류재단",
+   "alias": [
+    "한국국제교류재단"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 신중로 55 (법환동) KF한국국제교류재단",
+   "phone": "064-804-1000",
+   "fax": "",
+   "email": "webmaster@kf.or.kr",
+   "hq": true,
+   "fields": [
+    "관광·MICE"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_036",
+   "layer": "L5",
+   "name": "한국국토정보공사 서귀포지사",
+   "group": "한국국토정보공사",
+   "alias": [
+    "한국국토정보공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 서호중로 71 (서호동) 한국국토정보공사 서귀포지사",
+   "phone": "064-801-6730",
+   "fax": "064-801-6795",
+   "email": "lx2512@lx.or.kr",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_037",
+   "layer": "L5",
+   "name": "한국국토정보공사 제주지사",
+   "group": "한국국토정보공사",
+   "alias": [
+    "한국국토정보공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 신성로8길 9 (도남동) 한국국토정보공사 제주지사",
+   "phone": "064-801-6650",
+   "fax": "064-801-6728",
+   "email": "lx2511@lx.or.kr",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_038",
+   "layer": "L5",
+   "name": "한국국토정보공사 제주지역본부",
+   "group": "한국국토정보공사",
+   "alias": [
+    "한국국토정보공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 복지로북길 37 (도남동) 한국국토정보공사 제주지역본부",
+   "phone": "064-909-3302",
+   "fax": "064-909-3397",
+   "email": "lx2501@lx.or.kr",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_039",
+   "layer": "L5",
+   "name": "한국남부발전(주) 남제주빛드림본부",
+   "group": "한국남부발전(주)",
+   "alias": [
+    "한국남부발전(주)"
+   ],
+   "old_name": "",
+   "type": "공기업(시장형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 안덕면 화순해안로106번길 55 한국남부발전 남제주빛드림본부",
+   "phone": "070-7713-6021",
+   "fax": "064-794-1885",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_040",
+   "layer": "L5",
+   "name": "한국노인인력개발원 제주지역본부",
+   "group": "한국노인인력개발원",
+   "alias": [
+    "한국노인인력개발원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 남광북1길 1(이도이동) 제주법조타워 5층 501호",
+   "phone": "064-805-3078",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_041",
+   "layer": "L5",
+   "name": "한국농수산식품유통공사 제주지역본부",
+   "group": "한국농수산식품유통공사",
+   "alias": [
+    "한국농수산식품유통공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 도령로 33 (노형동) 10층",
+   "phone": "064-746-9471",
+   "fax": "064-800-8960",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_042",
+   "layer": "L5",
+   "name": "한국농어촌공사 제주지역본부",
+   "group": "한국농어촌공사",
+   "alias": [
+    "한국농어촌공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 선사로 12(삼양이동) 제주지역본부",
+   "phone": "064-750-8870",
+   "fax": "064-755-7419",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_043",
+   "layer": "L5",
+   "name": "도로교통공단 제주교통방송",
+   "group": "한국도로교통공단",
+   "alias": [
+    "한국도로교통공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 기자길 101 (아라이동) 도로교통공단 제주방송",
+   "phone": "064-717-8114",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "교통·안전",
+    "문화·정보"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_044",
+   "layer": "L5",
+   "name": "도로교통공단 제주시험장",
+   "group": "한국도로교통공단",
+   "alias": [
+    "한국도로교통공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 애월읍 평화로 2072 도로교통공단 제주시험장",
+   "phone": "064-710-9200",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "교통·안전"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_045",
+   "layer": "L5",
+   "name": "도로교통공단 제주지부",
+   "group": "한국도로교통공단",
+   "alias": [
+    "한국도로교통공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 노형로 231 (노형동) 도로교통공단 제주지부",
+   "phone": "064-710-9114",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "교통·안전"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_046",
+   "layer": "L5",
+   "name": "한국무역보험공사 제주지사",
+   "group": "한국무역보험공사",
+   "alias": [
+    "한국무역보험공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연삼로 473 (이도이동) 제주중소기업종합지원센터 4층",
+   "phone": "1588-3884",
+   "fax": "064-751-6603",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_047",
+   "layer": "L5",
+   "name": "한국방송통신전파진흥원 제주지사",
+   "group": "한국방송통신전파진흥원",
+   "alias": [
+    "한국방송통신전파진흥원"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 중앙로 265 (이도이동) 성우빌딩 7층 한국방송통신전파진흥원 제주본부",
+   "phone": "064-752-0386",
+   "fax": "064-755-3933",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "문화·정보"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_048",
+   "layer": "L5",
+   "name": "한국법무보호복지공단 제주지부",
+   "group": "한국법무보호복지공단",
+   "alias": [
+    "한국법무보호복지공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 기자길 70 (아라이동) 한국법무보호복지공단 제주지부",
+   "phone": "064-755-1203",
+   "fax": "064-755-1213",
+   "email": "jeju@koreha.or.kr",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_049",
+   "layer": "L5",
+   "name": "한국보건의료인국가시험원 제주시험센터",
+   "group": "한국보건의료인국가시험원",
+   "alias": [
+    "한국보건의료인국가시험원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 한라대학로 38 (노형동) 한국보건의료인국가시험원 제주시험센터(제주 한라대 하이테크센터 지하1층)",
+   "phone": "1544-4244",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지",
+    "교육·문화시설"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_050",
+   "layer": "L5",
+   "name": "한국부동산원 제주지사",
+   "group": "한국부동산원",
+   "alias": [
+    "한국부동산원",
+    "한국감정원"
+   ],
+   "old_name": "한국감정원",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연삼로 473 (이도이동) 경제통상진흥원 5층",
+   "phone": "064-722-6872",
+   "fax": "064-752-6330",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_051",
+   "layer": "L5",
+   "name": "한국산업안전보건공단 제주지사",
+   "group": "한국산업안전보건공단",
+   "alias": [
+    "한국산업안전보건공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연삼로 473(이도이동) 경제통상진흥원 4층",
+   "phone": "064-797-7500",
+   "fax": "064-797-7518",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_052",
+   "layer": "L5",
+   "name": "한국산업은행 제주지점",
+   "group": "한국산업은행",
+   "alias": [
+    "한국산업은행"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 신형로 51 (노형동) 한국산업은행 제주지점",
+   "phone": "064-720-1700",
+   "fax": "064-711-8076",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "중소기업·창업"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_053",
+   "layer": "L5",
+   "name": "한국산업인력공단 제주지사",
+   "group": "한국산업인력공단",
+   "alias": [
+    "한국산업인력공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 복지로 19(도남동) 한국산업인력공단 제주지사",
+   "phone": "064-729-0701",
+   "fax": "064-729-0714",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_054",
+   "layer": "L5",
+   "name": "한국석유관리원 제주본부",
+   "group": "한국석유관리원",
+   "alias": [
+    "한국석유관리원"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 애월읍 상귀서길 3 한국석유관리원 제주본부",
+   "phone": "064-752-0200",
+   "fax": "064-745-5167",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_055",
+   "layer": "L5",
+   "name": "한국소비자원 제주지원",
+   "group": "한국소비자원",
+   "alias": [
+    "한국소비자원"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 삼무로11길 3 (연동) 한국소비자원 제주여행소비자권익증진센터",
+   "phone": "064-747-1511",
+   "fax": "064-747-4477",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_056",
+   "layer": "L5",
+   "name": "한국수산자원공단 제주본부",
+   "group": "한국수산자원공단",
+   "alias": [
+    "한국수산자원공단"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 한림읍 옹포7길 23 한국수산자원공단 제주본부",
+   "phone": "064-800-9711",
+   "fax": "064-796-6392",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_057",
+   "layer": "L5",
+   "name": "한국수자원공사 제주권지사",
+   "group": "한국수자원공사",
+   "alias": [
+    "한국수자원공사"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 첨단로 213-4 (영평동) 엘리트빌딩  207호",
+   "phone": "064-798-5320",
+   "fax": "064-798-5340",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_058",
+   "layer": "L5",
+   "name": "한국승강기안전공단 제주지사",
+   "group": "한국승강기안전공단",
+   "alias": [
+    "한국승강기안전공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연삼로 473(이도이동) 경제통상진흥원 5층",
+   "phone": "064-751-2812",
+   "fax": "064-751-2815",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "교통·안전"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_059",
+   "layer": "L5",
+   "name": "한국식품안전관리인증원 제주출장소",
+   "group": "한국식품안전관리인증원",
+   "alias": [
+    "한국식품안전관리인증원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 신대로 64(연동) 5층",
+   "phone": "064-749-5210",
+   "fax": "064-749-5211",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_060",
+   "layer": "L5",
+   "name": "한국에너지공단 제주지역본부",
+   "group": "한국에너지공단",
+   "alias": [
+    "한국에너지공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연북로 33 (노형동) 3층",
+   "phone": "064-909-0304",
+   "fax": "064-909-0309",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_061",
+   "layer": "L5",
+   "name": "한국장애인개발원 제주",
+   "group": "한국장애인개발원",
+   "alias": [
+    "한국장애인개발원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연북로 33 (노형동) KTG 제주본부 3층",
+   "phone": "064-803-3714",
+   "fax": "064-803-3702",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "보건·복지"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_062",
+   "layer": "L5",
+   "name": "한국장애인고용공단 제주맞춤훈련센터",
+   "group": "한국장애인고용공단",
+   "alias": [
+    "한국장애인고용공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 동광로 30(이도이동) 5층",
+   "phone": "064-717-6700",
+   "fax": "053-3470-0063",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_063",
+   "layer": "L5",
+   "name": "한국장애인고용공단 제주발달장애인훈련센터",
+   "group": "한국장애인고용공단",
+   "alias": [
+    "한국장애인고용공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 동광로 30(이도이동) 3층",
+   "phone": "064-759-8720",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_064",
+   "layer": "L5",
+   "name": "한국장애인고용공단 제주지사",
+   "group": "한국장애인고용공단",
+   "alias": [
+    "한국장애인고용공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 동광로 30(이도이동) 6층",
+   "phone": "064-710-5010",
+   "fax": "064-759-7907",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_065",
+   "layer": "L5",
+   "name": "한국전기안전공사 제주지역본부",
+   "group": "한국전기안전공사",
+   "alias": [
+    "한국전기안전공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 첨단로8길 86-9 (영평동) 한국전기안전공사 제주지역본부",
+   "phone": "064-909-5400",
+   "fax": "064-747-2384",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_066",
+   "layer": "L5",
+   "name": "한국전력거래소 제주본부",
+   "group": "한국전력거래소",
+   "alias": [
+    "한국전력거래소"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 오라남로 81(오라이동) 한국전력거래소 제주본부",
+   "phone": "064-741-1211",
+   "fax": "064-741-1219",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_067",
+   "layer": "L5",
+   "name": "한국전력공사 제주본부 서귀포지사",
+   "group": "한국전력공사",
+   "alias": [
+    "한국전력공사"
+   ],
+   "old_name": "",
+   "type": "공기업(시장형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 신중로 56 (법환동) 한국전력공사 서귀포지사",
+   "phone": "064-730-2212",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_068",
+   "layer": "L5",
+   "name": "한국전력공사 제주본부 제주전력지사",
+   "group": "한국전력공사",
+   "alias": [
+    "한국전력공사"
+   ],
+   "old_name": "",
+   "type": "공기업(시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 가령로 68 (이도이동) 한국전력공사 제주전력지사",
+   "phone": "064-729-3353",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_069",
+   "layer": "L5",
+   "name": "한국전력공사 제주본부 직할",
+   "group": "한국전력공사",
+   "alias": [
+    "한국전력공사"
+   ],
+   "old_name": "",
+   "type": "공기업(시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 문연로 36 (연동) 한국전력공사 제주본부",
+   "phone": "064-740-3343",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_070",
+   "layer": "L5",
+   "name": "한국주택금융공사 제주지사",
+   "group": "한국주택금융공사",
+   "alias": [
+    "한국주택금융공사"
+   ],
+   "old_name": "",
+   "type": "준정부기관(기금관리형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 연북로 33 (노형동) 601호",
+   "phone": "064-798-5160",
+   "fax": "064-745-0480",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_071",
+   "layer": "L5",
+   "name": "한국중부발전(주) 제주발전본부",
+   "group": "한국중부발전(주)",
+   "alias": [
+    "한국중부발전(주)"
+   ],
+   "old_name": "",
+   "type": "공기업(시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 원당로 133 (삼양일동) 제주발전본부",
+   "phone": "070-7511-7111",
+   "fax": "070-7511-7136",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_072",
+   "layer": "L5",
+   "name": "한국지능정보사회진흥원 제주 NIA글로벌센터",
+   "group": "한국지능정보사회진흥원",
+   "alias": [
+    "한국지능정보사회진흥원",
+    "한국정보화진흥원"
+   ],
+   "old_name": "한국정보화진흥원",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 서호중앙로 68-11 (서호동) NIA글로벌센터",
+   "phone": "064-909-3114",
+   "fax": "064-909-3191",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "문화·정보"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_073",
+   "layer": "L5",
+   "name": "한국토지주택공사 제주지역본부",
+   "group": "한국토지주택공사",
+   "alias": [
+    "한국토지주택공사"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 전농로 100 (삼도일동) LH 제주지역본부",
+   "phone": "064-720-1004",
+   "fax": "054-720-1007",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "국토·주택"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_074",
+   "layer": "L5",
+   "name": "한국해양과학기술원 제주연구소",
+   "group": "한국해양과학기술원",
+   "alias": [
+    "한국해양과학기술원"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 구좌읍 일주동로 2670 (63349)",
+   "phone": "064-798-6000",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_075",
+   "layer": "L5",
+   "name": "한국해양교통안전공단 제주지사",
+   "group": "한국해양교통안전공단",
+   "alias": [
+    "한국해양교통안전공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 임항로 111(건입동) 2층",
+   "phone": "064-721-7401",
+   "fax": "064-702-7404",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양",
+    "교통·안전"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_076",
+   "layer": "L5",
+   "name": "한국해양교통안전공단 제주지사운항관리센터",
+   "group": "한국해양교통안전공단",
+   "alias": [
+    "한국해양교통안전공단"
+   ],
+   "old_name": "",
+   "type": "준정부기관(위탁집행형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 임항로 111(건입동) 1층",
+   "phone": "064-759-9780",
+   "fax": "064-759-9786",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "농수축산·해양",
+    "교통·안전"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_077",
+   "layer": "L5",
+   "name": "한전KDN 제주사업처",
+   "group": "한전KDN",
+   "alias": [
+    "한전KDN"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 서광로 124 (오라삼동) (63149) 제주특별자치도 서광로 124(오라 3동)",
+   "phone": "064-800-3510",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_078",
+   "layer": "L5",
+   "name": "한전KPS(주) 남제주사업소",
+   "group": "한전KPS(주)",
+   "alias": [
+    "한전KPS(주)"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 안덕면 화순해안로106번길 55 남제주사업소",
+   "phone": "070-7713-6450",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_079",
+   "layer": "L5",
+   "name": "한전KPS(주) 제주사업소",
+   "group": "한전KPS(주)",
+   "alias": [
+    "한전KPS(주)"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 원당로 133 (삼양일동) 제주사업소",
+   "phone": "070-7511-7900",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_080",
+   "layer": "L5",
+   "name": "한전MCS(주) 서귀포지점",
+   "group": "한전MCS(주)",
+   "alias": [
+    "한전MCS(주)"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "서귀포시",
+   "addr": "제주특별자치도 서귀포시 신중로 56(법환동) 한전 서귀포지사 1층 한전MCS(주)",
+   "phone": "064-738-5596",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_081",
+   "layer": "L5",
+   "name": "한전MCS(주) 제주지사",
+   "group": "한전MCS(주)",
+   "alias": [
+    "한전MCS(주)"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 청사로 79 (도남동) 5층 한전MCS(주)",
+   "phone": "064-805-2090",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_082",
+   "layer": "L5",
+   "name": "해양환경공단 제주지사",
+   "group": "해양환경공단",
+   "alias": [
+    "해양환경공단"
+   ],
+   "old_name": "",
+   "type": "공기업(준시장형)",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "제주특별자치도 제주시 임항로 111(건입동) 해양환경공단 제주지사",
+   "phone": "064-753-4376",
+   "fax": "064-753-4375",
+   "email": "jeju@koem.or.kr",
+   "hq": false,
+   "fields": [
+    "농수축산·해양",
+    "에너지·환경"
+   ],
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "제주도 국가공공기관 리스트(엑셀)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_083",
+   "layer": "L5",
+   "name": "국가데이터처 호남지방데이터청 제주사무소",
+   "group": "국가데이터처",
+   "alias": [
+    "제주통계사무소",
+    "호남지방통계청 제주사무소",
+    "통계청 제주"
+   ],
+   "old_name": "호남지방통계청 제주사무소",
+   "type": "중앙행정기관 소속기관",
+   "parent": "nation",
+   "region": "제주시",
+   "addr": "",
+   "phone": "",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "조사·연구"
+   ],
+   "verified": false,
+   "site": "https://mods.go.kr",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "사용자 지정(구 제주통계사무소·2025.12.30 개명)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "nat_084",
+   "layer": "L5",
+   "name": "노사발전재단 제주중장년내일센터",
+   "group": "노사발전재단",
+   "alias": [
+    "중장년내일센터",
+    "제주중장년내일센터"
+   ],
+   "old_name": "",
+   "type": "기타공공기관",
+   "parent": "고용노동부",
+   "region": "제주시",
+   "addr": "",
+   "phone": "",
+   "fax": "",
+   "email": "",
+   "hq": false,
+   "fields": [
+    "고용·노동"
+   ],
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "사용자 확인(고용노동부 산하 기타공공기관·제주지사 성격)",
+   "nav": "국가공공기관",
+   "nav_order": 6
+  },
+  {
+   "id": "ngo_001",
+   "layer": "L6",
+   "name": "제주사회적경제네트워크",
+   "alias": [
+    "사회적경제네트워크",
+    "제주사경넷"
+   ],
+   "type": "중간지원조직",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "중소기업·창업",
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "사용자 추가",
+   "nav": "민간·위탁",
+   "nav_order": 8
+  },
+  {
+   "id": "ngo_002",
+   "layer": "L6",
+   "name": "제주여성인력개발센터",
+   "alias": [
+    "여성인력개발센터",
+    "새일센터"
+   ],
+   "type": "위탁·센터",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "고용·노동"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "사용자 추가",
+   "nav": "민간·위탁",
+   "nav_order": 8
+  },
+  {
+   "id": "ngo_003",
+   "layer": "L6",
+   "name": "제주특별자치도사회복지협의회",
+   "alias": [
+    "제주사회복지협의회",
+    "사회복지협의회"
+   ],
+   "type": "법정단체",
+   "parent": "do",
+   "region": "제주도",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "mid",
+   "source": "사용자 추가",
+   "nav": "민간·위탁",
+   "nav_order": 8
+  },
+  {
+   "id": "city_001",
+   "layer": "L3",
+   "name": "제주시",
+   "alias": [
+    "제주시청"
+   ],
+   "type": "행정시",
+   "parent": "do",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.jejusi.go.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "사용자 제공",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_002",
+   "layer": "L3",
+   "name": "서귀포시",
+   "alias": [
+    "서귀포시청"
+   ],
+   "type": "행정시",
+   "parent": "do",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.seogwipo.go.kr/",
+   "board_url": "",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "사용자 제공",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_003",
+   "layer": "L3",
+   "name": "일도1동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_004",
+   "layer": "L3",
+   "name": "일도2동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_005",
+   "layer": "L3",
+   "name": "이도1동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_006",
+   "layer": "L3",
+   "name": "이도2동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_007",
+   "layer": "L3",
+   "name": "삼도1동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_008",
+   "layer": "L3",
+   "name": "삼도2동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_009",
+   "layer": "L3",
+   "name": "용담1동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_010",
+   "layer": "L3",
+   "name": "용담2동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_011",
+   "layer": "L3",
+   "name": "건입동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_012",
+   "layer": "L3",
+   "name": "화북동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_013",
+   "layer": "L3",
+   "name": "삼양동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_014",
+   "layer": "L3",
+   "name": "봉개동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_015",
+   "layer": "L3",
+   "name": "아라동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_016",
+   "layer": "L3",
+   "name": "오라동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_017",
+   "layer": "L3",
+   "name": "연동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_018",
+   "layer": "L3",
+   "name": "노형동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_019",
+   "layer": "L3",
+   "name": "외도동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_020",
+   "layer": "L3",
+   "name": "이호동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_021",
+   "layer": "L3",
+   "name": "도두동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_022",
+   "layer": "L3",
+   "name": "한림읍",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_023",
+   "layer": "L3",
+   "name": "애월읍",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_024",
+   "layer": "L3",
+   "name": "구좌읍",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_025",
+   "layer": "L3",
+   "name": "조천읍",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_026",
+   "layer": "L3",
+   "name": "한경면",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_027",
+   "layer": "L3",
+   "name": "추자면",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_028",
+   "layer": "L3",
+   "name": "우도면",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "제주시",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(제주시 26)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_029",
+   "layer": "L3",
+   "name": "송산동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_030",
+   "layer": "L3",
+   "name": "정방동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_031",
+   "layer": "L3",
+   "name": "중앙동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_032",
+   "layer": "L3",
+   "name": "천지동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_033",
+   "layer": "L3",
+   "name": "효돈동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_034",
+   "layer": "L3",
+   "name": "영천동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_035",
+   "layer": "L3",
+   "name": "동홍동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_036",
+   "layer": "L3",
+   "name": "서홍동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_037",
+   "layer": "L3",
+   "name": "대륜동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_038",
+   "layer": "L3",
+   "name": "대천동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_039",
+   "layer": "L3",
+   "name": "중문동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_040",
+   "layer": "L3",
+   "name": "예래동",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_041",
+   "layer": "L3",
+   "name": "대정읍",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_042",
+   "layer": "L3",
+   "name": "남원읍",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_043",
+   "layer": "L3",
+   "name": "성산읍",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_044",
+   "layer": "L3",
+   "name": "안덕면",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "city_045",
+   "layer": "L3",
+   "name": "표선면",
+   "alias": [],
+   "type": "읍면동",
+   "parent": "서귀포시",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "행정구역(서귀포시 17)",
+   "nav": "행정시·읍면동",
+   "nav_order": 3
+  },
+  {
+   "id": "adm_001",
+   "layer": "L7",
+   "name": "제주특별자치도경찰청",
+   "alias": [],
+   "type": "지방경찰청",
+   "parent": "경찰청",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.jjpolice.go.kr/",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_002",
+   "layer": "L7",
+   "name": "제주동부경찰서",
+   "alias": [],
+   "type": "경찰서",
+   "parent": "제주특별자치도경찰청",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_003",
+   "layer": "L7",
+   "name": "제주서부경찰서",
+   "alias": [],
+   "type": "경찰서",
+   "parent": "제주특별자치도경찰청",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_004",
+   "layer": "L7",
+   "name": "서귀포경찰서",
+   "alias": [],
+   "type": "경찰서",
+   "parent": "제주특별자치도경찰청",
+   "region": "서귀포시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_005",
+   "layer": "L7",
+   "name": "제주지방해양경찰청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "해양경찰청",
+   "region": "제주시",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://www.kcg.go.kr/",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_006",
+   "layer": "L7",
+   "name": "제주지방법원",
+   "alias": [],
+   "type": "법원",
+   "parent": "대법원",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://jeju.scourt.go.kr/",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_007",
+   "layer": "L7",
+   "name": "제주지방검찰청",
+   "alias": [],
+   "type": "검찰",
+   "parent": "법무부",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_008",
+   "layer": "L7",
+   "name": "제주지방공소청",
+   "alias": [],
+   "type": "공소청",
+   "parent": "법무부",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_009",
+   "layer": "L7",
+   "name": "제주교도소",
+   "alias": [],
+   "type": "교정시설",
+   "parent": "법무부",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_010",
+   "layer": "L7",
+   "name": "제주출입국·외국인청",
+   "alias": [],
+   "type": "출입국",
+   "parent": "법무부",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_011",
+   "layer": "L7",
+   "name": "제주세무서",
+   "alias": [],
+   "type": "세무서",
+   "parent": "국세청",
+   "region": "제주시",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_012",
+   "layer": "L7",
+   "name": "국세공무원교육원",
+   "alias": [],
+   "type": "교육기관",
+   "parent": "국세청",
+   "region": "제주시",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_013",
+   "layer": "L7",
+   "name": "국세상담센터",
+   "alias": [],
+   "type": "상담기관",
+   "parent": "국세청",
+   "region": "제주시",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_014",
+   "layer": "L7",
+   "name": "국세청 주류면허지원센터",
+   "alias": [],
+   "type": "지원기관",
+   "parent": "국세청",
+   "region": "제주시",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_015",
+   "layer": "L7",
+   "name": "제주지방조달청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "조달청",
+   "region": "제주시",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_016",
+   "layer": "L7",
+   "name": "제주지방항공청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "국토교통부",
+   "region": "제주시",
+   "fields": [
+    "교통·안전"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_017",
+   "layer": "L7",
+   "name": "국토교통인재개발원",
+   "alias": [],
+   "type": "교육기관",
+   "parent": "국토교통부",
+   "region": "제주시",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_018",
+   "layer": "L7",
+   "name": "제주지방기상청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "기상청",
+   "region": "제주시",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_019",
+   "layer": "L7",
+   "name": "제주지방병무청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "병무청",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_020",
+   "layer": "L7",
+   "name": "제주지방우정청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "과학기술정보통신부",
+   "region": "제주시",
+   "fields": [
+    "문화·정보"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_021",
+   "layer": "L7",
+   "name": "남해어업관리단",
+   "alias": [],
+   "type": "어업관리",
+   "parent": "해양수산부",
+   "region": "제주시",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_022",
+   "layer": "L7",
+   "name": "이어도 해양과학기지",
+   "alias": [],
+   "type": "연구시설",
+   "parent": "해양수산부",
+   "region": "제주시",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_023",
+   "layer": "L7",
+   "name": "제주특별자치도선거관리위원회",
+   "alias": [],
+   "type": "선관위",
+   "parent": "중앙선거관리위원회",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "http://jj.nec.go.kr/",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_024",
+   "layer": "L7",
+   "name": "제주특별자치도의회",
+   "alias": [],
+   "type": "지방의회",
+   "parent": "제주특별자치도",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "https://www.council.jeju.kr/",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_025",
+   "layer": "L7",
+   "name": "제주특별자치도교육청",
+   "alias": [],
+   "type": "교육청",
+   "parent": "교육부",
+   "region": "제주시",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_026",
+   "layer": "L7",
+   "name": "제주시교육지원청",
+   "alias": [],
+   "type": "교육지원청",
+   "parent": "제주특별자치도교육청",
+   "region": "제주시",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_027",
+   "layer": "L7",
+   "name": "서귀포시교육지원청",
+   "alias": [],
+   "type": "교육지원청",
+   "parent": "제주특별자치도교육청",
+   "region": "서귀포시",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_028",
+   "layer": "L7",
+   "name": "제주국제교육원",
+   "alias": [],
+   "type": "교육기관",
+   "parent": "제주특별자치도교육청",
+   "region": "제주시",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_029",
+   "layer": "L7",
+   "name": "탐라교육원",
+   "alias": [],
+   "type": "교육기관",
+   "parent": "제주특별자치도교육청",
+   "region": "서귀포시",
+   "fields": [
+    "교육·문화시설"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 소재",
+   "source": "나무위키 제주 소재 관공서(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_030",
+   "layer": "L7",
+   "name": "광주지방고용노동청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "고용노동부",
+   "region": "광주",
+   "fields": [
+    "고용·노동"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_031",
+   "layer": "L7",
+   "name": "광주·전남지방중소벤처기업청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "중소벤처기업부",
+   "region": "광주",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_032",
+   "layer": "L7",
+   "name": "광주본부세관",
+   "alias": [],
+   "type": "세관",
+   "parent": "관세청",
+   "region": "광주",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_033",
+   "layer": "L7",
+   "name": "광주지방식품의약품안전청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "식품의약품안전처",
+   "region": "광주",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_034",
+   "layer": "L7",
+   "name": "광주지방교정청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "법무부",
+   "region": "광주",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_035",
+   "layer": "L7",
+   "name": "광주지방중대범죄수사청",
+   "alias": [],
+   "type": "수사청",
+   "parent": "법무부",
+   "region": "광주",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_036",
+   "layer": "L7",
+   "name": "광주광역공소청",
+   "alias": [],
+   "type": "공소청",
+   "parent": "법무부",
+   "region": "광주",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_037",
+   "layer": "L7",
+   "name": "광주고등법원",
+   "alias": [],
+   "type": "법원",
+   "parent": "대법원",
+   "region": "광주",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_038",
+   "layer": "L7",
+   "name": "광주회생법원",
+   "alias": [],
+   "type": "법원",
+   "parent": "대법원",
+   "region": "광주",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_039",
+   "layer": "L7",
+   "name": "영산강유역환경청",
+   "alias": [],
+   "type": "유역청",
+   "parent": "기후에너지환경부",
+   "region": "광주",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_040",
+   "layer": "L7",
+   "name": "익산지방국토관리청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "국토교통부",
+   "region": "익산",
+   "fields": [
+    "국토·주택"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_041",
+   "layer": "L7",
+   "name": "서부지방산림청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "산림청",
+   "region": "전북",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_042",
+   "layer": "L7",
+   "name": "호남권질병대응센터",
+   "alias": [],
+   "type": "대응센터",
+   "parent": "질병관리청",
+   "region": "광주",
+   "fields": [
+    "보건·복지"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_043",
+   "layer": "L7",
+   "name": "호남지방데이터청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "국가데이터처",
+   "region": "광주",
+   "fields": [
+    "조사·연구"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_044",
+   "layer": "L7",
+   "name": "남부광산안전사무소",
+   "alias": [],
+   "type": "사무소",
+   "parent": "산업통상부",
+   "region": "광주",
+   "fields": [
+    "에너지·환경"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_045",
+   "layer": "L7",
+   "name": "부산지방국세청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "국세청",
+   "region": "부산",
+   "fields": [
+    "중소기업·창업"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_046",
+   "layer": "L7",
+   "name": "부산지방해양수산청",
+   "alias": [],
+   "type": "지방청",
+   "parent": "해양수산부",
+   "region": "부산",
+   "fields": [
+    "농수축산·해양"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  },
+  {
+   "id": "adm_047",
+   "layer": "L7",
+   "name": "부산해사국제상사법원",
+   "alias": [],
+   "type": "법원",
+   "parent": "대법원",
+   "region": "부산",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "",
+   "verified": false,
+   "site": "",
+   "board_url": "",
+   "notice_active": false,
+   "notice_level": "low",
+   "jurisdiction": "제주 관할(도외 소재)",
+   "source": "나무위키 제주관할 특행기관(사용자 제공)",
+   "nav": "국가행정기관",
+   "nav_order": 7
+  }
+ ]
+}
