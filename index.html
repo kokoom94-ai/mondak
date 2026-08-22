@@ -292,6 +292,8 @@ footer b{color:var(--ink)}
 @media(max-width:860px){.railsec{flex:1;min-width:150px}}
 .railsec h3{font-size:11px;color:var(--sub);letter-spacing:.5px;margin-bottom:6px;font-weight:700}
 .railsec .ritem{display:flex;align-items:center;gap:7px;width:100%;text-align:left;font-size:12.5px;padding:4.5px 7px;border-radius:8px}
+.railsec .ritem.rzero{opacity:.42}
+.railsec .ritem.rzero .rc{background:var(--line);color:var(--sub)}
 .railsec .ritem:hover{background:var(--bg)}
 .railsec .ritem.on{background:var(--navy);color:#fff}
 .railsec .ritem.on .rc{color:rgba(255,255,255,.7)}
@@ -830,7 +832,7 @@ body{padding-bottom:78px}
     <input id="xq" type="search" autocomplete="off" placeholder="정책·지원사업 검색 — 예: 청년, 감귤, 돌봄, 창업">
   </div>
   <div class="xhead">
-    <span class="xcounts">분야 <b>8</b> · 정책 <b id="xcnt">0</b>건</span>
+    <span class="xcounts">분야 <b id="xfcnt">0</b> · 정책 <b id="xcnt">0</b>건</span>
     <span class="xsort" id="xsort">
       <button data-s="date" class="on">최신순</button>
       <button data-s="due">마감순</button>
@@ -1158,14 +1160,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 const FIELDS=[
- {id:'welfare',name:'복지·사회보험',c:'#F47FA0'},
- {id:'ax',name:'신산업·AX',c:'#7FA7F4'},
- {id:'tour',name:'관광',c:'#FF9E4F'},
- {id:'startup',name:'스타트업·경제',c:'#F4D06F'},
+ {id:'welfare',name:'복지·사회서비스',c:'#F47FA0'},
+ {id:'housing',name:'주거·자산',c:'#E091C4'},
+ {id:'job',name:'취업·일자리',c:'#5CB8B2'},
+ {id:'startup',name:'창업·경제',c:'#F4D06F'},
  {id:'agri',name:'1차산업',c:'#8FD47F'},
- {id:'env',name:'환경·에너지',c:'#4FD8C4'},
+ {id:'equip',name:'장비·시설지원',c:'#C4A46A'},
  {id:'youth',name:'교육·청년',c:'#C99AF2'},
- {id:'civic',name:'안전·민원행정',c:'#9BAAC9'},
+ {id:'tour',name:'문화·관광·스포츠',c:'#FF9E4F'},
+ {id:'env',name:'환경·에너지',c:'#4FD8C4'},
+ {id:'ax',name:'신산업·AX',c:'#7FA7F4'},
 ];
 const ORGS=[
  {id:'do',name:'도청',ring:3},{id:'jeju',name:'제주시',ring:2},{id:'seog',name:'서귀포시',ring:2},
@@ -1455,10 +1459,16 @@ function xfiltered(){
 function renderRail(){
   $('#railfield').innerHTML=[{id:null,name:'전체',c:'#999'},...FIELDS].map(f=>{
     const n=f.id?DATA.filter(x=>x.f===f.id).length:DATA.length;
-    return `<button class="ritem ${xstate.field===f.id?'on':''}" data-k="field" data-va="${f.id??''}"><span class="rd" style="--c:${f.c}"></span>${f.name}<span class="rc">${n}</span></button>`;}).join('');
+    return {f,n};
+  }).map(({f,n})=>{
+    return `<button class="ritem ${xstate.field===f.id?'on':''} ${n===0?'rzero':''}" data-k="field" data-va="${f.id??''}"><span class="rd" style="--c:${f.c}"></span>${f.name}<span class="rc">${n}</span></button>`;}).join('');
   $('#railwho').innerHTML=[null,...WHO].map(w=>{
     const n=w?DATA.filter(x=>x.who.includes(w)).length:DATA.length;
+    return {w,n};
+  }).filter(o=>o.w===null||o.n>0).map(({w,n})=>{
     return `<button class="ritem ${xstate.who===w?'on':''}" data-k="who" data-va="${w??''}">${w||'전체'}<span class="rc">${n}</span></button>`;}).join('');
+  const fc=FIELDS.filter(f=>DATA.some(x=>x.f===f.id)).length;
+  const fe=$('#xfcnt'); if(fe)fe.textContent=fc;
 }
 function renderList(){
   const rows=xfiltered();
