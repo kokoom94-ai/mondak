@@ -1,6 +1,6 @@
 {
  "meta": {
-  "collected_at": "2026-08-23 03:29 KST",
+  "collected_at": "2026-08-23 06:20 KST",
   "window_days": 14,
   "cadence": "3h",
   "source": "지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계",
@@ -12,7 +12,7 @@
    "link": "https://www.topstarnews.net/news/articleView.html?idxno=16170554",
    "src": "topstarnews.net",
    "d": "2026-08-23",
-   "outlets": [
+   "outlets_prev": [
     "조선일보",
     "mt.co.kr",
     "뉴시스",
@@ -20,8 +20,31 @@
     "연합뉴스",
     "topstarnews.net"
    ],
-   "n": 6,
+   "outlets": [
+    "topstarnews.net",
+    "조선일보",
+    "mt.co.kr",
+    "뉴시스",
+    "news.kbs.co.kr",
+    "연합뉴스",
+    "news.sbs.co.kr",
+    "mbn.mk.co.kr"
+   ],
+   "n": 8,
    "sec": "안전/민원행정"
+  },
+  {
+   "t": "서귀포시 2026년 하반기 인사 예고...자치행정국장 부미선",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227308",
+   "src": "제주일보",
+   "d": "2026-08-23",
+   "outlets": [
+    "제주의소리",
+    "제주일보",
+    "미디어제주"
+   ],
+   "n": 3,
+   "sec": "정치/행정"
   },
   {
    "t": "“제주의 땀방울, 소리가 되다”…제21회 제주농요 전승공연 28일 개최",
@@ -140,21 +163,13 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "[인사] 서귀포시 2026년 하반기 공무직 명단",
-   "link": "https://www.jejusori.net/news/articleView.html?idxno=505777",
-   "src": "제주의소리",
-   "d": "2026-08-23",
-   "outlets": [
-    "제주의소리"
-   ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
    "t": "[현국장의 사계절]인간관계의 다섯 가지 법칙, 세상을 잘 사는 요령",
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297166",
    "src": "뉴스N제주",
    "d": "2026-08-23",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -166,6 +181,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297162",
    "src": "뉴스N제주",
    "d": "2026-08-23",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -177,6 +195,9 @@
    "link": "https://www.ytn.co.kr/_ln/0115_202608230215193281",
    "src": "YTN",
    "d": "2026-08-23",
+   "outlets_prev": [
+    "YTN"
+   ],
    "outlets": [
     "YTN"
    ],
@@ -188,8 +209,121 @@
    "link": "https://www.ytn.co.kr/_ln/0115_202608230111038292",
    "src": "YTN",
    "d": "2026-08-23",
+   "outlets_prev": [
+    "YTN"
+   ],
    "outlets": [
     "YTN"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "'처서' 무색, 제주 한낮 33도 폭염기승…최대 30㎜ 소나기",
+   "link": "https://www.newsis.com/view/NISX20260822_0003758517",
+   "src": "뉴시스",
+   "d": "2026-08-23",
+   "outlets": [
+    "뉴시스"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "[오늘의 날씨] 제주(23일, 일)…구름 많고 강한 바람, 높은 물결 주의",
+   "link": "https://www.news1.kr/local/jeju/6266383",
+   "src": "뉴스1",
+   "d": "2026-08-23",
+   "outlets": [
+    "뉴스1"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "[제주날씨] '처서'에도 체감 35℃ 이상 무더위.. 곳에 따라 소나기",
+   "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64769?feed=na",
+   "src": "JIBS",
+   "d": "2026-08-23",
+   "outlets": [
+    "JIBS"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주 서귀포 동쪽 바다서 규모 2.2 지진... 일본선 5.9 강진",
+   "link": "https://www.wikitree.co.kr/articles/1154220",
+   "src": "wikitree.co.kr",
+   "d": "2026-08-23",
+   "outlets": [
+    "wikitree.co.kr"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주 공공배달앱 '먹깨비' 배달비 쿠폰 하루 1천200건으로 확대",
+   "link": "https://www.yna.co.kr/view/AKR20260821071400056?input=1195m",
+   "src": "연합뉴스",
+   "d": "2026-08-23",
+   "outlets": [
+    "연합뉴스"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "귤 말고 키위도 제주가 짱…세계 1위 제스프리와 ‘한판 승부’",
+   "link": "https://www.joongang.co.kr/article/25455351",
+   "src": "중앙일보",
+   "d": "2026-08-23",
+   "outlets": [
+    "중앙일보"
+   ],
+   "n": 1,
+   "sec": "창업/경제"
+  },
+  {
+   "t": "제주 음식점·숙박업도 청년 채용하면 인건비 지원",
+   "link": "https://www.yna.co.kr/view/AKR20260821074200056?input=1195m",
+   "src": "연합뉴스",
+   "d": "2026-08-23",
+   "outlets": [
+    "연합뉴스"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "제주 실종 신고 허위 종결한 경찰관 판박이 처리…60대 시신 발견",
+   "link": "https://www.segye.com/newsView/20260823500220?OutUrl=naver",
+   "src": "segye.com",
+   "d": "2026-08-23",
+   "outlets": [
+    "segye.com"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주, 폭염 특보에 높은 습도…최고 체감 온도 35도 이상",
+   "link": "https://www.yna.co.kr/view/AKR20260823002400056?input=1195m",
+   "src": "연합뉴스",
+   "d": "2026-08-23",
+   "outlets": [
+    "연합뉴스"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "[오늘의 날씨] 전국 5~40mm 소나기와 33도 안팎 무더위…서해·남해·제주...",
+   "link": "https://www.topstarnews.net/news/articleView.html?idxno=16170576",
+   "src": "topstarnews.net",
+   "d": "2026-08-23",
+   "outlets": [
+    "topstarnews.net"
    ],
    "n": 1,
    "sec": "안전/민원행정"
@@ -219,7 +353,7 @@
     "경북매일",
     "법보신문"
    ],
-   "n": 26,
+   "n": 27,
    "sec": "안전/민원행정"
   },
   {
@@ -427,7 +561,8 @@
     "mt.co.kr",
     "biz.heraldcorp.com",
     "매일경제",
-    "머니투데이"
+    "머니투데이",
+    "view.asiae.co.kr"
    ],
    "outlets": [
     "뉴시스",
@@ -1083,7 +1218,8 @@
    "src": "MBC",
    "d": "2026-08-22",
    "outlets_prev": [
-    "MBC"
+    "MBC",
+    "MBC 뉴스"
    ],
    "outlets": [
     "MBC",
@@ -1415,34 +1551,6 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "제주, 한낮 33도 폭염 속 최대 60㎜ 소나기…열대야 기승",
-   "link": "https://www.newsis.com/view/NISX20260821_0003758031",
-   "src": "뉴시스",
-   "d": "2026-08-22",
-   "outlets_prev": [
-    "뉴시스"
-   ],
-   "outlets": [
-    "뉴시스"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "[오늘의 날씨] 제주(22일, 토)…\"해안 높은 물결 주의\"",
-   "link": "https://www.news1.kr/local/jeju/6265941",
-   "src": "뉴스1",
-   "d": "2026-08-22",
-   "outlets_prev": [
-    "뉴스1"
-   ],
-   "outlets": [
-    "뉴스1"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
-  },
-  {
    "t": "[오늘의 날씨] 중부 시간당 30mm 강한 비·전국 최대 100mm…남부·제주...",
    "link": "https://www.topstarnews.net/news/articleView.html?idxno=16169917",
    "src": "topstarnews.net",
@@ -1648,20 +1756,6 @@
    ],
    "outlets": [
     "뉴스1"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "[제주날씨] 체감 33℃ 이상 무더위.. 소나기 최대 60㎜",
-   "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64752?feed=na",
-   "src": "JIBS",
-   "d": "2026-08-22",
-   "outlets_prev": [
-    "JIBS"
-   ],
-   "outlets": [
-    "JIBS"
    ],
    "n": 1,
    "sec": "안전/민원행정"
@@ -4262,16 +4356,6 @@
    "src": "헤드라인제주",
    "d": "2026-08-21",
    "outlets_prev": [
-    "헤드라인제주",
-    "뉴스제주",
-    "제주일보",
-    "제주의소리",
-    "미디어제주",
-    "뉴스N제주",
-    "jemin.com",
-    "samdailbo.com"
-   ],
-   "outlets": [
     "뉴스제주",
     "제주일보",
     "제주의소리",
@@ -4280,6 +4364,16 @@
     "jemin.com",
     "samdailbo.com",
     "헤드라인제주"
+   ],
+   "outlets": [
+    "헤드라인제주",
+    "뉴스제주",
+    "제주일보",
+    "제주의소리",
+    "미디어제주",
+    "뉴스N제주",
+    "jemin.com",
+    "samdailbo.com"
    ],
    "n": 8,
    "sec": "정치/행정"
@@ -6313,118 +6407,6 @@
    ],
    "n": 2,
    "sec": "정치/행정"
-  },
-  {
-   "t": "한라산 오르다 '심정지' 40대 관광객...여고생이 살렸다",
-   "link": "https://www.mt.co.kr/culture/2026/08/21/2026082114101652029",
-   "src": "mt.co.kr",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "mt.co.kr",
-    "머니투데이"
-   ],
-   "outlets": [
-    "mt.co.kr",
-    "머니투데이"
-   ],
-   "n": 2,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "\"제주 아파트 정치권 로비 의혹에 도민들 자괴감\"",
-   "link": "https://www.jejumaeil.net/news/articleView.html?idxno=403884",
-   "src": "jejumaeil.net",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "jejumaeil.net",
-    "제주매일"
-   ],
-   "outlets": [
-    "jejumaeil.net",
-    "제주매일"
-   ],
-   "n": 2,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "제주선관위, 아이들과 함께하는 '두근두근 선거소풍' 운영",
-   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321504",
-   "src": "제주도민일보",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "제주도민일보",
-    "제주환경일보"
-   ],
-   "outlets": [
-    "제주도민일보",
-    "제주환경일보"
-   ],
-   "n": 2,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "\"학폭 알고도 조사서 누락\"…제주교육감·학교 관계자 무더기 고발",
-   "link": "https://www.mt.co.kr/society/2026/08/21/2026082115062541470",
-   "src": "mt.co.kr",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "mt.co.kr",
-    "머니투데이"
-   ],
-   "outlets": [
-    "mt.co.kr",
-    "머니투데이"
-   ],
-   "n": 2,
-   "sec": "교육/청년"
-  },
-  {
-   "t": "AI·초고령 돌봄까지… 제주대 간호대생 8팀, 현장 문제를 연구로 풀었...",
-   "link": "http://www.fnnews.com/news/202608211802314481",
-   "src": "fnnews.com",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "fnnews.com",
-    "파이낸셜뉴스"
-   ],
-   "outlets": [
-    "fnnews.com",
-    "파이낸셜뉴스"
-   ],
-   "n": 2,
-   "sec": "복지/사회서비스"
-  },
-  {
-   "t": "간부부터 달라져야...제주도, 성평등·청렴 리더십 교육 실시",
-   "link": "https://www.womennews.co.kr/news/articleView.html?idxno=281270",
-   "src": "womennews.co.kr",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "womennews.co.kr",
-    "여성신문"
-   ],
-   "outlets": [
-    "womennews.co.kr",
-    "여성신문"
-   ],
-   "n": 2,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "투병중인 관광객과 동행한 한라산 직원, CPR로 생명구한 여고생",
-   "link": "https://www.yna.co.kr/view/AKR20260821104600056?input=1195m",
-   "src": "연합뉴스",
-   "d": "2026-08-21",
-   "outlets_prev": [
-    "연합뉴스",
-    "v.daum.net"
-   ],
-   "outlets": [
-    "연합뉴스",
-    "v.daum.net"
-   ],
-   "n": 2,
-   "sec": "문화/관광/스포츠"
   }
  ]
 }
