@@ -267,6 +267,11 @@ footer b{color:var(--ink)}
 #drawer .mitem.on{background:#fff;color:#111A38}
 #drawer .mitem .mx{margin-left:auto;font-size:12px;color:#8B96B8}
 #drawer .msep{border-top:1px solid rgba(255,255,255,.14);margin:10px 0}
+#drawer .mgrp{font-size:12px;font-weight:800;color:var(--gyul);letter-spacing:.5px;padding:14px 12px 6px;border-top:1px solid rgba(255,255,255,.14);margin-top:8px;display:flex;align-items:center;gap:7px}
+#drawer .mgrp:first-of-type{border-top:none;margin-top:0}
+#drawer .mgrp .gdot{font-size:13px}
+#drawer .mitem.soon{opacity:.55}
+#drawer .mitem.soon .mx{color:var(--gyul);opacity:.9}
 #drawer .mcredit{font-size:12.5px;color:#B9C2DA;line-height:1.8;padding:8px 12px}
 #drawer .mcredit b{color:#fff}
 
@@ -347,6 +352,10 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 #tip{position:fixed;pointer-events:none;z-index:50;display:none;background:var(--navy);color:#fff;border-radius:9px;padding:7px 11px;font-size:12px;max-width:230px;line-height:1.45}
 #tip .t-org{color:#B9C2DA;font-size:10.5px}
 .viewtitle{font-size:20px;font-weight:800;padding-top:14px;letter-spacing:-.4px}
+.gwan-soon{text-align:center;padding:60px 20px;color:var(--sub)}
+.gwan-soon .gs-ic{font-size:48px;margin-bottom:16px}
+.gwan-soon .gs-t{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.gwan-soon .gs-d{font-size:13.5px;line-height:1.9}
 .viewsub{font-size:12.5px;color:var(--sub);margin-top:2px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
@@ -599,8 +608,8 @@ body{padding-bottom:78px}
       <nav class="deskmenu" id="deskmenu">
         <button data-v="home" class="on">홈</button>
         <button data-v="news">호외요</button>
+        <button data-v="support">주목합써</button>
         <button data-v="lawbot">정책비서</button>
-        <button data-v="council">동네의원</button>
         <button class="dmham" data-open-drawer aria-label="전체 메뉴" title="전체메뉴">☰</button>
       </nav>
       <div class="navclock" id="navclock"></div>
@@ -864,8 +873,8 @@ body{padding-bottom:78px}
 <nav class="bottomnav" id="bottomnav">
   <button data-v="home" class="on"><span class="ic">🏠</span>홈</button>
   <button data-v="news"><span class="ic">📰</span>호외요</button>
+  <button data-v="support"><span class="ic">📋</span>주목합써</button>
   <button data-v="lawbot"><span class="ic">⚖️</span>정책비서</button>
-  <button data-v="council"><span class="ic">🏛️</span>동네의원</button>
   <button id="openmenu2"><span class="ic">☰</span>전체 메뉴</button>
 </nav>
 
@@ -877,25 +886,44 @@ body{padding-bottom:78px}
       <button class="close" id="closemenu">✕</button>
     </div>
     <button class="mitem on" data-v="home">홈</button>
+
+    <div class="mgrp"><span class="gdot">📜</span>정책보부상</div>
     <button class="mitem" data-v="news">호외요, 호외! <span class="mx">인기뉴스 · 분야별 소식</span></button>
-    <button class="mitem" data-v="lawbot">정책비서 <span class="mx">정책 · 법규 · 조례</span></button>
-    <button class="mitem" data-v="council">동네의원 <span class="mx">국회 · 도의회</span></button>
     <button class="mitem" data-v="support">주목합써 <span class="mx">공공지원사업 알아보기</span></button>
-    <button class="mitem" data-v="edu">교육정책 <span class="mx">도교육청</span></button>
+    <button class="mitem" data-v="lawbot">정책비서 <span class="mx">법규 · 조례 · 공약</span></button>
+    <button class="mitem" data-v="council">동네의원 <span class="mx">국회 · 도의회</span></button>
     <button class="mitem" data-v="terms">보부상위키 <span class="mx">용어색인 · 빈출단어</span></button>
-    <div class="msep"></div>
-    <button class="mitem" data-v="biseo">민원비서 <span class="mx">뭐든 물어봅서</span></button>
-    <button class="mitem" data-v="explore">정책 탐색 <span class="mx">기관·분야·대상별</span></button>
-    <button class="mitem" data-v="orbit">정책 궤도 <span class="mx">도정 조감</span></button>
+
+    <div class="mgrp"><span class="gdot">🎓</span>교육보부상</div>
+    <button class="mitem" data-v="edu">교육정책 <span class="mx">정책 · 공약 등</span></button>
+
+    <div class="mgrp"><span class="gdot">🌏</span>관광보부상</div>
+    <button class="mitem soon" data-v="gwan-fest">행사소식 <span class="mx">축제캘린더 · 기념행사</span></button>
+    <button class="mitem soon" data-v="gwan-now">여기가젠 <span class="mx">지금 이슈 소식</span></button>
+    <button class="mitem soon" data-v="gwan-hero">축하햄수다 <span class="mx">미담 제주인</span></button>
+    <button class="mitem soon" data-v="gwan-plan">여행플래너 <span class="mx">여행코스 설계</span></button>
+    <button class="mitem soon" data-v="gwan-jeju">지금제주 <span class="mx">데이터 분석</span></button>
+    <button class="mitem soon" data-v="gwan-kr">지금한국 <span class="mx">인사이트</span></button>
+
     <div class="msep"></div>
     <a class="mitem" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 모바일 재난방송 신청 <span class="mx">↗</span></a>
-    <a class="mitem" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">제주통계포털 <span class="mx">↗</span></a>
-    <a class="mitem" href="https://data.ijto.or.kr/bigdata/index.do" target="_blank" rel="noopener">관광빅데이터플랫폼 <span class="mx">↗</span></a>
+    <a class="mitem" href="https://www.jeju.go.kr/stats/index.htm" target="_blank" rel="noopener">📊 제주통계포털 <span class="mx">↗</span></a>
+    <a class="mitem" href="https://data.ijto.or.kr/bigdata/index.do" target="_blank" rel="noopener">📈 관광빅데이터플랫폼 <span class="mx">↗</span></a>
     <div class="msep"></div>
     <div class="mcredit"><b>개인이 운영하는 무료 공익 서비스입니다.</b><br>광고·수익모델이 없으며, 공식 공개 데이터를 근거와 함께 안내합니다.</div>
   </div>
 </div>
 
+
+<div id="view-gwan" hidden>
+  <div class="viewtitle"><span class="gwan-ic">🌏</span> <span class="gwan-t">관광보부상</span></div>
+  <div class="viewsub"><span class="gwan-d"></span></div>
+  <div class="gwan-soon">
+    <div class="gs-ic">🧭</div>
+    <div class="gs-t">준비 중입니다</div>
+    <div class="gs-d">관광보부상은 비짓제주·한국관광공사 데이터와 연결해<br>곧 찾아뵙겠습니다. 조금만 기다려 주세요!</div>
+  </div>
+</div>
 
 <div id="view-biseo" hidden>
   <div class="backbar">
@@ -1182,13 +1210,26 @@ const BOARD={
  seog:"https://seogwipo.go.kr/info/news/law/law.htm",
  eup:"https://www.jejusi.go.kr/information/intro/notice.do",
  council:"https://www.council.jeju.kr"};
-const VIEWS=['home','news','lawbot','council','support','edu','terms','explore','orbit','biseo'];
+const VIEWS=['home','news','lawbot','council','support','edu','terms','explore','orbit','biseo','gwan-fest','gwan-now','gwan-hero','gwan-plan','gwan-jeju','gwan-kr'];
+// 관광보부상 하위 탭 메타 (준비중 화면 공유)
+const GWAN={
+  'gwan-fest':{t:'행사소식',d:'축제캘린더 · 기념행사',ic:'🎪'},
+  'gwan-now':{t:'여기가젠',d:'지금 이슈 소식',ic:'📍'},
+  'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'},
+  'gwan-plan':{t:'여행플래너',d:'여행코스 설계',ic:'🗺️'},
+  'gwan-jeju':{t:'지금제주',d:'데이터 분석',ic:'📊'},
+  'gwan-kr':{t:'지금한국',d:'인사이트',ic:'🇰🇷'}
+};
 let selIdx=null, supWho=null, newsSec='전체';
 
 /* ══ 뷰 전환 + 브라우저 히스토리 ══ */
 function show(v,push=true){
   if(!VIEWS.includes(v))v='home';
+  const isGwan=v.startsWith('gwan-');
   VIEWS.forEach(k=>{const el=document.getElementById('view-'+k);if(el)el.hidden=(k!==v);});
+  // 관광 하위 탭은 공유 화면(view-gwan)으로 표시
+  const gv=document.getElementById('view-gwan');
+  if(gv){gv.hidden=!isGwan; if(isGwan)renderGwan(v);}
   document.querySelectorAll('[data-v]').forEach(b=>{
     if(b.classList.contains('mitem')||b.closest('#bottomnav')||b.closest('#deskmenu'))
       b.classList.toggle('on',b.dataset.v===v);
@@ -1204,6 +1245,14 @@ function show(v,push=true){
   if(v==='support')renderSupport();
   if(v==='lawbot'){renderLaws();renderPledges();}
   if(v==='council'){renderNP();renderCB();}
+}
+function renderGwan(v){
+  const g=GWAN[v]||{t:'관광보부상',d:'',ic:'🌏'};
+  const el=document.getElementById('view-gwan');
+  if(!el)return;
+  el.querySelector('.gwan-ic').textContent=g.ic;
+  el.querySelector('.gwan-t').textContent=g.t;
+  el.querySelector('.gwan-d').textContent=g.d;
 }
 history.replaceState({v:'home'},'','#home');
 window.addEventListener('popstate',e=>{
