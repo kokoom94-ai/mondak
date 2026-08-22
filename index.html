@@ -102,7 +102,8 @@
 .noticesec .dh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
 .noticesec .dh h2{font-size:20px;font-weight:800;letter-spacing:-.4px}
 .noticesec .dh .sub{font-size:12.5px;color:var(--sub)}
-.noticesec .dh .go{margin-left:auto;background:var(--gyul);color:#fff;font-size:13px;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;white-space:nowrap;transition:.2s}
+.noticesec .dh .go{background:var(--gyul);color:#fff;font-size:13px;font-weight:700;padding:9px 16px;border-radius:11px;text-decoration:none;white-space:nowrap;transition:.2s}
+.noticesec .dh .go:first-of-type{margin-left:auto}
 .noticesec .dh .go:hover{background:#d9761a}
 .noticeitem{padding:16px 4px;border-top:1px solid var(--line);font-size:15.5px}
 .noticeitem:first-child{border-top:none}
@@ -696,7 +697,8 @@ body{padding-bottom:78px}
     <div class="dh">
       <h2>📢 관리자 공지사항</h2>
       <span class="sub">AI 제주정책 보부상 운영 소식</span>
-      <a class="go" href="mailto:kokoom94@gmail.com?subject=%5BAI%20%EC%A0%9C%EC%A3%BC%EC%A0%95%EC%B1%85%20%EB%B6%80%EB%B3%B4%EC%83%81%5D%20%EB%AC%B8%EC%9D%98">관리자에게 문의하기 ✉</a>
+      <button class="go" data-v="notice" style="border:0;cursor:pointer;background:var(--gyul)">전체보기 →</button>
+      <a class="go" href="mailto:kokoom94@gmail.com?subject=%5BAI%20%EC%A0%9C%EC%A3%BC%EC%A0%95%EC%B1%85%20%EB%B6%80%EB%B3%B4%EC%83%81%5D%20%EB%AC%B8%EC%9D%98" style="background:#fff;color:var(--gyul);border:1px solid var(--gyul)">문의하기 ✉</a>
     </div>
     <div id="noticebox"></div>
   </div>
@@ -748,7 +750,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">정책비서</div>
-  <div class="viewsub">제주 관련 특별법·시행령·조례·규칙을 한눈에 — 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
+  <div class="viewsub">제주 특별법·시행령·조례·규칙과 제주 정책의 근거가 되는 국가법률을 한눈에 — 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
   <div class="metarow" style="margin-top:6px"><span class="livebadge" id="lawsrc">큐레이션 14건 · 법제처 API 연동 대기</span></div>
   <div class="lawchips" id="lawchips"></div>
   <div class="uni" style="margin-top:10px">
@@ -778,8 +780,25 @@ body{padding-bottom:78px}
       <a href="mirinae3d.html" target="_blank" rel="noopener" class="mirinae-full">⤢ 전체화면으로 크게 보기</a>
     </div>
   </div>
+
+  <a class="linkcard" href="https://hosungseo.github.io/korea100/#institutions" target="_blank" rel="noopener" style="margin-top:22px">
+    <b>참고 — 한 장으로 끝내는 대한민국 제도 지도 ↗</b>
+    <span>대한민국 제도 100선(제작: 류주임). AI 제주정책 보부상의 「정책 미리내」는 이 형식을 참고해 제주 정책에 맞게 새로 제작했습니다.</span>
+  </a>
 </div>
 </div><!-- /lawbot -->
+
+<div id="view-notice" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">관리자 공지사항</div>
+  <div class="viewsub">AI 제주정책 보부상 운영 소식 · 업데이트 내역</div>
+  <div id="noticeall" style="margin-top:14px"></div>
+  <div class="notecard" style="margin-top:18px">
+    <b>문의·제보</b> — 오류나 개선 제안은 <a href="mailto:kokoom94@gmail.com?subject=%5BAI%20%EC%A0%9C%EC%A3%BC%EC%A0%95%EC%B1%85%20%EB%B6%80%EB%B3%B4%EC%83%81%5D%20%EB%AC%B8%EC%9D%98" style="color:var(--gyul);font-weight:700">kokoom94@gmail.com</a> 으로 보내주세요.
+  </div>
+</div>
+</div><!-- /notice -->
 
 <div id="view-council" hidden>
 <div class="wrap">
@@ -892,10 +911,6 @@ body{padding-bottom:78px}
   </div>
   <div class="viewtitle" style="font-size:16px;padding-top:16px">용어 색인</div>
   <div class="wikigrid" id="wikigrid"></div>
-  <a class="linkcard" href="https://hosungseo.github.io/korea100/#institutions" target="_blank" rel="noopener">
-    <b>한 장으로 끝내는 대한민국 제도 지도 ↗</b>
-    <span>대한민국 제도 100선 — AI 제주정책 보부상은 이 형식을 이식해 「제주 제도 지도」로 확장할 예정입니다</span>
-  </a>
 </div>
 </div><!-- /terms -->
 
@@ -965,7 +980,7 @@ body{padding-bottom:78px}
   <div class="gwan-soon">
     <div class="gs-ic">🧭</div>
     <div class="gs-t">준비 중입니다</div>
-    <div class="gs-d">관광보부상은 비짓제주·한국관광공사 데이터와 연결해<br>곧 찾아뵙겠습니다. 조금만 기다려 주세요!</div>
+    <div class="gs-d">곧 찾아뵙겠습니다. 조금만 기다려 주세요!</div>
   </div>
 </div>
 
@@ -1206,6 +1221,25 @@ const WIKI={
  '조례':'도의회가 만드는 제주도 안에서만 적용되는 법. 도민 생활 규칙의 상당수가 조례로 정해집니다.',
  '도정질문':'도의원이 본회의장에서 도지사·간부에게 정책을 공개적으로 따져 묻는 절차입니다.',
  '상임위':'상임위원회. 분야별로 나눠 의안을 먼저 깊게 심사하는 도의회의 소위원회입니다.',
+ 'AI':'인공지능. 민선 9기 제주도정은 관광·복지·민원 등 행정 전반에 AI를 도입하는 AX(AI 대전환)를 최우선 과제로 삼고 있습니다.',
+ '관광':'제주 최대 산업. 연 1,300만 명 이상이 찾으며, 관광진흥법과 제주관광진흥 조례를 근거로 정책이 운영됩니다.',
+ '지원':'보조금·바우처·컨설팅 등 행정이 도민·기업에 제공하는 도움. 대상·기간·금액은 공고마다 다르니 원문 확인이 필요합니다.',
+ '청년':'제주도 청년기본조례상 만 19~39세. 주거·일자리·창업 등 청년정책의 대상이 되는 세대입니다.',
+ '돌봄':'아동·어르신·장애인 등을 지역사회가 보살피는 복지. 제주는 의료·요양·주거를 잇는 통합돌봄을 추진합니다.',
+ '감귤':'제주 대표 1차산업 작물. 감귤생산·유통 조례로 품질 기준과 강제착색 금지 등 유통 질서를 정합니다.',
+ '디지털':'행정·산업·생활을 정보기술로 전환하는 것. 제주는 디지털관광증·데이터센터 등 디지털 전환 정책을 추진합니다.',
+ '예산':'행정이 한 해 쓸 돈의 계획. 제주도 예산은 도의회 심의·의결을 거쳐 확정되며, 주민참여예산제로 도민도 편성에 참여합니다.',
+ '무장애':'배리어프리(Barrier-free). 장애인·어르신·유모차 이용자 등 누구나 불편 없이 이동·이용하도록 시설과 서비스를 만드는 것입니다.',
+ '스타트업':'혁신 아이디어로 빠르게 성장하는 창업기업. 제주는 창조경제혁신센터 등을 통해 스타트업 유치·보육을 지원합니다.',
+ '안전':'재난·사고로부터 도민을 지키는 것. 재난 및 안전관리 기본법을 근거로 예방·대응·복구 체계를 운영합니다.',
+ '환경':'제주의 핵심 가치. 곶자왈·오름·해양 보전과 탄소중립을 위해 환경정책기본법·자연환경보전법 등을 근거로 정책이 운영됩니다.',
+ '주거':'집과 관련한 정책 영역. 청년·신혼부부 주거지원, 공공임대 등으로 도민의 주거 안정을 돕습니다.',
+ '해녀':'물질로 해산물을 채취하는 제주 여성. 유네스코 인류무형문화유산으로, 해녀문화 보존·전승 조례로 지원합니다.',
+ '교육':'제주특별자치도교육청이 담당하는 유·초·중·고 정책. 다혼디배움학교·IB·고교학점제 등 제주형 교육을 운영합니다.',
+ '크루즈':'대형 여객선 관광. 제주항·강정항에 기항하며, 중국·아시아 노선 회복이 제주 관광의 주요 관심사입니다.',
+ '복지':'도민의 삶의 질을 돕는 정책. 사회보장기본법을 근거로 어르신·장애인·아동·취약계층 지원을 운영합니다.',
+ '데이터':'행정·산업의 원천 자원. 제주는 공공데이터 개방과 데이터센터 유치로 데이터 기반 행정을 추진합니다.',
+ '상권':'상점이 모인 상업 구역. 제주는 원도심 자율상권구역 등으로 소상공인·지역상권 활성화를 지원합니다.',
 };
 const wterm=t=>`<w data-w="${t}">${t}</w>`;
 
@@ -1220,6 +1254,23 @@ const NEWSSECS=['전체','정치/행정','복지/사회서비스','1차산업','
 const SECMAP={'관광':'문화/관광/스포츠','문화/관광':'문화/관광/스포츠','복지/사회보험':'복지/사회서비스','스타트업/경제':'창업/경제','행정':'정치/행정','기타':'사건사고/기타'};
 const secN=s=>SECMAP[s]||s||'사건사고/기타';
 let newsMax=10;
+// 제주 정책이 근거로 삼는 상위 국가법률 (큐레이션 · 국가법령정보센터 직링크)
+const NAT_LAWS=[
+ {ty:'국가법률',f:'문화/관광',t:'관광진흥법',s:'관광사업·관광지 지정·관광진흥개발기금 등 관광정책의 기본법. 제주 관광정책의 상위 근거.',k:'관광진흥법 관광지 관광사업',tags:['국가법률','관광'],nat:true,url:'https://www.law.go.kr/법령/관광진흥법'},
+ {ty:'국가법률',f:'행정',t:'국토의 계획 및 이용에 관한 법률',s:'용도지역·도시계획 등 국토 이용의 기본법. 제주 도시계획·개발의 근거.',k:'국토계획 국토이용 용도지역 도시계획',tags:['국가법률','국토'],nat:true,url:'https://www.law.go.kr/법령/국토의계획및이용에관한법률'},
+ {ty:'국가법률',f:'환경/에너지',t:'환경정책기본법',s:'국가 환경정책의 기본 이념과 방향을 정한 법. 제주 환경보전 정책의 토대.',k:'환경정책 환경보전 기본법',tags:['국가법률','환경'],nat:true,url:'https://www.law.go.kr/법령/환경정책기본법'},
+ {ty:'국가법률',f:'환경/에너지',t:'자연환경보전법',s:'생태·경관 보전과 자연환경 관리의 근거. 곶자왈·오름 등 제주 자연 보전과 연계.',k:'자연환경 생태 경관 보전',tags:['국가법률','환경'],nat:true,url:'https://www.law.go.kr/법령/자연환경보전법'},
+ {ty:'국가법률',f:'문화/관광',t:'국가유산기본법',s:'문화재보호법을 대체한 국가유산 관리 기본법. 제주 세계유산·유적 보호의 근거.',k:'국가유산 문화재 세계유산 보호',tags:['국가법률','문화재'],nat:true,url:'https://www.law.go.kr/법령/국가유산기본법'},
+ {ty:'국가법률',f:'1차산업',t:'농어업·농어촌 및 식품산업 기본법',s:'농어업·농어촌·식품산업 정책의 기본법. 제주 1차산업 정책의 상위 근거.',k:'농어업 농어촌 식품산업 기본법',tags:['국가법률','1차산업'],nat:true,url:'https://www.law.go.kr/법령/농어업·농어촌및식품산업기본법'},
+ {ty:'국가법률',f:'환경/에너지',t:'신에너지 및 재생에너지 개발·이용·보급 촉진법',s:'풍력·태양광 등 재생에너지 보급의 근거. 제주 에너지 전환 정책과 직결.',k:'신재생 재생에너지 풍력 태양광',tags:['국가법률','에너지'],nat:true,url:'https://www.law.go.kr/법령/신에너지및재생에너지개발·이용·보급촉진법'},
+ {ty:'국가법률',f:'행정',t:'지방자치법',s:'지방자치단체의 조직·운영의 기본법. 제주특별자치도 자치제도의 근거.',k:'지방자치 자치단체 자치',tags:['국가법률','자치'],nat:true,url:'https://www.law.go.kr/법령/지방자치법'},
+ {ty:'국가법률',f:'행정',t:'지방분권균형발전에 관한 특별법',s:'지방분권과 균형발전 추진의 근거. 제주 분권·균형발전 정책과 연계.',k:'지방분권 균형발전 특별법',tags:['국가법률','분권'],nat:true,url:'https://www.law.go.kr/법령/지방분권균형발전에관한특별법'},
+ {ty:'국가법률',f:'복지',t:'사회보장기본법',s:'사회보장제도의 기본 원칙을 정한 법. 제주 복지정책의 상위 근거.',k:'사회보장 복지 기본법',tags:['국가법률','복지'],nat:true,url:'https://www.law.go.kr/법령/사회보장기본법'},
+ {ty:'국가법률',f:'교육/청년',t:'청년기본법',s:'청년 정책 수립·지원의 근거. 제주 청년정책의 상위 근거.',k:'청년 청년정책 기본법',tags:['국가법률','청년'],nat:true,url:'https://www.law.go.kr/법령/청년기본법'},
+ {ty:'국가법률',f:'행정',t:'지방재정법',s:'지방자치단체 재정 운영의 기본법. 제주도 예산·재정의 근거.',k:'지방재정 예산 재정',tags:['국가법률','재정'],nat:true,url:'https://www.law.go.kr/법령/지방재정법'},
+ {ty:'국가법률',f:'안전/민원행정',t:'재난 및 안전관리 기본법',s:'재난 예방·대응·복구의 기본법. 제주 재난안전 정책의 근거.',k:'재난 안전관리 재난안전',tags:['국가법률','안전'],nat:true,url:'https://www.law.go.kr/법령/재난및안전관리기본법'},
+ {ty:'국가법률',f:'행정',t:'국가균형발전 특별법',s:'지역 균형발전 지원의 근거. 제주 균형발전·지역성장 정책과 연계.',k:'국가균형발전 균형발전 지역',tags:['국가법률','균형발전'],nat:true,url:'https://www.law.go.kr/법령/국가균형발전특별법'}
+];
 const LAWS=[
  {ty:'법률',f:'행정',t:'제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법',s:'제주형 자치분권과 국제자유도시 조성의 근거가 되는 제주 최상위 특별법.',k:'특별법 분권 국제자유도시 JDC 특행',tags:['특별자치','국제자유도시','분권']},
  {ty:'법률',f:'행정',t:'제주4·3사건 진상규명 및 희생자 명예회복에 관한 특별법',s:'4·3사건 진상규명, 희생자·유족 명예회복과 보상의 법적 근거.',k:'4·3 사삼 진상규명 보상 명예회복',tags:['4·3','진상규명','보상']},
@@ -1257,7 +1308,7 @@ const BOARD={
  seog:"https://seogwipo.go.kr/info/news/law/law.htm",
  eup:"https://www.jejusi.go.kr/information/intro/notice.do",
  council:"https://www.council.jeju.kr"};
-const VIEWS=['home','news','lawbot','council','support','edu','terms','explore','orbit','biseo','gwan-fest','gwan-now','gwan-hero','gwan-plan','gwan-jeju','gwan-kr'];
+const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','explore','orbit','biseo','gwan-fest','gwan-now','gwan-hero','gwan-plan','gwan-jeju','gwan-kr'];
 // 관광보부상 하위 탭 메타 (준비중 화면 공유)
 const GWAN={
   'gwan-fest':{t:'행사소식',d:'축제캘린더 · 기념행사',ic:'🎪'},
@@ -1290,6 +1341,7 @@ function show(v,push=true){
   if(v==='explore'||v==='support'){renderRail();renderList();}
   if(v==='news')renderNews();
   if(v==='lawbot'){renderLaws();loadMirinae();}
+  if(v==='notice'){renderNoticeAll();}
   if(v==='council'){renderNP();renderCB();}
 }
 function renderGwan(v){
@@ -1382,7 +1434,7 @@ document.addEventListener('click',e=>{
 });
 
 /* ══ 정책비서(법령) ══ */
-const LAWTY={'법률':'#1B5FAF','시행령':'#0CA678','시행규칙':'#12B0C9','조례':'#E8590C','규칙':'#7B61FF','훈령':'#5C6784','예규':'#98A2B3'};
+const LAWTY={'국가법률':'#C2255C','법률':'#1B5FAF','시행령':'#0CA678','시행규칙':'#12B0C9','조례':'#E8590C','규칙':'#7B61FF','훈령':'#5C6784','예규':'#98A2B3'};
 let lawMax=6;
 let lawTy='';
 function lawUrl(l){if(l.url)return l.url;const kind=(l.ty==='조례'||l.ty==='규칙'||l.ty==='훈령'||l.ty==='예규')?'자치법규':'법령';
@@ -1392,7 +1444,7 @@ function renderLaws(){
   const lf=($('#lawf')&&$('#lawf').value)||'';
   const cnt={};LAWS.forEach(l=>cnt[l.ty]=(cnt[l.ty]||0)+1);
   $('#lawchips').innerHTML=`<span class="lc tot">총 ${LAWS.length}건</span>`+
-    ['법률','시행령','시행규칙','조례','규칙','훈령','예규'].filter(k=>cnt[k]).map(k=>`<button class="lc ${lawTy===k?'on':''}" data-ty="${k}" style="--c:${LAWTY[k]}">${k} ${cnt[k]||0}</button>`).join('');
+    ['국가법률','법률','시행령','시행규칙','조례','규칙','훈령','예규'].filter(k=>cnt[k]).map(k=>`<button class="lc ${lawTy===k?'on':''}" data-ty="${k}" style="--c:${LAWTY[k]}">${k} ${cnt[k]||0}</button>`).join('');
   const rows=LAWS.filter(l=>(!lawTy||l.ty===lawTy)&&(!lf||l.f===lf)&&(!q||(l.t+(l.k||'')+(l.s||'')).includes(q)));
   $('#lawcnt').textContent=rows.length;
   const shown=rows.slice(0,lawMax);
@@ -1413,7 +1465,7 @@ document.addEventListener('click',e=>{
   if(e.target.id==='lawmore'){lawMax+=120;renderLaws();}
 });
 document.addEventListener('change',e=>{if(e.target.id==='lawf')renderLaws();});
-document.getElementById('lawq').addEventListener('input',e=>renderLaws(e.target.value.trim()));
+document.getElementById('lawq').addEventListener('input',e=>{lawTy='';lawMax=6;renderLaws();});
 
 /* ══ 우리동네의원 피드 ══ */
 function renderCouncilFeed(){
@@ -1675,10 +1727,12 @@ fetch('data/laws.json').then(r=>r.ok?r.json():null).then(j=>{
   if(!j||!j.items||!j.items.length)return;
   LAWS.length=0;
   j.items.forEach(x=>LAWS.push({ty:x.ty,f:x.f,t:x.t,s:'',k:x.t,d:x.d,tags:[],url:x.url}));
+  // 제주 정책이 근거로 삼는 상위 국가법률 (큐레이션)
+  NAT_LAWS.forEach(x=>LAWS.push(x));
   const b=document.getElementById('lawsrc');
-  if(b)b.textContent='법제처 국가법령정보 API 자동 수집: '+j.meta.collected_at+' · 총 '+j.meta.count+'건';
+  if(b)b.textContent='법제처 국가법령정보 API 자동 수집: '+j.meta.collected_at+' · 제주 '+j.meta.count+'건 + 국가법률 '+NAT_LAWS.length+'건';
   renderLaws();
-}).catch(()=>{});
+}).catch(()=>{ NAT_LAWS.forEach(x=>{if(!LAWS.find(l=>l.t===x.t))LAWS.push(x);}); renderLaws(); });
 fetch('data/news.json').then(r=>r.ok?r.json():null).then(j=>{
   if(j&&j.items&&j.items.length){
     NEWS=j.items;NEWSMETA=j.meta;
@@ -2011,9 +2065,14 @@ window.biseoAsk = ask;
 const NOTICES=[
  {d:'2026-08-18',t:'AI 제주정책 보부상 개편 오픈',s:'새소식 보드 개편 · 정부24 제주 지원서비스 161건 연동 · 뉴스 자동수집(하루 3회) 가동 중입니다. 오류나 제보는 위 「관리자에게 문의하기」로 보내주세요.'}
 ];
+function renderNoticeAll(){
+  const el=document.getElementById('noticeall'); if(!el)return;
+  el.innerHTML=NOTICES.map(n=>`<div class="noticeitem"><b>${n.d.slice(5).replace('-','.')}</b>${n.t}<br><span>${n.s}</span></div>`).join('')
+    ||'<div class="bempty">등록된 공지가 없습니다.</div>';
+}
 (function(){
   const nb=document.getElementById('noticebox');
-  if(nb)nb.innerHTML=NOTICES.map(n=>`<div class="noticeitem"><b>${n.d.slice(5).replace('-','.')}</b>${n.t}<br><span>${n.s}</span></div>`).join('');
+  if(nb)nb.innerHTML=NOTICES.slice(0,3).map(n=>`<div class="noticeitem"><b>${n.d.slice(5).replace('-','.')}</b>${n.t}<br><span>${n.s}</span></div>`).join('');
   const L=document.getElementById('landing');
   if(sessionStorage.getItem('bbs_in')){L.style.display='none';return;}
   document.getElementById('enterbtn').addEventListener('click',()=>{
