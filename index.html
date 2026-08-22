@@ -405,6 +405,23 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .linkcard{display:block;margin-top:12px;background:#fff;border:1.5px solid var(--navy);border-radius:14px;padding:14px 16px}
 .linkcard b{font-size:14.5px}
 .linkcard span{display:block;font-size:12px;color:var(--sub);margin-top:2px}
+/* 큰 신청포털 배너 (미리보기) */
+.portalbanner{display:block;margin-top:14px;border-radius:18px;overflow:hidden;border:1.5px solid var(--navy);background:linear-gradient(135deg,#1B2A4A 0%,#2d4270 60%,#F08A24 160%);box-shadow:0 6px 20px rgba(27,42,74,.18);position:relative}
+.portalbanner:hover{box-shadow:0 10px 28px rgba(27,42,74,.28);transform:translateY(-1px);transition:.18s}
+.portalbanner .pb-in{display:flex;align-items:center;gap:16px;padding:20px 22px}
+.portalbanner .pb-ico{flex:none;width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:32px;backdrop-filter:blur(4px)}
+.portalbanner .pb-txt{flex:1;min-width:0;color:#fff}
+.portalbanner .pb-badge{display:inline-block;background:var(--gyul);color:#fff;font-size:10.5px;font-weight:800;padding:2px 9px;border-radius:99px;margin-bottom:6px;letter-spacing:.3px}
+.portalbanner .pb-t{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:6px}
+.portalbanner .pb-d{font-size:12.5px;color:#D5DEF0;margin-top:4px;line-height:1.5}
+.portalbanner .pb-go{flex:none;background:#fff;color:var(--navy);font-weight:800;font-size:13px;padding:9px 16px;border-radius:11px;white-space:nowrap}
+/* 미리보기 썸네일 스트립 */
+.portalbanner .pb-preview{display:flex;gap:7px;padding:0 22px 18px;overflow-x:auto}
+.portalbanner .pb-preview::-webkit-scrollbar{height:0}
+.portalbanner .pb-chip{flex:none;background:rgba(255,255,255,.92);border-radius:10px;padding:8px 11px;min-width:96px}
+.portalbanner .pb-chip .c-l{font-size:9.5px;color:var(--gyul);font-weight:800}
+.portalbanner .pb-chip .c-t{font-size:11px;color:var(--navy);font-weight:700;margin-top:2px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px}
+@media(max-width:560px){.portalbanner .pb-go{padding:8px 12px;font-size:12px}.portalbanner .pb-t{font-size:15.5px}}
 
 /* 지원사업 */
 .whochips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 6px}
@@ -785,13 +802,50 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">주목합써</div>
-  <div class="viewsub">지금 신청할 수 있는 사업을 내 상황에 맞게 — 마감 임박순</div>
-  <div class="whochips" id="supwho"></div>
-  <div id="suplist"></div>
-  <a class="linkcard" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">
-    <b>맞춤형 지원서비스 신청포털 ↗</b>
-    <span>제주도 공식 신청 창구 — 여기서 확인한 사업을 실제로 신청할 수 있습니다</span>
+  <div class="viewsub">제주 공공 지원사업을 내 상황에 맞게 — 검색하고 분야·대상별로 찾아보세요</div>
+
+  <!-- ① 맞춤형 지원서비스 신청포털 (큰 배너·미리보기) -->
+  <a class="portalbanner" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">
+    <div class="pb-in">
+      <div class="pb-ico">🗂️</div>
+      <div class="pb-txt">
+        <span class="pb-badge">제주도 공식 신청창구</span>
+        <div class="pb-t">맞춤형 지원서비스 신청포털 <span style="font-size:14px">↗</span></div>
+        <div class="pb-d">여기서 확인한 사업을 실제로 신청할 수 있어요 · 정부24 연계</div>
+      </div>
+      <div class="pb-go">바로가기</div>
+    </div>
+    <div class="pb-preview">
+      <div class="pb-chip"><div class="c-l">복지·돌봄</div><div class="c-t">기초생활·긴급복지</div></div>
+      <div class="pb-chip"><div class="c-l">청년·일자리</div><div class="c-t">취업·창업 지원</div></div>
+      <div class="pb-chip"><div class="c-l">농림·수산</div><div class="c-t">농어업 경영지원</div></div>
+      <div class="pb-chip"><div class="c-l">주거·금융</div><div class="c-t">주거·생활안정</div></div>
+      <div class="pb-chip"><div class="c-l">보육·교육</div><div class="c-t">양육·교육비</div></div>
+    </div>
   </a>
+
+  <!-- ② 정책탐색 UI (검색 + 분야/대상 필터 + 목록) -->
+  <div class="uni" style="margin-top:16px">
+    <span class="mag">🔍</span>
+    <input id="xq" type="search" autocomplete="off" placeholder="정책·지원사업 검색 — 예: 청년, 감귤, 돌봄, 창업">
+  </div>
+  <div class="xhead">
+    <span class="xcounts">분야 <b>8</b> · 정책 <b id="xcnt">0</b>건</span>
+    <span class="xsort" id="xsort">
+      <button data-s="date" class="on">최신순</button>
+      <button data-s="due">마감순</button>
+    </span>
+  </div>
+  <div class="xgrid">
+    <div class="rail">
+      <div class="railsec"><h3>분야</h3><div id="railfield"></div></div>
+      <div class="railsec"><h3>누구꽈?</h3><div id="railwho"></div></div>
+    </div>
+    <div class="xmain">
+      <div id="xlist"></div>
+      <div id="detail"></div>
+    </div>
+  </div>
 </div>
 </div><!-- /support -->
 
@@ -830,32 +884,7 @@ body{padding-bottom:78px}
 </div>
 </div><!-- /terms -->
 
-<div id="view-explore" hidden>
-<div class="wrap">
-  <div class="uni" style="margin-top:14px">
-    <span class="mag">🔍</span>
-    <input id="xq" type="search" autocomplete="off" placeholder="정책·지원사업 검색 — 예: 청년, 감귤, 돌봄, 창업">
-  </div>
-  <div class="xhead">
-    <button class="backbtn" data-v="home">← 홈</button>
-    <span class="xcounts">분야 <b>8</b> · 정책 <b id="xcnt">0</b>건</span>
-    <span class="xsort" id="xsort">
-      <button data-s="date" class="on">최신순</button>
-      <button data-s="due">마감순</button>
-    </span>
-  </div>
-  <div class="xgrid">
-    <div class="rail">
-      <div class="railsec"><h3>분야</h3><div id="railfield"></div></div>
-      <div class="railsec"><h3>누구꽈?</h3><div id="railwho"></div></div>
-    </div>
-    <div class="xmain">
-      <div id="xlist"></div>
-      <div id="detail"></div>
-    </div>
-  </div>
-</div>
-</div><!-- /explore -->
+<div id="view-explore" hidden></div><!-- /explore (주목합써로 통합됨) -->
 <div id="detailbg"></div>
 
 <div id="view-orbit" hidden>
@@ -1240,9 +1269,8 @@ function show(v,push=true){
     else history.pushState({v},'','#'+v);
   }
   if(v==='orbit')requestAnimationFrame(()=>drawOrbit(DATA.slice()));
-  if(v==='explore'){renderRail();renderList();}
+  if(v==='explore'||v==='support'){renderRail();renderList();}
   if(v==='news')renderNews();
-  if(v==='support')renderSupport();
   if(v==='lawbot'){renderLaws();renderPledges();}
   if(v==='council'){renderNP();renderCB();}
 }
@@ -1383,6 +1411,7 @@ function renderCouncilFeed(){
 
 /* ══ 지원사업 ══ */
 function renderSupport(){
+  if(!$('#supwho')||!$('#suplist'))return;  // 정책탐색 통합으로 미사용 — 요소 없으면 스킵
   $('#supwho').innerHTML=[null,...WHO].map(w=>
     `<button class="${supWho===w?'on':''}" data-sw="${w??''}">${w||'전체'}</button>`).join('');
   const dls=DATA.filter(x=>(x.apply||(x.deadline&&ddayOf(x)>=0))&&(!supWho||x.who.includes(supWho)))
@@ -1604,7 +1633,7 @@ cv.addEventListener('mouseleave',()=>tip.style.display='none');
 cv.addEventListener('click',e=>{const d=hit(e);if(d)openDetail(DATA.indexOf(d.item));});
 window.addEventListener('resize',()=>{if(!document.getElementById('view-orbit').hidden)drawOrbit(DATA.slice());});
 
-renderHome();renderLaws();renderNews();renderSupport();renderRail();renderList();
+renderHome();renderLaws();renderNews();renderRail();renderList();
 
 /* ══ 라이브 데이터 로더 (GitHub Pages 배포 시) ══ */
 fetch('data/policies.json').then(r=>r.ok?r.json():null).then(j=>{
