@@ -533,6 +533,7 @@ function initGalaxy(){
       x=hp[0]+rr*Math.sin(ph)*Math.cos(th); y=hp[1]+rr*Math.sin(ph)*Math.sin(th)*.8; z=hp[2]+rr*Math.cos(ph); }
     const col=new THREE.Color(DATA.jgroups.find(g=>g.short===j.gs).color).lerp(colJeju,.28);
     const nd=addStar(x,y,z,col,{type:'jeju',no:j.no,label:j.t,group:j.gs,only,
+      d_goal:j.d_goal,d_plan:j.d_plan,d_effect:j.d_effect,
       gov_no:j.gov_no,gov_name:j.gov_name,gov_dept:j.gov_dept,gov_goal:j.gov_goal,
       gov_d_goal:j.gov_d_goal,gov_d_main:j.gov_d_main},only);
     if(j.gov_no&&govByNo[j.gov_no]) edges.push({a:nd,b:govByNo[j.gov_no]});
