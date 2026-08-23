@@ -962,7 +962,7 @@
    "name": "우주항공청",
    "alias": [],
    "type": "청",
-   "parent": "재정경제부",
+   "parent": "과학기술정보통신부",
    "region": "전국",
    "fields": [
     "문화·정보"
@@ -974,7 +974,7 @@
    "notice_active": true,
    "notice_level": "mid",
    "gov_row": 4,
-   "gov_parent": "재정경제부",
+   "gov_parent": "과학기술정보통신부",
    "source": "정부조직도(2026, 국가데이터처 개편 반영)",
    "nav": "정부부처",
    "nav_order": 1
@@ -1315,11 +1315,12 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://audit.jeju.go.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "도정 감사, 청렴·부패방지",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1343,6 +1344,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "공무원 교육훈련",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1365,6 +1367,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "농업기술 보급·교육, 품종 개발",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1387,6 +1390,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "미술 전시·교육 프로그램",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1400,6 +1404,7 @@
    "region": "제주도",
    "role": "문화시설",
    "fields": [
+    "교육·문화시설",
     "관광·MICE"
    ],
    "phone": "",
@@ -1409,6 +1414,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "제주돌문화공원 운영·관리",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1431,6 +1437,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "가축 질병 진단·방역",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1475,6 +1482,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "도립예술단 운영, 문예회관 관리",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1497,6 +1505,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "제주 민속·자연사 전시·교육",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1520,6 +1529,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "수질·대기 검사, 감염병 진단",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1542,6 +1552,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "국가유공자 예우·보훈복지",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1564,6 +1575,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "상수도 공급, 하수처리",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1621,7 +1633,7 @@
    "region": "제주도",
    "role": "여성·문화",
    "fields": [
-    "보건·복지"
+    "교육·문화시설"
    ],
    "phone": "",
    "verified": false,
@@ -1630,6 +1642,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "여성 교육·문화 프로그램",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1653,6 +1666,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "한라산·오름·동굴 등 세계자연유산 보전·관리",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1675,6 +1689,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "생활안전·교통·관광경찰 사무",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1746,6 +1761,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "재난안전 체험교육",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1770,6 +1786,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "생활폐기물 소각·매립, 자원순환",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1792,6 +1809,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "중앙정부 협력, 제주특별법 제도개선",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1814,6 +1832,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "노동쟁의 조정, 부당해고 구제",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1837,6 +1856,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "축산 기술개발, 제주흑우·말 산업",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1859,6 +1879,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "도서관 서비스, 독서문화 진흥",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1882,6 +1903,7 @@
    "notice_active": false,
    "notice_level": "low",
    "source": "도청 조직도(소속기관 26)",
+   "biz": "수산자원 조성, 양식기술 개발",
    "nav": "도 소속기관",
    "nav_order": 4
   },
@@ -1908,6 +1930,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "(재)제주창조경제혁신센터",
+   "notice_kind": "창업·스타트업 보육/투자",
+   "crawl_priority": 1,
+   "biz": "창업 보육, 스타트업 투자·액셀러레이팅",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -1933,6 +1958,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "(재)제주테크노파크",
+   "notice_kind": "기업지원·R&D·창업지원사업",
+   "crawl_priority": 1,
+   "biz": "기업 보육·입주, R&D 지원, 향장·식품 산업화",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -1957,6 +1985,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "(재)제주평생교육장학진흥원",
+   "notice_kind": "장학금·평생교육 프로그램",
+   "crawl_priority": 2,
+   "biz": "장학사업, 평생교육 프로그램 운영",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -1980,9 +2011,12 @@
    "site": "http://www.iccjeju.co.kr/",
    "board_url": "",
    "notice_active": true,
-   "notice_level": "mid",
+   "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "(주)제주국제컨벤션센터",
+   "notice_kind": "MICE 유치지원·입찰",
+   "crawl_priority": 2,
+   "biz": "국제회의·전시 유치 및 운영(MICE)",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2005,9 +2039,12 @@
    "site": "http://www.visitjeju.or.kr/",
    "board_url": "",
    "notice_active": true,
-   "notice_level": "mid",
+   "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "사단법인제주특별자치도관광협회",
+   "notice_kind": "관광사업체 지원·교육·모집",
+   "crawl_priority": 1,
+   "biz": "관광사업체 지원, 관광종사원 교육, 관광안내소 운영",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2033,6 +2070,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "재단법인제주문화예술재단",
+   "notice_kind": "문화예술 창작지원금·공모사업",
+   "crawl_priority": 1,
+   "biz": "문화예술 창작지원, 예술인 복지, 문화공간 운영",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2057,6 +2097,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "재단법인제주여성가족연구원",
+   "notice_kind": "연구용역 입찰",
+   "crawl_priority": 3,
+   "biz": "여성·가족·성평등 정책 연구",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2084,6 +2127,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "재단법인제주영상문화산업진흥원",
+   "notice_kind": "콘텐츠·영상·문화산업 지원, 공모전",
+   "crawl_priority": 1,
+   "biz": "영상·콘텐츠 제작지원, 로케이션 유치, 문화산업 육성",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2108,6 +2154,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "재단법인제주특별자치도사회서비스원",
+   "notice_kind": "사회서비스·돌봄 사업",
+   "crawl_priority": 2,
+   "biz": "사회서비스 제공기관 운영, 돌봄인력 지원",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2123,7 +2172,8 @@
    "parent": "do",
    "region": "제주도",
    "fields": [
-    "보건·복지"
+    "교육·문화시설",
+    "문화·정보"
    ],
    "phone": "",
    "verified": false,
@@ -2133,6 +2183,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주4.3평화재단",
+   "notice_kind": "추모·문화사업 공모",
+   "crawl_priority": 3,
+   "biz": "4·3 진상규명·추모사업, 평화기념관 운영",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2158,6 +2211,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주관광공사",
+   "notice_kind": "관광 마케팅 용역·공모·참가자 모집",
+   "crawl_priority": 2,
+   "biz": "관광 마케팅·홍보, MICE 유치, 면세점 운영",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2182,6 +2238,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주신용보증재단",
+   "notice_kind": "보증·금융지원·소상공인 컨설팅",
+   "crawl_priority": 1,
+   "biz": "소상공인 신용보증, 경영 컨설팅",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2206,6 +2265,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주에너지공사",
+   "notice_kind": "입찰·에너지 보급사업",
+   "crawl_priority": 2,
+   "biz": "풍력발전 운영, 신재생에너지 보급, 전기차 충전 인프라",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2222,7 +2284,8 @@
    "parent": "do",
    "region": "제주도",
    "fields": [
-    "중소기업·창업"
+    "에너지·환경",
+    "국토·주택"
    ],
    "phone": "",
    "verified": false,
@@ -2232,6 +2295,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주특별자치도개발공사",
+   "notice_kind": "입찰·용역·사회공헌 공모",
+   "crawl_priority": 1,
+   "biz": "삼다수 생산·판매, 임대주택 공급, 토지개발",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2257,6 +2323,9 @@
    "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주특별자치도경제통상진흥원",
+   "notice_kind": "소상공인·수출·판로개척 지원",
+   "crawl_priority": 1,
+   "biz": "소상공인 지원, 수출·판로개척, 통상진흥",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2278,9 +2347,12 @@
    "site": "http://www.jjsmc.or.kr/",
    "board_url": "",
    "notice_active": true,
-   "notice_level": "mid",
+   "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주특별자치도서귀포의료원",
+   "notice_kind": "입찰·채용",
+   "crawl_priority": 3,
+   "biz": "공공의료 진료, 취약계층 의료지원",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2302,9 +2374,12 @@
    "site": "http://www.jejumed.com/",
    "board_url": "",
    "notice_active": true,
-   "notice_level": "mid",
+   "notice_level": "high",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "제주특별자치도제주의료원",
+   "notice_kind": "입찰·채용",
+   "crawl_priority": 3,
+   "biz": "공공의료 진료, 취약계층 의료지원",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2329,6 +2404,7 @@
    "notice_level": "mid",
    "source": "도청 조직도(유관기관 20)",
    "display_name": "도시재생지원센터",
+   "biz": "도시재생 뉴딜사업 지원, 주민공동체 활성화",
    "nav": "민간·위탁",
    "nav_order": 8
   },
@@ -2352,6 +2428,9 @@
    "notice_active": true,
    "notice_level": "high",
    "source": "도의회 공공기관 링크(교차·확인완료)",
+   "notice_kind": "연구용역 입찰",
+   "crawl_priority": 3,
+   "biz": "제주 정책 연구, 도정 자문",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2373,6 +2452,9 @@
    "notice_active": true,
    "notice_level": "high",
    "source": "도의회 공공기관 링크(교차·확인완료)",
+   "notice_kind": "연구용역 입찰",
+   "crawl_priority": 3,
+   "biz": "한의약 산업화 연구, 기업 기술지원",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2387,7 +2469,7 @@
    "parent": "do",
    "region": "제주도",
    "fields": [
-    "문화·정보"
+    "교육·문화시설"
    ],
    "phone": "",
    "verified": false,
@@ -2396,6 +2478,9 @@
    "notice_active": true,
    "notice_level": "high",
    "source": "도의회 공공기관 링크(교차·확인완료)",
+   "notice_kind": "생활체육·동호회 지원",
+   "crawl_priority": 2,
+   "biz": "생활체육 보급, 도민체전·전문선수 지원",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2410,7 +2495,6 @@
    "parent": "do",
    "region": "제주도",
    "fields": [
-    "중소기업·창업",
     "고용·노동"
    ],
    "phone": "",
@@ -2420,6 +2504,9 @@
    "notice_active": true,
    "notice_level": "high",
    "source": "도의회 공공기관 링크(교차·확인완료)",
+   "notice_kind": "청년 인재양성 교육생 모집",
+   "crawl_priority": 2,
+   "biz": "청년 인재양성 교육(탐나는인재), 취·창업 연계",
    "nav": "제주 관공서 및 유관기관",
    "nav_order": 5
   },
@@ -2444,11 +2531,12 @@
     "농수축산·해양"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.lhva.or.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2473,11 +2561,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.hira.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2502,11 +2591,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.cwma.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2531,11 +2621,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.geps.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2560,11 +2651,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.geps.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2589,11 +2681,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.nhis.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2618,11 +2711,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.nhis.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2647,11 +2741,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.nps.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2676,11 +2771,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.nps.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2706,11 +2802,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.comwel.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2735,11 +2832,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kibo.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2764,11 +2862,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.klac.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2793,11 +2892,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.redcross.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2822,11 +2922,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.redcross.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2851,11 +2952,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kinfa.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2880,11 +2982,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.semas.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2909,11 +3012,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kodit.co.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2938,11 +3042,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kodit.co.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2967,11 +3072,12 @@
     "문화·정보"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.gugakfm.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -2996,11 +3102,12 @@
     "문화·정보"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.gugakfm.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3025,11 +3132,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kcs.or.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3054,11 +3162,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.debc.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3080,14 +3189,16 @@
    "email": "",
    "hq": true,
    "fields": [
+    "국토·주택",
     "관광·MICE"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.jdcenter.com/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3112,11 +3223,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.jejunuh.co.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3141,11 +3253,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kohom.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3170,11 +3283,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.khug.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3199,11 +3313,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kosmes.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3228,11 +3343,12 @@
     "농수축산·해양"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.ekape.or.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3257,11 +3373,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kopo.ac.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3286,11 +3403,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kogas.or.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3315,11 +3433,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kgs.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3344,11 +3463,12 @@
     "교통·안전"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.airport.co.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3373,11 +3493,12 @@
     "관광·MICE"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://knto.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3402,11 +3523,12 @@
     "교통·안전"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kotsa.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3431,11 +3553,12 @@
     "관광·MICE"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kf.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3460,11 +3583,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.lx.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3489,11 +3613,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.lx.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3518,11 +3643,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.lx.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3547,11 +3673,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kospo.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3576,11 +3703,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kordi.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3605,11 +3733,12 @@
     "농수축산·해양"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.at.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3634,11 +3763,12 @@
     "농수축산·해양"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.ekr.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3664,11 +3794,12 @@
     "문화·정보"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.koroad.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3693,11 +3824,12 @@
     "교통·안전"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.koroad.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3722,11 +3854,12 @@
     "교통·안전"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.koroad.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3751,11 +3884,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.ksure.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3780,11 +3914,12 @@
     "문화·정보"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kca.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3809,11 +3944,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.koreha.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3839,11 +3975,12 @@
     "교육·문화시설"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kuksiwon.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3869,11 +4006,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.reb.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3898,11 +4036,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kosha.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3927,11 +4066,12 @@
     "중소기업·창업"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kdb.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3956,11 +4096,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.hrdkorea.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -3985,11 +4126,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kpetro.or.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4014,11 +4156,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kca.go.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4043,11 +4186,12 @@
     "농수축산·해양"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.fira.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4072,11 +4216,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kwater.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4101,11 +4246,12 @@
     "교통·안전"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.koelsa.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4130,11 +4276,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.haccp.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4159,11 +4306,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.energy.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4188,11 +4336,12 @@
     "보건·복지"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.koddi.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4217,11 +4366,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kead.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4246,11 +4396,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kead.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4275,11 +4426,12 @@
     "고용·노동"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kead.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4304,11 +4456,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kesco.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4333,11 +4486,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kpx.or.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4362,11 +4516,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://home.kepco.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4391,11 +4546,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://home.kepco.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4420,11 +4576,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://home.kepco.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4449,11 +4606,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.hf.go.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4478,11 +4636,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.komipo.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4508,11 +4667,12 @@
     "문화·정보"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.nia.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4537,11 +4697,12 @@
     "국토·주택"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.lh.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4566,11 +4727,12 @@
     "농수축산·해양"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kiost.ac.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4596,11 +4758,12 @@
     "교통·안전"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.komsa.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4626,11 +4789,12 @@
     "교통·안전"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.komsa.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4655,11 +4819,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kdn.com/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4684,11 +4849,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kps.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4713,11 +4879,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kps.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4742,11 +4909,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kepcomcs.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4771,11 +4939,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.kepcomcs.co.kr/",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4801,11 +4970,12 @@
     "에너지·환경"
    ],
    "verified": true,
-   "site": "",
+   "site": "https://www.koem.or.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "mid",
    "source": "제주도 국가공공기관 리스트(엑셀)",
+   "site_scope": "본사",
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4862,11 +5032,14 @@
     "고용·노동"
    ],
    "verified": false,
-   "site": "",
+   "site": "https://www.nosa.or.kr/portal/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "사용자 확인(고용노동부 산하 기타공공기관·제주지사 성격)",
+   "site_scope": "본사",
+   "notice_kind": "중장년 재취업·전직 지원",
+   "crawl_priority": 1,
    "nav": "국가공공기관",
    "nav_order": 6
   },
@@ -4887,11 +5060,14 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusen.org/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "사용자 추가",
+   "notice_kind": "사회적경제 기업 지원",
+   "crawl_priority": 1,
+   "biz": "사회적기업·협동조합 지원, 판로개척",
    "nav": "민간·위탁",
    "nav_order": 8
   },
@@ -4911,11 +5087,14 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejuwoman.kr/",
    "board_url": "",
    "notice_active": true,
    "notice_level": "high",
    "source": "사용자 추가",
+   "notice_kind": "직업교육·취업지원 모집",
+   "crawl_priority": 1,
+   "biz": "여성 직업훈련, 취업 알선(새일센터)",
    "nav": "민간·위탁",
    "nav_order": 8
   },
@@ -4925,7 +5104,9 @@
    "name": "제주특별자치도사회복지협의회",
    "alias": [
     "제주사회복지협의회",
-    "사회복지협의회"
+    "사회복지협의회",
+    "제주복지넷",
+    "복지넷"
    ],
    "type": "법정단체",
    "parent": "do",
@@ -4935,11 +5116,14 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejubokji.net/",
    "board_url": "",
    "notice_active": true,
-   "notice_level": "mid",
+   "notice_level": "high",
    "source": "사용자 추가",
+   "notice_kind": "복지사업·자원봉사 모집",
+   "crawl_priority": 2,
+   "biz": "복지기관 네트워크, 자원봉사·나눔사업(제주복지넷)",
    "nav": "민간·위탁",
    "nav_order": 8
   },
@@ -5002,7 +5186,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/ildo1/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5023,7 +5207,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/ildo2/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5044,7 +5228,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/ido1/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5065,7 +5249,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/ido2/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5086,7 +5270,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/samdo1/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5107,7 +5291,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/samdo2/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5128,7 +5312,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/yongdam1/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5149,7 +5333,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/yongdam2/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5170,7 +5354,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/geonip/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5191,7 +5375,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/hwabuk/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5212,7 +5396,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/samyang/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5233,7 +5417,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/bongae/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5254,7 +5438,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/ara/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5275,7 +5459,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/ora/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5296,7 +5480,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/yeon/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5317,7 +5501,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/nohyeong/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5338,7 +5522,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/oedo/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5359,7 +5543,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/iho/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5380,7 +5564,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/vill/dodu/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5401,7 +5585,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/town/hanlim/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5422,7 +5606,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/town/aewol/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5443,7 +5627,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/town/gujwa/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5464,7 +5648,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/town/jocheon/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5485,7 +5669,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/town/hankyung/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5506,7 +5690,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/town/chuja/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
@@ -5527,7 +5711,7 @@
    ],
    "phone": "",
    "verified": false,
-   "site": "",
+   "site": "https://www.jejusi.go.kr/town/udo/work/org.do",
    "board_url": "",
    "notice_active": false,
    "notice_level": "low",
