@@ -12,7 +12,8 @@
    "L4": "제주 관공서 및 유관기관(도 산하 공공기관·유관기관)",
    "L5": "도내 국가공공기관",
    "L6": "민간·위탁 중간지원조직",
-   "L7": "국가행정기관(관공서)"
+   "L7": "국가행정기관(관공서)",
+   "L8": "국번없는 민원 대표번호"
   },
   "nav_order": [
    "정부부처",
@@ -22,17 +23,20 @@
    "제주 관공서 및 유관기관",
    "국가공공기관",
    "국가행정기관",
-   "민간·위탁"
+   "민간·위탁",
+   "민원 대표번호"
   ],
-  "count": 282,
+  "count": 331,
   "count_by_layer": {
    "L0": 55,
+   "L1": 1,
    "L2": 26,
    "L3": 45,
    "L4": 21,
    "L5": 84,
    "L6": 4,
-   "L7": 47
+   "L7": 47,
+   "L8": 48
   }
  },
  "items": [
@@ -1302,6 +1306,35 @@
    "nav_order": 1
   },
   {
+   "id": "do_001",
+   "layer": "L1",
+   "name": "제주특별자치도청",
+   "alias": [
+    "제주도청",
+    "도청",
+    "제주특별자치도",
+    "제주도",
+    "만덕콜센터",
+    "제주120"
+   ],
+   "type": "광역자치단체",
+   "parent": "nation",
+   "region": "제주시",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "064-710-2114",
+   "verified": true,
+   "site": "https://www.jeju.go.kr/",
+   "board_url": "",
+   "biz": "제주특별자치도 도정 총괄 · 민원 대표 제주120(064-120)",
+   "notice_active": true,
+   "notice_level": "high",
+   "source": "공식 누리집",
+   "nav": "도청",
+   "nav_order": 2
+  },
+  {
    "id": "dept_001",
    "layer": "L2",
    "name": "감사위원회",
@@ -1360,8 +1393,8 @@
    "fields": [
     "농수축산·해양"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-7000",
+   "verified": true,
    "site": "",
    "board_url": "",
    "notice_active": false,
@@ -1430,8 +1463,8 @@
    "fields": [
     "농수축산·해양"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-710-8500",
+   "verified": true,
    "site": "",
    "board_url": "",
    "notice_active": false,
@@ -1568,8 +1601,8 @@
    "fields": [
     "에너지·환경"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-710-4200",
+   "verified": true,
    "site": "",
    "board_url": "",
    "notice_active": false,
@@ -1659,8 +1692,8 @@
     "관광·MICE",
     "에너지·환경"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-710-6971",
+   "verified": true,
    "site": "",
    "board_url": "",
    "notice_active": false,
@@ -1682,8 +1715,8 @@
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-710-6300",
+   "verified": true,
    "site": "",
    "board_url": "",
    "notice_active": false,
@@ -1950,8 +1983,8 @@
    "fields": [
     "중소기업·창업"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-720-2300",
+   "verified": true,
    "site": "https://www.jejutp.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -1977,8 +2010,8 @@
    "fields": [
     "교육·문화시설"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-744-9852",
+   "verified": true,
    "site": "https://jiles.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2025,8 +2058,10 @@
    "layer": "L4",
    "name": "제주특별자치도관광협회",
    "alias": [
-    "제주도관광협회",
-    "관광협회"
+    "관광협회",
+    "도관광협회",
+    "제주관광협회",
+    "제주도관광협회"
    ],
    "type": "법정 관광사업자단체",
    "parent": "do",
@@ -2034,8 +2069,8 @@
    "fields": [
     "관광·MICE"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-742-8861",
+   "verified": true,
    "site": "http://www.visitjeju.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2062,8 +2097,8 @@
    "fields": [
     "문화·정보"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-800-9191",
+   "verified": true,
    "site": "http://www.jfac.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2108,10 +2143,11 @@
    "layer": "L4",
    "name": "제주콘텐츠진흥원",
    "alias": [
-    "제주영상·문화산업진흥원",
+    "JEFA",
     "영상문화산업진흥원",
-    "콘텐츠진흥원",
-    "JEFA"
+    "제주영상·문화산업진흥원",
+    "제주영상문화산업진흥원",
+    "콘텐츠진흥원"
    ],
    "type": "도 출연기관",
    "parent": "do",
@@ -2138,7 +2174,8 @@
    "layer": "L4",
    "name": "제주특별자치도사회서비스원",
    "alias": [
-    "사회서비스원"
+    "사회서비스원",
+    "제주사회서비스원"
    ],
    "type": "도 출연기관",
    "parent": "do",
@@ -2203,8 +2240,8 @@
    "fields": [
     "관광·MICE"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-740-6000",
+   "verified": true,
    "site": "https://www.ijto.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2230,8 +2267,8 @@
    "fields": [
     "중소기업·창업"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-750-4800",
+   "verified": true,
    "site": "http://jcgf.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2257,8 +2294,8 @@
    "fields": [
     "에너지·환경"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-720-7400",
+   "verified": true,
    "site": "https://www.jejuenergy.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2276,9 +2313,10 @@
    "layer": "L4",
    "name": "제주특별자치도개발공사",
    "alias": [
+    "JPDC",
     "개발공사",
     "삼다수",
-    "JPDC"
+    "제주개발공사"
    ],
    "type": "지방공기업(공사)",
    "parent": "do",
@@ -2287,8 +2325,8 @@
     "에너지·환경",
     "국토·주택"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-780-3300",
+   "verified": true,
    "site": "https://www.jpdc.co.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2306,8 +2344,10 @@
    "layer": "L4",
    "name": "제주특별자치도경제통상진흥원",
    "alias": [
+    "JBA",
+    "JEDI",
     "경제통상진흥원",
-    "JEDI"
+    "제주경제통상진흥원"
    ],
    "type": "도 출연기관",
    "parent": "do",
@@ -2315,8 +2355,8 @@
    "fields": [
     "중소기업·창업"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-751-3337",
+   "verified": true,
    "site": "https://jba.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2334,7 +2374,8 @@
    "layer": "L4",
    "name": "서귀포의료원",
    "alias": [
-    "서귀포의료원"
+    "서귀포의료원",
+    "제주특별자치도서귀포의료원"
    ],
    "type": "지방의료원",
    "parent": "do",
@@ -2342,8 +2383,8 @@
    "fields": [
     "보건·복지"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-730-3000",
+   "verified": true,
    "site": "http://www.jjsmc.or.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2361,7 +2402,8 @@
    "layer": "L4",
    "name": "제주의료원",
    "alias": [
-    "제주의료원"
+    "제주의료원",
+    "제주특별자치도제주의료원"
    ],
    "type": "지방의료원",
    "parent": "do",
@@ -2369,8 +2411,8 @@
    "fields": [
     "보건·복지"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-720-2222",
+   "verified": true,
    "site": "http://www.jejumed.com/",
    "board_url": "",
    "notice_active": true,
@@ -2421,8 +2463,8 @@
    "fields": [
     "조사·연구"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-729-0500",
+   "verified": true,
    "site": "https://www.jri.re.kr/",
    "board_url": "",
    "notice_active": true,
@@ -2463,7 +2505,8 @@
    "layer": "L4",
    "name": "제주특별자치도체육회",
    "alias": [
-    "도체육회"
+    "도체육회",
+    "제주도체육회"
    ],
    "type": "법정 체육단체(대한체육회 산하)",
    "parent": "do",
@@ -3177,6 +3220,8 @@
    "name": "제주국제자유도시개발센터",
    "group": "제주국제자유도시개발센터",
    "alias": [
+    "JDC",
+    "국제자유도시개발센터",
     "제주국제자유도시개발센터"
    ],
    "old_name": "",
@@ -5140,8 +5185,8 @@
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-2114",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/",
    "board_url": "",
    "notice_active": true,
@@ -5163,8 +5208,8 @@
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-2114",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/",
    "board_url": "",
    "notice_active": true,
@@ -5177,15 +5222,18 @@
    "id": "city_003",
    "layer": "L3",
    "name": "일도1동",
-   "alias": [],
+   "alias": [
+    "일도1동 주민센터",
+    "일도1동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4410",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/ildo1/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5198,15 +5246,18 @@
    "id": "city_004",
    "layer": "L3",
    "name": "일도2동",
-   "alias": [],
+   "alias": [
+    "일도2동 주민센터",
+    "일도2동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4440",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/ildo2/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5219,15 +5270,18 @@
    "id": "city_005",
    "layer": "L3",
    "name": "이도1동",
-   "alias": [],
+   "alias": [
+    "이도1동 주민센터",
+    "이도1동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4470",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/ido1/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5240,15 +5294,18 @@
    "id": "city_006",
    "layer": "L3",
    "name": "이도2동",
-   "alias": [],
+   "alias": [
+    "이도2동 주민센터",
+    "이도2동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4500",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/ido2/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5261,15 +5318,18 @@
    "id": "city_007",
    "layer": "L3",
    "name": "삼도1동",
-   "alias": [],
+   "alias": [
+    "삼도1동 주민센터",
+    "삼도1동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4530",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/samdo1/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5282,15 +5342,18 @@
    "id": "city_008",
    "layer": "L3",
    "name": "삼도2동",
-   "alias": [],
+   "alias": [
+    "삼도2동 주민센터",
+    "삼도2동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4560",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/samdo2/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5303,15 +5366,18 @@
    "id": "city_009",
    "layer": "L3",
    "name": "용담1동",
-   "alias": [],
+   "alias": [
+    "용담1동 주민센터",
+    "용담1동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4590",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/yongdam1/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5324,15 +5390,18 @@
    "id": "city_010",
    "layer": "L3",
    "name": "용담2동",
-   "alias": [],
+   "alias": [
+    "용담2동 주민센터",
+    "용담2동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4620",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/yongdam2/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5345,15 +5414,18 @@
    "id": "city_011",
    "layer": "L3",
    "name": "건입동",
-   "alias": [],
+   "alias": [
+    "건입동 주민센터",
+    "건입동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4650",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/geonip/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5366,15 +5438,18 @@
    "id": "city_012",
    "layer": "L3",
    "name": "화북동",
-   "alias": [],
+   "alias": [
+    "화북동 주민센터",
+    "화북동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4680",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/hwabuk/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5387,15 +5462,18 @@
    "id": "city_013",
    "layer": "L3",
    "name": "삼양동",
-   "alias": [],
+   "alias": [
+    "삼양동 주민센터",
+    "삼양동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4710",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/samyang/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5408,15 +5486,18 @@
    "id": "city_014",
    "layer": "L3",
    "name": "봉개동",
-   "alias": [],
+   "alias": [
+    "봉개동 주민센터",
+    "봉개동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4740",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/bongae/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5429,15 +5510,18 @@
    "id": "city_015",
    "layer": "L3",
    "name": "아라동",
-   "alias": [],
+   "alias": [
+    "아라동 주민센터",
+    "아라동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4770",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/ara/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5450,15 +5534,18 @@
    "id": "city_016",
    "layer": "L3",
    "name": "오라동",
-   "alias": [],
+   "alias": [
+    "오라동 주민센터",
+    "오라동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4800",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/ora/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5471,15 +5558,18 @@
    "id": "city_017",
    "layer": "L3",
    "name": "연동",
-   "alias": [],
+   "alias": [
+    "연동 주민센터",
+    "연동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-1542",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/yeon/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5492,15 +5582,18 @@
    "id": "city_018",
    "layer": "L3",
    "name": "노형동",
-   "alias": [],
+   "alias": [
+    "노형동 주민센터",
+    "노형동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4830",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/nohyeong/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5513,15 +5606,18 @@
    "id": "city_019",
    "layer": "L3",
    "name": "외도동",
-   "alias": [],
+   "alias": [
+    "외도동 주민센터",
+    "외도동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4860",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/oedo/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5534,15 +5630,18 @@
    "id": "city_020",
    "layer": "L3",
    "name": "이호동",
-   "alias": [],
+   "alias": [
+    "이호동 주민센터",
+    "이호동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4890",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/iho/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5555,15 +5654,18 @@
    "id": "city_021",
    "layer": "L3",
    "name": "도두동",
-   "alias": [],
+   "alias": [
+    "도두동 주민센터",
+    "도두동주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4920",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/vill/dodu/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5576,15 +5678,18 @@
    "id": "city_022",
    "layer": "L3",
    "name": "한림읍",
-   "alias": [],
+   "alias": [
+    "한림읍 주민센터",
+    "한림읍주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-7600",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/town/hanlim/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5597,15 +5702,18 @@
    "id": "city_023",
    "layer": "L3",
    "name": "애월읍",
-   "alias": [],
+   "alias": [
+    "애월읍 주민센터",
+    "애월읍주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-7700",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/town/aewol/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5618,15 +5726,18 @@
    "id": "city_024",
    "layer": "L3",
    "name": "구좌읍",
-   "alias": [],
+   "alias": [
+    "구좌읍 주민센터",
+    "구좌읍주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-7770",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/town/gujwa/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5639,15 +5750,18 @@
    "id": "city_025",
    "layer": "L3",
    "name": "조천읍",
-   "alias": [],
+   "alias": [
+    "조천읍 주민센터",
+    "조천읍주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-7800",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/town/jocheon/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5660,15 +5774,18 @@
    "id": "city_026",
    "layer": "L3",
    "name": "한경면",
-   "alias": [],
+   "alias": [
+    "한경면 주민센터",
+    "한경면주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-7900",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/town/hankyung/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5681,15 +5798,18 @@
    "id": "city_027",
    "layer": "L3",
    "name": "추자면",
-   "alias": [],
+   "alias": [
+    "추자면 주민센터",
+    "추자면주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-7960",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/town/chuja/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5702,15 +5822,18 @@
    "id": "city_028",
    "layer": "L3",
    "name": "우도면",
-   "alias": [],
+   "alias": [
+    "우도면 주민센터",
+    "우도면주민센터"
+   ],
    "type": "읍면동",
    "parent": "제주시",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-728-4380",
+   "verified": true,
    "site": "https://www.jejusi.go.kr/town/udo/work/org.do",
    "board_url": "",
    "notice_active": false,
@@ -5723,15 +5846,18 @@
    "id": "city_029",
    "layer": "L3",
    "name": "송산동",
-   "alias": [],
+   "alias": [
+    "송산동 주민센터",
+    "송산동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4500",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/songsan/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5744,15 +5870,18 @@
    "id": "city_030",
    "layer": "L3",
    "name": "정방동",
-   "alias": [],
+   "alias": [
+    "정방동 주민센터",
+    "정방동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4530",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/jeongbang/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5765,15 +5894,18 @@
    "id": "city_031",
    "layer": "L3",
    "name": "중앙동",
-   "alias": [],
+   "alias": [
+    "중앙동 주민센터",
+    "중앙동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4560",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/jungang/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5786,15 +5918,18 @@
    "id": "city_032",
    "layer": "L3",
    "name": "천지동",
-   "alias": [],
+   "alias": [
+    "천지동 주민센터",
+    "천지동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4590",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/cheonji/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5807,15 +5942,18 @@
    "id": "city_033",
    "layer": "L3",
    "name": "효돈동",
-   "alias": [],
+   "alias": [
+    "효돈동 주민센터",
+    "효돈동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4620",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/hyodon/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5828,15 +5966,18 @@
    "id": "city_034",
    "layer": "L3",
    "name": "영천동",
-   "alias": [],
+   "alias": [
+    "영천동 주민센터",
+    "영천동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4650",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/yeongcheon/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5849,15 +5990,18 @@
    "id": "city_035",
    "layer": "L3",
    "name": "동홍동",
-   "alias": [],
+   "alias": [
+    "동홍동 주민센터",
+    "동홍동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4680",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/donghong/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5870,15 +6014,18 @@
    "id": "city_036",
    "layer": "L3",
    "name": "서홍동",
-   "alias": [],
+   "alias": [
+    "서홍동 주민센터",
+    "서홍동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4710",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/seohong/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5891,15 +6038,18 @@
    "id": "city_037",
    "layer": "L3",
    "name": "대륜동",
-   "alias": [],
+   "alias": [
+    "대륜동 주민센터",
+    "대륜동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4740",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/daeryun/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5912,15 +6062,18 @@
    "id": "city_038",
    "layer": "L3",
    "name": "대천동",
-   "alias": [],
+   "alias": [
+    "대천동 주민센터",
+    "대천동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4770",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/daecheon/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5933,15 +6086,18 @@
    "id": "city_039",
    "layer": "L3",
    "name": "중문동",
-   "alias": [],
+   "alias": [
+    "중문동 주민센터",
+    "중문동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4800",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/jungmun/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5954,15 +6110,18 @@
    "id": "city_040",
    "layer": "L3",
    "name": "예래동",
-   "alias": [],
+   "alias": [
+    "예래동 주민센터",
+    "예래동주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4830",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/yerae/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5975,15 +6134,18 @@
    "id": "city_041",
    "layer": "L3",
    "name": "대정읍",
-   "alias": [],
+   "alias": [
+    "대정읍 주민센터",
+    "대정읍주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4000",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/daejeong/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -5996,15 +6158,18 @@
    "id": "city_042",
    "layer": "L3",
    "name": "남원읍",
-   "alias": [],
+   "alias": [
+    "남원읍 주민센터",
+    "남원읍주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4100",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/namwon/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -6017,15 +6182,18 @@
    "id": "city_043",
    "layer": "L3",
    "name": "성산읍",
-   "alias": [],
+   "alias": [
+    "성산읍 주민센터",
+    "성산읍주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4200",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/seongsan/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -6038,15 +6206,18 @@
    "id": "city_044",
    "layer": "L3",
    "name": "안덕면",
-   "alias": [],
+   "alias": [
+    "안덕면 주민센터",
+    "안덕면주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4300",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/andeok/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -6059,15 +6230,18 @@
    "id": "city_045",
    "layer": "L3",
    "name": "표선면",
-   "alias": [],
+   "alias": [
+    "표선면 주민센터",
+    "표선면주민센터"
+   ],
    "type": "읍면동",
    "parent": "서귀포시",
    "region": "서귀포시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-760-4400",
+   "verified": true,
    "site": "https://www.seogwipo.go.kr/local/pyoseon/main.htm",
    "board_url": "",
    "notice_active": false,
@@ -6175,8 +6349,8 @@
    "fields": [
     "농수축산·해양"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-801-2000",
+   "verified": true,
    "site": "http://www.kcg.go.kr/",
    "board_url": "",
    "notice_active": false,
@@ -6461,8 +6635,8 @@
    "fields": [
     "에너지·환경"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-727-0367",
+   "verified": true,
    "site": "https://www.kma.go.kr/",
    "board_url": "",
    "notice_active": false,
@@ -6586,15 +6760,18 @@
    "id": "adm_024",
    "layer": "L7",
    "name": "제주특별자치도의회",
-   "alias": [],
+   "alias": [
+    "도의회",
+    "제주도의회"
+   ],
    "type": "지방의회",
    "parent": "제주특별자치도",
    "region": "제주시",
    "fields": [
     "안전·자치"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-741-2222",
+   "verified": true,
    "site": "https://www.council.jeju.kr/",
    "board_url": "",
    "notice_active": false,
@@ -6608,15 +6785,18 @@
    "id": "adm_025",
    "layer": "L7",
    "name": "제주특별자치도교육청",
-   "alias": [],
+   "alias": [
+    "도교육청",
+    "제주도교육청"
+   ],
    "type": "교육청",
    "parent": "교육부",
    "region": "제주시",
    "fields": [
     "교육·문화시설"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-710-0114",
+   "verified": true,
    "site": "https://www.jje.go.kr/",
    "board_url": "",
    "notice_active": false,
@@ -6637,8 +6817,8 @@
    "fields": [
     "교육·문화시설"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-754-0114",
+   "verified": true,
    "site": "",
    "board_url": "",
    "notice_active": false,
@@ -6659,8 +6839,8 @@
    "fields": [
     "교육·문화시설"
    ],
-   "phone": "",
-   "verified": false,
+   "phone": "064-730-8114",
+   "verified": true,
    "site": "",
    "board_url": "",
    "notice_active": false,
@@ -7109,6 +7289,1206 @@
    "source": "나무위키 제주관할 특행기관(사용자 제공)",
    "nav": "국가행정기관",
    "nav_order": 7
+  },
+  {
+   "id": "tel_001",
+   "layer": "L8",
+   "name": "국민권익위원회 110",
+   "alias": [
+    "110",
+    "국민권익위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "국민권익위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "110",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "정부민원 안내센터(국민콜) · 365일 24시간 무료",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_002",
+   "layer": "L8",
+   "name": "행정안전부 120",
+   "alias": [
+    "120",
+    "행정안전부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "행정안전부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "120",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "생활민원서비스",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_003",
+   "layer": "L8",
+   "name": "상수도사업본부 121",
+   "alias": [
+    "121",
+    "상수도사업본부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "상수도사업본부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "121",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "수도 고장신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_004",
+   "layer": "L8",
+   "name": "한국전력공사 123",
+   "alias": [
+    "123",
+    "한국전력공사"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "한국전력공사",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "123",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "전기 고장신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_005",
+   "layer": "L8",
+   "name": "국세청 126",
+   "alias": [
+    "126",
+    "국세청"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "국세청",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "126",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "탈세신고 등",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_006",
+   "layer": "L8",
+   "name": "기후에너지환경부 128",
+   "alias": [
+    "128",
+    "기후에너지환경부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "기후에너지환경부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "128",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "환경오염 신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_007",
+   "layer": "L8",
+   "name": "보건복지부 129",
+   "alias": [
+    "129",
+    "보건복지부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "보건복지부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "129",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "통합복지콜센터",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_008",
+   "layer": "L8",
+   "name": "기상청 131",
+   "alias": [
+    "131",
+    "기상청"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "기상청",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "131",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "기상예보 안내",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_009",
+   "layer": "L8",
+   "name": "대한법률구조공단 132",
+   "alias": [
+    "132",
+    "대한법률구조공단"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "대한법률구조공단",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "132",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "법률구조 상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_010",
+   "layer": "L8",
+   "name": "경찰청 182",
+   "alias": [
+    "182",
+    "경찰청"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "경찰청",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "182",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "미아·가출 신고 및 경찰 민원상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_011",
+   "layer": "L8",
+   "name": "감사원 188",
+   "alias": [
+    "188",
+    "감사원"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "감사원",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "188",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "감사원 민원상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_012",
+   "layer": "L8",
+   "name": "검찰청 1301",
+   "alias": [
+    "1301",
+    "검찰청"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "검찰청",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1301",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "검찰 민원상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_013",
+   "layer": "L8",
+   "name": "문화체육관광부 1330",
+   "alias": [
+    "1330",
+    "문화체육관광부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "문화체육관광부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1330",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "관광통역 안내(24시간·다국어)",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_014",
+   "layer": "L8",
+   "name": "국가인권위원회 1331",
+   "alias": [
+    "1331",
+    "국가인권위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "국가인권위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1331",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "인권침해·차별행위 상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_015",
+   "layer": "L8",
+   "name": "금융감독원 1332",
+   "alias": [
+    "1332",
+    "금융감독원"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "금융감독원",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1332",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "금융 민원 및 피해 신고·구제",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_016",
+   "layer": "L8",
+   "name": "국토교통부 1333",
+   "alias": [
+    "1333",
+    "국토교통부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "국토교통부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1333",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "교통정보 제공",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_017",
+   "layer": "L8",
+   "name": "과학기술정보통신부 1335",
+   "alias": [
+    "1335",
+    "과학기술정보통신부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "과학기술정보통신부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1335",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "방송·통신 민원상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_018",
+   "layer": "L8",
+   "name": "사행산업통합감독위원회 1336",
+   "alias": [
+    "1336",
+    "사행산업통합감독위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "사행산업통합감독위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1336",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "도박 중독예방·치유상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_019",
+   "layer": "L8",
+   "name": "국군방첩사령부 1337",
+   "alias": [
+    "1337",
+    "국군방첩사령부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "국군방첩사령부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1337",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "군사보안 및 방산스파이 상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_020",
+   "layer": "L8",
+   "name": "합동참모본부 1338",
+   "alias": [
+    "1338",
+    "합동참모본부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "합동참모본부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1338",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "통합방위 신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_021",
+   "layer": "L8",
+   "name": "법무부 1345",
+   "alias": [
+    "1345",
+    "법무부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "법무부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1345",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "외국인 종합안내센터 민원상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_022",
+   "layer": "L8",
+   "name": "고용노동부 1350",
+   "alias": [
+    "1350",
+    "고용노동부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "고용노동부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1350",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "노동 법령안내 및 민원상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_023",
+   "layer": "L8",
+   "name": "보건복지부 1355",
+   "alias": [
+    "1355",
+    "보건복지부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "보건복지부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1355",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "국민연금 상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_024",
+   "layer": "L8",
+   "name": "중소벤처기업부 1357",
+   "alias": [
+    "1357",
+    "중소벤처기업부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "중소벤처기업부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1357",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "중소기업 통합상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_025",
+   "layer": "L8",
+   "name": "법무부 1363",
+   "alias": [
+    "1363",
+    "법무부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "법무부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1363",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "교정 민원상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_026",
+   "layer": "L8",
+   "name": "행정안전부 1365",
+   "alias": [
+    "1365",
+    "행정안전부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "행정안전부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1365",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "자원봉사센터",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_027",
+   "layer": "L8",
+   "name": "한국은행 1369",
+   "alias": [
+    "1369",
+    "한국은행"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "한국은행",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1369",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "금융정보 조회",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_028",
+   "layer": "L8",
+   "name": "공정거래위원회 1372",
+   "alias": [
+    "1372",
+    "공정거래위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "공정거래위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1372",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "소비자 상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_029",
+   "layer": "L8",
+   "name": "방송통신심의위원회 1377",
+   "alias": [
+    "1377",
+    "방송통신심의위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "방송통신심의위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1377",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "방송통신심의 민원",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_030",
+   "layer": "L8",
+   "name": "과학기술정보통신부 1379",
+   "alias": [
+    "1379",
+    "과학기술정보통신부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "과학기술정보통신부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1379",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "기업 현장기술 지원·상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_031",
+   "layer": "L8",
+   "name": "산업통상부 1380",
+   "alias": [
+    "1380",
+    "산업통상부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "산업통상부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1380",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "FTA 지원·상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_032",
+   "layer": "L8",
+   "name": "산업통상부 1381",
+   "alias": [
+    "1381",
+    "산업통상부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "산업통상부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1381",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "인증·표준 정보제공",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_033",
+   "layer": "L8",
+   "name": "행정안전부 1382",
+   "alias": [
+    "1382",
+    "행정안전부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "행정안전부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1382",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "주민등록 진위확인",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_034",
+   "layer": "L8",
+   "name": "중앙선거관리위원회 1390",
+   "alias": [
+    "1390",
+    "중앙선거관리위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "중앙선거관리위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1390",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "정치관계법 안내 및 위반신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_035",
+   "layer": "L8",
+   "name": "교육부 1396",
+   "alias": [
+    "1396",
+    "교육부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "교육부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1396",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "시·도교육청 교육민원 상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_036",
+   "layer": "L8",
+   "name": "금융위원회 1397",
+   "alias": [
+    "1397",
+    "금융위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "금융위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1397",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "서민금융 안내·상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_037",
+   "layer": "L8",
+   "name": "국민권익위원회 1398",
+   "alias": [
+    "1398",
+    "국민권익위원회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "국민권익위원회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1398",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "부정부패행위 신고·상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_038",
+   "layer": "L8",
+   "name": "식품의약품안전처 1399",
+   "alias": [
+    "1399",
+    "식품의약품안전처"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "식품의약품안전처",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1399",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "부정·불량식품 신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_039",
+   "layer": "L8",
+   "name": "소방청 119",
+   "alias": [
+    "119",
+    "소방청"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "소방청",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "119",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "화재·구조·구급 신고 및 병원·약국 안내",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_040",
+   "layer": "L8",
+   "name": "경찰청 112",
+   "alias": [
+    "112",
+    "경찰청"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "경찰청",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "112",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "범죄·아동학대 등 긴급 신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_041",
+   "layer": "L8",
+   "name": "질병관리청 1339",
+   "alias": [
+    "1339",
+    "질병관리청"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "질병관리청",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1339",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "감염병 상담 콜센터",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_042",
+   "layer": "L8",
+   "name": "성평등가족부 1366",
+   "alias": [
+    "1366",
+    "성평등가족부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "성평등가족부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1366",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "여성긴급전화 — 가정폭력·성폭력 24시간 상담",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_043",
+   "layer": "L8",
+   "name": "보건복지부 1577-0199",
+   "alias": [
+    "1577-0199",
+    "보건복지부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "보건복지부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1577-0199",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "정신건강 위기상담전화 (24시간)",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_044",
+   "layer": "L8",
+   "name": "보건복지부 1577-1389",
+   "alias": [
+    "1577-1389",
+    "보건복지부"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "보건복지부",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1577-1389",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "노인보호전문기관 — 노인학대 신고 (24시간)",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_045",
+   "layer": "L8",
+   "name": "한국가스안전공사 1544-4500",
+   "alias": [
+    "1544-4500",
+    "한국가스안전공사"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "한국가스안전공사",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1544-4500",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "가스사고 24시간 신고",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_046",
+   "layer": "L8",
+   "name": "제주특별자치도관광협회 1533-0082",
+   "alias": [
+    "1533-0082",
+    "제주특별자치도관광협회"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "제주특별자치도관광협회",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1533-0082",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "제주 관광불편신고센터 (수신자부담)",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_047",
+   "layer": "L8",
+   "name": "제주특별자치도 1899-6884",
+   "alias": [
+    "1899-6884",
+    "제주특별자치도"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "제주특별자치도",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1899-6884",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "교통약자이동지원센터 — 장애인 콜택시",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
+  },
+  {
+   "id": "tel_048",
+   "layer": "L8",
+   "name": "한국공항공사 1661-2626",
+   "alias": [
+    "1661-2626",
+    "한국공항공사"
+   ],
+   "type": "국번없는 대표번호",
+   "parent": "한국공항공사",
+   "region": "전국",
+   "fields": [
+    "안전·자치"
+   ],
+   "phone": "1661-2626",
+   "verified": true,
+   "site": "",
+   "board_url": "",
+   "biz": "제주국제공항 안내",
+   "notice_active": false,
+   "notice_level": "low",
+   "source": "정부 국번없는 대표번호 안내",
+   "nav": "민원 대표번호",
+   "nav_order": 9
   }
  ]
 }
