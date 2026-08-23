@@ -428,6 +428,12 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .pb-full:hover{border-color:var(--gyul);color:var(--gyul)}
 .planwrap{position:relative;width:100%;height:78vh;min-height:560px;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--card)}
 .planwrap iframe{width:100%;height:100%;border:0;display:block}
+.planload{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;background:var(--card);z-index:2;padding:24px;text-align:center}
+.pl-sp{width:26px;height:26px;border:3px solid var(--line);border-top-color:var(--gyul);border-radius:50%;animation:plspin .8s linear infinite}
+@keyframes plspin{to{transform:rotate(360deg)}}
+.pl-t{font-size:14px;font-weight:700;color:var(--navy)}
+.pl-d{font-size:12px;color:var(--sub);line-height:1.5}
+.pl-btn{margin-top:6px;font-size:13px;font-weight:700;color:#fff;background:var(--gyul);border-radius:10px;padding:9px 16px;text-decoration:none}
 .plannote{font-size:11.5px;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-top:11px;line-height:1.65}
 @media(max-width:520px){.planwrap{height:72vh;min-height:480px;border-radius:12px}}
 
@@ -1170,8 +1176,15 @@ body{padding-bottom:78px}
       <span class="pb-dsc">숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계해 드립니다</span>
       <a class="pb-full" href="https://jeju-gamsugwang.vercel.app" target="_blank" rel="noopener">⤢ 새 창으로</a>
     </div>
-    <div class="planwrap"><iframe id="plan-frame" src="" title="어디레 감수광 여행플래너" loading="lazy"
-      allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="planwrap">
+      <div id="plan-load" class="planload">
+        <div class="pl-sp"></div>
+        <div class="pl-t">여행플래너를 불러오는 중…</div>
+        <div class="pl-d">잠시만 기다려 주세요</div>
+      </div>
+      <iframe id="plan-frame" title="어디레 감수광 여행플래너"
+        allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     <div class="plannote">
       · 「어디레 감수광」은 제작자가 별도로 운영하는 제주 여행 플래너입니다.<br>
       · 이동시간·거리·비용은 <b>직선거리 기반 추정치</b>이며 실제와 다를 수 있습니다.<br>
@@ -1781,9 +1794,21 @@ function renderGwan(v){
     if(isPlan) loadPlan();
   }
 }
+const PLAN_URL='https://jeju-gamsugwang.vercel.app/';
 function loadPlan(){
-  const f=document.getElementById('plan-frame');
-  if(f && !f.src) f.src='https://jeju-gamsugwang.vercel.app/';
+  const f=document.getElementById('plan-frame'), ld=document.getElementById('plan-load');
+  if(!f || f.dataset.loaded) return;
+  f.dataset.loaded='1';
+  f.addEventListener('load',()=>{ if(ld) ld.style.display='none'; });
+  f.src=PLAN_URL;
+  // 8초 안에 안 뜨면 새 창 안내로 전환
+  setTimeout(()=>{
+    if(ld && ld.style.display!=='none'){
+      ld.innerHTML='<div class="pl-t">플래너를 이 화면에 표시하지 못했습니다</div>'+
+        '<div class="pl-d">브라우저 설정이나 네트워크 때문일 수 있습니다.</div>'+
+        '<a class="pl-btn" href="'+PLAN_URL+'" target="_blank" rel="noopener">새 창에서 열기 →</a>';
+    }
+  },8000);
 }
 history.replaceState({v:'home'},'','#home');
 window.addEventListener('popstate',e=>{
