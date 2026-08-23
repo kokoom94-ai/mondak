@@ -420,6 +420,33 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .linkcard span{display:block;font-size:12px;color:var(--sub);margin-top:2px}
 /* 큰 신청포털 배너 (미리보기) */
 .portalbanner{display:block;margin-top:14px;border-radius:18px;overflow:hidden;border:1.5px solid var(--navy);background:linear-gradient(135deg,#1B2A4A 0%,#2d4270 60%,#F08A24 160%);box-shadow:0 6px 20px rgba(27,42,74,.18);position:relative}
+/* ===== 공공조직도 ===== */
+.orgstrip{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.orgstrip .ost{flex:1 1 128px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 13px}
+.orgstrip .ost b{display:block;font-size:20px;color:var(--navy);line-height:1.15}
+.orgstrip .ost span{font-size:11.5px;color:var(--sub)}
+.orgsearch{width:100%;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:14px;margin:10px 0 4px;background:var(--card)}
+.orgsearch:focus{outline:none;border-color:var(--gyul)}
+.orgsec{margin-top:20px}
+.orgsec h3{font-size:15.5px;color:var(--navy);margin:0 0 3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.orgsec h3 .cnt{font-size:11.5px;color:var(--sub);font-weight:600;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
+.orgsec .secd{font-size:12px;color:var(--sub);margin-bottom:9px}
+.orggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:8px}
+.orgc{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 12px;display:block;text-decoration:none;color:inherit;transition:.14s}
+.orgc:hover{border-color:var(--gyul);box-shadow:0 3px 12px rgba(240,138,36,.13);transform:translateY(-1px)}
+.orgc .on{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.32;word-break:keep-all}
+.orgc .om{font-size:11px;color:var(--sub);margin-top:3px;line-height:1.4}
+.orgc .lk{font-size:10.5px;color:var(--gyul);font-weight:700;margin-top:4px;display:inline-block}
+.obadge{display:inline-block;font-size:9.5px;font-weight:700;border-radius:20px;padding:1.5px 6px;margin:4px 3px 0 0;line-height:1.5}
+.ob-hq{background:#FDF0E1;color:#B4650F;border:1px solid #F3D3AA}
+.ob-out{background:#F0EDFB;color:#5B43B8;border:1px solid #D8CFF2}
+.ob-sg{background:#E4F4F3;color:#0E7C7B;border:1px solid #B9E2E0}
+.ob-nt{background:#E7F3E8;color:#2E7D32;border:1px solid #C2E0C4}
+.orgmore{width:100%;margin-top:8px;padding:9px;border:1px dashed var(--line);background:transparent;border-radius:11px;color:var(--sub);font-size:12.5px;cursor:pointer}
+.orgmore:hover{border-color:var(--gyul);color:var(--gyul)}
+.orgnote{font-size:11.5px;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-top:20px;line-height:1.65}
+@media(max-width:520px){.orggrid{grid-template-columns:repeat(auto-fill,minmax(148px,1fr))}.orgstrip .ost b{font-size:17px}}
+
 .portalbanner:hover{box-shadow:0 10px 28px rgba(27,42,74,.28);transform:translateY(-1px);transition:.18s}
 .portalbanner .pb-in{display:flex;align-items:center;gap:16px;padding:20px 22px}
 .portalbanner .pb-ico{flex:none;width:60px;height:60px;border-radius:16px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:32px;backdrop-filter:blur(4px)}
@@ -907,6 +934,22 @@ body{padding-bottom:78px}
 </div>
 </div><!-- /edu -->
 
+<div id="view-orgs" hidden>
+<div class="wrap">
+  <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
+  <div class="viewtitle">공공조직도</div>
+  <div class="viewsub">제주에 어떤 공공기관·관공서가 있는지 한자리에서 봅니다. 기관명을 누르면 홈페이지로 이동합니다.</div>
+  <div id="orgstrip" class="orgstrip"></div>
+  <input id="orgq" class="orgsearch" type="search" placeholder="기관명 검색 (예: 테크노파크, 고용노동, 세무)" autocomplete="off">
+  <div id="orgbody"></div>
+  <div class="orgnote">
+    · 도청 본청(실·국·과)은 민선9기 조직개편 확정 후 반영 예정입니다.<br>
+    · 기관 정보는 공개자료를 정리한 것으로, 변경될 수 있습니다. 정확한 내용은 각 기관 누리집을 확인해 주세요.<br>
+    · <b>제주 관할(도외 소재)</b> 표시는 제주에 청사가 없고 광주·부산 등에서 제주를 관할하는 기관입니다.
+  </div>
+</div>
+</div><!-- /orgs -->
+
 <div id="view-terms" hidden>
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
@@ -958,6 +1001,7 @@ body{padding-bottom:78px}
     <button class="mitem" data-v="support">주목합써 <span class="mx">공공지원사업 알아보기</span></button>
     <button class="mitem" data-v="lawbot">정책비서 <span class="mx">법규 · 조례 · 공약 · 미리내</span></button>
     <button class="mitem" data-v="council">동네의원 <span class="mx">국회 · 도의회</span></button>
+    <button class="mitem" data-v="orgs">공공조직도 <span class="mx">정부 · 도청 · 공공기관 · 관공서</span></button>
     <button class="mitem" data-v="terms">보부상위키 <span class="mx">용어색인 · 빈출단어</span></button>
 
     <div class="mgrp"><span class="gdot">🎓</span>교육보부상</div>
@@ -1315,7 +1359,7 @@ const BOARD={
  seog:"https://seogwipo.go.kr/info/news/law/law.htm",
  eup:"https://www.jejusi.go.kr/information/intro/notice.do",
  council:"https://www.council.jeju.kr"};
-const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','explore','orbit','biseo','gwan-fest','gwan-now','gwan-hero','gwan-plan','gwan-jeju','gwan-kr'];
+const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','orgs','explore','orbit','biseo','gwan-fest','gwan-now','gwan-hero','gwan-plan','gwan-jeju','gwan-kr'];
 // 관광보부상 하위 탭 메타 (준비중 화면 공유)
 const GWAN={
   'gwan-fest':{t:'행사소식',d:'축제캘린더 · 기념행사',ic:'🎪'},
@@ -1350,7 +1394,90 @@ function show(v,push=true){
   if(v==='lawbot'){renderLaws();loadMirinae();}
   if(v==='notice'){renderNoticeAll();}
   if(v==='council'){renderNP();renderCB();}
+  if(v==='orgs'){loadOrgs();}
 }
+let ORGDATA=null, orgLoading=false, orgOpen={};
+const ORG_SECD={
+ '정부부처':'중앙행정기관 — 부·처·청·위원회',
+ '도청':'제주특별자치도 본청',
+ '행정시·읍면동':'제주시·서귀포시와 43개 읍면동',
+ '도 소속기관':'도가 직접 운영하는 기관 (소방·연구원·박물관 등)',
+ '도 공공기관':'도가 출자·출연한 공사·공단·재단',
+ '국가공공기관':'제주에 있는 공기업·준정부기관·기타공공기관',
+ '국가행정기관':'제주 소재 관공서 및 제주를 관할하는 도외 기관',
+ '민간·위탁':'공공 성격의 민간 중간지원조직'
+};
+function loadOrgs(){
+  if(ORGDATA||orgLoading) { if(ORGDATA) renderOrgs(); return; }
+  orgLoading=true;
+  const b=document.getElementById('orgbody');
+  if(b) b.innerHTML='<div style="padding:30px 0;text-align:center;color:var(--sub);font-size:13px">기관 정보를 불러오는 중…</div>';
+  fetch('data/orgs.json').then(r=>r.json()).then(d=>{
+    ORGDATA=d; orgLoading=false; renderOrgs();
+  }).catch(e=>{
+    orgLoading=false;
+    if(b) b.innerHTML='<div style="padding:30px 0;text-align:center;color:var(--sub);font-size:13px">기관 정보를 불러오지 못했습니다.</div>';
+  });
+}
+function orgEsc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function orgBadges(o){
+  let h='';
+  if(o.hq) h+='<span class="obadge ob-hq">본사</span>';
+  if(o.jurisdiction==='제주 관할(도외 소재)') h+='<span class="obadge ob-out">도외관할</span>';
+  if(o.region==='서귀포시') h+='<span class="obadge ob-sg">서귀포</span>';
+  if(o.notice_level==='high') h+='<span class="obadge ob-nt">지원사업</span>';
+  return h;
+}
+function renderOrgs(){
+  if(!ORGDATA) return;
+  const items=ORGDATA.items||[];
+  const q=(document.getElementById('orgq')?.value||'').trim().toLowerCase();
+  // 요약 스트립
+  const inJeju=items.filter(o=>o.nav!=='정부부처'&&o.jurisdiction!=='제주 관할(도외 소재)');
+  const st=document.getElementById('orgstrip');
+  if(st) st.innerHTML=
+    '<div class="ost"><b>'+inJeju.length+'</b><span>제주 소재 기관</span></div>'+
+    '<div class="ost"><b>'+items.filter(o=>o.nav==='도 공공기관').length+'</b><span>도 공공기관</span></div>'+
+    '<div class="ost"><b>'+items.filter(o=>o.nav==='국가공공기관').length+'</b><span>국가공공기관</span></div>'+
+    '<div class="ost"><b>'+items.filter(o=>o.nav==='국가행정기관').length+'</b><span>관공서</span></div>';
+  // 필터
+  let list=items;
+  if(q) list=items.filter(o=>{
+    const hay=(o.name+' '+(o.alias||[]).join(' ')+' '+(o.group||'')+' '+(o.fields||[]).join(' ')+' '+(o.type||'')+' '+(o.old_name||'')).toLowerCase();
+    return hay.indexOf(q)>=0;
+  });
+  // 계층별 그룹
+  const order=(ORGDATA.meta&&ORGDATA.meta.nav_order)||[];
+  const byNav={};
+  list.forEach(o=>{(byNav[o.nav]=byNav[o.nav]||[]).push(o);});
+  const body=document.getElementById('orgbody');
+  if(!body) return;
+  if(q && !list.length){ body.innerHTML='<div style="padding:26px 0;text-align:center;color:var(--sub);font-size:13px">검색 결과가 없습니다.</div>'; return; }
+  let html='';
+  order.forEach(nav=>{
+    const arr=byNav[nav]; if(!arr||!arr.length) return;
+    const lim = q ? arr.length : (orgOpen[nav] ? arr.length : 12);
+    html+='<div class="orgsec"><h3>'+orgEsc(nav)+'<span class="cnt">'+arr.length+'</span></h3>'+
+          '<div class="secd">'+orgEsc(ORG_SECD[nav]||'')+'</div><div class="orggrid">';
+    arr.slice(0,lim).forEach(o=>{
+      const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
+      const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
+        (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+
+        orgBadges(o)+ (o.site?'<div class="lk">누리집 →</div>':'');
+      html += o.site
+        ? '<a class="orgc" href="'+orgEsc(o.site)+'" target="_blank" rel="noopener">'+inner+'</a>'
+        : '<div class="orgc">'+inner+'</div>';
+    });
+    html+='</div>';
+    if(!q && arr.length>lim) html+='<button class="orgmore" data-nav="'+orgEsc(nav)+'">+ '+(arr.length-lim)+'곳 더 보기</button>';
+    html+='</div>';
+  });
+  body.innerHTML=html;
+  body.querySelectorAll('.orgmore').forEach(b=>{
+    b.addEventListener('click',()=>{orgOpen[b.dataset.nav]=true;renderOrgs();});
+  });
+}
+document.addEventListener('input',e=>{ if(e.target&&e.target.id==='orgq') renderOrgs(); });
 function renderGwan(v){
   const g=GWAN[v]||{t:'관광보부상',d:'',ic:'🌏'};
   const el=document.getElementById('view-gwan');
