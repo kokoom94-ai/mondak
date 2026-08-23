@@ -420,6 +420,17 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .linkcard span{display:block;font-size:12px;color:var(--sub);margin-top:2px}
 /* 큰 신청포털 배너 (미리보기) */
 .portalbanner{display:block;margin-top:14px;border-radius:18px;overflow:hidden;border:1.5px solid var(--navy);background:linear-gradient(135deg,#1B2A4A 0%,#2d4270 60%,#F08A24 160%);box-shadow:0 6px 20px rgba(27,42,74,.18);position:relative}
+/* 여행플래너 임베드 */
+.planbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:12px 0 9px;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:13px}
+.pb-tag{font-size:12px;font-weight:800;color:#fff;background:var(--gyul);border-radius:20px;padding:3px 11px;white-space:nowrap}
+.pb-dsc{font-size:12px;color:var(--sub);flex:1 1 180px;line-height:1.45}
+.pb-full{font-size:12px;font-weight:700;color:var(--navy);text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:5px 10px;white-space:nowrap}
+.pb-full:hover{border-color:var(--gyul);color:var(--gyul)}
+.planwrap{position:relative;width:100%;height:78vh;min-height:560px;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--card)}
+.planwrap iframe{width:100%;height:100%;border:0;display:block}
+.plannote{font-size:11.5px;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-top:11px;line-height:1.65}
+@media(max-width:520px){.planwrap{height:72vh;min-height:480px;border-radius:12px}}
+
 /* 비즈플랫폼 공고 목록 */
 .bzsec{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 13px 11px}
 .bzhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
@@ -1127,10 +1138,10 @@ body{padding-bottom:78px}
     <button class="mitem" data-v="edu">교육정책 <span class="mx">정책 · 공약 등</span></button>
 
     <div class="mgrp"><span class="gdot">🌏</span>관광보부상</div>
+    <button class="mitem" data-v="gwan-plan">여행플래너 <span class="mx">어디레 감수광 · 일자별 동선 설계</span></button>
     <button class="mitem soon" data-v="gwan-fest">행사소식 <span class="mx">축제캘린더 · 기념행사</span></button>
     <button class="mitem soon" data-v="gwan-now">여기가젠 <span class="mx">지금 이슈 소식</span></button>
     <button class="mitem soon" data-v="gwan-hero">축하햄수다 <span class="mx">미담 제주인</span></button>
-    <button class="mitem soon" data-v="gwan-plan">여행플래너 <span class="mx">여행코스 설계</span></button>
     <button class="mitem soon" data-v="gwan-jeju">지금제주 <span class="mx">데이터 분석</span></button>
     <button class="mitem soon" data-v="gwan-kr">지금한국 <span class="mx">인사이트</span></button>
 
@@ -1147,10 +1158,25 @@ body{padding-bottom:78px}
 <div id="view-gwan" hidden>
   <div class="viewtitle"><span class="gwan-ic">🌏</span> <span class="gwan-t">관광보부상</span></div>
   <div class="viewsub"><span class="gwan-d"></span></div>
-  <div class="gwan-soon">
+  <div class="gwan-soon" id="gwansoon">
     <div class="gs-ic">🧭</div>
     <div class="gs-t">준비 중입니다</div>
     <div class="gs-d">곧 찾아뵙겠습니다. 조금만 기다려 주세요!</div>
+  </div>
+  <!-- 여행플래너 : 어디레 감수광 (별도 서비스 임베드) -->
+  <div id="gwanplan" hidden>
+    <div class="planbar">
+      <span class="pb-tag">어디레 감수광</span>
+      <span class="pb-dsc">숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계해 드립니다</span>
+      <a class="pb-full" href="https://jeju-gamsugwang.vercel.app" target="_blank" rel="noopener">⤢ 새 창으로</a>
+    </div>
+    <div class="planwrap"><iframe id="plan-frame" src="" title="어디레 감수광 여행플래너" loading="lazy"
+      allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="plannote">
+      · 「어디레 감수광」은 제작자가 별도로 운영하는 제주 여행 플래너입니다.<br>
+      · 이동시간·거리·비용은 <b>직선거리 기반 추정치</b>이며 실제와 다를 수 있습니다.<br>
+      · 작성한 계획은 해당 서비스의 브라우저 저장소에 보관됩니다.
+    </div>
   </div>
 </div>
 
@@ -1484,7 +1510,7 @@ const GWAN={
   'gwan-fest':{t:'행사소식',d:'축제캘린더 · 기념행사',ic:'🎪'},
   'gwan-now':{t:'여기가젠',d:'지금 이슈 소식',ic:'📍'},
   'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'},
-  'gwan-plan':{t:'여행플래너',d:'여행코스 설계',ic:'🗺️'},
+  'gwan-plan':{t:'여행플래너',d:'어디레 감수광 — 숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계합니다',ic:'🗺️'},
   'gwan-jeju':{t:'지금제주',d:'데이터 분석',ic:'📊'},
   'gwan-kr':{t:'지금한국',d:'인사이트',ic:'🇰🇷'}
 };
@@ -1746,6 +1772,18 @@ function renderGwan(v){
   el.querySelector('.gwan-ic').textContent=g.ic;
   el.querySelector('.gwan-t').textContent=g.t;
   el.querySelector('.gwan-d').textContent=g.d;
+  // 여행플래너만 임베드, 나머지는 준비 중
+  const isPlan = (v==='gwan-plan');
+  const soon=document.getElementById('gwansoon'), plan=document.getElementById('gwanplan');
+  if(soon) soon.hidden=isPlan;
+  if(plan){
+    plan.hidden=!isPlan;
+    if(isPlan) loadPlan();
+  }
+}
+function loadPlan(){
+  const f=document.getElementById('plan-frame');
+  if(f && !f.src) f.src='https://jeju-gamsugwang.vercel.app/';
 }
 history.replaceState({v:'home'},'','#home');
 window.addEventListener('popstate',e=>{
