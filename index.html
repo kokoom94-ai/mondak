@@ -430,6 +430,28 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .orgc.govc .on{font-size:12.5px}
 .orgc.govc .om{display:none}
 .orgc.noln{opacity:.72}
+.deptbl{display:flex;flex-direction:column;gap:5px}
+.deptrow{display:flex;align-items:stretch;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:6px 8px;flex-wrap:wrap}
+.orgc.deptname{flex:0 0 168px;border:none;background:var(--bg);padding:7px 9px;border-radius:8px}
+.orgc.deptname .on{font-size:12.5px;color:var(--navy)}
+.orgc.deptname .om,.orgc.deptname .obadge{display:none}
+.deptkids{flex:1 1 200px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.orgc.kidc{border:1px solid var(--line);background:#FBFCFE;padding:5px 9px;border-radius:20px}
+.orgc.kidc .on{font-size:11.5px;font-weight:600}
+.orgc.kidc .om,.orgc.kidc .obadge,.orgc.kidc .lk{display:none}
+.nokid{font-size:11px;color:#B4BDCE}
+.obiz{font-size:11.5px;color:var(--ink);margin-top:5px;line-height:1.5;word-break:keep-all}
+.orgc.govc .obiz,.orgc.kidc .obiz,.orgc.deptname .obiz,.orgc.townc .obiz{display:none}
+.nkind{font-size:10.5px;color:#0E7C7B;background:#E4F4F3;border:1px solid #B9E2E0;border-radius:7px;padding:3px 6px;margin-top:5px;line-height:1.4}
+.orgc.govc .nkind,.orgc.kidc .nkind,.orgc.deptname .nkind,.orgc.townc .nkind{display:none}
+.citylab{font-size:13px;font-weight:700;color:var(--navy);margin:13px 0 6px;display:flex;align-items:center;gap:6px}
+.citylab .cnt{font-size:11px;color:var(--sub);font-weight:600;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:1px 8px}
+.townrid{grid-template-columns:repeat(auto-fill,minmax(112px,1fr))}
+.orgc.townc{padding:8px 10px}
+.orgc.townc .on{font-size:12.5px}
+.orgc.townc .om,.orgc.townc .obadge{display:none}
+.orgc.townc .lk{font-size:10px}
+@media(max-width:520px){.orgc.deptname{flex:0 0 100%}.townrid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))}}
 .lk.nolk{color:var(--sub);font-weight:500}
 @media(max-width:520px){.govrow{gap:5px}.orgc.govc{padding:7px 9px}.orgc.govc .on{font-size:11.5px}}
 .orgstrip{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
@@ -958,6 +980,8 @@ body{padding-bottom:78px}
     · 기관 정보는 공개자료를 정리한 것으로, 변경될 수 있습니다. 정확한 내용은 각 기관 누리집을 확인해 주세요.<br>
     · <b>제주 관공서 및 유관기관</b>은 도 산하 공공기관 및 유관기관을 말하며, 지방공기업(공사)·도 출자출연기관·지방의료원·법정단체 등 설립근거가 서로 다른 기관이 포함됩니다. 각 기관의 유형은 카드에 표기했습니다.<br>
     · <b>제주 관할(도외 소재)</b> 표시는 제주에 청사가 없고 광주·부산 등에서 제주를 관할하는 기관입니다.<br>
+    · 읍면동 누리집은 제주시 26곳을 연결했습니다. 서귀포시 17곳은 순차 반영 예정입니다.<br>
+    · 국가공공기관은 제주지사 페이지가 별도로 없는 경우가 많아 <b>본사 누리집</b>으로 연결했습니다.<br>
     · 정부부처 조직도는 2026년 정부조직 개편(국가데이터처·기후에너지환경부 등)을 반영했습니다.
   </div>
 </div>
@@ -1443,9 +1467,13 @@ function orgBadges(o){
 }
 function orgCard(o,cls){
   const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
+  const bz=o.biz?'<div class="obiz">'+orgEsc(o.biz)+'</div>':'';
+  const nk=o.notice_kind?'<div class="nkind">📢 '+orgEsc(o.notice_kind)+'</div>':'';
   const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
-    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+
-    orgBadges(o)+(o.site?'<div class="lk">누리집 →</div>':'<div class="lk nolk">누리집 준비중</div>');
+    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+nk+
+    orgBadges(o)+(o.site
+      ?'<div class="lk">'+(o.site_scope==='본사'?'본사 누리집 →':'누리집 →')+'</div>'
+      :'<div class="lk nolk">누리집 준비중</div>');
   const c='orgc'+(cls?' '+cls:'')+(o.site?'':' noln');
   return o.site
     ? '<a class="'+c+'" href="'+orgEsc(o.site)+'" target="_blank" rel="noopener">'+inner+'</a>'
@@ -1466,7 +1494,7 @@ function renderOrgs(){
   // 필터
   let list=items;
   if(q) list=items.filter(o=>{
-    const hay=(o.name+' '+(o.alias||[]).join(' ')+' '+(o.group||'')+' '+(o.fields||[]).join(' ')+' '+(o.type||'')+' '+(o.old_name||'')).toLowerCase();
+    const hay=(o.name+' '+(o.alias||[]).join(' ')+' '+(o.group||'')+' '+(o.fields||[]).join(' ')+' '+(o.type||'')+' '+(o.old_name||'')+' '+(o.biz||'')+' '+(o.notice_kind||'')).toLowerCase();
     return hay.indexOf(q)>=0;
   });
   // 계층별 그룹
@@ -1484,14 +1512,41 @@ function renderOrgs(){
           '<div class="secd">'+orgEsc(ORG_SECD[nav]||'')+'</div>';
     if(nav==='정부부처' && !q){
       html+='<div class="govchart"><div class="govtop">대통령</div>';
-      [1,2,3,4].forEach(r=>{
+      [1,2].forEach(r=>{
         const row=arr.filter(o=>o.gov_row===r); if(!row.length) return;
         if(r===2) html+='<div class="govtop govpm">국무총리</div>';
         html+='<div class="govrowlab">'+orgEsc(GOVROWN[r]||'')+'</div><div class="govrow">';
         row.forEach(o=>{ html+=orgCard(o,'govc'); });
         html+='</div>';
       });
-      html+='</div></div>';
+      // 행정각부 + 산하 외청 매핑
+      const depts=arr.filter(o=>o.type==='부');
+      const agencies=arr.filter(o=>o.type==='청');
+      html+='<div class="govrowlab">행정각부 ('+depts.length+'부) · 산하 외청 ('+agencies.length+'청)</div>';
+      html+='<div class="deptbl">';
+      depts.forEach(d=>{
+        const kids=agencies.filter(a=>a.gov_parent===d.name);
+        html+='<div class="deptrow">'+orgCard(d,'deptname')+
+              '<div class="deptkids">'+
+              (kids.length ? kids.map(k=>orgCard(k,'kidc')).join('')
+                           : '<span class="nokid">산하 외청 없음</span>')+
+              '</div></div>';
+      });
+      html+='</div></div></div>';
+      return;
+    }
+    if(nav==='행정시·읍면동' && !q){
+      html+='<div class="orggrid">';
+      arr.filter(o=>o.type==='행정시').forEach(o=>{ html+=orgCard(o,''); });
+      html+='</div>';
+      ['제주시','서귀포시'].forEach(city=>{
+        const kids=arr.filter(o=>o.type==='읍면동'&&o.parent===city);
+        if(!kids.length) return;
+        html+='<div class="citylab">'+orgEsc(city)+' <span class="cnt">'+kids.length+'</span></div><div class="orggrid townrid">';
+        kids.forEach(o=>{ html+=orgCard(o,'townc'); });
+        html+='</div>';
+      });
+      html+='</div>';
       return;
     }
     const lim = q ? arr.length : (orgOpen[nav] ? arr.length : 12);
