@@ -421,6 +421,17 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 /* 큰 신청포털 배너 (미리보기) */
 .portalbanner{display:block;margin-top:14px;border-radius:18px;overflow:hidden;border:1.5px solid var(--navy);background:linear-gradient(135deg,#1B2A4A 0%,#2d4270 60%,#F08A24 160%);box-shadow:0 6px 20px rgba(27,42,74,.18);position:relative}
 /* ===== 공공조직도 ===== */
+.govchart{background:linear-gradient(180deg,#F8FAFE 0%,var(--card) 100%);border:1px solid var(--line);border-radius:16px;padding:14px 12px}
+.govtop{max-width:200px;margin:2px auto 10px;background:var(--navy);color:#fff;text-align:center;font-weight:800;font-size:14px;border-radius:11px;padding:9px 0;letter-spacing:.5px;box-shadow:0 3px 10px rgba(27,42,74,.22)}
+.govtop.govpm{background:#2d4270;margin-top:16px}
+.govrowlab{font-size:11px;font-weight:700;color:var(--sub);margin:12px 0 6px;padding-left:2px;border-left:3px solid var(--gyul);padding-left:7px}
+.govrow{display:flex;flex-wrap:wrap;gap:6px}
+.orgc.govc{flex:0 1 auto;min-width:0;padding:8px 10px;border-radius:10px}
+.orgc.govc .on{font-size:12.5px}
+.orgc.govc .om{display:none}
+.orgc.noln{opacity:.72}
+.lk.nolk{color:var(--sub);font-weight:500}
+@media(max-width:520px){.govrow{gap:5px}.orgc.govc{padding:7px 9px}.orgc.govc .on{font-size:11.5px}}
 .orgstrip{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
 .orgstrip .ost{flex:1 1 128px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 13px}
 .orgstrip .ost b{display:block;font-size:20px;color:var(--navy);line-height:1.15}
@@ -945,7 +956,9 @@ body{padding-bottom:78px}
   <div class="orgnote">
     · 도청 본청(실·국·과)은 민선9기 조직개편 확정 후 반영 예정입니다.<br>
     · 기관 정보는 공개자료를 정리한 것으로, 변경될 수 있습니다. 정확한 내용은 각 기관 누리집을 확인해 주세요.<br>
-    · <b>제주 관할(도외 소재)</b> 표시는 제주에 청사가 없고 광주·부산 등에서 제주를 관할하는 기관입니다.
+    · <b>제주 관공서 및 유관기관</b>은 도 산하 공공기관 및 유관기관을 말하며, 지방공기업(공사)·도 출자출연기관·지방의료원·법정단체 등 설립근거가 서로 다른 기관이 포함됩니다. 각 기관의 유형은 카드에 표기했습니다.<br>
+    · <b>제주 관할(도외 소재)</b> 표시는 제주에 청사가 없고 광주·부산 등에서 제주를 관할하는 기관입니다.<br>
+    · 정부부처 조직도는 2026년 정부조직 개편(국가데이터처·기후에너지환경부 등)을 반영했습니다.
   </div>
 </div>
 </div><!-- /orgs -->
@@ -1402,10 +1415,10 @@ const ORG_SECD={
  '도청':'제주특별자치도 본청',
  '행정시·읍면동':'제주시·서귀포시와 43개 읍면동',
  '도 소속기관':'도가 직접 운영하는 기관 (소방·연구원·박물관 등)',
- '도 공공기관':'도가 출자·출연한 공사·공단·재단',
+ '제주 관공서 및 유관기관':'도 산하 공공기관 및 유관기관 — 지방공기업·출자출연기관·법정단체 등',
  '국가공공기관':'제주에 있는 공기업·준정부기관·기타공공기관',
  '국가행정기관':'제주 소재 관공서 및 제주를 관할하는 도외 기관',
- '민간·위탁':'공공 성격의 민간 중간지원조직'
+ '민간·위탁':'공공 성격의 민간·위탁 중간지원조직'
 };
 function loadOrgs(){
   if(ORGDATA||orgLoading) { if(ORGDATA) renderOrgs(); return; }
@@ -1428,6 +1441,16 @@ function orgBadges(o){
   if(o.notice_level==='high') h+='<span class="obadge ob-nt">지원사업</span>';
   return h;
 }
+function orgCard(o,cls){
+  const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
+  const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
+    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+
+    orgBadges(o)+(o.site?'<div class="lk">누리집 →</div>':'<div class="lk nolk">누리집 준비중</div>');
+  const c='orgc'+(cls?' '+cls:'')+(o.site?'':' noln');
+  return o.site
+    ? '<a class="'+c+'" href="'+orgEsc(o.site)+'" target="_blank" rel="noopener">'+inner+'</a>'
+    : '<div class="'+c+'">'+inner+'</div>';
+}
 function renderOrgs(){
   if(!ORGDATA) return;
   const items=ORGDATA.items||[];
@@ -1437,7 +1460,7 @@ function renderOrgs(){
   const st=document.getElementById('orgstrip');
   if(st) st.innerHTML=
     '<div class="ost"><b>'+inJeju.length+'</b><span>제주 소재 기관</span></div>'+
-    '<div class="ost"><b>'+items.filter(o=>o.nav==='도 공공기관').length+'</b><span>도 공공기관</span></div>'+
+    '<div class="ost"><b>'+items.filter(o=>o.nav==='제주 관공서 및 유관기관').length+'</b><span>유관기관</span></div>'+
     '<div class="ost"><b>'+items.filter(o=>o.nav==='국가공공기관').length+'</b><span>국가공공기관</span></div>'+
     '<div class="ost"><b>'+items.filter(o=>o.nav==='국가행정기관').length+'</b><span>관공서</span></div>';
   // 필터
@@ -1453,21 +1476,27 @@ function renderOrgs(){
   const body=document.getElementById('orgbody');
   if(!body) return;
   if(q && !list.length){ body.innerHTML='<div style="padding:26px 0;text-align:center;color:var(--sub);font-size:13px">검색 결과가 없습니다.</div>'; return; }
+  const GOVROWN={1:'대통령 직속 · 독립기구',2:'국무총리 소속 — 실·처·위원회',3:'행정각부 (19부)',4:'외청 (청)'};
   let html='';
   order.forEach(nav=>{
     const arr=byNav[nav]; if(!arr||!arr.length) return;
-    const lim = q ? arr.length : (orgOpen[nav] ? arr.length : 12);
     html+='<div class="orgsec"><h3>'+orgEsc(nav)+'<span class="cnt">'+arr.length+'</span></h3>'+
-          '<div class="secd">'+orgEsc(ORG_SECD[nav]||'')+'</div><div class="orggrid">';
-    arr.slice(0,lim).forEach(o=>{
-      const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
-      const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
-        (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+
-        orgBadges(o)+ (o.site?'<div class="lk">누리집 →</div>':'');
-      html += o.site
-        ? '<a class="orgc" href="'+orgEsc(o.site)+'" target="_blank" rel="noopener">'+inner+'</a>'
-        : '<div class="orgc">'+inner+'</div>';
-    });
+          '<div class="secd">'+orgEsc(ORG_SECD[nav]||'')+'</div>';
+    if(nav==='정부부처' && !q){
+      html+='<div class="govchart"><div class="govtop">대통령</div>';
+      [1,2,3,4].forEach(r=>{
+        const row=arr.filter(o=>o.gov_row===r); if(!row.length) return;
+        if(r===2) html+='<div class="govtop govpm">국무총리</div>';
+        html+='<div class="govrowlab">'+orgEsc(GOVROWN[r]||'')+'</div><div class="govrow">';
+        row.forEach(o=>{ html+=orgCard(o,'govc'); });
+        html+='</div>';
+      });
+      html+='</div></div>';
+      return;
+    }
+    const lim = q ? arr.length : (orgOpen[nav] ? arr.length : 12);
+    html+='<div class="orggrid">';
+    arr.slice(0,lim).forEach(o=>{ html+=orgCard(o,''); });
     html+='</div>';
     if(!q && arr.length>lim) html+='<button class="orgmore" data-nav="'+orgEsc(nav)+'">+ '+(arr.length-lim)+'곳 더 보기</button>';
     html+='</div>';
