@@ -980,7 +980,7 @@ body{padding-bottom:78px}
     · 기관 정보는 공개자료를 정리한 것으로, 변경될 수 있습니다. 정확한 내용은 각 기관 누리집을 확인해 주세요.<br>
     · <b>제주 관공서 및 유관기관</b>은 도 산하 공공기관 및 유관기관을 말하며, 지방공기업(공사)·도 출자출연기관·지방의료원·법정단체 등 설립근거가 서로 다른 기관이 포함됩니다. 각 기관의 유형은 카드에 표기했습니다.<br>
     · <b>제주 관할(도외 소재)</b> 표시는 제주에 청사가 없고 광주·부산 등에서 제주를 관할하는 기관입니다.<br>
-    · 읍면동 누리집은 제주시 26곳을 연결했습니다. 서귀포시 17곳은 순차 반영 예정입니다.<br>
+    · 읍면동 누리집은 제주시 26곳·서귀포시 17곳 전부 연결했습니다.<br>
     · 국가공공기관은 제주지사 페이지가 별도로 없는 경우가 많아 <b>본사 누리집</b>으로 연결했습니다.<br>
     · 정부부처 조직도는 2026년 정부조직 개편(국가데이터처·기후에너지환경부 등)을 반영했습니다.
   </div>
@@ -1468,9 +1468,8 @@ function orgBadges(o){
 function orgCard(o,cls){
   const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
   const bz=o.biz?'<div class="obiz">'+orgEsc(o.biz)+'</div>':'';
-  const nk=o.notice_kind?'<div class="nkind">📢 '+orgEsc(o.notice_kind)+'</div>':'';
   const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
-    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+nk+
+    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+
     orgBadges(o)+(o.site
       ?'<div class="lk">'+(o.site_scope==='본사'?'본사 누리집 →':'누리집 →')+'</div>'
       :'<div class="lk nolk">누리집 준비중</div>');
