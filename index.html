@@ -470,6 +470,13 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .portalbanner.bizbn{border-color:#0E7C7B;background:linear-gradient(135deg,#0E7C7B 0%,#12908E 60%,#4FD8C4 170%)}
 
 /* ===== 공공조직도 ===== */
+/* 카드 기본 — 반드시 변형(.govc/.kidc 등)보다 먼저 선언 */
+.orgc{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 12px;display:block;text-decoration:none;color:inherit;transition:.14s}
+.orgc:hover{border-color:var(--gyul);box-shadow:0 3px 12px rgba(240,138,36,.13);transform:translateY(-1px)}
+.orgc .on{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.32;word-break:keep-all}
+.orgc .om{font-size:11px;color:var(--sub);margin-top:3px;line-height:1.4}
+.orgc .lk{font-size:10.5px;color:var(--gyul);font-weight:700;margin-top:4px;display:inline-block}
+
 .govchart{background:linear-gradient(180deg,#F8FAFE 0%,var(--card) 100%);border:1px solid var(--line);border-radius:16px;padding:14px 12px}
 .govtop{max-width:200px;margin:2px auto 10px;background:var(--navy);color:#fff;text-align:center;font-weight:800;font-size:14px;border-radius:11px;padding:9px 0;letter-spacing:.5px;box-shadow:0 3px 10px rgba(27,42,74,.22)}
 .govtop.govpm{background:#2d4270;margin-top:16px}
@@ -524,11 +531,6 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .orgsec h3 .cnt{font-size:11.5px;color:var(--sub);font-weight:600;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
 .orgsec .secd{font-size:12px;color:var(--sub);margin-bottom:9px}
 .orggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:8px}
-.orgc{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 12px;display:block;text-decoration:none;color:inherit;transition:.14s}
-.orgc:hover{border-color:var(--gyul);box-shadow:0 3px 12px rgba(240,138,36,.13);transform:translateY(-1px)}
-.orgc .on{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.32;word-break:keep-all}
-.orgc .om{font-size:11px;color:var(--sub);margin-top:3px;line-height:1.4}
-.orgc .lk{font-size:10.5px;color:var(--gyul);font-weight:700;margin-top:4px;display:inline-block}
 .obadge{display:inline-block;font-size:9.5px;font-weight:700;border-radius:20px;padding:1.5px 6px;margin:4px 3px 0 0;line-height:1.5}
 .ob-hq{background:#FDF0E1;color:#B4650F;border:1px solid #F3D3AA}
 .ob-out{background:#F0EDFB;color:#5B43B8;border:1px solid #D8CFF2}
@@ -1684,9 +1686,12 @@ function orgCard(o,cls){
   }
   const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
   const bz=o.biz?'<div class="obiz">'+orgEsc(o.biz)+'</div>':'';
-  const ph=o.phone?('<a class="otel'+(o.verified?'':' unv')+'" href="tel:'+orgEsc(o.phone)+'" onclick="event.stopPropagation()">📞 '+orgEsc(o.phone)+(o.verified?'':' <span class="unvm">확인필요</span>')+'</a>'):'';
+  const phTxt = o.phone ? ('📞 '+orgEsc(o.phone)+(o.verified?'':' <span class="unvm">확인필요</span>')) : '';
   const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
-    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+ph+
+    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+
+    (phTxt ? (o.site
+        ? '<span class="otel'+(o.verified?'':' unv')+'">'+phTxt+'</span>'
+        : '<a class="otel'+(o.verified?'':' unv')+'" href="tel:'+orgEsc(o.phone)+'">'+phTxt+'</a>') : '')+
     orgBadges(o)+(o.site
       ?'<div class="lk">'+(o.site_scope==='본사'?'본사 누리집 →':'누리집 →')+'</div>'
       :'<div class="lk nolk">누리집 준비중</div>');
