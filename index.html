@@ -1902,7 +1902,7 @@ document.getElementById('lawq').addEventListener('input',e=>{lawTy='';lawMax=6;r
 
 /* ══ 우리동네의원 피드 ══ */
 function renderCouncilFeed(){
-  $('#councilfeed').innerHTML=DATA.filter(x=>x.org==='council')
+  const _cf=$('#councilfeed'); if(_cf) _cf.innerHTML=DATA.filter(x=>x.org==='council')
     .sort((a,b)=>b.d.localeCompare(a.d)).map(x=>{
       const f=F(x.f);
       return `<button class="nrow" data-i="${DATA.indexOf(x)}">
@@ -2033,10 +2033,13 @@ function uniSearch(q){
   return {pol,wik,con,law};
 }
 const upanel=$('#unipanel');
+/* #unipanel 요소가 없을 때도 스크립트가 죽지 않도록 방어 */
+function uCls(c){ if(upanel) upanel.className=c; }
+function uHtml(h){ if(upanel) upanel.innerHTML=h; }
 const _uniq=$('#uniq');
 if(_uniq)_uniq.addEventListener('input',e=>{
   const r=uniSearch(e.target.value);
-  if(!r){upanel.className='unipanel';return;}
+  if(!r){uCls('unipanel');return;}
   let h='';
   if(r.pol.length)h+=`<div class="usec"><div class="ut">정책</div>`+r.pol.map(x=>{
     const f=F(x.f);return `<button class="urow" data-i2="${DATA.indexOf(x)}"><span class="ud" style="--c:${f.c}"></span>${x.t}</button>`;}).join('')+'</div>';
@@ -2047,18 +2050,18 @@ if(_uniq)_uniq.addEventListener('input',e=>{
   if(r.wik.length)h+=`<div class="usec"><div class="ut">AI 제주정책 보부상위키</div>`+r.wik.map(k=>
     `<button class="urow" data-w2="${k}"><b>${k}</b><span class="um">용어 설명</span></button>`).join('')+'</div>';
   if(!h)h='<div class="unone">아직 결과가 없수다. 표현을 바꿔봅서 — 예: 청년 주거, 돌봄 조례, 삼다수</div>';
-  upanel.innerHTML=h;upanel.className='unipanel on';
+  uHtml(h);uCls('unipanel on');
 });
 document.addEventListener('click',e=>{
   const a=e.target.closest('.urow[data-ask]');
-  if(a){upanel.className='unipanel';show('biseo');if(window.biseoAsk)window.biseoAsk(a.dataset.ask);return;}
+  if(a){uCls('unipanel');show('biseo');if(window.biseoAsk)window.biseoAsk(a.dataset.ask);return;}
   const l=e.target.closest('.urow[data-law]');
-  if(l){upanel.className='unipanel';show('lawbot');return;}
+  if(l){uCls('unipanel');show('lawbot');return;}
   const w2=e.target.closest('.urow[data-w2]');
   if(w2){showWiki(w2.dataset.w2,e.clientX,e.clientY);return;}
   const p=e.target.closest('.urow[data-i2]');
-  if(p){upanel.className='unipanel';openDetail(+p.dataset.i2);return;}
-  if(!e.target.closest('.uni'))upanel.className='unipanel';
+  if(p){uCls('unipanel');openDetail(+p.dataset.i2);return;}
+  if(!e.target.closest('.uni'))uCls('unipanel');
 });
 
 /* ══ 위키 팝오버 ══ */
