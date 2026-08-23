@@ -472,6 +472,16 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .orgc.kidc .on{font-size:11.5px;font-weight:600}
 .orgc.kidc .om,.orgc.kidc .obadge,.orgc.kidc .lk{display:none}
 .nokid{font-size:11px;color:#B4BDCE}
+.orgc.telc{text-align:center;padding:12px 10px;background:linear-gradient(180deg,#FBFCFE,var(--card))}
+.orgc.telc .telno{font-size:22px;font-weight:800;color:var(--gyul);letter-spacing:.5px;line-height:1.15}
+.orgc.telc .on{font-size:12px;margin-top:4px;color:var(--navy)}
+.orgc.telc .om{font-size:10.5px;margin-top:2px}
+.otel{display:inline-block;font-size:11.5px;font-weight:700;color:var(--navy);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:3px 8px;margin-top:6px;text-decoration:none}
+.otel:hover{border-color:var(--gyul);color:var(--gyul)}
+.otel.unv{color:var(--sub);border-style:dashed}
+.otel .unvm{font-size:9.5px;font-weight:600;color:#C6392F}
+.orgc.govc .otel,.orgc.kidc .otel,.orgc.deptname .otel,.orgc.townc .otel{display:none}
+.orgc.townc .otel{display:inline-block;margin-top:4px;font-size:11px;padding:2px 7px}
 .obiz{font-size:11.5px;color:var(--ink);margin-top:5px;line-height:1.5;word-break:keep-all}
 .orgc.govc .obiz,.orgc.kidc .obiz,.orgc.deptname .obiz,.orgc.townc .obiz{display:none}
 .nkind{font-size:10.5px;color:#0E7C7B;background:#E4F4F3;border:1px solid #B9E2E0;border-radius:7px;padding:3px 6px;margin-top:5px;line-height:1.4}
@@ -1053,6 +1063,7 @@ body{padding-bottom:78px}
     · <b>제주 관할(도외 소재)</b> 표시는 제주에 청사가 없고 광주·부산 등에서 제주를 관할하는 기관입니다.<br>
     · 읍면동 누리집은 제주시 26곳·서귀포시 17곳 전부 연결했습니다.<br>
     · 국가공공기관은 제주지사 페이지가 별도로 없는 경우가 많아 <b>본사 누리집</b>으로 연결했습니다.<br>
+    · 전화번호는 각 기관 공식 누리집에서 확인한 대표번호입니다. 부서 직통은 <b>제주120(064-120)</b> 또는 각 기관 누리집을 이용해 주세요.<br>
     · 정부부처 조직도는 2026년 정부조직 개편(국가데이터처·기후에너지환경부 등)을 반영했습니다.
   </div>
 </div>
@@ -1304,33 +1315,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 const AI_API="https://exquisite-snickerdoodle-60f4c2.netlify.app/.netlify/functions/chat";
 function aiEsc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");}
 function aiFill(el){document.getElementById('aiq').value=el.textContent;aiAsk();}
-/* 질문과 관련된 기관·공고를 골라 컨텍스트로 만든다 (서버가 무시해도 무해) */
-async function aiBuildContext(q){
-  try{
-    const jobs=[];
-    if(!ORGDATA) jobs.push(fetch('data/orgs.json').then(r=>r.json()).then(d=>{ORGDATA=d;}).catch(()=>{}));
-    if(!BZDATA)  jobs.push(new Promise(res=>{loadBZ();setTimeout(res,1200);}));
-    if(jobs.length) await Promise.all(jobs);
-    const toks=String(q).toLowerCase().replace(/[^\w가-힣\s]/g,' ').split(/\s+/).filter(t=>t.length>1);
-    if(!toks.length) return null;
-    const score=(hay)=>{const h=String(hay||'').toLowerCase();return toks.reduce((a,t)=>a+(h.indexOf(t)>=0?1:0),0);};
-    let orgs=[];
-    if(ORGDATA&&ORGDATA.items){
-      orgs=ORGDATA.items.map(o=>({o,s:score(o.name+' '+(o.alias||[]).join(' ')+' '+(o.biz||'')+' '+(o.notice_kind||'')+' '+(o.fields||[]).join(' '))}))
-        .filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,6)
-        .map(x=>({name:x.o.name,type:x.o.type,biz:x.o.biz||'',site:x.o.site||''}));
-    }
-    let ann=[];
-    if(BZDATA&&BZDATA.length){
-      ann=BZDATA.map(x=>({x,s:score(x.t+' '+x.i)})).filter(v=>v.s>0)
-        .sort((a,b)=>b.s-a.s).slice(0,6)
-        .map(v=>({title:v.x.t,org:v.x.i,end:v.x.a?'상시':(v.x.e||''),url:v.x.u}));
-    }
-    if(!orgs.length&&!ann.length) return null;
-    return {orgs,announcements:ann,
-            note:'보부상 공공조직도 및 제주 비즈 플랫폼 공고에서 추출한 참고자료'};
-  }catch(e){ return null; }
-}
 async function aiAsk(){
   const qEl=document.getElementById('aiq'), res=document.getElementById('airesult'), btn=document.getElementById('aisend');
   const question=qEl.value.trim(); if(!question)return; btn.disabled=true;
@@ -1339,9 +1323,7 @@ async function aiAsk(){
   res.insertAdjacentHTML('beforeend','<div class="aimsg-bot loading" id="'+lid+'"><span class="aispin"></span> 제주 정책 자료를 찾고 있습니다…</div>');
   qEl.value=''; qEl.style.height='auto';
   try{
-    const ctx=await aiBuildContext(question);
-    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(ctx?{question,context:ctx}:{question})});
+    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});
     const d=await r.json(); const el=document.getElementById(lid); el.classList.remove('loading');
     const badge = d.source==='rag' ? '<span class="aibadge aibadge-rag">📚 자료 기반 답변</span><br>'
       : d.source==='web' ? '<span class="aibadge aibadge-web">🌐 웹 검색 결과</span><br>'
@@ -1630,7 +1612,8 @@ const ORG_SECD={
  '제주 관공서 및 유관기관':'도 산하 공공기관 및 유관기관 — 지방공기업·출자출연기관·법정단체 등',
  '국가공공기관':'제주에 있는 공기업·준정부기관·기타공공기관',
  '국가행정기관':'제주 소재 관공서 및 제주를 관할하는 도외 기관',
- '민간·위탁':'공공 성격의 민간·위탁 중간지원조직'
+ '민간·위탁':'공공 성격의 민간·위탁 중간지원조직',
+ '민원 대표번호':'국번 없이 누르는 정부·공공 민원전화 (전국 공통)'
 };
 function loadOrgs(){
   if(ORGDATA||orgLoading) { if(ORGDATA) renderOrgs(); return; }
@@ -1654,10 +1637,17 @@ function orgBadges(o){
   return h;
 }
 function orgCard(o,cls){
+  if(o.layer==='L8'){
+    return '<a class="orgc telc" href="tel:'+orgEsc(o.phone)+'">'+
+      '<div class="telno">'+orgEsc(o.phone)+'</div>'+
+      '<div class="on">'+orgEsc(o.parent)+'</div>'+
+      (o.biz?'<div class="om">'+orgEsc(o.biz)+'</div>':'')+'</a>';
+  }
   const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
   const bz=o.biz?'<div class="obiz">'+orgEsc(o.biz)+'</div>':'';
+  const ph=o.phone?('<a class="otel'+(o.verified?'':' unv')+'" href="tel:'+orgEsc(o.phone)+'" onclick="event.stopPropagation()">📞 '+orgEsc(o.phone)+(o.verified?'':' <span class="unvm">확인필요</span>')+'</a>'):'';
   const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
-    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+
+    (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+ph+
     orgBadges(o)+(o.site
       ?'<div class="lk">'+(o.site_scope==='본사'?'본사 누리집 →':'누리집 →')+'</div>'
       :'<div class="lk nolk">누리집 준비중</div>');
