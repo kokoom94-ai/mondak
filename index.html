@@ -420,6 +420,34 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .linkcard span{display:block;font-size:12px;color:var(--sub);margin-top:2px}
 /* 큰 신청포털 배너 (미리보기) */
 .portalbanner{display:block;margin-top:14px;border-radius:18px;overflow:hidden;border:1.5px solid var(--navy);background:linear-gradient(135deg,#1B2A4A 0%,#2d4270 60%,#F08A24 160%);box-shadow:0 6px 20px rgba(27,42,74,.18);position:relative}
+/* 비즈플랫폼 공고 목록 */
+.bzsec{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 13px 11px}
+.bzhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.bzt{font-size:15px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bzcnt{font-size:11.5px;font-weight:600;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
+.bzcnt b{color:var(--ok);font-size:13px}
+.bzd{font-size:11.5px;color:var(--sub);margin-top:3px}
+.bzfilter{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 9px}
+.bzfilter button{font-size:11.5px;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:20px;padding:4px 11px;cursor:pointer;font-weight:600}
+.bzfilter button.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.bzlist{display:flex;flex-direction:column;gap:6px}
+.bzc{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:11px;padding:10px 11px;background:#FCFDFF;transition:.14s}
+.bzc:hover{border-color:var(--ok);box-shadow:0 3px 10px rgba(14,124,123,.12)}
+.bzc .b1{font-size:13px;font-weight:700;color:var(--ink);line-height:1.42;word-break:keep-all}
+.bzc .b2{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;align-items:center}
+.bzc .bi{font-size:10.5px;font-weight:700;background:#EAF0FB;color:#2B4A80;border:1px solid #CBD9F0;border-radius:6px;padding:2px 7px}
+.bzc .bd{font-size:10.5px;color:var(--sub)}
+.bzc .dday{font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 7px}
+.dd-soon{background:#FBE9E7;color:#C6392F;border:1px solid #F2C9C4}
+.dd-nor{background:#E4F4F3;color:#0E7C7B;border:1px solid #B9E2E0}
+.bznote{font-size:11px;color:var(--sub);margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);line-height:1.6}
+.bzmore{width:100%;margin-top:8px;padding:9px;border:1px dashed var(--line);background:transparent;border-radius:11px;color:var(--sub);font-size:12.5px;cursor:pointer}
+.bzmore:hover{border-color:var(--ok);color:var(--ok)}
+@media(max-width:520px){.bzt{font-size:14px}.bzc .b1{font-size:12.5px}}
+
+/* 비즈플랫폼 배너 */
+.portalbanner.bizbn{border-color:#0E7C7B;background:linear-gradient(135deg,#0E7C7B 0%,#12908E 60%,#4FD8C4 170%)}
+
 /* ===== 공공조직도 ===== */
 .govchart{background:linear-gradient(180deg,#F8FAFE 0%,var(--card) 100%);border:1px solid var(--line);border-radius:16px;padding:14px 12px}
 .govtop{max-width:200px;margin:2px auto 10px;background:var(--navy);color:#fff;text-align:center;font-weight:800;font-size:14px;border-radius:11px;padding:9px 0;letter-spacing:.5px;box-shadow:0 3px 10px rgba(27,42,74,.22)}
@@ -905,8 +933,42 @@ body{padding-bottom:78px}
   <div class="viewtitle">주목합써</div>
   <div class="viewsub">제주 공공 지원사업을 내 상황에 맞게 — 검색하고 분야·대상별로 찾아보세요</div>
 
-  <!-- ① 맞춤형 지원서비스 신청포털 (큰 배너·미리보기) -->
-  <a class="portalbanner" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener">
+  <!-- ① 제주 비즈 플랫폼 (최상단) -->
+  <a class="portalbanner bizbn" href="https://kokoom94-ai.github.io/jeju-biz-platform/" target="_blank" rel="noopener">
+    <div class="pb-in">
+      <div class="pb-ico">🏢</div>
+      <div class="pb-txt">
+        <span class="pb-badge">기업·소상공인</span>
+        <div class="pb-t">제주 비즈 플랫폼 <span style="font-size:14px">↗</span></div>
+        <div class="pb-d">도내 기관 지원사업 공고를 매일 자동 수집합니다</div>
+      </div>
+      <div class="pb-go">바로가기</div>
+    </div>
+    <div class="pb-preview">
+      <div class="pb-chip"><div class="c-l">창업·기업</div><div class="c-t">R&amp;D · 보육 · 투자</div></div>
+      <div class="pb-chip"><div class="c-l">소상공인</div><div class="c-t">경영 · 판로 · 보증</div></div>
+      <div class="pb-chip"><div class="c-l">고용·인력</div><div class="c-t">채용 · 교육 · 인건비</div></div>
+      <div class="pb-chip"><div class="c-l">문화·콘텐츠</div><div class="c-t">창작 · 제작지원</div></div>
+    </div>
+  </a>
+
+  <!-- ①-2 비즈플랫폼 실시간 공고 -->
+  <div class="bzsec" id="bzsec" hidden>
+    <div class="bzhead">
+      <div>
+        <div class="bzt">📋 지금 접수 중인 공고 <span class="bzcnt"><b id="bzcnt">0</b>건</span></div>
+        <div class="bzd" id="bzupd">불러오는 중…</div>
+      </div>
+    </div>
+    <div class="bzfilter" id="bzfilter"></div>
+    <div id="bzlist" class="bzlist"></div>
+    <div class="bznote">
+      각 기관 누리집 공개 공고를 매일 새벽 자동 수집합니다. <b>신청 조건과 마감일은 반드시 원문 공고에서 확인</b>하세요.
+    </div>
+  </div>
+
+  <!-- ② 맞춤형 지원서비스 신청포털 -->
+  <a class="portalbanner" href="https://www.jeju.go.kr/jeju24/gov24/support.htm" target="_blank" rel="noopener" style="margin-top:16px">
     <div class="pb-in">
       <div class="pb-ico">🗂️</div>
       <div class="pb-txt">
@@ -925,7 +987,7 @@ body{padding-bottom:78px}
     </div>
   </a>
 
-  <!-- ② 정책탐색 UI (검색 + 분야/대상 필터 + 목록) -->
+  <!-- ③ 정책탐색 UI (검색 + 분야/대상 필터 + 목록) -->
   <div class="uni" style="margin-top:16px">
     <span class="mag">🔍</span>
     <input id="xq" type="search" autocomplete="off" placeholder="정책·지원사업 검색 — 예: 청년, 감귤, 돌봄, 창업">
@@ -1426,12 +1488,80 @@ function show(v,push=true){
     else history.pushState({v},'','#'+v);
   }
   if(v==='orbit')requestAnimationFrame(()=>drawOrbit(DATA.slice()));
-  if(v==='explore'||v==='support'){renderRail();renderList();}
+  if(v==='explore'||v==='support'){renderRail();renderList();if(v==='support')loadBZ();}
   if(v==='news')renderNews();
   if(v==='lawbot'){renderLaws();loadMirinae();}
   if(v==='notice'){renderNoticeAll();}
   if(v==='council'){renderNP();renderCB();}
   if(v==='orgs'){loadOrgs();}
+}
+const BZ_SRC='https://raw.githubusercontent.com/kokoom94-ai/jeju-biz-platform/main/data/announcements.json';
+let BZDATA=null, bzLoading=false, bzType='', bzOpen=false;
+const BZ_TYPE={support:'지원사업',contest:'공모전',bid:'용역·입찰',recruit:'모집공고',hiring:'채용공고'};
+function bzToday(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function bzDday(end){
+  if(!end) return null;
+  const t=new Date(bzToday()), e=new Date(end);
+  return Math.round((e-t)/86400000);
+}
+function loadBZ(){
+  if(BZDATA||bzLoading){ if(BZDATA) renderBZ(); return; }
+  bzLoading=true;
+  fetch(BZ_SRC).then(r=>r.json()).then(d=>{
+    const today=bzToday();
+    // 접수중 + 마감일 유효한 것만 (경량화: 필요한 필드만 보관)
+    BZDATA=(d.items||[]).filter(x=>x.status==='open'&&((x.apply_end||'')>=today||x.always_open))
+      .map(x=>({t:x.title,u:x.url,i:x.institution,e:x.apply_end,a:x.always_open,ty:x.type,p:x.posted_at}))
+      .sort((a,b)=>{
+        const ae=a.a?'9999-99-99':(a.e||'9999'), be=b.a?'9999-99-99':(b.e||'9999');
+        return ae<be?-1:ae>be?1:0;
+      });
+    BZDATA.updated=d.updated_at;
+    bzLoading=false; renderBZ();
+  }).catch(()=>{ bzLoading=false;
+    const el=document.getElementById('bzsec'); if(el) el.hidden=true;
+  });
+}
+function renderBZ(){
+  if(!BZDATA) return;
+  const sec=document.getElementById('bzsec'); if(!sec) return;
+  if(!BZDATA.length){ sec.hidden=true; return; }
+  sec.hidden=false;
+  const f=document.getElementById('bzfilter');
+  if(f && !f.dataset.done){
+    const ts=[...new Set(BZDATA.map(x=>x.ty))].filter(Boolean);
+    f.innerHTML='<button data-t="" class="on">전체</button>'+
+      ts.map(t=>'<button data-t="'+orgEsc(t)+'">'+orgEsc(BZ_TYPE[t]||t)+'</button>').join('');
+    f.dataset.done='1';
+    f.addEventListener('click',e=>{
+      const b=e.target.closest('button'); if(!b)return;
+      bzType=b.dataset.t||''; bzOpen=false;
+      f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+      renderBZ();
+    });
+  }
+  const list=bzType?BZDATA.filter(x=>x.ty===bzType):BZDATA;
+  const c=document.getElementById('bzcnt'); if(c) c.textContent=list.length;
+  const u=document.getElementById('bzupd');
+  if(u) u.textContent='제주 비즈 플랫폼 자동수집 · 최근 갱신 '+String(BZDATA.updated||'').slice(0,10);
+  const lim=bzOpen?Math.min(list.length,60):8;
+  const el=document.getElementById('bzlist');
+  el.innerHTML=list.slice(0,lim).map(x=>{
+    const dd=x.a?null:bzDday(x.e);
+    const ddh = x.a ? '<span class="dday dd-nor">상시</span>'
+      : (dd!=null ? '<span class="dday '+(dd<=7?'dd-soon':'dd-nor')+'">'+(dd===0?'오늘 마감':'D-'+dd)+'</span>' : '');
+    return '<a class="bzc" href="'+orgEsc(x.u)+'" target="_blank" rel="noopener">'+
+      '<div class="b1">'+orgEsc(x.t)+'</div><div class="b2">'+
+      '<span class="bi">'+orgEsc(x.i)+'</span>'+ddh+
+      (x.e&&!x.a?'<span class="bd">~'+orgEsc(x.e)+'</span>':'')+'</div></a>';
+  }).join('');
+  const old=sec.querySelector('.bzmore'); if(old) old.remove();
+  if(list.length>lim){
+    const b=document.createElement('button');
+    b.className='bzmore'; b.textContent='+ '+(list.length-lim)+'건 더 보기';
+    b.onclick=()=>{bzOpen=true;renderBZ();};
+    el.parentNode.insertBefore(b, el.nextSibling);
+  }
 }
 let ORGDATA=null, orgLoading=false, orgOpen={};
 const ORG_SECD={
