@@ -396,7 +396,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
   .mirinae-frame-wrap{height:520px;max-height:72vh}
 }
 
-/* 정책비서(법령) */
+/* 정책참고서(법령) */
 .lawtree{margin-top:12px}
 .lawgroup{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:8px}
 .lawgroup h3{font-size:13px;font-weight:800;color:var(--sub);letter-spacing:.3px;margin-bottom:6px}
@@ -427,6 +427,10 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .bzcnt{font-size:11.5px;font-weight:600;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
 .bzcnt b{color:var(--ok);font-size:13px}
 .bzd{font-size:11.5px;color:var(--sub);margin-top:3px}
+.bzscope{display:flex;gap:6px;margin:11px 0 4px}
+.bzscope button{flex:1;font-size:13px;font-weight:700;border:1.5px solid var(--line);background:var(--card);color:var(--sub);border-radius:11px;padding:9px 6px;cursor:pointer;transition:.14s}
+.bzscope button b{font-weight:800;margin-left:3px}
+.bzscope button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 .bzfilter{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 9px}
 .bzfilter button{font-size:11.5px;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:20px;padding:4px 11px;cursor:pointer;font-weight:600}
 .bzfilter button.on{background:var(--ok);color:#fff;border-color:var(--ok)}
@@ -725,9 +729,10 @@ body{padding-bottom:78px}
     <div class="topright">
       <nav class="deskmenu" id="deskmenu">
         <button data-v="home" class="on">홈</button>
-        <button data-v="news">호외요</button>
+        <button data-v="lawbot">정책참고서</button>
+        <button data-v="council">동네의원</button>
         <button data-v="support">주목합써</button>
-        <button data-v="lawbot">정책비서</button>
+        <button data-v="orgs">공공조직도</button>
         <button class="dmham" data-open-drawer aria-label="전체 메뉴" title="전체메뉴">☰</button>
       </nav>
       <div class="navclock" id="navclock"></div>
@@ -837,7 +842,7 @@ body{padding-bottom:78px}
 <div id="view-lawbot" hidden>
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
-  <div class="viewtitle">정책비서</div>
+  <div class="viewtitle">정책참고서</div>
   <div class="viewsub">제주 특별법·시행령·조례·규칙과 제주 정책의 근거가 되는 국가법률을 한눈에 — 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
   <div class="metarow" style="margin-top:6px"><span class="livebadge" id="lawsrc">큐레이션 14건 · 법제처 API 연동 대기</span></div>
   <div class="lawchips" id="lawchips"></div>
@@ -931,7 +936,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">주목합써</div>
-  <div class="viewsub">제주 공공 지원사업을 내 상황에 맞게 — 검색하고 분야·대상별로 찾아보세요</div>
+  <div class="viewsub">공공 지원사업을 내 상황에 맞게 — 국가/제주 지원사업을 한 곳에 모았습니다.</div>
 
   <!-- ① 제주 비즈 플랫폼 (최상단) -->
   <a class="portalbanner bizbn" href="https://kokoom94-ai.github.io/jeju-biz-platform/" target="_blank" rel="noopener">
@@ -959,6 +964,10 @@ body{padding-bottom:78px}
         <div class="bzt">📋 지금 접수 중인 공고 <span class="bzcnt"><b id="bzcnt">0</b>건</span></div>
         <div class="bzd" id="bzupd">불러오는 중…</div>
       </div>
+    </div>
+    <div class="bzscope" id="bzscope">
+      <button data-s="nat" class="on">🇰🇷 국가공모 <b id="bzn-nat">0</b></button>
+      <button data-s="jj">🍊 제주공모 <b id="bzn-jj">0</b></button>
     </div>
     <div class="bzfilter" id="bzfilter"></div>
     <div id="bzlist" class="bzlist"></div>
@@ -1080,9 +1089,9 @@ body{padding-bottom:78px}
 
 <nav class="bottomnav" id="bottomnav">
   <button data-v="home" class="on"><span class="ic">🏠</span>홈</button>
-  <button data-v="news"><span class="ic">📰</span>호외요</button>
+  <button data-v="lawbot"><span class="ic">⚖️</span>정책참고서</button>
+  <button data-v="council"><span class="ic">🏛️</span>동네의원</button>
   <button data-v="support"><span class="ic">📋</span>주목합써</button>
-  <button data-v="lawbot"><span class="ic">⚖️</span>정책비서</button>
   <button id="openmenu2"><span class="ic">☰</span>전체 메뉴</button>
 </nav>
 
@@ -1096,11 +1105,11 @@ body{padding-bottom:78px}
     <button class="mitem on" data-v="home">홈</button>
 
     <div class="mgrp"><span class="gdot">📜</span>정책보부상</div>
-    <button class="mitem" data-v="news">호외요, 호외! <span class="mx">인기뉴스 · 분야별 소식</span></button>
-    <button class="mitem" data-v="support">주목합써 <span class="mx">공공지원사업 알아보기</span></button>
-    <button class="mitem" data-v="lawbot">정책비서 <span class="mx">법규 · 조례 · 공약 · 미리내</span></button>
+    <button class="mitem" data-v="lawbot">정책참고서 <span class="mx">법규 · 조례 · 공약 · 미리내</span></button>
     <button class="mitem" data-v="council">동네의원 <span class="mx">국회 · 도의회</span></button>
+    <button class="mitem" data-v="support">주목합써 <span class="mx">국가 · 제주 지원사업</span></button>
     <button class="mitem" data-v="orgs">공공조직도 <span class="mx">정부 · 도청 · 공공기관 · 관공서</span></button>
+    <button class="mitem" data-v="news">호외요, 호외! <span class="mx">인기뉴스 · 분야별 소식</span></button>
     <button class="mitem" data-v="terms">보부상위키 <span class="mx">용어색인 · 빈출단어</span></button>
 
     <div class="mgrp"><span class="gdot">🎓</span>교육보부상</div>
@@ -1295,6 +1304,33 @@ document.addEventListener('DOMContentLoaded',()=>{
 const AI_API="https://exquisite-snickerdoodle-60f4c2.netlify.app/.netlify/functions/chat";
 function aiEsc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");}
 function aiFill(el){document.getElementById('aiq').value=el.textContent;aiAsk();}
+/* 질문과 관련된 기관·공고를 골라 컨텍스트로 만든다 (서버가 무시해도 무해) */
+async function aiBuildContext(q){
+  try{
+    const jobs=[];
+    if(!ORGDATA) jobs.push(fetch('data/orgs.json').then(r=>r.json()).then(d=>{ORGDATA=d;}).catch(()=>{}));
+    if(!BZDATA)  jobs.push(new Promise(res=>{loadBZ();setTimeout(res,1200);}));
+    if(jobs.length) await Promise.all(jobs);
+    const toks=String(q).toLowerCase().replace(/[^\w가-힣\s]/g,' ').split(/\s+/).filter(t=>t.length>1);
+    if(!toks.length) return null;
+    const score=(hay)=>{const h=String(hay||'').toLowerCase();return toks.reduce((a,t)=>a+(h.indexOf(t)>=0?1:0),0);};
+    let orgs=[];
+    if(ORGDATA&&ORGDATA.items){
+      orgs=ORGDATA.items.map(o=>({o,s:score(o.name+' '+(o.alias||[]).join(' ')+' '+(o.biz||'')+' '+(o.notice_kind||'')+' '+(o.fields||[]).join(' '))}))
+        .filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,6)
+        .map(x=>({name:x.o.name,type:x.o.type,biz:x.o.biz||'',site:x.o.site||''}));
+    }
+    let ann=[];
+    if(BZDATA&&BZDATA.length){
+      ann=BZDATA.map(x=>({x,s:score(x.t+' '+x.i)})).filter(v=>v.s>0)
+        .sort((a,b)=>b.s-a.s).slice(0,6)
+        .map(v=>({title:v.x.t,org:v.x.i,end:v.x.a?'상시':(v.x.e||''),url:v.x.u}));
+    }
+    if(!orgs.length&&!ann.length) return null;
+    return {orgs,announcements:ann,
+            note:'보부상 공공조직도 및 제주 비즈 플랫폼 공고에서 추출한 참고자료'};
+  }catch(e){ return null; }
+}
 async function aiAsk(){
   const qEl=document.getElementById('aiq'), res=document.getElementById('airesult'), btn=document.getElementById('aisend');
   const question=qEl.value.trim(); if(!question)return; btn.disabled=true;
@@ -1303,7 +1339,9 @@ async function aiAsk(){
   res.insertAdjacentHTML('beforeend','<div class="aimsg-bot loading" id="'+lid+'"><span class="aispin"></span> 제주 정책 자료를 찾고 있습니다…</div>');
   qEl.value=''; qEl.style.height='auto';
   try{
-    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});
+    const ctx=await aiBuildContext(question);
+    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(ctx?{question,context:ctx}:{question})});
     const d=await r.json(); const el=document.getElementById(lid); el.classList.remove('loading');
     const badge = d.source==='rag' ? '<span class="aibadge aibadge-rag">📚 자료 기반 답변</span><br>'
       : d.source==='web' ? '<span class="aibadge aibadge-web">🌐 웹 검색 결과</span><br>'
@@ -1496,7 +1534,7 @@ function show(v,push=true){
   if(v==='orgs'){loadOrgs();}
 }
 const BZ_SRC='https://raw.githubusercontent.com/kokoom94-ai/jeju-biz-platform/main/data/announcements.json';
-let BZDATA=null, bzLoading=false, bzType='', bzOpen=false;
+let BZDATA=null, bzLoading=false, bzType='', bzOpen=false, bzScope='nat';
 const BZ_TYPE={support:'지원사업',contest:'공모전',bid:'용역·입찰',recruit:'모집공고',hiring:'채용공고'};
 function bzToday(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function bzDday(end){
@@ -1511,7 +1549,8 @@ function loadBZ(){
     const today=bzToday();
     // 접수중 + 마감일 유효한 것만 (경량화: 필요한 필드만 보관)
     BZDATA=(d.items||[]).filter(x=>x.status==='open'&&((x.apply_end||'')>=today||x.always_open))
-      .map(x=>({t:x.title,u:x.url,i:x.institution,e:x.apply_end,a:x.always_open,ty:x.type,p:x.posted_at}))
+      .map(x=>({t:x.title,u:x.url,i:x.institution,e:x.apply_end,a:x.always_open,ty:x.type,p:x.posted_at,
+                sc:(x.group===6?'nat':'jj')}))
       .sort((a,b)=>{
         const ae=a.a?'9999-99-99':(a.e||'9999'), be=b.a?'9999-99-99':(b.e||'9999');
         return ae<be?-1:ae>be?1:0;
@@ -1526,12 +1565,31 @@ function renderBZ(){
   if(!BZDATA) return;
   const sec=document.getElementById('bzsec'); if(!sec) return;
   if(!BZDATA.length){ sec.hidden=true; return; }
+  
   sec.hidden=false;
+  // 국가/제주 스코프 버튼
+  const sc=document.getElementById('bzscope');
+  if(sc && !sc.dataset.done){
+    sc.dataset.done='1';
+    sc.addEventListener('click',e=>{
+      const b=e.target.closest('button'); if(!b)return;
+      bzScope=b.dataset.s; bzType=''; bzOpen=false;
+      sc.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+      const ff=document.getElementById('bzfilter'); if(ff) ff.dataset.done='';
+      renderBZ();
+    });
+  }
+  const nN=BZDATA.filter(x=>x.sc==='nat').length, nJ=BZDATA.filter(x=>x.sc==='jj').length;
+  const eN=document.getElementById('bzn-nat'), eJ=document.getElementById('bzn-jj');
+  if(eN) eN.textContent=nN; if(eJ) eJ.textContent=nJ;
+  const scoped=BZDATA.filter(x=>x.sc===bzScope);
+  // 유형 필터 (스코프 안에서)
   const f=document.getElementById('bzfilter');
   if(f && !f.dataset.done){
-    const ts=[...new Set(BZDATA.map(x=>x.ty))].filter(Boolean);
-    f.innerHTML='<button data-t="" class="on">전체</button>'+
-      ts.map(t=>'<button data-t="'+orgEsc(t)+'">'+orgEsc(BZ_TYPE[t]||t)+'</button>').join('');
+    const cnt={}; scoped.forEach(x=>{cnt[x.ty]=(cnt[x.ty]||0)+1;});
+    const ts=['support','bid','recruit','contest','hiring'].filter(t=>cnt[t]);
+    f.innerHTML='<button data-t="" class="on">전체 '+scoped.length+'</button>'+
+      ts.map(t=>'<button data-t="'+orgEsc(t)+'">'+orgEsc(BZ_TYPE[t]||t)+' '+cnt[t]+'</button>').join('');
     f.dataset.done='1';
     f.addEventListener('click',e=>{
       const b=e.target.closest('button'); if(!b)return;
@@ -1540,7 +1598,7 @@ function renderBZ(){
       renderBZ();
     });
   }
-  const list=bzType?BZDATA.filter(x=>x.ty===bzType):BZDATA;
+  const list=bzType?scoped.filter(x=>x.ty===bzType):scoped;
   const c=document.getElementById('bzcnt'); if(c) c.textContent=list.length;
   const u=document.getElementById('bzupd');
   if(u) u.textContent='제주 비즈 플랫폼 자동수집 · 최근 갱신 '+String(BZDATA.updated||'').slice(0,10);
@@ -1780,7 +1838,7 @@ document.addEventListener('click',e=>{
     if(col)col.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});}
 });
 
-/* ══ 정책비서(법령) ══ */
+/* ══ 정책참고서(법령) ══ */
 const LAWTY={'국가법률':'#C2255C','법률':'#1B5FAF','시행령':'#0CA678','시행규칙':'#12B0C9','조례':'#E8590C','규칙':'#7B61FF','훈령':'#5C6784','예규':'#98A2B3'};
 let lawMax=6;
 let lawTy='';
@@ -1954,7 +2012,7 @@ if(_uniq)_uniq.addEventListener('input',e=>{
   let h='';
   if(r.pol.length)h+=`<div class="usec"><div class="ut">정책</div>`+r.pol.map(x=>{
     const f=F(x.f);return `<button class="urow" data-i2="${DATA.indexOf(x)}"><span class="ud" style="--c:${f.c}"></span>${x.t}</button>`;}).join('')+'</div>';
-  if(r.law.length)h+=`<div class="usec"><div class="ut">법규 — 정책비서</div>`+r.law.map(l=>
+  if(r.law.length)h+=`<div class="usec"><div class="ut">법규 — 정책참고서</div>`+r.law.map(l=>
     `<button class="urow" data-law="1">§ ${l.t}<span class="um">법규</span></button>`).join('')+'</div>';
   if(r.con.length)h+=`<div class="usec"><div class="ut">연락처 — 민원비서</div>`+r.con.map(({c})=>
     `<button class="urow" data-ask="${c.org} ${c.dept}">☎ ${c.org} · ${c.dept}<span class="um">${c.phone||'대표 경유'}</span></button>`).join('')+'</div>';
@@ -2458,7 +2516,7 @@ function pMatch(t){const tk=pTokens(t);
   });
   scored.sort((a,b)=>b.h-a.h||((b.n.d||'').localeCompare(a.n.d||'')));
   return scored.map(x=>x.n).slice(0,3);}
-/* 정책 미리내 — 정책비서 진입 시 iframe lazy load */
+/* 정책 미리내 — 정책참고서 진입 시 iframe lazy load */
 function loadMirinae(){
   const f=document.getElementById('mirinae-frame');
   if(f && !f.src){ f.src='mirinae3d.html'; }
