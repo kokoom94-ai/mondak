@@ -508,7 +508,10 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .schmain{flex:1 1 auto;display:flex;align-items:center;gap:6px;text-decoration:none;color:inherit;padding:8px 4px 8px 10px;min-width:0}
 .schhome{flex:0 0 auto;padding:8px 9px;text-decoration:none;font-size:13px;border-left:1px solid var(--line);opacity:.55}
 .schhome:hover{opacity:1;background:var(--bg)}
+.schc.nocode{background:var(--bg);border-style:dashed}
 .schc.nocode .schn{color:var(--sub)}
+.schmain.off{cursor:default}
+.schc.nocode:hover{border-color:var(--line);box-shadow:none}
 .schlv{flex:0 0 auto;font-size:10px;font-weight:800;color:#fff;border-radius:5px;padding:1px 5px}
 .schlv.l초{background:#E8734A}.schlv.l중{background:#2B6CE8}
 .schlv.l고{background:#0E7C7B}.schlv.l특{background:#7B61FF}
@@ -1802,13 +1805,14 @@ function renderSchools(){
   const el=document.getElementById('schlist'); if(!el) return;
   if(!list.length){ el.innerHTML='<div style="padding:18px;text-align:center;color:var(--sub);font-size:12.5px">검색 결과가 없습니다.</div>'; return; }
   el.innerHTML=list.slice(0,lim).map(x=>{
-    const href = x.code ? (SCH_LINK+encodeURIComponent(x.code))
-                        : (SCH_SEARCH+encodeURIComponent(x.name));
     const short=x.name.replace(/(초등학교|중학교|고등학교|학교)$/,'');
-    return '<div class="schc'+(x.code?'':' nocode')+'">'+
-      '<a class="schmain" href="'+href+'" target="_blank" rel="noopener">'+
-        '<span class="schlv l'+x.lv+'">'+x.lv+'</span>'+
-        '<span class="schn">'+orgEsc(short)+(x.branch?'<em>분교</em>':'')+'</span></a>'+
+    const inner='<span class="schlv l'+x.lv+'">'+x.lv+'</span>'+
+      '<span class="schn">'+orgEsc(short)+(x.branch?'<em>분교</em>':'')+'</span>';
+    // 학교식별코드가 있을 때만 공시정보 직링크 (없으면 비활성)
+    const main = x.code
+      ? '<a class="schmain" href="'+SCH_LINK+encodeURIComponent(x.code)+'" target="_blank" rel="noopener" title="학교알리미 공시정보">'+inner+'</a>'
+      : '<span class="schmain off" title="공시정보 준비 중">'+inner+'</span>';
+    return '<div class="schc'+(x.code?'':' nocode')+'">'+main+
       (x.site?'<a class="schhome" href="'+orgEsc(x.site)+'" target="_blank" rel="noopener" title="학교 홈페이지">🏠</a>':'')+
       '</div>';
   }).join('');
@@ -1820,7 +1824,9 @@ function renderSchools(){
     el.parentNode.insertBefore(b, el.nextSibling);
   }
   const sr=document.getElementById('schsrc');
-  if(sr&&SCHDATA.meta) sr.innerHTML='출처: 학교알리미 (공공누리 제1유형 출처표시) · 학교명을 누르면 <b>공시정보</b>(급식·학생수·수행평가 등), 🏠를 누르면 <b>학교 홈페이지</b>로 이동합니다';
+  if(sr&&SCHDATA.meta) {const nc=(SCHDATA.items||[]).filter(x=>!x.code).length;
+    sr.innerHTML='출처: 학교알리미 (공공누리 제1유형 출처표시) · 학교명을 누르면 <b>공시정보</b>(급식·학생수·수행평가 등), 🏠를 누르면 <b>학교 홈페이지</b>로 이동합니다'+
+      (nc?'<br>· 점선 표시 '+nc+'개교는 공시정보 연동 준비 중입니다.':'');}
 }
 document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
 let EDUDATA=null, eduLoading=false;
