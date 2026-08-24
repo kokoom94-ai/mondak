@@ -808,8 +808,9 @@ body{padding-bottom:78px}
       <span class="aichip" onclick="aiFill(this)">장애인 교통비 지원돼?</span>
     </div>
     <div class="ainote">
-      <p>*AI보부상은 계속 업데이트 중입니다. 답변이 어려운 경우도 있으니 참고 바랍니다.</p>
-      <p>*부적절 용어 및 욕설, 속어, 은어 등은 해석이 어려울 수 있으니 참고 바랍니다.</p>
+      <p>*AI보부상은 입력된 데이터 중심으로 답변하며, 미입력 데이터는 웹검색 기반으로 답변합니다.</p>
+      <p>*미입력 데이터의 경우는 답변이 부족할 수 있는 점 참고 바랍니다.</p>
+      <p>*계속 업데이트 중입니다. 부적절 용어 및 욕설, 속어, 은어 등은 지양해주시기 바랍니다.</p>
     </div>
     <div class="airesult" id="airesult"></div>
   </div>
@@ -893,7 +894,7 @@ body{padding-bottom:78px}
   </div>
 
   <div class="newssec" style="margin-top:26px">
-    <div class="dh"><h2>정책 미리내</h2><span class="sub">국정과제 ✦ 제주공약 연계</span></div>
+    <div class="dh"><h2>정책 미리내</h2><span class="sub">국정과제 ✦ 제주공약 연계 (민선9기 공약세부계획 10월 확정 예정)</span></div>
     <div style="font-size:11px;color:var(--sub);margin-top:2px">정부 123대 국정과제와 제주 민선9기 100대 공약이 어떻게 이어지는지 — 밤하늘의 은하수처럼 보는 정책 지도</div>
     <div class="mirinae-frame-wrap">
       <iframe id="mirinae-frame" title="정책 미리내" loading="lazy" src="" scrolling="no"></iframe>
@@ -1082,7 +1083,7 @@ body{padding-bottom:78px}
     · <b>제주 관할(도외 소재)</b> 표시는 제주에 청사가 없고 광주·부산 등에서 제주를 관할하는 기관입니다.<br>
     · 읍면동 누리집은 제주시 26곳·서귀포시 17곳 전부 연결했습니다.<br>
     · 국가공공기관은 제주지사 페이지가 별도로 없는 경우가 많아 <b>본사 누리집</b>으로 연결했습니다.<br>
-    · 전화번호는 각 기관 공식 누리집에서 확인한 대표번호입니다. 부서 직통은 <b>제주120(064-120)</b> 또는 각 기관 누리집을 이용해 주세요.<br>
+    · 기관 연락처는 각 기관 누리집 또는 <b>제주120(064-120)</b>을 이용해 주세요. AI보부상에게 물어보셔도 안내해 드립니다.<br>
     · 정부부처 조직도는 2026년 정부조직 개편(국가데이터처·기후에너지환경부 등)을 반영했습니다.
   </div>
 </div>
@@ -1674,8 +1675,7 @@ function orgBadges(o){
   if(o.hq) h+='<span class="obadge ob-hq">본사</span>';
   if(o.jurisdiction==='제주 관할(도외 소재)') h+='<span class="obadge ob-out">도외관할</span>';
   if(o.region==='서귀포시') h+='<span class="obadge ob-sg">서귀포</span>';
-  if(o.notice_level==='high') h+='<span class="obadge ob-nt">지원사업</span>';
-  return h;
+  return h;   /* 지원사업 뱃지는 챗봇·크롤러 내부용으로만 사용 */
 }
 function orgCard(o,cls){
   if(o.layer==='L8'){
@@ -1686,12 +1686,10 @@ function orgCard(o,cls){
   }
   const meta=[o.type,(o.fields||[])[0]].filter(Boolean).join(' · ');
   const bz=o.biz?'<div class="obiz">'+orgEsc(o.biz)+'</div>':'';
-  const phTxt = o.phone ? ('📞 '+orgEsc(o.phone)+(o.verified?'':' <span class="unvm">확인필요</span>')) : '';
+  /* 전화번호는 화면에 노출하지 않음 — 챗봇 답변용으로만 사용 */
   const inner='<div class="on">'+orgEsc(o.name)+'</div>'+
     (meta?'<div class="om">'+orgEsc(meta)+'</div>':'')+bz+
-    (phTxt ? (o.site
-        ? '<span class="otel'+(o.verified?'':' unv')+'">'+phTxt+'</span>'
-        : '<a class="otel'+(o.verified?'':' unv')+'" href="tel:'+orgEsc(o.phone)+'">'+phTxt+'</a>') : '')+
+
     orgBadges(o)+(o.site
       ?'<div class="lk">'+(o.site_scope==='본사'?'본사 누리집 →':'누리집 →')+'</div>'
       :'<div class="lk nolk">누리집 준비중</div>');
