@@ -165,6 +165,12 @@ html,body{height:100%;overflow:hidden;background:var(--deep);color:var(--star);
 .mgh h2{font-size:15px;font-weight:800}
 .mgh .cnt{margin-left:auto;font-size:11px;color:var(--sub)}
 .mpol{background:rgba(9,16,38,.55);border:1px solid var(--line);border-radius:13px;padding:12px 14px;margin-bottom:9px}
+.mpol.tap{cursor:pointer;position:relative;transition:.15s}
+.mpol.tap:active{transform:scale(.985)}
+.mpol.tap:hover{border-color:#F5A623}
+.tapmore{font-size:11px;color:#F5A623;font-weight:700;margin-top:7px;letter-spacing:-.2px}
+.mpol.only .tapmore{color:#4FD8C4}
+
 .mpol .pt{font-size:13.5px;font-weight:700;line-height:1.45}
 .mpol .link{display:flex;gap:7px;margin-top:9px;font-size:11.5px;line-height:1.5}
 .mpol .link .arr{color:var(--gov);flex:none;font-weight:800}
@@ -396,16 +402,22 @@ function buildMobile(){
       <h2>${grp.short}</h2><span class="cnt">${pols.length}개</span></div>`;
     pols.forEach(j=>{
       if(j.gov_no){
-        h+=`<div class="mpol"><div class="pt">${j.no}. ${esc(j.t)}</div>
-          <div class="link"><span class="arr">↳</span><span class="gv">국정 <b>${j.gov_no}</b> ${esc(j.gov_name)}<span style="opacity:.6"> · ${esc(j.gov_dept)}</span></span></div></div>`;
+        h+=`<div class="mpol tap" data-t="jeju" data-no="${j.no}" role="button" tabindex="0"><div class="pt">${j.no}. ${esc(j.t)}</div>
+          <div class="link"><span class="arr">↳</span><span class="gv">국정 <b>${j.gov_no}</b> ${esc(j.gov_name)}<span style="opacity:.6"> · ${esc(j.gov_dept)}</span></span></div><div class="tapmore">눌러서 세부내용 보기 →</div></div>`;
       }else{
-        h+=`<div class="mpol only"><div class="pt">${j.no}. ${esc(j.t)}</div><div class="otag">★ 제주가 앞서가는 고유 정책</div></div>`;
+        h+=`<div class="mpol only tap" data-t="jeju" data-no="${j.no}" role="button" tabindex="0"><div class="pt">${j.no}. ${esc(j.t)}</div><div class="otag">★ 제주가 앞서가는 고유 정책</div><div class="tapmore">눌러서 세부내용 보기 →</div></div>`;
       }
     });
     h+=`</div>`;
   });
   h+=`<div class="mfoot">참고 시각화 — 법률 자문이 아닌 참고용입니다<br>국정과제: 이재명정부 123대 국정과제 · 제주: 민선9기 100대 정책과제</div>`;
   m.innerHTML=h;
+  // 카드 탭 → 상세 모달 (PC의 openMapDetail 재사용)
+  m.querySelectorAll('.mpol[data-no]').forEach(el=>{
+    const go=()=>openMapDetail(el.dataset.t, +el.dataset.no);
+    el.addEventListener('click',go);
+    el.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+  });
 }
 
 /* ══════════════════════════════════════════
