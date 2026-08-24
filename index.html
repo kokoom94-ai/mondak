@@ -613,6 +613,22 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 
 
+
+/* 어절 단위 줄바꿈 — 모바일에서만 <br class="mbr"> 적용 */
+.mbr{display:none}
+@media(max-width:640px){
+  .mbr{display:inline}
+  /* 제목류는 균형 잡힌 줄바꿈 (지원 브라우저) */
+  h1,h2,h3,.viewtitle,.pb-t,.dh h2,.orgsec h3,.edusec h3,.bgt,.nft{
+    text-wrap:balance; word-break:keep-all;
+  }
+  /* 본문류는 마지막 줄에 한 단어만 남지 않게 */
+  p,.viewsub,.pb-d,.secd,.obiz,.epl-d,.eun-d,.bgsum,.bgins,
+  .orgnote,.edusrc,.plannote,.bznote,.ainote p,.notecard{
+    text-wrap:pretty; word-break:keep-all;
+  }
+}
+
 /* 티커 모바일 겹침 방지 */
 @media(max-width:640px){
   .tickrow{gap:0}
@@ -1008,7 +1024,7 @@ body{padding-bottom:78px}
 
   <!-- ── AI 챗봇 히어로 ── -->
   <div class="aihero">
-    <h2>제주 정책, AI보부상으로 검색하세요</h2>
+    <h2>제주 정책,<br class="mbr"> AI보부상으로<br class="mbr"> 검색하세요</h2>
     <div class="sub">지원사업·정책을 찾지 말고, 물어보고 받아보세요</div>
     <div class="aibox">
       <textarea id="aiq" rows="1" placeholder="예) 어르신이 받을 수 있는 지원이 있을까요?"></textarea>
@@ -1064,7 +1080,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">호외요, 호외!</div>
-  <div class="viewsub">이번 주 인기뉴스 · 언론으로 알아보는 제주소식(최근 2주) — 전부 원문 직링크</div>
+  <div class="viewsub">이번 주 인기뉴스 · 언론으로 알아보는 제주소식(최근 2주)<br class="mbr">— 전부 원문 직링크</div>
   <div class="metarow" style="margin-top:6px"><span class="livebadge" id="newsbadge">기사 원문 직링크 · 하루 3회 자동 수집</span></div>
 
   <div class="rankcard" style="margin-top:14px">
@@ -1086,7 +1102,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">정책참고서</div>
-  <div class="viewsub">제주 특별법·시행령·조례·규칙과 제주 정책의 근거가 되는 국가법률을 한눈에 — 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
+  <div class="viewsub">제주 특별법·시행령·조례·규칙과 제주 정책의 근거가 되는 국가법률을 한눈에<br class="mbr">— 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
   <div class="metarow" style="margin-top:6px"><span class="livebadge" id="lawsrc">큐레이션 14건 · 법제처 API 연동 대기</span></div>
   <div class="lawchips" id="lawchips"></div>
   <div class="uni" style="margin-top:10px">
@@ -1107,7 +1123,7 @@ body{padding-bottom:78px}
   </div>
 
   <div class="newssec" style="margin-top:26px">
-    <div class="dh"><h2>정책 미리내</h2><span class="sub">국정과제 ✦ 제주공약 연계 (민선9기 공약세부계획 10월 확정 예정)</span></div>
+    <div class="dh"><h2>정책 미리내</h2><span class="sub">국정과제 ✦ 제주공약 연계<br class="mbr">(민선9기 공약세부계획 10월 확정 예정)</span></div>
     <div style="font-size:11px;color:var(--sub);margin-top:2px">정부 123대 국정과제와 제주 민선9기 100대 공약이 어떻게 이어지는지 — 밤하늘의 은하수처럼 보는 정책 지도</div>
     <div class="mirinae-frame-wrap">
       <iframe id="mirinae-frame" title="정책 미리내" loading="lazy" src="" scrolling="no"></iframe>
@@ -1122,8 +1138,8 @@ body{padding-bottom:78px}
       <div class="pb-ico">🗺️</div>
       <div class="pb-txt">
         <span class="pb-badge">참고 자료</span>
-        <div class="pb-t">한 장으로 끝내는 대한민국 제도 지도 <span style="font-size:14px">↗</span></div>
-        <div class="pb-d">대한민국 제도 100선을 한눈에 — 행정안전부 서호성님 제작</div>
+        <div class="pb-t">한 장으로 끝내는<br class="mbr">대한민국 제도 지도 <span style="font-size:14px">↗</span></div>
+        <div class="pb-d">대한민국 제도 100선을 한눈에<br class="mbr"> — 행정안전부 서호성님 제작</div>
       </div>
       <span class="pb-go">바로가기</span>
     </div>
@@ -1147,7 +1163,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">동네의원</div>
-  <div class="viewsub">병 고치는 동네의원처럼, 제주를 돌보는 국회의원·도의원 활동 알리미</div>
+  <div class="viewsub">병 고치는 동네의원처럼,<br class="mbr">제주를 돌보는 국회의원·도의원 활동 알리미</div>
 
   <div class="csec">
     <div class="dh"><h2>제주 국회의원 현황</h2><span class="sub" id="npmeta">제22대 · 2022년 이후 입법활동</span></div>
@@ -1179,7 +1195,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">주목합써</div>
-  <div class="viewsub">공공 지원사업을 내 상황에 맞게 — 국가/제주 지원사업을 한 곳에 모았습니다.</div>
+  <div class="viewsub">공공 지원사업을 내 상황에 맞게<br class="mbr">— 국가/제주 지원사업을 한 곳에 모았습니다.</div>
 
   <!-- ① 제주 비즈 플랫폼 (최상단) -->
   <a class="portalbanner bizbn" href="https://kokoom94-ai.github.io/jeju-biz-platform/" target="_blank" rel="noopener">
@@ -1188,7 +1204,7 @@ body{padding-bottom:78px}
       <div class="pb-txt">
         <span class="pb-badge">기업·소상공인</span>
         <div class="pb-t">제주 비즈 플랫폼 <span style="font-size:14px">↗</span></div>
-        <div class="pb-d">도내 기관 지원사업 공고를 매일 자동 수집합니다</div>
+        <div class="pb-d">도내 기관 지원사업 공고를<br class="mbr">매일 자동 수집합니다</div>
       </div>
       <div class="pb-go">바로가기</div>
     </div>
@@ -1225,8 +1241,8 @@ body{padding-bottom:78px}
       <div class="pb-ico">🗂️</div>
       <div class="pb-txt">
         <span class="pb-badge">제주도 공식 신청창구</span>
-        <div class="pb-t">맞춤형 지원서비스 신청포털 <span style="font-size:14px">↗</span></div>
-        <div class="pb-d">여기서 확인한 사업을 실제로 신청할 수 있어요 · 정부24 연계</div>
+        <div class="pb-t">맞춤형 지원서비스<br class="mbr">신청포털 <span style="font-size:14px">↗</span></div>
+        <div class="pb-d">여기서 확인한 사업을 실제로<br class="mbr">신청할 수 있어요 · 정부24 연계</div>
       </div>
       <div class="pb-go">바로가기</div>
     </div>
@@ -1268,7 +1284,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">교육정책</div>
-  <div class="viewsub">제주특별자치도교육청 — 교육감 · 공약 · 조직 · 예산 (공약 세부계획 10월 확정 예정)</div>
+  <div class="viewsub">제주특별자치도교육청 — 교육감 · 공약 · 조직 · 예산<br class="mbr">(공약 세부계획 10월 확정 예정)</div>
 
   <div id="edubody"></div>
 
@@ -1285,7 +1301,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">공공조직도</div>
-  <div class="viewsub">제주에 어떤 공공기관·관공서가 있는지 한자리에서 봅니다. 기관명을 누르면 홈페이지로 이동합니다.</div>
+  <div class="viewsub">제주에 어떤 공공기관·관공서가 있는지 한자리에서 봅니다.<br class="mbr">기관명을 누르면 홈페이지로 이동합니다.</div>
   <div id="orgstrip" class="orgstrip"></div>
   <input id="orgq" class="orgsearch" type="search" placeholder="기관명 검색 (예: 테크노파크, 고용노동, 세무)" autocomplete="off">
   <div id="orgbody"></div>
@@ -1306,7 +1322,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">보부상위키</div>
-  <div class="viewsub">보부상위키 — 제주위키의 도민판. 용어를 누르면 세 줄 설명이 뜹니다.</div>
+  <div class="viewsub">보부상위키 — 제주위키의 도민판.<br class="mbr">용어를 누르면 세 줄 설명이 뜹니다.</div>
   <div class="rankcard">
     <h2>제주 정책 기사 빈출 단어 TOP 20 <span style="font-size:11px;color:var(--sub);font-weight:500">시연 집계</span></h2>
     <div id="wordrank"></div>
@@ -1323,7 +1339,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">제주 정책 궤도</div>
-  <div class="viewsub">기관 층위(안쪽부터 읍면동 → 행정시 → 도청 → 도의회)와 8개 분야로 도정 전체를 조감합니다</div>
+  <div class="viewsub">기관 층위(안쪽부터 읍면동 → 행정시 → 도청 → 도의회)와<br class="mbr">8개 분야로 도정 전체를 조감합니다</div>
   <div class="obox">
     <canvas id="orbit" aria-label="기관별 분야별 정책 궤도"></canvas>
     <div class="legendrings"><span>안쪽부터 —</span><span><b>읍면동</b></span><span><b>행정시</b></span><span><b>도청</b></span><span><b>도의회</b> 입법·감시</span></div>
@@ -1759,7 +1775,7 @@ function show(v,push=true){
   });
   closeDrawer();window.scrollTo(0,0);
   if(push){
-    if(v==='home')history.pushState({v:'home'},'','#home');
+    if(v==='home')history.pushState({v:'home'},'',location.pathname);
     else history.pushState({v},'','#'+v);
   }
   if(v==='orbit')requestAnimationFrame(()=>drawOrbit(DATA.slice()));
@@ -2273,7 +2289,7 @@ function loadPlan(){
     }
   },8000);
 }
-history.replaceState({v:'home'},'','#home');
+history.replaceState({v:'home'},'',location.pathname);
 window.addEventListener('popstate',e=>{
   show((e.state&&e.state.v)||'home',false);
 });
