@@ -2,14 +2,23 @@ name: 관광 API 접근 테스트
 
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: '실행 모드'
+        required: true
+        default: 'explore'
+        type: choice
+        options:
+          - probe
+          - explore
 
 jobs:
-  probe:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: API 접근 테스트
-        run: python scripts/probe_tourism.py
+      - name: 실행
+        run: python scripts/${{ inputs.mode }}_tourism.py
