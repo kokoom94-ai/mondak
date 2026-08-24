@@ -31,15 +31,33 @@
   "note_first": "제주 최초 민선 여성 교육감",
   "edu": "제주교육대학교 교육대학원 졸업 (교육학 석사)",
   "career": [
-   "전) 제12대 제주특별자치도의회 교육의원",
-   "전) 남광초등학교 교감"
+   "제12대 제주특별자치도의회 교육의원",
+   "남광초등학교 교감",
+   "탐라교육원 교육연구사",
+   "제주특별자치도교육청 정책기획과 장학사"
   ],
-  "vote": {
-   "count": 149802,
-   "rate": 48.08
-  },
   "site": "https://www.jje.go.kr/",
-  "source": "중앙선거관리위원회 선거통계시스템 — 제9회 전국동시지방선거 당선인 명부"
+  "source": "제주특별자치도교육청",
+  "edu_history": [
+   "서귀중앙초등학교",
+   "서귀중앙여자중학교",
+   "서귀포여자고등학교",
+   "제주교육대학교",
+   "제주교육대학교 교육대학원 교육학 석사"
+  ],
+  "career_teacher": [
+   "보목초",
+   "서귀중앙초",
+   "수산초",
+   "영평초",
+   "제주중앙초",
+   "광양초",
+   "구좌중앙초",
+   "함덕초",
+   "한림초",
+   "이도초"
+  ],
+  "career_teacher_label": "초등학교 교사 (10개교)"
  },
  "pledges": [
   {
@@ -313,7 +331,8 @@
    ],
    "series_note": "2023~2025년 값은 그래프에서 읽은 근사치로, 확인 후 갱신 예정"
   },
-  "insight": "제주특별자치도교육청은 세출예산의 5.4%를 교육일반에 씁니다. 전국 평균 4.2%보다 1.2%p 높아 17개 교육청 중 비중 3위입니다."
+  "insight": "제주특별자치도교육청은 세출예산의 5.4%를 교육일반에 씁니다. 전국 평균 4.2%보다 1.2%p 높아 17개 교육청 중 비중 3위입니다.",
+  "show_rank_badge": false
  },
  "org": {
   "status": "pending",
@@ -321,8 +340,76 @@
   "items": []
  },
  "programs": {
-  "status": "pending",
-  "note": "지원·입찰·공모 공고 수집 연동 예정",
-  "items": []
- }
+  "status": "active",
+  "note": "제주특별자치도교육청 공식 게시판 — 원문으로 연결됩니다",
+  "items": [
+   {
+    "name": "공지사항",
+    "desc": "교육청 새소식·안내",
+    "icon": "📣",
+    "url": "https://www.jje.go.kr/board/list.jje?boardId=BBS_0000017&menuCd=DOM_000000103001001000&contentsSid=1524&cpath="
+   },
+   {
+    "name": "입찰공고",
+    "desc": "계약정보공개 · 입찰정보",
+    "icon": "📋",
+    "url": "https://www.jje.go.kr/board/list.jje?boardId=BBS_0000087&menuCd=DOM_000000105003002001&contentsSid=1081&cpath="
+   },
+   {
+    "name": "발주계획",
+    "desc": "계약정보공개 · 수기공개",
+    "icon": "🗂",
+    "url": "https://www.jje.go.kr/board/list.jje?boardId=BBS_0000086&menuCd=DOM_000000105003001002&contentsSid=2173&cpath="
+   },
+   {
+    "name": "학교별 교육계획",
+    "desc": "2026학년도 학교교육계획",
+    "icon": "🏫",
+    "url": "https://www.jje.go.kr/board/list.jje?boardId=BBS_0000095&menuCd=DOM_000000104001001000&searchTypeEtc1=TMP_FIELD3&keywordEtc1=2026"
+   },
+   {
+    "name": "주요업무",
+    "desc": "부서별 주요업무계획",
+    "icon": "📌",
+    "url": "https://www.jje.go.kr/major/index.jje"
+   },
+   {
+    "name": "교육감 공약",
+    "desc": "공약 이행계획 (10월 확정 예정)",
+    "icon": "🎯",
+    "url": "https://www.jje.go.kr/index.jje?menuCd=DOM_000001103001000000"
+   }
+  ]
+ },
+ "universities": [
+  {
+   "name": "제주대학교",
+   "type": "국립 4년제",
+   "region": "제주시 아라동",
+   "note": "제주 유일 국립 종합대학 · 로스쿨·의대 보유",
+   "site": "https://www.jejunu.ac.kr/"
+  },
+  {
+   "name": "제주한라대학교",
+   "type": "사립 전문대",
+   "region": "제주시 노형동",
+   "note": "제주특별법으로 2·3·4년제 통합 운영",
+   "site": "https://www.chu.ac.kr/"
+  },
+  {
+   "name": "제주국제대학교",
+   "type": "사립 4년제",
+   "region": "제주시 영평동",
+   "note": "2012년 탐라대와 통폐합",
+   "site": "https://www.jeju.ac.kr/"
+  },
+  {
+   "name": "한국폴리텍대학 제주캠퍼스",
+   "type": "국책 특수대",
+   "region": "제주시 산천단",
+   "note": "기술·직업교육 특화",
+   "site": "https://www.kopo.ac.kr/jeju/"
+  }
+ ],
+ "univ_note": "도내 고등교육기관 현황입니다. 초·중·고 현황은 학교알리미 연동 예정입니다."
 }
