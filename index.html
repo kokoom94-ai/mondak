@@ -2328,16 +2328,20 @@ document.addEventListener('click',e=>{
   if(c){supWho=c.dataset.sw||null;renderSupport();}
 });
 
-/* ══ 교육 ══ */
-document.getElementById('edulist').innerHTML=EDU.map(x=>
-  `<div class="edurow"><span class="ddot" style="--c:#C99AF2"></span>
-   <span class="et">${x.t}</span><span class="ed">${x.d.slice(5).replace('-','.')}</span></div>`).join('');
+/* ══ 교육 ══ (교육정책 개편으로 edulist 제거됨 — 요소 있을 때만) */
+{ const _el=document.getElementById('edulist');
+  if(_el) _el.innerHTML=EDU.map(x=>
+    `<div class="edurow"><span class="ddot" style="--c:#C99AF2"></span>
+     <span class="et">${x.t}</span><span class="ed">${x.d.slice(5).replace('-','.')}</span></div>`).join('');
+}
 
 /* ══ 제도설명 ══ */
-document.getElementById('wordrank').innerHTML=WORDS.map((w,i)=>
-  `<div class="rankrow"><span class="rk">${i+1}</span>
-   <span>${WIKI[w[0]]?`<w data-w="${w[0]}">${w[0]}</w>`:w[0]}</span>
-   <span class="rn">${w[1]}회</span></div>`).join('');
+{ const _wr=document.getElementById('wordrank');
+  if(_wr) _wr.innerHTML=WORDS.map((w,i)=>
+    `<div class="rankrow"><span class="rk">${i+1}</span>
+     <span>${WIKI[w[0]]?`<w data-w="${w[0]}">${w[0]}</w>`:w[0]}</span>
+     <span class="rn">${w[1]}회</span></div>`).join('');
+}
 
 /* ══ 탐색 ══ */
 function xfiltered(){
@@ -2474,14 +2478,16 @@ document.addEventListener('click',e=>{
   if(t){e.stopPropagation();showWiki(t.dataset.w,e.clientX,e.clientY);}
   else if(!e.target.closest('#wikipop'))pop.style.display='none';
 });
-Object.keys(WIKI).filter(k=>k!=='예시용어').forEach(k=>{
-  const b=document.createElement('button');b.textContent=k;
-  b.onclick=e=>{e.stopPropagation();const r=b.getBoundingClientRect();showWiki(k,r.left,r.bottom)};
-  document.getElementById('wikigrid').appendChild(b);
-});
+{ const _wg=document.getElementById('wikigrid');
+  if(_wg) Object.keys(WIKI).filter(k=>k!=='예시용어').forEach(k=>{
+    const b=document.createElement('button');b.textContent=k;
+    b.onclick=e=>{e.stopPropagation();const r=b.getBoundingClientRect();showWiki(k,r.left,r.bottom)};
+    _wg.appendChild(b);
+  });
+}
 
 /* ══ 궤도 ══ */
-const cv=document.getElementById('orbit'),ctx=cv.getContext('2d'),tip=document.getElementById('tip');
+const cv=document.getElementById('orbit'),ctx=cv?cv.getContext('2d'):null,tip=document.getElementById('tip');
 let dots=[];
 function drawOrbit(rows){
   const dpr=window.devicePixelRatio||1;
