@@ -497,6 +497,41 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .eso-d{font-size:11.5px;color:var(--sub);margin-top:2px;line-height:1.5}
 @media(max-width:520px){.ep-l{flex:0 0 100%}.ep-nm{font-size:19px}}
 
+.epteach{margin-top:6px;padding:7px 9px;background:var(--bg);border:1px solid var(--line);border-radius:9px;font-size:11.5px;color:var(--sub);line-height:1.6}
+.epteach b{color:var(--navy);font-size:11px}
+.schtabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:4px}
+.schtabs button{font-size:12px;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:20px;padding:5px 12px;cursor:pointer;font-weight:600}
+.schtabs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.schgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:6px}
+.schc{display:flex;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;transition:.13s;overflow:hidden}
+.schc:hover{border-color:var(--gyul);box-shadow:0 2px 8px rgba(240,138,36,.12)}
+.schmain{flex:1 1 auto;display:flex;align-items:center;gap:6px;text-decoration:none;color:inherit;padding:8px 4px 8px 10px;min-width:0}
+.schhome{flex:0 0 auto;padding:8px 9px;text-decoration:none;font-size:13px;border-left:1px solid var(--line);opacity:.55}
+.schhome:hover{opacity:1;background:var(--bg)}
+.schc.nocode .schn{color:var(--sub)}
+.schlv{flex:0 0 auto;font-size:10px;font-weight:800;color:#fff;border-radius:5px;padding:1px 5px}
+.schlv.l초{background:#E8734A}.schlv.l중{background:#2B6CE8}
+.schlv.l고{background:#0E7C7B}.schlv.l특{background:#7B61FF}
+.schn{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.3;word-break:keep-all}
+.schn em{font-size:9.5px;font-style:normal;color:var(--sub);margin-left:3px}
+.schmore{width:100%;margin-top:8px;padding:9px;border:1px dashed var(--line);background:transparent;border-radius:11px;color:var(--sub);font-size:12.5px;cursor:pointer}
+.schmore:hover{border-color:var(--gyul);color:var(--gyul)}
+@media(max-width:520px){.schgrid{grid-template-columns:repeat(auto-fill,minmax(108px,1fr))}}
+.edupg{display:flex;flex-direction:column;gap:7px}
+.epg{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;transition:.14s}
+.epg:hover{border-color:var(--gyul);box-shadow:0 3px 12px rgba(240,138,36,.13)}
+.epg-t{font-size:14px;font-weight:700;color:var(--ink)}
+.epg-d{font-size:12px;color:var(--sub);margin-top:3px;line-height:1.5}
+.epg-k{font-size:11px;color:var(--gyul);font-weight:700;margin-top:6px}
+.eduniv{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.eun{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 13px;transition:.14s}
+.eun:hover{border-color:var(--gyul);box-shadow:0 3px 12px rgba(240,138,36,.13);transform:translateY(-1px)}
+.eun-t{font-size:14px;font-weight:700;color:var(--ink);word-break:keep-all}
+.eun-m{font-size:11.5px;color:var(--navy);margin-top:3px}
+.eun-d{font-size:11.5px;color:var(--sub);margin-top:4px;line-height:1.5;word-break:keep-all}
+.eun-k{font-size:10.5px;color:var(--gyul);font-weight:700;margin-top:6px}
+@media(max-width:520px){.eduniv{grid-template-columns:1fr}}
+
 /* 교육 예산 */
 .bgsum{font-size:13.5px;color:var(--ink);background:#EAF0FB;border:1px solid #CBD9F0;border-radius:13px;padding:12px 14px;line-height:1.6;word-break:keep-all}
 .bgsum b{color:var(--navy)}
@@ -520,8 +555,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .bgc .pc{font-weight:800;min-width:56px;text-align:right;white-space:nowrap}
 .bgc.up .pc{color:#2E7D32}.bgc.dn .pc{color:#C6392F}
 .bgrank{margin-top:9px;background:linear-gradient(135deg,#1B2A4A,#2d4270);border-radius:14px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.bgr-l{display:flex;align-items:center;gap:11px}
-.bgr-no{font-size:26px;font-weight:800;color:var(--gyul);line-height:1}
+.bgr-l{display:flex;align-items:center}
 .bgr-t{font-size:14px;color:#fff;font-weight:700}
 .bgr-t b{color:var(--gyul)}
 .bgr-d{font-size:11px;color:#B9C2D4;margin-top:2px}
@@ -551,7 +585,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .bgtb span{display:block;width:100%;background:linear-gradient(180deg,#4E8CF0,#2B6CE8);border-radius:5px 5px 0 0}
 .bgty{font-size:10.5px;color:var(--sub);margin-top:4px}
 .bgnote2{font-size:10.5px;color:var(--sub);margin-top:8px;line-height:1.5}
-@media(max-width:520px){.bgr-no{font-size:22px}.bgtv{font-size:9px}.bgtr{font-size:12px}.bgtr .c2{font-size:11.5px}}
+@media(max-width:520px){.bgtv{font-size:9px}.bgtr{font-size:12px}.bgtr .c2{font-size:11.5px}}
 
 /* ===== 공공조직도 ===== */
 /* 카드 기본 — 반드시 변형(.govc/.kidc 등)보다 먼저 선언 */
@@ -1730,6 +1764,65 @@ function renderBZ(){
     el.parentNode.insertBefore(b, el.nextSibling);
   }
 }
+let SCHDATA=null, schLv='초', schOpen=false;
+const SCH_LINK='https://www.schoolinfo.go.kr/ei/ss/Pneiss_b01_s0.do?SHL_IDF_CD=';
+const SCH_SEARCH='https://www.schoolinfo.go.kr/ng/go/pnnggo_a01_l0.do?SEARCH_KEYWORD=';
+function loadSchools(){
+  if(SCHDATA){ renderSchools(); return; }
+  fetch('data/schools.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+    SCHDATA=d; renderSchools();
+  }).catch(()=>{
+    const el=document.getElementById('schlist');
+    if(el) el.innerHTML='<div style="padding:20px;text-align:center;color:var(--sub);font-size:12.5px">학교 정보를 불러오지 못했습니다.</div>';
+  });
+}
+function renderSchools(){
+  if(!SCHDATA) return;
+  const all=SCHDATA.items||[];
+  const tb=document.getElementById('schtabs');
+  if(tb && !tb.dataset.done){
+    const lvs=[['초','초등'],['중','중학'],['고','고교'],['특','특수·기타']];
+    tb.innerHTML=lvs.map(([k,l])=>{
+      const n=all.filter(x=>x.lv===k).length;
+      return '<button data-lv="'+k+'"'+(k===schLv?' class="on"':'')+'>'+l+' '+n+'</button>';
+    }).join('');
+    tb.dataset.done='1';
+    tb.addEventListener('click',e=>{
+      const b=e.target.closest('button'); if(!b)return;
+      schLv=b.dataset.lv; schOpen=false;
+      tb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+      renderSchools();
+    });
+  }
+  const q=(document.getElementById('schq')?.value||'').trim();
+  let list=all.filter(x=>x.lv===schLv);
+  if(q) list=all.filter(x=>x.name.indexOf(q)>=0);
+  const c=document.getElementById('schcnt'); if(c) c.textContent=list.length+'교';
+  const lim=(q||schOpen)?list.length:24;
+  const el=document.getElementById('schlist'); if(!el) return;
+  if(!list.length){ el.innerHTML='<div style="padding:18px;text-align:center;color:var(--sub);font-size:12.5px">검색 결과가 없습니다.</div>'; return; }
+  el.innerHTML=list.slice(0,lim).map(x=>{
+    const href = x.code ? (SCH_LINK+encodeURIComponent(x.code))
+                        : (SCH_SEARCH+encodeURIComponent(x.name));
+    const short=x.name.replace(/(초등학교|중학교|고등학교|학교)$/,'');
+    return '<div class="schc'+(x.code?'':' nocode')+'">'+
+      '<a class="schmain" href="'+href+'" target="_blank" rel="noopener">'+
+        '<span class="schlv l'+x.lv+'">'+x.lv+'</span>'+
+        '<span class="schn">'+orgEsc(short)+(x.branch?'<em>분교</em>':'')+'</span></a>'+
+      (x.site?'<a class="schhome" href="'+orgEsc(x.site)+'" target="_blank" rel="noopener" title="학교 홈페이지">🏠</a>':'')+
+      '</div>';
+  }).join('');
+  const old=el.parentNode.querySelector('.schmore'); if(old) old.remove();
+  if(!q && list.length>lim){
+    const b=document.createElement('button');
+    b.className='schmore'; b.textContent='+ '+(list.length-lim)+'교 더 보기';
+    b.onclick=()=>{schOpen=true;renderSchools();};
+    el.parentNode.insertBefore(b, el.nextSibling);
+  }
+  const sr=document.getElementById('schsrc');
+  if(sr&&SCHDATA.meta) sr.innerHTML='출처: 학교알리미 (공공누리 제1유형 출처표시) · 학교명을 누르면 <b>공시정보</b>(급식·학생수·수행평가 등), 🏠를 누르면 <b>학교 홈페이지</b>로 이동합니다';
+}
+document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
 let EDUDATA=null, eduLoading=false;
 function loadEdu(){
   if(EDUDATA||eduLoading){ if(EDUDATA) renderEdu(); return; }
@@ -1787,7 +1880,7 @@ function renderEduBudget(b){
   // ④ 전국 비교
   const j=b.jeju||{};
   if(j.rank_item){
-    h+='<div class="bgrank"><div class="bgr-l"><span class="bgr-no">#'+j.rank_item+'</span>'+
+    h+='<div class="bgrank"><div class="bgr-l">'+
        '<div><div class="bgr-t">전국 17개 교육청 중 <b>'+j.rank_item+'위</b></div>'+
        '<div class="bgr-d">'+orgEsc(b.rank_item)+' 예산 기준</div></div></div>'+
        '<div class="bgr-r"><div class="bgr-b"><span>해당 항목</span><b>'+Number(j.item_eok).toLocaleString()+'억 원</b></div>'+
@@ -1843,9 +1936,10 @@ function renderEdu(){
      '<div class="ep-r"><table class="eputbl">'+
      (sp.term?'<tr><th>임기</th><td>'+orgEsc(sp.term)+'</td></tr>':'')+
      (sp.birth?'<tr><th>생년월일</th><td>'+orgEsc(sp.birth)+'</td></tr>':'')+
-     (sp.edu?'<tr><th>학력</th><td>'+orgEsc(sp.edu)+'</td></tr>':'')+
-     ((sp.career&&sp.career.length)?'<tr><th>주요경력</th><td>'+sp.career.map(orgEsc).join('<br>')+'</td></tr>':'')+
-     ((sp.vote&&sp.vote.count)?'<tr><th>득표</th><td>'+Number(sp.vote.count).toLocaleString()+'표 ('+sp.vote.rate+'%)</td></tr>':'')+
+     ((sp.edu_history&&sp.edu_history.length)?'<tr><th>학력</th><td>'+sp.edu_history.map(orgEsc).join('<br>')+'</td></tr>':'')+
+     ((sp.career&&sp.career.length)?'<tr><th>주요경력</th><td>'+sp.career.map(orgEsc).join('<br>')+
+        ((sp.career_teacher&&sp.career_teacher.length)?'<div class="epteach"><b>'+orgEsc(sp.career_teacher_label||'교사 경력')+'</b><br>'+sp.career_teacher.map(orgEsc).join(' · ')+'</div>':'')+
+        '</td></tr>':'')+
      '</table></div></div>'+
      (sp.source?'<div class="edusrc">출처: '+orgEsc(sp.source)+'</div>':'')+'</div>';
   // 주요 공약
@@ -1863,14 +1957,45 @@ function renderEdu(){
   }
   // 예산
   h+=renderEduBudget(EDUDATA.budget);
+  // 주요 추진사업
+  const pg=EDUDATA.programs||{};
+  if(pg.items&&pg.items.length){
+    h+='<div class="edusec"><h3>📢 주요 추진사업</h3><div class="edupg">';
+    pg.items.forEach(x=>{
+      h+='<a class="epg" href="'+orgEsc(x.url)+'" target="_blank" rel="noopener">'+
+         '<div class="epg-t">'+(x.icon?orgEsc(x.icon)+' ':'')+orgEsc(x.name)+'</div>'+
+         (x.desc?'<div class="epg-d">'+orgEsc(x.desc)+'</div>':'')+
+         '<div class="epg-k">바로가기 →</div></a>';
+    });
+    h+='</div>'+(pg.note?'<div class="edusrc">'+orgEsc(pg.note)+'</div>':'')+'</div>';
+  }
+  // 대학 현황
+  const uv=EDUDATA.universities||[];
+  if(uv.length){
+    h+='<div class="edusec"><h3>🎓 제주 대학 현황 <span class="cnt">'+uv.length+'곳</span></h3><div class="eduniv">';
+    uv.forEach(u=>{
+      h+='<a class="eun" href="'+orgEsc(u.site)+'" target="_blank" rel="noopener">'+
+         '<div class="eun-t">'+orgEsc(u.name)+'</div>'+
+         '<div class="eun-m">'+orgEsc(u.type)+' · '+orgEsc(u.region)+'</div>'+
+         (u.note?'<div class="eun-d">'+orgEsc(u.note)+'</div>':'')+
+         '<div class="eun-k">누리집 →</div></a>';
+    });
+    h+='</div>'+(EDUDATA.univ_note?'<div class="edusrc">'+orgEsc(EDUDATA.univ_note)+'</div>':'')+'</div>';
+  }
+  // 초·중·고 현황
+  h+='<div class="edusec"><h3>🏫 제주 초·중·고 <span class="cnt" id="schcnt">—</span></h3>'+
+     '<div class="schtabs" id="schtabs"></div>'+
+     '<input id="schq" class="orgsearch" type="search" placeholder="학교명 검색 (예: 화북, 오현)" autocomplete="off">'+
+     '<div id="schlist" class="schgrid"></div>'+
+     '<div class="edusrc" id="schsrc"></div></div>';
   // 준비 중 영역
-  const soon=[['🏛','제주교육청 조직도',(EDUDATA.org||{}).note],
-              ['📢','주요 추진사업 (지원·입찰·공모)',(EDUDATA.programs||{}).note]];
+  const soon=[['🏛','제주교육청 조직도',(EDUDATA.org||{}).note]];
   h+='<div class="edusec"><h3>준비 중</h3><div class="edusoon">';
   soon.forEach(x=>{ h+='<div class="eso"><span class="eso-i">'+x[0]+'</span><div><div class="eso-t">'+orgEsc(x[1])+'</div>'+
     (x[2]?'<div class="eso-d">'+orgEsc(x[2])+'</div>':'')+'</div></div>'; });
   h+='</div></div>';
   b.innerHTML=h;
+  loadSchools();
   const mb=document.getElementById('bgmore');
   if(mb) mb.addEventListener('click',()=>{
     document.querySelectorAll('#bgtbl .bgtr.hid').forEach(x=>x.classList.remove('hid'));
