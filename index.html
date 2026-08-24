@@ -5,6 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
 <title>AI 제주정책 보부상 — 제주 정책·민원 데이터베이스</title>
+<link rel="canonical" href="https://kokoom94-ai.github.io/mondak/">
+<meta name="description" content="도민의 혜택을 짊어지고 찾아가는 정책 길잡이 — 제주 지원사업·법령·조례·공공기관을 한 곳에서 찾고, AI에게 물어보세요.">
+<meta name="author" content="AI 제주정책 보부상">
+<meta name="theme-color" content="#1B2A4A">
+<!-- 공유 미리보기 (카카오톡·페이스북·스레드 등) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI 제주정책 보부상">
+<meta property="og:title" content="AI 제주정책 보부상">
+<meta property="og:description" content="도민의 혜택을 짊어지고 찾아가는 정책 길잡이 — 제주 지원사업·법령·조례·공공기관을 한 곳에서 찾고, AI에게 물어보세요.">
+<meta property="og:url" content="https://kokoom94-ai.github.io/mondak/">
+<meta property="og:image" content="https://kokoom94-ai.github.io/mondak/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 제주정책 보부상">
+<meta name="twitter:description" content="도민의 혜택을 짊어지고 찾아가는 정책 길잡이 — 제주 지원사업·법령·조례·공공기관을 한 곳에서 찾고, AI에게 물어보세요.">
+<meta name="twitter:image" content="https://kokoom94-ai.github.io/mondak/assets/og.png">
+<!-- 파비콘 (SVG 인라인 — 별도 파일 불필요) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B2A4A'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23F08A24' font-family='sans-serif' font-weight='bold'%3E%EB%B3%B4%3C/text%3E%3C/svg%3E">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
@@ -589,6 +610,77 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .bgty{font-size:10.5px;color:var(--sub);margin-top:4px}
 .bgnote2{font-size:10.5px;color:var(--sub);margin-top:8px;line-height:1.5}
 @media(max-width:520px){.bgtv{font-size:9px}.bgtr{font-size:12px}.bgtr .c2{font-size:11.5px}}
+
+
+
+/* 티커 모바일 겹침 방지 */
+@media(max-width:640px){
+  .tickrow{gap:0}
+  .tklabel{flex:0 0 auto;font-size:11px;padding:7px 9px;white-space:nowrap;z-index:2;position:relative}
+  .tkview{flex:1 1 0;min-width:0;overflow:hidden;padding-left:2px}
+  .tktrack{font-size:11.5px}
+  .tkmore{flex:0 0 auto;font-size:10.5px;padding:6px 8px;white-space:nowrap;z-index:2;position:relative;background:var(--card)}
+}
+@media(max-width:400px){
+  .tklabel{font-size:10.5px;padding:6px 7px}
+  .tkmore{font-size:10px;padding:5px 6px}
+}
+
+/* ===== 모바일 가독성 정리 ===== */
+@media(max-width:640px){
+  /* 1) 한글 줄바꿈 — 단어 중간에서 안 끊기게 */
+  .viewtitle,.viewsub,.dh h2,.dh .sub,.mgrp,.mitem,.mx,
+  .orgc .on,.orgc .om,.obiz,.eun-t,.eun-d,.epl-t,.epl-d,
+  .bgsum,.bgins,.nfc .n1,.bzc .b1,.epg-t,.epg-d,
+  .orgnote,.edusrc,.plannote,.bznote,.notecard,.ainote p{
+    word-break:keep-all; overflow-wrap:break-word; line-height:1.62;
+  }
+  /* 2) 화면 좌우 여백 통일 */
+  .wrap{padding-left:16px;padding-right:16px}
+  /* 3) 섹션 간 리듬 — 제목 위 여백 확보 */
+  .viewtitle{font-size:20px;line-height:1.35;margin-top:4px}
+  .viewsub{font-size:12.5px;line-height:1.6;margin-top:5px;color:var(--sub)}
+  .orgsec,.edusec{margin-top:22px}
+  .orgsec h3,.edusec h3{font-size:15px;line-height:1.4;margin-bottom:7px}
+  .secd{margin-bottom:11px;line-height:1.55}
+  /* 4) 카드 내부 숨쉴 공간 */
+  .orgc{padding:11px 12px}
+  .orgc .on{font-size:13px;line-height:1.4}
+  .orgc .om{margin-top:4px;line-height:1.5}
+  .obiz{margin-top:6px;line-height:1.55}
+  /* 5) 그리드 간격 */
+  .orggrid{gap:7px}
+  .schgrid{gap:6px}
+  .eduniv{gap:8px}
+  /* 6) 뱃지 줄바꿈 여유 */
+  .obadge{margin:5px 4px 0 0}
+  /* 7) 안내문 박스 */
+  .orgnote,.edusrc,.plannote,.bznote,.nfnote{line-height:1.7;padding:13px 14px}
+  /* 8) 챗봇 안내문 — 줄간격 */
+  .ainote p{margin:0 0 5px;line-height:1.6}
+  .ainote p:last-child{margin-bottom:0}
+  /* 9) 표·통계 스트립 겹침 방지 */
+  .orgstrip{gap:7px}
+  .orgstrip .ost{flex:1 1 calc(50% - 4px);padding:10px 12px}
+  /* 10) 예산 항목 정렬 */
+  .bgli{gap:6px;padding:1px 0}
+  .bgnm{line-height:1.45}
+  .bgc{padding:8px 10px;gap:6px}
+  .bgc .fl{flex:1 1 100%;order:3;margin-top:2px}
+  /* 11) 교육감 프로필 표 */
+  .eputbl th{width:64px;font-size:11.5px;padding-right:10px}
+  .eputbl td{line-height:1.65;padding:6px 0}
+  /* 12) 공약 카드 */
+  .epl{padding:12px 13px;gap:11px}
+  .epl-t{font-size:13.5px}
+  .epl-d{margin-top:5px}
+}
+@media(max-width:400px){
+  .wrap{padding-left:13px;padding-right:13px}
+  .orgstrip .ost{flex:1 1 100%}
+  .orgstrip .ost b{font-size:19px}
+  .viewtitle{font-size:18.5px}
+}
 
 /* ===== 공공조직도 ===== */
 /* 카드 기본 — 반드시 변형(.govc/.kidc 등)보다 먼저 선언 */
