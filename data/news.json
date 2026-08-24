@@ -1,6 +1,6 @@
 {
  "meta": {
-  "collected_at": "2026-08-24 18:46 KST",
+  "collected_at": "2026-08-24 18:56 KST",
   "window_days": 14,
   "cadence": "3h",
   "source": "지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계",
@@ -12,7 +12,7 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505787",
    "src": "제주의소리",
    "d": "2026-08-24",
-   "outlets": [
+   "outlets_prev": [
     "제주일보",
     "주간조선",
     "JTBC",
@@ -22,7 +22,17 @@
     "한국경제TV",
     "OBC 뉴스"
    ],
-   "n": 35,
+   "outlets": [
+    "제주의소리",
+    "제주일보",
+    "주간조선",
+    "JTBC",
+    "강원일보",
+    "아주경제",
+    "강원도민일보",
+    "한국경제TV"
+   ],
+   "n": 37,
    "sec": "안전/민원행정"
   },
   {
@@ -50,7 +60,7 @@
     "sedaily.com",
     "한국경제"
    ],
-   "n": 13,
+   "n": 12,
    "sec": "안전/민원행정"
   },
   {
@@ -78,7 +88,25 @@
     "한국경제",
     "news.jtbc.co.kr"
    ],
-   "n": 11,
+   "n": 12,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "[속보]제주서 70대 추정 또다른 실종자 사체 발견…사흘새 4명째",
+   "link": "https://www.kwnews.co.kr/article/20260824502013",
+   "src": "kwnews.co.kr",
+   "d": "2026-08-24",
+   "outlets": [
+    "news.jtbc.co.kr",
+    "smarttoday.co.kr",
+    "mbn.mk.co.kr",
+    "중앙일보",
+    "연합뉴스",
+    "kwnews.co.kr",
+    "yonhapnewstv.co.kr",
+    "munhwa.com"
+   ],
+   "n": 12,
    "sec": "안전/민원행정"
   },
   {
@@ -106,7 +134,7 @@
     "iminju.net",
     "tjb.co.kr"
    ],
-   "n": 10,
+   "n": 11,
    "sec": "안전/민원행정"
   },
   {
@@ -231,7 +259,9 @@
     "tgdaily.co.kr",
     "betanews.net",
     "fomos.kr",
-    "khgames.co.kr"
+    "khgames.co.kr",
+    "worktoday.co.kr",
+    "newspim.com"
    ],
    "outlets": [
     "매일경제",
@@ -540,21 +570,6 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "[속보] 제주서 또다른 실종자 사체 발견…사흘새 4명째",
-   "link": "https://news.jtbc.co.kr/article/NB12314862?influxDiv=NAVER",
-   "src": "news.jtbc.co.kr",
-   "d": "2026-08-24",
-   "outlets": [
-    "smarttoday.co.kr",
-    "news.jtbc.co.kr",
-    "mbn.mk.co.kr",
-    "중앙일보",
-    "연합뉴스"
-   ],
-   "n": 5,
-   "sec": "안전/민원행정"
-  },
-  {
    "t": "제주도-지역 국회의원 2027 국비 확보 논의 구체화",
    "link": "http://www.samdailbo.com/news/articleView.html?idxno=269377",
    "src": "samdailbo.com",
@@ -719,11 +734,17 @@
    "link": "http://www.mbn.co.kr/pages/news/newsView.php?news_seq_no=5214488",
    "src": "mbn.co.kr",
    "d": "2026-08-24",
-   "outlets": [
+   "outlets_prev": [
     "뉴스제주",
     "tjb.co.kr",
     "자유일보",
     "mbn.co.kr"
+   ],
+   "outlets": [
+    "mbn.co.kr",
+    "뉴스제주",
+    "tjb.co.kr",
+    "자유일보"
    ],
    "n": 4,
    "sec": "사건사고/기타"
@@ -733,11 +754,36 @@
    "link": "https://www.yna.co.kr/view/AKR20260824085552001?input=1195m",
    "src": "연합뉴스",
    "d": "2026-08-24",
-   "outlets": [
+   "outlets_prev": [
     "뉴시스",
     "joongangenews.com",
     "조선일보",
     "연합뉴스"
+   ],
+   "outlets": [
+    "연합뉴스",
+    "뉴시스",
+    "joongangenews.com",
+    "조선일보"
+   ],
+   "n": 4,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "귀덕1리 앞바다서 어선 화재...승선원 2명 모두 구조",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227300",
+   "src": "제주일보",
+   "d": "2026-08-24",
+   "outlets_prev": [
+    "제주일보",
+    "제주의소리",
+    "뉴스1"
+   ],
+   "outlets": [
+    "제주일보",
+    "제주의소리",
+    "뉴스1",
+    "파이낸셜뉴스"
    ],
    "n": 4,
    "sec": "안전/민원행정"
@@ -1121,31 +1167,14 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "귀덕1리 앞바다서 어선 화재...승선원 2명 모두 구조",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227300",
-   "src": "제주일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주일보",
-    "제주의소리",
-    "뉴스1"
-   ],
-   "outlets": [
-    "제주일보",
-    "제주의소리",
-    "뉴스1"
-   ],
-   "n": 3,
-   "sec": "안전/민원행정"
-  },
-  {
    "t": "행안부 ‘2027년 우수유출저감 신규사업' 성산 수산·와산 선정",
    "link": "https://www.newsjeju.net/news/articleView.html?idxno=424920",
    "src": "뉴스제주",
    "d": "2026-08-24",
    "outlets_prev": [
     "뉴스제주",
-    "뉴스N제주"
+    "뉴스N제주",
+    "samdailbo.com"
    ],
    "outlets": [
     "뉴스제주",
@@ -1160,10 +1189,15 @@
    "link": "https://www.newsis.com/view/NISX20260824_0003760635",
    "src": "뉴시스",
    "d": "2026-08-24",
-   "outlets": [
+   "outlets_prev": [
     "중앙일보",
     "chungnamilbo.co.kr",
     "뉴시스"
+   ],
+   "outlets": [
+    "뉴시스",
+    "중앙일보",
+    "chungnamilbo.co.kr"
    ],
    "n": 3,
    "sec": "안전/민원행정"
@@ -1175,7 +1209,8 @@
    "d": "2026-08-24",
    "outlets_prev": [
     "segye.com",
-    "세계일보"
+    "세계일보",
+    "제주의소리"
    ],
    "outlets": [
     "segye.com",
@@ -1191,12 +1226,48 @@
    "src": "nocutnews.co.kr",
    "d": "2026-08-24",
    "outlets_prev": [
-    "nocutnews.co.kr"
+    "nocutnews.co.kr",
+    "edaily.co.kr",
+    "조선일보"
    ],
    "outlets": [
     "nocutnews.co.kr",
     "edaily.co.kr",
     "조선일보"
+   ],
+   "n": 3,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주 실종 장미란씨 시신 발견, 경찰 현장 감식",
+   "link": "https://www.newsis.com/view/NISI20260824_0021408978",
+   "src": "뉴시스",
+   "d": "2026-08-24",
+   "outlets_prev": [
+    "뉴시스",
+    "머니투데이"
+   ],
+   "outlets": [
+    "뉴시스",
+    "머니투데이",
+    "자유일보"
+   ],
+   "n": 3,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "여야, ‘제주 실종 허위종결’ 한목소리 질타…경찰청장 직무대행 “매...",
+   "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8644437&ref=A",
+   "src": "news.kbs.co.kr",
+   "d": "2026-08-24",
+   "outlets_prev": [
+    "뉴스1",
+    "news.kbs.co.kr"
+   ],
+   "outlets": [
+    "news.kbs.co.kr",
+    "뉴스1",
+    "dt.co.kr"
    ],
    "n": 3,
    "sec": "안전/민원행정"
@@ -1661,22 +1732,6 @@
    "outlets": [
     "mediajeju.com",
     "헤드라인제주"
-   ],
-   "n": 2,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주 실종 장미란씨 시신 발견, 경찰 현장 감식",
-   "link": "https://www.newsis.com/view/NISI20260824_0021408978",
-   "src": "뉴시스",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴시스",
-    "머니투데이"
-   ],
-   "outlets": [
-    "뉴시스",
-    "머니투데이"
    ],
    "n": 2,
    "sec": "안전/민원행정"
@@ -2198,9 +2253,13 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227347",
    "src": "제주일보",
    "d": "2026-08-24",
-   "outlets": [
+   "outlets_prev": [
     "뉴스제주",
     "제주일보"
+   ],
+   "outlets": [
+    "제주일보",
+    "뉴스제주"
    ],
    "n": 2,
    "sec": "정치/행정"
@@ -2211,7 +2270,8 @@
    "src": "kookje.co.kr",
    "d": "2026-08-24",
    "outlets_prev": [
-    "kookje.co.kr"
+    "kookje.co.kr",
+    "국제신문"
    ],
    "outlets": [
     "kookje.co.kr",
@@ -2221,24 +2281,13 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "여야, ‘제주 실종 허위종결’ 한목소리 질타…경찰청장 직무대행 “매...",
-   "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8644437&ref=A",
-   "src": "news.kbs.co.kr",
-   "d": "2026-08-24",
-   "outlets": [
-    "뉴스1",
-    "news.kbs.co.kr"
-   ],
-   "n": 2,
-   "sec": "안전/민원행정"
-  },
-  {
    "t": "제주 도릿빨 포구서 바다에 빠진 피서객 2명...순찰하던 자치경찰이 구조",
    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597894",
    "src": "헤드라인제주",
    "d": "2026-08-24",
    "outlets_prev": [
-    "헤드라인제주"
+    "헤드라인제주",
+    "뉴스제주"
    ],
    "outlets": [
     "헤드라인제주",
@@ -2252,9 +2301,13 @@
    "link": "http://www.samdailbo.com/news/articleView.html?idxno=269417",
    "src": "samdailbo.com",
    "d": "2026-08-24",
-   "outlets": [
+   "outlets_prev": [
     "헤드라인제주",
     "samdailbo.com"
+   ],
+   "outlets": [
+    "samdailbo.com",
+    "헤드라인제주"
    ],
    "n": 2,
    "sec": "교육/청년"
@@ -2265,7 +2318,8 @@
    "src": "제주일보",
    "d": "2026-08-24",
    "outlets_prev": [
-    "제주일보"
+    "제주일보",
+    "뉴스제주"
    ],
    "outlets": [
     "제주일보",
@@ -2279,9 +2333,13 @@
    "link": "https://news.jtbc.co.kr/article/NB12314861?influxDiv=NAVER",
    "src": "news.jtbc.co.kr",
    "d": "2026-08-24",
-   "outlets": [
+   "outlets_prev": [
     "ccdailynews.com",
     "news.jtbc.co.kr"
+   ],
+   "outlets": [
+    "news.jtbc.co.kr",
+    "ccdailynews.com"
    ],
    "n": 2,
    "sec": "안전/민원행정"
@@ -2291,6 +2349,10 @@
    "link": "http://www.samdailbo.com/news/articleView.html?idxno=269415",
    "src": "samdailbo.com",
    "d": "2026-08-24",
+   "outlets_prev": [
+    "samdailbo.com",
+    "미디어제주"
+   ],
    "outlets": [
     "samdailbo.com",
     "미디어제주"
@@ -2303,12 +2365,31 @@
    "link": "https://www.mt.co.kr/society/2026/08/24/2026082418004769584",
    "src": "mt.co.kr",
    "d": "2026-08-24",
+   "outlets_prev": [
+    "mt.co.kr",
+    "뉴시스"
+   ],
    "outlets": [
     "mt.co.kr",
     "뉴시스"
    ],
    "n": 2,
    "sec": "안전/민원행정"
+  },
+  {
+   "t": "위성곤, 첫 인사 1970년대생 '중용'...'신구 교체' 단행",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227328",
+   "src": "제주일보",
+   "d": "2026-08-24",
+   "outlets_prev": [
+    "제주일보"
+   ],
+   "outlets": [
+    "제주일보",
+    "v.daum.net"
+   ],
+   "n": 2,
+   "sec": "정치/행정"
   },
   {
    "t": "“전국 교부금 줄면 제주 몫도 감소”…제주교총, 개편안 반발",
@@ -5907,20 +5988,6 @@
    ],
    "n": 1,
    "sec": "사건사고/기타"
-  },
-  {
-   "t": "위성곤, 첫 인사 1970년대생 '중용'...'신구 교체' 단행",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227328",
-   "src": "제주일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주일보"
-   ],
-   "outlets": [
-    "제주일보"
-   ],
-   "n": 1,
-   "sec": "정치/행정"
   },
   {
    "t": "제주SK FC, 김천 상무와 무승부...이창민, 통산 300경기 출전",
