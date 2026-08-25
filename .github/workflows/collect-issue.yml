@@ -29,11 +29,13 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
         run: python scripts/collect_issue.py
+      - name: 여론지수 산출
+        run: python scripts/index_calc.py
       - name: 변경사항 커밋
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/issue.json
+          git add data/issue.json data/issue_index.json data/issue_history.json
           git diff --staged --quiet && echo "변경 없음" && exit 0
           git commit -m "여론 수집 $(date +'%Y-%m-%d %H:%M')"
           for i in 1 2 3; do
