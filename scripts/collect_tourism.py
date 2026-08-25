@@ -122,6 +122,43 @@ if c:
       "share_low":{"hour":lo["hour"],"share":lo["tourist_share"]} if lo else None}
     print(f"   24시간 · 관광객피크 {tmax['hour']}시 / 도민피크 {lmax['hour']}시")
 
+
+# ══ ④ 업종별 소비 (41) ══
+print("④ 업종별 소비")
+c,dd=first(call(41))
+if c:
+    rows=[]
+    for r in c["data"]:
+        g=(r.get("groupVal") or "").strip()
+        if not g: continue
+        rows.append({"name":g,
+          "value":r.get("소비금액") or r.get("value") or 0,
+          "share":num(r.get("소비금액_share")),
+          "yoy":num(r.get("소비금액_yoy")),
+          "raw":{k:v for k,v in r.items() if k!="groupVal"}})
+    # 필드명이 다를 수 있으니 첫 행 키를 로그로
+    if rows: print("   필드:", list(c["data"][0].keys())[:8])
+    out["industry"]={"month":dd.get("dataBgnDt"),"count":len(rows),"items":rows}
+    print(f"   {len(rows)}개 업종")
+
+# ══ ⑤ 계절 격차 (17 월별 입도) ══
+print("⑤ 계절 격차")
+c,dd=first(call(17))
+if c:
+    ms=[]
+    for r in c["data"]:
+        d_=r.get("domesticVal") or 0; f_=r.get("foreignVal") or 0
+        ms.append({"date":r.get("dateVal"),"domestic":d_,"foreign":f_,"total":d_+f_,
+                   "domestic_yoy":num(r.get("domesticVal_yoy")),
+                   "foreign_yoy":num(r.get("foreignVal_yoy"))})
+    ms.sort(key=lambda x:x["date"])
+    hi=max(ms,key=lambda x:x["total"]); lo=min(ms,key=lambda x:x["total"])
+    out["monthly"]={"period":f"{ms[0]['date']}~{ms[-1]['date']}","items":ms,
+      "peak":{"month":hi["date"],"total":hi["total"]},
+      "low":{"month":lo["date"],"total":lo["total"]},
+      "gap_ratio":round(hi["total"]/lo["total"],2) if lo["total"] else None}
+    print(f"   최성수기 {hi['date']} {hi['total']:,} / 최비수기 {lo['date']} {lo['total']:,}")
+
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
 json.dump(out,open(OUT,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
 print("저장:",os.path.relpath(OUT))
