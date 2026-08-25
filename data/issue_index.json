@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-08-26 02:09",
+  "updated": "2026-08-26 06:34",
   "period": {
    "from": "2026-08-20",
    "to": "2026-08-26"
@@ -14,24 +14,29 @@
   "note": "검색 결과는 전수가 아니므로 건수가 아닌 비중으로 봅니다. 원인 해석은 포함하지 않습니다."
  },
  "current": {
-  "total": 1081,
-  "neg": 45.0,
-  "pos": 3.4,
-  "neu": 51.6,
+  "total": 1074,
+  "neg": 43.5,
+  "pos": 3.8,
+  "neu": 52.7,
   "channels": {
-   "news": 821,
-   "blog": 260
+   "news": 818,
+   "blog": 256
   },
   "categories": {
    "요금·바가지": {
-    "n": 54,
-    "neg": 13.0,
-    "share": 5.0
+    "n": 59,
+    "neg": 13.6,
+    "share": 5.5
+   },
+   "서비스·불친절": {
+    "n": 1,
+    "neg": 0.0,
+    "share": 0.1
    },
    "교통·주차": {
-    "n": 243,
-    "neg": 20.2,
-    "share": 22.5
+    "n": 232,
+    "neg": 21.1,
+    "share": 21.6
    },
    "환경·청결": {
     "n": 5,
@@ -44,99 +49,99 @@
     "share": 0.6
    },
    "안전·사건사고": {
-    "n": 567,
-    "neg": 70.9,
-    "share": 52.5
+    "n": 553,
+    "neg": 68.4,
+    "share": 51.5
    },
    "치안·범죄": {
-    "n": 16,
-    "neg": 43.8,
-    "share": 1.5
+    "n": 20,
+    "neg": 45.0,
+    "share": 1.9
    },
    "관광지·콘텐츠": {
     "n": 78,
     "neg": 2.6,
-    "share": 7.2
+    "share": 7.3
    },
    "행정·정책": {
-    "n": 77,
-    "neg": 5.2,
-    "share": 7.1
+    "n": 79,
+    "neg": 5.1,
+    "share": 7.4
    }
   }
  },
  "previous": {
-  "total": 156,
-  "neg": 39.7,
-  "pos": 3.2,
-  "neu": 57.1,
+  "total": 153,
+  "neg": 39.9,
+  "pos": 3.9,
+  "neu": 56.2,
   "channels": {
    "blog": 41,
-   "news": 115
+   "news": 112
   },
   "categories": {
    "요금·바가지": {
     "n": 25,
     "neg": 8.0,
-    "share": 16.0
+    "share": 16.3
    },
    "서비스·불친절": {
     "n": 1,
     "neg": 100.0,
-    "share": 0.6
+    "share": 0.7
    },
    "교통·주차": {
-    "n": 42,
-    "neg": 16.7,
-    "share": 26.9
+    "n": 41,
+    "neg": 17.1,
+    "share": 26.8
    },
    "환경·청결": {
     "n": 1,
     "neg": 100.0,
-    "share": 0.6
+    "share": 0.7
    },
    "안전·시설": {
     "n": 1,
     "neg": 100.0,
-    "share": 0.6
+    "share": 0.7
    },
    "안전·사건사고": {
-    "n": 32,
-    "neg": 81.2,
-    "share": 20.5
+    "n": 27,
+    "neg": 81.5,
+    "share": 17.6
    },
    "관광지·콘텐츠": {
     "n": 18,
     "neg": 16.7,
-    "share": 11.5
+    "share": 11.8
    },
    "행정·정책": {
-    "n": 16,
-    "neg": 12.5,
-    "share": 10.3
+    "n": 15,
+    "neg": 13.3,
+    "share": 9.8
    }
   }
  },
  "delta": {
-  "neg": 5.3,
-  "pos": 0.2
+  "neg": 3.6,
+  "pos": -0.1
  },
  "monthly": {
   "items": [
    {
     "month": "2026-08",
-    "total": 1310,
-    "neg": 43.7,
-    "neu": 52.4,
-    "pos": 3.8
+    "total": 1313,
+    "neg": 43.2,
+    "neu": 52.6,
+    "pos": 4.2
    }
   ],
   "current": {
    "month": "2026-08",
-   "total": 1310,
-   "neg": 43.7,
-   "neu": 52.4,
-   "pos": 3.8
+   "total": 1313,
+   "neg": 43.2,
+   "neu": 52.6,
+   "pos": 4.2
   },
   "previous": null,
   "ready": false,
@@ -146,11 +151,11 @@
  "rank": [
   {
    "name": "안전·사건사고",
-   "n": 567,
-   "share": 52.5,
-   "neg": 70.9,
-   "prev_neg": 81.2,
-   "delta": -10.3,
+   "n": 553,
+   "share": 51.5,
+   "neg": 68.4,
+   "prev_neg": 81.5,
+   "delta": -13.1,
    "top": [
     {
      "title": "[데일리안 오늘뉴스 종합] 장미란씨 시신 발견...실종 허위종결 경찰, 형...",
@@ -167,8 +172,8 @@
      "category": "안전·사건사고"
     },
     {
-     "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확...",
-     "link": "https://news.tf.co.kr/read/national/2357872.htm",
+     "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확대 - 더팩트",
+     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55MEI1Z0U0SEJIU0J2c1JLRTZlRWNneXZITjY0aHdld1U1WGJMWTF4RkZTUTNlWllFeXlBbTNDWEk5dTBkQ2V3MjZIR3VMR25rNm5PVlV6VmN6ZjTSAVZBVV95cUxQbmRwR3pjMkVBQWgycmRaeC1id2F3Zk0yX2F0SmdTMWk0SkQxNFEzQTl1SFU5bER3ZVRGTndXaEdMYmh1Q2JkYm41eW1aVHBBR1VUMzJlQQ?oc=5",
      "channel": "news",
      "date": "2026-08-25",
      "category": "안전·사건사고"
@@ -177,11 +182,11 @@
   },
   {
    "name": "교통·주차",
-   "n": 243,
-   "share": 22.5,
-   "neg": 20.2,
-   "prev_neg": 16.7,
-   "delta": 3.5,
+   "n": 232,
+   "share": 21.6,
+   "neg": 21.1,
+   "prev_neg": 17.1,
+   "delta": 4.0,
    "top": [
     {
      "title": "'비싸거나 없거나' 제주도민 항공기 이동권 개선 주목",
@@ -207,36 +212,12 @@
    ]
   },
   {
-   "name": "관광지·콘텐츠",
-   "n": 78,
-   "share": 7.2,
-   "neg": 2.6,
-   "prev_neg": 16.7,
-   "delta": -14.1,
-   "top": [
-    {
-     "title": "한라산 독채서 수영·캠핑까지…'웰니스 휴양지' 기린빌라리조트 가보니...",
-     "link": "https://www.newsway.co.kr/news/view?ud=2026082113201180178",
-     "channel": "news",
-     "date": "2026-08-21",
-     "category": "관광지·콘텐츠"
-    },
-    {
-     "title": "\"할 수 있다는 자신감 얻었어요\"…학교 밖 청소년, AI로 제주의 미래 그...",
-     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3672051",
-     "channel": "news",
-     "date": "2026-08-23",
-     "category": "관광지·콘텐츠"
-    }
-   ]
-  },
-  {
    "name": "행정·정책",
-   "n": 77,
-   "share": 7.1,
-   "neg": 5.2,
-   "prev_neg": 12.5,
-   "delta": -7.3,
+   "n": 79,
+   "share": 7.4,
+   "neg": 5.1,
+   "prev_neg": 13.3,
+   "delta": -8.2,
    "top": [
     {
      "title": "한라산 몰래 입산族, 열화상 드론으로 단속",
@@ -262,12 +243,36 @@
    ]
   },
   {
+   "name": "관광지·콘텐츠",
+   "n": 78,
+   "share": 7.3,
+   "neg": 2.6,
+   "prev_neg": 16.7,
+   "delta": -14.1,
+   "top": [
+    {
+     "title": "한라산 독채서 수영·캠핑까지…'웰니스 휴양지' 기린빌라리조트 가보니...",
+     "link": "https://www.newsway.co.kr/news/view?ud=2026082113201180178",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "관광지·콘텐츠"
+    },
+    {
+     "title": "\"할 수 있다는 자신감 얻었어요\"…학교 밖 청소년, AI로 제주의 미래 그...",
+     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3672051",
+     "channel": "news",
+     "date": "2026-08-23",
+     "category": "관광지·콘텐츠"
+    }
+   ]
+  },
+  {
    "name": "요금·바가지",
-   "n": 54,
-   "share": 5.0,
-   "neg": 13.0,
+   "n": 59,
+   "share": 5.5,
+   "neg": 13.6,
    "prev_neg": 8.0,
-   "delta": 5.0,
+   "delta": 5.6,
    "top": [
     {
      "title": "민선 9기 첫 서귀포시장에 김희찬 낙점…대변인 부남철",
@@ -294,9 +299,9 @@
   },
   {
    "name": "치안·범죄",
-   "n": 16,
-   "share": 1.5,
-   "neg": 43.8,
+   "n": 20,
+   "share": 1.9,
+   "neg": 45.0,
    "prev_neg": null,
    "delta": null,
    "top": [
@@ -370,19 +375,28 @@
      "category": "환경·청결"
     }
    ]
+  },
+  {
+   "name": "서비스·불친절",
+   "n": 1,
+   "share": 0.1,
+   "neg": 0.0,
+   "prev_neg": 100.0,
+   "delta": -100.0,
+   "top": []
   }
  ],
  "daily": [
   {
    "date": "2026-08-20",
-   "total": 75,
-   "neg": 65.3,
+   "total": 74,
+   "neg": 64.9,
    "pos": 0.0
   },
   {
    "date": "2026-08-21",
-   "total": 46,
-   "neg": 54.3,
+   "total": 45,
+   "neg": 55.6,
    "pos": 0.0
   },
   {
@@ -393,61 +407,61 @@
   },
   {
    "date": "2026-08-23",
-   "total": 33,
-   "neg": 27.3,
-   "pos": 3.0
+   "total": 32,
+   "neg": 28.1,
+   "pos": 3.1
   },
   {
    "date": "2026-08-24",
-   "total": 166,
-   "neg": 28.9,
+   "total": 167,
+   "neg": 29.3,
    "pos": 1.2
   },
   {
    "date": "2026-08-25",
-   "total": 671,
-   "neg": 48.4,
-   "pos": 3.0
+   "total": 571,
+   "neg": 47.6,
+   "pos": 1.8
   },
   {
    "date": "2026-08-26",
-   "total": 75,
-   "neg": 34.7,
-   "pos": 17.3
+   "total": 170,
+   "neg": 35.3,
+   "pos": 15.9
   }
  ],
  "reasons": [
   {
    "word": "실종",
-   "n": 283
+   "n": 258
   },
   {
    "word": "구속",
-   "n": 78
+   "n": 67
   },
   {
    "word": "수사",
-   "n": 59
-  },
-  {
-   "word": "사망",
-   "n": 37
+   "n": 65
   },
   {
    "word": "불편",
-   "n": 35
+   "n": 36
   },
   {
    "word": "화재",
-   "n": 34
+   "n": 33
   },
   {
-   "word": "살해",
-   "n": 14
+   "word": "사망",
+   "n": 32
   },
   {
    "word": "사기",
    "n": 14
+  },
+  {
+   "word": "숨진",
+   "n": 12
   }
  ],
  "top_negative": [
@@ -461,13 +475,6 @@
   {
    "title": "[김종석의 리포트]‘실종 허위 종결’ 경찰 구속…‘교통사고 사망’으...",
    "link": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000546977",
-   "channel": "news",
-   "date": "2026-08-25",
-   "category": "안전·사건사고"
-  },
-  {
-   "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확...",
-   "link": "https://news.tf.co.kr/read/national/2357872.htm",
    "channel": "news",
    "date": "2026-08-25",
    "category": "안전·사건사고"
@@ -503,6 +510,13 @@
   {
    "title": "제주서 실종자 사망 잇따라…'7년 제주살이' 홍혜걸도 경고 [ST이슈]",
    "link": "http://www.stoo.com/article.php?aid=108507716592",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "[영상클립] \"연락됐다\"며 실종사건 종결했는데 사망…제주 경찰관 처리...",
+   "link": "https://www.newsworker.co.kr/news/articleView.html?idxno=500819",
    "channel": "news",
    "date": "2026-08-25",
    "category": "안전·사건사고"
