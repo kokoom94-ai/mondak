@@ -6,11 +6,12 @@ on:
       mode:
         description: '실행 모드'
         required: true
-        default: 'explore'
+        default: 'dump'
         type: choice
         options:
           - probe
           - explore
+          - dump
 
 jobs:
   run:
