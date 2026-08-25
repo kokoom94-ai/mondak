@@ -495,6 +495,10 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .tjsec{margin-top:20px}
 .tjsec h3{font-size:16px;color:var(--navy);margin:0 0 4px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .tjtap{font-size:11px;font-weight:700;color:#B4650F;background:#FDF0E1;border:1px solid #F3D3AA;border-radius:20px;padding:3px 10px;white-space:nowrap}
+.unit{font-size:10.5px;font-weight:500;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 8px;white-space:nowrap;margin-left:2px}
+.bizc-t .unit{font-weight:500}
+.tjr .v2{flex:0 0 62px;text-align:right;font-size:11.5px;color:var(--sub)}
+@media(max-width:640px){.unit{font-size:9.5px;padding:2px 7px}.tjr .v2{flex:0 0 52px;font-size:10.5px}}
 .tjm{font-size:11.5px;font-weight:600;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
 .tjsub{font-size:12px;color:var(--sub);margin-bottom:11px;line-height:1.55}
 .tjhl{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:7px;margin-bottom:13px}
@@ -507,7 +511,10 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .tjtoggle button{font-size:12px;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:20px;padding:5px 13px;cursor:pointer;font-weight:600}
 .tjtoggle button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 .tjbars{display:flex;align-items:flex-end;gap:3px;height:150px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 10px 8px}
-.tjb{flex:1 1 0;display:flex;flex-direction:column;align-items:center;height:100%;min-width:0}
+.tjb{flex:1 1 0;display:flex;flex-direction:column;align-items:center;height:100%;min-width:0;cursor:pointer;border-radius:5px;transition:.12s}
+.tjb:hover{background:rgba(43,108,232,.07)}
+.tjb.on{background:rgba(240,138,36,.15)}
+.tjb.on .tjb-w span{outline:2px solid var(--gyul);outline-offset:1px}
 .tjb-t{font-size:8.5px;color:var(--sub);margin-bottom:3px;white-space:nowrap;transform:rotate(-52deg);transform-origin:center;height:20px}
 .tjb-w{flex:1 1 auto;width:100%;display:flex;align-items:flex-end}
 .tjb-w span{display:block;width:100%;background:linear-gradient(180deg,#4E8CF0,#2B6CE8);border-radius:3px 3px 0 0}
@@ -658,7 +665,10 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .bm-b span{display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;color:#fff;background:linear-gradient(90deg,#2B6CE8,#4E8CF0);white-space:nowrap}
 .bm-b span.lo{background:linear-gradient(90deg,#0E7C7B,#4FD8C4)}
 .bizhr{display:flex;align-items:flex-end;gap:2px;height:110px;background:var(--bg);border-radius:11px;padding:9px 7px 5px;margin:9px 0 6px;overflow-x:auto}
-.bh{flex:1 1 0;min-width:11px;display:flex;flex-direction:column;align-items:center;height:100%}
+.bh{flex:1 1 0;min-width:11px;display:flex;flex-direction:column;align-items:center;height:100%;cursor:pointer;border-radius:4px;transition:.12s}
+.bh:hover{background:rgba(43,108,232,.07)}
+.bh.on{background:rgba(240,138,36,.16)}
+.bh.on .bh-b span{outline:2px solid var(--gyul);outline-offset:1px}
 .bh-h{font-size:8px;color:var(--sub);margin-bottom:2px}
 .bh-b{flex:1 1 auto;width:100%;display:flex;align-items:flex-end}
 .bh-b span{display:block;width:100%;background:#B9C2D4;border-radius:2px 2px 0 0}
@@ -677,6 +687,21 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .by-c i{font-size:10.5px;color:var(--sub);font-style:normal}
 .by-g{flex:0 0 auto;font-size:15px;font-weight:800;color:var(--gyul)}
 .by-n{flex:0 0 auto;font-size:10px;color:var(--sub)}
+.airbars{display:flex;align-items:flex-end;gap:3px;height:118px;background:var(--bg);border-radius:11px;padding:10px 8px 6px;margin:9px 0 7px}
+.ab{flex:1 1 0;display:flex;flex-direction:column;align-items:center;height:100%;cursor:pointer;border-radius:5px;transition:.12s;min-width:0}
+.ab:hover{background:rgba(43,108,232,.07)}
+.ab.on{background:rgba(240,138,36,.14)}
+.ab-w{flex:1 1 auto;width:100%;display:flex;align-items:flex-end;padding:0 1px}
+.ab-w span{display:block;width:100%;background:#B9C2D4;border-radius:3px 3px 0 0}
+.ab.up .ab-w span{background:linear-gradient(180deg,#4E8CF0,#2B6CE8)}
+.ab.dn .ab-w span{background:linear-gradient(180deg,#E8A0A0,#C6392F)}
+.ab.on .ab-w span{outline:2px solid var(--gyul);outline-offset:1px}
+.ab-x{font-size:8.5px;color:var(--sub);margin-top:4px;white-space:nowrap}
+.airtip{font-size:12px;color:var(--sub);background:var(--card);border:1px dashed var(--line);border-radius:9px;padding:8px 11px;margin-bottom:9px;line-height:1.5}
+.airtip b{color:var(--navy);font-size:13px}
+.airtip .up{color:#2E7D32;font-weight:700}
+.airtip .dn{color:#C6392F;font-weight:700}
+@media(max-width:640px){.airbars{height:104px;gap:2px}.ab-x{font-size:7.5px}}
 .aircard{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
 .airrow{display:flex;gap:11px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 13px}
 .air-l{flex:0 0 58px;font-size:13px;font-weight:800;color:var(--navy)}
@@ -1585,10 +1610,8 @@ body{padding-bottom:78px}
     <div class="mgrp"><span class="gdot">🌏</span>관광보부상</div>
     <button class="mitem" data-v="gwan-jeju">지금제주 <span class="mx">관광 데이터 · 17년 추이</span></button>
     <button class="mitem" data-v="gwan-plan">여행플래너 <span class="mx">어디레 감수광 · 일자별 동선 설계</span></button>
-    <button class="mitem soon" data-v="gwan-fest">행사소식 <span class="mx">축제캘린더 · 기념행사</span></button>
-    <button class="mitem soon" data-v="gwan-now">여기가젠 <span class="mx">지금 이슈 소식</span></button>
+    <button class="mitem soon" data-v="gwan-issue">이슈체크 <span class="mx">관광 이슈 · 평판 모니터링</span></button>
     <button class="mitem soon" data-v="gwan-hero">축하햄수다 <span class="mx">미담 제주인</span></button>
-    <button class="mitem soon" data-v="gwan-kr">지금한국 <span class="mx">인사이트</span></button>
 
     <div class="msep"></div>
     <a class="mitem" href="https://bangjae.jeju.go.kr/message/mobreg.htm" target="_blank" rel="noopener">🚨 모바일 재난방송 신청 <span class="mx">↗</span></a>
@@ -1959,15 +1982,13 @@ const BOARD={
  seog:"https://seogwipo.go.kr/info/news/law/law.htm",
  eup:"https://www.jejusi.go.kr/information/intro/notice.do",
  council:"https://www.council.jeju.kr"};
-const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','orgs','explore','orbit','biseo','gwan-fest','gwan-now','gwan-hero','gwan-plan','gwan-jeju','gwan-kr'];
+const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','orgs','explore','orbit','biseo','gwan-jeju','gwan-plan','gwan-issue','gwan-hero'];
 // 관광보부상 하위 탭 메타 (준비중 화면 공유)
 const GWAN={
-  'gwan-fest':{t:'행사소식',d:'축제캘린더 · 기념행사',ic:'🎪'},
-  'gwan-now':{t:'여기가젠',d:'지금 이슈 소식',ic:'📍'},
-  'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'},
-  'gwan-plan':{t:'여행플래너',d:'어디레 감수광 — 숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계합니다',ic:'🗺️'},
   'gwan-jeju':{t:'지금제주',d:'',ic:'📊'},
-  'gwan-kr':{t:'지금한국',d:'인사이트',ic:'🇰🇷'}
+  'gwan-plan':{t:'여행플래너',d:'어디레 감수광 — 숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계합니다',ic:'🗺️'},
+  'gwan-issue':{t:'이슈체크',d:'제주 관광 관련 이슈와 평판을 살펴봅니다',ic:'📡'},
+  'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'}
 };
 let selIdx=null, supWho=null, newsSec='전체';
 
@@ -2211,62 +2232,72 @@ function renderHour(){
 
 /* 소상공인 참고용 계산값. 전부 데이터에서 나온 수치이며 예측이 아니다. */
 
-/* 항공·여객선 — 회복 수준을 계산으로만 표시 */
+/* 항공·여객선 — 최근 흐름을 있는 그대로 */
 function renderAir(){
   const E=EMDDATA||{}, air=E.air, ship=E.ship;
   if(!air&&!ship) return '';
-  let h='<div class="tjsec"><h3>✈️ 오가는 길 <span class="tjm">'+orgEsc((air&&air.period)||(ship&&ship.period)||'')+'</span></h3>'+
-        '<div class="tjsub">항공·여객선 운항 흐름입니다</div>';
+  const mm=(d)=>String(d).slice(0,4)+'.'+String(d).slice(4);
+  const yy=(d)=>String(d).slice(2,4)+'.'+String(d).slice(4);
+  let h='<div class="tjsec"><h3>✈️ 오가는 길</h3>'+
+        '<div class="tjsub">제주를 오가는 항공기 운항 횟수와 여객선 이용 인원입니다 · 금액이 아닙니다</div>';
+
+  /* 항공 — 월별 막대 + 전년대비 추세 */
   if(air&&air.items&&air.items.length){
-    const it=air.items, has=(k)=>it.some(x=>typeof x[k]==='number');
-    const dm=has('domestic'), il=has('intl'), tt=has('total');
-    const mm=(d)=>String(d).slice(0,4)+'.'+String(d).slice(4);
-    /* 최저점 대비 회복률 — 코로나 저점 자동 탐지 */
-    const calcRec=(k)=>{
-      const v=it.filter(x=>typeof x[k]==='number'&&x[k]>0);
-      if(v.length<3) return null;
-      const lo=v.reduce((a,b)=>b[k]<a[k]?b:a), lt=v[v.length-1];
-      const pk=v.reduce((a,b)=>b[k]>a[k]?b:a);
-      return {low:lo, last:lt, peak:pk,
-        vsLow:(lt[k]/lo[k]).toFixed(1), vsPeak:Math.round(lt[k]/pk[k]*100)};
-    };
-    const rows=[];
-    if(dm) rows.push(['국내선','domestic',calcRec('domestic')]);
-    if(il) rows.push(['국제선','intl',calcRec('intl')]);
-    if(!dm&&!il&&tt) rows.push(['전체','total',calcRec('total')]);
-    h+='<div class="aircard">';
-    rows.forEach(([lb,k,r])=>{
-      if(!r) return;
-      h+='<div class="airrow"><div class="air-l">'+lb+'</div>'+
-         '<div class="air-b">'+
-           '<div class="air-t">가장 적었던 '+mm(r.low.date)+' 대비 <b>'+r.vsLow+'배</b>'+
-           (r.peak.date!==r.last.date?' · 최고치('+mm(r.peak.date)+') 대비 <b>'+r.vsPeak+'%</b>':'')+'</div>'+
-           '<div class="air-d">최근 '+mm(r.last.date)+' '+Number(r.last[k]).toLocaleString()+
-           ' · 최저 '+Number(r.low[k]).toLocaleString()+' · 최고 '+Number(r.peak[k]).toLocaleString()+'</div>'+
-         '</div></div>';
-    });
-    h+='</div>';
-    /* 국내·국제 비교 문장 */
-    if(dm&&il){
-      const rd=calcRec('domestic'), ri=calcRec('intl');
-      if(rd&&ri) h+='<div class="tjins">국내선은 최저점의 <b>'+rd.vsLow+'배</b>, 국제선은 <b>'+ri.vsLow+'배</b>입니다. '+
-        (Number(ri.vsLow)>Number(rd.vsLow)?'국제선 쪽 회복 폭이 더 큽니다.':'국내선 쪽 변동이 더 큽니다.')+'</div>';
+    const it=air.items.filter(x=>typeof x.total==='number'&&x.total>0);
+    if(it.length>2){
+      const lt=it[it.length-1], mx=Math.max.apply(null,it.map(x=>x.total));
+      const yv=it.filter(x=>typeof x.total_yoy==='number');
+      const neg=yv.filter(x=>x.total_yoy<0).length, pos=yv.filter(x=>x.total_yoy>0).length;
+      const firstY=yv[0], lastY=yv[yv.length-1];
+      h+='<div class="bizc"><div class="bizc-t">항공 운항 편수 <span class="unit">단위: 편(운항 횟수)</span></div>';
+      /* 막대 — 클릭 시 수치 */
+      h+='<div class="airbars" id="airbars">';
+      it.forEach(x=>{
+        const hp=Math.max(8,Math.round(x.total/mx*100));
+        const cls = typeof x.total_yoy==='number' ? (x.total_yoy<0?'dn':'up') : '';
+        h+='<div class="ab '+cls+'" data-d="'+orgEsc(mm(x.date))+'" data-v="'+Number(x.total).toLocaleString()+'편'+
+           '" data-y="'+(typeof x.total_yoy==='number'?((x.total_yoy>0?'+':'')+x.total_yoy+'%'):'—')+'" tabindex="0">'+
+           '<div class="ab-w"><span style="height:'+hp+'%"></span></div>'+
+           '<div class="ab-x">'+yy(x.date)+'</div></div>';
+      });
+      h+='</div><div class="airtip" id="airtip">막대를 누르면 그달 수치가 나옵니다</div>';
+      /* 설명 — 전년 대비 흐름 */
+      if(firstY&&lastY){
+        h+='<div class="bizc-d">가장 최근 집계는 <b>'+mm(lt.date)+' '+Number(lt.total).toLocaleString()+'편</b>입니다 — 금액이 아니라 운항 횟수입니다. '+
+           '작년 같은 달과 견주면 '+mm(firstY.date)+'에는 '+(firstY.total_yoy>0?'+':'')+firstY.total_yoy+'%였는데 '+
+           mm(lastY.date)+'에는 '+(lastY.total_yoy>0?'+':'')+lastY.total_yoy+'%입니다. '+
+           '이 기간 '+yv.length+'개월 가운데 작년보다 줄어든 달이 '+neg+'번, 늘어난 달이 '+pos+'번입니다.'+
+           (neg>0&&pos>0&&lastY.total_yoy>0?' 최근으로 올수록 늘어나는 쪽으로 바뀌고 있습니다.':'')+'</div>';
+      }
+      h+='<div class="bizc-n">색이 진한 막대는 작년 같은 달보다 늘어난 달입니다 · 기간 '+orgEsc(air.period||'')+'</div></div>';
     }
-    h+='<div class="tjnote">※ 이 통계에 담긴 기간 안에서의 최저·최고 대비 값입니다. 코로나 이전 전체 기간과 비교한 값은 아닙니다.</div>';
   }
+
+  /* 여객선 */
   if(ship&&ship.items&&ship.items.length){
     const v=ship.items.filter(x=>typeof x.value==='number'&&x.value>0);
     if(v.length>2){
-      const lo=v.reduce((a,b)=>b.value<a.value?b:a), lt=v[v.length-1];
-      const mm=(d)=>String(d).slice(0,4)+'.'+String(d).slice(4);
-      h+='<div class="aircard"><div class="airrow"><div class="air-l">여객선</div><div class="air-b">'+
-         '<div class="air-t">가장 적었던 '+mm(lo.date)+' 대비 <b>'+(lt.value/lo.value).toFixed(1)+'배</b></div>'+
-         '<div class="air-d">최근 '+mm(lt.date)+' '+Number(lt.value).toLocaleString()+'명</div></div></div></div>';
+      const lt=v[v.length-1], mx=Math.max.apply(null,v.map(x=>x.value));
+      const yv=v.filter(x=>typeof x.yoy==='number');
+      h+='<div class="bizc"><div class="bizc-t">여객선 이용객 <span class="unit">단위: 명</span></div>'+
+         '<div class="airbars" id="shipbars">';
+      v.forEach(x=>{
+        const hp=Math.max(8,Math.round(x.value/mx*100));
+        const cls = typeof x.yoy==='number' ? (x.yoy<0?'dn':'up') : '';
+        h+='<div class="ab '+cls+'" data-d="'+orgEsc(mm(x.date))+'" data-v="'+Number(x.value).toLocaleString()+'명'+
+           '" data-y="'+(typeof x.yoy==='number'?((x.yoy>0?'+':'')+x.yoy+'%'):'—')+'" tabindex="0">'+
+           '<div class="ab-w"><span style="height:'+hp+'%"></span></div>'+
+           '<div class="ab-x">'+yy(x.date)+'</div></div>';
+      });
+      h+='</div><div class="airtip" id="shiptip">막대를 누르면 그달 수치가 나옵니다</div>'+
+         '<div class="bizc-d">가장 최근 집계는 <b>'+mm(lt.date)+' '+Number(lt.value).toLocaleString()+'명</b>입니다.'+
+         (yv.length?' 작년 같은 달과 견주면 '+(yv[yv.length-1].yoy>0?'+':'')+yv[yv.length-1].yoy+'%입니다.':'')+'</div>'+
+         '<div class="bizc-n">기간 '+orgEsc(ship.period||'')+'</div></div>';
     }
   }
+  h+='<div class="tjnote">※ 이 통계는 최근 1년 남짓만 제공되어, 코로나 이전이나 2022년과 비교한 값은 만들 수 없습니다.</div>';
   return h+'</div>';
 }
-
 function renderBiz(){
   const E=EMDDATA||{}, S=TJDATA||{};
   const card=E.card, hr=E.hourly, mo=E.monthly, ind=E.industry;
@@ -2278,10 +2309,10 @@ function renderBiz(){
   /* ① 손님 구성 기준선 */
   if(card&&card.trend){
     const t=card.trend.share_last, l=(100-t).toFixed(1);
-    h+='<div class="bizc"><div class="bizc-t">① 제주 평균 손님 구성</div>'+
+    h+='<div class="bizc"><div class="bizc-t">① 제주 평균 손님 구성 <span class="unit">카드 결제 금액 기준 · '+orgEsc(card.latest||'')+'</span></div>'+
        '<div class="bizmix"><div class="bm-b"><span style="width:'+t+'%">관광객 '+t+'%</span>'+
        '<span class="lo" style="width:'+l+'%">도민 '+l+'%</span></div></div>'+
-       '<div class="bizc-d">제주 전체 카드매출을 100으로 보면 관광객이 <b>'+t+'</b>, 도민이 <b>'+l+'</b>입니다. '+
+       '<div class="bizc-d">제주에서 결제된 카드 금액(원)을 100으로 보면 관광객이 <b>'+t+'</b>, 도민이 <b>'+l+'</b>입니다. '+
        '우리 가게가 이 비율보다 관광객 쪽이면 성수기 영향을 크게 받고, 도민 쪽이면 상대적으로 덜 흔들립니다.</div>'+
        '<div class="bizc-n">기준: '+orgEsc(card.latest||'')+' · 카드 정산 주기로 몇 달 지연됩니다</div></div>';
   }
@@ -2294,8 +2325,8 @@ function renderBiz(){
     const q3=sv[Math.floor(sv.length*0.75)], q1=sv[Math.floor(sv.length*0.25)];
     const avg=(sv.reduce((a,b)=>a+b,0)/sv.length).toFixed(1);
     const mxs=sv[sv.length-1];
-    h+='<div class="bizc"><div class="bizc-t">② 몇 시에 누가 오나</div>'+
-       '<div class="bizc-d">시간대별로 관광객이 쓴 금액의 비중입니다. 하루 평균은 <b>'+avg+'%</b>이고, '+
+    h+='<div class="bizc"><div class="bizc-t">② 몇 시에 누가 오나 <span class="unit">카드 결제 금액 기준 · '+orgEsc(hr.month||'')+'</span></div>'+
+       '<div class="bizc-d">시간대별 <b>카드 결제 금액</b> 가운데 관광객이 쓴 몫의 비중입니다. 하루 평균은 <b>'+avg+'%</b>이고, '+
        '막대가 높을수록 그 시간대에 관광객 비중이 큽니다. 다만 새벽처럼 전체 소비가 적은 시간은 비중이 크게 흔들릴 수 있으니 금액과 함께 보셔야 합니다.</div>'+
        '<div class="bizhr">';
     its.forEach(x=>{
@@ -2303,12 +2334,15 @@ function renderBiz(){
       const cls = ts>=q3?'hi' : (ts<=q1?'lo':'');
       // 막대 높이는 최댓값 기준으로 정규화해 차이가 보이게
       const hgt=Math.max(8,Math.round(ts/mxs*100));
-      h+='<div class="bh '+cls+'" title="'+x.hour+'시 · 관광객 '+r+'% / 도민 '+(100-r)+'%">'+
+      const eok=(v)=>Math.round(v/1e8).toLocaleString()+'억원';
+      h+='<div class="bh '+cls+'" data-d="'+x.hour+'시" data-v="'+
+         '관광객 '+eok(x.tourist)+'('+r+'%) · 도민 '+eok(x.local)+'('+(100-r)+'%)" tabindex="0">'+
          '<div class="bh-h">'+x.hour+'</div>'+
          '<div class="bh-b"><span style="height:'+hgt+'%"></span></div>'+
          '<div class="bh-v">'+r+'</div></div>';
     });
-    h+='</div><div class="bizlg"><span class="lg hi"></span>관광객 비중 상위('+Math.round(q3)+'%↑)'+
+    h+='</div><div class="airtip" id="hourtip">막대를 누르면 그 시간대 금액이 나옵니다</div>'+
+       '<div class="bizlg"><span class="lg hi"></span>관광객 비중 상위('+Math.round(q3)+'%↑)'+
        '<span class="lg"></span>보통<span class="lg lo"></span>도민 비중 상위('+Math.round(q1)+'%↓)</div>';
     if(hr.share_high&&hr.share_low)
       h+='<div class="bizc-n">관광객 비중 최고 '+hr.share_high.hour+'시('+hr.share_high.share+'%) · 최저 '+
@@ -2321,8 +2355,8 @@ function renderBiz(){
     const byY={};
     mo.items.forEach(x=>{ const y=String(x.date).slice(0,4); (byY[y]=byY[y]||[]).push(x); });
     const yrs=Object.keys(byY).sort();
-    h+='<div class="bizc"><div class="bizc-t">③ 달마다 얼마나 다른가</div>'+
-       '<div class="bizc-d">월별 입도객입니다. 같은 해 안에서 비교해야 계절 차이를 제대로 볼 수 있습니다.</div>';
+    h+='<div class="bizc"><div class="bizc-t">③ 달마다 얼마나 다른가 <span class="unit">단위: 명(입도 관광객 수)</span></div>'+
+       '<div class="bizc-d">월별 <b>입도 관광객 수(명)</b>입니다. 같은 해 안에서 비교해야 계절 차이를 제대로 볼 수 있습니다.</div>';
     yrs.forEach(y=>{
       const arr=byY[y];
       if(arr.length<2){ 
@@ -2353,7 +2387,7 @@ function renderBiz(){
         mn.year+'년 '+(mn.foreign/10000).toFixed(0)+'만명까지 줄어든 적이 있습니다('+
         Math.round((1-mn.foreign/pk.foreign)*100)+'% 감소).';
     }
-    h+='<div class="bizc warn"><div class="bizc-t">④ 미리 알아둘 위험</div>'+
+    h+='<div class="bizc warn"><div class="bizc-t">④ 미리 알아둘 위험 <span class="unit">외국인 입도객 기준 · '+orgEsc((S.nations&&S.nations.month)||'')+'</span></div>'+
        '<div class="bizc-d">제주를 찾는 외국인의 <b>'+sh+'%</b>가 '+orgEsc(N[0].name)+'입니다. '+
        '만약 '+orgEsc(N[0].name)+' 관광객이 절반으로 줄면 전체 외국인은 <b>약 '+half+'%p</b> 줄어듭니다. '+
        hist+' 외국인 손님 비중이 높은 가게라면 미리 염두에 둘 만한 구조입니다.</div>'+
@@ -2363,11 +2397,13 @@ function renderBiz(){
   /* ⑤ 업종별 */
   if(ind&&ind.items&&ind.items.length){
     const top=ind.items.slice(0,8);
-    h+='<div class="bizc"><div class="bizc-t">⑤ 업종별 소비</div><div class="tjrank">';
+    h+='<div class="bizc"><div class="bizc-t">⑤ 업종별 소비 <span class="unit">카드 결제 금액 기준 · '+orgEsc(ind.month||'')+'</span></div><div class="tjrank">';
     const mxv=Math.max.apply(null,top.map(x=>x.value||0))||1;
+    const eok2=(v)=>v>=1e12?(v/1e12).toFixed(1)+'조원':(Math.round(v/1e8).toLocaleString()+'억원');
     top.forEach((x,i)=>{
       h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
          '<span class="bar"><i style="width:'+Math.max(3,Math.round((x.value||0)/mxv*100))+'%"></i></span>'+
+         '<span class="v2">'+eok2(x.value||0)+'</span>'+
          '<span class="v">'+(typeof x.share==='number'?x.share+'%':'')+'</span></div>';
     });
     h+='</div><div class="bizc-n">기준 '+orgEsc(ind.month||'')+'</div></div>';
@@ -2422,7 +2458,7 @@ function tjInsights(){
       out.push({icon:'💎',
         title:t.n+' 관광객은 수는 적지만 쓰는 돈의 비중은 큽니다',
         body:t.n+'에서 온 관광객은 전체 외국인의 '+(vn?vn.share:'?')+'%로 '+t.v+'번째로 많습니다. '+
-             '그런데 외국인이 쓴 돈에서 '+t.n+'이 차지하는 비중은 '+(sn?sn.share:'?')+'%로 '+t.s+'번째입니다. '+
+             '그런데 외국인이 카드로 결제한 금액에서 '+t.n+'이 차지하는 비중은 '+(sn?sn.share:'?')+'%로 '+t.s+'번째입니다. '+
              (ratio?'사람 비중보다 소비 비중이 '+ratio+'배 큽니다. ':'')+
              '방문객 수만 보면 놓치는 부분입니다.',
         note:'입도객은 최근 월, 소비는 연간 자료라 기준 시점이 다릅니다. 그래서 1인당 금액은 계산하지 않고 비중과 순위만 비교했습니다.'});
@@ -2481,7 +2517,7 @@ function tjInsights(){
     const d=card.trend.share_delta, last=card.trend.share_last;
     out.push({icon:'💳',
       title:'제주에서 쓰는 카드값의 절반이 관광객 돈입니다',
-      body:'가장 최근 집계인 '+card.latest+' 기준으로 내국인 관광객이 쓴 카드 금액이 전체의 '+last+'%, '+
+      body:'가장 최근 집계인 '+card.latest+' 기준으로, 제주에서 결제된 카드 금액 가운데 내국인 관광객이 쓴 몫이 '+last+'%, '+
            '도민이 쓴 금액이 '+(100-last).toFixed(1)+'%입니다. '+
            '1년 전과 비교하면 관광객 비중이 '+(d>0?d+'%p 늘었고':Math.abs(d)+'%p 줄었고')+', '+
            '제주 소비의 절반가량이 관광객에 달려 있다는 뜻입니다.',
@@ -2511,8 +2547,10 @@ function tjInsights(){
 function renderEMD(){
   const E=EMDDATA&&EMDDATA.emd; if(!E||!E.items||!E.items.length) return '';
   const it=E.items, mx=it[0].native||1;
-  let h='<div class="tjsec"><h3>🏘 읍면동 방문객 <span class="tjm">'+orgEsc(E.month||'')+'</span></h3>'+
-        '<div class="tjsub">통신사 기준 · '+E.count+'개 읍면동</div>';
+  let h='<div class="tjsec"><h3>🏘 읍면동 방문객 <span class="tjm">'+orgEsc(E.month||'')+'</span>'+
+        '<span class="unit">단위: 명 · 통신사 추정</span>'+
+        '<span class="tjtap">👆 지역을 누르면 상세가 열립니다</span></h3>'+
+        '<div class="tjsub">휴대전화 위치정보로 추정한 방문객 수입니다 · '+E.count+'개 읍면동</div>';
 
   /* 자동 판정 — 눈여겨볼 곳 */
   const al=E.alerts||[];
@@ -2572,13 +2610,13 @@ function renderEMD(){
            '<tr><td>외국인</td><td class="big '+cl(x.foreign_yoy)+'">'+pc(x.foreign_yoy)+'</td>'+
              '<td class="sml '+cl(x.foreign_mom)+'">'+pc(x.foreign_mom)+'</td></tr></table>'+
          (x.flags&&x.flags.length?'<div class="emdc-f">'+x.flags.map(t=>'<span>'+orgEsc(t)+'</span>').join('')+'</div>':'')+
-         '<div class="emdc-n">· 방문객은 통신사 기준 추정치입니다.<br>'+
+         '<div class="emdc-n">· 방문객은 통신사 기준 추정치(단위: 명)이며 기준 시점은 '+orgEsc(E.month||'')+'입니다.<br>'+
          '· 카드매출·시간대 통계는 제주 전체 단위로만 제공되어 읍면동별로는 표시할 수 없습니다.</div>'+
          '</div>';
     }
   }
   h+='<div class="emdhd"><span class="n"></span><span class="t">읍면동</span>'+
-     '<span class="bar"></span><span class="v">방문객</span>'+
+     '<span class="bar"></span><span class="v">방문객(명)</span>'+
      '<span class="y">전년</span><span class="y m">전월</span></div>';
   h+='<div class="emdrank">';
   it.slice(0,lim).forEach(x=>{
@@ -2625,7 +2663,7 @@ function renderTJ(){
   const Y=TJDATA.yearly||{}, ys=Y.items||[];
   if(ys.length){
     const mx=Math.max.apply(null, ys.map(x=>x.total));
-    h+='<div class="tjsec"><h3>📈 제주 관광 '+orgEsc(Y.period)+'</h3>'+
+    h+='<div class="tjsec"><h3>📈 제주 관광 '+orgEsc(Y.period)+' <span class="unit">단위: 명(입도 관광객 수)</span></h3>'+
        '<div class="tjsub">'+orgEsc(Y.note||'')+'</div>';
     // 하이라이트
     h+='<div class="tjhl">';
@@ -2640,22 +2678,25 @@ function renderTJ(){
        '<button data-m="domestic"'+(tjYearMode==='domestic'?' class="on"':'')+'>내국인</button>'+
        '<button data-m="foreign"'+(tjYearMode==='foreign'?' class="on"':'')+'>외국인</button></div>';
     const key=tjYearMode, mxk=Math.max.apply(null, ys.map(x=>x[key]));
-    h+='<div class="tjbars">';
+    h+='<div class="tjbars" id="tjbars">';
     ys.forEach(x=>{
       const pct=Math.max(2,Math.round(x[key]/mxk*100));
-      h+='<div class="tjb'+(x.partial?' part':'')+'" title="'+x.year+'년 '+tjNum(x[key])+'명">'+
+      const dv='내국인 '+tjNum(x.domestic)+'명 · 외국인 '+tjNum(x.foreign)+'명 · 전체 '+tjNum(x.total)+'명'+
+               (x.partial?' ('+x.months+'개월만 집계)':'');
+      h+='<div class="tjb'+(x.partial?' part':'')+'" data-d="'+x.year+'년" data-v="'+orgEsc(dv)+'" tabindex="0">'+
          '<div class="tjb-t">'+tjMan(x[key])+'</div>'+
          '<div class="tjb-w"><span style="height:'+pct+'%"></span></div>'+
          '<div class="tjb-y">'+String(x.year).slice(2)+'</div></div>';
     });
-    h+='</div><div class="tjnote">※ 회색 막대는 연중 일부만 집계된 해입니다</div></div>';
+    h+='</div><div class="airtip" id="yeartip">막대를 누르면 그해 수치가 나옵니다</div>'+
+       '<div class="tjnote">※ 회색 막대는 연중 일부만 집계된 해입니다</div></div>';
   }
 
   /* ② 어디서 오나 — 국내 */
   const O=TJDATA.origin||{};
   if(O.sido&&O.sido.length){
     h+='<div class="tjsec"><h3>🚩 어디서 오나 <span class="tjm">'+orgEsc(O.month)+'</span></h3>'+
-       '<div class="tjsub">국내 거주지 기준 · 총 '+tjNum(O.total)+'명</div><div class="tjrank">';
+       '<div class="tjsub">국내 거주지 기준 · 총 '+tjNum(O.total)+'명 · 단위: %(전체 대비 비중)</div><div class="tjrank">';
     O.sido.slice(0,8).forEach((x,i)=>{
       h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
          '<span class="bar"><i style="width:'+Math.round(x.share/O.sido[0].share*100)+'%"></i></span>'+
@@ -2674,7 +2715,7 @@ function renderTJ(){
   const N=TJDATA.nations||{};
   if(N.items&&N.items.length){
     h+='<div class="tjsec"><h3>🌏 외국인은 어느 나라에서 <span class="tjm">'+orgEsc(N.month)+'</span></h3>'+
-       '<div class="tjsub">총 '+tjNum(N.total)+'명</div><div class="tjrank">';
+       '<div class="tjsub">총 '+tjNum(N.total)+'명 · 단위: %(전체 외국인 대비 비중)</div><div class="tjrank">';
     N.items.slice(0,8).forEach((x,i)=>{
       h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
          '<span class="bar"><i style="width:'+Math.round(x.share/N.items[0].share*100)+'%"></i></span>'+
@@ -2695,7 +2736,7 @@ function renderTJ(){
   const S=TJDATA.spend_nation||{};
   if(S.items&&S.items.length){
     h+='<div class="tjsec"><h3>💳 외국인 소비 <span class="tjm">'+S.year+'년</span></h3>'+
-       '<div class="tjsub">총 '+tjEok(S.total)+'원</div><div class="tjrank">';
+       '<div class="tjsub">총 '+tjEok(S.total)+'원 · 카드 결제 금액 기준 · 단위: %(전체 대비 비중)</div><div class="tjrank">';
     S.items.slice(0,6).forEach((x,i)=>{
       h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
          '<span class="bar sp"><i style="width:'+Math.round(x.share/S.items[0].share*100)+'%"></i></span>'+
@@ -2721,6 +2762,26 @@ function renderTJ(){
      '<br>· '+orgEsc(M.disclaimer||'')+
      '<br>· 전체 지표는 <a href="https://data.ijto.or.kr" target="_blank" rel="noopener">제주관광 빅데이터 서비스 플랫폼</a>에서 확인할 수 있습니다.</div>';
   b.innerHTML=h;
+  /* 막대 클릭 → 수치 표시 (항공·여객선·연도별·시간대 공통) */
+  [['airbars','airtip','.ab'],['shipbars','shiptip','.ab'],
+   ['tjbars','yeartip','.tjb'],['bizhr','hourtip','.bh']].forEach(([wid,tid,sel])=>{
+    const wrap=document.getElementById(wid)||document.querySelector('.'+wid);
+    const tip=document.getElementById(tid);
+    if(!wrap||!tip) return;
+    const pick=(el)=>{
+      wrap.querySelectorAll(sel).forEach(x=>x.classList.remove('on'));
+      el.classList.add('on');
+      let h='<b>'+el.dataset.d+'</b> · '+el.dataset.v;
+      if(el.dataset.y) h+=' <span class="'+(el.dataset.y.indexOf('-')===0?'dn':'up')+
+        '">작년 대비 '+el.dataset.y+'</span>';
+      tip.innerHTML=h;
+    };
+    wrap.querySelectorAll(sel).forEach(el=>{
+      if(!el.dataset.d) return;
+      el.addEventListener('click',()=>pick(el));
+      el.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(el);} });
+    });
+  });
   const em=document.getElementById('emdmore');
   if(em) em.addEventListener('click',()=>{emdOpen=true;renderTJ();});
   document.querySelectorAll('.emdr.tap[data-emd]').forEach(el=>{
