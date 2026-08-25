@@ -1,92 +1,219 @@
 # -*- coding: utf-8 -*-
-"""제주 지역 신호 사전 — 수집·판정 공용"""
+"""
+제주관광 여론 수집기 — 네이버(뉴스·블로그·카페) + 구글뉴스 RSS
+※ 스레드·유튜브는 토큰이 있을 때만 켜진다(없으면 조용히 건너뜀).
+출처: 네이버 검색 오픈API, Google News RSS
+"""
+import os, re, sys, json, time, html, ssl, urllib.request, urllib.parse
+from datetime import datetime, timedelta, timezone
 
-# 43개 읍면동 (orgs.json 기준)
-EMD = ["건입동","구좌읍","남원읍","노형동","대륜동","대정읍","대천동","도두동","동홍동","봉개동",
-"삼도1동","삼도2동","삼양동","서홍동","성산읍","송산동","아라동","안덕면","애월읍","연동",
-"영천동","예래동","오라동","외도동","용담1동","용담2동","우도면","이도1동","이도2동","이호동",
-"일도1동","일도2동","정방동","조천읍","중문동","중앙동","천지동","추자면","표선면","한경면",
-"한림읍","화북동","효돈동"]
+# 같은 폴더의 모듈을 찾도록 경로 추가 (어디서 실행하든 동작)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# 주요 관광지·지명
-SPOT = ["성산일출봉","한라산","우도","비양도","마라도","가파도","섭지코지","협재","금능","곽지",
-"함덕","월정","김녕","세화","표선","중문","천지연","정방폭포","천제연","산방산","용머리",
-"주상절리","쇠소깍","외돌개","사려니","비자림","절물","한담","새별오름","용눈이","다랑쉬",
-"올레길","제주올레","동문시장","서문시장","오일장","중문색달","이호테우","삼양검은모래",
-"제주공항","제주국제공항","제주항","성산항","한림항","서귀포항"]
+try:
+    from issue_geo import EMD, SPOT, geo_hit
+    from issue_classify import judge, ENGINE_VERSION
+except Exception as e:
+    print("모듈 로드 실패:", e)
+    print("scripts/ 폴더에 issue_geo.py, issue_classify.py가 있는지 확인하세요.")
+    raise
 
-# 행정 단위
-ADMIN = ["제주","제주도","제주시","서귀포시","서귀포","제주특별자치도"]
+KST = timezone(timedelta(hours=9))
+NOW = datetime.now(KST)
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT  = os.path.join(HERE, "..", "data", "issue.json")
+HIST = os.path.join(HERE, "..", "data", "issue_history.json")
 
-# 관광 맥락어 (사건어 제외 — 순수 관광 신호만)
-TOURISM = ["관광","여행","여행지","관광지","맛집","먹거리","숙소","호텔","펜션","리조트",
-"게스트하우스","민박","콘도","렌터카","렌트카","항공편","해수욕장","해변","오름","올레","폭포",
-"축제","관광객","여행객","입도","한달살기","가볼만","여행코스","여행기","투어","패키지",
-"면세점","관광버스","전세버스","유람선","잠수함","승마","해녀","카페","리뷰","후기"]
+NAVER_ID     = os.environ.get("NAVER_ID", "").strip()
+NAVER_SECRET = os.environ.get("NAVER_SECRET", "").strip()
+YOUTUBE_KEY  = os.environ.get("YOUTUBE_API_KEY", "").strip()
+THREADS_TOKEN= os.environ.get("THREADS_ACCESS_TOKEN", "").strip()
 
-# 관광 시설 (사고가 나면 관광 이슈)
-TOUR_PLACE = ["호텔","펜션","리조트","게스트하우스","민박","콘도","숙소","숙박",
-"해수욕장","해변","오름","올레","폭포","관광지","유원지","박물관","미술관","전망대","수목원",
-"테마파크","렌터카","렌트카","관광버스","전세버스","유람선","잠수함","공항","여객선","항만",
-"면세점","시장","관광농원","야영장","캠핑장","리조트","골프장","승마장","해녀","포토존"]
+CTX = ssl.create_default_context(); CTX.check_hostname=False; CTX.verify_mode=ssl.CERT_NONE
+UA  = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36"
 
-# 일상 공간 (사고가 나도 관광 이슈 아님)
-DAILY_PLACE = ["아파트","빌라","주택","연립","다세대","공장","창고","학교","병원","요양원",
-"어린이집","사무실","상가건물","주차타워","축사","농가","비닐하우스","공사장","건설현장"]
+# 수집 질의어 — 중립어 + 지역 조합
+QUERIES = ["제주 여행", "제주도 여행", "제주 관광", "제주도 관광", "제주 관광정책",
+           "제주 렌터카", "제주 숙소", "제주 맛집", "제주 물가", "제주 관광객"]
+# 사건 탐지용 (뉴스 채널만) — 지역명 조합으로 놓치는 것 방지
+NEWS_EXTRA = ["제주 사고", "제주 실종", "제주 화재", "제주 단속", "제주 관광 불편",
+              "서귀포 사고", "제주 안전"]
 
-# 연예·방송·인물 (관광 이슈 아님)
-ENTERTAIN = ["유튜브","유튜버","제작진","방송","예능","드라마","촬영","출연","배우","가수",
-"아이돌","소속사","연예","열애","결별","사임","하차","은퇴","복귀","팬","콘서트","시청률",
-"인스타그램 게시","sns 게시","화제의","근황","해명","입장문"]
+DAYS_BACK = 21   # 이 기간 밖의 글은 버림
 
-# 광고·홍보 표지
-AD = ["저희 집","저희집","저희 매장","저희 가게","저희 식당","저희 카페","우리 매장","우리 가게",
-"예약 문의","예약문의","문의주세요","문의 주세요","예약하기","예약 필수","dm 문의","디엠 문의",
-"카톡 문의","프로필 링크","프로필의 링크","협찬","체험단","원고료","소정의","광고 포함",
-"제공받았","제공 받았","초대받아","초대 받아","할인 받고 예약","할인코드","최저가로",
-"네이버 예약","네이버예약","영업시간","0507","064-","단체 예약","포장 가능","주차 완비",
-"할인링크","할인 링크","최대 할인","아고다","가격 확인 및 예약","기사포함","기사 포함","대절",
-"할인 적용","공동구매","공구","링크 클릭","쿠폰","적립","이벤트 참여"]
+def clean(s=""):
+    s = re.sub(r"<[^>]+>", "", s or "")
+    return html.unescape(s).strip()
 
-# 타지역 (전국 나열형 배제용)
-OTHER_REGIONS = ["부산","서울","강릉","경주","전주","인천","여수","속초","대구","광주","대전",
-"울산","수원","춘천","포항","군산","목포","통영","가평","동탄","평택","천안","청주","안동",
-"강원","경기","충청","전라","경상","울릉","독도"]
+def fetch(url, headers=None, timeout=15):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, **(headers or {})})
+    with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
+        return r.read().decode("utf-8", "replace")
 
-# 축약 지명 — 뉴스 제목은 "한림 실종"처럼 접미사를 뗀다.
-# 단, 일반명사와 겹치는 것은 제외한다(연동=연계 동작, 중앙동 등).
-_AMBIG = {"연동","중앙","송산","대천","동홍","서홍","정방","천지","영천","외도","오라","봉개"}
-EMD_BASE = sorted({e[:-1] for e in EMD if e[-1] in "읍면" and len(e) >= 3} |
-                  {e.rstrip("0123456789동") for e in EMD if e.endswith("동")})
-EMD_BASE = [x for x in EMD_BASE if len(x) >= 2 and x not in _AMBIG]
+# ── 네이버 검색 API
+NAVER_EP = {"news":"news", "blog":"blog", "cafe":"cafearticle"}
+def naver(channel, query, display=100, start=1):
+    if not (NAVER_ID and NAVER_SECRET): return []
+    ep = NAVER_EP[channel]
+    url = f"https://openapi.naver.com/v1/search/{ep}.json?" + urllib.parse.urlencode(
+        {"query": query, "display": display, "start": start, "sort": "date"})
+    try:
+        d = json.loads(fetch(url, {"X-Naver-Client-Id": NAVER_ID,
+                                   "X-Naver-Client-Secret": NAVER_SECRET}))
+    except Exception as e:
+        print(f"   ! naver/{channel} '{query}': {e}"); return []
+    out=[]
+    for it in d.get("items", []):
+        pub = it.get("pubDate") or it.get("postdate") or ""
+        ts=None
+        if pub:
+            try: ts = datetime.strptime(pub, "%a, %d %b %Y %H:%M:%S %z")
+            except Exception:
+                try: ts = datetime.strptime(pub, "%Y%m%d").replace(tzinfo=KST)
+                except Exception: ts=None
+        out.append({"title": clean(it.get("title")), "description": clean(it.get("description")),
+                    "link": it.get("originallink") or it.get("link"),
+                    "date": ts.astimezone(KST).strftime("%Y-%m-%d") if ts else None,
+                    "channel": channel, "query": query})
+    return out
 
-def _clean(t):
-    return (t or "").replace("제주항공","").replace("제주은행","").replace("제주맥주","")
+# ── 구글 뉴스 RSS
+def google_news(query):
+    url = "https://news.google.com/rss/search?" + urllib.parse.urlencode(
+        {"q": query, "hl": "ko", "gl": "KR", "ceid": "KR:ko"})
+    try: xml = fetch(url)
+    except Exception as e:
+        print(f"   ! gnews '{query}': {e}"); return []
+    out=[]
+    for m in re.finditer(r"<item>(.*?)</item>", xml, re.S):
+        b=m.group(1)
+        g=lambda tag: (re.search(rf"<{tag}>(.*?)</{tag}>", b, re.S) or [None,""])[1]
+        pub=g("pubDate"); ts=None
+        if pub:
+            try: ts=datetime.strptime(clean(pub), "%a, %d %b %Y %H:%M:%S %Z").replace(tzinfo=timezone.utc)
+            except Exception: ts=None
+        out.append({"title": clean(g("title")), "description": clean(g("description"))[:300],
+                    "link": clean(g("link")),
+                    "date": ts.astimezone(KST).strftime("%Y-%m-%d") if ts else None,
+                    "channel": "news", "query": query})
+    return out
 
-# 일반명사와 겹쳐 단독으로는 신뢰할 수 없는 읍면동 (제주·서귀포와 함께 나와야 인정)
-AMBIG_EMD = {"연동","중앙동","송산동","대천동","동홍동","서홍동","정방동","천지동",
-             "영천동","외도동","오라동","봉개동","건입동"}
+# ── 스레드 (토큰 있을 때만)
+def threads(query):
+    if not THREADS_TOKEN: return []
+    url = "https://graph.threads.net/v1.0/keyword_search?" + urllib.parse.urlencode(
+        {"q": query, "search_type": "TOP", "fields": "id,text,timestamp,permalink",
+         "access_token": THREADS_TOKEN})
+    try: d=json.loads(fetch(url))
+    except Exception as e:
+        print(f"   ! threads '{query}': {e}"); return []
+    out=[]
+    for it in d.get("data", []):
+        txt=(it.get("text") or "").strip()
+        if not txt: continue
+        ts=it.get("timestamp","")[:10]
+        out.append({"title": txt[:80], "description": txt, "link": it.get("permalink"),
+                    "date": ts or None, "channel": "threads", "query": query})
+    return out
 
-def geo_hit(text):
-    """제주 지역 신호가 있는지 — 행정단위·읍면동(축약 포함)·관광지"""
-    t = _clean(text)
-    for w in ADMIN:
-        if w in t: return True
-    for w in SPOT:
-        if w in t: return True
-    for w in EMD:
-        if w in t and w not in AMBIG_EMD: return True
-    for w in EMD_BASE:
-        if w in t: return True
-    return False
+# ── 유튜브 (키 있을 때만)
+def youtube(query):
+    if not YOUTUBE_KEY: return []
+    url = "https://www.googleapis.com/youtube/v3/search?" + urllib.parse.urlencode(
+        {"part":"snippet","q":query,"type":"video","order":"date","maxResults":25,
+         "regionCode":"KR","relevanceLanguage":"ko","key":YOUTUBE_KEY})
+    try: d=json.loads(fetch(url))
+    except Exception as e:
+        print(f"   ! youtube '{query}': {e}"); return []
+    out=[]
+    for it in d.get("items", []):
+        sn=it.get("snippet",{})
+        out.append({"title": clean(sn.get("title")), "description": clean(sn.get("description")),
+                    "link": f"https://www.youtube.com/watch?v={it['id'].get('videoId','')}",
+                    "date": (sn.get("publishedAt") or "")[:10],
+                    "channel": "youtube", "query": query})
+    return out
 
-def geo_reason(text):
-    """어떤 지역 신호로 걸렸는지 (디버그·검증용)"""
-    t = _clean(text)
-    hits = []
-    for grp, ws in [("행정", ADMIN), ("관광지", SPOT), ("축약", EMD_BASE)]:
-        for w in ws:
-            if w in t: hits.append(f"{grp}:{w}")
-    for w in EMD:
-        if w in t and w not in AMBIG_EMD: hits.append(f"읍면동:{w}")
-    return hits[:5]
+def collect():
+    cutoff = (NOW - timedelta(days=DAYS_BACK)).strftime("%Y-%m-%d")
+    raw=[]
+    print("■ 네이버")
+    for q in QUERIES:
+        for ch in ("news","blog","cafe"):
+            r=naver(ch,q); raw+=r
+            print(f"   {ch:5s} '{q}': {len(r)}건"); time.sleep(0.15)
+    print("■ 뉴스 보강 질의")
+    for q in NEWS_EXTRA:
+        r=naver("news",q); raw+=r
+        g=google_news(q); raw+=g
+        print(f"   news '{q}': 네이버 {len(r)} / 구글 {len(g)}"); time.sleep(0.2)
+    print("■ 구글뉴스")
+    for q in QUERIES[:5]:
+        g=google_news(q); raw+=g
+        print(f"   '{q}': {len(g)}건"); time.sleep(0.2)
+    if THREADS_TOKEN:
+        print("■ 스레드")
+        for q in ["제주","제주도","제주여행"]:
+            r=threads(q); raw+=r; print(f"   '{q}': {len(r)}건"); time.sleep(0.3)
+    else:
+        print("■ 스레드 — 토큰 없음, 건너뜀")
+    if YOUTUBE_KEY:
+        print("■ 유튜브")
+        for q in QUERIES[:4]:
+            r=youtube(q); raw+=r; print(f"   '{q}': {len(r)}건"); time.sleep(0.3)
+    else:
+        print("■ 유튜브 — 키 없음, 건너뜀")
+
+    # 중복 제거 + 기간 필터
+    seen={}
+    for it in raw:
+        k=(it.get("link") or it.get("title") or "").strip()
+        if not k: continue
+        if it.get("date") and it["date"] < cutoff: continue
+        if k not in seen: seen[k]=it
+    return list(seen.values())
+
+def main():
+    print("=== 제주관광 여론 수집 ===")
+    print("NAVER_ID:", "설정됨" if NAVER_ID else "없음",
+          "| NAVER_SECRET:", "설정됨" if NAVER_SECRET else "없음",
+          "| THREADS:", "설정됨" if THREADS_TOKEN else "없음",
+          "| YOUTUBE:", "설정됨" if YOUTUBE_KEY else "없음")
+    if not (NAVER_ID and NAVER_SECRET):
+        print("\n네이버 키가 없습니다. GitHub Secrets에 NAVER_ID / NAVER_SECRET을 등록하세요.")
+        raise SystemExit(1)
+    print(f"수집 시작 · 엔진 {ENGINE_VERSION} · 기준 {NOW:%Y-%m-%d %H:%M} KST\n")
+    items = collect()
+    print(f"\n원본 {len(items)}건 (중복·기간 제거 후)\n")
+
+    kept=[]; dropped={}
+    for it in items:
+        r = judge(it)
+        if not r["keep"]:
+            key=f"{r['stage']}·{r['why']}"
+            dropped[key]=dropped.get(key,0)+1
+            continue
+        it.update({k:r[k] for k in ("type","category","sentiment","strength","neg","pos","reasons","pending","rel_why")})
+        kept.append(it)
+
+    print("■ 제외 사유")
+    for k,v in sorted(dropped.items(), key=lambda x:-x[1]):
+        print(f"   {v:5d}  {k}")
+    print(f"\n■ 채택 {len(kept)}건")
+    from collections import Counter
+    print("   감성:", dict(Counter(x["sentiment"] for x in kept)))
+    print("   유형:", dict(Counter(x["type"] for x in kept)))
+    print("   채널:", dict(Counter(x["channel"] for x in kept)))
+    print("   분류:", dict(Counter(x["category"] for x in kept if x["category"])))
+
+    out={"meta":{"updated":NOW.strftime("%Y-%m-%d %H:%M"),"engine":ENGINE_VERSION,
+                 "collected":len(items),"kept":len(kept),"days":DAYS_BACK,
+                 "source":"네이버 검색 오픈API · Google News RSS",
+                 "disclaimer":"공개된 게시물을 수집해 규칙으로 분류한 참고자료입니다. 원인 해석이나 위험도 판단은 하지 않습니다."},
+         "dropped":dropped,"items":kept}
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    json.dump(out, open(OUT,"w",encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("\n저장:", os.path.relpath(OUT))
+
+if __name__ == "__main__":
+    main()
