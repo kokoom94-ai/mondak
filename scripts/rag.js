@@ -258,6 +258,16 @@ function tourDocs(st, dy){
         Number(x.forgn||0).toLocaleString()+"명, 합계 "+Number(x.total||0).toLocaleString()+"명";
       out.push(normTour("일별 제주 입도 관광객 수 ("+dl.period+")",
         dsc.map(line).join(" / ")+". 제주관광 빅데이터 플랫폼 집계입니다.", "일별입도"));
+      // 제공 기간 안내 — 범위 밖 날짜를 물었을 때 "없다"가 아니라 "어디까지 있다"를 답하도록
+      {
+        const f=dl.items[0], l=dl.items[dl.items.length-1];
+        out.push(normTour("일별 입도객 자료 제공 기간 최신 날짜",
+          "일별 입도 관광객 자료는 "+fmt(f.date)+"부터 "+fmt(l.date)+"까지만 있습니다. "+
+          "가장 최근 집계는 "+fmt(l.date)+"이며 합계 "+Number(l.total||0).toLocaleString()+"명입니다. "+
+          "그 이후 날짜(오늘·어제 포함)는 아직 집계되지 않아 제공할 수 없습니다. "+
+          "집계는 며칠 뒤에 반영되므로, 최신 수치는 제주관광 빅데이터 플랫폼(data.ijto.or.kr)에서 확인해 주세요.",
+          "제공기간"));
+      }
       // 날짜별 개별 문서 — 특정 날짜 질문에 정확히 대응
       dl.items.forEach(x=>out.push(normTour(fmt(x.date)+" 제주 입도 관광객 수",
         fmt(x.date)+" 제주 입도객은 내국인 "+Number(x.kor||0).toLocaleString()+"명, 외국인 "+
@@ -526,7 +536,11 @@ function prefilter(question, corpus, N) {
       if (doc.kind === "통계"     && /통계|인구|지표|현황|수치/.test(question)) sc += 5;
       // 관광 통계 — 수치·추세 질문 대응
       if (doc.kind === "관광통계" &&
-          /관광객|입도|방문객|외국인|내국인|소비|매출|카드|읍면동|추이|몇\s*명|비중|순위|중국|일본|대만|싱가|통계|데이터/.test(question)) sc += 6;   // 도민 질문 대응력 강화
+          /관광객|입도|방문객|외국인|내국인|소비|매출|카드|읍면동|추이|몇\s*명|비중|순위|중국|일본|대만|싱가|통계|데이터/.test(question)) sc += 6;
+      // 날짜를 지정한 질문이면 '제공 기간' 문서를 항상 후보에 올린다.
+      // (자료 범위 밖 날짜일 때 "없다"가 아니라 "어디까지 있다"를 답하게 하기 위함)
+      if (doc.title.indexOf("자료 제공 기간") >= 0 &&
+          /\d{1,2}\s*월\s*\d{1,2}\s*일|오늘|어제|그제|최근|현재|지금/.test(question)) sc += 20;   // 도민 질문 대응력 강화
       // 국번없는 번호는 짧아서 토큰 매칭이 약함 → 민원/신고/상담 질문에 보정
       if (doc.kind === "민원전화" && /민원|신고|상담|콜센터|국번/.test(question)) sc += 2;
     }
