@@ -566,6 +566,22 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .emdi .bar{flex:1 1 auto;height:13px;background:var(--bg);border-radius:7px;overflow:hidden}
 .emdi .bar i{display:block;height:100%;background:linear-gradient(90deg,#7B61FF,#A78BFA);border-radius:7px}
 .emdi .v{flex:0 0 46px;text-align:right;font-weight:800;color:#5B43B8}
+.emdcard{background:var(--card);border:1.5px solid var(--navy);border-radius:15px;padding:14px;margin-bottom:11px;box-shadow:0 4px 16px rgba(27,42,74,.09)}
+.emdc-h{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:11px}
+.emdc-h b{font-size:17px;color:var(--navy)}
+.emdc-r{font-size:11px;font-weight:700;color:#fff;background:var(--gyul);border-radius:20px;padding:2px 10px}
+.emdc-x{margin-left:auto;font-size:11.5px;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:8px;padding:4px 10px;cursor:pointer}
+.emdc-g{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
+.emdc-b{background:var(--bg);border-radius:11px;padding:9px 10px}
+.emdc-b span{display:block;font-size:10.5px;color:var(--sub)}
+.emdc-b b{display:block;font-size:16px;color:var(--ink);margin-top:2px;line-height:1.2}
+.emdc-b em{display:block;font-size:10px;color:#5B43B8;font-style:normal;margin-top:3px;line-height:1.35}
+.emdc-f{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}
+.emdc-f span{font-size:10.5px;font-weight:700;color:#B4650F;background:#FDF0E1;border:1px solid #F3D3AA;border-radius:20px;padding:3px 9px}
+.emdc-n{font-size:10.5px;color:var(--sub);margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);line-height:1.65}
+.emdr.tap{cursor:pointer;border-radius:8px;padding-left:3px;padding-right:3px;transition:.12s}
+.emdr.tap:hover{background:var(--bg)}
+.emdr.tap.on{background:#FDF0E1}
 .emdrank{display:flex;flex-direction:column;gap:4px}
 .emdr{display:flex;align-items:center;gap:7px;font-size:12.5px;padding:3px 0}
 .emdr .n{flex:0 0 20px;text-align:center;font-size:10.5px;color:var(--sub)}
@@ -579,6 +595,42 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .tjmore{width:100%;margin-top:9px;padding:9px;border:1px dashed var(--line);background:transparent;border-radius:11px;color:var(--sub);font-size:12.5px;cursor:pointer}
 .tjmore:hover{border-color:var(--gyul);color:var(--gyul)}
 @media(max-width:640px){.emdr .t{flex:0 0 78px;font-size:11.5px}.emdi .t{flex:0 0 78px}.emdr .v{flex:0 0 44px}.emdr .y{flex:0 0 40px}}
+
+.tjread{background:linear-gradient(135deg,#1B2A4A,#2d4270);border-radius:15px;padding:15px 16px;margin-bottom:6px}
+.tjread-h{font-size:14px;font-weight:800;color:var(--gyul);margin-bottom:10px}
+.tjread-i{font-size:13.5px;color:#fff;line-height:1.68;padding:8px 0 8px 13px;border-left:2px solid rgba(255,255,255,.22);margin-bottom:5px;word-break:keep-all}
+.tjread-i.w{border-left-color:var(--gyul)}
+.tjread-n{font-size:11px;color:#B9C2D4;margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.13);line-height:1.55}
+.cdsum{margin-bottom:11px}
+.cdsum-b{height:22px;border-radius:11px;overflow:hidden;background:#8A93A6}
+.cdsum-b span{display:block;height:100%;background:linear-gradient(90deg,#2B6CE8,#4E8CF0)}
+.cdsum-l{display:flex;justify-content:space-between;margin-top:5px;font-size:12.5px}
+.cdsum-l b{color:#2B6CE8}.cdsum-l b.lo{color:var(--sub)}
+.cdbars{display:flex;align-items:flex-end;gap:3px;height:120px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 10px 6px}
+.cdb{flex:1 1 0;display:flex;flex-direction:column;justify-content:flex-end;height:100%;min-width:0}
+.cdb-w{width:100%;display:flex;flex-direction:column-reverse;border-radius:3px 3px 0 0;overflow:hidden}
+.cdb-w .to{display:block;background:linear-gradient(180deg,#4E8CF0,#2B6CE8)}
+.cdb-w .lo{display:block;background:#B9C2D4}
+.cdb-y{font-size:8.5px;color:var(--sub);text-align:center;margin-top:4px}
+.hrwrap{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 10px 6px}
+.hrbars{display:flex;align-items:flex-end;gap:2px;height:110px}
+.hrb{flex:1 1 0;display:flex;flex-direction:column;height:100%;min-width:0}
+.hrb-w{flex:1 1 auto;display:flex;align-items:flex-end;gap:1px}
+.hrb-w i{display:block;flex:1 1 0;border-radius:2px 2px 0 0}
+.hrb-w i.to{background:#2B6CE8}.hrb-w i.lo{background:#B9C2D4}
+.hrb.pk .hrb-w i.to{background:var(--gyul)}
+.hrb-h{font-size:8.5px;color:var(--sub);text-align:center;margin-top:3px;height:11px}
+.hrleg{display:flex;gap:13px;margin-top:8px;font-size:11px;color:var(--sub);flex-wrap:wrap}
+.hrleg span{display:flex;align-items:center;gap:4px}
+.hrleg i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.hrleg i.to{background:#2B6CE8}.hrleg i.lo{background:#B9C2D4}
+.hrleg .pkg{color:var(--gyul);font-weight:700}
+@media(max-width:640px){
+  .tjread{padding:13px 14px}
+  .tjread-i{font-size:12.5px;line-height:1.62}
+  .cdbars{height:104px}.cdb-y{font-size:7.5px}
+  .hrbars{height:96px}
+}
 
 /* ===== 교육정책 ===== */
 .edusec{margin-top:18px}
@@ -2031,7 +2083,7 @@ function renderSchools(){
 }
 document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
 let TJDATA=null, tjLoading=false, tjYearMode='total';
-let EMDDATA=null, emdOpen=false;
+let EMDDATA=null, emdOpen=false, emdPick=null;
 function tjNum(n){ return Number(n).toLocaleString(); }
 function tjMan(n){ return (n/10000).toFixed(0)+'만'; }
 function tjEok(n){ return (n/100000000).toFixed(0)+'억'; }
@@ -2049,11 +2101,177 @@ function loadTJ(){
     if(b) b.innerHTML='<div style="padding:30px 0;text-align:center;color:var(--sub);font-size:13px">관광 데이터를 불러오지 못했습니다.</div>';
   });
 }
+function renderCard(){
+  const C=EMDDATA&&EMDDATA.card; if(!C||!C.series||!C.series.length) return '';
+  const S=C.series, L=C.latest;
+  const mx=Math.max.apply(null,S.map(x=>x.tourist+x.local));
+  let h='<div class="tjsec"><h3>💳 누가 쓰고 있나 <span class="tjm">'+orgEsc(C.period)+'</span></h3>'+
+        '<div class="tjsub">내국인 관광객 vs 도민 카드매출</div>';
+  if(L&&L.tourist_share!=null){
+    h+='<div class="cdsum"><div class="cdsum-b"><span style="width:'+L.tourist_share+'%"></span></div>'+
+       '<div class="cdsum-l"><b>관광객 '+L.tourist_share+'%</b><b class="lo">도민 '+(100-L.tourist_share).toFixed(1)+'%</b></div></div>';
+  }
+  h+='<div class="cdbars">';
+  S.forEach(x=>{
+    const t=x.tourist+x.local, hp=Math.max(3,Math.round(t/mx*100));
+    const tp=t?Math.round(x.tourist/t*100):0;
+    h+='<div class="cdb" title="'+x.date+'"><div class="cdb-w" style="height:'+hp+'%">'+
+       '<span class="lo" style="height:'+(100-tp)+'%"></span><span class="to" style="height:'+tp+'%"></span></div>'+
+       '<div class="cdb-y">'+String(x.date).slice(4)+'</div></div>';
+  });
+  h+='</div><div class="tjnote">막대 높이 = 총매출 · <b style="color:#2B6CE8">파랑</b> 관광객 / <b style="color:#8A93A6">회색</b> 도민</div></div>';
+  return h;
+}
+function renderHour(){
+  const H=EMDDATA&&EMDDATA.hourly; if(!H||!H.items||!H.items.length) return '';
+  const it=H.items, mx=Math.max.apply(null,it.map(x=>Math.max(x.tourist,x.local)));
+  let h='<div class="tjsec"><h3>🕐 언제 쓰나 <span class="tjm">'+orgEsc(H.month||'')+'</span></h3>'+
+        '<div class="tjsub">24시간 소비 패턴 · 관광객과 도민 비교</div>';
+  h+='<div class="hrwrap"><div class="hrbars">';
+  it.forEach(x=>{
+    const t=Math.max(1,Math.round(x.tourist/mx*100)), l=Math.max(1,Math.round(x.local/mx*100));
+    const mark=(x.hour===H.tourist_peak_hour||x.hour===H.local_peak_hour)?' pk':'';
+    h+='<div class="hrb'+mark+'" title="'+x.hour+'시">'+
+       '<div class="hrb-w"><i class="to" style="height:'+t+'%"></i><i class="lo" style="height:'+l+'%"></i></div>'+
+       '<div class="hrb-h">'+(x.hour%6===0?x.hour:'')+'</div></div>';
+  });
+  h+='</div></div>';
+  h+='<div class="hrleg"><span><i class="to"></i>관광객</span><span><i class="lo"></i>도민</span>'+
+     '<span class="pkg">■ 최다 시간</span></div>';
+  return h+'</div>';
+}
+/* 여러 데이터를 교차해 문장을 만든다. 계산 결과만 쓰고 원인은 추정하지 않는다. */
+/* 여러 데이터를 교차해 설명 문장을 만든다.
+   원칙: 숫자를 문장 안에 넣고, 계산으로 확인되는 사실만 쓴다. 원인은 추정하지 않는다. */
+function tjInsights(){
+  const S=TJDATA||{}, E=EMDDATA||{}, out=[];
+  const Y=(S.yearly&&S.yearly.items)||[], full=Y.filter(x=>!x.partial);
+  const N=(S.nations&&S.nations.items)||[], SP=(S.spend_nation&&S.spend_nation.items)||[];
+  const O=(S.origin&&S.origin.sido)||[];
+  const emd=E.emd, card=E.card, hr=E.hourly;
+  const man=(v)=>(v/10000).toFixed(0)+'만';
+  const pct=(v)=>(v>0?'+':'')+(Math.round(v*10)/10)+'%';
+
+  /* ① 외국인 회복 수준 */
+  if(full.length>2){
+    const pk=full.reduce((a,b)=>b.foreign>a.foreign?b:a);
+    const lt=full[full.length-1];
+    const rec=Math.round(lt.foreign/pk.foreign*100);
+    out.push({icon:'🔁',
+      title:'외국인 관광객은 가장 많았던 해의 '+rec+'%까지 왔습니다',
+      body:'외국인이 가장 많았던 해는 '+pk.year+'년으로 '+man(pk.foreign)+'명이 왔습니다. '+
+           '가장 최근 집계인 '+lt.year+'년에는 '+man(lt.foreign)+'명이 왔으니, '+pk.year+'년의 '+rec+'% 수준입니다. '+
+           (rec<80 ? pk.year+'년 수준을 아직 되찾지 못했다는 뜻입니다.' : pk.year+'년 수준에 가까워졌다는 뜻입니다.')});
+
+    /* ② 외국인 자리를 내국인이 채운 구조 */
+    const dpk=full.reduce((a,b)=>b.domestic>a.domestic?b:a);
+    const same=full.find(x=>x.year===dpk.year);
+    if(dpk.year!==pk.year && same){
+      const drop=Math.round((1-same.foreign/pk.foreign)*100);
+      out.push({icon:'🔀',
+        title:'외국인이 거의 오지 않던 해에 내국인은 가장 많이 왔습니다',
+        body:'외국인이 가장 많았던 '+pk.year+'년에는 외국인 '+man(pk.foreign)+'명, 내국인 '+man(pk.domestic)+'명이 왔습니다. '+
+             '그런데 내국인이 가장 많았던 '+dpk.year+'년을 보면 내국인은 '+man(dpk.domestic)+'명으로 늘었지만 '+
+             '외국인은 '+man(same.foreign)+'명으로 '+pk.year+'년보다 '+drop+'% 줄어 있었습니다. '+
+             '외국인이 빠진 자리를 내국인이 채운 형태입니다.'});
+    }
+  }
+
+  /* ③ 사람 수보다 소비가 큰 나라 */
+  if(N.length&&SP.length){
+    const vr={},sr={};
+    N.forEach((x,i)=>vr[x.name]=i+1); SP.forEach((x,i)=>sr[x.name]=i+1);
+    const g=Object.keys(sr).filter(k=>vr[k]).map(k=>({n:k,g:vr[k]-sr[k],v:vr[k],s:sr[k]}))
+             .filter(x=>x.g>=2).sort((a,b)=>b.g-a.g);
+    if(g.length){
+      const t=g[0], vn=N.find(x=>x.name===t.n), sn=SP.find(x=>x.name===t.n);
+      const ratio=(sn&&vn&&vn.share)?(sn.share/vn.share).toFixed(1):null;
+      out.push({icon:'💎',
+        title:t.n+' 관광객은 수는 적지만 쓰는 돈의 비중은 큽니다',
+        body:t.n+'에서 온 관광객은 전체 외국인의 '+(vn?vn.share:'?')+'%로 '+t.v+'번째로 많습니다. '+
+             '그런데 외국인이 쓴 돈에서 '+t.n+'이 차지하는 비중은 '+(sn?sn.share:'?')+'%로 '+t.s+'번째입니다. '+
+             (ratio?'사람 비중보다 소비 비중이 '+ratio+'배 큽니다. ':'')+
+             '방문객 수만 보면 놓치는 부분입니다.',
+        note:'입도객은 최근 월, 소비는 연간 자료라 기준 시점이 다릅니다. 그래서 1인당 금액은 계산하지 않고 비중과 순위만 비교했습니다.'});
+    }
+  }
+
+  /* ④ 한 나라 쏠림 */
+  if(N.length&&N[0].share>=50){
+    const others=N.slice(1,4).map(x=>x.name+' '+x.share+'%').join(', ');
+    out.push({icon:'⚖️',
+      title:'외국인 10명 중 7명이 '+N[0].name+'에서 옵니다',
+      body:'가장 최근 달 기준으로 외국인 관광객 '+Number(S.nations.total).toLocaleString()+'명 가운데 '+
+           N[0].name+'이 '+Number(N[0].value).toLocaleString()+'명(' + N[0].share+'%)입니다. '+
+           '그다음은 '+others+' 순입니다. '+
+           '한 나라 비중이 이렇게 크면 그 나라 상황이 바뀔 때 전체 외국인 수가 함께 흔들립니다.'});
+  }
+
+  /* ⑤ 국내 거주지 쏠림 */
+  if(O.length>2){
+    const t2=Math.round((O[0].share+O[1].share)*10)/10;
+    if(t2>=40) out.push({icon:'📍',
+      title:'국내 관광객 절반 가까이가 '+O[0].name+'·'+O[1].name+'에서 옵니다',
+      body:O[0].name+' '+O[0].share+'%, '+O[1].name+' '+O[1].share+'%로 두 곳이 '+t2+'%입니다. '+
+           '3위는 '+O[2].name+' '+O[2].share+'%로 차이가 큽니다. '+
+           '나머지 시도를 모두 합쳐도 '+(100-t2).toFixed(1)+'%입니다.'});
+  }
+
+  /* ⑥ 읍면동 엇갈림 */
+  if(emd&&emd.alerts&&emd.alerts.length){
+    const cr=emd.alerts.filter(a=>a.tags.some(t=>t.indexOf('엇갈림')===0));
+    if(cr.length){
+      const c=cr[0], up=c.foreign_yoy>0;
+      out.push({icon:'🔎',
+        title:c.name+'은 내국인이 줄고 외국인이 늘었습니다',
+        body:'작년 같은 달과 비교하면 '+c.name+'을 찾은 내국인은 '+pct(c.native_yoy)+', '+
+             '외국인은 '+pct(c.foreign_yoy)+'입니다. '+
+             '한쪽은 줄고 한쪽은 느는, 방향이 서로 다른 경우입니다. '+
+             '전체 '+emd.count+'개 읍면동 가운데 이런 곳이 '+cr.length+'곳 있습니다.',
+        note:'왜 그런지는 이 통계만으로 알 수 없어 표시하지 않습니다'});
+    }
+  }
+
+  /* ⑦ 외국인 비중 높은 지역 */
+  if(emd&&emd.intl_spots&&emd.intl_spots.length){
+    const s0=emd.intl_spots[0], mult=(s0.ratio/emd.avg_foreign_ratio).toFixed(1);
+    let extra='';
+    if(N.length&&N[0].share>=50) extra=' 참고로 제주를 찾는 외국인의 '+N[0].share+'%가 '+N[0].name+'인데, 이 통계는 국적을 구분하지 않아 이 지역의 국적 구성은 알 수 없습니다.';
+    out.push({icon:'🌏',
+      title:s0.name+'은 방문객 중 외국인 비율이 가장 높습니다',
+      body:s0.name+'을 찾은 사람 가운데 외국인이 '+s0.ratio+'%입니다. '+
+           emd.count+'개 읍면동 평균이 '+emd.avg_foreign_ratio+'%이니 평균의 '+mult+'배입니다.'+extra});
+  }
+
+  /* ⑧ 관광객·도민 소비 비중 */
+  if(card&&card.trend){
+    const d=card.trend.share_delta, last=card.trend.share_last;
+    out.push({icon:'💳',
+      title:'제주에서 쓰는 카드값의 절반이 관광객 돈입니다',
+      body:'가장 최근 집계인 '+card.latest+' 기준으로 내국인 관광객이 쓴 카드 금액이 전체의 '+last+'%, '+
+           '도민이 쓴 금액이 '+(100-last).toFixed(1)+'%입니다. '+
+           '1년 전과 비교하면 관광객 비중이 '+(d>0?d+'%p 늘었고':Math.abs(d)+'%p 줄었고')+', '+
+           '제주 소비의 절반가량이 관광객에 달려 있다는 뜻입니다.',
+      note:'카드사 정산 주기 때문에 이 항목은 다른 지표보다 몇 달 늦게 반영됩니다'});
+  }
+
+  /* ⑨ 시간대 */
+  if(hr&&hr.share_high&&hr.share_low){
+    const hi=hr.share_high, lo=hr.share_low;
+    out.push({icon:'🕐',
+      title:'낮에는 관광객, 새벽에는 도민이 지갑을 엽니다',
+      body:'하루 24시간 가운데 관광객이 쓴 돈의 비중이 가장 높은 때는 '+hi.hour+'시로 '+hi.share+'%이고, '+
+           '가장 낮은 때는 '+lo.hour+'시로 '+lo.share+'%입니다. '+
+           '금액 자체가 가장 큰 시간은 관광객이 '+hr.peak_tourist+'시, 도민이 '+hr.peak_local+'시입니다. '+
+           '같은 가게라도 몇 시냐에 따라 주로 오는 손님이 달라집니다.'});
+  }
+  return out;
+}
 function renderEMD(){
   const E=EMDDATA&&EMDDATA.emd; if(!E||!E.items||!E.items.length) return '';
   const it=E.items, mx=it[0].native||1;
   let h='<div class="tjsec"><h3>🏘 읍면동 방문객 <span class="tjm">'+orgEsc(E.month||'')+'</span></h3>'+
-        '<div class="tjsub">통신사 기준 · '+E.count+'개 읍면동</div>';
+        '<div class="tjsub">통신사 기준 · '+E.count+'개 읍면동 · 지역을 누르면 상세가 열립니다</div>';
 
   /* 자동 판정 — 눈여겨볼 곳 */
   const al=E.alerts||[];
@@ -2090,6 +2308,34 @@ function renderEMD(){
 
   /* 전체 순위 */
   const lim=emdOpen?it.length:10;
+  /* 선택한 읍면동 통합 카드 */
+  if(emdPick){
+    const x=it.find(z=>z.name===emdPick);
+    if(x){
+      const pc=(v)=>typeof v==='number'?((v>0?'+':'')+v.toFixed(1)+'%'):'—';
+      const cl=(v)=>typeof v!=='number'?'':(v<0?'dn':'up');
+      const tot=x.native+x.foreign;
+      const rel=E.avg_foreign_ratio?(x.foreign_ratio/E.avg_foreign_ratio).toFixed(1):null;
+      h+='<div class="emdcard"><div class="emdc-h"><b>'+orgEsc(x.name)+'</b>'+
+         '<span class="emdc-r">'+E.count+'곳 중 '+x.rank+'위</span>'+
+         '<button class="emdc-x" id="emdclose">닫기 ×</button></div>'+
+         '<div class="emdc-g">'+
+           '<div class="emdc-b"><span>전체 방문객</span><b>'+tjMan(tot)+'명</b></div>'+
+           '<div class="emdc-b"><span>내국인</span><b>'+tjMan(x.native)+'명</b></div>'+
+           '<div class="emdc-b"><span>외국인</span><b>'+tjMan(x.foreign)+'명</b>'+
+             '<em>비중 '+x.foreign_ratio+'%'+(rel?' · 평균의 '+rel+'배':'')+'</em></div>'+
+         '</div>'+
+         '<table class="emdt"><tr><th></th><th>전년 동월</th><th>전월</th></tr>'+
+           '<tr><td>내국인</td><td class="big '+cl(x.native_yoy)+'">'+pc(x.native_yoy)+'</td>'+
+             '<td class="sml '+cl(x.native_mom)+'">'+pc(x.native_mom)+'</td></tr>'+
+           '<tr><td>외국인</td><td class="big '+cl(x.foreign_yoy)+'">'+pc(x.foreign_yoy)+'</td>'+
+             '<td class="sml '+cl(x.foreign_mom)+'">'+pc(x.foreign_mom)+'</td></tr></table>'+
+         (x.flags&&x.flags.length?'<div class="emdc-f">'+x.flags.map(t=>'<span>'+orgEsc(t)+'</span>').join('')+'</div>':'')+
+         '<div class="emdc-n">· 방문객은 통신사 기준 추정치입니다.<br>'+
+         '· 카드매출·시간대 통계는 제주 전체 단위로만 제공되어 읍면동별로는 표시할 수 없습니다.</div>'+
+         '</div>';
+    }
+  }
   h+='<div class="emdhd"><span class="n"></span><span class="t">읍면동</span>'+
      '<span class="bar"></span><span class="v">방문객</span>'+
      '<span class="y">전년</span><span class="y m">전월</span></div>';
@@ -2099,7 +2345,7 @@ function renderEMD(){
     const cell=(v,c)=>typeof v==='number'
       ? '<span class="'+c+' '+(v<0?'dn':'up')+'">'+(v>0?'+':'')+v.toFixed(0)+'%</span>'
       : '<span class="'+c+'">—</span>';
-    h+='<div class="emdr"><span class="n">'+x.rank+'</span>'+
+    h+='<div class="emdr tap'+(emdPick===x.name?' on':'')+'" data-emd="'+orgEsc(x.name)+'"><span class="n">'+x.rank+'</span>'+
        '<span class="t">'+orgEsc(x.name)+'</span>'+
        '<span class="bar"><i style="width:'+Math.max(2,Math.round(x.native/mx*100))+'%"></i></span>'+
        '<span class="v">'+tjMan(x.native)+'</span>'+
@@ -2114,6 +2360,16 @@ function renderTJ(){
   if(!TJDATA) return;
   const b=document.getElementById('tjbody'); if(!b) return;
   let h='';
+
+  /* ★ 융합 해석 — 숫자보다 먼저 */
+  const INS=tjInsights();
+  if(INS.length){
+    h+='<div class="tjread"><div class="tjread-h">📌 데이터가 말하는 것</div>';
+    INS.forEach(x=>{
+      h+='<div class="tjread-i'+(x.level==='warn'?' w':'')+'">'+orgEsc(x.text)+'</div>';
+    });
+    h+='<div class="tjread-n">계산으로 확인되는 사실만 적었습니다. 원인은 데이터로 판단할 수 없어 포함하지 않았습니다.</div></div>';
+  }
 
   /* ① 17년 추이 */
   const Y=TJDATA.yearly||{}, ys=Y.items||[];
@@ -2177,6 +2433,11 @@ function renderTJ(){
     h+='</div><div class="tjins">'+orgEsc(N.items[0].name)+'이 <b>'+N.items[0].share+'%</b>로 가장 많습니다.</div></div>';
   }
 
+  /* ③-2 카드매출 관광객vs도민 */
+  h+=renderCard();
+  /* ③-3 시간대별 패턴 */
+  h+=renderHour();
+
   /* ④ 소비 — 양보다 질 */
   const S=TJDATA.spend_nation||{};
   if(S.items&&S.items.length){
@@ -2209,6 +2470,16 @@ function renderTJ(){
   b.innerHTML=h;
   const em=document.getElementById('emdmore');
   if(em) em.addEventListener('click',()=>{emdOpen=true;renderTJ();});
+  document.querySelectorAll('.emdr.tap[data-emd]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      emdPick = (emdPick===el.dataset.emd) ? null : el.dataset.emd;
+      renderTJ();
+      const c=document.querySelector('.emdcard');
+      if(c) c.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  });
+  const ec=document.getElementById('emdclose');
+  if(ec) ec.addEventListener('click',(e)=>{e.stopPropagation();emdPick=null;renderTJ();});
   const tg=document.getElementById('tjtg');
   if(tg) tg.addEventListener('click',e=>{
     const btn=e.target.closest('button'); if(!btn)return;
