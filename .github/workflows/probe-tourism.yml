@@ -6,12 +6,14 @@ on:
       mode:
         description: '실행 모드'
         required: true
-        default: 'dump'
+        default: 'recent'
         type: choice
         options:
           - probe
           - explore
           - dump
+          - air
+          - recent
 
 jobs:
   run:
@@ -22,4 +24,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: 실행
-        run: python scripts/${{ inputs.mode }}_tourism.py
+        run: |
+          if [ -f "scripts/probe_${{ inputs.mode }}.py" ]; then
+            python scripts/probe_${{ inputs.mode }}.py
+          else
+            python scripts/${{ inputs.mode }}_tourism.py
+          fi
