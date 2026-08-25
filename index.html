@@ -494,6 +494,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 /* ===== 지금제주 ===== */
 .tjsec{margin-top:20px}
 .tjsec h3{font-size:16px;color:var(--navy);margin:0 0 4px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tjtap{font-size:11px;font-weight:700;color:#B4650F;background:#FDF0E1;border:1px solid #F3D3AA;border-radius:20px;padding:3px 10px;white-space:nowrap}
 .tjm{font-size:11.5px;font-weight:600;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
 .tjsub{font-size:12px;color:var(--sub);margin-bottom:11px;line-height:1.55}
 .tjhl{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:7px;margin-bottom:13px}
@@ -600,6 +601,13 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .tjread-h{font-size:14px;font-weight:800;color:var(--gyul);margin-bottom:10px}
 .tjread-i{font-size:13.5px;color:#fff;line-height:1.68;padding:8px 0 8px 13px;border-left:2px solid rgba(255,255,255,.22);margin-bottom:5px;word-break:keep-all}
 .tjread-i.w{border-left-color:var(--gyul)}
+.tjrd{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.tjrd:last-of-type{border-bottom:none}
+.tjrd-i{flex:0 0 auto;font-size:18px;line-height:1.35}
+.tjrd-b{flex:1 1 auto;min-width:0}
+.tjrd-t{font-size:14.5px;font-weight:800;color:#fff;line-height:1.45;word-break:keep-all}
+.tjrd-d{font-size:12.5px;color:#DDE3EE;line-height:1.72;margin-top:5px;word-break:keep-all}
+.tjrd-n{font-size:11px;color:#8A93A6;line-height:1.6;margin-top:6px;padding-left:9px;border-left:2px solid rgba(255,255,255,.16);word-break:keep-all}
 .tjread-n{font-size:11px;color:#B9C2D4;margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.13);line-height:1.55}
 .cdsum{margin-bottom:11px}
 .cdsum-b{height:22px;border-radius:11px;overflow:hidden;background:#8A93A6}
@@ -628,8 +636,49 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 @media(max-width:640px){
   .tjread{padding:13px 14px}
   .tjread-i{font-size:12.5px;line-height:1.62}
+  .tjrd{gap:9px;padding:10px 0}
+  .tjrd-i{font-size:16px}
+  .tjrd-t{font-size:13.5px}
+  .tjrd-d{font-size:12px;line-height:1.68}
   .cdbars{height:104px}.cdb-y{font-size:7.5px}
   .hrbars{height:96px}
+}
+
+.bizsec h3{color:#0E7C7B}
+.bizc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:9px}
+.bizc.warn{background:#FDF0E1;border-color:#F3D3AA}
+.bizc-t{font-size:13.5px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.bizc.warn .bizc-t{color:#B4650F}
+.bizc-d{font-size:12.5px;color:var(--ink);line-height:1.7;word-break:keep-all}
+.bizc-d b{color:var(--navy);font-weight:800}
+.bizc.warn .bizc-d b{color:#B4650F}
+.bizc-n{font-size:10.5px;color:var(--sub);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);line-height:1.55}
+.bizmix{margin-bottom:9px}
+.bm-b{display:flex;height:30px;border-radius:9px;overflow:hidden}
+.bm-b span{display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;color:#fff;background:linear-gradient(90deg,#2B6CE8,#4E8CF0);white-space:nowrap}
+.bm-b span.lo{background:linear-gradient(90deg,#0E7C7B,#4FD8C4)}
+.bizhr{display:flex;align-items:flex-end;gap:2px;height:110px;background:var(--bg);border-radius:11px;padding:9px 7px 5px;margin:9px 0 6px;overflow-x:auto}
+.bh{flex:1 1 0;min-width:11px;display:flex;flex-direction:column;align-items:center;height:100%}
+.bh-h{font-size:8px;color:var(--sub);margin-bottom:2px}
+.bh-b{flex:1 1 auto;width:100%;display:flex;align-items:flex-end}
+.bh-b span{display:block;width:100%;background:#B9C2D4;border-radius:2px 2px 0 0}
+.bh.hi .bh-b span{background:linear-gradient(180deg,#4E8CF0,#2B6CE8)}
+.bh.lo .bh-b span{background:linear-gradient(180deg,#4FD8C4,#0E7C7B)}
+.bh-v{font-size:7.5px;color:var(--sub);margin-top:2px}
+.bizlg{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--sub);flex-wrap:wrap}
+.bizlg .lg{width:11px;height:11px;border-radius:3px;background:#B9C2D4;margin-left:7px}
+.bizlg .lg.hi{background:#2B6CE8;margin-left:0}
+.bizlg .lg.lo{background:#0E7C7B}
+.bizgap{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.bg-x{flex:1 1 0;background:var(--bg);border-radius:11px;padding:9px 10px;text-align:center}
+.bg-x .l{display:block;font-size:10px;color:var(--sub)}
+.bg-x b{display:block;font-size:14px;color:var(--navy);margin-top:2px}
+.bg-x em{display:block;font-size:11.5px;color:var(--sub);font-style:normal}
+.bg-r{flex:0 0 auto;font-size:19px;font-weight:800;color:var(--gyul)}
+@media(max-width:640px){
+  .bizhr{height:96px}
+  .bh-h{font-size:7px}.bh-v{display:none}
+  .bg-r{font-size:16px}
 }
 
 /* ===== 교육정책 ===== */
@@ -1901,7 +1950,7 @@ const GWAN={
   'gwan-now':{t:'여기가젠',d:'지금 이슈 소식',ic:'📍'},
   'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'},
   'gwan-plan':{t:'여행플래너',d:'어디레 감수광 — 숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계합니다',ic:'🗺️'},
-  'gwan-jeju':{t:'지금제주',d:'제주 관광, 숫자로 보는 17년 — 입도객 · 어디서 오나 · 소비',ic:'📊'},
+  'gwan-jeju':{t:'지금제주',d:'',ic:'📊'},
   'gwan-kr':{t:'지금한국',d:'인사이트',ic:'🇰🇷'}
 };
 let selIdx=null, supWho=null, newsSec='전체';
@@ -2143,6 +2192,103 @@ function renderHour(){
 /* 여러 데이터를 교차해 문장을 만든다. 계산 결과만 쓰고 원인은 추정하지 않는다. */
 /* 여러 데이터를 교차해 설명 문장을 만든다.
    원칙: 숫자를 문장 안에 넣고, 계산으로 확인되는 사실만 쓴다. 원인은 추정하지 않는다. */
+
+/* 소상공인 참고용 계산값. 전부 데이터에서 나온 수치이며 예측이 아니다. */
+function renderBiz(){
+  const E=EMDDATA||{}, S=TJDATA||{};
+  const card=E.card, hr=E.hourly, mo=E.monthly, ind=E.industry;
+  const N=(S.nations&&S.nations.items)||[];
+  if(!card && !hr && !mo) return '';
+  let h='<div class="tjsec bizsec"><h3>🏪 소상공인 참고자료</h3>'+
+        '<div class="tjsub">가게 운영에 참고할 수 있는 계산값입니다 · 앞으로를 예측한 값이 아닙니다</div>';
+
+  /* ① 손님 구성 기준선 */
+  if(card&&card.trend){
+    const t=card.trend.share_last, l=(100-t).toFixed(1);
+    h+='<div class="bizc"><div class="bizc-t">① 제주 평균 손님 구성</div>'+
+       '<div class="bizmix"><div class="bm-b"><span style="width:'+t+'%">관광객 '+t+'%</span>'+
+       '<span class="lo" style="width:'+l+'%">도민 '+l+'%</span></div></div>'+
+       '<div class="bizc-d">제주 전체 카드매출을 100으로 보면 관광객이 <b>'+t+'</b>, 도민이 <b>'+l+'</b>입니다. '+
+       '우리 가게가 이 비율보다 관광객 쪽이면 성수기 영향을 크게 받고, 도민 쪽이면 상대적으로 덜 흔들립니다.</div>'+
+       '<div class="bizc-n">기준: '+orgEsc(card.latest||'')+' · 카드 정산 주기로 몇 달 지연됩니다</div></div>';
+  }
+
+  /* ② 시간대별 손님 구성 — 24시간 */
+  if(hr&&hr.items&&hr.items.length){
+    const its=hr.items.filter(x=>typeof x.tourist_share==='number');
+    // 고정 기준 대신 실제 분포로 상·하위 25% 지점을 잡는다
+    const sv=its.map(x=>x.tourist_share).slice().sort((a,b)=>a-b);
+    const q3=sv[Math.floor(sv.length*0.75)], q1=sv[Math.floor(sv.length*0.25)];
+    const avg=(sv.reduce((a,b)=>a+b,0)/sv.length).toFixed(1);
+    const mxs=sv[sv.length-1];
+    h+='<div class="bizc"><div class="bizc-t">② 몇 시에 누가 오나</div>'+
+       '<div class="bizc-d">시간대별로 관광객이 쓴 금액의 비중입니다. 하루 평균은 <b>'+avg+'%</b>이고, '+
+       '막대가 높을수록 그 시간대에 관광객 비중이 큽니다. 영업시간·메뉴·인력 배치에 참고할 수 있습니다.</div>'+
+       '<div class="bizhr">';
+    its.forEach(x=>{
+      const ts=x.tourist_share, r=Math.round(ts);
+      const cls = ts>=q3?'hi' : (ts<=q1?'lo':'');
+      // 막대 높이는 최댓값 기준으로 정규화해 차이가 보이게
+      const hgt=Math.max(8,Math.round(ts/mxs*100));
+      h+='<div class="bh '+cls+'" title="'+x.hour+'시 · 관광객 '+r+'% / 도민 '+(100-r)+'%">'+
+         '<div class="bh-h">'+x.hour+'</div>'+
+         '<div class="bh-b"><span style="height:'+hgt+'%"></span></div>'+
+         '<div class="bh-v">'+r+'</div></div>';
+    });
+    h+='</div><div class="bizlg"><span class="lg hi"></span>관광객 비중 상위('+Math.round(q3)+'%↑)'+
+       '<span class="lg"></span>보통<span class="lg lo"></span>도민 비중 상위('+Math.round(q1)+'%↓)</div>';
+    if(hr.share_high&&hr.share_low)
+      h+='<div class="bizc-n">관광객 비중 최고 '+hr.share_high.hour+'시('+hr.share_high.share+'%) · 최저 '+
+         hr.share_low.hour+'시('+hr.share_low.share+'%) · 기준 '+orgEsc(hr.month||'')+'</div>';
+    h+='</div>';
+  }
+
+  /* ③ 계절 격차 */
+  if(mo&&mo.gap_ratio){
+    h+='<div class="bizc"><div class="bizc-t">③ 성수기와 비수기 차이</div>'+
+       '<div class="bizgap"><div class="bg-x"><span class="l">가장 많은 달</span>'+
+       '<b>'+orgEsc(mo.peak.month)+'</b><em>'+tjMan(mo.peak.total)+'명</em></div>'+
+       '<div class="bg-r">'+mo.gap_ratio+'배</div>'+
+       '<div class="bg-x"><span class="l">가장 적은 달</span>'+
+       '<b>'+orgEsc(mo.low.month)+'</b><em>'+tjMan(mo.low.total)+'명</em></div></div>'+
+       '<div class="bizc-d">최근 1년 사이 가장 붐빈 달과 가장 한산한 달의 입도객 차이가 <b>'+mo.gap_ratio+'배</b>입니다. '+
+       '재고·인력·영업시간을 계절에 따라 조정할 때 참고할 수 있는 폭입니다.</div></div>';
+  }
+
+  /* ④ 위험 신호 — 쏠림 민감도 */
+  if(N.length&&N[0].share>=50){
+    const sh=N[0].share, half=(sh/2).toFixed(1);
+    const Y=(S.yearly&&S.yearly.items)||[], full=Y.filter(x=>!x.partial);
+    let hist='';
+    if(full.length>2){
+      const pk=full.reduce((a,b)=>b.foreign>a.foreign?b:a);
+      const mn=full.reduce((a,b)=>b.foreign<a.foreign?b:a);
+      if(mn.year>pk.year) hist='실제로 '+pk.year+'년 '+(pk.foreign/10000).toFixed(0)+'만명이던 외국인이 '+
+        mn.year+'년 '+(mn.foreign/10000).toFixed(0)+'만명까지 줄어든 적이 있습니다('+
+        Math.round((1-mn.foreign/pk.foreign)*100)+'% 감소).';
+    }
+    h+='<div class="bizc warn"><div class="bizc-t">④ 미리 알아둘 위험</div>'+
+       '<div class="bizc-d">제주를 찾는 외국인의 <b>'+sh+'%</b>가 '+orgEsc(N[0].name)+'입니다. '+
+       '만약 '+orgEsc(N[0].name)+' 관광객이 절반으로 줄면 전체 외국인은 <b>약 '+half+'%p</b> 줄어듭니다. '+
+       hist+' 외국인 손님 비중이 높은 가게라면 미리 염두에 둘 만한 구조입니다.</div>'+
+       '<div class="bizc-n">과거 수치를 바탕으로 한 계산이며, 앞으로 그렇게 된다는 뜻은 아닙니다</div></div>';
+  }
+
+  /* ⑤ 업종별 */
+  if(ind&&ind.items&&ind.items.length){
+    const top=ind.items.slice(0,8);
+    h+='<div class="bizc"><div class="bizc-t">⑤ 업종별 소비</div><div class="tjrank">';
+    const mxv=Math.max.apply(null,top.map(x=>x.value||0))||1;
+    top.forEach((x,i)=>{
+      h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
+         '<span class="bar"><i style="width:'+Math.max(3,Math.round((x.value||0)/mxv*100))+'%"></i></span>'+
+         '<span class="v">'+(typeof x.share==='number'?x.share+'%':'')+'</span></div>';
+    });
+    h+='</div><div class="bizc-n">기준 '+orgEsc(ind.month||'')+'</div></div>';
+  }
+  return h+'</div>';
+}
+
 function tjInsights(){
   const S=TJDATA||{}, E=EMDDATA||{}, out=[];
   const Y=(S.yearly&&S.yearly.items)||[], full=Y.filter(x=>!x.partial);
@@ -2271,7 +2417,7 @@ function renderEMD(){
   const E=EMDDATA&&EMDDATA.emd; if(!E||!E.items||!E.items.length) return '';
   const it=E.items, mx=it[0].native||1;
   let h='<div class="tjsec"><h3>🏘 읍면동 방문객 <span class="tjm">'+orgEsc(E.month||'')+'</span></h3>'+
-        '<div class="tjsub">통신사 기준 · '+E.count+'개 읍면동 · 지역을 누르면 상세가 열립니다</div>';
+        '<div class="tjsub">통신사 기준 · '+E.count+'개 읍면동</div>';
 
   /* 자동 판정 — 눈여겨볼 곳 */
   const al=E.alerts||[];
@@ -2366,10 +2512,19 @@ function renderTJ(){
   if(INS.length){
     h+='<div class="tjread"><div class="tjread-h">📌 데이터가 말하는 것</div>';
     INS.forEach(x=>{
-      h+='<div class="tjread-i'+(x.level==='warn'?' w':'')+'">'+orgEsc(x.text)+'</div>';
+      h+='<div class="tjrd">'+
+         '<div class="tjrd-i">'+(x.icon||'•')+'</div>'+
+         '<div class="tjrd-b">'+
+           '<div class="tjrd-t">'+orgEsc(x.title||'')+'</div>'+
+           '<div class="tjrd-d">'+orgEsc(x.body||'')+'</div>'+
+           (x.note?'<div class="tjrd-n">※ '+orgEsc(x.note)+'</div>':'')+
+         '</div></div>';
     });
     h+='<div class="tjread-n">계산으로 확인되는 사실만 적었습니다. 원인은 데이터로 판단할 수 없어 포함하지 않았습니다.</div></div>';
   }
+
+  /* ★ 소상공인 참고자료 */
+  h+=renderBiz();
 
   /* ① 17년 추이 */
   const Y=TJDATA.yearly||{}, ys=Y.items||[];
@@ -2812,7 +2967,9 @@ function renderGwan(v){
   if(!el)return;
   el.querySelector('.gwan-ic').textContent=g.ic;
   el.querySelector('.gwan-t').textContent=g.t;
-  el.querySelector('.gwan-d').textContent=g.d;
+  const gd=el.querySelector('.gwan-d');
+  gd.textContent=g.d||'';
+  const gsub=gd.closest('.viewsub'); if(gsub) gsub.hidden=!g.d;
   // 여행플래너 · 지금제주는 전용 화면, 나머지는 준비 중
   const isPlan = (v==='gwan-plan'), isTJ = (v==='gwan-jeju');
   const soon=document.getElementById('gwansoon'), plan=document.getElementById('gwanplan'),
