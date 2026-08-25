@@ -24,8 +24,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT  = os.path.join(HERE, "..", "data", "issue.json")
 HIST = os.path.join(HERE, "..", "data", "issue_history.json")
 
+# ncloud API HUB (뉴스만 제공)
 NAVER_ID     = os.environ.get("NAVER_ID", "").strip()
 NAVER_SECRET = os.environ.get("NAVER_SECRET", "").strip()
+# 네이버 개발자센터 오픈API (뉴스·블로그·카페 모두 제공, 하루 25,000회 무료)
+NCID     = os.environ.get("NAVER_CLIENT_ID", "").strip()
+NCSECRET = os.environ.get("NAVER_CLIENT_SECRET", "").strip()
 YOUTUBE_KEY  = os.environ.get("YOUTUBE_API_KEY", "").strip()
 THREADS_TOKEN= os.environ.get("THREADS_ACCESS_TOKEN", "").strip()
 
@@ -50,20 +54,33 @@ def fetch(url, headers=None, timeout=15):
     with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
         return r.read().decode("utf-8", "replace")
 
-# ── 네이버 검색 (NAVER API HUB / ncloud)
-#    호외요(collect_news.py)와 동일한 엔드포인트·헤더를 쓴다.
-NAVER_BASE = "https://naverapihub.apigw.ntruss.com/search/v1"
+# ── 네이버 검색 — 두 경로 지원
+#    (1) 개발자센터 오픈API : 뉴스·블로그·카페 전부. 우선 사용
+#    (2) ncloud API HUB     : 뉴스만. (1)이 없을 때 사용
 NAVER_EP = {"news":"news", "blog":"blog", "cafe":"cafearticle"}
+HUB_BASE = "https://naverapihub.apigw.ntruss.com/search/v1"
+DEV_BASE = "https://openapi.naver.com/v1/search"
+
 def naver(channel, query, display=100, start=1):
-    if not (NAVER_ID and NAVER_SECRET): return []
     ep = NAVER_EP[channel]
-    url = f"{NAVER_BASE}/{ep}?" + urllib.parse.urlencode(
-        {"query": query, "display": display, "start": start, "sort": "date"})
-    try:
-        d = json.loads(fetch(url, {"x-ncp-apigw-api-key-id": NAVER_ID,
-                                   "x-ncp-apigw-api-key": NAVER_SECRET}))
-    except Exception as e:
-        print(f"   ! naver/{channel} '{query}': {e}"); return []
+    qs = urllib.parse.urlencode({"query": query, "display": display,
+                                 "start": start, "sort": "date"})
+    tries = []
+    if NCID and NCSECRET:
+        tries.append(("개발자센터", f"{DEV_BASE}/{ep}.json?{qs}",
+                      {"X-Naver-Client-Id": NCID, "X-Naver-Client-Secret": NCSECRET}))
+    if NAVER_ID and NAVER_SECRET:
+        tries.append(("API HUB", f"{HUB_BASE}/{ep}?{qs}",
+                      {"x-ncp-apigw-api-key-id": NAVER_ID, "x-ncp-apigw-api-key": NAVER_SECRET}))
+    if not tries: return []
+    last=None
+    for label, url, hdr in tries:
+        try:
+            d = json.loads(fetch(url, hdr)); break
+        except Exception as e:
+            last=f"{label}: {e}"; d=None
+    if d is None:
+        print(f"   ! naver/{channel} '{query}': {last}"); return []
     out=[]
     for it in d.get("items", []):
         pub = it.get("pubDate") or it.get("postdate") or ""
@@ -191,13 +208,16 @@ def collect():
 
 def main():
     print("=== 제주관광 여론 수집 ===")
-    print("NAVER_ID:", "설정됨" if NAVER_ID else "없음",
-          "| NAVER_SECRET:", "설정됨" if NAVER_SECRET else "없음",
+    print("개발자센터(블로그·카페):", "설정됨" if (NCID and NCSECRET) else "없음",
+          "| API HUB(뉴스):", "설정됨" if (NAVER_ID and NAVER_SECRET) else "없음",
           "| THREADS:", "설정됨" if THREADS_TOKEN else "없음",
           "| YOUTUBE:", "설정됨" if YOUTUBE_KEY else "없음")
-    if not (NAVER_ID and NAVER_SECRET):
-        print("\n네이버 키가 없습니다. GitHub Secrets에 NAVER_ID / NAVER_SECRET을 등록하세요.")
+    if not ((NCID and NCSECRET) or (NAVER_ID and NAVER_SECRET)):
+        print("\n네이버 키가 없습니다. Secrets에 NAVER_CLIENT_ID/NAVER_CLIENT_SECRET"
+              " 또는 NAVER_ID/NAVER_SECRET을 등록하세요.")
         raise SystemExit(1)
+    if not (NCID and NCSECRET):
+        print("  ※ 개발자센터 키가 없어 블로그·카페는 수집되지 않습니다.")
     print(f"수집 시작 · 엔진 {ENGINE_VERSION} · 기준 {NOW:%Y-%m-%d %H:%M} KST\n")
     items = collect()
     print(f"\n원본 {len(items)}건 (중복·기간 제거 후)\n")
