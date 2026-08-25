@@ -546,7 +546,10 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 }
 
 .emdal{background:#FDF0E1;border:1px solid #F3D3AA;border-radius:13px;padding:12px 13px;margin-bottom:10px}
-.emdal-t{font-size:13px;font-weight:800;color:#B4650F;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.emdal-t{font-size:13px;font-weight:800;color:#B4650F;margin-bottom:4px;display:flex;align-items:center;gap:7px}
+.emdal-s{font-size:11px;color:var(--sub);margin-bottom:9px;line-height:1.5}
+.emdint .emdal-t,.emdsub .emdal-t{color:var(--navy)}
+.emdsub{margin:14px 0 8px}
 .emdal-t span{font-size:11px;font-weight:600;color:var(--sub);background:rgba(255,255,255,.7);border-radius:20px;padding:1px 8px}
 .emda{background:rgba(255,255,255,.65);border-radius:10px;padding:9px 11px;margin-bottom:5px}
 .emda-n{font-size:13px;font-weight:700;color:var(--ink)}
@@ -2208,24 +2211,7 @@ function renderCard(){
   h+='</div><div class="tjnote">막대 높이 = 총매출 · <b style="color:#2B6CE8">파랑</b> 관광객 / <b style="color:#8A93A6">회색</b> 도민</div></div>';
   return h;
 }
-function renderHour(){
-  const H=EMDDATA&&EMDDATA.hourly; if(!H||!H.items||!H.items.length) return '';
-  const it=H.items, mx=Math.max.apply(null,it.map(x=>Math.max(x.tourist,x.local)));
-  let h='<div class="tjsec"><h3>🕐 언제 쓰나 <span class="tjm">'+orgEsc(H.month||'')+'</span></h3>'+
-        '<div class="tjsub">24시간 소비 패턴 · 관광객과 도민 비교</div>';
-  h+='<div class="hrwrap"><div class="hrbars">';
-  it.forEach(x=>{
-    const t=Math.max(1,Math.round(x.tourist/mx*100)), l=Math.max(1,Math.round(x.local/mx*100));
-    const mark=(x.hour===H.tourist_peak_hour||x.hour===H.local_peak_hour)?' pk':'';
-    h+='<div class="hrb'+mark+'" title="'+x.hour+'시">'+
-       '<div class="hrb-w"><i class="to" style="height:'+t+'%"></i><i class="lo" style="height:'+l+'%"></i></div>'+
-       '<div class="hrb-h">'+(x.hour%6===0?x.hour:'')+'</div></div>';
-  });
-  h+='</div></div>';
-  h+='<div class="hrleg"><span><i class="to"></i>관광객</span><span><i class="lo"></i>도민</span>'+
-     '<span class="pkg">■ 최다 시간</span></div>';
-  return h+'</div>';
-}
+
 /* 여러 데이터를 교차해 문장을 만든다. 계산 결과만 쓰고 원인은 추정하지 않는다. */
 /* 여러 데이터를 교차해 설명 문장을 만든다.
    원칙: 숫자를 문장 안에 넣고, 계산으로 확인되는 사실만 쓴다. 원인은 추정하지 않는다. */
@@ -2548,14 +2534,14 @@ function renderEMD(){
   const E=EMDDATA&&EMDDATA.emd; if(!E||!E.items||!E.items.length) return '';
   const it=E.items, mx=it[0].native||1;
   let h='<div class="tjsec"><h3>🏘 읍면동 방문객 <span class="tjm">'+orgEsc(E.month||'')+'</span>'+
-        '<span class="unit">단위: 명 · 통신사 추정</span>'+
-        '<span class="tjtap">👆 지역을 누르면 상세가 열립니다</span></h3>'+
+        '<span class="unit">단위: 명 · 통신사 추정</span></h3>'+
         '<div class="tjsub">휴대전화 위치정보로 추정한 방문객 수입니다 · '+E.count+'개 읍면동</div>';
 
   /* 자동 판정 — 눈여겨볼 곳 */
   const al=E.alerts||[];
   if(al.length){
-    h+='<div class="emdal"><div class="emdal-t">🔎 눈여겨볼 곳 <span>'+al.length+'곳</span></div>';
+    h+='<div class="emdal"><div class="emdal-t">🔎 눈여겨볼 곳 <span>'+al.length+'곳</span></div>'+
+       '<div class="emdal-s">방문객 변동이 큰 주요 지역입니다</div>';
     const pc=(v)=>typeof v==='number'?((v>0?'+':'')+v.toFixed(1)+'%'):'—';
     const cl=(v)=>typeof v!=='number'?'':(v<0?'dn':'up');
     al.slice(0,6).forEach(a=>{
@@ -2615,6 +2601,8 @@ function renderEMD(){
          '</div>';
     }
   }
+  h+='<div class="emdsub"><div class="emdal-t">📋 읍면동 전체 방문객 추이</div>'+
+     '<div class="emdal-s">지역을 누르면 상세가 열립니다</div></div>';
   h+='<div class="emdhd"><span class="n"></span><span class="t">읍면동</span>'+
      '<span class="bar"></span><span class="v">방문객(명)</span>'+
      '<span class="y">전년</span><span class="y m">전월</span></div>';
@@ -2708,14 +2696,11 @@ function renderTJ(){
        ' 두 곳이 <b>'+top2+'%</b>를 차지합니다.</div></div>';
   }
 
-  /* ②-2 읍면동 — 자동 판정 */
-  h+=renderEMD();
-
-  /* ③ 국가별 외국인 */
+  /* ②-2 국가별 외국인 */
   const N=TJDATA.nations||{};
   if(N.items&&N.items.length){
     h+='<div class="tjsec"><h3>🌏 외국인은 어느 나라에서 <span class="tjm">'+orgEsc(N.month)+'</span></h3>'+
-       '<div class="tjsub">총 '+tjNum(N.total)+'명 · 단위: %(전체 외국인 대비 비중)</div><div class="tjrank">';
+       '<div class="tjsub">국적 기준 · 총 '+tjNum(N.total)+'명 · 단위: %(전체 외국인 대비 비중)</div><div class="tjrank">';
     N.items.slice(0,8).forEach((x,i)=>{
       h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
          '<span class="bar"><i style="width:'+Math.round(x.share/N.items[0].share*100)+'%"></i></span>'+
@@ -2724,15 +2709,16 @@ function renderTJ(){
     h+='</div><div class="tjins">'+orgEsc(N.items[0].name)+'이 <b>'+N.items[0].share+'%</b>로 가장 많습니다.</div></div>';
   }
 
-  /* ③-2 카드매출 관광객vs도민 */
-  h+=renderCard();
-  /* ③-3 시간대별 패턴 */
-  h+=renderHour();
+  /* ③ 읍면동 — 자동 판정 */
+  h+=renderEMD();
 
-  /* ③-2 항공·해상 — 코로나 이후 회복 */
+  /* ④ 카드매출 관광객vs도민 */
+  h+=renderCard();
+
+  /* ⑤ 항공·여객선 */
   h+=renderAir();
 
-  /* ④ 소비 — 양보다 질 */
+  /* ⑥ 국가별 소비 — 양보다 질 */
   const S=TJDATA.spend_nation||{};
   if(S.items&&S.items.length){
     h+='<div class="tjsec"><h3>💳 외국인 소비 <span class="tjm">'+S.year+'년</span></h3>'+
