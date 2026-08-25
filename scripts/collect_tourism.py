@@ -159,6 +159,48 @@ if c:
       "gap_ratio":round(hi["total"]/lo["total"],2) if lo["total"] else None}
     print(f"   최성수기 {hi['date']} {hi['total']:,} / 최비수기 {lo['date']} {lo['total']:,}")
 
+
+# ══ ⑥ 항공 운항 (50) — 국내선·국제선 회복률 ══
+print("⑥ 항공 운항")
+c,dd=first(call(50))
+if c:
+    rows=c["data"]
+    keys=list(rows[0].keys()) if rows else []
+    print("   필드:", keys[:10])
+    # 국내/국제 필드명 자동 탐지
+    dom_k=next((k for k in keys if ("국내" in k) and not k.endswith(("_share","_mom","_yoy","_mom_sum","_yoy_sum"))), None)
+    int_k=next((k for k in keys if ("국제" in k) and not k.endswith(("_share","_mom","_yoy","_mom_sum","_yoy_sum"))), None)
+    date_k=next((k for k in keys if k in ("dateVal","groupVal")), keys[0] if keys else None)
+    items=[]
+    for r in rows:
+        it={"date":r.get(date_k)}
+        if dom_k: it["domestic"]=r.get(dom_k) or 0; it["domestic_yoy"]=num(r.get(dom_k+"_yoy"))
+        if int_k: it["intl"]=r.get(int_k) or 0; it["intl_yoy"]=num(r.get(int_k+"_yoy"))
+        if not dom_k and not int_k:
+            # 구분 없이 단일 값
+            vk=next((k for k in keys if k!=date_k and isinstance(r.get(k),(int,float))), None)
+            if vk: it["total"]=r.get(vk) or 0; it["total_yoy"]=num(r.get(vk+"_yoy"))
+        items.append(it)
+    items.sort(key=lambda x:str(x.get("date")))
+    out["air"]={"period":f"{dd.get('dataBgnDt')}~{dd.get('dataEndDt')}",
+      "title":cap(c.get("layout","")),
+      "field_domestic":dom_k,"field_intl":int_k,
+      "items":items}
+    print(f"   {len(items)}건 · 국내={dom_k} 국제={int_k}")
+
+# ══ ⑦ 여객선 (52) ══
+print("⑦ 여객선")
+c,dd=first(call(52))
+if c:
+    rows=c["data"]; keys=list(rows[0].keys()) if rows else []
+    date_k=next((k for k in keys if k in ("dateVal","groupVal")), keys[0] if keys else None)
+    vk=next((k for k in keys if k!=date_k and not k.endswith(("_share","_mom","_yoy","_mom_sum","_yoy_sum"))), None)
+    its=[{"date":r.get(date_k),"value":r.get(vk) or 0,"yoy":num(r.get((vk or "")+"_yoy"))} for r in rows]
+    its.sort(key=lambda x:str(x["date"]))
+    out["ship"]={"period":f"{dd.get('dataBgnDt')}~{dd.get('dataEndDt')}",
+      "title":cap(c.get("layout","")),"field":vk,"items":its}
+    print(f"   {len(its)}건 · 값필드={vk}")
+
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
 json.dump(out,open(OUT,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
 print("저장:",os.path.relpath(OUT))
