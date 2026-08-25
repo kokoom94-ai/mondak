@@ -127,17 +127,23 @@ if c:
 print("④ 업종별 소비")
 c,dd=first(call(41))
 if c:
+    # 값 필드명 자동 탐지 (sumVal / 소비금액 / value 등)
+    keys=list(c["data"][0].keys()) if c["data"] else []
+    print("   필드:", keys[:8])
+    VK=next((k for k in keys
+             if k not in ("groupVal","dateVal")
+             and not k.endswith(("_share","_mom","_yoy","_mom_sum","_yoy_sum"))), None)
+    print("   값 필드:", VK)
     rows=[]
     for r in c["data"]:
         g=(r.get("groupVal") or "").strip()
         if not g: continue
         rows.append({"name":g,
-          "value":r.get("소비금액") or r.get("value") or 0,
-          "share":num(r.get("소비금액_share")),
-          "yoy":num(r.get("소비금액_yoy")),
-          "raw":{k:v for k,v in r.items() if k!="groupVal"}})
-    # 필드명이 다를 수 있으니 첫 행 키를 로그로
-    if rows: print("   필드:", list(c["data"][0].keys())[:8])
+          "value":(r.get(VK) or 0) if VK else 0,
+          "share":num(r.get((VK or "")+"_share")),
+          "yoy":num(r.get((VK or "")+"_yoy")),
+          "mom":num(r.get((VK or "")+"_mom"))})
+    rows.sort(key=lambda x:-(x["value"] or 0))
     out["industry"]={"month":dd.get("dataBgnDt"),"count":len(rows),"items":rows}
     print(f"   {len(rows)}개 업종")
 
