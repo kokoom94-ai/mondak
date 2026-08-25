@@ -131,7 +131,8 @@ async function needTourism(question) {
 
 // 관광 통계(tourism_static.json / tourism.json) → 코퍼스
 function normTour(title, text, tag){
-  return { title: title, text: clip("[관광통계·"+tag+"] "+text, 340),
+  // 관광 통계는 수치 나열이라 340자로는 최근 값이 잘린다 → 넉넉히
+  return { title: title, text: clip("[관광통계·"+tag+"] "+text, 900),
            url: "https://data.ijto.or.kr", contact: "", kind: "관광통계" };
 }
 function tourDocs(st, dy){
@@ -251,10 +252,18 @@ function tourDocs(st, dy){
     const dl=(dy&&dy.daily)||null;
     if(dl&&dl.items&&dl.items.length){
       const fmt=(d)=>String(d).slice(0,4)+"년 "+Number(String(d).slice(4,6))+"월 "+Number(String(d).slice(6,8))+"일";
+      // 최신 날짜를 앞에 둔다 — 문서 길이 제한에 뒷부분이 잘려 최근 수치가 사라지는 것을 막기 위함
+      const dsc=dl.items.slice().reverse();
+      const line=(x)=>fmt(x.date)+" 내국인 "+Number(x.kor||0).toLocaleString()+"명, 외국인 "+
+        Number(x.forgn||0).toLocaleString()+"명, 합계 "+Number(x.total||0).toLocaleString()+"명";
       out.push(normTour("일별 제주 입도 관광객 수 ("+dl.period+")",
-        dl.items.map(x=>fmt(x.date)+" 내국인 "+Number(x.kor||0).toLocaleString()+"명, 외국인 "+
-          Number(x.forgn||0).toLocaleString()+"명, 합계 "+Number(x.total||0).toLocaleString()+"명").join(" / ")+
-        ". 제주관광 빅데이터 플랫폼 집계이며 최근 며칠치만 제공됩니다.", "일별입도"));
+        dsc.map(line).join(" / ")+". 제주관광 빅데이터 플랫폼 집계입니다.", "일별입도"));
+      // 날짜별 개별 문서 — 특정 날짜 질문에 정확히 대응
+      dl.items.forEach(x=>out.push(normTour(fmt(x.date)+" 제주 입도 관광객 수",
+        fmt(x.date)+" 제주 입도객은 내국인 "+Number(x.kor||0).toLocaleString()+"명, 외국인 "+
+        Number(x.forgn||0).toLocaleString()+"명, 합계 "+Number(x.total||0).toLocaleString()+"명입니다."+
+        (typeof x.total_yoy==="number"?" 작년 같은 날 대비 "+(x.total_yoy>0?"+":"")+x.total_yoy+"%.":""),
+        "일별입도")));
     }
     // 월별 계절
     const mo=(dy&&dy.monthly)||null;
