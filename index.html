@@ -1857,6 +1857,42 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script>
 /* ── AI 챗봇 (Netlify 함수 호출) ── */
 const AI_API="https://exquisite-snickerdoodle-60f4c2.netlify.app/.netlify/functions/chat";
+/* ── 새 구조: 브라우저에서 데이터를 읽고 후보만 서버로 보낸다 ──
+   데이터가 늘어도 서버(Worker)를 다시 배포할 필요가 없다.
+   rag.js 로드나 호출이 실패하면 기존 경로로 자동 폴백한다. */
+const AI_API_NEW="https://mondak-chat.kokoom94.workers.dev";
+let RAGREADY=null;
+function loadRAG(){
+  if(RAGREADY) return RAGREADY;
+  RAGREADY=new Promise((ok)=>{
+    if(window.MondakRAG) return ok(true);
+    const sc=document.createElement('script');
+    sc.src='scripts/rag.js?v=1';
+    sc.onload=()=>ok(!!window.MondakRAG);
+    sc.onerror=()=>{ console.warn('rag.js 로드 실패 → 기존 경로 사용'); ok(false); };
+    document.head.appendChild(sc);
+  });
+  return RAGREADY;
+}
+/* 질문 → 후보 추출 → Worker 호출. 실패하면 null을 돌려 폴백을 유도한다. */
+async function askNew(question){
+  try{
+    const ready=await loadRAG();
+    if(!ready||!window.MondakRAG) return null;
+    const cands=await window.MondakRAG.candidates(question,20);
+    const r=await fetch(AI_API_NEW,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        question: question,
+        documents: cands.map(d=>d.text),
+        candidates: cands.map(d=>({title:d.title,url:d.url,contact:d.contact,kind:d.kind}))
+      })});
+    if(!r.ok){ console.warn('새 경로 응답 오류',r.status); return null; }
+    const d=await r.json();
+    if(!d||!d.answer) return null;
+    console.log('새 경로 사용 · 후보',cands.length,'건 · source',d.source);
+    return d;
+  }catch(e){ console.warn('새 경로 예외 → 기존 경로',e.message); return null; }
+}
 /* ── 웹검색 안전장치 (프런트) ──
    챗봇 서버 배포가 막힌 동안, 화면 쪽에서 출처를 한 번 더 거른다.
    허용된 공공기관·언론·공식 포털만 통과시킨다. */
@@ -1901,8 +1937,12 @@ async function aiAsk(){
   res.insertAdjacentHTML('beforeend','<div class="aimsg-bot loading" id="'+lid+'"><span class="aispin"></span> 제주 정책 자료를 찾고 있습니다…</div>');
   qEl.value=''; qEl.style.height='auto';
   try{
-    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question: question + AI_SCOPE})});
-    const d=await r.json(); const el=document.getElementById(lid); el.classList.remove('loading');
+    let d=await askNew(question + AI_SCOPE);
+    if(!d){                                   // 새 경로 실패 → 기존 경로
+      const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question: question + AI_SCOPE})});
+      d=await r.json();
+    }
+    const el=document.getElementById(lid); el.classList.remove('loading');
     const badge = d.source==='rag' ? '<span class="aibadge aibadge-rag">📚 자료 기반 답변</span><br>'
       : d.source==='web' ? '<span class="aibadge aibadge-web">🌐 웹 검색 결과</span><br>'
       : '<span class="aibadge aibadge-fb">📞 문의처 안내</span><br>';
