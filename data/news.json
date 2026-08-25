@@ -1,6 +1,6 @@
 {
  "meta": {
-  "collected_at": "2026-08-25 12:47 KST",
+  "collected_at": "2026-08-25 15:45 KST",
   "window_days": 14,
   "cadence": "3h",
   "source": "지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계",
@@ -8,11 +8,29 @@
  },
  "items": [
   {
+   "t": "한국전기안전공사, 제주에너지공사와 재생에너지전력설비 안전성 높인...",
+   "link": "https://www.fnnews.com/news/202608251529232672",
+   "src": "fnnews.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "enewstoday.co.kr",
+    "pinpointnews.co.kr",
+    "아이뉴스24",
+    "데일리안",
+    "뉴시스",
+    "핀포인트뉴스",
+    "energydaily.co.kr",
+    "이뉴스투데이"
+   ],
+   "n": 19,
+   "sec": "환경/에너지"
+  },
+  {
    "t": "'실종 허위 종결' 제주서부서장 등 지휘라인 전원 대기 발령…감찰 실시...",
    "link": "https://www.news1.kr/society/incident-accident/6268712",
    "src": "뉴스1",
    "d": "2026-08-25",
-   "outlets": [
+   "outlets_prev": [
     "헤드라인제주",
     "제주의소리",
     "제주일보",
@@ -22,7 +40,17 @@
     "YTN",
     "kwnews.co.kr"
    ],
-   "n": 15,
+   "outlets": [
+    "뉴스1",
+    "헤드라인제주",
+    "제주의소리",
+    "제주일보",
+    "view.asiae.co.kr",
+    "연합뉴스",
+    "kmib.co.kr",
+    "YTN"
+   ],
+   "n": 10,
    "sec": "안전/민원행정"
   },
   {
@@ -31,12 +59,14 @@
    "src": "뉴스N제주",
    "d": "2026-08-25",
    "outlets_prev": [
-    "제주의소리",
     "뉴스N제주",
+    "제주의소리",
     "제주일보",
     "뉴스제주",
     "news.bbsi.co.kr",
-    "jejumaeil.net"
+    "jejumaeil.net",
+    "gukjenews.com",
+    "헤드라인제주"
    ],
    "outlets": [
     "뉴스N제주",
@@ -48,7 +78,7 @@
     "gukjenews.com",
     "헤드라인제주"
    ],
-   "n": 11,
+   "n": 9,
    "sec": "정치/행정"
   },
   {
@@ -57,14 +87,14 @@
    "src": "nongmin.com",
    "d": "2026-08-25",
    "outlets_prev": [
+    "nongmin.com",
     "뉴스N제주",
     "jejumaeil.net",
     "제주매일",
     "youngjuilbo.com",
     "aflnews.co.kr",
     "농수축산신문",
-    "채널제주",
-    "제주의소리"
+    "채널제주"
    ],
    "outlets": [
     "nongmin.com",
@@ -76,7 +106,7 @@
     "농수축산신문",
     "채널제주"
    ],
-   "n": 10,
+   "n": 9,
    "sec": "1차산업"
   },
   {
@@ -104,7 +134,7 @@
     "kmib.co.kr",
     "연합뉴스"
    ],
-   "n": 10,
+   "n": 9,
    "sec": "사건사고/기타"
   },
   {
@@ -119,7 +149,8 @@
     "joongangenews.com",
     "조선일보",
     "sedaily.com",
-    "연합뉴스"
+    "연합뉴스",
+    "imaeil.com"
    ],
    "outlets": [
     "seoul.co.kr",
@@ -135,32 +166,11 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "전기안전공사·제주에너지공사, AI로 재생에너지 설비 안전관리 강화",
-   "link": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2462671",
-   "src": "enewstoday.co.kr",
-   "d": "2026-08-25",
-   "outlets": [
-    "pinpointnews.co.kr",
-    "아이뉴스24",
-    "데일리안",
-    "뉴시스",
-    "핀포인트뉴스",
-    "energydaily.co.kr",
-    "enewstoday.co.kr",
-    "이뉴스투데이"
-   ],
-   "n": 8,
-   "sec": "신산업/AX"
-  },
-  {
    "t": "제주도, 2차 공공기관 이전 '범도민 서명전'…마사회 유치 총력",
    "link": "https://www.news1.kr/local/jeju/6268519",
    "src": "뉴스1",
    "d": "2026-08-25",
    "outlets_prev": [
-    "뉴스1"
-   ],
-   "outlets": [
     "mt.co.kr",
     "헤드라인제주",
     "연합뉴스",
@@ -169,7 +179,17 @@
     "뉴스1",
     "뉴스제주"
    ],
-   "n": 7,
+   "outlets": [
+    "뉴스1",
+    "mt.co.kr",
+    "헤드라인제주",
+    "연합뉴스",
+    "제주환경일보",
+    "v.daum.net",
+    "뉴스제주",
+    "mediajeju.com"
+   ],
+   "n": 8,
    "sec": "1차산업"
   },
   {
@@ -245,6 +265,44 @@
    "sec": "복지/사회서비스"
   },
   {
+   "t": "이상봉 제주시장, 첫 공식 일정으로 환경미화 현장 체험",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297424",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스N제주",
+    "제주환경일보",
+    "samdailbo.com",
+    "youngjuilbo.com"
+   ],
+   "outlets": [
+    "뉴스N제주",
+    "제주환경일보",
+    "samdailbo.com",
+    "youngjuilbo.com",
+    "뉴스21 통신",
+    "더팩트"
+   ],
+   "n": 6,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "제주 동백동산습지, 5회 연속 국가 생태관광지역 지위 유지",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227342",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리",
+    "헤드라인제주",
+    "뉴스제주",
+    "제주일보",
+    "한라일보",
+    "머니투데이"
+   ],
+   "n": 6,
+   "sec": "환경/에너지"
+  },
+  {
    "t": "“칭다오 빈 배에 돈만 채울 건가”…김봉현 예결위원장 “손실보전금으로 물동량 만들어라”",
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297404",
    "src": "뉴스N제주",
@@ -275,7 +333,8 @@
     "thepowernews.co.kr",
     "etnews.com",
     "megaeconomy.co.kr",
-    "뉴스1"
+    "뉴스1",
+    "thepublic.kr"
    ],
    "outlets": [
     "thepowernews.co.kr",
@@ -286,6 +345,71 @@
    ],
    "n": 5,
    "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "민선 9기 첫 서귀포시장에 김희찬 전 제주도 관광교류국장 내정",
+   "link": "https://www.news1.kr/local/jeju/6268835",
+   "src": "뉴스1",
+   "d": "2026-08-25",
+   "outlets": [
+    "segye.com",
+    "뉴시스",
+    "연합뉴스",
+    "jemin.com",
+    "뉴스1"
+   ],
+   "n": 5,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "장미란씨 실종 사건 담당 경찰관, 또다른 실종 사건도 허위 종결...긴급체포",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227323",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보",
+    "헤드라인제주",
+    "조선일보"
+   ],
+   "outlets": [
+    "제주일보",
+    "헤드라인제주",
+    "조선일보",
+    "연합뉴스TV",
+    "제민일보"
+   ],
+   "n": 5,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "'실종 사건 허위 종결' 제주 경찰관, 석방 하루 만에 구속 갈림길",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597923",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스제주",
+    "헤드라인제주",
+    "JTBC",
+    "한겨레",
+    "제주의소리"
+   ],
+   "n": 5,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주도, 25일 ‘2026년 하반기 정기인사 임용장 수여식’ 개최",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297465",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주일보",
+    "제주의소리",
+    "제이누리",
+    "미디어제주",
+    "뉴스N제주"
+   ],
+   "n": 5,
+   "sec": "정치/행정"
   },
   {
    "t": "'제주 실종사건' 李대통령, 경찰 개혁안 마련 주문… 韓총리도 전수조사...",
@@ -315,7 +439,8 @@
    "outlets_prev": [
     "insight.co.kr",
     "sportschosun.com",
-    "wikitree.co.kr"
+    "wikitree.co.kr",
+    "mbn.mk.co.kr"
    ],
    "outlets": [
     "insight.co.kr",
@@ -327,37 +452,40 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "이상봉 제주시장, 첫 공식 일정으로 환경미화 현장 체험",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297424",
+   "t": "제주도 청소년 유해환경 점검…총 1천여명 투입",
+   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321590",
+   "src": "제주도민일보",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "제주도민일보",
+    "제주환경일보"
+   ],
+   "outlets": [
+    "제주도민일보",
+    "제주환경일보",
+    "지금제주",
+    "제주팟닷컴"
+   ],
+   "n": 4,
+   "sec": "환경/에너지"
+  },
+  {
+   "t": "서귀포시, 제주가치돌봄(일시재가)으로 퇴원 후 돌봄공백 최소화",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297431",
    "src": "뉴스N제주",
    "d": "2026-08-25",
    "outlets_prev": [
     "뉴스N제주",
-    "제주환경일보",
-    "samdailbo.com"
+    "헤드라인제주"
    ],
    "outlets": [
     "뉴스N제주",
-    "제주환경일보",
-    "samdailbo.com",
-    "youngjuilbo.com"
+    "헤드라인제주",
+    "제주매일",
+    "지금제주"
    ],
    "n": 4,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "제주 서귀포시장 임용대상자 김희찬 전 제주도 관광교류국장",
-   "link": "https://www.segye.com/newsView/20260825507816?OutUrl=naver",
-   "src": "segye.com",
-   "d": "2026-08-25",
-   "outlets": [
-    "뉴시스",
-    "segye.com",
-    "연합뉴스",
-    "jemin.com"
-   ],
-   "n": 4,
-   "sec": "정치/행정"
+   "sec": "복지/사회서비스"
   },
   {
    "t": "[종합] 제주 사는 전 부인 살해한 전직 경찰…경기도서 긴급체포",
@@ -401,9 +529,9 @@
    "src": "iminju.net",
    "d": "2026-08-25",
    "outlets_prev": [
+    "iminju.net",
     "뉴시스",
-    "segye.com",
-    "iminju.net"
+    "segye.com"
    ],
    "outlets": [
     "iminju.net",
@@ -419,9 +547,9 @@
    "src": "매일경제",
    "d": "2026-08-25",
    "outlets_prev": [
+    "매일경제",
     "edaily.co.kr",
-    "daejonilbo.com",
-    "매일경제"
+    "daejonilbo.com"
    ],
    "outlets": [
     "매일경제",
@@ -432,17 +560,163 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "장미란씨 실종 사건 담당 경찰관, 또다른 실종 사건도 허위 종결...긴급체포",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227323",
-   "src": "제주일보",
+   "t": "제주 현안에 AI 입혔다… 36명 해커톤서 창업 아이디어 14건 발굴",
+   "link": "https://www.fnnews.com/news/202608250705200105",
+   "src": "fnnews.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "fnnews.com",
+    "파이낸셜뉴스"
+   ],
    "outlets": [
-    "제주일보",
-    "헤드라인제주",
-    "조선일보"
+    "fnnews.com",
+    "파이낸셜뉴스",
+    "v.daum.net"
    ],
    "n": 3,
-   "sec": "안전/민원행정"
+   "sec": "신산업/AX"
+  },
+  {
+   "t": "노꼬메오름 생태복원에 1억 원 모은다…제주시, 고향사랑 지정기부 추진",
+   "link": "https://www.mediajeju.com/news/articleView.html?idxno=365886",
+   "src": "mediajeju.com",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "mediajeju.com",
+    "뉴스N제주"
+   ],
+   "outlets": [
+    "mediajeju.com",
+    "뉴스N제주",
+    "gukjenews.com"
+   ],
+   "n": 3,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "\"한국마사회.공항공사 제주로\"...제주도, 범도민 서명운동 돌입",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597908",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "헤드라인제주",
+    "뉴시스"
+   ],
+   "outlets": [
+    "헤드라인제주",
+    "뉴시스",
+    "JIBS"
+   ],
+   "n": 3,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "9월 1일부터 수업 중 스마트기기 사용 제한...학교별 학칙 개정",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505854",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리",
+    "newsfreezone.co.kr"
+   ],
+   "outlets": [
+    "제주의소리",
+    "newsfreezone.co.kr",
+    "헤드라인제주"
+   ],
+   "n": 3,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "싱가포르 여행 박람회서 사계절 제주관광 매력 홍보",
+   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269438",
+   "src": "samdailbo.com",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "samdailbo.com",
+    "삼다일보"
+   ],
+   "outlets": [
+    "samdailbo.com",
+    "삼다일보",
+    "헤드라인제주"
+   ],
+   "n": 3,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "제주4·3 무호적자 3명 가족관계 회복...희생자·유족 349명 추가 결정",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597932",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주도민일보",
+    "헤드라인제주",
+    "뉴스N제주"
+   ],
+   "n": 3,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "‘7년 제주살이’ 홍혜걸 “제주 쉽게 보면 안 돼…외진 길 피해라”",
+   "link": "https://www.mk.co.kr/article/12135471",
+   "src": "매일경제",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "매일경제"
+   ],
+   "outlets": [
+    "매일경제",
+    "edaily.co.kr",
+    "dailian.co.kr"
+   ],
+   "n": 3,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "제주 관광객 잡아라… 인천~제주 단체관광객에 탐나는전 ‘5만원 카드’",
+   "link": "https://www.seoul.co.kr/news/society/2026/08/25/20260825500114?wlog_tag3=naver",
+   "src": "seoul.co.kr",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "seoul.co.kr"
+   ],
+   "outlets": [
+    "seoul.co.kr",
+    "서울신문",
+    "제주매일"
+   ],
+   "n": 3,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "제주관광, 싱가포르 시장 공략…관광기업 해외 진출도 지원",
+   "link": "https://www.jemin.com/news/articleView.html?idxno=842064",
+   "src": "jemin.com",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "jemin.com"
+   ],
+   "outlets": [
+    "jemin.com",
+    "제민일보",
+    "newskorea.ne.kr"
+   ],
+   "n": 3,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "서귀포시장·중앙협력본부장·대변인 임용 대상자 확정",
+   "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64852?feed=na",
+   "src": "JIBS",
+   "d": "2026-08-25",
+   "outlets": [
+    "JIBS",
+    "v.daum.net",
+    "뉴스제주"
+   ],
+   "n": 3,
+   "sec": "정치/행정"
   },
   {
    "t": "\"안 뛰면 죽겠다\" '프듀2' 성현우, 제주서 회칼 든 남성에게 쫓긴 사연 ...",
@@ -557,22 +831,6 @@
    "sec": "정치/행정"
   },
   {
-   "t": "제주도 청소년 유해환경 점검…총 1천여명 투입",
-   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321590",
-   "src": "제주도민일보",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "제주도민일보",
-    "제주환경일보"
-   ],
-   "outlets": [
-    "제주도민일보",
-    "제주환경일보"
-   ],
-   "n": 2,
-   "sec": "환경/에너지"
-  },
-  {
    "t": "마미포유, 제주산 원료 활용한 '영양소보로 이유식 토핑' 3종 출시",
    "link": "https://www.gokorea.kr/news/articleView.html?idxno=876198",
    "src": "gokorea.kr",
@@ -587,22 +845,6 @@
    ],
    "n": 2,
    "sec": "사건사고/기타"
-  },
-  {
-   "t": "제주 현안에 AI 입혔다… 36명 해커톤서 창업 아이디어 14건 발굴",
-   "link": "https://www.fnnews.com/news/202608250705200105",
-   "src": "fnnews.com",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "fnnews.com",
-    "파이낸셜뉴스"
-   ],
-   "outlets": [
-    "fnnews.com",
-    "파이낸셜뉴스"
-   ],
-   "n": 2,
-   "sec": "신산업/AX"
   },
   {
    "t": "제주대 학생들, 제주·홍콩·일본 잇는 공동연구… AI·기후·해양 해법...",
@@ -674,8 +916,8 @@
    "src": "헤드라인제주",
    "d": "2026-08-25",
    "outlets_prev": [
-    "news.kbs.co.kr",
-    "헤드라인제주"
+    "헤드라인제주",
+    "news.kbs.co.kr"
    ],
    "outlets": [
     "헤드라인제주",
@@ -699,22 +941,6 @@
    ],
    "n": 2,
    "sec": "사건사고/기타"
-  },
-  {
-   "t": "노꼬메오름 생태복원에 1억 원 모은다…제주시, 고향사랑 지정기부 추진",
-   "link": "https://www.mediajeju.com/news/articleView.html?idxno=365886",
-   "src": "mediajeju.com",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "뉴스N제주",
-    "mediajeju.com"
-   ],
-   "outlets": [
-    "mediajeju.com",
-    "뉴스N제주"
-   ],
-   "n": 2,
-   "sec": "정치/행정"
   },
   {
    "t": "\"죽고 싶다\" 메모 남긴 전직 경찰 실종…다음날 제주서 아내 살해",
@@ -754,8 +980,8 @@
    "src": "뉴스N제주",
    "d": "2026-08-25",
    "outlets_prev": [
-    "뉴스1",
-    "뉴스N제주"
+    "뉴스N제주",
+    "뉴스1"
    ],
    "outlets": [
     "뉴스N제주",
@@ -802,8 +1028,8 @@
    "src": "biz.heraldcorp.com",
    "d": "2026-08-25",
    "outlets_prev": [
-    "news.bizwatch.co.kr",
-    "biz.heraldcorp.com"
+    "biz.heraldcorp.com",
+    "news.bizwatch.co.kr"
    ],
    "outlets": [
     "biz.heraldcorp.com",
@@ -813,45 +1039,13 @@
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "한국전기안전공사, 제주에너지공사와 업무협약",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9YTUFZX3F0RDBXTENZVEg1ZVQ2dHBsQkhaZUk5SWVHbG1qY3pMcjdVVHNfUjlrM1hqTkRGbndSTmtXT3lwa2VFNUpoYUpnNTZORXNJ?oc=5",
-   "src": "네이트",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "네이트",
-    "더팩트"
-   ],
-   "outlets": [
-    "네이트",
-    "더팩트"
-   ],
-   "n": 2,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "서귀포시, 제주가치돌봄(일시재가)으로 퇴원 후 돌봄공백 최소화",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297431",
-   "src": "뉴스N제주",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "헤드라인제주",
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주",
-    "헤드라인제주"
-   ],
-   "n": 2,
-   "sec": "복지/사회서비스"
-  },
-  {
    "t": "서귀포시, 봉안 기간 만료 무연고 유골 734기 산골처리 완료",
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297434",
    "src": "뉴스N제주",
    "d": "2026-08-25",
    "outlets_prev": [
-    "헤드라인제주",
-    "뉴스N제주"
+    "뉴스N제주",
+    "헤드라인제주"
    ],
    "outlets": [
     "뉴스N제주",
@@ -866,7 +1060,8 @@
    "src": "fntoday.co.kr",
    "d": "2026-08-25",
    "outlets_prev": [
-    "fntoday.co.kr"
+    "fntoday.co.kr",
+    "파이낸스투데이"
    ],
    "outlets": [
     "fntoday.co.kr",
@@ -881,7 +1076,8 @@
    "src": "JIBS",
    "d": "2026-08-25",
    "outlets_prev": [
-    "JIBS"
+    "JIBS",
+    "v.daum.net"
    ],
    "outlets": [
     "JIBS",
@@ -896,7 +1092,8 @@
    "src": "discoverynews.kr",
    "d": "2026-08-25",
    "outlets_prev": [
-    "discoverynews.kr"
+    "discoverynews.kr",
+    "gukjenews.com"
    ],
    "outlets": [
     "discoverynews.kr",
@@ -911,7 +1108,8 @@
    "src": "JIBS",
    "d": "2026-08-25",
    "outlets_prev": [
-    "JIBS"
+    "JIBS",
+    "hankookilbo.com"
    ],
    "outlets": [
     "JIBS",
@@ -921,22 +1119,14 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "\"한국마사회.공항공사 제주로\"...제주도, 범도민 서명운동 돌입",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597908",
-   "src": "헤드라인제주",
-   "d": "2026-08-25",
-   "outlets": [
-    "헤드라인제주",
-    "뉴시스"
-   ],
-   "n": 2,
-   "sec": "정치/행정"
-  },
-  {
    "t": "제주 도릿빨 포구서 바다에 빠진 피서객 2명...순찰하던 자치경찰이 구조",
    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597894",
    "src": "헤드라인제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "헤드라인제주",
+    "뉴스제주"
+   ],
    "outlets": [
     "헤드라인제주",
     "뉴스제주"
@@ -949,9 +1139,13 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227346",
    "src": "제주일보",
    "d": "2026-08-25",
-   "outlets": [
+   "outlets_prev": [
     "뉴스제주",
     "제주일보"
+   ],
+   "outlets": [
+    "제주일보",
+    "뉴스제주"
    ],
    "n": 2,
    "sec": "복지/사회서비스"
@@ -961,6 +1155,10 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505859",
    "src": "제주의소리",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리",
+    "v.daum.net"
+   ],
    "outlets": [
     "제주의소리",
     "v.daum.net"
@@ -969,22 +1167,14 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "9월 1일부터 수업 중 스마트기기 사용 제한...학교별 학칙 개정",
-   "link": "https://www.jejusori.net/news/articleView.html?idxno=505854",
-   "src": "제주의소리",
-   "d": "2026-08-25",
-   "outlets": [
-    "제주의소리",
-    "newsfreezone.co.kr"
-   ],
-   "n": 2,
-   "sec": "교육/청년"
-  },
-  {
    "t": "“비싸서 안 간다”던 제주, 이젠 “무서워서 못 간다?” 제주도의 눈물",
    "link": "https://economist.co.kr/article/view/ecn202608250032",
    "src": "economist.co.kr",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "economist.co.kr",
+    "이코노미스트"
+   ],
    "outlets": [
     "economist.co.kr",
     "이코노미스트"
@@ -997,6 +1187,10 @@
    "link": "https://www.ajunews.com/view/20260825105444558",
    "src": "ajunews.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "ajunews.com",
+    "아주경제"
+   ],
    "outlets": [
     "ajunews.com",
     "아주경제"
@@ -1005,16 +1199,307 @@
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "싱가포르 여행 박람회서 사계절 제주관광 매력 홍보",
-   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269438",
-   "src": "samdailbo.com",
+   "t": "제주 실종신고 허위종결…부 경장 구속기로",
+   "link": "https://www.newsis.com/view/NISX20260825_0003761194",
+   "src": "뉴시스",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴시스"
+   ],
+   "outlets": [
+    "뉴시스",
+    "제주투데이"
+   ],
+   "n": 2,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주도청 청사 재배치 완료...\"민원인 동선 짧아졌다\"",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597934",
+   "src": "헤드라인제주",
    "d": "2026-08-25",
    "outlets": [
-    "samdailbo.com",
-    "삼다일보"
+    "뉴스N제주",
+    "헤드라인제주"
+   ],
+   "n": 2,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "흩어져 있던 제주도청 부서, 한 동네 모이다",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505848",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리"
+   ],
+   "outlets": [
+    "제주의소리",
+    "v.daum.net"
+   ],
+   "n": 2,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "‘여에스더♥’ 홍혜걸, ‘장미란씨 실종’ 관련 입열었다…“제주살이...",
+   "link": "https://www.sportschosun.com/entertainment/2026-08-25/202608250100145000009246",
+   "src": "sportschosun.com",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "sportschosun.com"
+   ],
+   "outlets": [
+    "sportschosun.com",
+    "mediafine.co.kr"
+   ],
+   "n": 2,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "정점식, 제주서 잇단 실종사고에 “李·與, ‘사건암장’ 경찰과 공범”",
+   "link": "https://www.dt.co.kr/article/12080010?ref=naver",
+   "src": "dt.co.kr",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "dt.co.kr"
+   ],
+   "outlets": [
+    "dt.co.kr",
+    "v.daum.net"
+   ],
+   "n": 2,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "생성형 인공지능(AI)으로 농산물 홍보 역량 높인다",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297469",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "월간친환경",
+    "뉴스N제주"
+   ],
+   "n": 2,
+   "sec": "1차산업"
+  },
+  {
+   "t": "제주 경사로 설치, 마을회관까지 새로 포함해 지원",
+   "link": "https://www.newsis.com/view/NISX20260825_0003761457",
+   "src": "뉴시스",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴시스"
+   ],
+   "outlets": [
+    "뉴시스",
+    "DWBNEWS"
+   ],
+   "n": 2,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "정치권 로비파문 '효성해링턴'...제주도, 인허가 의혹 고강도 감찰 착수",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597925",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "헤드라인제주"
+   ],
+   "outlets": [
+    "헤드라인제주",
+    "뉴스제주"
+   ],
+   "n": 2,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "각양각색 ‘더 글로벌한 제주’ 어디까지 가봤니",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227358",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
+   "outlets": [
+    "제주일보",
+    "v.daum.net"
+   ],
+   "n": 2,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "'퇴원하자마자 돌봄 받는다'서귀포시, 지원 절차 간소화",
+   "link": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=705550",
+   "src": "newsfreezone.co.kr",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "newsfreezone.co.kr"
+   ],
+   "outlets": [
+    "newsfreezone.co.kr",
+    "뉴스프리존"
+   ],
+   "n": 2,
+   "sec": "복지/사회서비스"
+  },
+  {
+   "t": "[속보] ‘장미란씨 실종 수사’ 제주서부서 지휘라인 4명 대기발령",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505856",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴시스",
+    "제주의소리"
+   ],
+   "n": 2,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "송도에 뜬 '제주관광안내소'의 유혹 ... \"인천~제주 직항 타면 1인당 5만...",
+   "link": "http://www.ttlnews.com/news/articleView.html?idxno=3136937",
+   "src": "ttlnews.com",
+   "d": "2026-08-25",
+   "outlets_prev": [
+    "ttlnews.com"
+   ],
+   "outlets": [
+    "ttlnews.com",
+    "퍼블릭뉴스통신"
    ],
    "n": 2,
    "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "김한규 의원, 영농상속공제 한도액 상향 상속.증여세법 개정안 발의",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597946",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "헤드라인제주",
+    "뉴스제주"
+   ],
+   "n": 2,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "한농연제주 \"농수산물 추가 개방 우려...CPTPP 가입 검토 중단하라\"",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597888",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "헤드라인제주",
+    "제주의소리"
+   ],
+   "n": 2,
+   "sec": "1차산업"
+  },
+  {
+   "t": "‘제5회 제주비엔날레’ 83일간 대장정 막 올라",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424970",
+   "src": "뉴스제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스제주",
+    "뉴스N제주"
+   ],
+   "n": 2,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "우도면지역사회보장협의체, 고독사 예방 및 복지사각지대 발굴 캠페인 실시",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424944",
+   "src": "뉴스제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스제주",
+    "제주사회복지신문"
+   ],
+   "n": 2,
+   "sec": "복지/사회서비스"
+  },
+  {
+   "t": "고의숙 교육감 공약 검토·자문 공약추진위원회 출범",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505824",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리",
+    "헤드라인제주"
+   ],
+   "n": 2,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "16년간 이어온 뮤지컬 ‘프리즌’ 제주 공연",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505823",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리",
+    "제주도민일보"
+   ],
+   "n": 2,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "위성곤 “공공 CCTV 영상 보존기간 연장 추진”",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505815",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리",
+    "KBS 뉴스"
+   ],
+   "n": 2,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "“한국마사회 본사는 제주로”",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227362",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주일보",
+    "연합뉴스"
+   ],
+   "n": 2,
+   "sec": "1차산업"
+  },
+  {
+   "t": "타살? 중국인 연루?…확인 안 된 소문에 제주 관광업계 긴장",
+   "link": "https://www.kado.net/news/articleView.html?idxno=2068448",
+   "src": "kado.net",
+   "d": "2026-08-25",
+   "outlets": [
+    "kado.net",
+    "강원도민일보"
+   ],
+   "n": 2,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "제주는 AI를 갖는가, 빌려 쓰는가… ‘감귤모자’가 먼저 보여준 돈의 ...",
+   "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64841?feed=na",
+   "src": "JIBS",
+   "d": "2026-08-25",
+   "outlets": [
+    "JIBS",
+    "v.daum.net"
+   ],
+   "n": 2,
+   "sec": "1차산업"
+  },
+  {
+   "t": "제주 사업용 차량 사고 막는다…교통안전 관계자 '한자리'",
+   "link": "https://www.jemin.com/news/articleView.html?idxno=842071",
+   "src": "jemin.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "jemin.com",
+    "제민일보"
+   ],
+   "n": 2,
+   "sec": "안전/민원행정"
   },
   {
    "t": "“내 권리를 알고, 내 이야기를 그린다”...학교 밖 청소년들의 특별한 웹툰 수업",
@@ -2501,20 +2986,6 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "제주 실종신고 허위종결…부 경장 구속기로",
-   "link": "https://www.newsis.com/view/NISX20260825_0003761194",
-   "src": "뉴시스",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "뉴시스"
-   ],
-   "outlets": [
-    "뉴시스"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
-  },
-  {
    "t": "제주 장미란씨 추정 시신 '목맴사' 추정…경찰청장 대행 \"타살 의심 흔적...",
    "link": "https://view.asiae.co.kr/article/2026082509373073012",
    "src": "view.asiae.co.kr",
@@ -2795,20 +3266,6 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "제주도, 조직개편 맞춰 청사 재배치 완료",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297430",
-   "src": "뉴스N제주",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "1차산업"
-  },
-  {
    "t": "[이원후 세상이 보이는 심리상담실 칼럼](9)운 좋은 사람들의 ‘행운 습관’",
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297428",
    "src": "뉴스N제주",
@@ -3047,20 +3504,6 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "흩어져 있던 제주도청 부서, 한 동네 모이다",
-   "link": "https://www.jejusori.net/news/articleView.html?idxno=505848",
-   "src": "제주의소리",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "제주의소리"
-   ],
-   "outlets": [
-    "제주의소리"
-   ],
-   "n": 1,
-   "sec": "정치/행정"
-  },
-  {
    "t": "‘문서 대신 카톡 보고’…제주 초등생 자살 시도 사건 긴급 현안보고",
    "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8645180&ref=A",
    "src": "news.kbs.co.kr",
@@ -3199,20 +3642,6 @@
    ],
    "n": 1,
    "sec": "환경/에너지"
-  },
-  {
-   "t": "‘여에스더♥’ 홍혜걸, ‘장미란씨 실종’ 관련 입열었다…“제주살이...",
-   "link": "https://www.sportschosun.com/entertainment/2026-08-25/202608250100145000009246",
-   "src": "sportschosun.com",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "sportschosun.com"
-   ],
-   "outlets": [
-    "sportschosun.com"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
   },
   {
    "t": "제주 지구시민연합, 제80차 지구시민 환경정화 할동 서귀포에서 실시",
@@ -3523,20 +3952,6 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "정점식, 제주서 잇단 실종사고에 “李·與, ‘사건암장’ 경찰과 공범”",
-   "link": "https://www.dt.co.kr/article/12080010?ref=naver",
-   "src": "dt.co.kr",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "dt.co.kr"
-   ],
-   "outlets": [
-    "dt.co.kr"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
-  },
-  {
    "t": "\"칼 들고 달려들어\" 성현우, 제주도에서 살해 위협 받아…사건 재조명",
    "link": "https://www.topstarnews.net/news/articleView.html?idxno=16172737",
    "src": "topstarnews.net",
@@ -3577,20 +3992,6 @@
    ],
    "n": 1,
    "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "[제주] 생성형 인공지능(AI)으로 농산물 홍보",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBGNUE1endxSUlad1FGVkFTUWVWV2ljUnJiMjY3aVhIZHQ1a3hqU29LNFdvaWxqRzViTFZzanhNYzRiMTJoTDRqYTFPb3RNNXpRZkFhQy1GbW5EcGU2bl84Z3ZDR2JpX25DVG5EQ3NGSnZ6Zw?oc=5",
-   "src": "월간친환경",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "월간친환경"
-   ],
-   "outlets": [
-    "월간친환경"
-   ],
-   "n": 1,
-   "sec": "1차산업"
   },
   {
    "t": "제주도관광협회, 산지천 일대서 친환경 프로젝트 '줍젠' 진행",
@@ -3971,20 +4372,6 @@
    "sec": "복지/사회서비스"
   },
   {
-   "t": "제주 경사로 설치, 마을회관까지 새로 포함해 지원",
-   "link": "https://www.newsis.com/view/NISX20260825_0003761457",
-   "src": "뉴시스",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "뉴시스"
-   ],
-   "outlets": [
-    "뉴시스"
-   ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
    "t": "제주 '허위 종결' 파장… 대전 경찰, 실종 사건 전수 점검",
    "link": "https://www.jbnews.com/news/articleView.html?idxno=1510045",
    "src": "jbnews.com",
@@ -3994,20 +4381,6 @@
    ],
    "outlets": [
     "jbnews.com"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "적부심 석방률 2.76%인 제주… ‘실종 허위 종결’ 경찰관 왜 풀려났나",
-   "link": "https://biz.chosun.com/topics/law_firm/2026/08/25/NHWHLCMA6ZAT3GXLWDJWEAL57I/?utm_source=naver&utm_medium=original&utm_campaign=biz",
-   "src": "조선일보",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "조선일보"
-   ],
-   "outlets": [
-    "조선일보"
    ],
    "n": 1,
    "sec": "안전/민원행정"
@@ -4039,20 +4412,6 @@
    ],
    "n": 1,
    "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주4·3 희생자, 유족 349명 추가 공식 인정",
-   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321607",
-   "src": "제주도민일보",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "제주도민일보"
-   ],
-   "outlets": [
-    "제주도민일보"
-   ],
-   "n": 1,
-   "sec": "정치/행정"
   },
   {
    "t": "한병도, 제주 실종사건에 \"국민신뢰 못 얻는 경찰 존재 이유 없어\"",
@@ -4111,20 +4470,6 @@
    "sec": "창업/경제"
   },
   {
-   "t": "‘7년 제주살이’ 홍혜걸 “제주 쉽게 보면 안 돼…외진 길 피해라”",
-   "link": "https://www.mk.co.kr/article/12135471",
-   "src": "매일경제",
-   "d": "2026-08-25",
-   "outlets_prev": [
-    "매일경제"
-   ],
-   "outlets": [
-    "매일경제"
-   ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
    "t": "제주FC 홈경기 시축 나선 다오·배찌…이색 컬래버로 관중몰이 '성공적...",
    "link": "https://www.stnsports.co.kr/news/articleView.html?idxno=321414",
    "src": "stnsports.co.kr",
@@ -4171,6 +4516,9 @@
    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597930",
    "src": "헤드라인제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "헤드라인제주"
+   ],
    "outlets": [
     "헤드라인제주"
    ],
@@ -4182,6 +4530,9 @@
    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597929",
    "src": "헤드라인제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "헤드라인제주"
+   ],
    "outlets": [
     "헤드라인제주"
    ],
@@ -4193,6 +4544,9 @@
    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597924",
    "src": "헤드라인제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "헤드라인제주"
+   ],
    "outlets": [
     "헤드라인제주"
    ],
@@ -4200,21 +4554,13 @@
    "sec": "정치/행정"
   },
   {
-   "t": "정치권 로비파문 '효성해링턴'...제주도, 인허가 의혹 고강도 감찰 착수",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597925",
-   "src": "헤드라인제주",
-   "d": "2026-08-25",
-   "outlets": [
-    "헤드라인제주"
-   ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
    "t": "제주도, 사회복지관 운영법인 4곳 회계·운영 전반 점검",
    "link": "https://www.newsjeju.net/news/articleView.html?idxno=424974",
    "src": "뉴스제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스제주"
+   ],
    "outlets": [
     "뉴스제주"
    ],
@@ -4226,6 +4572,9 @@
    "link": "https://www.newsjeju.net/news/articleView.html?idxno=424972",
    "src": "뉴스제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스제주"
+   ],
    "outlets": [
     "뉴스제주"
    ],
@@ -4233,21 +4582,13 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "실종사건 두 번 ‘허위 종결’ 경찰관 구속영장",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424919",
-   "src": "뉴스제주",
-   "d": "2026-08-25",
-   "outlets": [
-    "뉴스제주"
-   ],
-   "n": 1,
-   "sec": "안전/민원행정"
-  },
-  {
    "t": "제주 예술인 창작 활동 길잡이 ‘아트내비’ 신청 접수",
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505860",
    "src": "제주의소리",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -4259,6 +4600,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505857",
    "src": "제주의소리",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -4270,6 +4614,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505858",
    "src": "제주의소리",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -4281,6 +4628,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505855",
    "src": "제주의소리",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -4292,6 +4642,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505844",
    "src": "제주의소리",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -4303,6 +4656,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=505835",
    "src": "제주의소리",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -4310,21 +4666,13 @@
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "동백동산습지, 국내 대표 생태관광지 입증",
-   "link": "https://www.jejusori.net/news/articleView.html?idxno=505810",
-   "src": "제주의소리",
-   "d": "2026-08-25",
-   "outlets": [
-    "제주의소리"
-   ],
-   "n": 1,
-   "sec": "환경/에너지"
-  },
-  {
    "t": "제65회 탐라문화제, 도민과 함께 새판 짠다…읍면동 현장 목소리 ‘후끈’",
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297457",
    "src": "뉴스N제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -4336,6 +4684,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297439",
    "src": "뉴스N제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -4347,6 +4698,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297448",
    "src": "뉴스N제주",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -4354,21 +4708,13 @@
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "각양각색 ‘더 글로벌한 제주’ 어디까지 가봤니",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227358",
-   "src": "제주일보",
-   "d": "2026-08-25",
-   "outlets": [
-    "제주일보"
-   ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
    "t": "제주시, 오피스텔 주차장서 번호판 95건 영치",
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227348",
    "src": "제주일보",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
@@ -4380,6 +4726,9 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227347",
    "src": "제주일보",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
@@ -4391,6 +4740,9 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227334",
    "src": "제주일보",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
@@ -4402,6 +4754,9 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227333",
    "src": "제주일보",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
@@ -4413,6 +4768,9 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227331",
    "src": "제주일보",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
@@ -4424,6 +4782,9 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227330",
    "src": "제주일보",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
@@ -4435,6 +4796,9 @@
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227328",
    "src": "제주일보",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "제주일보"
+   ],
    "outlets": [
     "제주일보"
    ],
@@ -4446,6 +4810,9 @@
    "link": "https://www.topstarnews.net/news/articleView.html?idxno=16172888",
    "src": "topstarnews.net",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "topstarnews.net"
+   ],
    "outlets": [
     "topstarnews.net"
    ],
@@ -4457,6 +4824,9 @@
    "link": "https://www.mediajeju.com/news/articleView.html?idxno=365890",
    "src": "mediajeju.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "mediajeju.com"
+   ],
    "outlets": [
     "mediajeju.com"
    ],
@@ -4464,32 +4834,13 @@
    "sec": "정치/행정"
   },
   {
-   "t": "'퇴원하자마자 돌봄 받는다'서귀포시, 지원 절차 간소화",
-   "link": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=705550",
-   "src": "newsfreezone.co.kr",
-   "d": "2026-08-25",
-   "outlets": [
-    "newsfreezone.co.kr"
-   ],
-   "n": 1,
-   "sec": "복지/사회서비스"
-  },
-  {
-   "t": "제주 관광객 잡아라… 인천~제주 단체관광객에 탐나는전 ‘5만원 카드’",
-   "link": "https://www.seoul.co.kr/news/society/2026/08/25/20260825500114?wlog_tag3=naver",
-   "src": "seoul.co.kr",
-   "d": "2026-08-25",
-   "outlets": [
-    "seoul.co.kr"
-   ],
-   "n": 1,
-   "sec": "문화/관광/스포츠"
-  },
-  {
    "t": "제주 '실종 허위종결' 사태에…민주당은 '경찰개혁' 전면에",
    "link": "https://www.pressian.com/pages/articles/2026082510585887390?utm_source=naver&utm_medium=search",
    "src": "pressian.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "pressian.com"
+   ],
    "outlets": [
     "pressian.com"
    ],
@@ -4501,17 +4852,9 @@
    "link": "https://www.newsis.com/view/NISI20260825_0021410088",
    "src": "뉴시스",
    "d": "2026-08-25",
-   "outlets": [
+   "outlets_prev": [
     "뉴시스"
    ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "'장미란 사건 파장', 제주 서부서 지휘라인 대기발령",
-   "link": "https://www.newsis.com/view/NISI20260825_0021410092",
-   "src": "뉴시스",
-   "d": "2026-08-25",
    "outlets": [
     "뉴시스"
    ],
@@ -4523,6 +4866,9 @@
    "link": "http://www.wikileaks-kr.org/news/articleView.html?idxno=191283",
    "src": "wikileaks-kr.org",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "wikileaks-kr.org"
+   ],
    "outlets": [
     "wikileaks-kr.org"
    ],
@@ -4534,6 +4880,9 @@
    "link": "https://www.cnbnews.com/news/articleView.html?idxno=1012652",
    "src": "cnbnews.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "cnbnews.com"
+   ],
    "outlets": [
     "cnbnews.com"
    ],
@@ -4541,21 +4890,13 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "송도에 뜬 '제주관광안내소'의 유혹 ... \"인천~제주 직항 타면 1인당 5만...",
-   "link": "http://www.ttlnews.com/news/articleView.html?idxno=3136937",
-   "src": "ttlnews.com",
-   "d": "2026-08-25",
-   "outlets": [
-    "ttlnews.com"
-   ],
-   "n": 1,
-   "sec": "문화/관광/스포츠"
-  },
-  {
    "t": "제주에도 기후정책 공론 상설기구 '기후시민회의' 설치되나",
    "link": "https://www.news1.kr/local/jeju/6268722",
    "src": "뉴스1",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스1"
+   ],
    "outlets": [
     "뉴스1"
    ],
@@ -4567,6 +4908,9 @@
    "link": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008720707&plink=ORI&cooper=NAVER",
    "src": "news.sbs.co.kr",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "news.sbs.co.kr"
+   ],
    "outlets": [
     "news.sbs.co.kr"
    ],
@@ -4578,6 +4922,9 @@
    "link": "https://www.xportsnews.com/article/2187691",
    "src": "xportsnews.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "xportsnews.com"
+   ],
    "outlets": [
     "xportsnews.com"
    ],
@@ -4589,6 +4936,9 @@
    "link": "https://news.bbsi.co.kr/news/articleView.html?idxno=4102507",
    "src": "news.bbsi.co.kr",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "news.bbsi.co.kr"
+   ],
    "outlets": [
     "news.bbsi.co.kr"
    ],
@@ -4600,6 +4950,9 @@
    "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8645373&ref=A",
    "src": "news.kbs.co.kr",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "news.kbs.co.kr"
+   ],
    "outlets": [
     "news.kbs.co.kr"
    ],
@@ -4611,6 +4964,9 @@
    "link": "https://www.munhwa.com/article/11611934?ref=naver",
    "src": "munhwa.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "munhwa.com"
+   ],
    "outlets": [
     "munhwa.com"
    ],
@@ -4622,6 +4978,9 @@
    "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000059409",
    "src": "jnilbo.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "jnilbo.com"
+   ],
    "outlets": [
     "jnilbo.com"
    ],
@@ -4629,21 +4988,13 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "제주관광, 싱가포르 시장 공략…관광기업 해외 진출도 지원",
-   "link": "https://www.jemin.com/news/articleView.html?idxno=842064",
-   "src": "jemin.com",
-   "d": "2026-08-25",
-   "outlets": [
-    "jemin.com"
-   ],
-   "n": 1,
-   "sec": "정치/행정"
-  },
-  {
    "t": "제주도관광협회, 송도맥주축제서 관광 홍보전…'찾아가는 제주관광안내...",
    "link": "https://www.gukjenews.com/news/articleView.html?idxno=3673784",
    "src": "gukjenews.com",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "gukjenews.com"
+   ],
    "outlets": [
     "gukjenews.com"
    ],
@@ -4655,6 +5006,9 @@
    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5PT2Q2MGhPb0M4YlpLeVNUX2kwSWZXT29jbjNVWndqV0lDUHdBLS1aSUhTQUJmMDVqbU1MZF94a3pYOU5QM2FZd2paT2xnVHhHMVVKY1BIV1ltdHFWS2NscENLVHJxaVVKOXVHZg?oc=5",
    "src": "복지타임즈",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "복지타임즈"
+   ],
    "outlets": [
     "복지타임즈"
    ],
@@ -4666,6 +5020,9 @@
    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9NVWcxWGktUTdnOUhZa25ydzRVNWNNb0pWQ3VjX0RRZF9wbnBxRnJlNnNrYnBRMVZLSjVqbk1HVUJhTldsUE1VZUNvLWhsQkg2M1VxMDM4ZkdLMEJjSFhxeEdiNXVYbXhZaWJFTmZrbEluLTDSAXdBVV95cUxPQUFLd0ZsLUtDeXBuSzlJRmppcURvYU04UkFoRzF1SkRTTXdZRkMxcW8zMG1ON1RJNXhCZTFBeTVVQ3o0ZUx2S3hnOTlNSzRKTVQ1Q1hMVUVJUXZTc3Vxb1pEaGludC1ia0JnT2l2SUQzNkplaGRsTQ?oc=5",
    "src": "뉴스프리존",
    "d": "2026-08-25",
+   "outlets_prev": [
+    "뉴스프리존"
+   ],
    "outlets": [
     "뉴스프리존"
    ],
@@ -4673,1543 +5030,653 @@
    "sec": "정치/행정"
   },
   {
-   "t": "봉은사 주지 지낸 명진스님, 제주 앞바다서 사고로 입적",
-   "link": "https://www.jejusori.net/news/articleView.html?idxno=505787",
-   "src": "제주의소리",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주의소리",
-    "제주일보",
-    "주간조선",
-    "JTBC",
-    "강원일보",
-    "아주경제",
-    "강원도민일보",
-    "한국경제TV"
-   ],
-   "outlets": [
-    "제주의소리",
-    "제주일보",
-    "주간조선",
-    "JTBC",
-    "강원일보",
-    "아주경제",
-    "강원도민일보",
-    "한국경제TV"
-   ],
-   "n": 37,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "[속보] 法, '제주 실종사건 허위종결' 경찰관 석방 결정…체포적부심 인...",
-   "link": "https://www.sisajournal.com/news/articleView.html?idxno=384581",
-   "src": "sisajournal.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "newdaily.co.kr",
-    "뉴스1",
-    "제주의소리",
-    "한겨레",
-    "경향신문",
-    "JTBC",
-    "JTBC뉴스",
-    "yonhapnewstv.co.kr"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "뉴스제주",
-    "제주의소리",
-    "연합뉴스TV",
-    "제민일보",
-    "sisajournal.com",
-    "newdaily.co.kr",
-    "뉴스1"
-   ],
-   "n": 15,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주서 또다른 실종자 시신 발견… \"하룻만에 두건...사흘새 4명째\"",
-   "link": "https://www.ngonews.kr/news/articleView.html?idxno=236187",
-   "src": "ngonews.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "ngonews.kr",
-    "kwnews.co.kr",
-    "news.jtbc.co.kr",
-    "smarttoday.co.kr",
-    "mbn.mk.co.kr",
-    "중앙일보",
-    "연합뉴스",
-    "yonhapnewstv.co.kr"
-   ],
-   "outlets": [
-    "ngonews.kr",
-    "kwnews.co.kr",
-    "news.jtbc.co.kr",
-    "smarttoday.co.kr",
-    "mbn.mk.co.kr",
-    "중앙일보",
-    "연합뉴스",
-    "yonhapnewstv.co.kr"
-   ],
-   "n": 11,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주 동백동산습지, 국가 생태관광지역 5회 연속 지정… 2028년까지 유지",
-   "link": "https://www.fnnews.com/news/202608241623400636",
-   "src": "fnnews.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주일보",
-    "제주의소리",
-    "헤드라인제주",
-    "뉴스제주",
-    "뉴스N제주",
-    "머니투데이",
-    "뉴시스",
-    "한라일보"
-   ],
-   "outlets": [
-    "fnnews.com",
-    "제주일보",
-    "제주의소리",
-    "헤드라인제주",
-    "뉴스제주",
-    "뉴스N제주",
-    "머니투데이",
-    "뉴시스"
-   ],
-   "n": 9,
-   "sec": "환경/에너지"
-  },
-  {
-   "t": "서귀포 주택가서 50대 여성 흉기에 찔려 숨져… 전직 경찰관 용의자 선...",
-   "link": "https://www.seoul.co.kr/news/society/accident/2026/08/24/20260824500255?wlog_tag3=naver",
-   "src": "seoul.co.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "seoul.co.kr",
-    "제주의소리",
-    "ajunews.com",
-    "kmib.co.kr",
-    "매일경제",
-    "mt.co.kr",
-    "뉴스1",
-    "조선일보"
-   ],
-   "outlets": [
-    "seoul.co.kr",
-    "제주의소리",
-    "ajunews.com",
-    "kmib.co.kr",
-    "매일경제",
-    "mt.co.kr",
-    "뉴스1",
-    "조선일보"
-   ],
-   "n": 9,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "롯데이노베이트 자율주행 셔틀, 강릉·제주·경주 관광지 달린다...누적...",
-   "link": "https://www.eroun.net/news/articleView.html?idxno=88164",
-   "src": "eroun.net",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "eroun.net",
-    "mt.co.kr",
-    "kdfnews.com",
-    "biz.heraldcorp.com",
-    "aitimes.com",
-    "mediapen.com",
-    "m-i.kr",
-    "popcornnews.net"
-   ],
-   "outlets": [
-    "eroun.net",
-    "mt.co.kr",
-    "kdfnews.com",
-    "biz.heraldcorp.com",
-    "aitimes.com",
-    "mediapen.com",
-    "m-i.kr",
-    "popcornnews.net"
-   ],
-   "n": 9,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "제주 실종자 추정 시신 발견...'허위 종결' 경찰관은 '석방' [이슈플러스...",
-   "link": "https://www.ytn.co.kr/_ln/0103_202608241922467943",
-   "src": "YTN",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "YTN",
-    "segyebiz.com",
-    "mediajeju.com",
-    "edaily.co.kr",
-    "조선일보",
-    "ikbc.co.kr",
-    "view.asiae.co.kr",
-    "제주의소리"
-   ],
-   "outlets": [
-    "YTN",
-    "segyebiz.com",
-    "mediajeju.com",
-    "edaily.co.kr",
-    "조선일보",
-    "ikbc.co.kr",
-    "view.asiae.co.kr",
-    "제주의소리"
-   ],
-   "n": 9,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "[속보] 제주 장기 실종 장미란씨 추정 시신 발견···합동수색 인력 투입 1시간 만에 찾아",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9pZVpaVUs4dEJlWFVpMk5kM2dwbWlDcTk1TnpHQ1pWejBNY3Q1VVBhSkVrTEd0RlgweDFiOFRGWjZJSERVTF9BZEtYemUwV3o2NlFRTWpXTjdzQdIBX0FVX3lxTFBBbzFxMDlBallpb2hhNS11QzRLOFRXQW1vTEVJbHpYZmRjcVZDRXgtNm9Ub1NrSUcyRjliZFNzaDI4YlFCZ3MwWUNpMmZzTmpOUU41ZlExaGZKWEZabFVJ?oc=5",
-   "src": "경향신문",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "경향신문",
-    "joongangenews.com",
-    "헤드라인제주",
-    "뉴스제주",
-    "제주의소리",
-    "breaknews.com",
-    "iminju.net",
-    "tjb.co.kr"
-   ],
-   "outlets": [
-    "경향신문",
-    "joongangenews.com",
-    "헤드라인제주",
-    "뉴스제주",
-    "제주의소리",
-    "breaknews.com",
-    "iminju.net",
-    "tjb.co.kr"
-   ],
-   "n": 9,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "[오늘의 주요일정]제주(8월24일 월요일)",
-   "link": "https://www.newsis.com/view/NISX20260823_0003759031",
-   "src": "뉴시스",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴시스",
-    "연합뉴스",
-    "뉴스1",
-    "public25.com",
-    "NANOOM ENERGY",
-    "seoulfn.com",
-    "econonews.co.kr",
-    "jeonmae.co.kr"
-   ],
-   "outlets": [
-    "뉴시스",
-    "연합뉴스",
-    "뉴스1",
-    "public25.com",
-    "NANOOM ENERGY",
-    "seoulfn.com",
-    "econonews.co.kr",
-    "jeonmae.co.kr"
-   ],
-   "n": 8,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "위성곤 지사, 민선 9기 첫 제주시장에 이상봉 임명…도정 시정 공조 시험대",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297352",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "뉴스제주",
-    "jejumaeil.net",
-    "제주매일",
-    "뉴스1",
-    "파이낸셜뉴스",
-    "제주투데이",
-    "제주의소리"
-   ],
-   "outlets": [
-    "뉴스N제주",
-    "뉴스제주",
-    "jejumaeil.net",
-    "제주매일",
-    "뉴스1",
-    "파이낸셜뉴스",
-    "제주투데이",
-    "제주의소리"
-   ],
-   "n": 8,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "[속보]경찰청, '제주 실종사건' 허위 종결 감찰 착수…'과장 확인' 의무...",
-   "link": "https://www.ikbc.co.kr/article/view/kbc202608240051",
-   "src": "ikbc.co.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "ikbc.co.kr",
-    "fnnews.com",
-    "뉴스1",
-    "경향신문",
-    "mbn.mk.co.kr",
-    "매일경제",
-    "sedaily.com",
-    "한국경제"
-   ],
-   "outlets": [
-    "ikbc.co.kr",
-    "fnnews.com",
-    "뉴스1",
-    "경향신문",
-    "mbn.mk.co.kr",
-    "매일경제",
-    "sedaily.com",
-    "한국경제"
-   ],
-   "n": 8,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주 주택서 ‘타살 정황’ 50대 여성 숨진 채 발견···경찰 출신 전 ...",
-   "link": "https://www.khan.co.kr/article/202608242230001",
-   "src": "경향신문",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "경향신문",
-    "MBC",
-    "조선일보",
-    "newscj.com",
-    "kyeonggi.com",
-    "slist.kr",
-    "연합뉴스",
-    "hankookilbo.com"
-   ],
-   "outlets": [
-    "경향신문",
-    "MBC",
-    "조선일보",
-    "newscj.com",
-    "kyeonggi.com",
-    "slist.kr",
-    "연합뉴스",
-    "hankookilbo.com"
-   ],
-   "n": 8,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "'제주 허위 실종 종결' 사건 여파…전북청, 실종 종결 6500여건 전수조사",
-   "link": "https://www.newsis.com/view/NISX20260824_0003760635",
-   "src": "뉴시스",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴시스",
-    "segye.com",
-    "tjb.co.kr",
-    "daejonilbo.com",
-    "newspim.com",
-    "YTN",
-    "view.asiae.co.kr",
-    "연합뉴스"
-   ],
-   "outlets": [
-    "뉴시스",
-    "segye.com",
-    "tjb.co.kr",
-    "daejonilbo.com",
-    "newspim.com",
-    "YTN",
-    "view.asiae.co.kr",
-    "연합뉴스"
-   ],
-   "n": 8,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주 사흘새 실종자 4명 잇따라 숨진 채 발견… 2명은 '허위 종결' 의혹...",
-   "link": "https://www.fnnews.com/news/202608241934452151",
-   "src": "fnnews.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "fnnews.com",
-    "뉴스1",
-    "news.bbsi.co.kr",
-    "sedaily.com",
-    "한국경제",
-    "newspim.com",
-    "hidomin.com",
-    "mt.co.kr"
-   ],
-   "outlets": [
-    "fnnews.com",
-    "뉴스1",
-    "news.bbsi.co.kr",
-    "sedaily.com",
-    "한국경제",
-    "newspim.com",
-    "hidomin.com",
-    "mt.co.kr"
-   ],
-   "n": 8,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주 렌트카 '제주속으로', 2026 제주도 우수관관사업체 선정 \"고객 만족...",
-   "link": "https://www.itbiznews.com/news/articleView.html?idxno=222496",
-   "src": "itbiznews.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "itbiznews.com",
-    "kbsm.net",
-    "e2news.com",
-    "이투뉴스",
-    "thepowernews.co.kr",
-    "lawissue.co.kr",
-    "비욘드포스트",
-    "로이슈"
-   ],
-   "outlets": [
-    "itbiznews.com",
-    "kbsm.net",
-    "e2news.com",
-    "이투뉴스",
-    "thepowernews.co.kr",
-    "lawissue.co.kr",
-    "비욘드포스트",
-    "로이슈"
-   ],
-   "n": 8,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "인천-제주 직항 노선 활성화를 위한 단체 관광객 대상 탐나는전 지원 공고 시행",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297240",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "samdailbo.com",
-    "news.bbsi.co.kr",
-    "jejumaeil.net",
-    "제주매일",
-    "BBS불교방송",
-    "한라일보",
-    "nocutnews.co.kr"
-   ],
-   "outlets": [
-    "뉴스N제주",
-    "samdailbo.com",
-    "news.bbsi.co.kr",
-    "jejumaeil.net",
-    "제주매일",
-    "BBS불교방송",
-    "한라일보",
-    "nocutnews.co.kr"
-   ],
-   "n": 8,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "[G-브리핑] ‘카트라이더 러쉬플러스’, 제주SK와 협업 이벤트",
-   "link": "https://www.mk.co.kr/article/12134930",
-   "src": "매일경제",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "매일경제",
-    "tgdaily.co.kr",
-    "betanews.net",
-    "fomos.kr",
-    "khgames.co.kr",
-    "worktoday.co.kr",
-    "newspim.com"
-   ],
-   "outlets": [
-    "매일경제",
-    "tgdaily.co.kr",
-    "betanews.net",
-    "fomos.kr",
-    "khgames.co.kr",
-    "worktoday.co.kr",
-    "newspim.com"
-   ],
-   "n": 7,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "제주도, 상반기 안전신고 우수자 선발·포상금 지급",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297258",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "제주도민일보",
-    "채널제주",
-    "youngjuilbo.com",
-    "JIBS",
-    "지금제주",
-    "제주사회복지신문"
-   ],
-   "outlets": [
-    "뉴스N제주",
-    "제주도민일보",
-    "채널제주",
-    "youngjuilbo.com",
-    "JIBS",
-    "지금제주",
-    "제주사회복지신문"
-   ],
-   "n": 7,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "[인사] 제주도의회 사무처장 김인영, 이사관 승진 임용",
-   "link": "https://www.jejusori.net/news/articleView.html?idxno=505781",
-   "src": "제주의소리",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주의소리",
-    "뉴스제주",
-    "헤드라인제주",
-    "제주매일",
-    "뉴스N제주",
-    "제민일보"
-   ],
-   "outlets": [
-    "제주의소리",
-    "뉴스제주",
-    "헤드라인제주",
-    "제주매일",
-    "뉴스N제주",
-    "제민일보"
-   ],
-   "n": 6,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "제주 무수천서 또다른 실종자 숨진채 발견...\"허위종결 경찰과는 무관\"",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597873",
+   "t": "국민의힘 제주도당 “이창흠 부지사 후보자 인사청문회, 야당 배제해 편향적 구성”",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597945",
    "src": "헤드라인제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "헤드라인제주",
-    "sisajournal.com",
-    "뉴시스",
-    "yonhapnewstv.co.kr",
-    "sedaily.com",
-    "cwn.kr"
-   ],
+   "d": "2026-08-25",
    "outlets": [
-    "헤드라인제주",
-    "sisajournal.com",
-    "뉴시스",
-    "yonhapnewstv.co.kr",
-    "sedaily.com",
-    "cwn.kr"
+    "헤드라인제주"
    ],
-   "n": 6,
-   "sec": "안전/민원행정"
+   "n": 1,
+   "sec": "정치/행정"
   },
   {
-   "t": "이상봉 제주시장 취임...\"시민 곁에서, 민생 가장 먼저 챙길 것\"",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597872",
+   "t": "제주 소상공인연합회, 이호테우해수욕장서 공정가격 캠페인 전개",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597943",
    "src": "헤드라인제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "헤드라인제주",
-    "뉴스1",
-    "뉴스N제주",
-    "nocutnews.co.kr",
-    "news.bbsi.co.kr",
-    "제주일보"
-   ],
+   "d": "2026-08-25",
    "outlets": [
-    "헤드라인제주",
-    "뉴스1",
-    "뉴스N제주",
-    "nocutnews.co.kr",
-    "news.bbsi.co.kr",
-    "제주일보"
+    "헤드라인제주"
    ],
-   "n": 6,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "제주위미농협, GAP 인증교육으로 '고품질 감귤' 생산 기반 강화",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297218",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "뉴스제주",
-    "youngjuilbo.com",
-    "livejeju.co.kr",
-    "농수축산신문",
-    "지금제주"
-   ],
-   "outlets": [
-    "뉴스N제주",
-    "뉴스제주",
-    "youngjuilbo.com",
-    "livejeju.co.kr",
-    "농수축산신문",
-    "지금제주"
-   ],
-   "n": 6,
-   "sec": "1차산업"
-  },
-  {
-   "t": "강동우 교육위원회 위원장, 4ㆍ3평화ㆍ인권교육 활성화 조례 일부개정!",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297361",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "제주환경일보",
-    "누리일보",
-    "newszoom.kr",
-    "시사팩트",
-    "더뉴스코리아"
-   ],
-   "outlets": [
-    "뉴스N제주",
-    "제주환경일보",
-    "누리일보",
-    "newszoom.kr",
-    "시사팩트",
-    "더뉴스코리아"
-   ],
-   "n": 6,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "제주 실종 여성 장미란 씨 추정 시신 발견에 여성단체, 국가 차원의 점...",
-   "link": "https://www.ngonews.kr/news/articleView.html?idxno=236169",
-   "src": "ngonews.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "ngonews.kr",
-    "연합뉴스",
-    "JTBC",
-    "헤드라인제주",
-    "JTBC뉴스",
-    "자유일보"
-   ],
-   "outlets": [
-    "ngonews.kr",
-    "연합뉴스",
-    "JTBC",
-    "헤드라인제주",
-    "JTBC뉴스",
-    "자유일보"
-   ],
-   "n": 6,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주관광공사, 내달 1일까지 서울서 여행멤버십 브랜드 '나우다' 체험 팝업 운영",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1SNXQ2Y1NsT0hPeDNjWGFxN0VsanJCN3NhX0hGZVNKWW1MdkFYeWVvRDdNNWdTR2ZvSTFBdzVEZ0VYZUlKdEdxcXdYVGp2am5ZQ2JlWGNXWWlFU2xWR1VKX3owVEV6c0I0bHpOXw?oc=5",
-   "src": "스마트비즈",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "스마트비즈",
-    "중도일보",
-    "samdailbo.com",
-    "jemin.com",
-    "제민일보",
-    "삼다일보"
-   ],
-   "outlets": [
-    "스마트비즈",
-    "중도일보",
-    "samdailbo.com",
-    "jemin.com",
-    "제민일보",
-    "삼다일보"
-   ],
-   "n": 6,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "[제주 24시] 제주도, 기조실장 양제윤⋅안전실장 조상범 등 1970년대생 전...",
-   "link": "https://www.sisajournal.com/news/articleView.html?idxno=384496",
-   "src": "sisajournal.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "sisajournal.com",
-    "시사저널",
-    "v.daum.net",
-    "제주일보",
-    "제주뉴스"
-   ],
-   "outlets": [
-    "sisajournal.com",
-    "시사저널",
-    "v.daum.net",
-    "제주일보",
-    "제주뉴스"
-   ],
-   "n": 5,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "\"혹시 우리 가족도?\"…제주 경찰 '셀프 종결' 200건 전수 조사",
-   "link": "https://www.ngonews.kr/news/articleView.html?idxno=236163",
-   "src": "ngonews.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "ngonews.kr",
-    "한국경제",
-    "yonhapnewstv.co.kr",
-    "dkilbo.com",
-    "edaily.co.kr"
-   ],
-   "outlets": [
-    "ngonews.kr",
-    "한국경제",
-    "yonhapnewstv.co.kr",
-    "dkilbo.com",
-    "edaily.co.kr"
-   ],
-   "n": 5,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "건양대, 제주 4·3 현장에서 배우다...4개 대학 연합 CO-PBL 성료",
-   "link": "http://www.dtnews24.com/news/articleView.html?idxno=814506",
-   "src": "dtnews24.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "dtnews24.com",
-    "cctimes.kr",
-    "chungnamilbo.co.kr",
-    "jeonmae.co.kr",
-    "ccdn.co.kr"
-   ],
-   "outlets": [
-    "dtnews24.com",
-    "cctimes.kr",
-    "chungnamilbo.co.kr",
-    "jeonmae.co.kr",
-    "ccdn.co.kr"
-   ],
-   "n": 5,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "韓총리, 제주 실종사건에 \"무한 책임…부당·불법 무관용 처벌\"(종합2보...",
-   "link": "https://www.yna.co.kr/view/AKR20260824085552001?input=1195m",
-   "src": "연합뉴스",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "연합뉴스",
-    "뉴시스",
-    "joongangenews.com",
-    "조선일보",
-    "view.asiae.co.kr"
-   ],
-   "outlets": [
-    "연합뉴스",
-    "뉴시스",
-    "joongangenews.com",
-    "조선일보",
-    "view.asiae.co.kr"
-   ],
-   "n": 5,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "\"부르면 온다\"...JDC, 첨단단지~제주대 자율주행 서비스 운영",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597896",
-   "src": "헤드라인제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "헤드라인제주",
-    "뉴스제주",
-    "lawissue.co.kr",
-    "mediajeju.com",
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "뉴스제주",
-    "lawissue.co.kr",
-    "mediajeju.com",
-    "뉴스N제주"
-   ],
-   "n": 5,
-   "sec": "신산업/AX"
-  },
-  {
-   "t": "제주서 50대 여성 타살 정황…경찰, 전직 경찰관 전남편 소재 파악",
-   "link": "http://weekly.chosun.com/news/articleView.html?idxno=54620",
-   "src": "조선일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "조선일보",
-    "slist.kr",
-    "연합뉴스",
-    "segye.com",
-    "yonhapnewstv.co.kr"
-   ],
-   "outlets": [
-    "조선일보",
-    "slist.kr",
-    "연합뉴스",
-    "segye.com",
-    "yonhapnewstv.co.kr"
-   ],
-   "n": 5,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "버려지는 병뚜껑으로 제주 올레길 화살표 만든다",
-   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321551",
-   "src": "제주도민일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주도민일보",
-    "jejumaeil.net",
-    "jemin.com",
-    "지금제주",
-    "제주매일"
-   ],
-   "outlets": [
-    "제주도민일보",
-    "jejumaeil.net",
-    "jemin.com",
-    "지금제주",
-    "제주매일"
-   ],
-   "n": 5,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "제주도-지역 국회의원 2027 국비 확보 논의 구체화",
-   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269377",
-   "src": "samdailbo.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "samdailbo.com",
-    "제주의소리",
-    "v.daum.net",
-    "삼다일보"
-   ],
-   "outlets": [
-    "samdailbo.com",
-    "제주의소리",
-    "v.daum.net",
-    "삼다일보"
-   ],
-   "n": 4,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "실종사건 처리 논란에 제주도 안전망 전면 점검… 위성곤 지사 \"허위보...",
-   "link": "http://www.fnnews.com/news/202608241127118031",
-   "src": "fnnews.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "fnnews.com",
-    "제주일보",
-    "연합뉴스",
-    "v.daum.net"
-   ],
-   "outlets": [
-    "fnnews.com",
-    "제주일보",
-    "연합뉴스",
-    "v.daum.net"
-   ],
-   "n": 4,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "박지원 “경찰, 죽일 수도 없고...” 제주 실종 ‘허위 종결’에 탄식",
-   "link": "https://www.munhwa.com/article/11611608?ref=naver",
-   "src": "munhwa.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "munhwa.com",
-    "한겨레",
-    "edaily.co.kr",
-    "뉴시스"
-   ],
-   "outlets": [
-    "munhwa.com",
-    "한겨레",
-    "edaily.co.kr",
-    "뉴시스"
-   ],
-   "n": 4,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "李 대통령, 제주 실종사건 허위 종결에 \"철저한 진상규명·재발 방지\" 지...",
-   "link": "http://www.iminju.net/news/articleView.html?idxno=168476",
-   "src": "iminju.net",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "iminju.net",
-    "헤드라인제주",
-    "제주도민일보",
-    "YTN"
-   ],
-   "outlets": [
-    "iminju.net",
-    "헤드라인제주",
-    "제주도민일보",
-    "YTN"
-   ],
-   "n": 4,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주시, 2026년 상반기 정기인사 프로필",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227327",
-   "src": "제주일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주일보",
-    "제주의소리",
-    "제이누리",
-    "미디어제주"
-   ],
-   "outlets": [
-    "제주일보",
-    "제주의소리",
-    "제이누리",
-    "미디어제주"
-   ],
-   "n": 4,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "제주 장미란 씨 추정 시신, 야자수밭에서 발견…담당 경찰은 '석방' [뉴...",
-   "link": "http://www.mbn.co.kr/pages/news/newsView.php?news_seq_no=5214488",
-   "src": "mbn.co.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "mbn.co.kr",
-    "뉴스제주",
-    "tjb.co.kr",
-    "자유일보"
-   ],
-   "outlets": [
-    "mbn.co.kr",
-    "뉴스제주",
-    "tjb.co.kr",
-    "자유일보"
-   ],
-   "n": 4,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "귀덕1리 앞바다서 어선 화재...승선원 2명 모두 구조",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227300",
-   "src": "제주일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주일보",
-    "제주의소리",
-    "뉴스1",
-    "파이낸셜뉴스"
-   ],
-   "outlets": [
-    "제주일보",
-    "제주의소리",
-    "뉴스1",
-    "파이낸셜뉴스"
-   ],
-   "n": 4,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주은행, 경영학자 선정 대한민국 최우수경영대상 수상",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297261",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "헤드라인제주",
-    "뉴스제주",
-    "제주의소리"
-   ],
-   "outlets": [
-    "뉴스N제주",
-    "헤드라인제주",
-    "뉴스제주",
-    "제주의소리"
-   ],
-   "n": 4,
+   "n": 1,
    "sec": "창업/경제"
   },
   {
-   "t": "제주 풋귤, 서울 도심서 소비자 만났다…풋귤 활용법 홍보",
-   "link": "https://www.segye.com/newsView/20260824512820?OutUrl=naver",
-   "src": "segye.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "segye.com",
-    "세계일보",
-    "제주의소리",
-    "v.daum.net"
-   ],
+   "t": "설악초가 피어난 시골길 (포토)",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597940",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
    "outlets": [
-    "segye.com",
-    "세계일보",
-    "제주의소리",
-    "v.daum.net"
+    "헤드라인제주"
    ],
-   "n": 4,
-   "sec": "1차산업"
+   "n": 1,
+   "sec": "사건사고/기타"
   },
   {
-   "t": "제주 실종 여성, 두 달 뒤 서울서 2차 신고‥1시간여 만에 제주청 이첩",
-   "link": "https://imnews.imbc.com/news/2026/society/article/6846968_36918.html",
-   "src": "MBC",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "MBC",
-    "news.kbs.co.kr",
-    "mt.co.kr",
-    "뉴시스"
-   ],
+   "t": "국내외 제주 상공인 한자리에...\"새로운 제주는 기업.청년 함께 성장\"",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597938",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
    "outlets": [
-    "MBC",
-    "news.kbs.co.kr",
-    "mt.co.kr",
-    "뉴시스"
+    "헤드라인제주"
    ],
-   "n": 4,
+   "n": 1,
+   "sec": "창업/경제"
+  },
+  {
+   "t": "전국 시·도교육감, “지방교육재정교부금 개편 절대 반대” 한목소리",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597939",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "헤드라인제주"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "제주소방, 암 투병 소방공무원에 치료비 1200만원 전달",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597933",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "헤드라인제주"
+   ],
+   "n": 1,
    "sec": "안전/민원행정"
   },
   {
-   "t": "AI가 소상공인 현장으로… 제주창조경제혁신센터, 16개사 맞춤 매칭데이 열어",
-   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAwVVpBTzdMcS14WVFpbkNCYXhDRE5hZmlxWFpnczU2NERDTVhGRURyUExkSTVwTUhCZTNSOWJ0WWZ4SFo5aHZGeVVyYnMxeF9jdk1GX1VyRlNQTGlMYUNBVjIteDcybUlKNTU00gFrQVVfeXFMUDBVWkFPN0xxLXhZUWluQ0JheENETmFmaXFYWmdzNTY0RENNWEZFRHJQTGRJNXBNSEJlM1I5YnRZZnhIWjlodkZ5VXJiczF4X2N2TUZfVXJGU1BMaUxhQ0FWMi14NzJtSUo1NTQ?oc=5",
-   "src": "에이빙",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "에이빙",
-    "네이트",
-    "누리일보",
-    "지금제주"
-   ],
+   "t": "사람유두종바이러스 무료접종 대상에 12세 남성 청소년 추가",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597899",
+   "src": "헤드라인제주",
+   "d": "2026-08-25",
    "outlets": [
-    "에이빙",
-    "네이트",
-    "누리일보",
-    "지금제주"
+    "헤드라인제주"
    ],
-   "n": 4,
-   "sec": "신산업/AX"
-  },
-  {
-   "t": "제주대에 수영장·체육관 갖춘 대규모 복합문화센터 건립",
-   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269417",
-   "src": "samdailbo.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "samdailbo.com",
-    "헤드라인제주",
-    "뉴스N제주",
-    "jejumbc.com"
-   ],
-   "outlets": [
-    "samdailbo.com",
-    "헤드라인제주",
-    "뉴스N제주",
-    "jejumbc.com"
-   ],
-   "n": 4,
+   "n": 1,
    "sec": "교육/청년"
   },
   {
-   "t": "\"살려주세요\" 듣자 튜브 들고 바다로… 제주 자치경찰, 피서객 2명 구조",
-   "link": "http://www.fnnews.com/news/202608241038063302",
-   "src": "fnnews.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "fnnews.com",
-    "제주환경일보",
-    "서귀포신문",
-    "뉴스N제주"
-   ],
+   "t": "9월부터 제주 학교 스마트폰 제한…95곳 ‘등교 때 수거’",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424981",
+   "src": "뉴스제주",
+   "d": "2026-08-25",
    "outlets": [
-    "fnnews.com",
-    "제주환경일보",
-    "서귀포신문",
-    "뉴스N제주"
+    "뉴스제주"
    ],
-   "n": 4,
+   "n": 1,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "민선9기 첫 정기인사 수여식...“현장서 답 찾고, 칸막이 치울 것”",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424978",
+   "src": "뉴스제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스제주"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "‘공공기관은 제주로’…범도민 서명운동 본격 돌입",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424973",
+   "src": "뉴스제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스제주"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "‘실종사건 허위 종결' A경장 석방…제주법원, 체포적부심 인용",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424955",
+   "src": "뉴스제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스제주"
+   ],
+   "n": 1,
    "sec": "안전/민원행정"
   },
   {
-   "t": "제주 실종 장미란씨 시신 발견, 경찰 현장 감식",
-   "link": "https://www.newsis.com/view/NISI20260824_0021408978",
-   "src": "뉴시스",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴시스",
-    "머니투데이",
-    "자유일보",
-    "yonhapnewstv.co.kr"
-   ],
+   "t": "한경농협 '농업성공대학 수료식'개최…누적 수료생 702명 배출",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424929",
+   "src": "뉴스제주",
+   "d": "2026-08-25",
    "outlets": [
-    "뉴시스",
-    "머니투데이",
-    "자유일보",
-    "yonhapnewstv.co.kr"
+    "뉴스제주"
    ],
-   "n": 4,
-   "sec": "안전/민원행정"
+   "n": 1,
+   "sec": "1차산업"
   },
   {
-   "t": "제주형 관광사업체 공유오피스 입주 대상 '컨소시엄'까지 확대",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597874",
-   "src": "헤드라인제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "헤드라인제주",
-    "samdailbo.com",
-    "jemin.com",
-    "제민일보"
-   ],
+   "t": "초등학교 옆 전신주에 성기능 광고?...‘OO힘’ 간판 버젓이",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505865",
+   "src": "제주의소리",
+   "d": "2026-08-25",
    "outlets": [
-    "헤드라인제주",
-    "samdailbo.com",
-    "jemin.com",
-    "제민일보"
+    "제주의소리"
    ],
-   "n": 4,
+   "n": 1,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "중기부 장관 공석 영향 제주테크노파크 원장 '공백' 장기화 우려",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505866",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "제주 출신 김한규 의원 중기부장관 후보 거론",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505864",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "한라도서관 어린이책 4천권, 돌문화공원 비치",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505834",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리"
+   ],
+   "n": 1,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "“마사회 ‘말복지 지표’ 의혹 밝혀야”…제주비건, 공익감사 촉구",
+   "link": "https://www.jejusori.net/news/articleView.html?idxno=505831",
+   "src": "제주의소리",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주의소리"
+   ],
+   "n": 1,
+   "sec": "복지/사회서비스"
+  },
+  {
+   "t": "“교육재정 축소·교육자치 훼손”, 교육교부금 개편안 철회 촉구",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297467",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스N제주"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "[이슈]“성장의 과실 도민 삶으로”…제주경제 새 판 짠다",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297466",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스N제주"
+   ],
+   "n": 1,
+   "sec": "창업/경제"
+  },
+  {
+   "t": "이정한 제주도의원, 표선고 신축 기숙사 ‘송림학사’ 개관식 참석",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297460",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스N제주"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "제주도, ‘효성해링턴 인허가 의혹’ 전면 감찰…정·관계 유착 의혹까지 파헤칠까",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297459",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스N제주"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "김경애 제주도의원, ‘2026 글로벌 제주상공인포럼’ 개회식 참석",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297461",
+   "src": "뉴스N제주",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스N제주"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "[사설] 국회 제주특별법 개정안 심의, 제주국제과학기술원 설립 등 ‘주목’",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227363",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "참교육의 의미",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227361",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "체포적부심 출석",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227339",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "대정중, ‘제주 서부지역 중등교육 발상 기념비’ 건립",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227324",
+   "src": "제주일보",
+   "d": "2026-08-25",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "경남도의회, 행정사무감사·예산안 심사 대비 역량 강화 교육 실시",
+   "link": "https://www.viva100.com/article/20260825501035",
+   "src": "viva100.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "viva100.com"
+   ],
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "경기경찰, '제주 실종 조작' 사건으로 최근 3년간 발생한 실종신고 7천7...",
+   "link": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=3032597",
+   "src": "kihoilbo.co.kr",
+   "d": "2026-08-25",
+   "outlets": [
+    "kihoilbo.co.kr"
+   ],
+   "n": 1,
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "'제주 부실수사' 파장…대구경찰, 관내 실종사건 1만3000건 전수조사",
-   "link": "https://www.dkilbo.com/news/articleView.html?idxno=552184",
-   "src": "dkilbo.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "dkilbo.com",
-    "뉴시스",
-    "tbc.co.kr",
-    "dgmbc.com"
-   ],
+   "t": "제주도청서 강정까지…생명평화대행진 27일 출발",
+   "link": "https://www.gukjenews.com/news/articleView.html?idxno=3674243",
+   "src": "gukjenews.com",
+   "d": "2026-08-25",
    "outlets": [
-    "dkilbo.com",
-    "뉴시스",
-    "tbc.co.kr",
-    "dgmbc.com"
+    "gukjenews.com"
    ],
-   "n": 4,
+   "n": 1,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "현대성 삼다일보 기자 \"제주 키위 생산량 전국 절반 넘어…'탐나도키위...",
+   "link": "https://news.bbsi.co.kr/news/articleView.html?idxno=4102590",
+   "src": "news.bbsi.co.kr",
+   "d": "2026-08-25",
+   "outlets": [
+    "news.bbsi.co.kr"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "'실종자 허위 종결 파문' 제주 부 경장 영장실질 심사",
+   "link": "https://www.newsis.com/view/NISI20260825_0021410422",
+   "src": "뉴시스",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴시스"
+   ],
+   "n": 1,
    "sec": "안전/민원행정"
   },
   {
-   "t": "野, '제주 실종 허위종결'에 \"국가 치안시스템 붕괴… 보완수사권 살려...",
-   "link": "https://www.daejonilbo.com/news/articleView.html?idxno=2296354",
-   "src": "daejonilbo.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "daejonilbo.com",
-    "asiatime.co.kr",
+   "t": "구속 전 피의자 심문 마친 제주 부 모 경장",
+   "link": "https://www.news1.kr/photos/8071527",
+   "src": "뉴스1",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스1"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "실종 신고 다음날 '접근금지' 파악…제주 전직 경찰 살인에 뚫린 공조망",
+   "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000059502",
+   "src": "jnilbo.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "jnilbo.com"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "현대해상·신협, 신담보 2종 배타적사용권 6개월 동시 획득·제주 금융취...",
+   "link": "http://www.wsobi.com/news/articleView.html?idxno=316987",
+   "src": "wsobi.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "wsobi.com"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "경남·경북·울산·제주 인디뮤지션 한 자리에…'인디안아Zone's' 경남 공...",
+   "link": "https://www.newsgn.com/news/articleView.html?idxno=569607",
+   "src": "newsgn.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "newsgn.com"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "제주가 아태 기후적응 '훈련 거점'으로… UNFCCC 아카데미 개막",
+   "link": "https://www.fnnews.com/news/202608251522398151",
+   "src": "fnnews.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "fnnews.com"
+   ],
+   "n": 1,
+   "sec": "창업/경제"
+  },
+  {
+   "t": "경찰 출신 與임호선 '제주 실종 허위종결'에 \"죽을 죄 진 것 같다\"",
+   "link": "https://www.dailian.co.kr/news/view/1682141/?sc=Naver",
+   "src": "dailian.co.kr",
+   "d": "2026-08-25",
+   "outlets": [
     "dailian.co.kr"
    ],
-   "outlets": [
-    "daejonilbo.com",
-    "asiatime.co.kr",
-    "dailian.co.kr",
-    "pressian.com"
-   ],
-   "n": 4,
+   "n": 1,
    "sec": "안전/민원행정"
   },
   {
-   "t": "제5회 제주비엔날레 25일 개막… 추사 김정희의 유배된 삶, 변용된 예술...",
-   "link": "https://www.seoul.co.kr/news/life/2026/08/24/20260824500159?wlog_tag3=naver",
-   "src": "seoul.co.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "seoul.co.kr",
-    "뉴스제주",
-    "newsfreezone.co.kr"
-   ],
+   "t": "제주 실종사건 놓고 괴담까지…SNS에 허위정보 난무",
+   "link": "http://mbn.mk.co.kr/pages/news/newsView.php?category=mbn00009&news_seq_no=5214716",
+   "src": "mbn.mk.co.kr",
+   "d": "2026-08-25",
    "outlets": [
-    "뉴스제주",
-    "seoul.co.kr",
-    "newsfreezone.co.kr"
+    "mbn.mk.co.kr"
    ],
-   "n": 3,
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주 압축도시 구상 그대로 간다…고도지구 풀고 최고 40층까지",
+   "link": "https://www.news1.kr/local/jeju/6268954",
+   "src": "뉴스1",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스1"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "'제주 실종' 논란 커지는데 … 與는 '국보법 폐지 운동가'와 '경찰 개혁...",
+   "link": "https://www.newdaily.co.kr/site/data/html/2026/08/25/2026082500272.html",
+   "src": "newdaily.co.kr",
+   "d": "2026-08-25",
+   "outlets": [
+    "newdaily.co.kr"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "'실종사건 허위 종결' 제주 경찰관, 석방 하루 만에 영장실질심사",
+   "link": "https://news.jtbc.co.kr/article/NB12314992?influxDiv=NAVER",
+   "src": "news.jtbc.co.kr",
+   "d": "2026-08-25",
+   "outlets": [
+    "news.jtbc.co.kr"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "\"시신 찾기 해봐라\"…'제주 홍보대사' 뭐랭하맨, 실종 사건 여파→무분...",
+   "link": "https://www.tvreport.co.kr/breaking/article/1071056/",
+   "src": "tvreport.co.kr",
+   "d": "2026-08-25",
+   "outlets": [
+    "tvreport.co.kr"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "‘조작’된 실종 처리, 잇따른 비극…제주 주민들 “경찰을 못 믿겠다”",
+   "link": "http://www.segyebiz.com/newsView/20260825512726?OutUrl=naver",
+   "src": "segyebiz.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "segyebiz.com"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "서귀포 새연교, 여름밤 축제장으로…'금토금토 워터밤'",
+   "link": "https://www.gukjenews.com/news/articleView.html?idxno=3674196",
+   "src": "gukjenews.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "gukjenews.com"
+   ],
+   "n": 1,
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "제주도 히트펌프 보급사업, 기업 지원을 넘어 지역사회 상생·환원 방안 마련해야",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297227",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "헤드라인제주",
-    "news.bbsi.co.kr"
-   ],
+   "t": "\"제주 무서워서 못 간다\"…연이은 실종 사건에 제주 유튜버까지 공격받...",
+   "link": "http://www.celuvmedia.com/article.php?aid=1787635656526324006",
+   "src": "celuvmedia.com",
+   "d": "2026-08-25",
    "outlets": [
-    "뉴스N제주",
-    "헤드라인제주",
-    "news.bbsi.co.kr"
+    "celuvmedia.com"
    ],
-   "n": 3,
-   "sec": "환경/에너지"
+   "n": 1,
+   "sec": "안전/민원행정"
   },
   {
-   "t": "제주양돈농협·새농민회 제주도지회, 경축순환농업 활성화 ‘맞손’",
-   "link": "https://www.nongmin.com/article/20260821500500",
-   "src": "nongmin.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "nongmin.com",
-    "농민신문",
-    "축산신문"
-   ],
+   "t": "홍혜걸, 제주 실종 사건에 '혼자 걷기' 주의 당부…\"제주 사랑한다\"",
+   "link": "https://www.kizmom.com/news/articleView.html?idxno=112319",
+   "src": "kizmom.com",
+   "d": "2026-08-25",
    "outlets": [
-    "nongmin.com",
-    "농민신문",
-    "축산신문"
+    "kizmom.com"
    ],
-   "n": 3,
-   "sec": "1차산업"
+   "n": 1,
+   "sec": "안전/민원행정"
   },
   {
-   "t": "제주도, 중기부 'K-뷰티 수출 거점' 공모 선정",
-   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269373",
+   "t": "[똑똑한여행] 아고다, 하나투어, 아야나 발리, 스위트호텔 남원, 모두투...",
+   "link": "https://www.ekn.kr/web/view.php?key=20260825022056311",
+   "src": "ekn.kr",
+   "d": "2026-08-25",
+   "outlets": [
+    "ekn.kr"
+   ],
+   "n": 1,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "\"제주 무서워서 가겠나\"…실종자 잇단 사망에 일파만파 번지는 '괴담'",
+   "link": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202608250519&t=NN",
+   "src": "wowtv.co.kr",
+   "d": "2026-08-25",
+   "outlets": [
+    "wowtv.co.kr"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "\"경찰이 범인?\" \"제주 여행 무섭다\"…'실종 허위종결' 속 가짜뉴스 기승",
+   "link": "https://www.jnilbo.com/news/articleView.html?idxno=90000059478",
+   "src": "jnilbo.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "jnilbo.com"
+   ],
+   "n": 1,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "추석 여행지 검색 1위 '제주'…숙소 관심도 131% 증가",
+   "link": "https://www.jemin.com/news/articleView.html?idxno=842085",
+   "src": "jemin.com",
+   "d": "2026-08-25",
+   "outlets": [
+    "jemin.com"
+   ],
+   "n": 1,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "'제주 경찰' 검색량 2550% 급증…실종 허위종결 사건 충격파",
+   "link": "https://www.news1.kr/local/jeju/6268886",
+   "src": "뉴스1",
+   "d": "2026-08-25",
+   "outlets": [
+    "뉴스1"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "'사건 연발' 제주…근거없는 온라인 소문이 불안감 조장",
+   "link": "https://www.yna.co.kr/view/AKR20260825111400056?input=1195m",
+   "src": "연합뉴스",
+   "d": "2026-08-25",
+   "outlets": [
+    "연합뉴스"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "민선 9기 첫 서귀포시장 김희찬 선정...내달 인사청문",
+   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269452",
    "src": "samdailbo.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "samdailbo.com",
-    "jejumaeil.net",
-    "ajunews.com"
-   ],
+   "d": "2026-08-25",
    "outlets": [
-    "samdailbo.com",
-    "jejumaeil.net",
-    "ajunews.com"
+    "samdailbo.com"
    ],
-   "n": 3,
+   "n": 1,
    "sec": "정치/행정"
   },
   {
-   "t": "\"난간 부서졌어요\"…안전 위험요소 1100건 신고한 제주도민, 포상금 받는다",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227335",
-   "src": "제주일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주일보",
-    "v.daum.net",
-    "뉴스1"
-   ],
+   "t": "사흘 만에 시신 4구 발견… 실종 사건에 번지는 ‘제주 포비아’",
+   "link": "https://biz.chosun.com/topics/topics_social/2026/08/25/BU67LAZHTVCDBO3357KHLQJIAQ/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+   "src": "조선일보",
+   "d": "2026-08-25",
    "outlets": [
-    "제주일보",
-    "v.daum.net",
-    "뉴스1"
+    "조선일보"
    ],
-   "n": 3,
+   "n": 1,
    "sec": "안전/민원행정"
   },
   {
-   "t": "제주시, '찾아가는 성인문해교육' 참여 전문 강사군 모집",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=297262",
-   "src": "뉴스N제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스N제주",
-    "헤드라인제주",
-    "mediajeju.com"
-   ],
+   "t": "전국 유일 '제주 자치경찰'?...\"도지사 사병\" \"경호업체\" 말 나온 이유",
+   "link": "https://www.ajunews.com/view/20260825140808926",
+   "src": "ajunews.com",
+   "d": "2026-08-25",
    "outlets": [
-    "뉴스N제주",
-    "헤드라인제주",
-    "mediajeju.com"
+    "ajunews.com"
    ],
-   "n": 3,
-   "sec": "사건사고/기타"
+   "n": 1,
+   "sec": "정치/행정"
   },
   {
-   "t": "16년 장기흥행 뮤지컬 '프리즌', 내달 제주 무대 오른다",
-   "link": "https://www.newsis.com/view/NISX20260824_0003759596",
-   "src": "뉴시스",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴시스",
-    "뉴스N제주",
-    "제주환경일보"
-   ],
-   "outlets": [
-    "뉴시스",
-    "뉴스N제주",
-    "제주환경일보"
-   ],
-   "n": 3,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "제주 여행의 시작은 '나우다'...여행멤버십으로 서비스 강화",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597866",
-   "src": "헤드라인제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "헤드라인제주",
-    "nocutnews.co.kr",
-    "노컷뉴스"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "nocutnews.co.kr",
-    "노컷뉴스"
-   ],
-   "n": 3,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "제주 동자상에 담은 위로…김수범 개인전 '동자상의 노래'",
-   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321544",
+   "t": "한류 바람 타고 제주 스타트업 싱가포르서 인기몰이",
+   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321614",
    "src": "제주도민일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주도민일보",
-    "뉴스N제주",
-    "뉴스제주"
-   ],
+   "d": "2026-08-25",
    "outlets": [
-    "제주도민일보",
-    "뉴스N제주",
-    "뉴스제주"
+    "제주도민일보"
    ],
-   "n": 3,
-   "sec": "문화/관광/스포츠"
+   "n": 1,
+   "sec": "창업/경제"
   },
   {
-   "t": "한 총리, ‘제주실종 장미란’ 사건에 “가슴 아파…제도개선 조속 추진...",
-   "link": "https://www.dt.co.kr/article/12079822?ref=naver",
-   "src": "dt.co.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "dt.co.kr",
-    "연합뉴스",
-    "yonhapnewstv.co.kr"
-   ],
+   "t": "제주는 누구의 섬인가",
+   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269445",
+   "src": "samdailbo.com",
+   "d": "2026-08-25",
    "outlets": [
-    "dt.co.kr",
-    "연합뉴스",
-    "yonhapnewstv.co.kr"
+    "samdailbo.com"
    ],
-   "n": 3,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "검찰, '제주 실종 허위종결' 의혹 직접 겨눈다…전담수사팀 구성",
-   "link": "https://www.sisajournal.com/news/articleView.html?idxno=384579",
-   "src": "sisajournal.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "sisajournal.com",
-    "dailian.co.kr",
-    "헤드라인제주"
-   ],
-   "outlets": [
-    "sisajournal.com",
-    "dailian.co.kr",
-    "헤드라인제주"
-   ],
-   "n": 3,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주도 실종 사건 대응 논란…위기 체계 전면 재점검 및 도민 안전망 강...",
-   "link": "https://www.gokorea.kr/news/articleView.html?idxno=876132",
-   "src": "gokorea.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "gokorea.kr",
-    "뉴스1",
-    "헤드라인제주"
-   ],
-   "outlets": [
-    "gokorea.kr",
-    "뉴스1",
-    "헤드라인제주"
-   ],
-   "n": 3,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "제주도, 읍·면 심야주유소 추가 모집…“야간 주유 불편 해소”",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597885",
-   "src": "헤드라인제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "헤드라인제주",
-    "제주도민일보",
-    "뉴스제주"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "제주도민일보",
-    "뉴스제주"
-   ],
-   "n": 3,
+   "n": 1,
    "sec": "사건사고/기타"
   },
   {
-   "t": "제주4·3 평화·인권교육 전국화, ‘인정도서’ 개발·보급한다",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597902",
-   "src": "헤드라인제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "헤드라인제주",
-    "jejumaeil.net",
-    "제민일보"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "jejumaeil.net",
-    "제민일보"
-   ],
-   "n": 3,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "이상봉 후보자 인사청문 통과...35대 제주시장 취임 전망",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227311",
-   "src": "제주일보",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "제주일보",
-    "제민일보",
-    "지금제주"
-   ],
-   "outlets": [
-    "제주일보",
-    "제민일보",
-    "지금제주"
-   ],
-   "n": 3,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "행안부 ‘2027년 우수유출저감 신규사업' 성산 수산·와산 선정",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=424920",
-   "src": "뉴스제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "뉴스제주",
-    "뉴스N제주",
-    "samdailbo.com"
-   ],
-   "outlets": [
-    "뉴스제주",
-    "뉴스N제주",
-    "samdailbo.com"
-   ],
-   "n": 3,
-   "sec": "1차산업"
-  },
-  {
-   "t": "[단독]\"다 큰 성인인데 왜 신고?\"…제주 실종여성 2차 신고도 홀대",
-   "link": "https://www.nocutnews.co.kr/news/6567097?utm_source=naver&utm_medium=article&utm_campaign=20260824035335",
-   "src": "nocutnews.co.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "nocutnews.co.kr",
-    "edaily.co.kr",
-    "조선일보"
-   ],
-   "outlets": [
-    "nocutnews.co.kr",
-    "edaily.co.kr",
-    "조선일보"
-   ],
-   "n": 3,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "여야, ‘제주 실종 허위종결’ 한목소리 질타…경찰청장 직무대행 “매...",
-   "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8644437&ref=A",
-   "src": "news.kbs.co.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "news.kbs.co.kr",
-    "뉴스1",
-    "dt.co.kr"
-   ],
-   "outlets": [
-    "news.kbs.co.kr",
-    "뉴스1",
-    "dt.co.kr"
-   ],
-   "n": 3,
-   "sec": "안전/민원행정"
-  },
-  {
-   "t": "“제주 가기 전 ‘나우다’부터”…서울 연남동서 제주 여행멤버십 팝업",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9fbzdOQ0E3dFJXQzdGNEtQNDU4c25tSV9NcHZSR2xyLWt3aXNRSFRLT0ctLWV2RUNfbkJBdHNYTnVwLVNoWXY1b1hyd291eE1Dc1pZSF9GWTN3ank2NXlKeDgyLU83MEsxNWlzaGdn?oc=5",
-   "src": "newskorea.ne.kr",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "newskorea.ne.kr",
-    "jejumaeil.net",
-    "제주매일"
-   ],
-   "outlets": [
-    "newskorea.ne.kr",
-    "jejumaeil.net",
-    "제주매일"
-   ],
-   "n": 3,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "기후위기 시대, 제주 용천수의 가치를 다시 보자",
-   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269415",
+   "t": "실종 허위 종결 제주에 누리꾼 일각 '불매 운동'…\"잘못된 방법\" 비판도",
+   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269447",
    "src": "samdailbo.com",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "samdailbo.com",
-    "미디어제주",
-    "삼다일보"
-   ],
+   "d": "2026-08-25",
    "outlets": [
-    "samdailbo.com",
-    "미디어제주",
-    "삼다일보"
+    "samdailbo.com"
    ],
-   "n": 3,
-   "sec": "환경/에너지"
+   "n": 1,
+   "sec": "안전/민원행정"
   },
   {
-   "t": "위성곤 지사 “도민 안전은 타협할 수 없는 최고 가치”",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9jU0FuS3l2eFhvYm9EWFF1SG1RNFRLM3VLbUg1SFVxSWRHNjlva01WZndFZDQ3SE85cW9aQUc3T0dUN0ZuZjNoOFBOdGstaE83OEhvZVpkTkdoemh5TGdxM182aW95SnJsU3V5ZC1R?oc=5",
-   "src": "지금제주",
-   "d": "2026-08-24",
-   "outlets_prev": [
-    "지금제주",
-    "제주사회복지신문",
-    "livejeju.co.kr"
-   ],
+   "t": "홍혜걸 \"제주, 절대 쉽게 보면 안 돼…대낮에도 혼자 다니지 말라\"",
+   "link": "https://www.newsis.com/view/NISX20260825_0003761421",
+   "src": "뉴시스",
+   "d": "2026-08-25",
    "outlets": [
-    "지금제주",
-    "제주사회복지신문",
-    "livejeju.co.kr"
+    "뉴시스"
    ],
-   "n": 3,
-   "sec": "정치/행정"
+   "n": 1,
+   "sec": "사건사고/기타"
   }
  ]
 }
