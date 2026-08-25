@@ -669,6 +669,22 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .bizlg .lg{width:11px;height:11px;border-radius:3px;background:#B9C2D4;margin-left:7px}
 .bizlg .lg.hi{background:#2B6CE8;margin-left:0}
 .bizlg .lg.lo{background:#0E7C7B}
+.byrow{display:flex;align-items:center;gap:8px;background:var(--bg);border-radius:11px;padding:9px 11px;margin-bottom:6px;flex-wrap:wrap}
+.by-y{flex:0 0 52px;font-size:12.5px;font-weight:800;color:var(--navy)}
+.by-c{flex:1 1 76px;display:flex;flex-direction:column;line-height:1.3}
+.by-c em{font-size:9.5px;color:var(--sub);font-style:normal}
+.by-c b{font-size:13px;color:var(--ink)}
+.by-c i{font-size:10.5px;color:var(--sub);font-style:normal}
+.by-g{flex:0 0 auto;font-size:15px;font-weight:800;color:var(--gyul)}
+.by-n{flex:0 0 auto;font-size:10px;color:var(--sub)}
+.aircard{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
+.airrow{display:flex;gap:11px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 13px}
+.air-l{flex:0 0 58px;font-size:13px;font-weight:800;color:var(--navy)}
+.air-b{flex:1 1 auto;min-width:0}
+.air-t{font-size:13px;color:var(--ink);line-height:1.55;word-break:keep-all}
+.air-t b{color:var(--gyul);font-weight:800}
+.air-d{font-size:11px;color:var(--sub);margin-top:3px;line-height:1.5}
+@media(max-width:640px){.by-y{flex:0 0 44px;font-size:11.5px}.by-g{font-size:13px}.by-n{display:none}.air-l{flex:0 0 48px;font-size:12px}}
 .bizgap{display:flex;align-items:center;gap:10px;margin-bottom:9px}
 .bg-x{flex:1 1 0;background:var(--bg);border-radius:11px;padding:9px 10px;text-align:center}
 .bg-x .l{display:block;font-size:10px;color:var(--sub)}
@@ -2194,6 +2210,63 @@ function renderHour(){
    원칙: 숫자를 문장 안에 넣고, 계산으로 확인되는 사실만 쓴다. 원인은 추정하지 않는다. */
 
 /* 소상공인 참고용 계산값. 전부 데이터에서 나온 수치이며 예측이 아니다. */
+
+/* 항공·여객선 — 회복 수준을 계산으로만 표시 */
+function renderAir(){
+  const E=EMDDATA||{}, air=E.air, ship=E.ship;
+  if(!air&&!ship) return '';
+  let h='<div class="tjsec"><h3>✈️ 오가는 길 <span class="tjm">'+orgEsc((air&&air.period)||(ship&&ship.period)||'')+'</span></h3>'+
+        '<div class="tjsub">항공·여객선 운항 흐름입니다</div>';
+  if(air&&air.items&&air.items.length){
+    const it=air.items, has=(k)=>it.some(x=>typeof x[k]==='number');
+    const dm=has('domestic'), il=has('intl'), tt=has('total');
+    const mm=(d)=>String(d).slice(0,4)+'.'+String(d).slice(4);
+    /* 최저점 대비 회복률 — 코로나 저점 자동 탐지 */
+    const calcRec=(k)=>{
+      const v=it.filter(x=>typeof x[k]==='number'&&x[k]>0);
+      if(v.length<3) return null;
+      const lo=v.reduce((a,b)=>b[k]<a[k]?b:a), lt=v[v.length-1];
+      const pk=v.reduce((a,b)=>b[k]>a[k]?b:a);
+      return {low:lo, last:lt, peak:pk,
+        vsLow:(lt[k]/lo[k]).toFixed(1), vsPeak:Math.round(lt[k]/pk[k]*100)};
+    };
+    const rows=[];
+    if(dm) rows.push(['국내선','domestic',calcRec('domestic')]);
+    if(il) rows.push(['국제선','intl',calcRec('intl')]);
+    if(!dm&&!il&&tt) rows.push(['전체','total',calcRec('total')]);
+    h+='<div class="aircard">';
+    rows.forEach(([lb,k,r])=>{
+      if(!r) return;
+      h+='<div class="airrow"><div class="air-l">'+lb+'</div>'+
+         '<div class="air-b">'+
+           '<div class="air-t">가장 적었던 '+mm(r.low.date)+' 대비 <b>'+r.vsLow+'배</b>'+
+           (r.peak.date!==r.last.date?' · 최고치('+mm(r.peak.date)+') 대비 <b>'+r.vsPeak+'%</b>':'')+'</div>'+
+           '<div class="air-d">최근 '+mm(r.last.date)+' '+Number(r.last[k]).toLocaleString()+
+           ' · 최저 '+Number(r.low[k]).toLocaleString()+' · 최고 '+Number(r.peak[k]).toLocaleString()+'</div>'+
+         '</div></div>';
+    });
+    h+='</div>';
+    /* 국내·국제 비교 문장 */
+    if(dm&&il){
+      const rd=calcRec('domestic'), ri=calcRec('intl');
+      if(rd&&ri) h+='<div class="tjins">국내선은 최저점의 <b>'+rd.vsLow+'배</b>, 국제선은 <b>'+ri.vsLow+'배</b>입니다. '+
+        (Number(ri.vsLow)>Number(rd.vsLow)?'국제선 쪽 회복 폭이 더 큽니다.':'국내선 쪽 변동이 더 큽니다.')+'</div>';
+    }
+    h+='<div class="tjnote">※ 이 통계에 담긴 기간 안에서의 최저·최고 대비 값입니다. 코로나 이전 전체 기간과 비교한 값은 아닙니다.</div>';
+  }
+  if(ship&&ship.items&&ship.items.length){
+    const v=ship.items.filter(x=>typeof x.value==='number'&&x.value>0);
+    if(v.length>2){
+      const lo=v.reduce((a,b)=>b.value<a.value?b:a), lt=v[v.length-1];
+      const mm=(d)=>String(d).slice(0,4)+'.'+String(d).slice(4);
+      h+='<div class="aircard"><div class="airrow"><div class="air-l">여객선</div><div class="air-b">'+
+         '<div class="air-t">가장 적었던 '+mm(lo.date)+' 대비 <b>'+(lt.value/lo.value).toFixed(1)+'배</b></div>'+
+         '<div class="air-d">최근 '+mm(lt.date)+' '+Number(lt.value).toLocaleString()+'명</div></div></div></div>';
+    }
+  }
+  return h+'</div>';
+}
+
 function renderBiz(){
   const E=EMDDATA||{}, S=TJDATA||{};
   const card=E.card, hr=E.hourly, mo=E.monthly, ind=E.industry;
@@ -2223,7 +2296,7 @@ function renderBiz(){
     const mxs=sv[sv.length-1];
     h+='<div class="bizc"><div class="bizc-t">② 몇 시에 누가 오나</div>'+
        '<div class="bizc-d">시간대별로 관광객이 쓴 금액의 비중입니다. 하루 평균은 <b>'+avg+'%</b>이고, '+
-       '막대가 높을수록 그 시간대에 관광객 비중이 큽니다. 영업시간·메뉴·인력 배치에 참고할 수 있습니다.</div>'+
+       '막대가 높을수록 그 시간대에 관광객 비중이 큽니다. 다만 새벽처럼 전체 소비가 적은 시간은 비중이 크게 흔들릴 수 있으니 금액과 함께 보셔야 합니다.</div>'+
        '<div class="bizhr">';
     its.forEach(x=>{
       const ts=x.tourist_share, r=Math.round(ts);
@@ -2243,16 +2316,29 @@ function renderBiz(){
     h+='</div>';
   }
 
-  /* ③ 계절 격차 */
-  if(mo&&mo.gap_ratio){
-    h+='<div class="bizc"><div class="bizc-t">③ 성수기와 비수기 차이</div>'+
-       '<div class="bizgap"><div class="bg-x"><span class="l">가장 많은 달</span>'+
-       '<b>'+orgEsc(mo.peak.month)+'</b><em>'+tjMan(mo.peak.total)+'명</em></div>'+
-       '<div class="bg-r">'+mo.gap_ratio+'배</div>'+
-       '<div class="bg-x"><span class="l">가장 적은 달</span>'+
-       '<b>'+orgEsc(mo.low.month)+'</b><em>'+tjMan(mo.low.total)+'명</em></div></div>'+
-       '<div class="bizc-d">최근 1년 사이 가장 붐빈 달과 가장 한산한 달의 입도객 차이가 <b>'+mo.gap_ratio+'배</b>입니다. '+
-       '재고·인력·영업시간을 계절에 따라 조정할 때 참고할 수 있는 폭입니다.</div></div>';
+  /* ③ 계절 격차 — 연도별로 나눠서 */
+  if(mo&&mo.items&&mo.items.length){
+    const byY={};
+    mo.items.forEach(x=>{ const y=String(x.date).slice(0,4); (byY[y]=byY[y]||[]).push(x); });
+    const yrs=Object.keys(byY).sort();
+    h+='<div class="bizc"><div class="bizc-t">③ 달마다 얼마나 다른가</div>'+
+       '<div class="bizc-d">월별 입도객입니다. 같은 해 안에서 비교해야 계절 차이를 제대로 볼 수 있습니다.</div>';
+    yrs.forEach(y=>{
+      const arr=byY[y];
+      if(arr.length<2){ 
+        h+='<div class="byrow"><span class="by-y">'+y+'년</span><span class="by-n">'+arr.length+'개월치만 있어 비교 생략</span></div>';
+        return;
+      }
+      const hi=arr.reduce((a,b)=>b.total>a.total?b:a), lo=arr.reduce((a,b)=>b.total<a.total?b:a);
+      const g=(hi.total/lo.total).toFixed(2);
+      const mm=(d)=>String(d).slice(4)+'월';
+      h+='<div class="byrow"><span class="by-y">'+y+'년</span>'+
+         '<span class="by-c"><em>많은 달</em><b>'+mm(hi.date)+'</b><i>'+tjMan(hi.total)+'</i></span>'+
+         '<span class="by-g">'+g+'배</span>'+
+         '<span class="by-c"><em>적은 달</em><b>'+mm(lo.date)+'</b><i>'+tjMan(lo.total)+'</i></span>'+
+         '<span class="by-n">'+arr.length+'개월</span></div>';
+    });
+    h+='<div class="bizc-n">기간 '+orgEsc(mo.period||'')+' · 연도별로 집계 개월 수가 다를 수 있습니다</div></div>';
   }
 
   /* ④ 위험 신호 — 쏠림 민감도 */
@@ -2316,6 +2402,7 @@ function tjInsights(){
       const drop=Math.round((1-same.foreign/pk.foreign)*100);
       out.push({icon:'🔀',
         title:'외국인이 거의 오지 않던 해에 내국인은 가장 많이 왔습니다',
+        note:'2020~2022년은 코로나19로 국제선 운항이 크게 줄었던 시기입니다',
         body:'외국인이 가장 많았던 '+pk.year+'년에는 외국인 '+man(pk.foreign)+'명, 내국인 '+man(pk.domestic)+'명이 왔습니다. '+
              '그런데 내국인이 가장 많았던 '+dpk.year+'년을 보면 내국인은 '+man(dpk.domestic)+'명으로 늘었지만 '+
              '외국인은 '+man(same.foreign)+'명으로 '+pk.year+'년보다 '+drop+'% 줄어 있었습니다. '+
@@ -2402,14 +2489,22 @@ function tjInsights(){
   }
 
   /* ⑨ 시간대 */
-  if(hr&&hr.share_high&&hr.share_low){
+  if(hr&&hr.share_high&&hr.share_low&&hr.items){
     const hi=hr.share_high, lo=hr.share_low;
+    const its=hr.items.filter(x=>typeof x.hour==='number');
+    const over=its.filter(x=>x.tourist>x.local).map(x=>x.hour);
+    const eok=(v)=>Math.round(v/1e8).toLocaleString();
+    const th=its.find(x=>x.hour===hr.peak_tourist), lh=its.find(x=>x.hour===hr.peak_local);
     out.push({icon:'🕐',
-      title:'낮에는 관광객, 새벽에는 도민이 지갑을 엽니다',
-      body:'하루 24시간 가운데 관광객이 쓴 돈의 비중이 가장 높은 때는 '+hi.hour+'시로 '+hi.share+'%이고, '+
-           '가장 낮은 때는 '+lo.hour+'시로 '+lo.share+'%입니다. '+
-           '금액 자체가 가장 큰 시간은 관광객이 '+hr.peak_tourist+'시, 도민이 '+hr.peak_local+'시입니다. '+
-           '같은 가게라도 몇 시냐에 따라 주로 오는 손님이 달라집니다.'});
+      title:(over.length? '관광객 소비가 도민을 앞서는 시간은 하루 중 '+over.length+'시간뿐입니다'
+                        : '어느 시간대에도 도민 소비가 관광객보다 많습니다'),
+      body:'금액으로 보면 관광객이 가장 많이 쓰는 시간은 '+hr.peak_tourist+'시('+
+           (th?eok(th.tourist)+'억원':'')+'), 도민이 가장 많이 쓰는 시간은 '+hr.peak_local+'시('+
+           (lh?eok(lh.local)+'억원':'')+')입니다. '+
+           (over.length? '관광객 금액이 도민을 넘어서는 시간은 '+over.join('시, ')+'시입니다. '
+                       : '')+
+           '비중만 보면 '+hi.hour+'시에 관광객 비중이 '+hi.share+'%로 가장 높고 '+lo.hour+'시에 '+lo.share+
+           '%로 가장 낮지만, '+lo.hour+'시는 관광객·도민 모두 소비가 가장 적은 시간이라 비중 차이가 크게 보이는 것입니다.'});
   }
   return out;
 }
@@ -2592,6 +2687,9 @@ function renderTJ(){
   h+=renderCard();
   /* ③-3 시간대별 패턴 */
   h+=renderHour();
+
+  /* ③-2 항공·해상 — 코로나 이후 회복 */
+  h+=renderAir();
 
   /* ④ 소비 — 양보다 질 */
   const S=TJDATA.spend_nation||{};
