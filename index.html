@@ -492,45 +492,101 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 
 /* ===== 이슈체크 ===== */
-.isgauge{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
-.isg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 12px;text-align:center}
-.isg.dn{border-color:#F1C6C0;background:#FBE9E7}
-.isg.up{border-color:#BFE0C2;background:#E7F3E8}
-.isg-l{font-size:11.5px;color:var(--sub);font-weight:600}
-.isg-v{font-size:30px;font-weight:800;color:var(--ink);line-height:1.15;margin:3px 0}
-.isg.dn .isg-v{color:#C6392F}
-.isg.up .isg-v{color:#2E7D32}
-.isg-d{font-size:10.5px;color:var(--sub);font-weight:600}
-.isg-d.up{color:#C6392F}
-.isg-d.dn{color:#2E7D32}
-.ischan{font-size:11.5px;color:var(--sub);background:var(--bg);border-radius:10px;padding:9px 12px;line-height:1.5}
-.isrank{display:flex;flex-direction:column;gap:8px}
+.istabs{display:flex;gap:6px;margin-bottom:14px}
+.istabs button{flex:1 1 0;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--card);
+  color:var(--sub);border-radius:11px;padding:10px;cursor:pointer;transition:.14s}
+.istabs button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.ishero{display:flex;gap:11px;align-items:stretch;margin-bottom:10px}
+.ish-main{flex:1 1 auto;background:linear-gradient(135deg,#FBE9E7,#FDF3F1);border:1px solid #F1C6C0;
+  border-radius:16px;padding:15px 16px}
+.ish-l{font-size:12px;color:#A33529;font-weight:700}
+.ish-v{font-size:44px;font-weight:800;color:#C6392F;line-height:1.05;margin:2px 0 4px}
+.ish-v em{font-size:20px;font-style:normal;margin-left:2px}
+.ish-d{font-size:11.5px;font-weight:700;color:var(--sub)}
+.ish-d span{font-weight:500;opacity:.75}
+.ish-d.up{color:#C6392F}.ish-d.dn{color:#2E7D32}
+.ish-side{flex:0 0 108px;display:flex;flex-direction:column;gap:7px}
+.ishs{flex:1 1 0;background:var(--card);border:1px solid var(--line);border-radius:13px;
+  padding:10px 12px;display:flex;flex-direction:column;justify-content:center}
+.ishs span{font-size:11px;color:var(--sub)}
+.ishs b{font-size:19px;color:var(--ink);line-height:1.15}
+.ishs em{font-style:normal;font-size:10.5px;font-weight:700}
+.ishs em.up{color:#C6392F}.ishs em.dn{color:#2E7D32}
+.isbar{display:flex;height:16px;border-radius:9px;overflow:hidden;margin-bottom:6px}
+.isbar span{display:block;height:100%}
+.isbar .s-neg{background:linear-gradient(90deg,#C6392F,#E8695C)}
+.isbar .s-neu{background:#C8D0DE}
+.isbar .s-pos{background:linear-gradient(90deg,#4FD8C4,#2E7D32)}
+.isleg{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--sub);margin-bottom:12px}
+.isleg .k{width:10px;height:10px;border-radius:3px;margin-left:8px}
+.isleg .k:first-child{margin-left:0}
+.isleg .k.neg{background:#C6392F}.isleg .k.neu{background:#C8D0DE}.isleg .k.pos{background:#2E7D32}
+.isleg-r{margin-left:auto;font-weight:700;color:var(--navy)}
+.isdaily{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:10px}
+.isd-t{font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:9px}
+.isd-t em{font-style:normal;font-size:10.5px;font-weight:500;color:var(--sub);margin-left:6px}
+.isd-g{display:flex;align-items:flex-end;gap:5px;height:96px;position:relative}
+.isd{flex:1 1 0;height:100%;position:relative;display:flex;flex-direction:column;justify-content:flex-end}
+.isd-b{width:100%;background:linear-gradient(180deg,#9FB6E8,#2B6CE8);border-radius:4px 4px 0 0}
+.isd-dot{position:absolute;left:50%;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;
+  background:#C6392F;border:1.5px solid #fff;box-shadow:0 0 0 1px #C6392F;z-index:2}
+.isd-x{position:absolute;bottom:-16px;left:0;right:0;text-align:center;font-size:9.5px;color:var(--sub)}
+.isd-g{margin-bottom:18px}
+.ischan{display:flex;flex-direction:column;gap:5px}
+.isc{display:flex;align-items:center;gap:8px;font-size:12px}
+.isc-n{flex:0 0 52px;color:var(--ink);font-weight:600}
+.isc-b{flex:1 1 auto;height:11px;background:var(--bg);border-radius:6px;overflow:hidden}
+.isc-b i{display:block;height:100%;background:linear-gradient(90deg,#2B6CE8,#4E8CF0);border-radius:6px}
+.isc-v{flex:0 0 52px;text-align:right;font-weight:700;color:var(--navy);font-size:11.5px}
+.isready{display:flex;gap:11px;background:#EAF0FB;border:1px solid #CBD9F0;border-radius:14px;padding:13px;margin-bottom:11px}
+.isr-i{font-size:22px}
+.isr-t{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:3px}
+.isr-d{font-size:11.5px;color:var(--sub);line-height:1.6;word-break:keep-all}
+.ismon{display:flex;flex-direction:column;gap:9px}
+.ism{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 12px}
+.ism-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+.ism-h b{font-size:14px;color:var(--navy)}
+.ism-h span{font-size:11px;color:var(--sub)}
+.ism-h em{margin-left:auto;font-style:normal;font-size:11.5px;font-weight:800}
+.ism-h em.up{color:#C6392F}.ism-h em.dn{color:#2E7D32}
+.ism-v{font-size:11px;color:var(--sub);margin-top:5px}
+.isrank{display:flex;flex-direction:column;gap:10px}
+.isr2{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 12px}
 .isr-h{display:flex;align-items:center;gap:7px;font-size:12.5px;flex-wrap:wrap}
-.isr-h .n{flex:0 0 20px;text-align:center;font-size:11px;font-weight:700;color:var(--sub)}
+.isr-h .n{flex:0 0 19px;text-align:center;font-size:11px;font-weight:800;color:#fff;background:var(--sub);border-radius:50%;line-height:19px;height:19px}
 .isr-h .t{flex:0 0 auto;font-weight:700;color:var(--ink)}
 .isr-h .c{flex:0 0 auto;font-size:11px;color:var(--sub)}
-.isr-h .p{margin-left:auto;font-size:11.5px;font-weight:800;color:var(--sub)}
-.isr-h .p.mid{color:#B4650F}
-.isr-h .p.hi{color:#C6392F}
+.isr-h .p{margin-left:auto;font-size:11.5px;font-weight:800}
+.isr-h .p.lo{color:#2E7D32}.isr-h .p.mid{color:#B4650F}.isr-h .p.hi{color:#C6392F}
 .isr-h .d{flex:0 0 auto;font-size:10.5px;font-weight:700}
-.isr-h .d.up{color:#C6392F}
-.isr-h .d.dn{color:#2E7D32}
-.isr-b{height:8px;background:var(--bg);border-radius:5px;overflow:hidden;margin-top:4px}
-.isr-b i{display:block;height:100%;background:linear-gradient(90deg,#2B6CE8,#4E8CF0);border-radius:5px}
-.iswords{display:flex;flex-wrap:wrap;gap:7px;align-items:baseline}
-.isw{background:#FBE9E7;border:1px solid #F1C6C0;color:#C6392F;border-radius:20px;padding:5px 12px;font-weight:700}
-.isw em{font-style:normal;font-size:10px;opacity:.7;margin-left:5px}
+.isr-h .d.up{color:#C6392F}.isr-h .d.dn{color:#2E7D32}
+.isr-b{height:8px;background:var(--bg);border-radius:5px;overflow:hidden;margin-top:7px}
+.isr-b i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#4E8CF0,#2B6CE8)}
+.isr-b i.mid{background:linear-gradient(90deg,#F0A840,#D98324)}
+.isr-b i.hi{background:linear-gradient(90deg,#E8695C,#C6392F)}
+.isr-x{display:flex;flex-direction:column;gap:3px;margin-top:8px;padding-top:7px;border-top:1px dashed var(--line)}
+.isr-x a{font-size:11.5px;color:var(--sub);text-decoration:none;line-height:1.5;word-break:keep-all}
+.isr-x a:hover{color:var(--gyul)}
+.isr-x a::before{content:"· "}
+.iswords{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.isw{background:#FBE9E7;border:1px solid #F1C6C0;color:#C6392F;border-radius:20px;padding:5px 13px;font-weight:800;line-height:1.3}
+.isw em{font-style:normal;font-size:10px;opacity:.65;margin-left:5px;font-weight:600}
 .isposts{display:flex;flex-direction:column;gap:6px}
-.isp{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-decoration:none}
-.isp:hover{border-color:var(--gyul)}
-.isp-m{display:block;font-size:10.5px;color:var(--sub);margin-bottom:3px}
+.isp{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-decoration:none;transition:.12s}
+.isp:hover{border-color:var(--gyul);transform:translateX(2px)}
+.isp-m{display:block;font-size:10.5px;color:var(--sub);margin-bottom:4px}
+.isp-m b{font-size:9.5px;font-weight:700;border-radius:20px;padding:2px 7px;margin-right:6px;color:#fff;background:var(--sub)}
+.isp-m b.ch-news{background:#2B6CE8}
+.isp-m b.ch-blog{background:#0E7C7B}
+.isp-m b.ch-cafe{background:#B4650F}
 .isp-t{display:block;font-size:12.5px;color:var(--ink);line-height:1.5;word-break:keep-all}
 @media(max-width:640px){
-  .isgauge{gap:6px}
-  .isg{padding:11px 8px}
-  .isg-v{font-size:25px}
-  .isg-l{font-size:10.5px}
+  .ishero{flex-direction:column}
+  .ish-side{flex:0 0 auto;flex-direction:row}
+  .ish-v{font-size:38px}
+  .isd-g{height:82px}
   .isr-h{font-size:12px}
+  .isc-n{flex:0 0 44px}
 }
 
 /* ===== 지금제주 ===== */
@@ -2339,88 +2395,158 @@ function renderSchools(){
       (nc?'<br>· 점선 표시 '+nc+'개교는 공시정보 연동 준비 중입니다.':'');}
 }
 document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
-let ISDATA=null, isLoading=false;
+let ISDATA=null, isLoading=false, isTab='week';
 function loadIS(){
   if(ISDATA||isLoading){ if(ISDATA) renderIS(); return; }
   isLoading=true;
   const b=document.getElementById('isbody');
   if(b) b.innerHTML='<div style="padding:30px 0;text-align:center;color:var(--sub);font-size:13px">여론 데이터를 불러오는 중…</div>';
-  Promise.all([
-    fetch('data/issue_index.json?t='+Date.now()).then(r=>r.ok?r.json():null),
-    fetch('data/issue_history.json?t='+Date.now()).then(r=>r.ok?r.json():null).catch(()=>null)
-  ]).then(([d,h])=>{
-    ISDATA=d; if(d) d._hist=h; isLoading=false; renderIS();
+  fetch('data/issue_index.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
+    ISDATA=d; isLoading=false; renderIS();
   }).catch(()=>{ isLoading=false;
     if(b) b.innerHTML='<div style="padding:30px 0;text-align:center;color:var(--sub);font-size:13px">여론 데이터를 불러오지 못했습니다.</div>';
   });
 }
+function isPct(v){ return (v>0?'+':'')+v+'%p'; }
+function isBar(neg,neu,pos){
+  return '<div class="isbar">'+
+    '<span class="s-neg" style="width:'+neg+'%" title="부정 '+neg+'%"></span>'+
+    '<span class="s-neu" style="width:'+neu+'%" title="중립 '+neu+'%"></span>'+
+    '<span class="s-pos" style="width:'+pos+'%" title="긍정 '+pos+'%"></span></div>';
+}
 function renderIS(){
   const D=ISDATA, b=document.getElementById('isbody'); if(!b) return;
   if(!D){ b.innerHTML='<div class="tjnote" style="padding:24px 0">아직 수집된 여론 데이터가 없습니다.</div>'; return; }
-  const M=D.meta||{}, C=D.current||{}, P=D.previous, DL=D.delta;
-  const pc=(v)=>typeof v==='number'?((v>0?'+':'')+v+'%p'):'';
+  const M=D.meta||{}, C=D.current||{}, DL=D.delta, MO=D.monthly||{};
   let h='';
 
-  /* 기간 */
-  h+='<div class="tjsec"><h3>📡 제주관광 여론지수 <span class="tjm">'+
-     orgEsc(M.period? M.period.from+' ~ '+M.period.to : '')+'</span></h3>'+
-     '<div class="tjsub">최근 7일간 공개 게시물 '+Number(C.total||0).toLocaleString()+
-     '건을 분류한 비중입니다 · 단위: %(전체 대비)</div>';
+  /* ── 상단: 기간 탭 ── */
+  h+='<div class="istabs" id="istabs">'+
+     '<button data-t="week"'+(isTab==='week'?' class="on"':'')+'>주간</button>'+
+     '<button data-t="month"'+(isTab==='month'?' class="on"':'')+'>월간</button>'+
+     '</div>';
 
-  /* 지수 카드 */
-  h+='<div class="isgauge">';
-  [['부정','neg','dn'],['중립','neu',''],['긍정','pos','up']].forEach(([lb,k,cl])=>{
-    const v=C[k]||0, d=DL?DL[k]:null;
-    h+='<div class="isg '+cl+'"><div class="isg-l">'+lb+' 지수</div>'+
-       '<div class="isg-v">'+v+'</div>'+
-       (typeof d==='number'?'<div class="isg-d '+(d>0?'up':'dn')+'">전주 대비 '+pc(d)+'</div>'
-        :'<div class="isg-d">전주 비교 자료 없음</div>')+'</div>';
-  });
-  h+='</div>';
+  if(isTab==='week'){
+    /* ── 주간 ── */
+    h+='<div class="tjsec"><h3>📡 제주관광 여론지수 <span class="tjm">'+
+       orgEsc(M.period? M.period.from+' ~ '+M.period.to : '')+'</span>'+
+       '<span class="unit">최근 7일 · 단위 %(전체 대비 비중)</span></h3>';
 
-  /* 채널 */
-  if(C.channels){
-    const CN={news:'뉴스',blog:'블로그',cafe:'카페',threads:'스레드',youtube:'유튜브'};
-    h+='<div class="ischan">수집 채널 · '+
-       Object.entries(C.channels).map(([k,v])=>(CN[k]||k)+' '+Number(v).toLocaleString()+'건').join(' · ')+
-       '</div>';
+    /* 큰 지수 */
+    const neg=C.neg||0, neu=C.neu||0, pos=C.pos||0;
+    h+='<div class="ishero">'+
+       '<div class="ish-main"><div class="ish-l">부정 여론</div>'+
+       '<div class="ish-v">'+neg+'<em>%</em></div>'+
+       (DL&&typeof DL.neg==='number'
+         ? '<div class="ish-d '+(DL.neg>0?'up':'dn')+'">전주 '+isPct(DL.neg)+
+           ' <span>('+(D.previous?D.previous.neg:'-')+'% → '+neg+'%)</span></div>'
+         : '<div class="ish-d">전주 비교 자료 없음</div>')+
+       '</div>'+
+       '<div class="ish-side">'+
+         '<div class="ishs"><span>중립</span><b>'+neu+'%</b></div>'+
+         '<div class="ishs"><span>긍정</span><b>'+pos+'%</b>'+
+           (DL&&typeof DL.pos==='number'?'<em class="'+(DL.pos>0?'dn':'up')+'">'+isPct(DL.pos)+'</em>':'')+
+         '</div>'+
+       '</div></div>';
+    h+=isBar(neg,neu,pos);
+    h+='<div class="isleg"><span class="k neg"></span>부정<span class="k neu"></span>중립<span class="k pos"></span>긍정'+
+       '<span class="isleg-r">'+Number(C.total||0).toLocaleString()+'건</span></div>';
+
+    /* 일별 추이 */
+    const DY=D.daily||[];
+    if(DY.length>1){
+      const mx=Math.max.apply(null,DY.map(x=>x.total))||1;
+      h+='<div class="isdaily"><div class="isd-t">일별 흐름 <em>막대=게시물 수 · 선=부정 비중</em></div><div class="isd-g">';
+      DY.forEach(x=>{
+        const hp=Math.max(6,Math.round(x.total/mx*100));
+        h+='<div class="isd" title="'+orgEsc(x.date)+' · '+x.total+'건 · 부정 '+x.neg+'%">'+
+           '<div class="isd-dot" style="bottom:calc('+x.neg+'% - 3px)"></div>'+
+           '<div class="isd-b" style="height:'+hp+'%"></div>'+
+           '<div class="isd-x">'+Number(String(x.date).slice(8))+'</div></div>';
+      });
+      h+='</div></div>';
+    }
+    /* 채널 */
+    if(C.channels){
+      const CN={news:'뉴스',blog:'블로그',cafe:'카페',threads:'스레드',youtube:'유튜브'};
+      const tot=Object.values(C.channels).reduce((a,b)=>a+b,0)||1;
+      h+='<div class="ischan">';
+      Object.entries(C.channels).forEach(([k,v])=>{
+        h+='<div class="isc"><span class="isc-n">'+(CN[k]||k)+'</span>'+
+           '<span class="isc-b"><i style="width:'+Math.round(v/tot*100)+'%"></i></span>'+
+           '<span class="isc-v">'+Number(v).toLocaleString()+'</span></div>';
+      });
+      h+='</div>';
+    }
+    h+='</div>';
+
+  } else {
+    /* ── 월간 ── */
+    h+='<div class="tjsec"><h3>📅 월간 여론지수</h3>';
+    if(!MO.ready){
+      h+='<div class="isready"><div class="isr-i">🗓</div><div>'+
+         '<div class="isr-t">전월 대비 비교는 2026년 9월부터 제공됩니다</div>'+
+         '<div class="isr-d">두 달치 자료가 쌓여야 월 단위 변화를 볼 수 있습니다. '+
+         '지금은 이번 달 집계만 표시합니다.</div></div></div>';
+    }
+    const MI=MO.items||[];
+    if(MI.length){
+      h+='<div class="ismon">';
+      MI.slice(-6).forEach((x,i,arr)=>{
+        const prev=i>0?arr[i-1]:null;
+        const d=prev?Math.round((x.neg-prev.neg)*10)/10:null;
+        h+='<div class="ism"><div class="ism-h"><b>'+orgEsc(x.month)+'</b>'+
+           '<span>'+Number(x.total).toLocaleString()+'건</span>'+
+           (d!==null?'<em class="'+(d>0?'up':'dn')+'">'+isPct(d)+'</em>':'')+'</div>'+
+           isBar(x.neg,x.neu,x.pos)+
+           '<div class="ism-v">부정 '+x.neg+'% · 중립 '+x.neu+'% · 긍정 '+x.pos+'%</div></div>';
+      });
+      h+='</div>';
+    }
+    h+='<div class="tjnote">※ 이번 달은 아직 진행 중이라 월말에 값이 달라질 수 있습니다.</div></div>';
   }
-  h+='</div>';
 
-  /* 카테고리 순위 */
+  /* ── 분야별 (공통) ── */
   const R=D.rank||[];
   if(R.length){
     const mx=R[0].n||1;
     h+='<div class="tjsec"><h3>📊 분야별 여론</h3>'+
-       '<div class="tjsub">게시물이 많은 순 · 부정률은 해당 분야 안에서 부정으로 분류된 비율입니다</div>'+
+       '<div class="tjsub">게시물이 많은 순 · 부정률은 그 분야 안에서 부정으로 분류된 비율입니다</div>'+
        '<div class="isrank">';
     R.forEach((r,i)=>{
       const dl=(typeof r.delta==='number');
-      h+='<div class="isr"><div class="isr-h">'+
-         '<span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(r.name)+'</span>'+
-         '<span class="c">'+r.n+'건</span>'+
-         '<span class="p '+(r.neg>=50?'hi':(r.neg>=25?'mid':''))+'">부정 '+r.neg+'%</span>'+
-         (dl?'<span class="d '+(r.delta>0?'up':'dn')+'">'+pc(r.delta)+'</span>':'')+
-         '</div><div class="isr-b"><i style="width:'+Math.max(3,Math.round(r.n/mx*100))+'%"></i></div></div>';
+      const lvl = r.neg>=50?'hi' : (r.neg>=25?'mid':'lo');
+      h+='<div class="isr2"><div class="isr-h">'+
+         '<span class="n">'+(i+1)+'</span>'+
+         '<span class="t">'+orgEsc(r.name)+'</span>'+
+         '<span class="c">'+Number(r.n).toLocaleString()+'건</span>'+
+         '<span class="p '+lvl+'">부정 '+r.neg+'%</span>'+
+         (dl?'<span class="d '+(r.delta>0?'up':'dn')+'">'+isPct(r.delta)+'</span>':'')+
+         '</div>'+
+         '<div class="isr-b"><i class="'+lvl+'" style="width:'+Math.max(3,Math.round(r.n/mx*100))+'%"></i></div>';
+      if(r.top&&r.top.length){
+        h+='<div class="isr-x">'+r.top.slice(0,2).map(t=>
+          '<a href="'+orgEsc(t.link||'#')+'" target="_blank" rel="noopener">'+orgEsc(t.title.slice(0,42))+'</a>').join('')+'</div>';
+      }
+      h+='</div>';
     });
-    h+='</div><div class="tjnote">※ 전주 대비는 부정률 변화입니다. 건수는 검색 결과 수라 전수가 아닙니다.</div></div>';
+    h+='</div><div class="tjnote">※ 전주 대비는 부정률 변화입니다. 건수는 검색 결과 수이며 전수가 아닙니다.</div></div>';
   }
 
-  /* 부정 키워드 */
+  /* ── 부정 키워드 ── */
   const RS=D.reasons||[];
   if(RS.length){
     const mx=RS[0].n||1;
-    h+='<div class="tjsec"><h3>🔎 부정 판정에 걸린 단어</h3>'+
-       '<div class="tjsub">최근 7일 부정 게시물에서 가장 많이 나온 표현입니다</div><div class="iswords">';
+    h+='<div class="tjsec"><h3>🔎 부정 판정에 걸린 표현</h3>'+
+       '<div class="tjsub">최근 7일 부정 게시물에서 많이 나온 단어입니다 · 크기는 빈도</div><div class="iswords">';
     RS.forEach(x=>{
-      const sz=Math.max(11,Math.round(11+x.n/mx*9));
-      h+='<span class="isw" style="font-size:'+sz+'px">'+orgEsc(x.word)+
-         '<em>'+x.n+'</em></span>';
+      const sz=Math.max(11.5,Math.round((11.5+x.n/mx*10)*10)/10);
+      h+='<span class="isw" style="font-size:'+sz+'px">'+orgEsc(x.word)+'<em>'+x.n+'</em></span>';
     });
     h+='</div></div>';
   }
 
-  /* 주요 게시물 */
+  /* ── 주요 게시물 ── */
   const T=D.top_negative||[];
   if(T.length){
     const CN={news:'뉴스',blog:'블로그',cafe:'카페'};
@@ -2429,19 +2555,24 @@ function renderIS(){
        '<div class="isposts">';
     T.forEach(x=>{
       h+='<a class="isp" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
-         '<span class="isp-m">'+(CN[x.channel]||x.channel)+' · '+orgEsc(x.date||'')+
-         (x.category?' · '+orgEsc(x.category):'')+'</span>'+
+         '<span class="isp-m"><b class="ch-'+orgEsc(x.channel)+'">'+(CN[x.channel]||x.channel)+'</b>'+
+         orgEsc(x.date||'')+(x.category?' · '+orgEsc(x.category):'')+'</span>'+
          '<span class="isp-t">'+orgEsc(x.title)+'</span></a>';
     });
     h+='</div></div>';
   }
 
-  /* 출처 */
   h+='<div class="orgnote">· '+orgEsc(M.source||'')+'<br>'+
      '· '+orgEsc(M.note||'')+'<br>'+
-     '· 이 화면은 여론 흐름을 보기 위한 참고자료이며, 개별 게시물의 사실 여부를 확인하지 않았습니다.<br>'+
+     '· 이 화면은 여론 흐름을 보기 위한 참고자료이며, 개별 게시물의 사실 여부는 확인하지 않았습니다.<br>'+
      '· 분류는 규칙 기반이므로 오분류가 있을 수 있습니다.</div>';
   b.innerHTML=h;
+
+  const tb=document.getElementById('istabs');
+  if(tb) tb.addEventListener('click',e=>{
+    const el=e.target.closest('button'); if(!el)return;
+    isTab=el.dataset.t; renderIS();
+  });
 }
 let TJDATA=null, tjLoading=false, tjYearMode='total';
 let EMDDATA=null, emdOpen=false, emdPick=null, alOpen=false;
