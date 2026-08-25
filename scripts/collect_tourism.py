@@ -61,22 +61,36 @@ if c:
           "foreign_ratio":round(f/(n+f)*100,2) if (n+f) else 0})
     items.sort(key=lambda x:-x["native"])
     for i,x in enumerate(items,1): x["rank"]=i
+    # ── 편차 기반 판정: 43곳 평균에서 얼마나 벗어났나(표준편차 배수)
+    import statistics as _st
+    NY=[x["native_yoy"] for x in items if isinstance(x["native_yoy"],(int,float))]
+    FY=[x["foreign_yoy"] for x in items if isinstance(x["foreign_yoy"],(int,float))]
+    mn=_st.mean(NY) if NY else 0; sdn=_st.pstdev(NY) if len(NY)>1 else 0
+    mf=_st.mean(FY) if FY else 0; sdf=_st.pstdev(FY) if len(FY)>1 else 0
+    Z=1.5   # 이 배수 이상 벗어나면 이례
     alerts=[]
     for x in items:
         ny,fy=x["native_yoy"],x["foreign_yoy"]; t=[]
-        if ny is not None and fy is not None:
-            if ny<0 and fy>0: t.append("엇갈림·내국인↓외국인↑")
-            elif ny>0 and fy<0: t.append("엇갈림·내국인↑외국인↓")
-        if ny is not None and abs(ny)>=20: t.append(("급증" if ny>0 else "급감")+"·내국인")
-        if fy is not None and abs(fy)>=30: t.append(("급증" if fy>0 else "급감")+"·외국인")
+        zn = (ny-mn)/sdn if (isinstance(ny,(int,float)) and sdn) else 0
+        zf = (fy-mf)/sdf if (isinstance(fy,(int,float)) and sdf) else 0
+        x["z_native"]=round(zn,2); x["z_foreign"]=round(zf,2)
+        if abs(zn)>=Z: t.append(("내국인 크게 늘어남" if zn>0 else "내국인 크게 줄어듦"))
+        if abs(zf)>=Z: t.append(("외국인 크게 늘어남" if zf>0 else "외국인 덜 늘어남"))
         x["flags"]=t
         if t: alerts.append({"name":x["name"],"tags":t,
           "native_yoy":ny,"native_mom":x["native_mom"],
-          "foreign_yoy":fy,"foreign_mom":x["foreign_mom"]})
+          "foreign_yoy":fy,"foreign_mom":x["foreign_mom"],
+          "z_native":round(zn,2),"z_foreign":round(zf,2),
+          "z_max":round(max(abs(zn),abs(zf)),2)})
+    alerts.sort(key=lambda a:-a["z_max"])
+    # 전체 분포 요약(화면에서 "평균은 이렇다"를 말하기 위해)
+    dist={"native":{"mean":round(mn,1),"sd":round(sdn,1),"min":round(min(NY),1) if NY else None,"max":round(max(NY),1) if NY else None},
+          "foreign":{"mean":round(mf,1),"sd":round(sdf,1),"min":round(min(FY),1) if FY else None,"max":round(max(FY),1) if FY else None},
+          "z":Z}
     avg=round(sum(x["foreign_ratio"] for x in items)/len(items),2)
     intl=sorted([x for x in items if x["foreign_ratio"]>=avg*2],key=lambda z:-z["foreign_ratio"])[:5]
     out["emd"]={"month":dd.get("dataBgnDt"),"count":len(items),"avg_foreign_ratio":avg,
-      "items":items,"alerts":alerts[:12],
+      "items":items,"alerts":alerts,"dist":dist,
       "intl_spots":[{"name":x["name"],"ratio":x["foreign_ratio"],
                      "foreign":x["foreign"],"native":x["native"]} for x in intl]}
     print(f"   {len(items)}곳 · 판정 {len(alerts)}건")
