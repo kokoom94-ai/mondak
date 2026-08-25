@@ -490,6 +490,53 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 /* 비즈플랫폼 배너 */
 .portalbanner.bizbn{border-color:#0E7C7B;background:linear-gradient(135deg,#0E7C7B 0%,#12908E 60%,#4FD8C4 170%)}
 
+
+/* ===== 지금제주 ===== */
+.tjsec{margin-top:20px}
+.tjsec h3{font-size:16px;color:var(--navy);margin:0 0 4px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tjm{font-size:11.5px;font-weight:600;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:2px 9px}
+.tjsub{font-size:12px;color:var(--sub);margin-bottom:11px;line-height:1.55}
+.tjhl{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:7px;margin-bottom:13px}
+.tjh{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gyul);border-radius:11px;padding:10px 12px}
+.tjh.dn{border-left-color:#C6392F}
+.tjh-l{font-size:11px;color:var(--sub)}
+.tjh-y{font-size:12.5px;font-weight:700;color:var(--navy);margin-top:2px}
+.tjh-v{font-size:17px;font-weight:800;color:var(--ink);line-height:1.2}
+.tjtoggle{display:flex;gap:5px;margin-bottom:9px}
+.tjtoggle button{font-size:12px;border:1px solid var(--line);background:var(--bg);color:var(--sub);border-radius:20px;padding:5px 13px;cursor:pointer;font-weight:600}
+.tjtoggle button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tjbars{display:flex;align-items:flex-end;gap:3px;height:150px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 10px 8px}
+.tjb{flex:1 1 0;display:flex;flex-direction:column;align-items:center;height:100%;min-width:0}
+.tjb-t{font-size:8.5px;color:var(--sub);margin-bottom:3px;white-space:nowrap;transform:rotate(-52deg);transform-origin:center;height:20px}
+.tjb-w{flex:1 1 auto;width:100%;display:flex;align-items:flex-end}
+.tjb-w span{display:block;width:100%;background:linear-gradient(180deg,#4E8CF0,#2B6CE8);border-radius:3px 3px 0 0}
+.tjb.part .tjb-w span{background:linear-gradient(180deg,#B9C2D4,#8A93A6)}
+.tjb-y{font-size:9.5px;color:var(--sub);margin-top:4px}
+.tjnote{font-size:10.5px;color:var(--sub);margin-top:7px;line-height:1.55}
+.tjrank{display:flex;flex-direction:column;gap:5px}
+.tjr{display:flex;align-items:center;gap:8px;font-size:12.5px}
+.tjr .n{flex:0 0 20px;text-align:center;font-size:11px;font-weight:700;color:var(--sub)}
+.tjr .t{flex:0 0 92px;color:var(--ink);word-break:keep-all}
+.tjr .bar{flex:1 1 auto;height:15px;background:var(--bg);border-radius:8px;overflow:hidden}
+.tjr .bar i{display:block;height:100%;background:linear-gradient(90deg,#2B6CE8,#4E8CF0);border-radius:8px}
+.tjr .bar.sp i{background:linear-gradient(90deg,#0E7C7B,#4FD8C4)}
+.tjr .v{flex:0 0 46px;text-align:right;font-weight:800;color:var(--navy)}
+.tjins{font-size:12.5px;color:var(--ink);background:#EAF0FB;border:1px solid #CBD9F0;border-radius:12px;padding:11px 13px;margin-top:10px;line-height:1.6;word-break:keep-all}
+.tjgap{background:#FDF0E1;border:1px solid #F3D3AA;border-radius:13px;padding:12px 13px;margin-top:11px}
+.tjgap-t{font-size:13px;font-weight:800;color:#B4650F;margin-bottom:8px}
+.tjg{font-size:12.5px;color:var(--ink);padding:4px 0;line-height:1.55}
+.tjg em{font-style:normal;font-weight:800;color:#C6392F;margin-left:4px}
+.tjgap .tjnote{margin-top:8px;padding-top:8px;border-top:1px dashed #F3D3AA}
+@media(max-width:640px){
+  .tjsec h3{font-size:15px}
+  .tjbars{height:132px;gap:2px;padding:10px 8px 6px}
+  .tjb-t{font-size:7.5px}
+  .tjb-y{font-size:8.5px}
+  .tjr{font-size:12px}
+  .tjr .t{flex:0 0 76px}
+  .tjhl{grid-template-columns:repeat(2,1fr)}
+}
+
 /* ===== 교육정책 ===== */
 .edusec{margin-top:18px}
 .edusec h3{font-size:15.5px;color:var(--navy);margin:0 0 9px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
@@ -1380,7 +1427,7 @@ body{padding-bottom:78px}
     <button class="mitem soon" data-v="gwan-fest">행사소식 <span class="mx">축제캘린더 · 기념행사</span></button>
     <button class="mitem soon" data-v="gwan-now">여기가젠 <span class="mx">지금 이슈 소식</span></button>
     <button class="mitem soon" data-v="gwan-hero">축하햄수다 <span class="mx">미담 제주인</span></button>
-    <button class="mitem soon" data-v="gwan-jeju">지금제주 <span class="mx">데이터 분석</span></button>
+    <button class="mitem" data-v="gwan-jeju">지금제주 <span class="mx">관광 데이터 · 17년 추이</span></button>
     <button class="mitem soon" data-v="gwan-kr">지금한국 <span class="mx">인사이트</span></button>
 
     <div class="msep"></div>
@@ -1401,6 +1448,9 @@ body{padding-bottom:78px}
     <div class="gs-t">준비 중입니다</div>
     <div class="gs-d">곧 찾아뵙겠습니다. 조금만 기다려 주세요!</div>
   </div>
+  <!-- 지금제주 : 관광 데이터 -->
+  <div id="gwanjeju" hidden><div id="tjbody"></div></div>
+
   <!-- 여행플래너 : 어디레 감수광 (별도 서비스 임베드) -->
   <div id="gwanplan" hidden>
     <div class="planbar">
@@ -1756,7 +1806,7 @@ const GWAN={
   'gwan-now':{t:'여기가젠',d:'지금 이슈 소식',ic:'📍'},
   'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'},
   'gwan-plan':{t:'여행플래너',d:'어디레 감수광 — 숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계합니다',ic:'🗺️'},
-  'gwan-jeju':{t:'지금제주',d:'데이터 분석',ic:'📊'},
+  'gwan-jeju':{t:'지금제주',d:'제주 관광, 숫자로 보는 17년 — 입도객 · 어디서 오나 · 소비',ic:'📊'},
   'gwan-kr':{t:'지금한국',d:'인사이트',ic:'🇰🇷'}
 };
 let selIdx=null, supWho=null, newsSec='전체';
@@ -1937,6 +1987,121 @@ function renderSchools(){
       (nc?'<br>· 점선 표시 '+nc+'개교는 공시정보 연동 준비 중입니다.':'');}
 }
 document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
+let TJDATA=null, tjLoading=false, tjYearMode='total';
+function tjNum(n){ return Number(n).toLocaleString(); }
+function tjMan(n){ return (n/10000).toFixed(0)+'만'; }
+function tjEok(n){ return (n/100000000).toFixed(0)+'억'; }
+function loadTJ(){
+  if(TJDATA||tjLoading){ if(TJDATA) renderTJ(); return; }
+  tjLoading=true;
+  const b=document.getElementById('tjbody');
+  if(b) b.innerHTML='<div style="padding:30px 0;text-align:center;color:var(--sub);font-size:13px">관광 데이터를 불러오는 중…</div>';
+  fetch('data/tourism_static.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+    TJDATA=d; tjLoading=false; renderTJ();
+  }).catch(()=>{ tjLoading=false;
+    if(b) b.innerHTML='<div style="padding:30px 0;text-align:center;color:var(--sub);font-size:13px">관광 데이터를 불러오지 못했습니다.</div>';
+  });
+}
+function renderTJ(){
+  if(!TJDATA) return;
+  const b=document.getElementById('tjbody'); if(!b) return;
+  let h='';
+
+  /* ① 17년 추이 */
+  const Y=TJDATA.yearly||{}, ys=Y.items||[];
+  if(ys.length){
+    const mx=Math.max.apply(null, ys.map(x=>x.total));
+    h+='<div class="tjsec"><h3>📈 제주 관광 '+orgEsc(Y.period)+'</h3>'+
+       '<div class="tjsub">'+orgEsc(Y.note||'')+'</div>';
+    // 하이라이트
+    h+='<div class="tjhl">';
+    (Y.highlights||[]).forEach(x=>{
+      h+='<div class="tjh'+(x.type==='최저'?' dn':'')+'"><div class="tjh-l">'+orgEsc(x.label)+'</div>'+
+         '<div class="tjh-y">'+x.year+'년</div><div class="tjh-v">'+tjMan(x.value)+'명</div></div>';
+    });
+    h+='</div>';
+    // 막대
+    h+='<div class="tjtoggle" id="tjtg">'+
+       '<button data-m="total"'+(tjYearMode==='total'?' class="on"':'')+'>전체</button>'+
+       '<button data-m="domestic"'+(tjYearMode==='domestic'?' class="on"':'')+'>내국인</button>'+
+       '<button data-m="foreign"'+(tjYearMode==='foreign'?' class="on"':'')+'>외국인</button></div>';
+    const key=tjYearMode, mxk=Math.max.apply(null, ys.map(x=>x[key]));
+    h+='<div class="tjbars">';
+    ys.forEach(x=>{
+      const pct=Math.max(2,Math.round(x[key]/mxk*100));
+      h+='<div class="tjb'+(x.partial?' part':'')+'" title="'+x.year+'년 '+tjNum(x[key])+'명">'+
+         '<div class="tjb-t">'+tjMan(x[key])+'</div>'+
+         '<div class="tjb-w"><span style="height:'+pct+'%"></span></div>'+
+         '<div class="tjb-y">'+String(x.year).slice(2)+'</div></div>';
+    });
+    h+='</div><div class="tjnote">※ 회색 막대는 연중 일부만 집계된 해입니다</div></div>';
+  }
+
+  /* ② 어디서 오나 — 국내 */
+  const O=TJDATA.origin||{};
+  if(O.sido&&O.sido.length){
+    h+='<div class="tjsec"><h3>🚩 어디서 오나 <span class="tjm">'+orgEsc(O.month)+'</span></h3>'+
+       '<div class="tjsub">국내 거주지 기준 · 총 '+tjNum(O.total)+'명</div><div class="tjrank">';
+    O.sido.slice(0,8).forEach((x,i)=>{
+      h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
+         '<span class="bar"><i style="width:'+Math.round(x.share/O.sido[0].share*100)+'%"></i></span>'+
+         '<span class="v">'+x.share+'%</span></div>';
+    });
+    h+='</div>';
+    const top2=(O.sido[0].share+O.sido[1].share).toFixed(1);
+    h+='<div class="tjins">'+orgEsc(O.sido[0].name)+'·'+orgEsc(O.sido[1].name)+
+       ' 두 곳이 <b>'+top2+'%</b>를 차지합니다.</div></div>';
+  }
+
+  /* ③ 국가별 외국인 */
+  const N=TJDATA.nations||{};
+  if(N.items&&N.items.length){
+    h+='<div class="tjsec"><h3>🌏 외국인은 어느 나라에서 <span class="tjm">'+orgEsc(N.month)+'</span></h3>'+
+       '<div class="tjsub">총 '+tjNum(N.total)+'명</div><div class="tjrank">';
+    N.items.slice(0,8).forEach((x,i)=>{
+      h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
+         '<span class="bar"><i style="width:'+Math.round(x.share/N.items[0].share*100)+'%"></i></span>'+
+         '<span class="v">'+x.share+'%</span></div>';
+    });
+    h+='</div><div class="tjins">'+orgEsc(N.items[0].name)+'이 <b>'+N.items[0].share+'%</b>로 가장 많습니다.</div></div>';
+  }
+
+  /* ④ 소비 — 양보다 질 */
+  const S=TJDATA.spend_nation||{};
+  if(S.items&&S.items.length){
+    h+='<div class="tjsec"><h3>💳 외국인 소비 <span class="tjm">'+S.year+'년</span></h3>'+
+       '<div class="tjsub">총 '+tjEok(S.total)+'원</div><div class="tjrank">';
+    S.items.slice(0,6).forEach((x,i)=>{
+      h+='<div class="tjr"><span class="n">'+(i+1)+'</span><span class="t">'+orgEsc(x.name)+'</span>'+
+         '<span class="bar sp"><i style="width:'+Math.round(x.share/S.items[0].share*100)+'%"></i></span>'+
+         '<span class="v">'+x.share+'%</span></div>';
+    });
+    h+='</div>';
+    const g=(S.rank_gap||[]).filter(x=>x.gap>=2);
+    if(g.length){
+      h+='<div class="tjgap"><div class="tjgap-t">🔎 사람은 적은데 소비는 많은 곳</div>';
+      g.slice(0,3).forEach(x=>{
+        h+='<div class="tjg"><b>'+orgEsc(x.name)+'</b> 입도객 '+x.visit_rank+'위 → 소비 '+
+           x.spend_rank+'위 <em>'+(x.gap>0?'▲':'')+Math.abs(x.gap)+'계단</em></div>';
+      });
+      h+='<div class="tjnote">※ 입도객과 소비의 기준 시점이 달라 순위만 비교했습니다. 1인당 소비는 산출하지 않았습니다.</div></div>';
+    }
+    h+='</div>';
+  }
+
+  /* 출처 */
+  const M=TJDATA.meta||{};
+  h+='<div class="orgnote">'+
+     (M.sources||[]).map(x=>'· <b>'+orgEsc(x.name)+'</b> ('+orgEsc(x.org)+')').join('<br>')+
+     '<br>· '+orgEsc(M.disclaimer||'')+
+     '<br>· 전체 지표는 <a href="https://data.ijto.or.kr" target="_blank" rel="noopener">제주관광 빅데이터 서비스 플랫폼</a>에서 확인할 수 있습니다.</div>';
+  b.innerHTML=h;
+  const tg=document.getElementById('tjtg');
+  if(tg) tg.addEventListener('click',e=>{
+    const btn=e.target.closest('button'); if(!btn)return;
+    tjYearMode=btn.dataset.m; renderTJ();
+  });
+}
 let EDUDATA=null, eduLoading=false;
 function loadEdu(){
   if(EDUDATA||eduLoading){ if(EDUDATA) renderEdu(); return; }
@@ -2264,14 +2429,13 @@ function renderGwan(v){
   el.querySelector('.gwan-ic').textContent=g.ic;
   el.querySelector('.gwan-t').textContent=g.t;
   el.querySelector('.gwan-d').textContent=g.d;
-  // 여행플래너만 임베드, 나머지는 준비 중
-  const isPlan = (v==='gwan-plan');
-  const soon=document.getElementById('gwansoon'), plan=document.getElementById('gwanplan');
-  if(soon) soon.hidden=isPlan;
-  if(plan){
-    plan.hidden=!isPlan;
-    if(isPlan) loadPlan();
-  }
+  // 여행플래너 · 지금제주는 전용 화면, 나머지는 준비 중
+  const isPlan = (v==='gwan-plan'), isTJ = (v==='gwan-jeju');
+  const soon=document.getElementById('gwansoon'), plan=document.getElementById('gwanplan'),
+        tj=document.getElementById('gwanjeju');
+  if(soon) soon.hidden = isPlan || isTJ;
+  if(plan){ plan.hidden=!isPlan; if(isPlan) loadPlan(); }
+  if(tj){ tj.hidden=!isTJ; if(isTJ) loadTJ(); }
 }
 const PLAN_URL='https://jeju-gamsugwang.vercel.app/';
 function loadPlan(){
