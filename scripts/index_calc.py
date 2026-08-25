@@ -84,6 +84,27 @@ def main():
                      "delta":round(v["neg"]-pv["neg"],1) if pv else None,
                      "top":top_titles(cur,c,3)})
 
+    # ── 월간 집계 (전월 대비는 데이터가 두 달 쌓여야 산출됨)
+    bym=defaultdict(list)
+    for x in items:
+        dt=dparse(x.get("date") or "")
+        if dt: bym[dt.strftime("%Y-%m")].append(x)
+    months=sorted(bym.keys())
+    mstats=[]
+    for ym in months:
+        st=stats(bym[ym])
+        if st: mstats.append({"month":ym,"total":st["total"],
+                              "neg":st["neg"],"neu":st["neu"],"pos":st["pos"]})
+    cur_m = mstats[-1] if mstats else None
+    prv_m = mstats[-2] if len(mstats)>=2 else None
+    # 이번 달이 아직 진행 중이면 비교가 부정확 → 완결 여부 표시
+    m_ready = bool(prv_m)
+    monthly={"items":mstats,"current":cur_m,"previous":prv_m,
+             "ready":m_ready,
+             "note":"월간 비교는 두 달치가 쌓여야 산출됩니다. 2026년 9월부터 제공됩니다." if not m_ready else "",
+             "delta":{"neg":round(cur_m["neg"]-prv_m["neg"],1),
+                      "pos":round(cur_m["pos"]-prv_m["pos"],1)} if m_ready else None}
+
     out={"meta":{"updated":NOW.strftime("%Y-%m-%d %H:%M"),
          "period":{"from":(base-timedelta(days=6)).strftime("%Y-%m-%d"),
                    "to":base.strftime("%Y-%m-%d")},
@@ -95,7 +116,15 @@ def main():
       "current":C, "previous":P,
       "delta":{"neg":round(C["neg"]-P["neg"],1) if P else None,
                "pos":round(C["pos"]-P["pos"],1) if P else None} if P else None,
+      "monthly":monthly,
       "rank":rank,
+      "daily":[{"date":k,"total":len(v),
+                "neg":round(sum(1 for x in v if x["sentiment"]=="부정")/len(v)*100,1),
+                "pos":round(sum(1 for x in v if x["sentiment"]=="긍정")/len(v)*100,1)}
+               for k,v in sorted(
+                   ((dd, [x for x in cur if x.get("date")==dd])
+                    for dd in sorted({x["date"] for x in cur}))
+               ) if v],
       "reasons":top_reasons(cur),
       "top_negative":top_titles(cur,None,8)}
 
@@ -118,6 +147,7 @@ def main():
     if out.get("delta"): print(f"  (부정 {out['delta']['neg']:+}%p)")
     else: print()
     print("  카테고리:", ", ".join(f"{r['name']} {r['n']}건" for r in rank[:5]))
+    print(f"  월간: {len(mstats)}개월 · 전월 비교 {'가능' if m_ready else '2026년 9월부터'}")
     print("저장:", os.path.relpath(OUT))
 
 if __name__=="__main__": main()
