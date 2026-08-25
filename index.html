@@ -1771,6 +1771,32 @@ function renderTicker(){
   if(p)p.innerHTML=tkSet(STATS.pop)+tkSet(STATS.pop);   // 2배 복제 → 무한 루프
   if(t)t.innerHTML=tkSet(STATS.tour)+tkSet(STATS.tour);
 }
+/* 관광 티커는 수집된 실제 데이터로 갱신 (하드코딩 값은 초기 표시용) */
+function refreshTourTicker(){
+  fetch('data/tourism.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
+    if(!d) return;
+    const D=d.daily&&d.daily.items&&d.daily.items.length?d.daily.items[d.daily.items.length-1]:null;
+    const arr=[];
+    if(D){
+      const y=String(D.date).slice(2,4), m=+String(D.date).slice(4,6), dd=+String(D.date).slice(6,8);
+      const tag="('"+y+"."+m+"."+dd+")";
+      arr.push({l:"내국인 일일 입도 "+tag, v:Number(D.kor||0).toLocaleString()+"명"});
+      arr.push({l:"외국인 일일 입도 "+tag, v:Number(D.forgn||0).toLocaleString()+"명"});
+      arr.push({l:"일일 합계 "+tag,       v:Number(D.total||0).toLocaleString()+"명"});
+    }
+    const M=d.monthly&&d.monthly.items&&d.monthly.items.length?d.monthly.items[d.monthly.items.length-1]:null;
+    if(M){
+      const ym=String(M.date), tag="('"+ym.slice(2,4)+"."+(+ym.slice(4,6))+")";
+      arr.push({l:"월간 입도 "+tag, v:Number(M.total||0).toLocaleString()+"명"});
+    }
+    if(arr.length){
+      STATS.tour=arr;
+      const t=document.getElementById('ticktour');
+      if(t) t.innerHTML=tkSet(arr)+tkSet(arr);
+    }
+  }).catch(()=>{});
+}
+setTimeout(refreshTourTicker, 400);
 
 /* ── 인기 정책단어 (언론보도 노출 건수) ── */
 const KWSTOP=new Set(['제주','제주시','서귀포시','제주도','도민','지원','사업','운영','추진','개최','안내','모집','신청','확대','오픈','제주형','올해','올레','대상','통해','위해','관련','예정','계획','실시','진행','첫','및','등','도내','도정','시민','주민','활용','조성','마련','강화','참여','방안','개선']);
@@ -1831,6 +1857,40 @@ document.addEventListener('DOMContentLoaded',()=>{
 <script>
 /* ── AI 챗봇 (Netlify 함수 호출) ── */
 const AI_API="https://exquisite-snickerdoodle-60f4c2.netlify.app/.netlify/functions/chat";
+/* ── 웹검색 안전장치 (프런트) ──
+   챗봇 서버 배포가 막힌 동안, 화면 쪽에서 출처를 한 번 더 거른다.
+   허용된 공공기관·언론·공식 포털만 통과시킨다. */
+const AI_ALLOW = new RegExp("(^|\\.)(" + [
+  "go\\.kr","or\\.kr","re\\.kr","ac\\.kr","gov\\.kr",
+  "visitjeju\\.net","ijto\\.or\\.kr","schoolinfo\\.go\\.kr","data\\.ijto\\.or\\.kr",
+  "yna\\.co\\.kr","newsis\\.com","news1\\.kr","yonhapnewstv\\.co\\.kr",
+  "kbs\\.co\\.kr","imbc\\.com","sbs\\.co\\.kr","jtbc\\.co\\.kr","ytn\\.co\\.kr",
+  "hani\\.co\\.kr","khan\\.co\\.kr","chosun\\.com","donga\\.com","joongang\\.co\\.kr",
+  "hankyung\\.com","mk\\.co\\.kr","seoul\\.co\\.kr","hankookilbo\\.com","ohmynews\\.com",
+  "pressian\\.com","nocutnews\\.co\\.kr","edaily\\.co\\.kr","mt\\.co\\.kr","fnnews\\.com",
+  "asiae\\.co\\.kr","sedaily\\.com","jejunews\\.com","headlinejeju\\.co\\.kr","jejusori\\.net",
+  "ihalla\\.com","newsjeju\\.net","newsnjeju\\.com","jejudomin\\.co\\.kr","jejuilbo\\.net",
+  "jibs\\.co\\.kr","kctvjeju\\.com","jejumaeil\\.net",
+  "n\\.news\\.naver\\.com","news\\.naver\\.com","v\\.daum\\.net","news\\.daum\\.net",
+  "law\\.go\\.kr","easylaw\\.go\\.kr","kosis\\.kr","kostat\\.go\\.kr"
+].join("|") + ")(/|$|:)", "i");
+const AI_BAD = /19금|19세|성인|야동|야한|음란|섹스|sex|porn|xxx|adult|누드|nude|출장|안마|건마|유흥|룸살롱|카지노|casino|바카라|토토|toto|베팅|betting|성매매|콜걸|밍키|링크모음|링크판|주소야|최신주소|우회주소|웹툰다시보기|누누|티비위키|먹튀|대출|도박/i;
+
+function aiHost(u){ try{ return new URL(u).hostname.toLowerCase(); }catch(e){ return (u||"").toLowerCase(); } }
+function aiSafeLinks(links){
+  return (links||[]).filter(function(x){
+    var u=(x.url||x.link||""), t=(x.title||"");
+    if(!/^https?:/i.test(u)) return false;
+    if(AI_BAD.test(u)||AI_BAD.test(t)) return false;
+    return AI_ALLOW.test(aiHost(u));
+  });
+}
+/* 검색 범위를 질문에 실어 보낸다 — 서버가 웹검색할 때 공식 자료만 보게 함 */
+const AI_SCOPE = " (공식 자료만 참고: 제주도청 jeju.go.kr, 비짓제주 visitjeju.net,"
+  + " 제주관광 빅데이터 data.ijto.or.kr, 학교알리미 schoolinfo.go.kr, 국가법령정보 law.go.kr,"
+  + " 정부24 gov.kr, 공공기관 .go.kr/.or.kr, 연합뉴스 등 언론사."
+  + " 개인 블로그·링크모음·성인·도박 사이트는 절대 참고하지 말 것)";
+
 function aiEsc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");}
 function aiFill(el){document.getElementById('aiq').value=el.textContent;aiAsk();}
 async function aiAsk(){
@@ -1841,24 +1901,36 @@ async function aiAsk(){
   res.insertAdjacentHTML('beforeend','<div class="aimsg-bot loading" id="'+lid+'"><span class="aispin"></span> 제주 정책 자료를 찾고 있습니다…</div>');
   qEl.value=''; qEl.style.height='auto';
   try{
-    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question})});
+    const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question: question + AI_SCOPE})});
     const d=await r.json(); const el=document.getElementById(lid); el.classList.remove('loading');
     const badge = d.source==='rag' ? '<span class="aibadge aibadge-rag">📚 자료 기반 답변</span><br>'
       : d.source==='web' ? '<span class="aibadge aibadge-web">🌐 웹 검색 결과</span><br>'
       : '<span class="aibadge aibadge-fb">📞 문의처 안내</span><br>';
-    let html=badge+aiEsc(d.answer||'답변을 생성하지 못했습니다.');
-    if(d.links&&d.links.length){
+    let ans = d.answer||'답변을 생성하지 못했습니다.';
+    // 답변 본문에 부적절한 표현·주소가 섞이면 폐기하고 안내로 대체
+    if(AI_BAD.test(ans)){
+      ans = '요청하신 내용은 공식 자료에서 확인이 필요합니다.\n'
+          + '제주도청(jeju.go.kr) 또는 제주120으로 문의해 주세요.';
+    }
+    // 답변 안의 링크 중 허용되지 않은 주소는 제거
+    ans = ans.replace(/https?:\/\/[^\s)\]]+/g, function(u){
+      return AI_ALLOW.test(aiHost(u)) ? u : '(출처 확인 필요)';
+    });
+    let html=badge+aiEsc(ans);
+    const safeLinks = aiSafeLinks(d.links);
+    if(safeLinks.length){
       html+='<div class="ailinkbtns">';
-      d.links.forEach(lk=>{
+      safeLinks.forEach(lk=>{
         if(lk.url) html+='<a class="ailinkbtn" href="'+aiEsc(lk.url)+'" target="_blank" rel="noopener">🔗 '+aiEsc(lk.title)+' 바로가기<span class="ar">→</span></a>';
         if(lk.contact) html+='<div class="aisrc" style="border:none;padding-top:2px">📞 문의: '+aiEsc(lk.contact)+'</div>';
       });
       html+='</div>';
     }
-    if(d.websources&&d.websources.length){
-      html+='<div class="aisrc"><div class="t">웹 출처 (참고용)</div>';
+    const safeWeb = aiSafeLinks(d.websources);
+    if(safeWeb.length){
+      html+='<div class="aisrc"><div class="t">웹 출처 (공식 자료)</div>';
       const seen=new Set();
-      d.websources.slice(0,5).forEach(s=>{const u=s.url||s.link||'';const t=(s.title||u||'').slice(0,50);
+      safeWeb.slice(0,5).forEach(s=>{const u=s.url||s.link||'';const t=(s.title||u||'').slice(0,50);
         if(u&&!seen.has(u)){seen.add(u);html+='<a href="'+aiEsc(u)+'" target="_blank" rel="noopener">• '+aiEsc(t)+'</a>';}});
       html+='</div>';
     }
