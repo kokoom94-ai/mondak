@@ -50,16 +50,18 @@ def fetch(url, headers=None, timeout=15):
     with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
         return r.read().decode("utf-8", "replace")
 
-# ── 네이버 검색 API
+# ── 네이버 검색 (NAVER API HUB / ncloud)
+#    호외요(collect_news.py)와 동일한 엔드포인트·헤더를 쓴다.
+NAVER_BASE = "https://naverapihub.apigw.ntruss.com/search/v1"
 NAVER_EP = {"news":"news", "blog":"blog", "cafe":"cafearticle"}
 def naver(channel, query, display=100, start=1):
     if not (NAVER_ID and NAVER_SECRET): return []
     ep = NAVER_EP[channel]
-    url = f"https://openapi.naver.com/v1/search/{ep}.json?" + urllib.parse.urlencode(
+    url = f"{NAVER_BASE}/{ep}?" + urllib.parse.urlencode(
         {"query": query, "display": display, "start": start, "sort": "date"})
     try:
-        d = json.loads(fetch(url, {"X-Naver-Client-Id": NAVER_ID,
-                                   "X-Naver-Client-Secret": NAVER_SECRET}))
+        d = json.loads(fetch(url, {"x-ncp-apigw-api-key-id": NAVER_ID,
+                                   "x-ncp-apigw-api-key": NAVER_SECRET}))
     except Exception as e:
         print(f"   ! naver/{channel} '{query}': {e}"); return []
     out=[]
@@ -134,17 +136,31 @@ def youtube(query):
                     "channel": "youtube", "query": query})
     return out
 
+def probe_channels():
+    """API HUB에서 어떤 채널이 열려 있는지 먼저 확인한다."""
+    ok=[]
+    for ch in ("news","blog","cafe"):
+        r=naver(ch,"제주",display=1)
+        if r: ok.append(ch); print(f"   {ch:5s} 사용 가능")
+        else: print(f"   {ch:5s} 응답 없음 — 이후 건너뜀")
+        time.sleep(0.2)
+    return ok
+
 def collect():
     cutoff = (NOW - timedelta(days=DAYS_BACK)).strftime("%Y-%m-%d")
     raw=[]
+    print("■ 채널 점검")
+    CH = probe_channels()
+    if not CH:
+        print("   사용 가능한 네이버 채널이 없습니다. 구글뉴스만으로 진행합니다.")
     print("■ 네이버")
     for q in QUERIES:
-        for ch in ("news","blog","cafe"):
+        for ch in CH:
             r=naver(ch,q); raw+=r
             print(f"   {ch:5s} '{q}': {len(r)}건"); time.sleep(0.15)
     print("■ 뉴스 보강 질의")
     for q in NEWS_EXTRA:
-        r=naver("news",q); raw+=r
+        r=naver("news",q) if "news" in CH else []; raw+=r
         g=google_news(q); raw+=g
         print(f"   news '{q}': 네이버 {len(r)} / 구글 {len(g)}"); time.sleep(0.2)
     print("■ 구글뉴스")
