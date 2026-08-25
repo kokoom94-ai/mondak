@@ -221,6 +221,22 @@ if c:
       "title":cap(c.get("layout","")),"field":vk,"items":its}
     print(f"   {len(its)}건 · 값필드={vk}")
 
+
+# ══ ⑧ 일별 입도객 (18) ══
+print("⑧ 일별 입도객")
+c,dd=first(call(18))
+if c:
+    rows=[]
+    for r in c["data"]:
+        rows.append({"date":r.get("dateVal"),
+          "kor":r.get("visitorKor") or 0,"forgn":r.get("visitorFor") or 0,
+          "total":r.get("Total") or ((r.get("visitorKor") or 0)+(r.get("visitorFor") or 0)),
+          "kor_yoy":num(r.get("visitorKor_yoy")),"forgn_yoy":num(r.get("visitorFor_yoy")),
+          "total_yoy":num(r.get("Total_yoy"))})
+    rows.sort(key=lambda x:str(x["date"]))
+    out["daily"]={"period":f"{dd.get('dataBgnDt')}~{dd.get('dataEndDt')}","items":rows}
+    print(f"   {len(rows)}일치 · 최신 {rows[-1]['date']} 합계 {rows[-1]['total']:,}명")
+
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
 json.dump(out,open(OUT,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
 print("저장:",os.path.relpath(OUT))
