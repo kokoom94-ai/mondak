@@ -1,0 +1,445 @@
+{
+ "meta": {
+  "updated": "2026-08-26 02:04",
+  "period": {
+   "from": "2026-08-20",
+   "to": "2026-08-26"
+  },
+  "prev_period": {
+   "from": "2026-08-13",
+   "to": "2026-08-19"
+  },
+  "engine": "v8-20260825",
+  "source": "네이버 검색 오픈API · Google News RSS",
+  "note": "검색 결과는 전수가 아니므로 건수가 아닌 비중으로 봅니다. 원인 해석은 포함하지 않습니다."
+ },
+ "current": {
+  "total": 1078,
+  "neg": 45.0,
+  "pos": 3.3,
+  "neu": 51.7,
+  "channels": {
+   "news": 820,
+   "blog": 258
+  },
+  "categories": {
+   "요금·바가지": {
+    "n": 54,
+    "neg": 13.0,
+    "share": 5.0
+   },
+   "교통·주차": {
+    "n": 242,
+    "neg": 20.2,
+    "share": 22.4
+   },
+   "환경·청결": {
+    "n": 5,
+    "neg": 40.0,
+    "share": 0.5
+   },
+   "안전·시설": {
+    "n": 6,
+    "neg": 33.3,
+    "share": 0.6
+   },
+   "안전·사건사고": {
+    "n": 565,
+    "neg": 71.0,
+    "share": 52.4
+   },
+   "치안·범죄": {
+    "n": 16,
+    "neg": 43.8,
+    "share": 1.5
+   },
+   "관광지·콘텐츠": {
+    "n": 78,
+    "neg": 2.6,
+    "share": 7.2
+   },
+   "행정·정책": {
+    "n": 77,
+    "neg": 5.2,
+    "share": 7.1
+   }
+  }
+ },
+ "previous": {
+  "total": 162,
+  "neg": 42.0,
+  "pos": 3.1,
+  "neu": 54.9,
+  "channels": {
+   "blog": 41,
+   "news": 121
+  },
+  "categories": {
+   "요금·바가지": {
+    "n": 25,
+    "neg": 8.0,
+    "share": 15.4
+   },
+   "서비스·불친절": {
+    "n": 1,
+    "neg": 100.0,
+    "share": 0.6
+   },
+   "교통·주차": {
+    "n": 42,
+    "neg": 16.7,
+    "share": 25.9
+   },
+   "환경·청결": {
+    "n": 1,
+    "neg": 100.0,
+    "share": 0.6
+   },
+   "안전·시설": {
+    "n": 1,
+    "neg": 100.0,
+    "share": 0.6
+   },
+   "안전·사건사고": {
+    "n": 33,
+    "neg": 81.8,
+    "share": 20.4
+   },
+   "관광지·콘텐츠": {
+    "n": 18,
+    "neg": 16.7,
+    "share": 11.1
+   },
+   "행정·정책": {
+    "n": 16,
+    "neg": 12.5,
+    "share": 9.9
+   }
+  }
+ },
+ "delta": {
+  "neg": 3.0,
+  "pos": 0.2
+ },
+ "rank": [
+  {
+   "name": "안전·사건사고",
+   "n": 565,
+   "share": 52.4,
+   "neg": 71.0,
+   "prev_neg": 81.8,
+   "delta": -10.8,
+   "top": [
+    {
+     "title": "[데일리안 오늘뉴스 종합] 장미란씨 시신 발견...실종 허위종결 경찰, 형...",
+     "link": "https://www.dailian.co.kr/news/view/1682323/?sc=Naver",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "안전·사건사고"
+    },
+    {
+     "title": "[김종석의 리포트]‘실종 허위 종결’ 경찰 구속…‘교통사고 사망’으...",
+     "link": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000546977",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "안전·사건사고"
+    },
+    {
+     "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확...",
+     "link": "https://news.tf.co.kr/read/national/2357872.htm",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "안전·사건사고"
+    }
+   ]
+  },
+  {
+   "name": "교통·주차",
+   "n": 242,
+   "share": 22.4,
+   "neg": 20.2,
+   "prev_neg": 16.7,
+   "delta": 3.5,
+   "top": [
+    {
+     "title": "'비싸거나 없거나' 제주도민 항공기 이동권 개선 주목",
+     "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321433",
+     "channel": "news",
+     "date": "2026-08-20",
+     "category": "교통·주차"
+    },
+    {
+     "title": "한라산에서 생명구한 제주여고생…관광미담 주인공 6명",
+     "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321502",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "교통·주차"
+    },
+    {
+     "title": "백록담까지 함께 걷고, 바다엔 뛰어들었다… 관광객이 기억한 ‘제주의...",
+     "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64738?feed=na",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "교통·주차"
+    }
+   ]
+  },
+  {
+   "name": "관광지·콘텐츠",
+   "n": 78,
+   "share": 7.2,
+   "neg": 2.6,
+   "prev_neg": 16.7,
+   "delta": -14.1,
+   "top": [
+    {
+     "title": "한라산 독채서 수영·캠핑까지…'웰니스 휴양지' 기린빌라리조트 가보니...",
+     "link": "https://www.newsway.co.kr/news/view?ud=2026082113201180178",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "관광지·콘텐츠"
+    },
+    {
+     "title": "\"할 수 있다는 자신감 얻었어요\"…학교 밖 청소년, AI로 제주의 미래 그...",
+     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3672051",
+     "channel": "news",
+     "date": "2026-08-23",
+     "category": "관광지·콘텐츠"
+    }
+   ]
+  },
+  {
+   "name": "행정·정책",
+   "n": 77,
+   "share": 7.1,
+   "neg": 5.2,
+   "prev_neg": 12.5,
+   "delta": -7.3,
+   "top": [
+    {
+     "title": "한라산 몰래 입산族, 열화상 드론으로 단속",
+     "link": "https://www.donga.com/news/Society/article/all/20260819/134506541/2",
+     "channel": "news",
+     "date": "2026-08-20",
+     "category": "행정·정책"
+    },
+    {
+     "title": "김봉현 제주도의회 예결위원장 \"예산 주인은 도민\"",
+     "link": "https://www.nocutnews.co.kr/news/6565292?utm_source=naver&utm_medium=article&utm_campaign=20260820103741",
+     "channel": "news",
+     "date": "2026-08-20",
+     "category": "행정·정책"
+    },
+    {
+     "title": "이상봉 제주시장 후보 '적합'…공용차량·의회 독립성은 '우려'",
+     "link": "https://www.newsjeju.net/news/articleView.html?idxno=424881",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "행정·정책"
+    }
+   ]
+  },
+  {
+   "name": "요금·바가지",
+   "n": 54,
+   "share": 5.0,
+   "neg": 13.0,
+   "prev_neg": 8.0,
+   "delta": 5.0,
+   "top": [
+    {
+     "title": "민선 9기 첫 서귀포시장에 김희찬 낙점…대변인 부남철",
+     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3673708",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "요금·바가지"
+    },
+    {
+     "title": "서귀포시장 김희찬...중앙협력본부장 강철준.대변인 부남철",
+     "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597914",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "요금·바가지"
+    },
+    {
+     "title": "18,900원 참숯 무한리필 제주도민 맛집 제주도 고깃집 화로집",
+     "link": "https://blog.naver.com/love386600/224384740287",
+     "channel": "blog",
+     "date": "2026-08-20",
+     "category": "요금·바가지"
+    }
+   ]
+  },
+  {
+   "name": "치안·범죄",
+   "n": 16,
+   "share": 1.5,
+   "neg": 43.8,
+   "prev_neg": null,
+   "delta": null,
+   "top": [
+    {
+     "title": "제주서 전처 흉기 살해한 전직 경찰관, 긴급체포 - 시사저널",
+     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1SWE02R1FMLTZEMjZRUG9CMy1wMzA3ME5HN19vb3RkS0FZQmJtZ0FkOXBnbmlXdDgtaTJBdDVjdXdBbHVjMDk2UkRSUnJydVJLQWk0c1dUTk1lUHdub1ltcHV2R3gwbjJ4R0hac2JLZ9IBc0FVX3lxTE4tdWZkOVlOOVFnR0o2VEVFN2lsZTFfMU56ejBiaXMzTVYxUkpmUVhxaDhaLW9FbkliY3FaUkl4NUJJeTJ5T1BzeDM3VkQydGNaeDEwUm82b3RfR0l4N0dWZXF6S3FicUhMdHNVN2EyXzRtVFE?oc=5",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "치안·범죄"
+    },
+    {
+     "title": "[일상 파고든 변종 마약 ② 막히면 우회로 찾는 밀수조직]국경서 차단한...",
+     "link": "https://www.naeil.com/news/read/599598?ref=naver",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "치안·범죄"
+    },
+    {
+     "title": "전직 경찰이 아내 살해‥도주했다 긴급체포",
+     "link": "https://jejumbc.com/NewsArticle/858593",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "치안·범죄"
+    }
+   ]
+  },
+  {
+   "name": "안전·시설",
+   "n": 6,
+   "share": 0.6,
+   "neg": 33.3,
+   "prev_neg": 100.0,
+   "delta": -66.7,
+   "top": [
+    {
+     "title": "대한적십자사 제주지사 '건강한 노후, 안전한 노후' 진행",
+     "link": "https://www.newsjeju.net/news/articleView.html?idxno=425001",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "안전·시설"
+    },
+    {
+     "title": "제주시 노후·취약 시설물 안전관리 강화…사각지대 발굴 - 제민일보",
+     "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9xVy1jTFlSTTJlZllYN08taTRKRjBQSk0xdVEzWXZ2aVEtbmJodU5WenhnMFcxQ0NyS1k3VzR4cUZ4cUtoR044TDNqaFNJcnBwaC05aE9COUlpNGlZYVB3bnpDbS13LVE?oc=5",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "안전·시설"
+    }
+   ]
+  },
+  {
+   "name": "환경·청결",
+   "n": 5,
+   "share": 0.5,
+   "neg": 40.0,
+   "prev_neg": 100.0,
+   "delta": -60.0,
+   "top": [
+    {
+     "title": "식약처, 위생 취약시설 219곳 점검…7곳 식품위생법 위반 적발",
+     "link": "https://medicalworldnews.co.kr/news/view.php?idx=1510976812",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "환경·청결"
+    },
+    {
+     "title": "\"지난 음식 또 쓰려고?\" … 위생 취약시설 7곳 적발",
+     "link": "https://www.safetimes.co.kr/news/articleView.html?idxno=245153",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "환경·청결"
+    }
+   ]
+  }
+ ],
+ "reasons": [
+  {
+   "word": "실종",
+   "n": 282
+  },
+  {
+   "word": "구속",
+   "n": 77
+  },
+  {
+   "word": "수사",
+   "n": 59
+  },
+  {
+   "word": "사망",
+   "n": 37
+  },
+  {
+   "word": "불편",
+   "n": 35
+  },
+  {
+   "word": "화재",
+   "n": 33
+  },
+  {
+   "word": "살해",
+   "n": 14
+  },
+  {
+   "word": "사기",
+   "n": 14
+  }
+ ],
+ "top_negative": [
+  {
+   "title": "[데일리안 오늘뉴스 종합] 장미란씨 시신 발견...실종 허위종결 경찰, 형...",
+   "link": "https://www.dailian.co.kr/news/view/1682323/?sc=Naver",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "[김종석의 리포트]‘실종 허위 종결’ 경찰 구속…‘교통사고 사망’으...",
+   "link": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000546977",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확...",
+   "link": "https://news.tf.co.kr/read/national/2357872.htm",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확대 - 더팩트",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55MEI1Z0U0SEJIU0J2c1JLRTZlRWNneXZITjY0aHdld1U1WGJMWTF4RkZTUTNlWllFeXlBbTNDWEk5dTBkQ2V3MjZIR3VMR25rNm5PVlV6VmN6ZjTSAVZBVV95cUxQbmRwR3pjMkVBQWgycmRaeC1id2F3Zk0yX2F0SmdTMWk0SkQxNFEzQTl1SFU5bER3ZVRGTndXaEdMYmh1Q2JkYm41eW1aVHBBR1VUMzJlQQ?oc=5",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "제주서 실종자 잇따라 숨진 채 발견 - ppss.kr",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBMZnEzZVZwLVlKcWJvMC1kUlZyWm90Y2NmQWo5SFhTb1BwQmtwMlFOMEVkVHppWDNFTzJNNFlzS1hRWmRvc0RmRmtVMFUzZmowbkZPMGlpeU1OQ1BCOXh0aFJ2bVA?oc=5",
+   "channel": "news",
+   "date": "2026-08-24",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "“장미란씨, 경장이 살해했다” “중국인이 그랬다”…실종사건 추측글...",
+   "link": "https://www.mk.co.kr/article/12136112",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "\"제주 무서워서 가겠나\"…실종자 잇단 사망에 일파만파 번지는 '괴담'",
+   "link": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202608250519&t=NN",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  },
+  {
+   "title": "제주서 실종자 사망 잇따라…'7년 제주살이' 홍혜걸도 경고 [ST이슈]",
+   "link": "http://www.stoo.com/article.php?aid=108507716592",
+   "channel": "news",
+   "date": "2026-08-25",
+   "category": "안전·사건사고"
+  }
+ ]
+}
