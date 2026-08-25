@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-제주관광 빅데이터 — 읍면동 방문객 수집 (regSn=21)
+제주관광 빅데이터 수집 — 읍면동(21) · 카드매출(35) · 시간대(39)
 출처: 제주관광 빅데이터 서비스 플랫폼 (제주관광공사)
+※ 계산만 하고 원인 해석은 하지 않습니다.
 """
 import json, ssl, re, os, time, urllib.request
 
@@ -18,76 +19,109 @@ OUT=os.path.join(HERE,"..","data","tourism.json")
 def call(sn, idx=0):
     b=json.dumps({"regSn":str(sn),"chartIndex":idx,
                   "searchDataBgnDt":"","searchDataEndDt":""}).encode()
-    with urllib.request.urlopen(
-        urllib.request.Request(URL,data=b,method="POST",headers=H),
-        timeout=20,context=CTX) as r:
-        return json.loads(r.read().decode("utf-8","replace"))
+    for a in (1,2):
+        try:
+            with urllib.request.urlopen(
+                urllib.request.Request(URL,data=b,method="POST",headers=H),
+                timeout=15,context=CTX) as r:
+                return json.loads(r.read().decode("utf-8","replace"))
+        except Exception as e:
+            if a==2: print(f"  ! regSn={sn} 실패: {e}"); return None
+            time.sleep(1.5)
 
 def cap(l):
-    m=re.search(r'text=\s*"([^"]+)"', l or ""); return m.group(1) if m else ""
+    m=re.search(r'text=\s*"([^"]+)"', l or "")
+    return re.sub(r'\s+',' ',m.group(1)).strip() if m else ""
 
-def first_data(d):
-    for c in (d.get("data") or {}).get("charts") or []:
-        if c and c.get("data"): return c
-    return None
+def first(d):
+    if not d: return None,None
+    dd=d.get("data") or {}
+    for c in dd.get("charts") or []:
+        if c and c.get("data"): return c,dd
+    return None,dd
+
+def num(v): return v if isinstance(v,(int,float)) else None
 
 out={"meta":{"updated":time.strftime("%Y-%m-%d"),
      "source":"제주관광 빅데이터 서비스 플랫폼 (제주관광공사)",
-     "disclaimer":"공개 통계를 정리한 참고자료이며 원인 해석은 포함하지 않습니다."}}
+     "disclaimer":"공개 통계를 계산해 정리한 참고자료입니다. 원인 해석은 포함하지 않습니다."}}
 
-# ── 읍면동 방문객 (regSn=21)
-print("읍면동 방문객 수집…")
-d=call(21); c=first_data(d)
-if not c: print("  데이터 없음"); raise SystemExit(1)
-dd=d.get("data") or {}
-rows=c["data"]
-items=[]
-for r in rows:
-    nm=(r.get("groupVal") or "").strip()
-    if not nm: continue
-    items.append({
-      "name":nm,
-      "native":r.get("nativeVal") or 0,
-      "native_yoy":r.get("nativeVal_yoy"),
-      "native_mom":r.get("nativeVal_mom"),
-      "foreign":r.get("foreignVal") or 0,
-      "foreign_yoy":r.get("foreignVal_yoy"),
-      "foreign_mom":r.get("foreignVal_mom"),
-      "native_share":r.get("nativeVal_share"),
-      "foreign_share":r.get("foreignVal_share"),
-    })
-items.sort(key=lambda x:-x["native"])
-for i,x in enumerate(items,1): x["rank"]=i
+# ══ ① 읍면동 방문객 (21) ══
+print("① 읍면동 방문객")
+c,dd=first(call(21))
+if c:
+    items=[]
+    for r in c["data"]:
+        nm=(r.get("groupVal") or "").strip()
+        if not nm: continue
+        n,f=r.get("nativeVal") or 0, r.get("foreignVal") or 0
+        items.append({"name":nm,"native":n,"foreign":f,
+          "native_yoy":num(r.get("nativeVal_yoy")),"native_mom":num(r.get("nativeVal_mom")),
+          "foreign_yoy":num(r.get("foreignVal_yoy")),"foreign_mom":num(r.get("foreignVal_mom")),
+          "foreign_ratio":round(f/(n+f)*100,2) if (n+f) else 0})
+    items.sort(key=lambda x:-x["native"])
+    for i,x in enumerate(items,1): x["rank"]=i
+    alerts=[]
+    for x in items:
+        ny,fy=x["native_yoy"],x["foreign_yoy"]; t=[]
+        if ny is not None and fy is not None:
+            if ny<0 and fy>0: t.append("엇갈림·내국인↓외국인↑")
+            elif ny>0 and fy<0: t.append("엇갈림·내국인↑외국인↓")
+        if ny is not None and abs(ny)>=20: t.append(("급증" if ny>0 else "급감")+"·내국인")
+        if fy is not None and abs(fy)>=30: t.append(("급증" if fy>0 else "급감")+"·외국인")
+        x["flags"]=t
+        if t: alerts.append({"name":x["name"],"tags":t,
+          "native_yoy":ny,"native_mom":x["native_mom"],
+          "foreign_yoy":fy,"foreign_mom":x["foreign_mom"]})
+    avg=round(sum(x["foreign_ratio"] for x in items)/len(items),2)
+    intl=sorted([x for x in items if x["foreign_ratio"]>=avg*2],key=lambda z:-z["foreign_ratio"])[:5]
+    out["emd"]={"month":dd.get("dataBgnDt"),"count":len(items),"avg_foreign_ratio":avg,
+      "items":items,"alerts":alerts[:12],
+      "intl_spots":[{"name":x["name"],"ratio":x["foreign_ratio"],
+                     "foreign":x["foreign"],"native":x["native"]} for x in intl]}
+    print(f"   {len(items)}곳 · 판정 {len(alerts)}건")
 
-# ── 자동 판정 (계산만, 원인 없음)
-def f(v): return v if isinstance(v,(int,float)) else None
-flags=[]
-for x in items:
-    ny,fy=f(x["native_yoy"]),f(x["foreign_yoy"])
-    tags=[]
-    if ny is not None and fy is not None:
-        if ny<0 and fy>0: tags.append("엇갈림·내국인↓외국인↑")
-        elif ny>0 and fy<0: tags.append("엇갈림·내국인↑외국인↓")
-    if ny is not None and abs(ny)>=20: tags.append(("급증" if ny>0 else "급감")+"·내국인")
-    if fy is not None and abs(fy)>=30: tags.append(("급증" if fy>0 else "급감")+"·외국인")
-    # 외국인 비중이 평균보다 뚜렷이 높은 곳
-    tot=x["native"]+x["foreign"]
-    x["foreign_ratio"]=round(x["foreign"]/tot*100,2) if tot else 0
-    x["flags"]=tags
-    if tags: flags.append({"name":x["name"],"tags":tags,"native_yoy":ny,"foreign_yoy":fy})
+# ══ ② 카드매출 관광객vs도민 (35) ══
+print("② 카드매출 관광객vs도민")
+c,dd=first(call(35))
+if c:
+    KT,KD="내국인 관광객","도민"
+    rows=[]
+    for r in c["data"]:
+        t,d=r.get(KT) or 0, r.get(KD) or 0
+        rows.append({"date":r.get("dateVal"),"tourist":t,"local":d,
+          "tourist_share":num(r.get(KT+"_share")),"local_share":num(r.get(KD+"_share")),
+          "tourist_yoy":num(r.get(KT+"_yoy")),"local_yoy":num(r.get(KD+"_yoy"))})
+    rows.sort(key=lambda x:x["date"])
+    fst,lst=rows[0],rows[-1]
+    out["card"]={"period":f"{fst['date']}~{lst['date']}","latest":lst["date"],
+      "items":rows,
+      "trend":{"share_first":fst["tourist_share"],"share_last":lst["tourist_share"],
+               "share_delta":round((lst["tourist_share"] or 0)-(fst["tourist_share"] or 0),1)}}
+    print(f"   {len(rows)}개월 · 관광객비중 {fst['tourist_share']}%→{lst['tourist_share']}%")
 
-avg_fr=round(sum(x["foreign_ratio"] for x in items)/len(items),2)
-intl=sorted([x for x in items if x["foreign_ratio"]>=avg_fr*2],
-            key=lambda z:-z["foreign_ratio"])[:5]
-
-out["emd"]={"month":dd.get("dataBgnDt"),"title":cap(c.get("layout","")),
-  "count":len(items),"avg_foreign_ratio":avg_fr,
-  "items":items,
-  "alerts":flags[:12],
-  "intl_spots":[{"name":x["name"],"ratio":x["foreign_ratio"],
-                 "foreign":x["foreign"],"native":x["native"]} for x in intl]}
+# ══ ③ 시간대별 (39) ══
+print("③ 시간대별 소비 패턴")
+c,dd=first(call(39))
+if c:
+    KT,KD="내국인 관광객","도민"
+    hrs=[]
+    for r in c["data"]:
+        g=r.get("groupVal")
+        hrs.append({"hour":int(g) if str(g).isdigit() else g,
+          "tourist":r.get(KT) or 0,"local":r.get(KD) or 0,
+          "tourist_share":num(r.get(KT+"_share"))})
+    hrs.sort(key=lambda x:x["hour"] if isinstance(x["hour"],int) else 99)
+    valid=[x for x in hrs if isinstance(x["tourist_share"],(int,float))]
+    hi=max(valid,key=lambda x:x["tourist_share"]) if valid else None
+    lo=min(valid,key=lambda x:x["tourist_share"]) if valid else None
+    tmax=max(hrs,key=lambda x:x["tourist"]); lmax=max(hrs,key=lambda x:x["local"])
+    out["hourly"]={"month":dd.get("dataBgnDt"),"items":hrs,
+      "peak_tourist":tmax["hour"],"peak_local":lmax["hour"],
+      "share_high":{"hour":hi["hour"],"share":hi["tourist_share"]} if hi else None,
+      "share_low":{"hour":lo["hour"],"share":lo["tourist_share"]} if lo else None}
+    print(f"   24시간 · 관광객피크 {tmax['hour']}시 / 도민피크 {lmax['hour']}시")
 
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
 json.dump(out,open(OUT,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
-print(f"  {len(items)}개 읍면동 | 판정 {len(flags)}건 | 외국인비중 평균 {avg_fr}%")
 print("저장:",os.path.relpath(OUT))
