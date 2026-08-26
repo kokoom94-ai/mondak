@@ -491,6 +491,42 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .portalbanner.bizbn{border-color:#0E7C7B;background:linear-gradient(135deg,#0E7C7B 0%,#12908E 60%,#4FD8C4 170%)}
 
 
+
+/* ===== 관광AX인사이트 ===== */
+.axc{display:block;background:var(--card);border:1px solid var(--line);border-radius:13px;
+  padding:12px 13px;margin-bottom:7px;text-decoration:none;color:inherit}
+.axc:hover{border-color:#C9C2F0}
+.axc-h{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-bottom:6px}
+.axc-o{font-size:10.5px;font-weight:800;color:#4A3FC0;background:#F0EEFC;
+  border:1px solid #D8D3F5;border-radius:20px;padding:2px 8px}
+.axc-o.me{color:#0B7A62;background:#E6F7F2;border-color:#B4E5D8}
+.axc-p{font-size:10.5px;font-weight:700;color:var(--navy);background:var(--bg);
+  border:1px solid var(--line);border-radius:20px;padding:2px 8px}
+.axc-s{font-size:10.5px;font-weight:700;color:var(--sub)}
+.axc-m{font-size:10.5px;font-weight:800;color:#B0455F;background:#FDECEF;
+  border:1px solid #F8C9D3;border-radius:20px;padding:2px 8px}
+.axc-d{margin-left:auto;font-size:11px;color:var(--sub)}
+.axc-t{font-size:13.5px;font-weight:700;color:var(--navy);line-height:1.5;word-break:keep-all}
+.axc-x{margin-top:5px;font-size:12px;color:var(--sub);line-height:1.6;word-break:keep-all}
+.axc-src{margin-top:5px;font-size:10.5px;color:var(--sub)}
+.axchips{display:flex;flex-wrap:wrap;gap:6px}
+.axchip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  color:var(--navy);background:var(--card);border:1px solid var(--line);
+  border-radius:20px;padding:6px 11px;cursor:pointer}
+.axchip em{font-style:normal;font-size:11px;font-weight:800;color:var(--sub)}
+.axchip.on{color:#fff;background:#5B4DE8;border-color:#5B4DE8}
+.axchip.on em{color:#E6E2FB}
+.axfl{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--sub);margin-bottom:9px}
+.axfl em{font-style:normal;font-weight:800;color:#4A3FC0;background:#F0EEFC;
+  border:1px solid #D8D3F5;border-radius:20px;padding:2px 9px}
+.axfl button{margin-left:auto;font-size:11px;color:var(--sub);background:none;
+  border:1px solid var(--line);border-radius:20px;padding:3px 10px;cursor:pointer}
+.axbars{display:flex;align-items:flex-end;gap:5px;height:118px;padding-top:6px}
+.axbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.axbar i{display:block;width:100%;max-width:26px;background:#8E85EC;border-radius:5px 5px 0 0}
+.axbar span{margin-top:5px;font-size:9.5px;color:var(--sub);white-space:nowrap}
+.axbar b{font-size:10px;color:var(--navy)}
+
 /* ===== 이슈체크 ===== */
 .isdisc{display:inline-block;font-size:10.5px;font-weight:600;color:#B0455F;background:#FDECEF;
   border:1px solid #F8C9D3;border-radius:20px;padding:3px 9px;margin-left:7px;vertical-align:middle;
@@ -1785,6 +1821,7 @@ body{padding-bottom:78px}
     <button class="mitem" data-v="gwan-jeju">지금제주 <span class="mx">관광 데이터 · 17년 추이</span></button>
     <button class="mitem" data-v="gwan-plan">여행플래너 <span class="mx">어디레 감수광 · 일자별 동선 설계</span></button>
     <button class="mitem" data-v="gwan-issue">이슈체크 <span class="mx">관광 여론지수 · 주간 모니터링</span></button>
+    <button class="mitem" data-v="gwan-ax">관광AX인사이트 <span class="mx">기관별 AI 전환 동향 · 벤치마킹</span></button>
     <button class="mitem soon" data-v="gwan-hero">축하햄수다 <span class="mx">미담 제주인</span></button>
 
     <div class="msep"></div>
@@ -1807,6 +1844,9 @@ body{padding-bottom:78px}
   </div>
   <!-- 이슈체크 : 관광 여론지수 -->
   <div id="gwanissue" hidden><div id="isbody"></div></div>
+
+  <!-- 관광AX인사이트 : 기관별 AI 전환 동향 -->
+  <div id="gwanax" hidden><div id="axbody"></div></div>
 
   <!-- 지금제주 : 관광 데이터 -->
   <div id="gwanjeju" hidden><div id="tjbody"></div></div>
@@ -2271,12 +2311,13 @@ const BOARD={
  seog:"https://seogwipo.go.kr/info/news/law/law.htm",
  eup:"https://www.jejusi.go.kr/information/intro/notice.do",
  council:"https://www.council.jeju.kr"};
-const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','orgs','explore','orbit','biseo','gwan-jeju','gwan-plan','gwan-issue','gwan-hero'];
+const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','orgs','explore','orbit','biseo','gwan-jeju','gwan-plan','gwan-issue','gwan-ax','gwan-hero'];
 // 관광보부상 하위 탭 메타 (준비중 화면 공유)
 const GWAN={
   'gwan-jeju':{t:'지금제주',d:'',ic:'📊'},
   'gwan-plan':{t:'여행플래너',d:'어디레 감수광 — 숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계합니다',ic:'🗺️'},
   'gwan-issue':{t:'이슈체크',d:'제주 관광 관련 이슈와 평판을 살펴봅니다',ic:'📡'},
+  'gwan-ax':{t:'관광AX인사이트',d:'기관별 관광 인공지능 전환 동향을 모아 봅니다',ic:'🤖'},
   'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'}
 };
 let selIdx=null, supWho=null, newsSec='전체';
@@ -3690,13 +3731,168 @@ function renderGwan(v){
   gd.textContent=g.d||'';
   const gsub=gd.closest('.viewsub'); if(gsub) gsub.hidden=!g.d;
   // 여행플래너 · 지금제주는 전용 화면, 나머지는 준비 중
-  const isPlan = (v==='gwan-plan'), isTJ = (v==='gwan-jeju'), isIS = (v==='gwan-issue');
+  const isPlan = (v==='gwan-plan'), isTJ = (v==='gwan-jeju'),
+        isIS = (v==='gwan-issue'), isAX = (v==='gwan-ax');
   const soon=document.getElementById('gwansoon'), plan=document.getElementById('gwanplan'),
-        tj=document.getElementById('gwanjeju'), is=document.getElementById('gwanissue');
-  if(soon) soon.hidden = isPlan || isTJ || isIS;
+        tj=document.getElementById('gwanjeju'), is=document.getElementById('gwanissue'),
+        ax=document.getElementById('gwanax');
+  if(soon) soon.hidden = isPlan || isTJ || isIS || isAX;
   if(plan){ plan.hidden=!isPlan; if(isPlan) loadPlan(); }
   if(tj){ tj.hidden=!isTJ; if(isTJ) loadTJ(); }
   if(is){ is.hidden=!isIS; if(isIS) loadIS(); }
+  if(ax){ ax.hidden=!isAX; if(isAX) loadAX(); }
+}
+
+/* ══════════ 관광AX인사이트 ══════════
+   기관별 관광 인공지능 전환(AX) 동향. 수집·판정은 저장소 데이터로만 하고,
+   화면에서는 원문·발행일·출처를 반드시 함께 보여준다.               */
+const AX_SRC='data/ax.json';
+let AXDATA=null, axLoading=false, axTab='news', axOrg='', axTopic='';
+
+function loadAX(){
+  if(AXDATA||axLoading) { renderAX(); return; }
+  axLoading=true; renderAX();
+  fetch(AX_SRC,{cache:'no-store'})
+    .then(r=>r.ok?r.json():Promise.reject(r.status))
+    .then(j=>{ AXDATA=j; })
+    .catch(()=>{ AXDATA={__err:1}; })
+    .finally(()=>{ axLoading=false; renderAX(); });
+}
+
+function axCard(x){
+  const org=x.org||x.org_hint||'', tp=x.topic||'', st=x.stage||'';
+  return '<a class="axc" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
+    '<div class="axc-h">'+
+      (org?'<span class="axc-o'+(x.org_tag==='우리'?' me':'')+'">'+orgEsc(org)+'</span>':'')+
+      (tp?'<span class="axc-p">'+orgEsc(tp)+'</span>':'')+
+      (st?'<span class="axc-s">'+orgEsc(st)+'</span>':'')+
+      (x.milestone?'<span class="axc-m">이정표</span>':'')+
+      '<span class="axc-d">'+orgEsc(x.date||'')+'</span>'+
+    '</div>'+
+    '<div class="axc-t">'+orgEsc(x.title||'')+'</div>'+
+    (x.summary?'<div class="axc-x">'+orgEsc(x.summary)+'</div>':
+      (x.description?'<div class="axc-x">'+orgEsc(String(x.description).slice(0,110))+'</div>':''))+
+    (x.source?'<div class="axc-src">출처 '+orgEsc(x.source)+'</div>':'')+
+  '</a>';
+}
+
+function renderAX(){
+  const b=document.getElementById('axbody'); if(!b) return;
+  if(axLoading && !AXDATA){ b.innerHTML='<div class="isload">관광 AX 동향을 불러오는 중…</div>'; return; }
+  if(!AXDATA || AXDATA.__err){
+    b.innerHTML='<div class="isload">아직 수집된 관광 AX 자료가 없습니다.<br>'+
+      '<span style="font-size:11.5px;color:var(--sub)">수집이 한 차례 돌면 이 화면이 채워집니다.</span></div>';
+    return;
+  }
+  const M=AXDATA.meta||{}, IT=(AXDATA.items||[]).filter(x=>x.title);
+  const orgs={}, tops={}, months={};
+  IT.forEach(x=>{
+    const o=x.org||x.org_hint; if(o) orgs[o]=(orgs[o]||0)+1;
+    if(x.topic) tops[x.topic]=(tops[x.topic]||0)+1;
+    const m=(x.date||'').slice(0,7); if(m) months[m]=(months[m]||0)+1;
+  });
+  let L=IT;
+  if(axOrg)   L=L.filter(x=>(x.org||x.org_hint)===axOrg);
+  if(axTopic) L=L.filter(x=>x.topic===axTopic);
+
+  let h='';
+  h+='<div class="isbar-f"><div class="isbf-l">'+
+     '<span class="isbf-d">🗂 '+orgEsc(M.stage||'')+' · 누적 '+IT.length.toLocaleString()+'건</span>'+
+     '<div class="istabs2" id="axtabs">'+
+       '<button data-t="news"'+(axTab==='news'?' class="on"':'')+'>동향</button>'+
+       '<button data-t="org"'+(axTab==='org'?' class="on"':'')+'>기관</button>'+
+       '<button data-t="mile"'+(axTab==='mile'?' class="on"':'')+'>이정표</button>'+
+       '<button data-t="guide"'+(axTab==='guide'?' class="on"':'')+'>안내</button>'+
+     '</div></div>'+
+     (M.updated?'<div class="isbf-u">갱신 '+orgEsc(M.updated)+'</div>':'')+
+     '</div>';
+
+  if(axTab==='news'){
+    if(axOrg||axTopic){
+      h+='<div class="axfl">필터 '+
+         (axOrg?'<em>'+orgEsc(axOrg)+'</em>':'')+
+         (axTopic?'<em>'+orgEsc(axTopic)+'</em>':'')+
+         '<button id="axclr">해제</button></div>';
+    }
+    h+='<div class="tjsec"><h3>🤖 관광 AX 동향</h3>'+
+       '<div class="tjsub">공식 채널의 보도자료를 모았습니다 · 제목을 누르면 원문으로 이동합니다</div>';
+    h+= L.length? L.slice(0,80).map(axCard).join('')
+       : '<div class="isempty">해당 조건의 자료가 없습니다.</div>';
+    h+='</div>';
+  }
+
+  if(axTab==='org'){
+    const oe=Object.entries(orgs).sort((a,b)=>b[1]-a[1]);
+    const te=Object.entries(tops).sort((a,b)=>b[1]-a[1]);
+    h+='<div class="tjsec"><h3>🏛 기관별 <span class="isdisc">자체 수집·분류이므로 일부 누락이 있을 수 있습니다.</span></h3>'+
+       '<div class="tjsub">보도자료 수 순 · 누르면 해당 기관 자료만 봅니다</div><div class="axchips">';
+    oe.forEach(([k,v])=>{ h+='<button class="axchip'+(axOrg===k?' on':'')+'" data-org="'+orgEsc(k)+'">'+
+        orgEsc(k)+'<em>'+v+'</em></button>'; });
+    h+='</div></div>';
+    h+='<div class="tjsec"><h3>🧩 주제별</h3>'+
+       '<div class="tjsub">수집된 자료에서 도출한 AX 세부주제</div><div class="axchips">';
+    te.forEach(([k,v])=>{ h+='<button class="axchip'+(axTopic===k?' on':'')+'" data-topic="'+orgEsc(k)+'">'+
+        orgEsc(k)+'<em>'+v+'</em></button>'; });
+    h+='</div></div>';
+    const me=Object.entries(months).sort();
+    if(me.length){
+      const mx=Math.max(...me.map(x=>x[1]))||1;
+      h+='<div class="tjsec"><h3>📈 월별 추이</h3><div class="axbars">';
+      me.slice(-12).forEach(([m,v])=>{
+        h+='<div class="axbar"><i style="height:'+Math.max(6,Math.round(v/mx*100))+'%"></i>'+
+           '<span>'+orgEsc(m.slice(2))+'</span><b>'+v+'</b></div>';
+      });
+      h+='</div></div>';
+    }
+  }
+
+  if(axTab==='mile'){
+    const ms=IT.filter(x=>x.milestone).sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+    h+='<div class="tjsec"><h3>🚩 주요 이정표</h3>'+
+       '<div class="tjsub">최초 도입·대규모 사업·제도 신설 등으로 판정된 건입니다</div>';
+    h+= ms.length? ms.map(axCard).join('') : '<div class="isempty">아직 이정표로 판정된 자료가 없습니다.</div>';
+    h+='</div>';
+  }
+
+  if(axTab==='guide'){
+    h+='<div class="tjsec"><h3>ℹ️ 수집·판정 기준</h3>'+
+      '<div class="ishow open"><div class="ishow-c"><div class="isflow">'+
+      '<div class="isf"><span class="isf-n">1</span><b>수집</b><p>정책브리핑(korea.kr)과 각 기관 공식 채널의 보도자료를 모읍니다. '+
+      '공식 도메인(<b>go.kr · or.kr · re.kr</b>)으로 한정합니다.</p></div>'+
+      '<div class="isf-a">→</div>'+
+      '<div class="isf"><span class="isf-n">2</span><b>선별</b><p>제목에 <b>인공지능·AI·AX·디지털 전환</b> 등이 있으면 1순위로 담고, '+
+      '제목에 없어도 인공지능 전환과 밀접하면 담습니다. 관광 맥락이 없으면 뺍니다.</p></div>'+
+      '<div class="isf-a">→</div>'+
+      '<div class="isf"><span class="isf-n">3</span><b>분류</b><p><b>기관</b>과 <b>주제</b>를 매기고, '+
+      '발표·추진·운영·성과 중 어느 단계인지 표시합니다. 애매하면 비워 둡니다.</p></div>'+
+      '<div class="isf-a">→</div>'+
+      '<div class="isf"><span class="isf-n">4</span><b>정리</b><p>기관별·주제별로 모아 보고, '+
+      '이정표가 될 만한 건은 따로 표시합니다.</p></div>'+
+      '</div><div class="ishow-n">'+
+      '· 모든 항목은 <b>원문 링크·발행일·출처</b>를 함께 표기합니다.<br>'+
+      '· 보도자료에서 확인되는 내용만 적으며, 확인되지 않는 것은 만들어 내지 않습니다.<br>'+
+      '· 본문 전체는 복제하지 않습니다. 자세한 내용은 원문에서 확인해 주세요.<br>'+
+      '· 자체 수집·분류이므로 일부 누락이나 오분류가 있을 수 있습니다.'+
+      '</div></div></div>';
+    h+='<div class="tjnote">참고 — 이 화면은 정부기관 AX 동향을 정리한 '+
+       '<a href="https://gov-ax.vercel.app/" target="_blank" rel="noopener">Gov.AX Insight</a>의 구성을 참고했습니다.</div>';
+  }
+
+  b.innerHTML=h;
+
+  const tb=document.getElementById('axtabs');
+  if(tb) tb.addEventListener('click',e=>{
+    const t=e.target.closest('button'); if(!t)return;
+    axTab=t.dataset.t; renderAX();
+  });
+  b.querySelectorAll('[data-org]').forEach(el=>el.addEventListener('click',()=>{
+    axOrg = (axOrg===el.dataset.org)?'':el.dataset.org; axTab='news'; renderAX();
+  }));
+  b.querySelectorAll('[data-topic]').forEach(el=>el.addEventListener('click',()=>{
+    axTopic = (axTopic===el.dataset.topic)?'':el.dataset.topic; axTab='news'; renderAX();
+  }));
+  const clr=document.getElementById('axclr');
+  if(clr) clr.addEventListener('click',()=>{ axOrg=''; axTopic=''; renderAX(); });
 }
 const PLAN_URL='https://jeju-gamsugwang.vercel.app/';
 function loadPlan(){
