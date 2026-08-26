@@ -34,7 +34,8 @@ CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE
 
-DAYS_BACK = 30    # 한 번에 새로 받아올 범위
+DAYS_BACK = 365   # 한 번에 받아올 범위. AX는 흐름을 보므로 넓게 잡는다
+                  # (30일로 두었더니 첫 수집에서 1,277건 중 70%가 기간 밖으로 탈락했다)
 KEEP_DAYS = 730   # 누적 보관 — AX는 흐름을 봐야 하므로 길게 둔다
 
 # ── 기관 ────────────────────────────────────────────────
@@ -117,21 +118,44 @@ def google_news(query):
                     break
                 except Exception:
                     ts = None
-        src = clean((re.search(r"<source[^>]*>(.*?)</source>", b, re.S) or [None, ""])[1])
+        # link 는 news.google.com 리다이렉트 주소라 발행처를 알 수 없다.
+        # RSS 의 <source url="https://www.mcst.go.kr">문화체육관광부</source> 를 쓴다.
+        sm = re.search(r'<source([^>]*)>(.*?)</source>', b, re.S)
+        src = clean(sm.group(2)) if sm else ""
+        surl = ""
+        if sm:
+            um = re.search(r'url="([^"]+)"', sm.group(1))
+            if um: surl = um.group(1)
+        sdom = ""
+        if surl:
+            try: sdom = urllib.parse.urlparse(surl).netloc.lower()
+            except Exception: sdom = ""
         out.append({"title": clean(g("title")),
                     "description": clean(g("description"))[:300],
                     "link": clean(g("link")),
                     "date": ts.astimezone(KST).strftime("%Y-%m-%d") if ts else None,
-                    "source": src, "query": query})
+                    "source": src, "source_url": surl, "source_domain": sdom,
+                    "query": query})
     return out
 
 
-def is_official(link):
-    try:
-        host = urllib.parse.urlparse(link).netloc.lower()
-    except Exception:
-        return False
-    return any(host.endswith(s) or s in host for s in OFFICIAL_SUFFIX)
+def is_official(x):
+    """
+    구글 뉴스 RSS 의 link 는 news.google.com 리다이렉트라 발행처를 담지 않는다.
+    (첫 수집에서 날짜를 통과한 376건이 전부 여기서 탈락했다)
+    발행처 도메인을 우선 보고, 없으면 site: 질의로 받아온 것인지로 판단한다.
+    """
+    dom = (x.get("source_domain") or "").lower()
+    if dom:
+        return any(dom.endswith(sfx) or sfx in dom for sfx in OFFICIAL_SUFFIX)
+    q = x.get("query") or ""
+    if q.startswith("site:"):          # 질의 자체가 공식 도메인 한정이었다
+        return True
+    link = x.get("link") or ""
+    try: host = urllib.parse.urlparse(link).netloc.lower()
+    except Exception: return False
+    if "news.google.com" in host: return False
+    return any(host.endswith(sfx) or sfx in host for sfx in OFFICIAL_SUFFIX)
 
 
 def ax_score(title, body=""):
@@ -172,11 +196,17 @@ MINISTRY = [("문화체육관광부","부처"),("문체부","부처"),("과학�
             ("과기정통부","부처"),("행정안전부","부처"),("행안부","부처"),
             ("국토교통부","부처"),("중소벤처기업부","부처"),("해양수산부","부처")]
 
-def guess_org(link, title, body=""):
+def guess_org(x, title, body=""):
     """기관 추정. 최종 확정은 LLM이 한다. 못 찾으면 None을 두고 넘긴다."""
-    host = ""
-    try: host = urllib.parse.urlparse(link).netloc.lower()
-    except Exception: pass
+    host = (x.get("source_domain") or "").lower()
+    if not host:
+        try: host = urllib.parse.urlparse(x.get("link") or "").netloc.lower()
+        except Exception: host = ""
+        if "news.google.com" in host: host = ""
+    if not host:
+        q = x.get("query") or ""                 # site:mcst.go.kr (...) 형태
+        m = re.match(r"site:([^\s)]+)", q)
+        if m: host = m.group(1).lower()
     t = f"{title} {body}"
     shared = any(h in host for h in SHARED_HOST)
     if not shared:
@@ -233,10 +263,12 @@ def main():
         seen.add(link)
         if x.get("date") and x["date"] < cut:
             drop("기간 밖"); continue
+        if not x.get("date"):
+            x["date"] = NOW.strftime("%Y-%m-%d")   # 날짜 불명은 수집일로 둔다
         title = x.get("title") or ""
         body  = x.get("description") or ""
 
-        if not USE_MEDIA and not is_official(link):
+        if not USE_MEDIA and not is_official(x):
             drop("공식 채널 아님"); continue
         score, hits = ax_score(title, body)
         if score == 0:
@@ -244,12 +276,12 @@ def main():
         if not is_tourism(title, body):
             drop("관광 맥락 없음"); continue
 
-        org, tag = guess_org(link, title, body)
+        org, tag = guess_org(x, title, body)
         kept.append({**x,
                      "org": org, "org_tag": tag,
                      "ax_rank": "제목" if score == 2 else "밀접",
                      "ax_hits": hits,
-                     "official": is_official(link)})
+                     "official": is_official(x)})
 
     # ── 누적 병합 (이슈체크와 같은 방식)
     prev = []
