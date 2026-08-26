@@ -99,15 +99,17 @@ def main():
 
     # 카테고리 순위 — 건수 기준, 부정비중 함께
     rank=[]
-    for c,v in sorted(C["categories"].items(), key=lambda x:-x[1]["n"]):
+    negcnt={c:sum(1 for x in cur if x.get("category")==c and x["sentiment"]=="부정")
+            for c in C["categories"]}
+    for c,v in sorted(C["categories"].items(), key=lambda x:(-negcnt.get(x[0],0), -x[1]["n"])):
         pv=(P or {}).get("categories",{}).get(c)
         sub=[x for x in cur if x.get("category")==c]
         nc=Counter(x.get("nature") or "불만·후기" for x in sub)
-        rank.append({"name":c,"n":v["n"],"share":v["share"],"neg":v["neg"],
+        rank.append({"name":c,"n":v["n"],"neg_n":negcnt.get(c,0),"share":v["share"],"neg":v["neg"],
                      "prev_neg":pv["neg"] if pv else None,
                      "delta":round(v["neg"]-pv["neg"],1) if pv else None,
                      "natures":{k:nc.get(k,0) for k in NATS if nc.get(k)},
-                     "top":top_titles(cur,c,6)})
+                     "top":top_titles(cur,c,12)})
 
     # ── 월간 집계 (전월 대비는 데이터가 두 달 쌓여야 산출됨)
     bym=defaultdict(list)
@@ -144,6 +146,9 @@ def main():
       "monthly":monthly,
       "rank":rank,
       "daily":[{"date":k,"total":len(v),
+                "neg_n":sum(1 for x in v if x["sentiment"]=="부정"),
+                "neu_n":sum(1 for x in v if x["sentiment"]=="중립"),
+                "pos_n":sum(1 for x in v if x["sentiment"]=="긍정"),
                 "neg":round(sum(1 for x in v if x["sentiment"]=="부정")/len(v)*100,1),
                 "pos":round(sum(1 for x in v if x["sentiment"]=="긍정")/len(v)*100,1)}
                for k,v in sorted(
@@ -151,8 +156,9 @@ def main():
                     for dd in sorted({x["date"] for x in cur}))
                ) if v],
       "reasons":top_reasons(cur),
-      "top_negative":top_titles(cur,None,10),
-      "top_positive":top_titles(cur,None,6,"긍정")}
+      "top_negative":top_titles(cur,None,24),
+      "top_positive":top_titles(cur,None,12,"긍정"),
+      "all_recent":top_titles(cur,None,30,None)}
 
     json.dump(out,open(OUT,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
 
