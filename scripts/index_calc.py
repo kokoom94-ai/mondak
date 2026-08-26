@@ -109,6 +109,29 @@ def cluster_incidents(items):
     out.sort(key=lambda x:(-x["n"],-x["media"]))
     return out
 
+def collapse_events(items):
+    """
+    같은 사건의 중복 보도를 1건으로 축약한다.
+    한 사건이 43개 매체에 실리면 지수에서는 73건이 되어 분야 신호를 덮는다.
+    (실측: 축약 전 치안·안전 71% → 축약 후 24%. 교통 28%, 비용 24%가 비로소 보인다)
+    사건의 실제 파급력은 건수가 아니라 risk 트랙의 '매체 수'로 따로 표시한다.
+    """
+    seen=set(); out=[]
+    for x in sorted(items, key=lambda y: y.get("date") or ""):
+        if x.get("channel")=="news":
+            t=x.get("title") or ""
+            lab=None
+            for w,l in INCIDENT_KEY:
+                if w in t: lab=l; break
+            if lab:
+                dt=dparse(x.get("date") or "")
+                wk=dt.isocalendar()[1] if dt else 0
+                key=(lab,wk)
+                if key in seen: continue      # 같은 주, 같은 사건 → 첫 보도만
+                seen.add(key)
+        out.append(x)
+    return out
+
 def stats(items):
     n=len(items)
     if not n: return None
@@ -169,7 +192,8 @@ def main():
 
     cv_neg=[x for x in cv if x["sentiment"]=="부정"]
     pv_neg=[x for x in pv if x["sentiment"]=="부정"]
-    mix=mix_by_field(cv_neg); pmix={m["name"]:m["share"] for m in mix_by_field(pv_neg)}
+    mix=mix_by_field(collapse_events(cv_neg))
+    pmix={m["name"]:m["share"] for m in mix_by_field(collapse_events(pv_neg))}
     for m in mix:
         m["prev"]=pmix.get(m["name"])
         m["delta"]=round(m["share"]-m["prev"],1) if m["prev"] is not None else None
@@ -189,10 +213,19 @@ def main():
 
     info={"total":len(ci)}
 
+    # ── 최근 30일 창 — 주간은 그 주의 사건에 휘둘리므로 넓은 창을 함께 낸다
+    m30=bucket(items,base,0,30)
+    m30_neg=collapse_events([x for x in m30 if x["sentiment"]=="부정"])
+    window30={"total":len(m30),"neg_n":len(m30_neg),
+              "from":(base-timedelta(days=29)).strftime("%Y-%m-%d"),
+              "to":base.strftime("%Y-%m-%d"),
+              "mix":mix_by_field(m30_neg),
+              "clusters":cluster_incidents([x for x in m30 if _trk(x)=="risk"])[:8]}
+
     # ── 기존 화면 호환용 (전체 기준 순위)
     rank=[]
-    negcnt={c:sum(1 for x in cur if x.get("category")==c and x["sentiment"]=="부정")
-            for c in C["categories"]}
+    cur_neg_c=collapse_events([x for x in cur if x["sentiment"]=="부정"])
+    negcnt={c:sum(1 for x in cur_neg_c if x.get("category")==c) for c in C["categories"]}
     for c,v in sorted(C["categories"].items(), key=lambda x:(-negcnt.get(x[0],0),-x[1]["n"])):
         pvv=(P or {}).get("categories",{}).get(c)
         sub=[x for x in cur if x.get("category")==c]
@@ -210,7 +243,9 @@ def main():
         if dt: bym[dt.strftime("%Y-%m")].append(x)
     mstats=[]
     for ym in sorted(bym):
-        st=stats(bym[ym])
+        # 월간도 사건 축약 기준. 그래야 9월에 8월과 비교할 때
+        # 한 사건의 중복 보도량이 그 달 전체를 지배하지 않는다.
+        st=stats(collapse_events(bym[ym]))
         if st: mstats.append({"month":ym,"total":st["total"],"neg":st["neg"],
                               "neu":st["neu"],"pos":st["pos"]})
     cur_m=mstats[-1] if mstats else None
@@ -229,7 +264,7 @@ def main():
          "engine":d["meta"].get("engine"),"source":d["meta"].get("source"),
          "note":"불만 구성비는 '모인 불만' 안에서의 비율입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.",
          "disclaimer":"자체 수집·분류한 참고자료이며 일부 오류가 있을 수 있습니다."},
-      "voice":voice,"risk":risk,"info":info,
+      "voice":voice,"risk":risk,"info":info,"window30":window30,
       "current":C,"previous":P,
       "delta":{"neg":round(C["neg"]-P["neg"],1) if P else None,
                "pos":round(C["pos"]-P["pos"],1) if P else None} if P else None,
@@ -269,6 +304,9 @@ def main():
     for c in risk["clusters"][:4]:
         print(f"     {c['label']:10s} {c['n']:3d}건 · 매체 {c['media']} · {c['spread']}")
     print(f"  행정소식 {info['total']}건 (지수 제외)")
+    print(f"  최근 30일 창 · 전체 {window30['total']}건 · 축약 불만 {window30['neg_n']}건")
+    for m in window30["mix"][:5]:
+        print(f"     {m['name']:10s} {m['share']:5.1f}%  ({m['n']}건)")
     print("저장:", os.path.relpath(OUT))
 
 if __name__=="__main__": main()
