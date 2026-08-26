@@ -15,12 +15,15 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: 여론 수집·분류
+
+      # ① 수집 — 규칙 엔진은 여기까지(1차 선별·중복제거). 누적 병합됨.
+      - name: 여론 수집
         env:
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
@@ -29,15 +32,30 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
         run: python scripts/collect_issue.py
+
+      # ② LLM 판정 — 최종 분류. 배치 API(단가 50%) + 프롬프트 캐싱.
+      #    키가 없거나 실패해도 규칙 판정으로 화면은 돌아간다.
+      - name: LLM 판정
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LLM_MODEL: claude-haiku-4-5-20251001
+          LLM_BATCH: '20'
+          LLM_MAX_NEW: '2000'
+          LLM_WAIT_SEC: '900'
+        continue-on-error: true
+        run: python scripts/llm_classify.py
+
+      # ③ 지수 산출
       - name: 여론지수 산출
         run: python scripts/index_calc.py
+
       - name: 변경사항 커밋
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/issue.json data/issue_index.json data/issue_history.json
+          git add -A data/
           git diff --staged --quiet && echo "변경 없음" && exit 0
-          git commit -m "여론 수집 $(date +'%Y-%m-%d %H:%M')"
+          git commit -m "여론 수집·판정·지수 $(date +'%Y-%m-%d %H:%M')"
           for i in 1 2 3; do
             git pull --rebase --autostash origin main && git push origin main && exit 0
             echo "재시도 $i"; sleep 5
