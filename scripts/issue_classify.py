@@ -16,7 +16,7 @@ import re
 from issue_geo import (ADMIN, EMD, SPOT, EMD_BASE, AMBIG_EMD, TOURISM, TOUR_PLACE,
                  DAILY_PLACE, ENTERTAIN, AD, OTHER_REGIONS, geo_hit, geo_reason)
 
-ENGINE_VERSION = "v11-20260826"
+ENGINE_VERSION = "v13-20260826"
 
 # ══════════ 부정어 — 정규식 + 가중치 ══════════
 # 한국어는 짧은 어휘가 다른 낱말의 조각으로 걸린다.
@@ -49,15 +49,31 @@ NEG_RX = [
 ]
 # ══════════ 긍정어 ══════════
 POS_RX = [
- (r"최고(였|다|임|의)|강추|인생\s?(맛집|샷|여행)", 3, "최고"),
- (r"또\s?(가고|오고)\s?싶|재방문|다시\s?(가고|오고)\s?싶", 3, "재방문 의사"),
- (r"만족(했|스럽|이|함)|훌륭(했|하)|좋았(다|어|고|음)", 2, "만족"),
- (r"친절(했|하|함|해)", 2, "친절"),
- (r"깨끗(했|하|함)|청결(했|하)", 2, "청결"),
- (r"가성비\s?(좋|괜찮|훌륭)", 2, "가성비"),
- (r"추천(합니|해요|드립|한다)", 2, "추천"),
- (r"맛있(었|다|고|어)|예뻤|멋졌|편했", 1, "만족"),
+ (r"최고(였|다|임|의|의\s)|강추|인생\s?(맛집|샷|여행|뷰|코스)", 3, "최고"),
+ (r"또\s?(가고|오고|먹고)\s?싶|재방문|다시\s?(가고|오고|찾)", 3, "재방문 의사"),
+ (r"만족(했|스럽|이|함|도)|훌륭(했|하|한)|좋았(다|어|고|음|던)", 2, "만족"),
+ (r"친절(했|하|함|해|한)", 2, "친절"),
+ (r"깨끗(했|하|함|한)|청결(했|하|한)", 2, "청결"),
+ (r"가성비(\s?좋|\s?괜찮|\s?훌륭|\s?갑|템)", 2, "가성비"),
+ (r"추천(합니|해요|드립|한다|드려|해드|템|코스|맛집|여행)", 2, "추천"),
+ (r"맛집|맛있(었|다|고|어|는)|존맛|꿀맛", 2, "맛있음"),
+ (r"예뻤|예쁜|이쁜|멋졌|멋진|아름다(웠|운)|경치\s?좋", 2, "경관 만족"),
+ (r"편했|편하(고|게|다)|편리|쾌적|여유(롭|있)", 1, "편안함"),
+ (r"완벽|대만족|감동|힐링|행복(했|하)", 2, "만족"),
+ (r"(솔직|내돈내산)\s?(후기|리뷰)", 1, "후기"),
+ (r"성공|알차(게|다)|즐거(웠|운)|재밌(었|다)|볼만", 1, "만족"),
 ]
+# 관광 타격 신호 — 사건은 아니지만 제목에 있으면 명백한 부정
+IMPACT_RX = [
+ (r"논란", 2, "논란"), (r"불안", 2, "불안"), (r"이중고|삼중고", 3, "이중고"),
+ (r"침체|위축|급감|추락|반토막", 3, "침체"),
+ (r"이탈|등\s?돌|외면|발길\s?끊", 3, "이탈"),
+ (r"우려|비상|경고|빨간불", 2, "우려"),
+ (r"악재|타격|직격탄|먹구름", 3, "악재"),
+ (r"불매|보이콧|취소\s?(움직임|잇따)", 3, "불매"),
+ (r"긴장|비상등", 1, "긴장"),
+]
+
 # 사건 심각도 — 사건어는 그 자체로 부정 신호 (제목에 있을 때만)
 INCIDENT_WEIGHT = {
  "사망":4,"숨져":4,"숨진":4,"실종":4,"익사":4,"성폭행":4,"살해":4,
@@ -171,9 +187,21 @@ def _norm(t):
     return t
 
 # ══════════ 1단계 — 관련성 ══════════
+# 제주를 '비교 대상'으로만 언급하는 타지역 기사를 걸러낸다
+EXCLUDE_RX = [r"제주\s?(가|말고|아닌|아님|대신|제외)", r"\[제주\s?아닌", r"제주\s?빼고"]
+OTHER_MAIN = ["울릉","독도","거제","통영","여수","부산","강릉","속초","양양","경주","전주",
+              "남해","완도","진도","흑산","백령","가평","춘천","포항","목포","군산","태안"]
+
 def gate_relevance(title, body="", channel=""):
     full = f"{title} {body}"
     t = full.lower()
+    # 「제주 아닌」「제주 말고」 — 제주 글이 아니라고 본인이 밝힌 경우
+    if any(re.search(p, title) for p in EXCLUDE_RX):
+        return False, "제주 제외 명시"
+    # 제목의 주어가 다른 지역이고 제주는 제목에 없다 → 그 지역 기사다
+    if not any(w in title for w in ("제주","서귀포")):
+        if any(w in title for w in OTHER_MAIN):
+            return False, "타지역 기사"
     if not geo_hit(full):
         return False, "제주 지역 신호 없음"
     if sum(1 for r in OTHER_REGIONS if r in title) >= 2:
@@ -200,12 +228,28 @@ def gate_relevance(title, body="", channel=""):
 MEDIA_MENTION = [r"방송에\s?나온", r"방송\s?출연\s?맛집", r"tv에\s?나온", r"티비에\s?나온",
                  r"유튜브에\s?나온", r"백종원", r"맛집으로\s?소개", r"소개된\s?맛집"]
 PERSONNEL = ["임용","임명","취임","승진","인사","전보","내정","위촉","선임","해임","사임 처리",
-             "감사패","표창","수상자","위원 위촉","이사장 공모","사장 공모"]
+             "감사패","표창","수상자","위원 위촉","이사장 공모","사장 공모",
+             "지명","낙점","발탁","신임","기용","유임","보직","인선","조직개편"]
+# 「서귀포시장 김희찬」「제주 서귀포시장에 김희찬 전 관광교류국장」처럼
+# 직위만 나열하는 인사 기사 제목을 잡는다.
+PERSONNEL_RX = [
+ r"(시장|지사|국장|본부장|대변인|사장|원장|청장|위원장|이사장|팀장|과장)에\s",
+ r"(시장|지사|국장|본부장|대변인|사장|원장|청장|위원장|이사장)\s?[가-힣]{2,4}\s?[.·…]",
+ r"전\s?(관광국장|관광교류국장|기획조정실장|세계유산본부장)",
+ r"민선\s?\d+기\s?첫",
+]
+
+# 행정이 '대응·점검'한 기사는 불만 신호가 아니라 소식이다
+GOV_RESPONSE_RX = [r"(안전|화재|위생|합동|일제|불시)\s?(점검|조사|단속)", r"전면\s?점검",
+                   r"대책\s?(마련|추진|발표)", r"안전망\s?점검", r"실태\s?(점검|조사)",
+                   r"개선\s?(방안|대책|추진)", r"근절\s?(대책|나서)", r"특별\s?(점검|단속)"]
 
 def gate_type(title, body="", channel=""):
     t = f"{title} {body}".lower()
     ttl = title.lower()
     if any(w in ttl for w in PERSONNEL): return "인사"
+    if any(re.search(p, title) for p in PERSONNEL_RX): return "인사"
+    if any(re.search(p, title) for p in GOV_RESPONSE_RX): return "행정"
     if any(re.search(p, t) for p in MEDIA_MENTION):
         pass
     elif any(w in t for w in ENTERTAIN): return "연예"
@@ -224,17 +268,46 @@ def _score(t, table):
             total += wt; hits.append(label)
     return total, hits
 
-def gate_sentiment(title, body="", typ=""):
-    t = _norm(f"{title} {body}")
+# 「~은 옛말」「논란 없이」처럼 부정을 뒤집는 표현
+FLIP_RX = [r"은\s?옛말", r"는\s?옛말", r"옛말이", r"이제는\s?아니", r"오해였", r"사실이\s?아니"]
+
+# 제목에 있을 때만 부정으로 인정하는 약한 신호.
+# 본문에서 걸리면 "웨이팅 팁", "예약팁", "아쉬웠지만 좋았다" 같은 평범한 후기가 부정이 된다.
+WEAK_NEG = {"대기","아쉬움","별로","기대 이하","불편","비쌈","노후","바가지"}
+
+def gate_sentiment(title, body="", typ="", channel=""):
+    """
+    뉴스는 제목만으로 감성을 판정한다.
+    본문에는 「과거에 바가지요금 논란이 있었을 때 대응했다」 같은 이력 서술이 흔한데,
+    단어만 보면 그게 곧 현재의 불만으로 집계된다(실측: 인사 기사 4건이 비용·상거래 부정).
+    블로그·카페·스레드는 본문이 곧 후기 내용이므로 본문을 함께 본다.
+    """
+    scope = title if channel == "news" else f"{title} {body}"
+    t = _norm(scope)
+    if any(re.search(p, title) for p in FLIP_RX):
+        return "중립", 0, 0, []
     neg, reasons = _score(t, NEG_RX)
-    pos, _       = _score(t, POS_RX)
+    pos, pos_hits = _score(t, POS_RX)
+    # 약한 부정어가 제목 밖에서 걸렸으면 무효로 돌린다
+    if reasons:
+        tt = _norm(title)
+        drop = []
+        for rx, wt, label in NEG_RX:
+            if label in reasons and label in WEAK_NEG and not re.search(rx, tt):
+                neg -= wt; drop.append(label)
+        reasons = [r for r in reasons if r not in drop]
     if typ == "사건":
         tt = _norm(title)
         for w, wt in INCIDENT_WEIGHT.items():
             if w in tt: neg += wt; reasons.append(w)
+    # 관광 타격 신호는 제목에서만 본다 (채널 무관)
+    tt2 = _norm(title)
+    for rx, wt, label in IMPACT_RX:
+        if re.search(rx, tt2):
+            neg += wt; reasons.append(label)
     if neg >= 3 and neg > pos:  return "부정", neg, pos, list(dict.fromkeys(reasons))[:6]
     if neg >= 1 and neg > pos:  return "부정약", neg, pos, list(dict.fromkeys(reasons))[:6]
-    if pos >= 3 and pos > neg:  return "긍정", neg, pos, []
+    if pos >= 2 and pos >= neg: return "긍정", neg, pos, []
     return "중립", neg, pos, []
 
 # ══════════ 분야 — 우선권 방식 ══════════
@@ -246,6 +319,9 @@ def categorize(title, body="", negative=False):
     """
     ttl = (title or "").lower(); bdy = (body or "").lower()
     if negative:
+        # 제목에 사건어가 있으면 그 글의 주제는 사건이다.
+        # (v11은 우선권 순서 탓에 실종 기사가 본문의 '숙소'에 걸려 숙박으로 갔다)
+        if any(w in ttl for w in INCIDENT): return "치안·안전"
         for name, ws in FIELD:
             if any(w in ttl for w in ws): return name
         for name, ws in FIELD:
@@ -293,7 +369,7 @@ def judge(item):
     typ = gate_type(title, body, ch)
     if typ in ("광고", "연예", "인사"):
         return {"keep": False, "stage": "유형", "why": typ}
-    sent, neg, pos, why = gate_sentiment(title, body, typ)
+    sent, neg, pos, why = gate_sentiment(title, body, typ, ch)
     is_neg = sent.startswith("부정")
     cat = categorize(title, body, negative=is_neg)
     if cat is None and sent == "중립":
