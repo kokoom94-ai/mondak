@@ -493,6 +493,9 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 
 /* ===== 관광AX인사이트 ===== */
+.axintro{background:#F0EEFC;border:1px solid #D8D3F5;border-radius:13px;padding:12px 14px;
+  margin-bottom:11px;font-size:12.5px;line-height:1.7;color:#4A3FC0;word-break:keep-all}
+.axintro b{color:#3A2FA8}
 .axc{display:block;background:var(--card);border:1px solid var(--line);border-radius:13px;
   padding:12px 13px;margin-bottom:7px;text-decoration:none;color:inherit}
 .axc:hover{border-color:#C9C2F0}
@@ -503,6 +506,15 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .axc-p{font-size:10.5px;font-weight:700;color:var(--navy);background:var(--bg);
   border:1px solid var(--line);border-radius:20px;padding:2px 8px}
 .axc-s{font-size:10.5px;font-weight:700;color:var(--sub)}
+.axc-tr{font-size:10.5px;font-weight:800;color:#0B7A62;background:#E6F7F2;
+  border:1px solid #B4E5D8;border-radius:20px;padding:2px 8px}
+.axtoggle{margin-bottom:9px}
+.axtoggle button{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+  color:var(--navy);background:var(--card);border:1px solid var(--line);
+  border-radius:20px;padding:7px 13px;cursor:pointer}
+.axtoggle button em{font-style:normal;font-size:11px;font-weight:800;color:var(--sub)}
+.axtoggle button.on{color:#fff;background:#0E9E7E;border-color:#0E9E7E}
+.axtoggle button.on em{color:#D6F2EA}
 .axc-m{font-size:10.5px;font-weight:800;color:#B0455F;background:#FDECEF;
   border:1px solid #F8C9D3;border-radius:20px;padding:2px 8px}
 .axc-d{margin-left:auto;font-size:11px;color:var(--sub)}
@@ -528,6 +540,19 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .axbar b{font-size:10px;color:var(--navy)}
 
 /* ===== 이슈체크 ===== */
+.isvb{display:flex;align-items:flex-end;gap:6px;height:150px;padding:6px 2px 0;margin-bottom:11px;
+  overflow-x:auto}
+.isvb-c{flex:1 1 0;min-width:44px;display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-end;height:100%;cursor:pointer}
+.isvb-c b{font-size:11.5px;font-weight:800;color:var(--navy);margin-bottom:3px}
+.isvb-b{width:100%;max-width:34px;flex:1 1 auto;display:flex;align-items:flex-end}
+.isvb-b i{display:block;width:100%;background:#EF4B6C;border-radius:5px 5px 0 0;
+  transition:.15s;min-height:4px}
+.isvb-c:hover .isvb-b i{background:#D93A59}
+.isvb-c.on .isvb-b i{background:#B02A46}
+.isvb-c span{margin-top:6px;font-size:9.5px;color:var(--sub);text-align:center;
+  line-height:1.25;word-break:keep-all;max-width:52px}
+.isvb-c.on span{color:var(--navy);font-weight:700}
 .isdisc{display:inline-block;font-size:10.5px;font-weight:600;color:#B0455F;background:#FDECEF;
   border:1px solid #F8C9D3;border-radius:20px;padding:3px 9px;margin-left:7px;vertical-align:middle;
   line-height:1.5;word-break:keep-all}
@@ -2544,12 +2569,15 @@ function isFilter(list){ return (list||[]).filter(x=>isCh[x.channel]!==false); }
 function renderIS(){
   const D=ISDATA, b=document.getElementById('isbody'); if(!b) return;
   if(!D){ b.innerHTML='<div class="isload">아직 수집된 여론 데이터가 없습니다.</div>'; return; }
-  const M=D.meta||{}, C=D.current||{}, DL=D.delta, MO=D.monthly||{};
-  const neg=C.neg||0, neu=C.neu||0, pos=C.pos||0;
+  const M=D.meta||{}, DL=D.delta, MO=D.monthly||{};
   let h='';
 
   const W30=D.window30||null;
   const is30=(isTab==='30d'&&W30);
+  /* 통계는 보고 있는 창의 것을 쓴다. 30일 탭도 같은 화면을 그대로 사용한다. */
+  const C  = (is30 && W30.stats) ? W30.stats : (D.current||{});
+  const DY = is30 ? (W30.daily||[]) : (D.daily||[]);
+  const neg=C.neg||0, neu=C.neu||0, pos=C.pos||0;
   /* 기간 표기는 지금 보고 있는 창을 따른다 */
   const pFrom = is30 ? (W30.from||'') : (M.period?M.period.from:'');
   const pTo   = is30 ? (W30.to||'')   : (M.period?M.period.to:'');
@@ -2594,21 +2622,20 @@ function renderIS(){
   }
   h+='</div>';
 
-  if(isTab==='week'){
-    /* ── 지수 (주간 전용) ── */
+  if(isTab==='week'||is30){
+    /* ── 지수 · 추이 · 성격 — 30일과 주간이 함께 쓴다 ── */
     h+='<div class="tjsec"><h3>📡 긍·부정 비율</h3>'+
        '<div class="ishero2"><div class="ish-d">'+isDonut(neg,neu,pos)+'</div><div class="ish-s">'+
        '<div class="ishr neg"><span class="k"></span><b>부정</b><i>'+neg+'%</i>'+
-         (DL&&typeof DL.neg==='number'?'<em class="'+(DL.neg>0?'up':'dn')+'">'+isPct(DL.neg)+'</em>':'')+'</div>'+
+         ((!is30&&DL&&typeof DL.neg==='number')?'<em class="'+(DL.neg>0?'up':'dn')+'">'+isPct(DL.neg)+'</em>':'')+'</div>'+
        '<div class="ishr neu"><span class="k"></span><b>중립</b><i>'+neu+'%</i></div>'+
        '<div class="ishr pos"><span class="k"></span><b>긍정</b><i>'+pos+'%</i>'+
-         (DL&&typeof DL.pos==='number'?'<em class="'+(DL.pos>0?'dn':'up')+'">'+isPct(DL.pos)+'</em>':'')+'</div>'+
-       '<div class="ish-t">최근 7일 '+Number(C.total||0).toLocaleString()+'건'+
-         (D.previous?' · 전주 '+Number(D.previous.total).toLocaleString()+'건':'')+'</div>'+
+         ((!is30&&DL&&typeof DL.pos==='number')?'<em class="'+(DL.pos>0?'dn':'up')+'">'+isPct(DL.pos)+'</em>':'')+'</div>'+
+       '<div class="ish-t">'+(is30?'최근 30일 ':'최근 7일 ')+Number(C.total||0).toLocaleString()+'건'+
+         ((!is30&&D.previous)?' · 전주 '+Number(D.previous.total).toLocaleString()+'건':'')+'</div>'+
        '</div></div></div>';
 
     /* ── 일별 추이 (누적 막대 + 부정 선) ── */
-    const DY=D.daily||[];
     if(DY.length>1){
       const mx=Math.max.apply(null,DY.map(x=>x.total))||1, W=100/DY.length;
       let pts=DY.map((x,i)=>((i+0.5)*W)+','+(100-x.neg)).join(' ');
@@ -2672,7 +2699,19 @@ function renderIS(){
   if(R.length){
     const mx=Math.max.apply(null,R.map(r=>r.neg_n||0))||1;
     h+='<div class="tjsec"><h3>📊 분야별 부정 여론 <span class="isdisc">자체 분석이므로 일부 오류가 있을 수 있습니다. 참고만 해주시기 바랍니다.</span></h3>'+
-       '<div class="tjsub">부정으로 분류된 글이 많은 순 · 분야를 누르면 원문을 볼 수 있습니다</div><div class="iscards">';
+       '<div class="tjsub">부정으로 분류된 글이 많은 순 · 막대나 카드를 누르면 원문을 볼 수 있습니다</div>';
+    /* 세로 막대 — 분야별 부정 건수를 한눈에 */
+    h+='<div class="isvb">';
+    R.forEach(r=>{
+      const H=Math.max(4,Math.round((r.neg_n||0)/mx*100));
+      h+='<div class="isvb-c'+(isOpenCat===r.name?' on':'')+'" data-cat="'+orgEsc(r.name)+'" '+
+         'title="'+orgEsc(r.name)+' 부정 '+r.neg_n+'건">'+
+         '<b>'+(r.neg_n||0)+'</b>'+
+         '<div class="isvb-b"><i style="height:'+H+'%"></i></div>'+
+         '<span>'+orgEsc(r.name.replace('·','\u00b7'))+'</span></div>';
+    });
+    h+='</div>';
+    h+='<div class="iscards">';
     R.forEach((r,i)=>{
       const lvl=r.neg>=50?'hi':(r.neg>=25?'mid':'lo'), open=(isOpenCat===r.name);
       h+='<div class="iscd '+lvl+(open?' open':'')+'" data-cat="'+orgEsc(r.name)+'">'+
@@ -2682,7 +2721,7 @@ function renderIS(){
          '<span class="pct">'+r.neg+'<em>%</em></span>'+
          (typeof r.delta==='number'?'<span class="dl '+(r.delta>0?'up':'dn')+'">'+isPct(r.delta)+'</span>':'')+
          '<span class="ar">'+(open?'▲':'▼')+'</span></div>'+
-         '<div class="iscd-b"><i style="width:'+Math.max(3,Math.round((r.neg_n||0)/mx*100))+'%"></i></div>';
+         '';
       const NA=r.natures||{}, nt=Object.values(NA).reduce((a,b)=>a+b,0);
       if(nt){
         const NC={'사건사고':'ev','불만·후기':'cm','정보·소식':'nf'};
@@ -3747,15 +3786,15 @@ function renderGwan(v){
    기관별 관광 인공지능 전환(AX) 동향. 수집·판정은 저장소 데이터로만 하고,
    화면에서는 원문·발행일·출처를 반드시 함께 보여준다.               */
 const AX_SRC='data/ax.json';
-let AXDATA=null, axLoading=false, axTab='news', axOrg='', axTopic='';
+let AXDATA=null, axLoading=false, axTab='news', axOrg='', axTopic='', axTourOnly=false;
 
 function loadAX(){
   if(AXDATA||axLoading) { renderAX(); return; }
   axLoading=true; renderAX();
-  fetch(AX_SRC,{cache:'no-store'})
+  fetch(AX_SRC+'?t='+Date.now())
     .then(r=>r.ok?r.json():Promise.reject(r.status))
     .then(j=>{ AXDATA=j; })
-    .catch(()=>{ AXDATA={__err:1}; })
+    .catch(e=>{ console.warn('ax.json 로드 실패', e); AXDATA={__err:1}; })
     .finally(()=>{ axLoading=false; renderAX(); });
 }
 
@@ -3766,6 +3805,7 @@ function axCard(x){
       (org?'<span class="axc-o'+(x.org_tag==='우리'?' me':'')+'">'+orgEsc(org)+'</span>':'')+
       (tp?'<span class="axc-p">'+orgEsc(tp)+'</span>':'')+
       (st?'<span class="axc-s">'+orgEsc(st)+'</span>':'')+
+      (x.tourism?'<span class="axc-tr">관광</span>':'')+
       (x.milestone?'<span class="axc-m">이정표</span>':'')+
       '<span class="axc-d">'+orgEsc(x.date||'')+'</span>'+
     '</div>'+
@@ -3784,7 +3824,13 @@ function renderAX(){
       '<span style="font-size:11.5px;color:var(--sub)">수집이 한 차례 돌면 이 화면이 채워집니다.</span></div>';
     return;
   }
-  const M=AXDATA.meta||{}, IT=(AXDATA.items||[]).filter(x=>x.title);
+  const M=AXDATA.meta||{}, IT=(AXDATA.items||[]).filter(x=>x&&x.title);
+  if(!IT.length){
+    b.innerHTML='<div class="isload">수집된 자료가 없습니다.'+
+      (M.updated?'<br><span style="font-size:11.5px;color:var(--sub)">마지막 수집 '+orgEsc(M.updated)+'</span>':'')+
+      '</div>';
+    return;
+  }
   const orgs={}, tops={}, months={};
   IT.forEach(x=>{
     const o=x.org||x.org_hint; if(o) orgs[o]=(orgs[o]||0)+1;
@@ -3792,10 +3838,13 @@ function renderAX(){
     const m=(x.date||'').slice(0,7); if(m) months[m]=(months[m]||0)+1;
   });
   let L=IT;
-  if(axOrg)   L=L.filter(x=>(x.org||x.org_hint)===axOrg);
-  if(axTopic) L=L.filter(x=>x.topic===axTopic);
+  if(axOrg)     L=L.filter(x=>(x.org||x.org_hint)===axOrg);
+  if(axTopic)   L=L.filter(x=>x.topic===axTopic);
+  if(axTourOnly)L=L.filter(x=>x.tourism);
 
   let h='';
+  h+='<div class="axintro">제주관광AX인사이트는 <b>대한민국 정책브리핑 및 각 정부기관·공공기관 공식 채널</b>을 '+
+     '통해 수집된 자료를 보여주는 코너입니다.</div>';
   h+='<div class="isbar-f"><div class="isbf-l">'+
      '<span class="isbf-d">🗂 '+orgEsc(M.stage||'')+' · 누적 '+IT.length.toLocaleString()+'건</span>'+
      '<div class="istabs2" id="axtabs">'+
@@ -3814,8 +3863,12 @@ function renderAX(){
          (axTopic?'<em>'+orgEsc(axTopic)+'</em>':'')+
          '<button id="axclr">해제</button></div>';
     }
-    h+='<div class="tjsec"><h3>🤖 관광 AX 동향</h3>'+
-       '<div class="tjsub">공식 채널의 보도자료를 모았습니다 · 제목을 누르면 원문으로 이동합니다</div>';
+    const tn=IT.filter(x=>x.tourism).length;
+    h+='<div class="axtoggle"><button id="axtour" class="'+(axTourOnly?'on':'')+'">'+
+       (axTourOnly?'✓ ':'')+'관광 분야만 보기<em>'+tn+'</em></button></div>';
+    h+='<div class="tjsec"><h3>🤖 '+(axTourOnly?'관광 AX 동향':'공공 AX 동향')+'</h3>'+
+       '<div class="tjsub">정부부처·공공기관의 인공지능 전환 추진상황과 타 지역 사례입니다. '+
+       '관광은 기반 사업이라 교통·안전·행정 등 인접 분야 사례도 함께 봅니다 · 제목을 누르면 원문으로 이동합니다</div>';
     h+= L.length? L.slice(0,80).map(axCard).join('')
        : '<div class="isempty">해당 조건의 자료가 없습니다.</div>';
     h+='</div>';
@@ -3825,7 +3878,7 @@ function renderAX(){
     const oe=Object.entries(orgs).sort((a,b)=>b[1]-a[1]);
     const te=Object.entries(tops).sort((a,b)=>b[1]-a[1]);
     h+='<div class="tjsec"><h3>🏛 기관별 <span class="isdisc">자체 수집·분류이므로 일부 누락이 있을 수 있습니다.</span></h3>'+
-       '<div class="tjsub">보도자료 수 순 · 누르면 해당 기관 자료만 봅니다</div><div class="axchips">';
+       '<div class="tjsub">자료 수 순 · 누르면 해당 기관 자료만 봅니다 (제주관광공사는 보는 주체이므로 제외)</div><div class="axchips">';
     oe.forEach(([k,v])=>{ h+='<button class="axchip'+(axOrg===k?' on':'')+'" data-org="'+orgEsc(k)+'">'+
         orgEsc(k)+'<em>'+v+'</em></button>'; });
     h+='</div></div>';
@@ -3857,11 +3910,13 @@ function renderAX(){
   if(axTab==='guide'){
     h+='<div class="tjsec"><h3>ℹ️ 수집·판정 기준</h3>'+
       '<div class="ishow open"><div class="ishow-c"><div class="isflow">'+
-      '<div class="isf"><span class="isf-n">1</span><b>수집</b><p>정책브리핑(korea.kr)과 각 기관 공식 채널의 보도자료를 모읍니다. '+
+      '<div class="isf"><span class="isf-n">1</span><b>수집</b><p>1차로 <b>대한민국 정책브리핑(korea.kr)</b>에서 모으고, '+
+      '각 정부기관·공공기관 공식 채널로 보강합니다. '+
       '공식 도메인(<b>go.kr · or.kr · re.kr</b>)으로 한정합니다.</p></div>'+
       '<div class="isf-a">→</div>'+
-      '<div class="isf"><span class="isf-n">2</span><b>선별</b><p>제목에 <b>인공지능·AI·AX·디지털 전환</b> 등이 있으면 1순위로 담고, '+
-      '제목에 없어도 인공지능 전환과 밀접하면 담습니다. 관광 맥락이 없으면 뺍니다.</p></div>'+
+      '<div class="isf"><span class="isf-n">2</span><b>선별</b><p>제목에 <b>인공지능·AI·AX·디지털 전환</b> 등이 있으면 1순위로 담습니다. '+
+      '관광에 한정하지 않고 <b>공공 AX 전반</b>을 담습니다. 채용·입찰 같은 <b>단순 공고</b>는 뺍니다. '+
+      '제주관광공사·제주도는 보는 주체이므로 수집하지 않습니다.</p></div>'+
       '<div class="isf-a">→</div>'+
       '<div class="isf"><span class="isf-n">3</span><b>분류</b><p><b>기관</b>과 <b>주제</b>를 매기고, '+
       '발표·추진·운영·성과 중 어느 단계인지 표시합니다. 애매하면 비워 둡니다.</p></div>'+
@@ -3891,6 +3946,8 @@ function renderAX(){
   b.querySelectorAll('[data-topic]').forEach(el=>el.addEventListener('click',()=>{
     axTopic = (axTopic===el.dataset.topic)?'':el.dataset.topic; axTab='news'; renderAX();
   }));
+  const tb2=document.getElementById('axtour');
+  if(tb2) tb2.addEventListener('click',()=>{ axTourOnly=!axTourOnly; renderAX(); });
   const clr=document.getElementById('axclr');
   if(clr) clr.addEventListener('click',()=>{ axOrg=''; axTopic=''; renderAX(); });
 }
