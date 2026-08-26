@@ -495,29 +495,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .isdisc{display:inline-block;font-size:10.5px;font-weight:600;color:#B0455F;background:#FDECEF;
   border:1px solid #F8C9D3;border-radius:20px;padding:3px 9px;margin-left:7px;vertical-align:middle;
   line-height:1.5;word-break:keep-all}
-.ismix{display:flex;flex-direction:column;gap:7px}
-.ismx{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 13px}
-.ismx-h{display:flex;align-items:baseline;gap:8px}
-.ismx-h b{font-size:13.5px;color:var(--navy)}
-.ismx-h i{font-style:normal;font-size:19px;font-weight:800;color:#EF4B6C;margin-left:auto}
-.ismx-h em{font-style:normal;font-size:11px;font-weight:700}
-.ismx-h em.up{color:#EF4B6C}.ismx-h em.dn{color:#0E9E7E}
-.ismx-p{font-size:11px;color:var(--sub);margin-top:3px}
-.ismx-b{height:7px;border-radius:5px;background:var(--bg);margin-top:8px;overflow:hidden}
-.ismx-b i{display:block;height:100%;border-radius:5px;background:#EF4B6C}
-.isweak{display:flex;gap:11px;background:#FEF6E7;border:1px solid #F5E0B0;border-radius:13px;padding:13px 14px;margin-bottom:11px}
-.isweak .w-i{font-size:19px;line-height:1}
-.isweak b{display:block;font-size:12.5px;color:#8A6A12;margin-bottom:3px}
-.isweak p{margin:0;font-size:11.5px;color:#8A6A12;line-height:1.65;word-break:keep-all}
-.iscl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 13px;margin-bottom:7px}
-.iscl-h{display:flex;align-items:center;gap:8px}
-.iscl-h b{font-size:13.5px;color:var(--navy)}
-.iscl-h .sp{font-size:10.5px;font-weight:800;border-radius:20px;padding:2px 8px}
-.iscl-h .sp.확산{background:#FDECEF;color:#C2334F}
-.iscl-h .sp.주시{background:#FEF6E7;color:#8A6A12}
-.iscl-h .sp.단발{background:var(--bg);color:var(--sub)}
-.iscl-h .cnt{margin-left:auto;font-size:11.5px;color:var(--sub)}
-.iscl-d{font-size:11px;color:var(--sub);margin-top:5px}
+
 .isload{padding:34px 0;text-align:center;color:var(--sub);font-size:13px}
 .isempty{padding:22px 0;text-align:center;color:var(--sub);font-size:12px}
 .isbar-f{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);
@@ -2574,69 +2552,6 @@ function renderIS(){
   }
   h+='</div>';
 
-  /* ── 불만 구성비 — 정책 신호 ── */
-  /* 30일 창은 사건 축약을 거친 전체 불만, 주간 창은 수요자 글만 본다 */
-  if(is30){
-    const MX=W30.mix||[];
-    h+='<div class="tjsec"><h3>📊 불만은 어느 분야에 몰려 있나 <span class="isdisc">자체 분석이므로 일부 오류가 있을 수 있습니다. 참고만 해주시기 바랍니다.</span></h3>'+
-       '<div class="tjsub">최근 30일 · 같은 사건의 중복 보도는 한 건으로 세어, 사건 하나가 분야 신호를 덮지 않게 했습니다</div>';
-    if(MX.length){
-      h+='<div class="ismix">';
-      MX.forEach(m=>{
-        h+='<div class="ismx"><div class="ismx-h"><b>'+orgEsc(m.name)+'</b>'+
-           '<i>'+m.share+'<span style="font-size:12px">%</span></i></div>'+
-           '<div class="ismx-p">불만 '+m.n+'건 · 보완 소관 — '+orgEsc(m.policy||'')+'</div>'+
-           '<div class="ismx-b"><i style="width:'+Math.max(3,m.share)+'%"></i></div></div>';
-      });
-      h+='</div><div class="tjnote">※ 비율은 「모인 불만」 안에서의 구성비입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.</div>';
-    } else {
-      h+='<div class="isempty">최근 30일 동안 불만으로 분류된 글이 없습니다.</div>';
-    }
-    h+='</div>';
-  }
-
-  /* ── 수요자 목소리 (주간) ── */
-  const V=D.voice;
-  if(V&&!is30){
-    h+='<div class="tjsec"><h3>🗣 관광객 불만은 어디에 몰려 있나 <span class="isdisc">자체 분석이므로 일부 오류가 있을 수 있습니다. 참고만 해주시기 바랍니다.</span></h3>'+
-       '<div class="tjsub">겪은 사람이 직접 쓴 글(블로그·카페·스레드)만 셉니다. 언론 보도는 아래 「이슈 감시」에서 따로 봅니다</div>';
-    if(!V.sample_ok){
-      h+='<div class="isweak"><div class="w-i">⚠️</div><div>'+
-         '<b>표본이 부족해 분야별 판단을 보류합니다</b>'+
-         '<p>최근 7일 수요자 글 '+Number(V.total||0).toLocaleString()+'건 가운데 불만으로 분류된 것은 '+(V.neg_n||0)+'건입니다. '+
-         '블로그·카페는 홍보성 후기가 많아 불만이 잘 드러나지 않습니다. '+
-         '실시간 의견이 모이는 채널(스레드)이 연결되면 이 칸이 채워집니다.</p></div></div>';
-    }
-    const MX=V.mix||[];
-    if(MX.length){
-      h+='<div class="ismix">';
-      MX.forEach(m=>{
-        h+='<div class="ismx"><div class="ismx-h"><b>'+orgEsc(m.name)+'</b>'+
-           (typeof m.delta==='number'?'<em class="'+(m.delta>0?'up':'dn')+'">'+isPct(m.delta)+'</em>':'')+
-           '<i>'+m.share+'<span style="font-size:12px">%</span></i></div>'+
-           '<div class="ismx-p">불만 '+m.n+'건 · 보완 소관 — '+orgEsc(m.policy||'')+'</div>'+
-           '<div class="ismx-b"><i style="width:'+Math.max(3,m.share)+'%"></i></div></div>';
-      });
-      h+='</div><div class="tjnote">※ 비율은 「모인 불만」 안에서의 구성비입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.</div>';
-    }
-    h+='</div>';
-  }
-
-  /* ── 이슈 감시 — 사건 단위 ── */
-  const RK=D.risk;
-  const CLS=(is30?(W30.clusters||[]):((RK&&RK.clusters)||[]));
-  if(CLS.length){
-    h+='<div class="tjsec"><h3>🚨 이슈 감시 <span class="isdisc">같은 사건어로 묶은 근사치이며 동일 사건임을 보장하지 않습니다.</span></h3>'+
-       '<div class="tjsub">'+(is30?'최근 30일':'최근 7일')+' · 하나의 사건이 여러 매체로 번지면 관광 이미지에 타격이 됩니다. 건수가 아니라 매체 수로 확산을 봅니다</div>';
-    CLS.forEach(c=>{
-      h+='<div class="iscl"><div class="iscl-h"><b>'+orgEsc(c.label)+'</b>'+
-         '<span class="sp '+orgEsc(c.spread)+'">'+orgEsc(c.spread)+'</span>'+
-         '<span class="cnt">보도 '+c.n+'건 · 매체 '+c.media+'곳</span></div>'+
-         '<div class="iscl-d">'+orgEsc(c.from||'')+' ~ '+orgEsc(c.to||'')+' · '+(c.days||0)+'일간</div></div>';
-    });
-    h+='<div class="tjnote">※ 확산 = 보도 8건 이상이면서 매체 4곳 이상. 원인 해석이나 위험도 판단은 하지 않습니다.</div></div>';
-  }
-
   if(isTab==='week'){
     /* ── 지수 (주간 전용) ── */
     h+='<div class="tjsec"><h3>📡 긍·부정 비율</h3>'+
@@ -2711,7 +2626,7 @@ function renderIS(){
   }
 
   /* ── 분야별 (부정 기준·7일) — 주간 탭에서만 ── */
-  const R=(isTab==='week')?(D.rank||[]):[];
+  const R=is30?(W30.rank||[]):((isTab==='week')?(D.rank||[]):[]);
   if(R.length){
     const mx=Math.max.apply(null,R.map(r=>r.neg_n||0))||1;
     h+='<div class="tjsec"><h3>📊 분야별 부정 여론 <span class="isdisc">자체 분석이므로 일부 오류가 있을 수 있습니다. 참고만 해주시기 바랍니다.</span></h3>'+
@@ -2746,7 +2661,7 @@ function renderIS(){
   }
 
   /* ── 부정 표현 ── */
-  const RS=(isTab==='week')?(D.reasons||[]):[];
+  const RS=is30?(W30.reasons||[]):((isTab==='week')?(D.reasons||[]):[]);
   if(RS.length){
     const mx=RS[0].n||1;
     h+='<div class="tjsec"><h3>🔎 부정 판정에 걸린 표현</h3>'+
