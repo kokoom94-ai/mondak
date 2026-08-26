@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-08-26 06:34",
+  "updated": "2026-08-26 09:27",
   "period": {
    "from": "2026-08-20",
    "to": "2026-08-26"
@@ -9,139 +9,151 @@
    "from": "2026-08-13",
    "to": "2026-08-19"
   },
-  "engine": "v8-20260825",
+  "engine": "v9-20260826",
   "source": "네이버 검색 오픈API · Google News RSS",
   "note": "검색 결과는 전수가 아니므로 건수가 아닌 비중으로 봅니다. 원인 해석은 포함하지 않습니다."
  },
  "current": {
-  "total": 1074,
-  "neg": 43.5,
-  "pos": 3.8,
-  "neu": 52.7,
+  "total": 1438,
+  "neg": 30.9,
+  "pos": 2.8,
+  "neu": 66.3,
   "channels": {
-   "news": 818,
-   "blog": 256
+   "news": 914,
+   "blog": 524
   },
   "categories": {
-   "요금·바가지": {
-    "n": 59,
-    "neg": 13.6,
-    "share": 5.5
+   "이동·교통": {
+    "n": 278,
+    "neg": 17.6,
+    "share": 19.3
    },
-   "서비스·불친절": {
-    "n": 1,
-    "neg": 0.0,
-    "share": 0.1
+   "숙박": {
+    "n": 131,
+    "neg": 4.6,
+    "share": 9.1
    },
-   "교통·주차": {
-    "n": 232,
-    "neg": 21.1,
-    "share": 21.6
+   "먹거리": {
+    "n": 262,
+    "neg": 2.7,
+    "share": 18.2
+   },
+   "볼거리·체험": {
+    "n": 125,
+    "neg": 5.6,
+    "share": 8.7
+   },
+   "비용·상거래": {
+    "n": 67,
+    "neg": 20.9,
+    "share": 4.7
+   },
+   "응대·서비스": {
+    "n": 12,
+    "neg": 16.7,
+    "share": 0.8
+   },
+   "치안·안전": {
+    "n": 495,
+    "neg": 70.9,
+    "share": 34.4
    },
    "환경·청결": {
-    "n": 5,
-    "neg": 40.0,
-    "share": 0.5
+    "n": 4,
+    "neg": 50.0,
+    "share": 0.3
    },
-   "안전·시설": {
-    "n": 6,
-    "neg": 33.3,
-    "share": 0.6
-   },
-   "안전·사건사고": {
-    "n": 553,
-    "neg": 68.4,
-    "share": 51.5
-   },
-   "치안·범죄": {
-    "n": 20,
-    "neg": 45.0,
-    "share": 1.9
-   },
-   "관광지·콘텐츠": {
-    "n": 78,
-    "neg": 2.6,
-    "share": 7.3
-   },
-   "행정·정책": {
-    "n": 79,
-    "neg": 5.1,
-    "share": 7.4
+   "정책·행정": {
+    "n": 56,
+    "neg": 3.6,
+    "share": 3.9
+   }
+  },
+  "natures": {
+   "불만·후기": {
+    "n": 1438,
+    "share": 100.0
    }
   }
  },
  "previous": {
-  "total": 153,
-  "neg": 39.9,
-  "pos": 3.9,
-  "neu": 56.2,
+  "total": 215,
+  "neg": 28.8,
+  "pos": 2.8,
+  "neu": 68.4,
   "channels": {
-   "blog": 41,
-   "news": 112
+   "blog": 59,
+   "news": 156
   },
   "categories": {
-   "요금·바가지": {
-    "n": 25,
-    "neg": 8.0,
-    "share": 16.3
+   "이동·교통": {
+    "n": 52,
+    "neg": 38.5,
+    "share": 24.2
    },
-   "서비스·불친절": {
-    "n": 1,
-    "neg": 100.0,
-    "share": 0.7
+   "숙박": {
+    "n": 10,
+    "neg": 20.0,
+    "share": 4.7
    },
-   "교통·주차": {
+   "먹거리": {
     "n": 41,
-    "neg": 17.1,
-    "share": 26.8
+    "neg": 2.4,
+    "share": 19.1
    },
-   "환경·청결": {
-    "n": 1,
-    "neg": 100.0,
-    "share": 0.7
+   "볼거리·체험": {
+    "n": 61,
+    "neg": 29.5,
+    "share": 28.4
    },
-   "안전·시설": {
-    "n": 1,
-    "neg": 100.0,
-    "share": 0.7
+   "비용·상거래": {
+    "n": 7,
+    "neg": 14.3,
+    "share": 3.3
    },
-   "안전·사건사고": {
-    "n": 27,
-    "neg": 81.5,
-    "share": 17.6
+   "응대·서비스": {
+    "n": 8,
+    "neg": 0.0,
+    "share": 3.7
    },
-   "관광지·콘텐츠": {
-    "n": 18,
-    "neg": 16.7,
-    "share": 11.8
+   "치안·안전": {
+    "n": 24,
+    "neg": 70.8,
+    "share": 11.2
    },
-   "행정·정책": {
-    "n": 15,
-    "neg": 13.3,
-    "share": 9.8
+   "정책·행정": {
+    "n": 12,
+    "neg": 25.0,
+    "share": 5.6
+   }
+  },
+  "natures": {
+   "불만·후기": {
+    "n": 215,
+    "share": 100.0
    }
   }
  },
  "delta": {
-  "neg": 3.6,
-  "pos": -0.1
+  "neg": 2.1,
+  "pos": 0.0
  },
  "monthly": {
   "items": [
    {
     "month": "2026-08",
-    "total": 1313,
-    "neg": 43.2,
-    "neu": 52.6,
-    "pos": 4.2
+    "total": 1759,
+    "neg": 31.2,
+    "neu": 65.7,
+    "pos": 3.1
    }
   ],
   "current": {
    "month": "2026-08",
-   "total": 1313,
-   "neg": 43.2,
-   "neu": 52.6,
-   "pos": 4.2
+   "total": 1759,
+   "neg": 31.2,
+   "neu": 65.7,
+   "pos": 3.1
   },
   "previous": null,
   "ready": false,
@@ -150,302 +162,711 @@
  },
  "rank": [
   {
-   "name": "안전·사건사고",
-   "n": 553,
-   "share": 51.5,
-   "neg": 68.4,
-   "prev_neg": 81.5,
-   "delta": -13.1,
+   "name": "치안·안전",
+   "n": 495,
+   "share": 34.4,
+   "neg": 70.9,
+   "prev_neg": 70.8,
+   "delta": 0.1,
+   "natures": {
+    "불만·후기": 495
+   },
    "top": [
     {
      "title": "[데일리안 오늘뉴스 종합] 장미란씨 시신 발견...실종 허위종결 경찰, 형...",
      "link": "https://www.dailian.co.kr/news/view/1682323/?sc=Naver",
      "channel": "news",
      "date": "2026-08-25",
-     "category": "안전·사건사고"
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "바가지",
+      "바가지(요금)",
+      "실종"
+     ],
+     "desc": "▲“제주 가기 무섭다”…관광객 줄어들까 여행업계 또 ‘긴장’ 고물가와 바가지 논란으로 내국인 관광객 확보에 어려움을 겪어온 제주 여행업계가 이번에는 '치안 불안'이라는 새로운 악재를 만났다. 최근 "
     },
     {
      "title": "[김종석의 리포트]‘실종 허위 종결’ 경찰 구속…‘교통사고 사망’으...",
      "link": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000546977",
      "channel": "news",
      "date": "2026-08-25",
-     "category": "안전·사건사고"
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "사망",
+      "실종",
+      "구속"
+     ],
+     "desc": "경찰이 확보한 통신 기록엔, 장 씨가 지난 5월 12일 숙소를 나온 뒤 휴대전화가 꺼질 때까지, A 경장을 포함해... A 경장은 영장심사 결과가 나올 때까지 대기하는 제주 동부경찰서에서 도착한 뒤"
     },
     {
      "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확대 - 더팩트",
      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55MEI1Z0U0SEJIU0J2c1JLRTZlRWNneXZITjY0aHdld1U1WGJMWTF4RkZTUTNlWllFeXlBbTNDWEk5dTBkQ2V3MjZIR3VMR25rNm5PVlV6VmN6ZjTSAVZBVV95cUxQbmRwR3pjMkVBQWgycmRaeC1id2F3Zk0yX2F0SmdTMWk0SkQxNFEzQTl1SFU5bER3ZVRGTndXaEdMYmh1Q2JkYm41eW1aVHBBR1VUMzJlQQ?oc=5",
      "channel": "news",
      "date": "2026-08-25",
-     "category": "안전·사건사고"
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "사망",
+      "실종",
+      "수사"
+     ],
+     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE55MEI1Z0U0SEJIU0J2c1JLRTZlRWNneXZITjY0aHdld1U1WGJM"
+    },
+    {
+     "title": "실종 5개월 만에 숨진 채 발견된 37살 여성, 숙소에서 5분 거리였다",
+     "link": "https://blog.naver.com/dekku/224390490812",
+     "channel": "blog",
+     "date": "2026-08-26",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "숨진",
+      "실종"
+     ],
+     "desc": "장 씨가 숙소를 나간 지 3일 뒤, 남자친구가 112에 실종 신고를 접수했다. 그런데 제주서부경찰서 소속 A경장이 신고 접수 2시간 30여 분 만에 남자친구에게 전화를 걸어 \"장 씨와 연락이 닿았는"
+    },
+    {
+     "title": "혼자 숨진 채 발견된 제주 실종자 4명, 경찰의 같은 실수가 또?",
+     "link": "https://blog.naver.com/hereissues/224390328285",
+     "channel": "blog",
+     "date": "2026-08-26",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "숨진",
+      "실종"
+     ],
+     "desc": "제주에서 사흘 사이 무려 네 명의 실종자가 시신으로 발견됐어요. 그중 한 명은 실종 104일 만에 자신이 묵던 숙소 근처에서 나왔고, 두 건은 경찰의 허위 종결 정황이 드러나면서 분노를 사고 있어요"
+    },
+    {
+     "title": "37세 여성 실종 5개월 만에 숨진 채 발견…숙소서 5분 거리였지만 경....",
+     "link": "https://blog.naver.com/luvayumi/224390420736",
+     "channel": "blog",
+     "date": "2026-08-26",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "숨진",
+      "실종"
+     ],
+     "desc": "지난 5월 제주에서 실종된 37세 여성이 5개월 만에 숨진 채 발견됐다. 발견 장소는 마지막으로 머물던 숙소에서 도보로 5분 거리였다. 그런데 경찰 한 명이 신고 접수 2시간 30분 만에 허위 종결"
     }
    ]
   },
   {
-   "name": "교통·주차",
-   "n": 232,
-   "share": 21.6,
-   "neg": 21.1,
-   "prev_neg": 17.1,
-   "delta": 4.0,
+   "name": "이동·교통",
+   "n": 278,
+   "share": 19.3,
+   "neg": 17.6,
+   "prev_neg": 38.5,
+   "delta": -20.9,
+   "natures": {
+    "불만·후기": 278
+   },
    "top": [
     {
-     "title": "'비싸거나 없거나' 제주도민 항공기 이동권 개선 주목",
-     "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321433",
-     "channel": "news",
-     "date": "2026-08-20",
-     "category": "교통·주차"
-    },
-    {
-     "title": "한라산에서 생명구한 제주여고생…관광미담 주인공 6명",
-     "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321502",
-     "channel": "news",
-     "date": "2026-08-21",
-     "category": "교통·주차"
-    },
-    {
-     "title": "백록담까지 함께 걷고, 바다엔 뛰어들었다… 관광객이 기억한 ‘제주의...",
-     "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64738?feed=na",
-     "channel": "news",
-     "date": "2026-08-21",
-     "category": "교통·주차"
-    }
-   ]
-  },
-  {
-   "name": "행정·정책",
-   "n": 79,
-   "share": 7.4,
-   "neg": 5.1,
-   "prev_neg": 13.3,
-   "delta": -8.2,
-   "top": [
-    {
-     "title": "한라산 몰래 입산族, 열화상 드론으로 단속",
-     "link": "https://www.donga.com/news/Society/article/all/20260819/134506541/2",
-     "channel": "news",
-     "date": "2026-08-20",
-     "category": "행정·정책"
-    },
-    {
-     "title": "김봉현 제주도의회 예결위원장 \"예산 주인은 도민\"",
-     "link": "https://www.nocutnews.co.kr/news/6565292?utm_source=naver&utm_medium=article&utm_campaign=20260820103741",
-     "channel": "news",
-     "date": "2026-08-20",
-     "category": "행정·정책"
-    },
-    {
-     "title": "이상봉 제주시장 후보 '적합'…공용차량·의회 독립성은 '우려'",
-     "link": "https://www.newsjeju.net/news/articleView.html?idxno=424881",
-     "channel": "news",
-     "date": "2026-08-21",
-     "category": "행정·정책"
-    }
-   ]
-  },
-  {
-   "name": "관광지·콘텐츠",
-   "n": 78,
-   "share": 7.3,
-   "neg": 2.6,
-   "prev_neg": 16.7,
-   "delta": -14.1,
-   "top": [
-    {
-     "title": "한라산 독채서 수영·캠핑까지…'웰니스 휴양지' 기린빌라리조트 가보니...",
-     "link": "https://www.newsway.co.kr/news/view?ud=2026082113201180178",
-     "channel": "news",
-     "date": "2026-08-21",
-     "category": "관광지·콘텐츠"
-    },
-    {
-     "title": "\"할 수 있다는 자신감 얻었어요\"…학교 밖 청소년, AI로 제주의 미래 그...",
-     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3672051",
-     "channel": "news",
-     "date": "2026-08-23",
-     "category": "관광지·콘텐츠"
-    }
-   ]
-  },
-  {
-   "name": "요금·바가지",
-   "n": 59,
-   "share": 5.5,
-   "neg": 13.6,
-   "prev_neg": 8.0,
-   "delta": 5.6,
-   "top": [
-    {
-     "title": "민선 9기 첫 서귀포시장에 김희찬 낙점…대변인 부남철",
-     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3673708",
+     "title": "지인 아내 추행·음주운전…경주경찰서 경찰관 잇단 비위 적발",
+     "link": "https://www.nocutnews.co.kr/news/6567995?utm_source=naver&utm_medium=article&utm_campaign=20260825065849",
      "channel": "news",
      "date": "2026-08-25",
-     "category": "요금·바가지"
+     "category": "이동·교통",
+     "sentiment": "부정",
+     "reasons": [
+      "음주운전",
+      "적발"
+     ],
+     "desc": "제주 장미란씨 실종 사건 허위 종결과 광주 여고생 살해범 장윤기 사건의 부실 수사 의혹 등 경찰의 잇단... C경감은 지난 23일 오후 8시쯤 경주시 충효동에서 음주운전을 하다 단속을 하던 경찰에 "
     },
     {
-     "title": "서귀포시장 김희찬...중앙협력본부장 강철준.대변인 부남철",
-     "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597914",
+     "title": "'교통사고 사망' 쓰고 수사 종결...제주 경찰은 왜? [뉴스UP]",
+     "link": "https://www.ytn.co.kr/_ln/0103_202608260827028200",
      "channel": "news",
-     "date": "2026-08-25",
-     "category": "요금·바가지"
+     "date": "2026-08-26",
+     "category": "이동·교통",
+     "sentiment": "부정",
+     "reasons": [
+      "사망",
+      "수사"
+     ],
+     "desc": "[앵커] 어제 구속된 제주 부 경장은장미란 씨 실종 자료를 삭제하기 위해 '교통사고 사망'을 선택했습니다. 부 경장은 왜, 실종자의 생사도 확인하지 않고 사건을 덮었는지 범행 동기에 관심이 쏠립니다"
     },
+    {
+     "title": "'교통사고 사망' 쓰고 수사 종결...제주 경찰은 왜? [뉴스UP] - YTN",
+     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5SUmFUVkpqRUl4aEVvZmVYdDNldnBTSTFHSm10QnZ1aWl5dFdpOG5LVzlSUXpNLWxBOF8tak1zNUFZSWdINGdfM0NzWndpRW4zVWJmbWFSZ3gzRE1PdkE?oc=5",
+     "channel": "news",
+     "date": "2026-08-26",
+     "category": "이동·교통",
+     "sentiment": "부정",
+     "reasons": [
+      "사망",
+      "수사"
+     ],
+     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiXkFVX3lxTE5SUmFUVkpqRUl4aEVvZmVYdDNldnBTSTFHSm10QnZ1aWl5dFdp"
+    },
+    {
+     "title": "제주음주운전변호사 음주전문변호사 초범 양형자료 구공판 음주운....",
+     "link": "https://blog.naver.com/snakeimage40/224389650612",
+     "channel": "blog",
+     "date": "2026-08-25",
+     "category": "이동·교통",
+     "sentiment": "부정",
+     "reasons": [
+      "음주운전"
+     ],
+     "desc": "제주는 관광객과 렌터카 이용이 많아 타 지역보다 음주운전 적발률이 높은 편이며, 단속 강도도 해마다 세지고 있습니다. 제주음주운전변호사 음주전문변호사가 다루는 사건은 단순 음주운전을 넘어 음주 측정"
+    },
+    {
+     "title": "제주 음주운전변호사 음주전문변호사 반성문 양형자료 변호인의견....",
+     "link": "https://blog.naver.com/geyservictory29/224389448469",
+     "channel": "blog",
+     "date": "2026-08-25",
+     "category": "이동·교통",
+     "sentiment": "부정",
+     "reasons": [
+      "음주운전"
+     ],
+     "desc": "(가상의 사례) 사례 - 배경: 30대 직장인 A씨는 제주 출장 중 저녁 회식 후 렌터카를 운전하다 단속에 적발되었습니다. - 경위: 혈중알코올농도 0.08%로 측정되었고, 인도 연석을 살짝 충격한"
+    },
+    {
+     "title": "제주음주측정거부변호사 음주측정불응변호사 벌금 처벌 양형자료 ....",
+     "link": "https://blog.naver.com/giantmelody56/224389945499",
+     "channel": "blog",
+     "date": "2026-08-25",
+     "category": "이동·교통",
+     "sentiment": "부정",
+     "reasons": [
+      "별로"
+     ],
+     "desc": "특히 제주는 관광객이 많고 렌터카 운전도 잦은 지역이라 음주측정불응 사건이 꾸준히 발생하고 있어요. 오늘은 제주음주측정거부변호사가 필요한 상황과 실제 대응 절차를 단계별로 정리해 보겠습니다. [목차"
+    }
+   ]
+  },
+  {
+   "name": "먹거리",
+   "n": 262,
+   "share": 18.2,
+   "neg": 2.7,
+   "prev_neg": 2.4,
+   "delta": 0.3,
+   "natures": {
+    "불만·후기": 262
+   },
+   "top": [
     {
      "title": "18,900원 참숯 무한리필 제주도민 맛집 제주도 고깃집 화로집",
      "link": "https://blog.naver.com/love386600/224384740287",
      "channel": "blog",
      "date": "2026-08-20",
-     "category": "요금·바가지"
-    }
-   ]
-  },
-  {
-   "name": "치안·범죄",
-   "n": 20,
-   "share": 1.9,
-   "neg": 45.0,
-   "prev_neg": null,
-   "delta": null,
-   "top": [
-    {
-     "title": "제주서 전처 흉기 살해한 전직 경찰관, 긴급체포 - 시사저널",
-     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1SWE02R1FMLTZEMjZRUG9CMy1wMzA3ME5HN19vb3RkS0FZQmJtZ0FkOXBnbmlXdDgtaTJBdDVjdXdBbHVjMDk2UkRSUnJydVJLQWk0c1dUTk1lUHdub1ltcHV2R3gwbjJ4R0hac2JLZ9IBc0FVX3lxTE4tdWZkOVlOOVFnR0o2VEVFN2lsZTFfMU56ejBiaXMzTVYxUkpmUVhxaDhaLW9FbkliY3FaUkl4NUJJeTJ5T1BzeDM3VkQydGNaeDEwUm82b3RfR0l4N0dWZXF6S3FicUhMdHNVN2EyXzRtVFE?oc=5",
-     "channel": "news",
-     "date": "2026-08-25",
-     "category": "치안·범죄"
+     "category": "먹거리",
+     "sentiment": "부정",
+     "reasons": [
+      "바가지",
+      "바가지(요금)"
+     ],
+     "desc": "18,900원 참숯 무한리필 제주도민 맛집 제주도 고깃집 화로집 물가가 비싼 관광지 제주 특히나 먹는게 바가지니 삼겹살 비계만 주니 하면서 방송에 나온적이 있는데 이번에 다녀온 화로집은 18,900"
     },
     {
-     "title": "[일상 파고든 변종 마약 ② 막히면 우회로 찾는 밀수조직]국경서 차단한...",
-     "link": "https://www.naeil.com/news/read/599598?ref=naver",
+     "title": "제주도 찾은 국수본부장, 경찰 ‘장미란씨 실종 허위 종결’ 사과 - 한겨레",
+     "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBwZ00zcXY3dm9fc1hhQWxNMmRsOXJ1RmFTMzk3WURsQlVuZ19nUk5pVmdOTlBDUXJwRURvNDM2T01IQlU1SERjTkJFUXg4UHc3S285bmI3RlpKZm1DNzBn?oc=5",
      "channel": "news",
+     "date": "2026-08-26",
+     "category": "먹거리",
+     "sentiment": "부정",
+     "reasons": [
+      "실종"
+     ],
+     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiX0FVX3lxTFBwZ00zcXY3dm9fc1hhQWxNMmRsOXJ1RmFTMzk3WURsQlVuZ19n"
+    },
+    {
+     "title": "도민이 많이 가는 제주 연동 흑돼지 맛집 근본흑돼지 제주공항점",
+     "link": "https://blog.naver.com/namroutine/224386022087",
+     "channel": "blog",
      "date": "2026-08-21",
-     "category": "치안·범죄"
+     "category": "먹거리",
+     "sentiment": "부정",
+     "reasons": [
+      "비싸"
+     ],
+     "desc": "제주도에서 가장 유명한 음식은 흑돼지라고 생각되는 정도라서 여행 중 필수 코스 아닐까 싶어요. 특히 관광지나 시내는 물가가 비싸 흑돼지 집도 비싼 곳이 많았는데요. 이번에 다녀온 근본흑돼지는 신선한"
     },
     {
-     "title": "전직 경찰이 아내 살해‥도주했다 긴급체포",
-     "link": "https://jejumbc.com/NewsArticle/858593",
+     "title": "회장은 매일 보고를 받았다, 입건 명단에 회장은 없다",
+     "link": "https://newscham.net/articles/117106",
      "channel": "news",
      "date": "2026-08-25",
-     "category": "치안·범죄"
-    }
-   ]
-  },
-  {
-   "name": "안전·시설",
-   "n": 6,
-   "share": 0.6,
-   "neg": 33.3,
-   "prev_neg": 100.0,
-   "delta": -66.7,
-   "top": [
-    {
-     "title": "대한적십자사 제주지사 '건강한 노후, 안전한 노후' 진행",
-     "link": "https://www.newsjeju.net/news/articleView.html?idxno=425001",
-     "channel": "news",
-     "date": "2026-08-25",
-     "category": "안전·시설"
-    },
-    {
-     "title": "제주시 노후·취약 시설물 안전관리 강화…사각지대 발굴 - 제민일보",
-     "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9xVy1jTFlSTTJlZllYN08taTRKRjBQSk0xdVEzWXZ2aVEtbmJodU5WenhnMFcxQ0NyS1k3VzR4cUZ4cUtoR044TDNqaFNJcnBwaC05aE9COUlpNGlZYVB3bnpDbS13LVE?oc=5",
-     "channel": "news",
-     "date": "2026-08-25",
-     "category": "안전·시설"
-    }
-   ]
-  },
-  {
-   "name": "환경·청결",
-   "n": 5,
-   "share": 0.5,
-   "neg": 40.0,
-   "prev_neg": 100.0,
-   "delta": -60.0,
-   "top": [
-    {
-     "title": "식약처, 위생 취약시설 219곳 점검…7곳 식품위생법 위반 적발",
-     "link": "https://medicalworldnews.co.kr/news/view.php?idx=1510976812",
-     "channel": "news",
-     "date": "2026-08-25",
-     "category": "환경·청결"
+     "category": "먹거리",
+     "sentiment": "부정",
+     "reasons": [
+      "입건"
+     ],
+     "desc": "“앞으로 경찰을 어떻게 개혁할지 경찰 개혁 기구에 대한 고민을 해달라.”(경향신문 보도 기준) 계기는 제주였다. 5월 12일 밤 숙소를 나선 여성이 사라졌고, 신고를 받은 경찰관은 두 시간 반 만에"
     },
     {
      "title": "\"지난 음식 또 쓰려고?\" … 위생 취약시설 7곳 적발",
      "link": "https://www.safetimes.co.kr/news/articleView.html?idxno=245153",
      "channel": "news",
      "date": "2026-08-25",
-     "category": "환경·청결"
+     "category": "먹거리",
+     "sentiment": "부정",
+     "reasons": [
+      "적발"
+     ],
+     "desc": "제주 서귀포시 집단급식소 식품판매업체 '해성마트'는 건강진단 미실시로 2차 적발됐으며, 경기 시흥시 일반음식점 '행복맛집'에서도 종사자의 건강진단을 실시하지 않은 사실이 확인됐다. 식약처는 조리식품"
+    },
+    {
+     "title": "26-0816 광고 및 헌금",
+     "link": "https://blog.naver.com/jibs_store/224386396103",
+     "channel": "blog",
+     "date": "2026-08-22",
+     "category": "먹거리",
+     "sentiment": "부정",
+     "reasons": [
+      "아쉽"
+     ],
+     "desc": "샬롬~ 8월 16일 주일은 연휴 관계로 제주 관광으로 함께 하신 투숙객님들과 S 건설회사 회장님도 예배를 드리게 하심에 감사드립니다. 나눔이 풍성한 시간이었습니다. 사진을 찍지 못한 것이 아쉽네요."
     }
    ]
   },
   {
-   "name": "서비스·불친절",
-   "n": 1,
-   "share": 0.1,
-   "neg": 0.0,
-   "prev_neg": 100.0,
-   "delta": -100.0,
-   "top": []
+   "name": "숙박",
+   "n": 131,
+   "share": 9.1,
+   "neg": 4.6,
+   "prev_neg": 20.0,
+   "delta": -15.4,
+   "natures": {
+    "불만·후기": 131
+   },
+   "top": [
+    {
+     "title": "숙소 400m 앞 두고 104일 방치…실종 허위 종결 파장",
+     "link": "https://www.jemin.com/news/articleView.html?idxno=842103",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "실종"
+     ],
+     "desc": "25일 경찰청에 따르면 제주시 한림읍 대림리 인근 야자수 숲 밭에서 수습된 시신에 대해... 여기에 시신이 발견된 야자수 숲이 A씨가 머물던 숙소에서 도보 5분·직선거리 약 400m 거리에 위치해 "
+    },
+    {
+     "title": "숙소 인근에서 발견된 제주 실종 사건… 초기 대응 논란이 남긴 과....",
+     "link": "https://blog.naver.com/ule369/224390121562",
+     "channel": "blog",
+     "date": "2026-08-26",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "실종"
+     ],
+     "desc": "제주 실종 사건, 무엇이 있었나 보도에 따르면 장미란 씨는 지난 5월 제주 한림읍의 숙소를 나선 뒤 가족과 연락이 끊겼습니다. 이후 오랜 기간 행방이 확인되지 않았고, 약 100일이 지난 8월 숙소"
+    },
+    {
+     "title": "제주신라호텔, 추석 연휴 ‘한식 맛집’ 변신…매일 다른 메뉴 선보인다",
+     "link": "https://zdnet.co.kr/view/?no=20260825205724",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "별로"
+     ],
+     "desc": "제주신라호텔이 추석 연휴 제주를 찾는 여행객을 겨냥해 한식 미식 행사를 연다. 제주 향토음식부터 궁중요리, 퓨전 한식까지 날짜별로 다른 메뉴를 내놓으며 명절 호캉스 수요 공략에 나선다. 제주신라호텔"
+    },
+    {
+     "title": "2026 제주 효도관광 패키지, 노쇼핑 2박3일 얼마부터",
+     "link": "https://blog.naver.com/ymympick/224389871187",
+     "channel": "blog",
+     "date": "2026-08-25",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "별로"
+     ],
+     "desc": "부모님 모시고 제주 가려고 알아보면, 항공권에 숙소에 렌터카에 식당까지 정할 게 한두 개가 아니죠. 운전은 또 누가 하나 싶고요. 그래서 이 글은 제주 효도관광 패키지를 유형별로 나눠 가격이 왜 2"
+    },
+    {
+     "title": "제주도풀빌라 선택할 때 고려하는 자연과 어우러진 공간의 미학적 ....",
+     "link": "https://blog.naver.com/jw3dw3rc/224390377868",
+     "channel": "blog",
+     "date": "2026-08-26",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "불편"
+     ],
+     "desc": "불편을 최소화하고 머무름의 질을 높이는 이러한 운영 방식은 다시 방문하고 싶게 만드는 매력입니다. #제주도풀빌라 #제주숙소 #제주동쪽여행 #제주풀빌라 #제주독채펜션"
+    },
+    {
+     "title": "아로마 스톤 전신관리 받고 나서 다리 라인이 달라진 것 같아 더 오....",
+     "link": "https://blog.naver.com/surface-883286/224390374816",
+     "channel": "blog",
+     "date": "2026-08-26",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "애매"
+     ],
+     "desc": "제주 함덕 쪽은 바람이랑 햇살이 진짜 빨리 스치잖아요. 저도 휴가 마지막 날, 걷고 또 걸어서 종아리가랑 허벅지에 열감이 쌓였는데 그 상태로는 다시 숙소 돌아가기도 좀 애매하더라고요. 그래서 근처에"
+    }
+   ]
+  },
+  {
+   "name": "볼거리·체험",
+   "n": 125,
+   "share": 8.7,
+   "neg": 5.6,
+   "prev_neg": 29.5,
+   "delta": -23.9,
+   "natures": {
+    "불만·후기": 125
+   },
+   "top": [
+    {
+     "title": "한라산에서 생명구한 제주여고생…관광미담 주인공 6명",
+     "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321502",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "볼거리·체험",
+     "sentiment": "부정",
+     "reasons": [
+      "사기"
+     ],
+     "desc": "6월30일 렌터카 사기 피해를 당해 여행을 포기할 위기에 놓인 20대 관광객들에게 무상으로 관광지 안내와 식사를 제공했다. 20대 관광객들은 SNS를 통해 \"제주는 좋은 사람들이 많은 곳이라는 것을"
+    },
+    {
+     "title": "한라산 오르다 '심정지' 40대 관광객...여고생이 살렸다",
+     "link": "https://www.mt.co.kr/culture/2026/08/21/2026082114101652029",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "볼거리·체험",
+     "sentiment": "부정",
+     "reasons": [
+      "사기"
+     ],
+     "desc": "이밖에도 렌터카 사기 피해를 당한 20대 청년들을 도운 양성철 찰쓰투어 대표와 박충배 라타볼라 대표, 익수 사고자를 구조한 이우정씨 등이 감사패 수상자로 뽑혔다. 제주관광공사는 제주 관광의 긍정적인"
+    },
+    {
+     "title": "투병중인 관광객과 동행한 한라산 직원, CPR로 생명구한 여고생",
+     "link": "https://www.yna.co.kr/view/AKR20260821104600056?input=1195m",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "볼거리·체험",
+     "sentiment": "부정",
+     "reasons": [
+      "사기"
+     ],
+     "desc": "찰쓰투어 양성철 대표와 라타볼라 박충배 대표는 렌터카 사기 피해를 당해 여행을 포기할 위기에 놓인 20대 관광객들에게 무상으로 관광지 안내와 음식을 제공했다. 고승철 제주관광공사 사장은 \"공사는 앞"
+    },
+    {
+     "title": "한라산 야간 불법행위 드론으로 단속",
+     "link": "https://jejumbc.com/NewsArticle/857599",
+     "channel": "news",
+     "date": "2026-08-20",
+     "category": "볼거리·체험",
+     "sentiment": "부정",
+     "reasons": [
+      "단속"
+     ],
+     "desc": "한라산 야간 불법행위를 앞으로 드론으로 단속합니다. 제주도는 지난 13일 밤 한라산 어리목 일대에서 시범 단속을 벌여 드론 비행 최적 경로를 분석했고, 고해상도 열화상 카메라를 장착한 드론을 야간에"
+    },
+    {
+     "title": "한라산 몰래 입산族, 열화상 드론으로 단속",
+     "link": "https://www.donga.com/news/Society/article/all/20260819/134506541/2",
+     "channel": "news",
+     "date": "2026-08-20",
+     "category": "볼거리·체험",
+     "sentiment": "부정",
+     "reasons": [
+      "단속"
+     ],
+     "desc": "단속에 앞서 제주도는 통신 품질을 점검하고 불법행위가 자주 발생한 지점을 분석해 드론 비행 최적 경로를 마련했다. 단속 대상은 △탐방 예약제 미예약 무단 입산 △탐방 시간 위반 무단출입 △지정되지 "
+    },
+    {
+     "title": "한라산 독채서 수영·캠핑까지…'웰니스 휴양지' 기린빌라리조트 가보니...",
+     "link": "https://www.newsway.co.kr/news/view?ud=2026082113201180178",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "볼거리·체험",
+     "sentiment": "부정",
+     "reasons": [
+      "불편"
+     ],
+     "desc": "제주 숙박시설의 경쟁이 객실에서 체험 콘텐츠로 넓어지고 있다. 관광을 마친 뒤 숙소를 잠만 자는 곳으로... 여러 이용객이 공용 샤워장을 함께 사용해야 하는 기존 캠핑장의 불편을 줄이기 위한 것이다"
+    }
+   ]
+  },
+  {
+   "name": "비용·상거래",
+   "n": 67,
+   "share": 4.7,
+   "neg": 20.9,
+   "prev_neg": 14.3,
+   "delta": 6.6,
+   "natures": {
+    "불만·후기": 67
+   },
+   "top": [
+    {
+     "title": "서귀포시장 김희찬·중앙협력본부장 강철준·대변인 부남철 선정",
+     "link": "https://www.newsjeju.net/news/articleView.html?idxno=424971",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "비용·상거래",
+     "sentiment": "부정",
+     "reasons": [
+      "바가지",
+      "불편",
+      "바가지(요금)"
+     ],
+     "desc": "고물가·바가지요금 논란으로 관광 불편에 대한 우려가 커지던 시기에는 관광불편신고센터를 신속히 가동해 현장 대응에 나섰고, 관광 현장의 목소리를 정책에 반영하며 제주 관광의 신뢰를 높이는 데 기여했다"
+    },
+    {
+     "title": "민선 9기 첫 서귀포시장에 김희찬 전 관광국장 지명",
+     "link": "https://www.jemin.com/news/articleView.html?idxno=842063",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "비용·상거래",
+     "sentiment": "부정",
+     "reasons": [
+      "바가지",
+      "불편",
+      "바가지(요금)"
+     ],
+     "desc": "또 고물가·바가지요금 논란으로 관광 불편에 대한 우려가 커지던 시기에는 관광불편신고센터를 신속히 가동해 현장 대응에 나섰고, 관광 현장의 목소리를 정책에 반영하며 제주 관광의 신뢰를 높이는 데 기여"
+    },
+    {
+     "title": "민선 9기 첫 서귀포시장에 김희찬 낙점…대변인 부남철",
+     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3673708",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "비용·상거래",
+     "sentiment": "부정",
+     "reasons": [
+      "바가지",
+      "불편",
+      "바가지(요금)"
+     ],
+     "desc": "고물가와 바가지요금 논란으로 제주 관광에 대한 우려가 커졌을 때는 관광불편신고센터 운영을 추진하며 관광 현장의 불편 사항을 정책에 반영하는 역할을 했다. 김 전 국장에 대한 임명 절차에는 제주도의회"
+    },
+    {
+     "title": "“제주도는 왜 이렇게 비싸?” 여행객들이 체감하는 제주 물가의 진....",
+     "link": "https://blog.naver.com/pluscharm/224384203080",
+     "channel": "blog",
+     "date": "2026-08-20",
+     "category": "비용·상거래",
+     "sentiment": "부정",
+     "reasons": [
+      "비싸"
+     ],
+     "desc": "⸻ ️ 해시태그 #제주도 #제주도여행 #제주여행 #제주도물가 #제주물가 #제주도물가비싼이유 #제주도여행비용 #제주여행비용 #제주도렌터카 #제주도숙박 #제주도맛집 #제주관광 #제주도여행팁 #국내여행."
+    },
+    {
+     "title": "서귀포시장 김희찬...중앙협력본부장 강철준.대변인 부남철",
+     "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=597914",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "비용·상거래",
+     "sentiment": "부정",
+     "reasons": [
+      "바가지",
+      "불편",
+      "바가지(요금)"
+     ],
+     "desc": "고물가·바가지요금 논란으로 관광 불편에 대한 우려가 커지던 시기에는 관광불편신고센터를 신속히 가동해 현장 대응에 나섰고, 관광 현장의 목소리를 정책에 반영하며 제주 관광의 신뢰를 높이는 데 기여했다"
+    },
+    {
+     "title": "제주 서귀포시장에 김희찬 전 제주도 관광교류국장",
+     "link": "https://www.yna.co.kr/view/AKR20260825075900056?input=1195m",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "비용·상거래",
+     "sentiment": "부정",
+     "reasons": [
+      "바가지",
+      "불편",
+      "바가지(요금)"
+     ],
+     "desc": "세계유산본부장과 관광교류국장으로 근무하면서 국가유산 활용과 관광객 유치 업무를 맡았으며, 고물가와 바가지요금 논란이 불거졌을 때 관광불편신고센터를 가동해 대응했다. 제주도는 서귀포시와 제주도에서 쌓"
+    }
+   ]
+  },
+  {
+   "name": "정책·행정",
+   "n": 56,
+   "share": 3.9,
+   "neg": 3.6,
+   "prev_neg": 25.0,
+   "delta": -21.4,
+   "natures": {
+    "불만·후기": 56
+   },
+   "top": [
+    {
+     "title": "김봉현 제주도의회 예결위원장 \"예산 주인은 도민\"",
+     "link": "https://www.nocutnews.co.kr/news/6565292?utm_source=naver&utm_medium=article&utm_campaign=20260820103741",
+     "channel": "news",
+     "date": "2026-08-20",
+     "category": "정책·행정",
+     "sentiment": "부정",
+     "reasons": [
+      "불편"
+     ],
+     "desc": "저는 거창한 사업 하나보다 주민들이 매일 겪는 불편을 하나씩 해결하는 것이 중요하다고 보고 있습니다.... ◆김봉현> 제주는 관광 1번지라고 하지만 이제 단순히 관광객 숫자만 늘리는 방식에는 한계가"
+    },
+    {
+     "title": "[인터뷰] \"제주도민 불편, 속 시원하게 긁어드립니다\"…한동수의 '소신...",
+     "link": "https://www.gukjenews.com/news/articleView.html?idxno=3673235",
+     "channel": "news",
+     "date": "2026-08-24",
+     "category": "정책·행정",
+     "sentiment": "부정",
+     "reasons": [
+      "불편"
+     ],
+     "desc": "한동수 위원장은 문화관광체육위원장으로서 제주관광 정책의 방향도 새롭게 짚었다. 관광객 수를 늘리는 데 집중해온 기존 정책에서 벗어나 체류 시간과 지역 내 소비를 늘리는 방향으로 전환해야 한다고 주장"
+    }
+   ]
+  },
+  {
+   "name": "응대·서비스",
+   "n": 12,
+   "share": 0.8,
+   "neg": 16.7,
+   "prev_neg": 0.0,
+   "delta": 16.7,
+   "natures": {
+    "불만·후기": 12
+   },
+   "top": [
+    {
+     "title": "\"'불친절 섬'은 옛말\"…울릉도 바다에 빠진 관광객들, SNS가 들썩인다",
+     "link": "https://www.idaegu.com/news/articleView.html?idxno=665195",
+     "channel": "news",
+     "date": "2026-08-24",
+     "category": "응대·서비스",
+     "sentiment": "부정",
+     "reasons": [
+      "불친절"
+     ],
+     "desc": "최근 관광객들은 렌터카와 버스 등을 이용해 섬 곳곳을 직접 찾아다니며 바다에 뛰어들고, 해안 마을에서... 높은 수중 가시거리와 독특한 해저 지형, 풍부한 어종은 제주도나 동남아 유명 휴양지와 비교"
+    },
+    {
+     "title": "[장애인뉴스] 토스뱅크, 전자점자 서비스 4개월 만에 여신·수신·카드 ...",
+     "link": "https://www.ibabynews.com/news/articleView.html?idxno=153856",
+     "channel": "news",
+     "date": "2026-08-21",
+     "category": "응대·서비스",
+     "sentiment": "부정",
+     "reasons": [
+      "불편"
+     ],
+     "desc": "있는 불편을 살피고 개선 사항을 서비스에 반영하고 있다. 토스뱅크는 이번 전 영역 확대 이후에도 고객의... 제주도가 주최하고 제주관광공사가 주관하는 '2026 컬러풀산지 페스티벌'은 제주 원도심 "
+    }
+   ]
+  },
+  {
+   "name": "환경·청결",
+   "n": 4,
+   "share": 0.3,
+   "neg": 50.0,
+   "prev_neg": null,
+   "delta": null,
+   "natures": {
+    "불만·후기": 4
+   },
+   "top": [
+    {
+     "title": "식약처, 급식·대량조리 위생취약시설 219곳 점검…7곳 적발",
+     "link": "https://www.tournews21.com/news/articleView.html?idxno=141751",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "환경·청결",
+     "sentiment": "부정",
+     "reasons": [
+      "별로",
+      "적발"
+     ],
+     "desc": "지역별로는 충북 청주·충주, 서울 구로, 경기 이천·시흥, 제주 서귀포 등에서 위반 업소가 확인됐다. 관할... 식약처는 앞으로도 위생 취약시설을 대상으로 지속적인 점검과 식중독 예방 교육을 실시해"
+    },
+    {
+     "title": "식약처, 위생 취약시설 219곳 점검…7곳 식품위생법 위반 적발",
+     "link": "https://medicalworldnews.co.kr/news/view.php?idx=1510976812",
+     "channel": "news",
+     "date": "2026-08-25",
+     "category": "환경·청결",
+     "sentiment": "부정",
+     "reasons": [
+      "적발"
+     ],
+     "desc": "미보관) △해성마트(제주 서귀포, 건강진단 미실시 2차) △행복맛집(경기 시흥, 건강진단 미실시) △화담한국에이버리(충북 충주, 소비기한 경과 제품 보관) 등 7곳이다. ◆행정조치 및 향후 계획 적"
+    }
+   ]
   }
  ],
  "daily": [
   {
    "date": "2026-08-20",
-   "total": 74,
-   "neg": 64.9,
+   "total": 89,
+   "neg": 53.9,
    "pos": 0.0
   },
   {
    "date": "2026-08-21",
-   "total": 45,
-   "neg": 55.6,
+   "total": 65,
+   "neg": 40.0,
    "pos": 0.0
   },
   {
    "date": "2026-08-22",
-   "total": 15,
-   "neg": 26.7,
-   "pos": 6.7
+   "total": 21,
+   "neg": 19.0,
+   "pos": 4.8
   },
   {
    "date": "2026-08-23",
-   "total": 32,
-   "neg": 28.1,
-   "pos": 3.1
+   "total": 36,
+   "neg": 22.2,
+   "pos": 0.0
   },
   {
    "date": "2026-08-24",
-   "total": 167,
-   "neg": 29.3,
-   "pos": 1.2
+   "total": 178,
+   "neg": 25.3,
+   "pos": 1.1
   },
   {
    "date": "2026-08-25",
-   "total": 571,
-   "neg": 47.6,
-   "pos": 1.8
+   "total": 575,
+   "neg": 35.1,
+   "pos": 1.7
   },
   {
    "date": "2026-08-26",
-   "total": 170,
-   "neg": 35.3,
-   "pos": 15.9
+   "total": 474,
+   "neg": 23.6,
+   "pos": 5.7
   }
  ],
  "reasons": [
   {
    "word": "실종",
-   "n": 258
-  },
-  {
-   "word": "구속",
-   "n": 67
+   "n": 234
   },
   {
    "word": "수사",
-   "n": 65
+   "n": 66
+  },
+  {
+   "word": "구속",
+   "n": 56
   },
   {
    "word": "불편",
-   "n": 36
+   "n": 40
   },
   {
    "word": "화재",
@@ -453,14 +874,14 @@
   },
   {
    "word": "사망",
-   "n": 32
+   "n": 30
   },
   {
    "word": "사기",
    "n": 14
   },
   {
-   "word": "숨진",
+   "word": "단속",
    "n": 12
   }
  ],
@@ -470,56 +891,196 @@
    "link": "https://www.dailian.co.kr/news/view/1682323/?sc=Naver",
    "channel": "news",
    "date": "2026-08-25",
-   "category": "안전·사건사고"
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "바가지",
+    "바가지(요금)",
+    "실종"
+   ],
+   "desc": "▲“제주 가기 무섭다”…관광객 줄어들까 여행업계 또 ‘긴장’ 고물가와 바가지 논란으로 내국인 관광객 확보에 어려움을 겪어온 제주 여행업계가 이번에는 '치안 불안'이라는 새로운 악재를 만났다. 최근 "
   },
   {
    "title": "[김종석의 리포트]‘실종 허위 종결’ 경찰 구속…‘교통사고 사망’으...",
    "link": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000546977",
    "channel": "news",
    "date": "2026-08-25",
-   "category": "안전·사건사고"
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "사망",
+    "실종",
+    "구속"
+   ],
+   "desc": "경찰이 확보한 통신 기록엔, 장 씨가 지난 5월 12일 숙소를 나온 뒤 휴대전화가 꺼질 때까지, A 경장을 포함해... A 경장은 영장심사 결과가 나올 때까지 대기하는 제주 동부경찰서에서 도착한 뒤"
   },
   {
    "title": "실종자 기록 지우려 '교통사고 사망' 입력…제주 경찰 허위종결 수사 확대 - 더팩트",
    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55MEI1Z0U0SEJIU0J2c1JLRTZlRWNneXZITjY0aHdld1U1WGJMWTF4RkZTUTNlWllFeXlBbTNDWEk5dTBkQ2V3MjZIR3VMR25rNm5PVlV6VmN6ZjTSAVZBVV95cUxQbmRwR3pjMkVBQWgycmRaeC1id2F3Zk0yX2F0SmdTMWk0SkQxNFEzQTl1SFU5bER3ZVRGTndXaEdMYmh1Q2JkYm41eW1aVHBBR1VUMzJlQQ?oc=5",
    "channel": "news",
    "date": "2026-08-25",
-   "category": "안전·사건사고"
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "사망",
+    "실종",
+    "수사"
+   ],
+   "desc": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE55MEI1Z0U0SEJIU0J2c1JLRTZlRWNneXZITjY0aHdld1U1WGJM"
   },
   {
-   "title": "제주서 실종자 잇따라 숨진 채 발견 - ppss.kr",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBMZnEzZVZwLVlKcWJvMC1kUlZyWm90Y2NmQWo5SFhTb1BwQmtwMlFOMEVkVHppWDNFTzJNNFlzS1hRWmRvc0RmRmtVMFUzZmowbkZPMGlpeU1OQ1BCOXh0aFJ2bVA?oc=5",
+   "title": "실종 덮으려 '사망' 허위 입력…경찰 수사로 드러난 실종 조작",
+   "link": "https://news.tvchosun.com/site/data/html_dir/2026/08/26/2026082690013.html",
    "channel": "news",
-   "date": "2026-08-24",
-   "category": "안전·사건사고"
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "사망",
+    "실종",
+    "수사"
+   ],
+   "desc": "제주에서 숨진 채 발견된 장미란 씨의 실종 신고를 덮은 경찰관이 어떻게 경찰 내부망에서 사건을 지웠는지 관심이었죠. 조사 결과 '교통 사고 사망'이란 가짜 이유를 기재한 걸로 드러났습니다. 곽승한 "
   },
   {
    "title": "“장미란씨, 경장이 살해했다” “중국인이 그랬다”…실종사건 추측글...",
    "link": "https://www.mk.co.kr/article/12136112",
    "channel": "news",
    "date": "2026-08-25",
-   "category": "안전·사건사고"
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "실종",
+    "살해"
+   ],
+   "desc": "이 같은 사실까지 겹치면서 ‘제주도는 시신도냐’, ‘제주 여행 가기 무섭다’, ‘제주도 불매 운동합니다’ 등 제주에 부정적 이미지를 심을 수 있는 게시글이나 댓글도 계속 올라오고 있다. 경찰 관계자"
   },
   {
-   "title": "\"제주 무서워서 가겠나\"…실종자 잇단 사망에 일파만파 번지는 '괴담'",
-   "link": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202608250519&t=NN",
-   "channel": "news",
-   "date": "2026-08-25",
-   "category": "안전·사건사고"
+   "title": "실종 5개월 만에 숨진 채 발견된 37살 여성, 숙소에서 5분 거리였다",
+   "link": "https://blog.naver.com/dekku/224390490812",
+   "channel": "blog",
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "숨진",
+    "실종"
+   ],
+   "desc": "장 씨가 숙소를 나간 지 3일 뒤, 남자친구가 112에 실종 신고를 접수했다. 그런데 제주서부경찰서 소속 A경장이 신고 접수 2시간 30여 분 만에 남자친구에게 전화를 걸어 \"장 씨와 연락이 닿았는"
   },
   {
-   "title": "제주서 실종자 사망 잇따라…'7년 제주살이' 홍혜걸도 경고 [ST이슈]",
-   "link": "http://www.stoo.com/article.php?aid=108507716592",
-   "channel": "news",
-   "date": "2026-08-25",
-   "category": "안전·사건사고"
+   "title": "혼자 숨진 채 발견된 제주 실종자 4명, 경찰의 같은 실수가 또?",
+   "link": "https://blog.naver.com/hereissues/224390328285",
+   "channel": "blog",
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "숨진",
+    "실종"
+   ],
+   "desc": "제주에서 사흘 사이 무려 네 명의 실종자가 시신으로 발견됐어요. 그중 한 명은 실종 104일 만에 자신이 묵던 숙소 근처에서 나왔고, 두 건은 경찰의 허위 종결 정황이 드러나면서 분노를 사고 있어요"
   },
   {
-   "title": "[영상클립] \"연락됐다\"며 실종사건 종결했는데 사망…제주 경찰관 처리...",
-   "link": "https://www.newsworker.co.kr/news/articleView.html?idxno=500819",
+   "title": "37세 여성 실종 5개월 만에 숨진 채 발견…숙소서 5분 거리였지만 경....",
+   "link": "https://blog.naver.com/luvayumi/224390420736",
+   "channel": "blog",
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "숨진",
+    "실종"
+   ],
+   "desc": "지난 5월 제주에서 실종된 37세 여성이 5개월 만에 숨진 채 발견됐다. 발견 장소는 마지막으로 머물던 숙소에서 도보로 5분 거리였다. 그런데 경찰 한 명이 신고 접수 2시간 30분 만에 허위 종결"
+  },
+  {
+   "title": "제주 실종 37세 여성, 숙소 5분 거리서 숨진 채 발견… 단 2시간 30분....",
+   "link": "https://blog.naver.com/jjh490403/224390400407",
+   "channel": "blog",
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "숨진",
+    "실종"
+   ],
+   "desc": "장 씨가 숙소를 나간 지 3일 뒤, 남자친구가 112에 신고한 것이다. 그런데 제주서부경찰서 소속 A경장이 신고 접수 2시간 30여 분 만에 남자친구에게 전화를 걸어 \"장 씨와 연락이 닿았는데, 위"
+  },
+  {
+   "title": "실종 104일 만에 숨진 채 발견…거짓 보고를 아무도 못 잡은 경찰, 대....",
+   "link": "https://blog.naver.com/yipi_teyo/224390389497",
+   "channel": "blog",
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "숨진",
+    "실종"
+   ],
+   "desc": "제주에서 실종된 20대 여성 장미란 씨가 사라진 지 104일 만에 숙소에서 불과 400m 떨어진 곳에서 숨진 채 발견됐다. 문제는 이 긴 실종 기간 동안 경찰이 단 한 차례도 실제 통화를 하지 않고"
+  }
+ ],
+ "top_positive": [
+  {
+   "title": "김민석 \"제주 사건, 檢 보완수사권 작동 상태서 벌어진 일\"",
+   "link": "https://www.edaily.co.kr/News/Read?newsId=02732246645551256&mediaCodeNo=257&utm_source=naver&utm_medium=referral&utm_campaign=news_syndication&utm_content=original_article",
    "channel": "news",
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "긍정",
+   "reasons": [],
+   "desc": "(사진=연합뉴스) 김 대표는 이날 안동 민주당 경북도당에서 열린 최고위원회의에서 “제주 사건이 국민의 공분을 사고 있는데, 일각의 이야기와는 달리 검찰의 보완수사권이 작동하는 상태에서 벌어진 일”이"
+  },
+  {
+   "title": "김민석 \"국민 권익 침해하는 수사권력 단호하게 개혁\"",
+   "link": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5054934",
+   "channel": "news",
+   "date": "2026-08-26",
+   "category": "치안·안전",
+   "sentiment": "긍정",
+   "reasons": [],
+   "desc": "김 대표는 이날 경북 안동에서 열린 현장 최고위원회의에서 제주 실종사건과 관련해 \"현재 검찰의 보완수사권이 작동하는 상태에서 벌어진 일\"이라며 이같이 강조했다. 김 대표는 \"사건 암장, 무단 종결,"
+  },
+  {
+   "title": "14주째 내린 기름값, 이제 멈추나… 국제유가는 다시 올랐다",
+   "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64758?feed=na",
+   "channel": "news",
+   "date": "2026-08-22",
+   "category": "비용·상거래",
+   "sentiment": "긍정",
+   "reasons": [],
+   "desc": "제주에서는 휘발유와 경유 모두 전국 평균보다 20원 이상 높은 가격이 이어지고 있습니다. 국내 기름값이... 정부는 중동 정세와 석유 수급, 물가와 민생 부담 등을 고려해 최고가격제를 운영할 방침입"
+  },
+  {
+   "title": "제주 롯데렌터카 K5 내돈내산 솔직후기 제주렌터카추천",
+   "link": "https://blog.naver.com/zhddl2186/224388667394",
+   "channel": "blog",
+   "date": "2026-08-24",
+   "category": "이동·교통",
+   "sentiment": "긍정",
+   "reasons": [],
+   "desc": "제주롯데렌터카 k5 제주롯데렌터카 완전자차로 면책금 부담도 없고 반납 시 차량 스크래치 검사를 꼼꼼하게 진행하지 않아서 스트레스 없이 마음이 무척 편했어요 반납할 때도 직원분이 남은 연료 체크만.."
+  },
+  {
+   "title": "제주 카페패스 후기 3일 72시간 무제한 제주 카페투어 가성비",
+   "link": "https://blog.naver.com/clio19/224389656268",
+   "channel": "blog",
    "date": "2026-08-25",
-   "category": "안전·사건사고"
+   "category": "먹거리",
+   "sentiment": "긍정",
+   "reasons": [],
+   "desc": "인기카페 3일 무제한 #제주카페패스 #제주카페패스후기 #제주카페투어 #제주카페추천 #제주여행 #제주렌터카 #제주렌터카여행 #제주여행코스 #제주여행꿀팁 #제주자유여행 #마이리얼트립"
+  },
+  {
+   "title": "제주 렌트카 업체추천 알아보다 이용해본 제주엔젤렌트카 후기",
+   "link": "https://blog.naver.com/luvxox/224389096681",
+   "channel": "blog",
+   "date": "2026-08-25",
+   "category": "이동·교통",
+   "sentiment": "긍정",
+   "reasons": [],
+   "desc": "차를 타고 돌아다니다 보니 역시 제주에서는 렌터카 예약하길 잘했다는 생각이 들었어요. 특히 더운 날에는 관광지 사이를 걸어서 이동하는 것보다 차에 바로 타서 이동할 수 있는게 훨씬 편했고 중간에 짐"
   }
  ]
 }
