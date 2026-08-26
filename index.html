@@ -493,148 +493,155 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 /* ===== 이슈체크 ===== */
 .isload{padding:34px 0;text-align:center;color:var(--sub);font-size:13px}
+.isempty{padding:22px 0;text-align:center;color:var(--sub);font-size:12px}
+.isbar-f{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:11px}
+.isbf-l{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.isbf-d{font-size:11.5px;font-weight:700;color:var(--navy)}
+.istabs2{display:flex;gap:3px;background:var(--bg);border-radius:9px;padding:3px}
+.istabs2 button{font-size:11.5px;font-weight:700;border:none;background:none;color:var(--sub);
+  border-radius:7px;padding:5px 13px;cursor:pointer;transition:.13s}
+.istabs2 button.on{background:#fff;color:#5B4DE8;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.isbf-r{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.istg{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--sub);
+  background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:5px 10px;cursor:pointer;transition:.13s}
+.istg i{font-style:normal;font-size:8.5px;font-weight:800;background:#C8D0DE;color:#fff;border-radius:20px;padding:1px 5px}
+.istg.on{color:#fff;border-color:transparent}
+.istg.on i{background:rgba(255,255,255,.28)}
+.istg.news.on{background:#5B4DE8}.istg.blog.on{background:#0E9E7E}.istg.cafe.on{background:#F5B841;color:#4A3A0B}
+.istg.cafe.on i{background:rgba(0,0,0,.16);color:#4A3A0B}
 .ishow{margin-bottom:12px}
 .ishow-b{width:100%;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;
-  font-weight:700;color:var(--navy);background:#EAF0FB;border:1px solid #CBD9F0;border-radius:12px;
-  padding:11px 14px;cursor:pointer}
-.ishow-b span{font-size:11px;font-weight:600;color:var(--sub)}
+  font-weight:700;color:#4A3FC0;background:#F0EEFC;border:1px solid #D8D3F5;border-radius:12px;padding:11px 14px;cursor:pointer}
+.ishow-b span{font-size:11px;font-weight:600;opacity:.72}
 .ishow.open .ishow-b{border-radius:12px 12px 0 0;border-bottom:none}
-.ishow-c{background:var(--card);border:1px solid #CBD9F0;border-top:none;border-radius:0 0 12px 12px;padding:14px}
+.ishow-c{background:var(--card);border:1px solid #D8D3F5;border-top:none;border-radius:0 0 12px 12px;padding:14px}
 .isflow{display:flex;align-items:stretch;gap:8px;overflow-x:auto;padding-bottom:4px}
-.isf{flex:1 1 0;min-width:150px;background:var(--bg);border-radius:12px;padding:12px 13px;position:relative}
-.isf-n{position:absolute;top:-7px;left:11px;width:20px;height:20px;line-height:20px;text-align:center;
-  border-radius:50%;background:var(--navy);color:#fff;font-size:11px;font-weight:800}
-.isf b{display:block;font-size:13px;color:var(--navy);margin:6px 0 5px}
+.isf{flex:1 1 0;min-width:158px;background:var(--bg);border-radius:12px;padding:13px}
+.isf-n{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;
+  background:#5B4DE8;color:#fff;font-size:11px;font-weight:800}
+.isf b{display:block;font-size:13px;color:var(--navy);margin:7px 0 5px}
 .isf p{font-size:11.5px;color:var(--sub);line-height:1.65;margin:0;word-break:keep-all}
 .isf p b{display:inline;font-size:11.5px;color:var(--ink);margin:0}
-.isf-a{flex:0 0 auto;display:flex;align-items:center;color:var(--line);font-size:16px}
+.isf-a{flex:0 0 auto;display:flex;align-items:center;color:var(--line);font-size:15px}
 .ishow-n{font-size:11px;color:var(--sub);line-height:1.7;margin-top:11px;padding-top:10px;border-top:1px dashed var(--line)}
-.istabs{display:flex;gap:6px;margin-bottom:13px}
-.istabs button{flex:1 1 0;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--card);
-  color:var(--sub);border-radius:11px;padding:10px;cursor:pointer;transition:.14s}
-.istabs button.on{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 3px 10px rgba(27,42,74,.18)}
-.ishero2{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);
-  border-radius:18px;padding:16px;margin-bottom:11px}
-.ish-d{flex:0 0 auto}
+.ishero2{display:flex;gap:18px;align-items:center}
 .isdonut{display:block}
-.isdn-v{font-size:30px;font-weight:800;fill:#C6392F}
-.isdn-l{font-size:10.5px;fill:var(--sub)}
+.isdn-v{font-size:31px;font-weight:800;fill:#EF4B6C}
+.isdn-p{font-size:14px}
+.isdn-l{font-size:11px;fill:var(--sub)}
 .ish-s{flex:1 1 auto;min-width:0}
-.ishr{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13px}
+.ishr{display:flex;align-items:center;gap:9px;padding:7px 0;font-size:13px}
 .ishr .k{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
-.ishr.neg .k{background:#C6392F}.ishr.neu .k{background:#C8D0DE}.ishr.pos .k{background:#2E7D32}
+.ishr.neg .k{background:#EF4B6C}.ishr.neu .k{background:#F5B841}.ishr.pos .k{background:#5B4DE8}
 .ishr b{flex:0 0 34px;font-weight:600;color:var(--sub);font-size:12px}
-.ishr i{font-style:normal;font-size:17px;font-weight:800;color:var(--ink)}
-.ishr.neg i{color:#C6392F}.ishr.pos i{color:#2E7D32}
+.ishr i{font-style:normal;font-size:18px;font-weight:800;color:var(--ink)}
+.ishr.neg i{color:#EF4B6C}.ishr.pos i{color:#5B4DE8}
 .ishr em{margin-left:auto;font-style:normal;font-size:11px;font-weight:700}
-.ishr em.up{color:#C6392F}.ishr em.dn{color:#2E7D32}
-.ish-t{font-size:11px;color:var(--sub);margin-top:7px;padding-top:7px;border-top:1px dashed var(--line)}
-.isdaily{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:11px}
-.isd-t{font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.isd-t em{font-style:normal;font-size:10.5px;font-weight:500;color:var(--sub);margin-left:7px}
-.isd-g{display:flex;align-items:flex-end;gap:5px;height:92px;margin-bottom:19px}
+.ishr em.up{color:#EF4B6C}.ishr em.dn{color:#0E9E7E}
+.ish-t{font-size:11px;color:var(--sub);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.isline{position:relative}
+.isln{position:absolute;inset:0 0 19px 0;width:100%;height:calc(100% - 19px);pointer-events:none;z-index:2}
+.isd-g{display:flex;align-items:flex-end;gap:5px;height:112px;margin-bottom:19px;position:relative}
 .isd{flex:1 1 0;height:100%;position:relative;display:flex;flex-direction:column;justify-content:flex-end}
-.isd-b{width:100%;background:linear-gradient(180deg,#A9C0EE,#2B6CE8);border-radius:5px 5px 0 0}
-.isd-dot{position:absolute;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;
-  background:#C6392F;border:2px solid #fff;box-shadow:0 1px 4px rgba(198,57,47,.5);z-index:2}
+.isd-b{width:100%;border-radius:5px 5px 0 0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.isd-b span{display:block;width:100%}
+.isd-b .p{background:#5B4DE8}.isd-b .u{background:#F5B841}.isd-b .g{background:#EF4B6C}
 .isd-x{position:absolute;bottom:-17px;left:0;right:0;text-align:center;font-size:9.5px;color:var(--sub)}
-.ischip{display:flex;gap:6px;flex-wrap:wrap}
-.isch{display:inline-flex;align-items:baseline;gap:6px;font-size:11.5px;font-weight:700;color:#fff;
-  border-radius:20px;padding:6px 12px;background:var(--sub)}
-.isch.ch-news{background:#2B6CE8}.isch.ch-blog{background:#0E7C7B}.isch.ch-cafe{background:#B4650F}
-.isch.ch-threads{background:#111}.isch.ch-youtube{background:#C6392F}
-.isch b{font-size:13px}
-.isch i{font-style:normal;font-size:10px;opacity:.8}
-.isready{display:flex;gap:11px;background:#EAF0FB;border:1px solid #CBD9F0;border-radius:14px;padding:13px;margin-bottom:11px}
+.isleg2{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--sub)}
+.isleg2 .k{width:10px;height:10px;border-radius:3px;margin-left:9px}
+.isleg2 .k:first-child{margin-left:0}
+.isleg2 .k.p{background:#5B4DE8}.isleg2 .k.u{background:#F5B841}.isleg2 .k.g{background:#EF4B6C}
+.isleg2 .k.ln{width:16px;height:2px;border-radius:0;background:#EF4B6C}
+.isn-g{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.isn{border-radius:13px;padding:13px 9px;text-align:center;border:1px solid transparent}
+.isn.ev{background:#FDECEF;border-color:#F8C9D3}
+.isn.cm{background:#FEF6E7;border-color:#F5E0B0}
+.isn.nf{background:#F0EEFC;border-color:#D8D3F5}
+.isn-l{font-size:11px;font-weight:700;color:var(--sub)}
+.isn.ev .isn-l{color:#C2334F}.isn.cm .isn-l{color:#9A7412}.isn.nf .isn-l{color:#4A3FC0}
+.isn-v{font-size:24px;font-weight:800;line-height:1.2;margin:3px 0}
+.isn.ev .isn-v{color:#EF4B6C}.isn.cm .isn-v{color:#E0A32B}.isn.nf .isn-v{color:#5B4DE8}
+.isn-v em{font-style:normal;font-size:11px;margin-left:1px}
+.isn-n{font-size:10px;color:var(--sub)}
+.isn-x{font-size:10.5px;color:var(--sub);line-height:1.6;margin-top:10px;word-break:keep-all}
+.ischip{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.isch{display:inline-flex;align-items:baseline;gap:6px;font-size:11.5px;font-weight:700;color:#fff;border-radius:20px;padding:6px 12px;background:var(--sub)}
+.isch.ch-news{background:#5B4DE8}.isch.ch-blog{background:#0E9E7E}.isch.ch-cafe{background:#E0A32B}
+.isch b{font-size:13px}.isch i{font-style:normal;font-size:10px;opacity:.82}
+.isready{display:flex;gap:11px;background:#F0EEFC;border:1px solid #D8D3F5;border-radius:14px;padding:13px;margin-bottom:11px}
 .isr-i{font-size:22px}
-.isr-t{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:3px}
+.isr-t{font-size:13px;font-weight:800;color:#4A3FC0;margin-bottom:3px}
 .isr-d{font-size:11.5px;color:var(--sub);line-height:1.6;word-break:keep-all}
 .ismon2{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px;margin-bottom:8px}
 .ism-h{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
 .ism-h b{font-size:14px;color:var(--navy)}
 .ism-h span{font-size:11px;color:var(--sub)}
 .ism-h em{margin-left:auto;font-style:normal;font-size:11.5px;font-weight:800}
-.ism-h em.up{color:#C6392F}.ism-h em.dn{color:#2E7D32}
+.ism-h em.up{color:#EF4B6C}.ism-h em.dn{color:#0E9E7E}
 .isbar{display:flex;height:15px;border-radius:8px;overflow:hidden}
 .isbar span{display:block;height:100%}
-.isbar .s-neg{background:linear-gradient(90deg,#C6392F,#E8695C)}
-.isbar .s-neu{background:#C8D0DE}
-.isbar .s-pos{background:linear-gradient(90deg,#4FD8C4,#2E7D32)}
+.isbar .s-neg{background:#EF4B6C}.isbar .s-neu{background:#F5B841}.isbar .s-pos{background:#5B4DE8}
 .ism-v{font-size:11px;color:var(--sub);margin-top:6px}
 .iscards{display:flex;flex-direction:column;gap:8px}
 .iscd{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.14s}
-.iscd.open{border-color:var(--navy);box-shadow:0 4px 16px rgba(27,42,74,.1)}
+.iscd.open{border-color:#5B4DE8;box-shadow:0 4px 18px rgba(91,77,232,.13)}
 .iscd-h{display:flex;align-items:center;gap:8px;padding:12px 13px;cursor:pointer}
 .iscd-h:hover{background:var(--bg)}
-.iscd-h .rk{flex:0 0 20px;height:20px;line-height:20px;text-align:center;border-radius:50%;
-  background:var(--sub);color:#fff;font-size:11px;font-weight:800}
-.iscd.hi .iscd-h .rk{background:#C6392F}
-.iscd.mid .iscd-h .rk{background:#D98324}
-.iscd.lo .iscd-h .rk{background:#2B6CE8}
+.iscd-h .rk{flex:0 0 20px;height:20px;line-height:20px;text-align:center;border-radius:50%;background:var(--sub);color:#fff;font-size:11px;font-weight:800}
+.iscd.hi .rk{background:#EF4B6C}.iscd.mid .rk{background:#E0A32B}.iscd.lo .rk{background:#5B4DE8}
 .iscd-h .nm{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--ink)}
-.iscd-h .cnt{flex:0 0 auto;font-size:11px;color:var(--sub)}
+.iscd-h .cnt{flex:0 0 auto;font-size:10.5px;color:var(--sub)}
 .iscd-h .pct{margin-left:auto;font-size:19px;font-weight:800;color:var(--sub);line-height:1}
 .iscd-h .pct em{font-style:normal;font-size:11px;margin-left:1px}
-.iscd.hi .pct{color:#C6392F}.iscd.mid .pct{color:#D98324}.iscd.lo .pct{color:#2B6CE8}
+.iscd.hi .pct{color:#EF4B6C}.iscd.mid .pct{color:#E0A32B}.iscd.lo .pct{color:#5B4DE8}
 .iscd-h .dl{flex:0 0 auto;font-size:10.5px;font-weight:700}
-.iscd-h .dl.up{color:#C6392F}.iscd-h .dl.dn{color:#2E7D32}
+.iscd-h .dl.up{color:#EF4B6C}.iscd-h .dl.dn{color:#0E9E7E}
 .iscd-h .ar{flex:0 0 auto;font-size:9px;color:var(--sub)}
 .iscd-b{height:5px;background:var(--bg)}
-.iscd-b i{display:block;height:100%;background:linear-gradient(90deg,#4E8CF0,#2B6CE8)}
-.iscd.hi .iscd-b i{background:linear-gradient(90deg,#E8695C,#C6392F)}
-.iscd.mid .iscd-b i{background:linear-gradient(90deg,#F0A840,#D98324)}
+.iscd-b i{display:block;height:100%;background:#5B4DE8}
+.iscd.hi .iscd-b i{background:#EF4B6C}.iscd.mid .iscd-b i{background:#E0A32B}
+.iscd-n{display:flex;height:4px}
+.iscd-n span{display:block;height:100%}
+.iscd-n .ev{background:#EF4B6C}.iscd-n .cm{background:#F5B841}.iscd-n .nf{background:#9A90F0}
+.iscd-nl{display:flex;gap:10px;flex-wrap:wrap;font-size:10px;color:var(--sub);padding:6px 13px 9px}
+.iscd-nl em{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:4px}
+.iscd-nl em.ev{background:#EF4B6C}.iscd-nl em.cm{background:#F5B841}.iscd-nl em.nf{background:#9A90F0}
 .iscd-x{padding:12px 13px;background:var(--bg);border-top:1px solid var(--line)}
 .iscd-xt{font-size:11.5px;font-weight:700;color:var(--sub);margin-bottom:9px}
-.ispc-w{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:8px}
-.ispc{display:block;background:var(--card);border:1px solid var(--line);border-radius:13px;
-  padding:11px 12px;text-decoration:none;transition:.14s}
-.ispc:hover{border-color:var(--gyul);transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.07)}
-.ispc-h{display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.ispt{display:flex;gap:5px;margin-bottom:10px}
+.ispt button{font-size:11.5px;font-weight:700;border:1px solid var(--line);background:var(--card);
+  color:var(--sub);border-radius:20px;padding:6px 14px;cursor:pointer;transition:.13s}
+.ispt button.on{background:#5B4DE8;color:#fff;border-color:#5B4DE8}
+.ispc-w{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:8px}
+.ispc{display:block;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 12px;text-decoration:none;transition:.14s}
+.ispc:hover{border-color:#5B4DE8;transform:translateY(-2px);box-shadow:0 5px 16px rgba(91,77,232,.1)}
+.ispc-h{display:flex;align-items:center;gap:5px;margin-bottom:6px;flex-wrap:wrap}
 .ispc-h .ch{font-size:9.5px;font-weight:700;border-radius:20px;padding:2px 8px;color:#fff;background:var(--sub)}
-.ispc-h .ch.ch-news{background:#2B6CE8}.ispc-h .ch.ch-blog{background:#0E7C7B}.ispc-h .ch.ch-cafe{background:#B4650F}
+.ispc-h .ch.ch-news{background:#5B4DE8}.ispc-h .ch.ch-blog{background:#0E9E7E}.ispc-h .ch.ch-cafe{background:#E0A32B}
 .ispc-h .dt{font-size:10px;color:var(--sub)}
-.ispc-h .sm{margin-left:auto;font-size:9.5px;font-weight:700;border-radius:20px;padding:2px 8px;
-  background:var(--bg);color:var(--sub)}
-.ispc-h .sm.neg{background:#FBE9E7;color:#C6392F}
-.ispc-h .sm.pos{background:#E7F3E8;color:#2E7D32}
+.ispc-h .cg{font-size:9.5px;color:var(--sub);background:var(--bg);border-radius:20px;padding:2px 7px}
+.ispc-h .sm{margin-left:auto;font-size:9.5px;font-weight:700;border-radius:20px;padding:2px 8px;background:var(--bg);color:var(--sub)}
+.ispc-h .sm.neg{background:#FDECEF;color:#EF4B6C}
+.ispc-h .sm.pos{background:#EFEDFC;color:#5B4DE8}
 .ispc-t{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.5;word-break:keep-all}
 .ispc-d{font-size:11px;color:var(--sub);line-height:1.6;margin-top:5px;word-break:keep-all}
 .ispc-r{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}
-.ispc-r em{font-style:normal;font-size:9.5px;font-weight:700;color:#C6392F;background:#FBE9E7;
-  border:1px solid #F1C6C0;border-radius:20px;padding:1px 7px}
-.ispos-t{font-size:12.5px;font-weight:700;color:#2E7D32;margin:14px 0 8px;padding-top:12px;border-top:1px dashed var(--line)}
-.isnat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:10px}
-.isn-t{font-size:12.5px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.isn-g{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.isn{border-radius:12px;padding:11px 9px;text-align:center;border:1px solid transparent}
-.isn.ev{background:#FBE9E7;border-color:#F1C6C0}
-.isn.cm{background:#FDF4E7;border-color:#EFD9B4}
-.isn.nf{background:#EAF0FB;border-color:#CBD9F0}
-.isn-l{font-size:11px;font-weight:700;color:var(--sub)}
-.isn.ev .isn-l{color:#A33529}.isn.cm .isn-l{color:#8A5A12}.isn.nf .isn-l{color:#2B4C8C}
-.isn-v{font-size:22px;font-weight:800;color:var(--ink);line-height:1.2;margin:2px 0}
-.isn-v em{font-style:normal;font-size:11px;margin-left:1px}
-.isn.ev .isn-v{color:#C6392F}.isn.cm .isn-v{color:#D98324}.isn.nf .isn-v{color:#2B6CE8}
-.isn-n{font-size:10px;color:var(--sub)}
-.isn-x{font-size:10.5px;color:var(--sub);line-height:1.6;margin-top:9px;padding-top:8px;
-  border-top:1px dashed var(--line);word-break:keep-all}
-.iscd-n{display:flex;height:5px;margin-top:1px}
-.iscd-n span{display:block;height:100%}
-.iscd-n .ev{background:#C6392F}.iscd-n .cm{background:#E8A33C}.iscd-n .nf{background:#7FA3E0}
-.iscd-nl{display:flex;gap:10px;flex-wrap:wrap;font-size:10px;color:var(--sub);padding:6px 13px 9px}
-.iscd-nl em{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:4px}
-.iscd-nl em.ev{background:#C6392F}.iscd-nl em.cm{background:#E8A33C}.iscd-nl em.nf{background:#7FA3E0}
+.ispc-r em{font-style:normal;font-size:9.5px;font-weight:700;color:#EF4B6C;background:#FDECEF;border:1px solid #F8C9D3;border-radius:20px;padding:1px 7px}
 .iswords{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-.isw{background:#FBE9E7;border:1px solid #F1C6C0;color:#C6392F;border-radius:20px;padding:5px 13px;font-weight:800;line-height:1.3}
-.isw em{font-style:normal;font-size:10px;opacity:.65;margin-left:5px;font-weight:600}
+.isw{background:#FDECEF;border:1px solid #F8C9D3;color:#D93A57;border-radius:20px;padding:5px 13px;font-weight:800;line-height:1.3}
+.isw em{font-style:normal;font-size:10px;opacity:.62;margin-left:5px;font-weight:600}
 @media(max-width:640px){
-  .ishero2{gap:12px;padding:13px}
-  .isdonut{width:108px;height:108px}
-  .isdn-v{font-size:25px}
-  .ishr{font-size:12px;padding:5px 0}
-  .ishr i{font-size:15px}
-  .isf{min-width:184px}
-  .isd-g{height:80px}
+  .isbar-f{gap:8px}
+  .isbf-r{margin-left:0;width:100%}
+  .istg{flex:1 1 0;justify-content:center}
+  .ishero2{gap:13px}
+  .isdonut{width:116px;height:116px}
+  .isdn-v{font-size:26px}
+  .ishr{font-size:12px;padding:6px 0}
+  .ishr i{font-size:16px}
+  .isf{min-width:190px}
+  .isd-g{height:96px}
   .iscd-h .nm{font-size:12.5px}
   .iscd-h .pct{font-size:17px}
   .ispc-w{grid-template-columns:1fr}
@@ -2447,6 +2454,7 @@ function renderSchools(){
 }
 document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
 let ISDATA=null, isLoading=false, isTab='week', isOpenCat=null, isHowOpen=false;
+let isCh={news:true,blog:true,cafe:true}, isPostTab='neg';
 function loadIS(){
   if(ISDATA||isLoading){ if(ISDATA) renderIS(); return; }
   isLoading=true;
@@ -2460,28 +2468,25 @@ function loadIS(){
 }
 const IS_CH={news:'뉴스',blog:'블로그',cafe:'카페',threads:'스레드',youtube:'유튜브'};
 function isPct(v){ return (v>0?'+':'')+v+'%p'; }
-function isDonut(neg,neu,pos,size){
-  /* 도넛 게이지 — 부정/중립/긍정 3분할 */
-  const S=size||132, R=S/2-13, C=2*Math.PI*R, cx=S/2;
-  let off=0; const seg=[];
-  [['#C6392F',neg],['#C8D0DE',neu],['#2E7D32',pos]].forEach(([col,v])=>{
-    const len=C*(v/100);
-    seg.push('<circle cx="'+cx+'" cy="'+cx+'" r="'+R+'" fill="none" stroke="'+col+
-      '" stroke-width="15" stroke-dasharray="'+len+' '+(C-len)+'" stroke-dashoffset="'+(-off)+
-      '" transform="rotate(-90 '+cx+' '+cx+')" stroke-linecap="butt"/>');
-    off+=len;
+function isDonut(neg,neu,pos,S){
+  S=S||150; const R=S/2-15, C=2*Math.PI*R, cx=S/2; let off=0; const g=[];
+  [['#5B4DE8',pos],['#F5B841',neu],['#EF4B6C',neg]].forEach(([c,v])=>{
+    const L=C*(v/100);
+    g.push('<circle cx="'+cx+'" cy="'+cx+'" r="'+R+'" fill="none" stroke="'+c+'" stroke-width="17" '+
+      'stroke-dasharray="'+L+' '+(C-L)+'" stroke-dashoffset="'+(-off)+'" transform="rotate(-90 '+cx+' '+cx+')"/>');
+    off+=L;
   });
   return '<svg class="isdonut" viewBox="0 0 '+S+' '+S+'" width="'+S+'" height="'+S+'">'+
-    '<circle cx="'+cx+'" cy="'+cx+'" r="'+R+'" fill="none" stroke="var(--bg)" stroke-width="15"/>'+
-    seg.join('')+
-    '<text x="'+cx+'" y="'+(cx-4)+'" text-anchor="middle" class="isdn-v">'+neg+'</text>'+
-    '<text x="'+cx+'" y="'+(cx+14)+'" text-anchor="middle" class="isdn-l">부정 %</text></svg>';
+    '<circle cx="'+cx+'" cy="'+cx+'" r="'+R+'" fill="none" stroke="var(--bg)" stroke-width="17"/>'+g.join('')+
+    '<text x="'+cx+'" y="'+(cx-2)+'" text-anchor="middle" class="isdn-v">'+neg+'<tspan class="isdn-p">%</tspan></text>'+
+    '<text x="'+cx+'" y="'+(cx+16)+'" text-anchor="middle" class="isdn-l">부정</text></svg>';
 }
 function isCard(x){
   const r=(x.reasons||[]).slice(0,3);
   return '<a class="ispc" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
     '<div class="ispc-h"><b class="ch ch-'+orgEsc(x.channel)+'">'+(IS_CH[x.channel]||x.channel)+'</b>'+
       '<span class="dt">'+orgEsc(x.date||'')+'</span>'+
+      (x.category?'<span class="cg">'+orgEsc(x.category)+'</span>':'')+
       (x.sentiment?'<span class="sm '+(x.sentiment==='부정'?'neg':(x.sentiment==='긍정'?'pos':''))+'">'+orgEsc(x.sentiment)+'</span>':'')+
     '</div>'+
     '<div class="ispc-t">'+orgEsc(x.title)+'</div>'+
@@ -2489,6 +2494,8 @@ function isCard(x){
     (r.length?'<div class="ispc-r">'+r.map(w=>'<em>'+orgEsc(w)+'</em>').join('')+'</div>':'')+
     '</a>';
 }
+function isFilter(list){ return (list||[]).filter(x=>isCh[x.channel]!==false); }
+
 function renderIS(){
   const D=ISDATA, b=document.getElementById('isbody'); if(!b) return;
   if(!D){ b.innerHTML='<div class="isload">아직 수집된 여론 데이터가 없습니다.</div>'; return; }
@@ -2496,154 +2503,150 @@ function renderIS(){
   const neg=C.neg||0, neu=C.neu||0, pos=C.pos||0;
   let h='';
 
-  /* ── 방법 안내 (접이식) ── */
+  /* ── 필터바 ── */
+  h+='<div class="isbar-f"><div class="isbf-l">'+
+     '<span class="isbf-d">📅 '+orgEsc(M.period?M.period.from.replace(/-/g,'.'):'')+
+     ' ~ '+orgEsc(M.period?M.period.to.replace(/-/g,'.'):'')+'</span>'+
+     '<div class="istabs2" id="istabs">'+
+       '<button data-t="week"'+(isTab==='week'?' class="on"':'')+'>주간</button>'+
+       '<button data-t="month"'+(isTab==='month'?' class="on"':'')+'>월간</button>'+
+     '</div></div>'+
+     '<div class="isbf-r" id="ischf">'+
+       ['news','blog','cafe'].map(k=>'<button class="istg '+k+(isCh[k]?' on':'')+'" data-c="'+k+'">'+
+         IS_CH[k]+'<i>'+(isCh[k]?'ON':'OFF')+'</i></button>').join('')+
+     '</div></div>';
+
+  /* ── 방법 안내 ── */
   h+='<div class="ishow'+(isHowOpen?' open':'')+'">'+
      '<button class="ishow-b" id="ishowb">ℹ️ 이 지수는 어떻게 만들어지나요<span>'+(isHowOpen?'접기 ▲':'펼치기 ▼')+'</span></button>';
   if(isHowOpen){
-    h+='<div class="ishow-c">'+
-      '<div class="isflow">'+
-        '<div class="isf"><span class="isf-n">1</span><b>수집</b>'+
-          '<p>네이버 검색(뉴스·블로그·카페)과 구글뉴스에서 <b>제주·제주도·제주여행</b> 같은 중립 검색어로 글을 모읍니다. '+
-          '특정 사건을 지목해 검색하지 않습니다.</p></div>'+
-        '<div class="isf-a">→</div>'+
-        '<div class="isf"><span class="isf-n">2</span><b>걸러내기</b>'+
-          '<p>제주와 무관한 글, 광고·홍보글, 연예 기사, 인사 발령은 제외합니다. '+
-          '사건 글은 <b>관광 시설</b>에서 일어난 것만 남기고 일상 공간 사고는 뺍니다.</p></div>'+
-        '<div class="isf-a">→</div>'+
-        '<div class="isf"><span class="isf-n">3</span><b>분류</b>'+
-          '<p>본문 표현을 규칙으로 읽어 <b>긍정·중립·부정</b>과 9개 분야로 나눕니다. '+
-          '"바가지가 없어서 좋았다" 같은 문장은 부정으로 세지 않습니다.<br>'+
-          '<b>분야</b>(무엇에 관한 글인가)와 <b>성격</b>(사건사고·불만후기·정보소식)을 따로 매깁니다.</p></div>'+
-        '<div class="isf-a">→</div>'+
-        '<div class="isf"><span class="isf-n">4</span><b>지수</b>'+
-          '<p>건수가 아니라 <b>비중</b>을 지수로 씁니다. 검색 결과는 전체 글이 아니라 일부라서, '+
-          '"몇 건이냐"보다 "몇 %가 부정이냐"가 흐름을 더 정확히 보여줍니다.</p></div>'+
-      '</div>'+
-      '<div class="ishow-n">· 원인 분석이나 위험도 판단은 하지 않습니다. 계산된 비중만 보여줍니다.<br>'+
+    h+='<div class="ishow-c"><div class="isflow">'+
+      '<div class="isf"><span class="isf-n">1</span><b>수집</b><p>네이버 검색(뉴스·블로그·카페)과 구글뉴스에서 '+
+        '<b>제주·제주도·제주여행</b> 같은 중립 검색어로 글을 모읍니다. 특정 사건을 지목해 검색하지 않습니다.</p></div>'+
+      '<div class="isf-a">→</div>'+
+      '<div class="isf"><span class="isf-n">2</span><b>걸러내기</b><p>제주에서 났더라도 <b>관광과 연결되지 않은 글</b>은 뺍니다. '+
+        '블로그·카페는 여행을 다녀온 사람의 글만, 뉴스는 관광객·관광업계가 등장하는 기사만 남깁니다. '+
+        '광고·홍보·연예·인사 기사도 제외합니다.</p></div>'+
+      '<div class="isf-a">→</div>'+
+      '<div class="isf"><span class="isf-n">3</span><b>분류</b><p><b>분야</b>(무엇에 관한 글인가) 9종과 '+
+        '<b>성격</b>(사건사고·불만후기·정보소식)을 따로 매기고, 긍정·중립·부정을 판정합니다. '+
+        '"바가지가 없어서 좋았다" 같은 문장은 부정으로 세지 않습니다.</p></div>'+
+      '<div class="isf-a">→</div>'+
+      '<div class="isf"><span class="isf-n">4</span><b>지수</b><p>건수가 아니라 <b>비중</b>을 지수로 씁니다. '+
+        '검색 결과는 전체 글의 일부라서, "몇 건이냐"보다 "몇 %가 부정이냐"가 흐름을 정확히 보여줍니다.</p></div>'+
+      '</div><div class="ishow-n">'+
+      '· 원인 분석이나 위험도 판단은 하지 않습니다. 계산된 비중만 보여줍니다.<br>'+
       '· 규칙 기반 분류라 오분류가 있을 수 있어, 아래 원문 글을 함께 확인해 주세요.<br>'+
-      '· 인스타그램·페이스북은 API 정책상 수집할 수 없습니다.</div>'+
-      '</div>';
+      '· 인스타그램·페이스북은 API 정책상 수집할 수 없습니다.</div></div>';
   }
   h+='</div>';
 
-  /* ── 탭 ── */
-  h+='<div class="istabs" id="istabs">'+
-     '<button data-t="week"'+(isTab==='week'?' class="on"':'')+'>주간</button>'+
-     '<button data-t="month"'+(isTab==='month'?' class="on"':'')+'>월간</button></div>';
-
   if(isTab==='week'){
-    h+='<div class="tjsec"><h3>📡 여론지수 <span class="tjm">'+
-       orgEsc(M.period? M.period.from+' ~ '+M.period.to : '')+'</span></h3>';
-    /* 도넛 + 지표 */
-    h+='<div class="ishero2">'+
-       '<div class="ish-d">'+isDonut(neg,neu,pos)+'</div>'+
-       '<div class="ish-s">'+
-         '<div class="ishr neg"><span class="k"></span><b>부정</b><i>'+neg+'%</i>'+
-           (DL&&typeof DL.neg==='number'?'<em class="'+(DL.neg>0?'up':'dn')+'">'+isPct(DL.neg)+'</em>':'')+'</div>'+
-         '<div class="ishr neu"><span class="k"></span><b>중립</b><i>'+neu+'%</i></div>'+
-         '<div class="ishr pos"><span class="k"></span><b>긍정</b><i>'+pos+'%</i>'+
-           (DL&&typeof DL.pos==='number'?'<em class="'+(DL.pos>0?'dn':'up')+'">'+isPct(DL.pos)+'</em>':'')+'</div>'+
-         '<div class="ish-t">최근 7일 '+Number(C.total||0).toLocaleString()+'건'+
-           (D.previous?' · 전주 '+Number(D.previous.total).toLocaleString()+'건':'')+'</div>'+
-       '</div></div>';
-    /* 일별 */
+    /* ── 지수 ── */
+    h+='<div class="tjsec"><h3>📡 긍·부정 비율</h3>'+
+       '<div class="ishero2"><div class="ish-d">'+isDonut(neg,neu,pos)+'</div><div class="ish-s">'+
+       '<div class="ishr neg"><span class="k"></span><b>부정</b><i>'+neg+'%</i>'+
+         (DL&&typeof DL.neg==='number'?'<em class="'+(DL.neg>0?'up':'dn')+'">'+isPct(DL.neg)+'</em>':'')+'</div>'+
+       '<div class="ishr neu"><span class="k"></span><b>중립</b><i>'+neu+'%</i></div>'+
+       '<div class="ishr pos"><span class="k"></span><b>긍정</b><i>'+pos+'%</i>'+
+         (DL&&typeof DL.pos==='number'?'<em class="'+(DL.pos>0?'dn':'up')+'">'+isPct(DL.pos)+'</em>':'')+'</div>'+
+       '<div class="ish-t">최근 7일 '+Number(C.total||0).toLocaleString()+'건'+
+         (D.previous?' · 전주 '+Number(D.previous.total).toLocaleString()+'건':'')+'</div>'+
+       '</div></div></div>';
+
+    /* ── 일별 추이 (누적 막대 + 부정 선) ── */
     const DY=D.daily||[];
     if(DY.length>1){
-      const mx=Math.max.apply(null,DY.map(x=>x.total))||1;
-      h+='<div class="isdaily"><div class="isd-t">일별 흐름<em>막대=글 수 · 점=부정 비중</em></div><div class="isd-g">';
+      const mx=Math.max.apply(null,DY.map(x=>x.total))||1, W=100/DY.length;
+      let pts=DY.map((x,i)=>((i+0.5)*W)+','+(100-x.neg)).join(' ');
+      h+='<div class="tjsec"><h3>📈 일별 추이</h3>'+
+         '<div class="tjsub">막대는 글 수(긍정·중립·부정 누적), 선은 부정 비중입니다</div>'+
+         '<div class="isline"><svg class="isln" viewBox="0 0 100 100" preserveAspectRatio="none">'+
+         '<polyline points="'+pts+'" fill="none" stroke="#EF4B6C" stroke-width="1.1" vector-effect="non-scaling-stroke"/>'+
+         DY.map((x,i)=>'<circle cx="'+((i+0.5)*W)+'" cy="'+(100-x.neg)+'" r="1.5" fill="#EF4B6C" vector-effect="non-scaling-stroke"/>').join('')+
+         '</svg><div class="isd-g">';
       DY.forEach(x=>{
-        h+='<div class="isd" title="'+orgEsc(x.date)+' · '+x.total+'건 · 부정 '+x.neg+'%">'+
-           '<div class="isd-dot" style="bottom:calc('+x.neg+'% - 3px)"></div>'+
-           '<div class="isd-b" style="height:'+Math.max(6,Math.round(x.total/mx*100))+'%"></div>'+
+        const H=Math.max(5,Math.round(x.total/mx*100));
+        const sp=(v)=>x.total?Math.round(v/x.total*100):0;
+        h+='<div class="isd" title="'+orgEsc(x.date)+' · '+x.total+'건 (부정 '+x.neg_n+' 중립 '+x.neu_n+' 긍정 '+x.pos_n+')">'+
+           '<div class="isd-b" style="height:'+H+'%">'+
+             '<span class="p" style="height:'+sp(x.pos_n)+'%"></span>'+
+             '<span class="u" style="height:'+sp(x.neu_n)+'%"></span>'+
+             '<span class="g" style="height:'+sp(x.neg_n)+'%"></span></div>'+
            '<div class="isd-x">'+Number(String(x.date).slice(8))+'</div></div>';
       });
-      h+='</div></div>';
+      h+='</div></div><div class="isleg2"><span class="k p"></span>긍정<span class="k u"></span>중립'+
+         '<span class="k g"></span>부정<span class="k ln"></span>부정 비중(선)</div></div>';
     }
-    /* 성격 — 사건사고 / 불만·후기 / 정보·소식 */
+    /* ── 성격 · 채널 ── */
     if(C.natures){
       const NT={'사건사고':'ev','불만·후기':'cm','정보·소식':'nf'};
-      const tot=Object.values(C.natures).reduce((a,b)=>a+(b.n||0),0)||1;
-      h+='<div class="isnat"><div class="isn-t">글의 성격</div><div class="isn-g">';
+      h+='<div class="tjsec"><h3>🗂 글의 성격</h3><div class="isn-g">';
       ['사건사고','불만·후기','정보·소식'].forEach(k=>{
         const v=C.natures[k]; if(!v) return;
         h+='<div class="isn '+NT[k]+'"><div class="isn-l">'+k+'</div>'+
-           '<div class="isn-v">'+v.share+'<em>%</em></div>'+
-           '<div class="isn-n">'+Number(v.n).toLocaleString()+'건</div></div>';
+           '<div class="isn-v">'+v.share+'<em>%</em></div><div class="isn-n">'+Number(v.n).toLocaleString()+'건</div></div>';
       });
-      h+='</div><div class="isn-x">사건사고는 실제로 일이 벌어진 보도, 불만·후기는 겪은 일에 대한 글, '+
-         '정보·소식은 안내·발표입니다.</div></div>';
-    }
-    /* 채널 */
-    if(C.channels){
-      const tot=Object.values(C.channels).reduce((a,b)=>a+b,0)||1;
-      h+='<div class="ischip">';
-      Object.entries(C.channels).forEach(([k,v])=>{
-        h+='<span class="isch ch-'+orgEsc(k)+'">'+(IS_CH[k]||k)+
-           '<b>'+Number(v).toLocaleString()+'</b><i>'+Math.round(v/tot*100)+'%</i></span>';
-      });
+      h+='</div><div class="isn-x">사건사고는 실제로 일이 벌어진 보도, 불만·후기는 겪은 일에 대한 글, 정보·소식은 안내·발표입니다.</div>';
+      if(C.channels){
+        const tot=Object.values(C.channels).reduce((a,b)=>a+b,0)||1;
+        h+='<div class="ischip">'+Object.entries(C.channels).map(([k,v])=>
+          '<span class="isch ch-'+orgEsc(k)+'">'+(IS_CH[k]||k)+'<b>'+Number(v).toLocaleString()+'</b><i>'+
+          Math.round(v/tot*100)+'%</i></span>').join('')+'</div>';
+      }
       h+='</div>';
     }
-    h+='</div>';
   } else {
     h+='<div class="tjsec"><h3>📅 월간 여론지수</h3>';
-    if(!MO.ready){
-      h+='<div class="isready"><div class="isr-i">🗓</div><div>'+
-         '<div class="isr-t">전월 대비 비교는 2026년 9월부터</div>'+
-         '<div class="isr-d">두 달치가 쌓여야 월 단위 변화를 볼 수 있습니다. 지금은 이번 달 집계만 표시합니다.</div>'+
-         '</div></div>';
-    }
+    if(!MO.ready) h+='<div class="isready"><div class="isr-i">🗓</div><div>'+
+      '<div class="isr-t">전월 대비 비교는 2026년 9월부터</div>'+
+      '<div class="isr-d">두 달치가 쌓여야 월 단위 변화를 볼 수 있습니다. 지금은 이번 달 집계만 표시합니다.</div></div></div>';
     (MO.items||[]).slice(-6).forEach((x,i,arr)=>{
-      const p=i>0?arr[i-1]:null, d=p?Math.round((x.neg-p.neg)*10)/10:null;
-      h+='<div class="ismon2"><div class="ism-h"><b>'+orgEsc(x.month)+'</b>'+
-         '<span>'+Number(x.total).toLocaleString()+'건</span>'+
-         (d!==null?'<em class="'+(d>0?'up':'dn')+'">'+isPct(d)+'</em>':'')+'</div>'+
-         '<div class="isbar">'+
-           '<span class="s-neg" style="width:'+x.neg+'%"></span>'+
-           '<span class="s-neu" style="width:'+x.neu+'%"></span>'+
-           '<span class="s-pos" style="width:'+x.pos+'%"></span></div>'+
-         '<div class="ism-v">부정 '+x.neg+'% · 중립 '+x.neu+'% · 긍정 '+x.pos+'%</div></div>';
+      const p=i>0?arr[i-1]:null, dd=p?Math.round((x.neg-p.neg)*10)/10:null;
+      h+='<div class="ismon2"><div class="ism-h"><b>'+orgEsc(x.month)+'</b><span>'+
+         Number(x.total).toLocaleString()+'건</span>'+
+         (dd!==null?'<em class="'+(dd>0?'up':'dn')+'">'+isPct(dd)+'</em>':'')+'</div>'+
+         '<div class="isbar"><span class="s-pos" style="width:'+x.pos+'%"></span>'+
+         '<span class="s-neu" style="width:'+x.neu+'%"></span>'+
+         '<span class="s-neg" style="width:'+x.neg+'%"></span></div>'+
+         '<div class="ism-v">긍정 '+x.pos+'% · 중립 '+x.neu+'% · 부정 '+x.neg+'%</div></div>';
     });
     h+='<div class="tjnote">※ 이번 달은 진행 중이라 월말에 값이 달라질 수 있습니다.</div></div>';
   }
 
-  /* ── 분야별 (카드 + 원문) ── */
+  /* ── 분야별 (부정 기준) ── */
   const R=D.rank||[];
   if(R.length){
-    const mx=R[0].n||1;
-    h+='<div class="tjsec"><h3>📊 분야별 여론</h3>'+
-       '<div class="tjsub">분야를 누르면 실제 수집된 글을 볼 수 있습니다</div><div class="iscards">';
+    const mx=Math.max.apply(null,R.map(r=>r.neg_n||0))||1;
+    h+='<div class="tjsec"><h3>📊 분야별 부정 여론</h3>'+
+       '<div class="tjsub">부정으로 분류된 글이 많은 순 · 분야를 누르면 원문을 볼 수 있습니다</div><div class="iscards">';
     R.forEach((r,i)=>{
-      const lvl=r.neg>=50?'hi':(r.neg>=25?'mid':'lo');
-      const open=(isOpenCat===r.name);
+      const lvl=r.neg>=50?'hi':(r.neg>=25?'mid':'lo'), open=(isOpenCat===r.name);
       h+='<div class="iscd '+lvl+(open?' open':'')+'" data-cat="'+orgEsc(r.name)+'">'+
-         '<div class="iscd-h">'+
-           '<span class="rk">'+(i+1)+'</span>'+
-           '<span class="nm">'+orgEsc(r.name)+'</span>'+
-           '<span class="cnt">'+Number(r.n).toLocaleString()+'건</span>'+
-           '<span class="pct">'+r.neg+'<em>%</em></span>'+
-           (typeof r.delta==='number'?'<span class="dl '+(r.delta>0?'up':'dn')+'">'+isPct(r.delta)+'</span>':'')+
-           '<span class="ar">'+(open?'▲':'▼')+'</span>'+
-         '</div>'+
-         '<div class="iscd-b"><i style="width:'+Math.max(3,Math.round(r.n/mx*100))+'%"></i></div>';
+         '<div class="iscd-h"><span class="rk">'+(i+1)+'</span>'+
+         '<span class="nm">'+orgEsc(r.name)+'</span>'+
+         '<span class="cnt">부정 '+r.neg_n+'건 / 전체 '+Number(r.n).toLocaleString()+'</span>'+
+         '<span class="pct">'+r.neg+'<em>%</em></span>'+
+         (typeof r.delta==='number'?'<span class="dl '+(r.delta>0?'up':'dn')+'">'+isPct(r.delta)+'</span>':'')+
+         '<span class="ar">'+(open?'▲':'▼')+'</span></div>'+
+         '<div class="iscd-b"><i style="width:'+Math.max(3,Math.round((r.neg_n||0)/mx*100))+'%"></i></div>';
       const NA=r.natures||{}, nt=Object.values(NA).reduce((a,b)=>a+b,0);
       if(nt){
         const NC={'사건사고':'ev','불만·후기':'cm','정보·소식':'nf'};
-        h+='<div class="iscd-n">';
-        ['사건사고','불만·후기','정보·소식'].forEach(k=>{
-          if(!NA[k]) return;
-          h+='<span class="'+NC[k]+'" style="width:'+(NA[k]/nt*100)+'%" title="'+k+' '+NA[k]+'건"></span>';
-        });
-        h+='</div><div class="iscd-nl">'+
-           ['사건사고','불만·후기','정보·소식'].filter(k=>NA[k])
-             .map(k=>'<em class="'+NC[k]+'"></em>'+k+' '+NA[k]).join('')+'</div>';
+        h+='<div class="iscd-n">'+['사건사고','불만·후기','정보·소식'].filter(k=>NA[k])
+            .map(k=>'<span class="'+NC[k]+'" style="width:'+(NA[k]/nt*100)+'%" title="'+k+' '+NA[k]+'건"></span>').join('')+'</div>'+
+           '<div class="iscd-nl">'+['사건사고','불만·후기','정보·소식'].filter(k=>NA[k])
+            .map(k=>'<em class="'+NC[k]+'"></em>'+k+' '+NA[k]).join('')+'</div>';
       }
-      if(open&&r.top&&r.top.length){
-        h+='<div class="iscd-x"><div class="iscd-xt">이 분야에서 수집된 글 '+r.top.length+'건</div>'+
-           '<div class="ispc-w">'+r.top.map(isCard).join('')+'</div></div>';
+      if(open){
+        const lst=isFilter(r.top);
+        h+='<div class="iscd-x"><div class="iscd-xt">이 분야에서 수집된 글 '+lst.length+'건</div>'+
+           (lst.length?'<div class="ispc-w">'+lst.map(isCard).join('')+'</div>'
+            :'<div class="isempty">선택한 채널에 해당하는 글이 없습니다.</div>')+'</div>';
       }
       h+='</div>';
     });
-    h+='</div><div class="tjnote">※ 숫자는 부정률(그 분야 안에서 부정으로 분류된 비율), 옆의 변화는 전주 대비입니다.</div></div>';
+    h+='</div><div class="tjnote">※ %는 그 분야 안에서 부정으로 분류된 비율, 옆의 변화는 전주 대비입니다.</div></div>';
   }
 
   /* ── 부정 표현 ── */
@@ -2652,20 +2655,23 @@ function renderIS(){
     const mx=RS[0].n||1;
     h+='<div class="tjsec"><h3>🔎 부정 판정에 걸린 표현</h3>'+
        '<div class="tjsub">최근 7일 부정 글에서 많이 나온 단어 · 크기는 빈도</div><div class="iswords">';
-    RS.forEach(x=>h+='<span class="isw" style="font-size:'+
-      (Math.round((11.5+x.n/mx*10)*10)/10)+'px">'+orgEsc(x.word)+'<em>'+x.n+'</em></span>');
+    RS.forEach(x=>h+='<span class="isw" style="font-size:'+(Math.round((12+x.n/mx*10)*10)/10)+'px">'+
+      orgEsc(x.word)+'<em>'+x.n+'</em></span>');
     h+='</div></div>';
   }
 
-  /* ── 원문 (부정/긍정) ── */
-  const T=D.top_negative||[], P=D.top_positive||[];
-  if(T.length){
-    h+='<div class="tjsec"><h3>📰 수집된 글 원문</h3>'+
-       '<div class="tjsub">사실 확인된 정보가 아니라, 모은 글을 규칙으로 분류한 결과입니다</div>'+
-       '<div class="ispc-w">'+T.map(isCard).join('')+'</div>';
-    if(P.length) h+='<div class="ispos-t">긍정으로 분류된 글</div><div class="ispc-w">'+P.map(isCard).join('')+'</div>';
-    h+='</div>';
-  }
+  /* ── 원문 (탭) ── */
+  const SET={neg:D.top_negative||[], pos:D.top_positive||[], all:D.all_recent||[]};
+  const lst=isFilter(SET[isPostTab]);
+  h+='<div class="tjsec"><h3>📰 수집된 글 원문</h3>'+
+     '<div class="tjsub">사실 확인된 정보가 아니라, 모은 글을 규칙으로 분류한 결과입니다</div>'+
+     '<div class="ispt" id="ispt">'+
+       '<button data-p="neg"'+(isPostTab==='neg'?' class="on"':'')+'>부정 '+(SET.neg.length)+'</button>'+
+       '<button data-p="pos"'+(isPostTab==='pos'?' class="on"':'')+'>긍정 '+(SET.pos.length)+'</button>'+
+       '<button data-p="all"'+(isPostTab==='all'?' class="on"':'')+'>전체 '+(SET.all.length)+'</button>'+
+     '</div>'+
+     (lst.length?'<div class="ispc-w">'+lst.map(isCard).join('')+'</div>'
+      :'<div class="isempty">선택한 채널에 해당하는 글이 없습니다.</div>')+'</div>';
 
   h+='<div class="orgnote">· '+orgEsc(M.source||'')+'<br>· '+orgEsc(M.note||'')+
      '<br>· 개별 글의 사실 여부는 확인하지 않았습니다. 분류는 규칙 기반이라 오분류가 있을 수 있습니다.</div>';
@@ -2675,6 +2681,10 @@ function renderIS(){
   if(tb) tb.addEventListener('click',e=>{const el=e.target.closest('button'); if(el){isTab=el.dataset.t; renderIS();}});
   const hb=document.getElementById('ishowb');
   if(hb) hb.addEventListener('click',()=>{isHowOpen=!isHowOpen; renderIS();});
+  const cf=document.getElementById('ischf');
+  if(cf) cf.addEventListener('click',e=>{const el=e.target.closest('button'); if(el){isCh[el.dataset.c]=!isCh[el.dataset.c]; renderIS();}});
+  const pt=document.getElementById('ispt');
+  if(pt) pt.addEventListener('click',e=>{const el=e.target.closest('button'); if(el){isPostTab=el.dataset.p; renderIS();}});
   document.querySelectorAll('.iscd-h').forEach(el=>{
     el.addEventListener('click',()=>{
       const c=el.closest('.iscd').dataset.cat;
