@@ -3,7 +3,7 @@ name: 관광AX 수집
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 22 * * *'   # 07:30 KST (매일 1회 — AX는 변화가 느리다)
+    - cron: '30 22,8 * * *'   # 07:30 KST (매일 1회 — AX는 변화가 느리다)  # 07:30 / 17:30 KST — korea.kr RSS 유실 방지 2회
 
 permissions:
   contents: write
