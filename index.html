@@ -3837,18 +3837,18 @@ function renderAX(){
     if(x.topic) tops[x.topic]=(tops[x.topic]||0)+1;
     const m=(x.date||'').slice(0,7); if(m) months[m]=(months[m]||0)+1;
   });
-  let L=IT;
+  let L=IT.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));   // 최신순 상단
   if(axOrg)     L=L.filter(x=>(x.org||x.org_hint)===axOrg);
   if(axTopic)   L=L.filter(x=>x.topic===axTopic);
   if(axTourOnly)L=L.filter(x=>x.tourism);
 
   let h='';
-  h+='<div class="axintro">제주관광AX인사이트는 <b>대한민국 정책브리핑 및 각 정부기관·공공기관 공식 채널</b>을 '+
-     '통해 수집된 자료를 보여주는 코너입니다.</div>';
+  h+='<div class="axintro">제주관광AX인사이트는 <b>정부 및 각 정부부처, 공공기관의 공식 채널</b>을 통해 '+
+     '수집된 정보를 보여주며, <b>동향 파악을 통해 관광AX정책 수립에 도움을 주는 코너</b>입니다.</div>';
   h+='<div class="isbar-f"><div class="isbf-l">'+
-     '<span class="isbf-d">🗂 '+orgEsc(M.stage||'')+' · 누적 '+IT.length.toLocaleString()+'건</span>'+
+     '<span class="isbf-d">🗂 '+orgEsc(M.stage||'')+' · '+(M.since?orgEsc(M.since.slice(0,7).replace('-','.'))+'~현재 · ':'')+'누적 '+IT.length.toLocaleString()+'건</span>'+
      '<div class="istabs2" id="axtabs">'+
-       '<button data-t="news"'+(axTab==='news'?' class="on"':'')+'>동향</button>'+
+       '<button data-t="news"'+(axTab==='news'?' class="on"':'')+'>전체</button>'+
        '<button data-t="org"'+(axTab==='org'?' class="on"':'')+'>기관</button>'+
        '<button data-t="mile"'+(axTab==='mile'?' class="on"':'')+'>이정표</button>'+
        '<button data-t="guide"'+(axTab==='guide'?' class="on"':'')+'>안내</button>'+
@@ -3869,8 +3869,9 @@ function renderAX(){
     h+='<div class="tjsec"><h3>🤖 '+(axTourOnly?'관광 AX 동향':'공공 AX 동향')+'</h3>'+
        '<div class="tjsub">정부부처·공공기관의 인공지능 전환 추진상황과 타 지역 사례입니다. '+
        '관광은 기반 사업이라 교통·안전·행정 등 인접 분야 사례도 함께 봅니다 · 제목을 누르면 원문으로 이동합니다</div>';
-    h+= L.length? L.slice(0,80).map(axCard).join('')
+    h+= L.length? L.slice(0,400).map(axCard).join('')
        : '<div class="isempty">해당 조건의 자료가 없습니다.</div>';
+    if(L.length>400) h+='<div class="tjnote">최신 400건까지 표시합니다.</div>';
     h+='</div>';
   }
 
@@ -3900,7 +3901,7 @@ function renderAX(){
   }
 
   if(axTab==='mile'){
-    const ms=IT.filter(x=>x.milestone).sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+    const ms=IT.filter(x=>x.milestone).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
     h+='<div class="tjsec"><h3>🚩 주요 이정표</h3>'+
        '<div class="tjsub">최초 도입·대규모 사업·제도 신설 등으로 판정된 건입니다</div>';
     h+= ms.length? ms.map(axCard).join('') : '<div class="isempty">아직 이정표로 판정된 자료가 없습니다.</div>';
@@ -3912,7 +3913,8 @@ function renderAX(){
       '<div class="ishow open"><div class="ishow-c"><div class="isflow">'+
       '<div class="isf"><span class="isf-n">1</span><b>수집</b><p>1차로 <b>대한민국 정책브리핑(korea.kr)</b>에서 모으고, '+
       '각 정부기관·공공기관 공식 채널로 보강합니다. '+
-      '공식 도메인(<b>go.kr · or.kr · re.kr</b>)으로 한정합니다.</p></div>'+
+      '공식 도메인(<b>go.kr · or.kr · re.kr</b>)으로 한정합니다. '+
+      '<b>2026년 1월부터 현재까지</b>를 매일 자동으로 이어서 수집합니다.</p></div>'+
       '<div class="isf-a">→</div>'+
       '<div class="isf"><span class="isf-n">2</span><b>선별</b><p>제목에 <b>인공지능·AI·AX·디지털 전환</b> 등이 있으면 1순위로 담습니다. '+
       '관광에 한정하지 않고 <b>공공 AX 전반</b>을 담습니다. 채용·입찰 같은 <b>단순 공고</b>는 뺍니다. '+
@@ -3938,6 +3940,7 @@ function renderAX(){
   const tb=document.getElementById('axtabs');
   if(tb) tb.addEventListener('click',e=>{
     const t=e.target.closest('button'); if(!t)return;
+    if(t.dataset.t==='news'){ axOrg=''; axTopic=''; axTourOnly=false; }  // 전체 = 필터까지 초기화
     axTab=t.dataset.t; renderAX();
   });
   b.querySelectorAll('[data-org]').forEach(el=>el.addEventListener('click',()=>{
