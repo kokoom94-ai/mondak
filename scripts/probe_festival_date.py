@@ -12,6 +12,7 @@ import json, re, ssl, urllib.request
 CTX = ssl.create_default_context(); CTX.check_hostname = False; CTX.verify_mode = ssl.CERT_NONE
 UA  = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
        "(KHTML, like Gecko) Chrome/122.0 Safari/537.36")
+WS = re.compile(r"\\s+")
 PAGE = ("https://www.visitjeju.net/kr/festival/list?"
         "menuId=DOM_000001718007000000&cate1cd=cate0000001360")
 
@@ -49,7 +50,8 @@ def main():
         for kw in ("축제", "페스티벌", "박람회"):
             i = blob.find(kw)
             if i > 0:
-                print(f"\n  '{kw}' 주변 (앞뒤 700자):")
+                print("")
+                print("  '" + kw + "' 주변 (앞뒤 700자):")
                 print("  " + blob[max(0, i-700):i+700].replace("\n", " "))
                 break
     else:
@@ -68,7 +70,8 @@ def main():
         found = re.findall(pat, html, re.S)
         print(f"  · {label}: {len(found)}건")
         for x in found[:6]:
-            print(f"      {re.sub(r'\\s+', ' ', str(x))[:110]}")
+            one = re.sub(WS, " ", str(x))[:110]      # f-string 밖에서 처리 (3.11 문법 제약)
+            print("      " + one)
 
     # ── 3. Nuxt 데이터 파일 ──
     print("\n" + "=" * 60)
@@ -103,7 +106,8 @@ def safe(label, fn):
     try:
         fn()
     except Exception:
-        print(f"\n!! {label} 중 오류 — 계속 진행합니다")
+        print("")
+        print("!! " + str(label) + " 중 오류 — 계속 진행합니다")
         traceback.print_exc()
 
 
