@@ -25,7 +25,11 @@ def get(url, timeout=25):
 
 
 def main():
-    html = get(PAGE)
+    try:
+        html = get(PAGE)
+    except Exception as e:
+        print(f"페이지를 못 받았습니다: {e}")
+        return
     print(f"페이지 {len(html)}자")
 
     # ── 1. Nuxt가 심어둔 데이터 덩어리 ──
@@ -94,5 +98,20 @@ def main():
             print(f"  · {u.split('//')[1][:58]} → {e}")
 
 
+def safe(label, fn):
+    import traceback
+    try:
+        fn()
+    except Exception:
+        print(f"\n!! {label} 중 오류 — 계속 진행합니다")
+        traceback.print_exc()
+
+
 if __name__ == "__main__":
-    main()
+    import traceback
+    try:
+        main()
+    except Exception:
+        print("!! 전체 오류")
+        traceback.print_exc()
+    print("\n끝. 위 결과를 그대로 붙여 주세요.")
