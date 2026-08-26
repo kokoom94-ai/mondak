@@ -212,13 +212,27 @@ def main():
     if not cat:
         print("축제 카테고리를 찾지 못했습니다. 위 라벨 목록을 보고 코드를 지정해 주세요."); return
     if PROBE:
-        print("\n[probe] 저장하지 않고 종료합니다.")
+        print("\n[probe] 저장하지 않고 필드만 살펴봅니다.")
         d = call(cat, 1)
-        sample = (d.get("items") or [None])[0]
-        if sample:
-            print("\n샘플 항목의 전체 필드:")
-            for k, v in sorted(flatten(sample).items()):
-                print(f"   {k} = {str(v)[:70]}")
+        items = d.get("items") or []
+        # 어느 항목에 어떤 필드가 있는지 합집합으로 본다
+        paths = {}
+        for x in items[:40]:
+            for k, v in flatten(x).items():
+                paths.setdefault(k, [])
+                if v not in ("", None) and len(paths[k]) < 3:
+                    paths[k].append(str(v)[:44])
+        print(f"\n■ c5 항목 {min(len(items),40)}건에서 본 전체 필드")
+        for k in sorted(paths):
+            ex = " | ".join(paths[k]) or "(모두 빈값)"
+            print(f"   {k:38s} = {ex}")
+        # 유명 축제 하나를 통째로 — 기간이 어디 숨어 있는지 본다
+        for x in items:
+            t = str(pick(x, "title", default=""))
+            if any(w in t for w in ("축제", "페스티벌", "굿", "제(祭)")):
+                print(f"\n■ 축제 항목 원문 그대로 — {t}")
+                print(json.dumps(x, ensure_ascii=False, indent=1)[:2600])
+                break
         return
 
     raw = collect(cat)
