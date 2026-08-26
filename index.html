@@ -4019,7 +4019,7 @@ function renderAX(){
   b.querySelectorAll('[data-org]').forEach(el=>el.addEventListener('click',()=>{
     axOrg = (axOrg===el.dataset.org)?'':el.dataset.org; axTab='news'; renderAX();
   }));
-  b.querySelectorAll('[data-topic]').forEach(el=>el.addEventListener('click',()=>{
+  b.querySelectorAll('.axchip[data-topic]').forEach(el=>el.addEventListener('click',()=>{
     axTopic = (axTopic===el.dataset.topic)?'':el.dataset.topic; axTab='news'; renderAX();
   }));
   const tb2=document.getElementById('axtour');
