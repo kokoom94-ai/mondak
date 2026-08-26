@@ -14,8 +14,9 @@ SRC=os.path.join(HERE,"..","data","issue.json")
 OUT=os.path.join(HERE,"..","data","issue_index.json")
 HIST=os.path.join(HERE,"..","data","issue_history.json")
 
-CATS=["요금·바가지","서비스·불친절","교통·주차","환경·청결","안전·시설",
-      "안전·사건사고","치안·범죄","관광지·콘텐츠","행정·정책"]
+CATS=["이동·교통","숙박","먹거리","볼거리·체험","비용·상거래",
+      "응대·서비스","치안·안전","환경·청결","정책·행정"]
+NATS=["사건사고","불만·후기","정보·소식"]
 
 def dparse(s):
     try: return datetime.strptime(s,"%Y-%m-%d").replace(tzinfo=KST)
@@ -46,8 +47,10 @@ def stats(items):
         cn=len(sub); cneg=sum(1 for x in sub if x["sentiment"]=="부정")
         cat[c]={"n":cn,"neg":round(cneg/cn*100,1),"share":round(cn/n*100,1)}
     ch=Counter(x["channel"] for x in items)
+    nat=Counter(x.get("nature") or "불만·후기" for x in items)
+    natures={k:{"n":v,"share":round(v/n*100,1)} for k,v in nat.items()}
     return {"total":n,"neg":neg,"pos":pos,"neu":neu,
-            "channels":dict(ch),"categories":cat}
+            "channels":dict(ch),"categories":cat,"natures":natures}
 
 def top_reasons(items, k=8):
     r=Counter()
@@ -56,12 +59,31 @@ def top_reasons(items, k=8):
         for s in (x.get("reasons") or []): r[s]+=1
     return [{"word":w,"n":n} for w,n in r.most_common(k)]
 
-def top_titles(items, cat=None, k=5):
-    sub=[x for x in items if x["sentiment"]=="부정" and (cat is None or x.get("category")==cat)]
+def _card(x):
+    return {"title":x["title"][:80],"link":x.get("link",""),
+            "channel":x["channel"],"date":x.get("date",""),
+            "category":x.get("category"),"sentiment":x["sentiment"],
+            "reasons":(x.get("reasons") or [])[:3],
+            "desc":(x.get("description") or "")[:110]}
+
+def top_titles(items, cat=None, k=5, sent="부정"):
+    """대표글 — 채널이 한쪽에 쏠리지 않게 뉴스/블로그/카페를 섞는다."""
+    sub=[x for x in items if (sent is None or x["sentiment"]==sent)
+         and (cat is None or x.get("category")==cat)]
     sub.sort(key=lambda x:(-(x.get("neg") or 0), x.get("date") or ""))
-    return [{"title":x["title"][:70],"link":x.get("link",""),
-             "channel":x["channel"],"date":x.get("date",""),
-             "category":x.get("category")} for x in sub[:k]]
+    out, used = [], {"news":0,"blog":0,"cafe":0}
+    cap = max(2, k//2)
+    for x in sub:
+        ch=x["channel"]
+        if used.get(ch,0) >= cap and len(out) < k: continue
+        used[ch]=used.get(ch,0)+1; out.append(_card(x))
+        if len(out)>=k: break
+    if len(out)<k:                       # 못 채우면 순서대로 보충
+        for x in sub:
+            c=_card(x)
+            if c not in out: out.append(c)
+            if len(out)>=k: break
+    return out[:k]
 
 def main():
     d=json.load(open(SRC,encoding="utf-8"))
@@ -79,10 +101,13 @@ def main():
     rank=[]
     for c,v in sorted(C["categories"].items(), key=lambda x:-x[1]["n"]):
         pv=(P or {}).get("categories",{}).get(c)
+        sub=[x for x in cur if x.get("category")==c]
+        nc=Counter(x.get("nature") or "불만·후기" for x in sub)
         rank.append({"name":c,"n":v["n"],"share":v["share"],"neg":v["neg"],
                      "prev_neg":pv["neg"] if pv else None,
                      "delta":round(v["neg"]-pv["neg"],1) if pv else None,
-                     "top":top_titles(cur,c,3)})
+                     "natures":{k:nc.get(k,0) for k in NATS if nc.get(k)},
+                     "top":top_titles(cur,c,6)})
 
     # ── 월간 집계 (전월 대비는 데이터가 두 달 쌓여야 산출됨)
     bym=defaultdict(list)
@@ -126,7 +151,8 @@ def main():
                     for dd in sorted({x["date"] for x in cur}))
                ) if v],
       "reasons":top_reasons(cur),
-      "top_negative":top_titles(cur,None,8)}
+      "top_negative":top_titles(cur,None,10),
+      "top_positive":top_titles(cur,None,6,"긍정")}
 
     json.dump(out,open(OUT,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
 
