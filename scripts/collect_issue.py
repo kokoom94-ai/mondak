@@ -266,8 +266,30 @@ def main():
         try: prev=json.load(open(OUT,encoding="utf-8")).get("items",[])
         except Exception: prev=[]
     keep_cut=(NOW - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
+    # 판정 엔진이 바뀌면 누적된 옛 항목도 다시 판정한다.
+    # (이걸 안 하면 규칙을 고쳐도 과거분은 옛 판정 그대로 남는다 —
+    #  실측: v13으로 고친 뒤에도 인사 기사 5건이 부정으로 남아 있었다)
+    rejudged = dropped_old = 0
+    fresh_prev = []
+    for it in prev:
+        if it.get("engine") == ENGINE_VERSION:
+            fresh_prev.append(it); continue
+        r = judge(it)
+        rejudged += 1
+        if not r.get("keep"):
+            dropped_old += 1; continue
+        it.update({k: r.get(k) for k in
+                   ("type","category","nature","track","policy",
+                    "sentiment","strength","neg","pos","reasons","pending","rel_why")})
+        it["engine"] = ENGINE_VERSION
+        fresh_prev.append(it)
+    if rejudged:
+        print(f"■ 재판정  엔진 변경으로 {rejudged}건 재판정 · {dropped_old}건 제외")
+
+    for it in kept: it["engine"] = ENGINE_VERSION
+
     merged={}
-    for it in prev + kept:                      # 새 판정 결과가 옛 것을 덮어쓴다
+    for it in fresh_prev + kept:                # 새 판정 결과가 옛 것을 덮어쓴다
         k=(it.get("link") or it.get("title") or "").strip()
         if not k: continue
         if it.get("date") and it["date"] < keep_cut: continue
