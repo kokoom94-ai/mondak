@@ -4,6 +4,12 @@ name: 제주행사 수집
 # 키는 저장소 Secret VISITJEJU_KEY로만 전달한다 (코드·로그에 남기지 않는다).
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: '실행 방식'
+        type: choice
+        default: collect
+        options: [collect, probe]
   schedule:
     - cron: '0 21 * * *'   # 매일 06:00 KST
 
@@ -27,9 +33,15 @@ jobs:
       - name: 축제·행사 수집
         env:
           VISITJEJU_KEY: ${{ secrets.VISITJEJU_KEY }}
-        run: python scripts/collect_festival.py
+        run: |
+          if [ "${{ github.event.inputs.mode }}" = "probe" ]; then
+            python scripts/collect_festival.py --probe
+          else
+            python scripts/collect_festival.py
+          fi
 
       - name: 변경사항 커밋
+        if: ${{ github.event.inputs.mode != 'probe' }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
