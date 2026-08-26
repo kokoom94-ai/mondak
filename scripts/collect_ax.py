@@ -1,0 +1,53 @@
+name: 관광AX 수집
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 22 * * *'   # 07:30 KST (매일 1회 — AX는 변화가 느리다)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-ax
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # ① 수집 — 공식 채널 한정. AX_USE_MEDIA=1 이면 관광업계 언론까지 확장(2단계)
+      - name: 관광AX 수집
+        env:
+          AX_USE_MEDIA: ''
+        run: python scripts/collect_ax.py
+
+      # ② LLM 판정 — 기관·주제·단계·이정표. 같은 엔진을 'ax' 인자로 재사용
+      - name: LLM 판정
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LLM_MODEL: claude-haiku-4-5-20251001
+          LLM_BATCH: '20'
+          LLM_MAX_NEW: '600'
+          LLM_WAIT_SEC: '900'
+        continue-on-error: true
+        run: python scripts/llm_classify.py ax
+
+      - name: 변경사항 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A data/
+          git diff --staged --quiet && echo "변경 없음" && exit 0
+          git commit -m "관광AX 수집·판정 $(date +'%Y-%m-%d %H:%M')"
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin main && git push origin main && exit 0
+            echo "재시도 $i"; sleep 5
+          done
+          echo "푸시 실패" && exit 1
