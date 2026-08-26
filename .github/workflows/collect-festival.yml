@@ -1,0 +1,39 @@
+name: 제주행사 수집
+
+# 비짓제주 관광정보 OPEN API에서 축제·행사를 받아 data/festival.json 갱신.
+# 키는 저장소 Secret VISITJEJU_KEY로만 전달한다 (코드·로그에 남기지 않는다).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 21 * * *'   # 매일 06:00 KST
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-festival
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 축제·행사 수집
+        env:
+          VISITJEJU_KEY: ${{ secrets.VISITJEJU_KEY }}
+        run: python scripts/collect_festival.py
+
+      - name: 변경사항 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/festival.json
+          git diff --staged --quiet && echo "변경 없음" && exit 0
+          git commit -m "제주행사 갱신 ($(date +%Y-%m-%d))"
+          git push
