@@ -88,10 +88,11 @@ def cluster_incidents(items):
     """
     groups=defaultdict(list)
     for x in items:
-        t=(x.get("title") or "")
-        label=None
-        for w,lab in INCIDENT_KEY:
-            if w in t: label=lab; break
+        label=x.get("event_key")
+        if not label:
+            t=(x.get("title") or "")
+            for w,lab in INCIDENT_KEY:
+                if w in t: label=lab; break
         if not label: continue
         groups[label].append(x)
     out=[]
@@ -119,10 +120,14 @@ def collapse_events(items):
     seen=set(); out=[]
     for x in sorted(items, key=lambda y: y.get("date") or ""):
         if x.get("channel")=="news":
-            t=x.get("title") or ""
-            lab=None
-            for w,l in INCIDENT_KEY:
-                if w in t: lab=l; break
+            # LLM이 부여한 event_key가 있으면 그것을 쓴다.
+            # 사건어 매칭은 "실종"이면 전부 한 덩어리로 묶지만,
+            # event_key는 서로 다른 실종 사건을 구분한다.
+            lab=x.get("event_key")
+            if not lab:
+                t=x.get("title") or ""
+                for w,l in INCIDENT_KEY:
+                    if w in t: lab=l; break
             if lab:
                 dt=dparse(x.get("date") or "")
                 wk=dt.isocalendar()[1] if dt else 0
@@ -215,10 +220,28 @@ def main():
 
     # ── 최근 30일 창 — 주간은 그 주의 사건에 휘둘리므로 넓은 창을 함께 낸다
     m30=bucket(items,base,0,30)
+    M30=stats(collapse_events(m30))
     m30_neg=collapse_events([x for x in m30 if x["sentiment"]=="부정"])
+    # 30일 기준 분야 순위 — rank와 완전히 같은 구조. 화면이 그대로 재사용한다.
+    rank30=[]
+    if M30:
+        n30={c:sum(1 for x in m30_neg if x.get("category")==c) for c in M30["categories"]}
+        for c,v in sorted(M30["categories"].items(), key=lambda x:(-n30.get(x[0],0),-x[1]["n"])):
+            sub=[x for x in m30 if x.get("category")==c]
+            nc=Counter(x.get("nature") or "불만·후기" for x in sub)
+            rank30.append({"name":c,"policy":POLICY.get(c,""),"n":v["n"],
+                           "neg_n":n30.get(c,0),"share":v["share"],"neg":v["neg"],
+                           "prev_neg":None,"delta":None,
+                           "natures":{k:nc.get(k,0) for k in NATS if nc.get(k)},
+                           "top":top_titles(m30,c,40)})
     window30={"total":len(m30),"neg_n":len(m30_neg),
               "from":(base-timedelta(days=29)).strftime("%Y-%m-%d"),
               "to":base.strftime("%Y-%m-%d"),
+              "stats":M30,
+              "rank":rank30,
+              "reasons":top_reasons(m30,12),
+              "top_negative":top_titles(m30,None,60),
+              "all_recent":top_titles(m30,None,120,None),
               "mix":mix_by_field(m30_neg),
               "clusters":cluster_incidents([x for x in m30 if _trk(x)=="risk"])[:8]}
 
@@ -263,7 +286,8 @@ def main():
                         "to":(base-timedelta(days=7)).strftime("%Y-%m-%d")} if P else None,
          "engine":d["meta"].get("engine"),"source":d["meta"].get("source"),
          "note":"불만 구성비는 '모인 불만' 안에서의 비율입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.",
-         "disclaimer":"자체 수집·분류한 참고자료이며 일부 오류가 있을 수 있습니다."},
+         "disclaimer":"자체 수집·분류한 참고자료이며 일부 오류가 있을 수 있습니다.",
+         "judge":d["meta"].get("llm")},
       "voice":voice,"risk":risk,"info":info,"window30":window30,
       "current":C,"previous":P,
       "delta":{"neg":round(C["neg"]-P["neg"],1) if P else None,
@@ -278,9 +302,9 @@ def main():
                for dd,v in ((dd,[x for x in cur if x.get("date")==dd])
                             for dd in sorted({x["date"] for x in cur})) if v],
       "reasons":top_reasons(cur),
-      "top_negative":top_titles(cur,None,24),
+      "top_negative":top_titles(cur,None,40),
       "top_positive":top_titles(cur,None,12,"긍정"),
-      "all_recent":top_titles(cur,None,30,None)}
+      "all_recent":top_titles(cur,None,80,None)}
 
     json.dump(out,open(OUT,"w",encoding="utf-8"),ensure_ascii=False,indent=1)
 
