@@ -1,0 +1,53 @@
+name: 동네의원 데이터 수집
+
+# 우리 동네의원 알리미 — 국회의원 발의법률안(국회사무처) · 도의회 의안(CLIK) · 자치법규(법제처).
+# 스크립트는 완성돼 있었으나 스케줄이 없어 수동 실행분으로만 남아 있던 것을 자동화한다.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 20 * * *'   # 매일 05:30 KST
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-uiwon
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 국회의원 발의법률안
+        continue-on-error: true     # 키 미등록이어도 나머지 수집은 계속
+        env:
+          ASM_MEMBER_KEY: ${{ secrets.ASM_MEMBER_KEY }}
+          ASM_BILL_KEY: ${{ secrets.ASM_BILL_KEY }}
+        run: python scripts/collect_assembly.py
+
+      - name: 도의회 의안 (CLIK)
+        continue-on-error: true
+        env:
+          CLIK_KEY: ${{ secrets.CLIK_KEY }}
+        run: python scripts/collect_council.py
+
+      - name: 자치법규·법령 (법제처)
+        continue-on-error: true
+        env:
+          LAW_OC: ${{ secrets.LAW_OC }}
+        run: python scripts/collect_laws.py
+
+      - name: 변경사항 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/assembly.json data/council.json data/laws.json
+          git diff --staged --quiet && echo "변경 없음" && exit 0
+          git commit -m "동네의원 데이터 갱신 ($(date +%Y-%m-%d))"
+          git push
