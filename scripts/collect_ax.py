@@ -43,9 +43,8 @@ CTX = ssl.create_default_context()
 CTX.check_hostname = False
 CTX.verify_mode = ssl.CERT_NONE
 
-DAYS_BACK = 365   # 한 번에 받아올 범위. AX는 흐름을 보므로 넓게 잡는다
-                  # (30일로 두었더니 첫 수집에서 1,277건 중 70%가 기간 밖으로 탈락했다)
-KEEP_DAYS = 730   # 누적 보관 — AX는 흐름을 봐야 하므로 길게 둔다
+START_DATE = "2026-01-01"   # 수집·보관 하한 — 2026년 1월부터 현재까지를 계속 쌓는다.
+                            # 롤링 삭제 없음. 1월 자료도 시간이 지나도 남는다.
 
 # ── 기관 ────────────────────────────────────────────────
 # name  : 화면 표기
@@ -59,7 +58,7 @@ ORGS = [
  {"name":"부산관광공사",     "domain":"bto.or.kr",           "tag":"지역관광","q":"부산관광공사"},
  {"name":"부산관광공사",     "domain":"visitbusan.net",      "tag":"지역관광","q":"부산관광공사"},
  {"name":"인천관광공사",     "domain":"ito.or.kr",           "tag":"지역관광","q":"인천관광공사"},
- {"name":"경상북도문화관광공사","domain":"gyeongbuk.go.kr",    "tag":"지역관광","q":"경북문화관광공사"},
+ {"name":"경상북도",           "domain":"gyeongbuk.go.kr",     "tag":"지역관광","q":"경상북도"},
  {"name":"전남관광재단",     "domain":"jntour.or.kr",        "tag":"지역관광","q":"전남관광재단"},
  {"name":"충남문화관광재단", "domain":"cctf.or.kr",          "tag":"지역관광","q":"충남관광재단"},
  {"name":"강원관광재단",     "domain":"gwto.or.kr",          "tag":"지역관광","q":"강원관광재단"},
@@ -97,6 +96,9 @@ BRIEFING_QUERIES = [
  # 관광·문화 (가중 영역)
  'site:korea.kr 관광 인공지능', 'site:korea.kr 관광 AI', 'site:korea.kr 스마트관광',
  'site:korea.kr 문화체육관광부 인공지능', 'site:korea.kr 관광 빅데이터',
+ # 커버리지 보강 — 문체부·관광공사·과기정통부·AI 챔피언이 빠진다는 실사용 피드백 반영
+ 'site:korea.kr 문화체육관광부', 'site:korea.kr 한국관광공사',
+ 'site:korea.kr 과학기술정보통신부 인공지능', 'site:korea.kr AI 챔피언',
 ]
 
 AX_TOPIC_QUERIES = [
@@ -105,6 +107,7 @@ AX_TOPIC_QUERIES = [
  "공공 생성형 AI", "AI 에이전트 공공", "공공 데이터 플랫폼 구축",
  # 관광·문화
  "관광 인공지능", "관광 AI", "스마트관광", "관광 빅데이터", "관광 챗봇",
+ "한국관광공사 인공지능", "문화체육관광부 AI", "AI 챔피언",
  # 관광과 맞닿는 인접 영역
  "교통 인공지능 서비스", "재난 안전 인공지능", "다국어 통역 인공지능",
  "문화시설 인공지능", "지역 소멸 대응 데이터",
@@ -117,6 +120,9 @@ USE_MEDIA = os.environ.get("AX_USE_MEDIA", "") == "1"
 
 # 공식 도메인 화이트리스트 — 이 밖의 링크는 1단계에서 버린다
 OFFICIAL_SUFFIX = (".go.kr", ".or.kr", "korea.kr", ".re.kr")
+# 목록에 올린 기관의 자체 도메인은 접미사가 무엇이든 공식이다
+# (gcto.co.kr · visitbusan.net 이 .co.kr/.net 이라는 이유로 탈락하던 문제)
+ORG_DOMAINS = tuple(o["domain"] for o in ORGS)
 
 # 우리 자신은 벤치마킹 대상이 아니다. 도메인·표기 어느 쪽으로 걸려도 뺀다.
 SELF_DOMAINS = ("ijto.or.kr", "visitjeju.net", "jeju.go.kr")
@@ -205,6 +211,82 @@ def google_news(query):
     return out
 
 
+# ── 직링크 해석 ──────────────────────────────────────────
+# Google News RSS의 link는 news.google.com 리다이렉트라 브라우저에서 원문이 안 열리는
+# 경우가 많다(실사용 확인: 경북문화관광공사 등). 구글의 내부 해석 엔드포인트
+# (news.google.com/_/DotsSplashUi/data/batchexecute)로 원문 URL을 복원한다.
+# 공개적으로 널리 쓰이는 방식(googlenewsdecoder와 동일 알고리즘)이며 키가 필요 없다.
+# 실패하면 구글 링크를 그대로 둔다 — 화면이 비는 일은 없다.
+RESOLVE_MAX = int(os.environ.get("AX_RESOLVE_MAX", "250"))   # 실행당 해석 상한
+
+def _gn_id(link):
+    m = re.search(r"news\.google\.com/(?:rss/)?(?:articles|read)/([^?/]+)", link or "")
+    return m.group(1) if m else None
+
+def _gn_params(art_id):
+    """기사 껍데기 페이지에서 서명·타임스탬프를 뽑는다."""
+    try:
+        page = fetch(f"https://news.google.com/rss/articles/{art_id}")
+    except Exception:
+        return None
+    m = re.search(r'data-p="([^"]+)"', page)
+    if not m: return None
+    try:
+        data = json.loads(html.unescape(m.group(1)).replace("%.@.", '["garturlreq",'))
+        return {"id": art_id, "ts": data[-2], "sig": data[-1]}
+    except Exception:
+        return None
+
+def _gn_decode(batch):
+    """서명 묶음 → 원문 URL 목록 (입력 순서 유지). 실패 시 None."""
+    reqs = [["Fbv4je",
+             '["garturlreq",[["X","X",["X","X"],null,null,1,1,"US:en",null,1,null,null,'
+             'null,null,null,0,1],"X","X",1,[1,1,1],1,1,null,0,0,null,0],"%s",%s,"%s"]'
+             % (a["id"], a["ts"], a["sig"])] for a in batch]
+    payload = ("f.req=" + urllib.parse.quote(json.dumps([reqs]))).encode()
+    req = urllib.request.Request(
+        "https://news.google.com/_/DotsSplashUi/data/batchexecute",
+        data=payload, headers={"User-Agent": UA,
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"})
+    try:
+        with urllib.request.urlopen(req, timeout=25, context=CTX) as r:
+            txt = r.read().decode("utf-8", "replace")
+        part = txt.split("\n\n")[1]
+        rows = json.loads(part)[:-2]
+        return [json.loads(row[2])[1] for row in rows]
+    except Exception as e:
+        print(f"   ! decode: {e}")
+        return None
+
+def resolve_links(items):
+    """news.google.com 링크를 원문 직링크로 교체. 원본은 gnews 필드에 보존한다."""
+    todo = [it for it in items
+            if "news.google.com" in (it.get("link") or "") and not it.get("resolved")]
+    todo = todo[:RESOLVE_MAX]
+    if not todo:
+        print("■ 직링크 해석 — 대상 없음"); return 0
+    print(f"■ 직링크 해석 — 대상 {len(todo)}건 (상한 {RESOLVE_MAX})")
+    ok = 0
+    for i in range(0, len(todo), 10):
+        chunk = todo[i:i+10]
+        sig = []
+        for it in chunk:
+            aid = _gn_id(it.get("link"))
+            p = _gn_params(aid) if aid else None
+            sig.append((it, p)); time.sleep(0.25)
+        good = [(it, p) for it, p in sig if p]
+        if good:
+            urls = _gn_decode([p for _, p in good])
+            if urls and len(urls) == len(good):
+                for (it, _), u in zip(good, urls):
+                    if u and u.startswith("http") and "news.google.com" not in u:
+                        it["gnews"] = it["link"]; it["link"] = u
+                        it["resolved"] = True; ok += 1
+        time.sleep(0.8)
+    print(f"   해석 성공 {ok} / {len(todo)}")
+    return ok
+
+
 def is_official(x):
     """
     구글 뉴스 RSS 의 link 는 news.google.com 리다이렉트라 발행처를 담지 않는다.
@@ -213,6 +295,7 @@ def is_official(x):
     """
     dom = (x.get("source_domain") or "").lower()
     if dom:
+        if any(d in dom for d in ORG_DOMAINS): return True
         return any(dom.endswith(sfx) or sfx in dom for sfx in OFFICIAL_SUFFIX)
     q = x.get("query") or ""
     if q.startswith("site:"):          # 질의 자체가 공식 도메인 한정이었다
@@ -221,6 +304,7 @@ def is_official(x):
     try: host = urllib.parse.urlparse(link).netloc.lower()
     except Exception: return False
     if "news.google.com" in host: return False
+    if any(d in host for d in ORG_DOMAINS): return True
     return any(host.endswith(sfx) or sfx in host for sfx in OFFICIAL_SUFFIX)
 
 
@@ -296,6 +380,18 @@ def has_policy_signal(title, body=""):
         return any(re.search(p, title or "") for p in strong)
     return True
 
+# RSS <source> 표기 → 기관. 발행처 이름이 곧 기관인 경우가 많다.
+# (실측: org 미상 163건 중 상당수가 여기서 해결된다 — 행정안전부 18·국토교통부 11 등)
+SOURCE_ORG = {
+ "문화체육관광부": ("문화체육관광부","부처"), "행정안전부": ("행정안전부","부처"),
+ "국토교통부": ("국토교통부","부처"), "과학기술정보통신부": ("과학기술정보통신부","부처"),
+ "한국관광공사": ("한국관광공사","공사"), "관광전문인력포털": ("한국관광공사","공사"),
+ "경기관광플랫폼": ("경기관광공사","지역관광"), "서울관광재단": ("서울관광재단","지역관광"),
+ "인천광역시": ("인천광역시","지역관광"), "부산관광공사": ("부산관광공사","지역관광"),
+ "한국지능정보사회진흥원": ("한국지능정보사회진흥원","유관"),
+ "한국문화정보원": ("한국문화정보원","유관"), "한국문화관광연구원": ("한국문화관광연구원","유관"),
+}
+
 def guess_org(x, title, body=""):
     """기관 추정. 최종 확정은 LLM이 한다. 못 찾으면 None을 두고 넘긴다."""
     host = (x.get("source_domain") or "").lower()
@@ -316,9 +412,18 @@ def guess_org(x, title, body=""):
         if o["q"] in t: return o["name"], o["tag"]
     for name, tag in MINISTRY:
         if name in t:
-            return ("문화체육관광부" if name == "문체부" else
-                    "과학기술정보통신부" if name == "과기정통부" else
-                    "행정안전부" if name == "행안부" else name), tag
+            full = {"문체부":"문화체육관광부","과기정통부":"과학기술정보통신부",
+                    "행안부":"행정안전부","국토부":"국토교통부","중기부":"중소벤처기업부",
+                    "해수부":"해양수산부","인천시":"인천광역시","부산시":"부산광역시",
+                    "서울시":"서울특별시","강원도":"강원특별자치도","전남도":"전라남도",
+                    "경북도":"경상북도","충남도":"충청남도"}
+            return full.get(name, name), tag
+    src = (x.get("source") or "").strip()          # RSS 발행처 표기
+    if src in SOURCE_ORG: return SOURCE_ORG[src]
+    hint = x.get("org_hint")                        # 기관별 site: 질의로 받은 것
+    if hint:
+        for o in ORGS:
+            if o["name"] == hint: return o["name"], o["tag"]
     return None, None
 
 
@@ -358,7 +463,7 @@ def collect():
 
 def main():
     raw = collect()
-    cut = (NOW - timedelta(days=DAYS_BACK)).strftime("%Y-%m-%d")
+    cut = START_DATE          # 2026-01-01 이후만. 롤링이 아니라 고정 하한이다
 
     kept, dropped = [], {}
     seen = set()
@@ -397,32 +502,44 @@ def main():
                      "ax_hits": hits,
                      "official": is_official(x)})
 
-    # ── 누적 병합 (이슈체크와 같은 방식)
+    # ── 누적 병합
+    # 옛 항목은 버리지 않고 새 기준으로 재판정해 이어간다.
+    # (엔진 바뀔 때마다 폐기하면 RSS가 다시 안 주는 과거분이 유실된다)
     prev = []
     if os.path.exists(OUT):
         try: prev = json.load(open(OUT, encoding="utf-8")).get("items", [])
         except Exception: prev = []
-    keep_cut = (NOW - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
-    # 엔진이 바뀌면 누적된 옛 항목을 버린다.
-    # 관광AX는 선별 규칙이 크게 달라져 옛 판정을 그대로 두면 화면이 섞인다.
-    ENG = "ax-v4-20260826"
-    kept_old = [it for it in prev if it.get("engine") == ENG]
-    if len(prev) != len(kept_old):
-        print(f"■ 엔진 변경 — 옛 판정 {len(prev)-len(kept_old)}건 폐기 후 재수집분으로 대체")
+    ENG = "ax-v5-20260826"
+    carried = []
+    for it in prev:
+        if (it.get("date") or "") < START_DATE: continue     # 2026-01 이전 폐기
+        org, tag = guess_org(it, it.get("title") or "", it.get("description") or "")
+        it["org"], it["org_tag"] = org, tag                  # 기관 재추정(매핑 보강분 반영)
+        it["engine"] = ENG
+        carried.append(it)
+    if len(prev) != len(carried):
+        print(f"■ 누적 정리 — {len(prev)}건 중 {len(prev)-len(carried)}건 제외(2026-01 이전), {len(carried)}건 유지")
     for it in kept: it["engine"] = ENG
 
+    # 해석된 링크가 덮이지 않도록 병합 키는 '구글 원본 링크'를 우선 쓴다
     merged = {}
-    for it in kept_old + kept:
-        k = (it.get("link") or it.get("title") or "").strip()
+    def _key(it): return (it.get("gnews") or it.get("link") or it.get("title") or "").strip()
+    for it in carried + kept:
+        k = _key(it)
         if not k: continue
-        if it.get("date") and it["date"] < keep_cut: continue
+        if k in merged and merged[k].get("resolved") and not it.get("resolved"):
+            continue                                         # 이미 해석된 쪽을 지킨다
         merged[k] = it
-    allitems = sorted(merged.values(), key=lambda x: x.get("date") or "", reverse=True)
+
+    allitems = list(merged.values())
+    resolved_n = resolve_links(allitems)                     # 구글 리다이렉트 → 원문 직링크
+    allitems.sort(key=lambda x: x.get("date") or "", reverse=True)   # 최신순 고정
 
     out = {"meta": {"updated": NOW.strftime("%Y-%m-%d %H:%M"),
-                    "engine": "ax-v4-20260826",
+                    "engine": ENG,
                     "collected": len(raw), "kept": len(kept), "stored": len(allitems),
-                    "days": DAYS_BACK, "keep_days": KEEP_DAYS,
+                    "since": START_DATE,
+                    "resolved": sum(1 for x in allitems if x.get("resolved")),
                     "stage": "2단계(업계 언론 포함)" if USE_MEDIA else "1단계(공식 채널)",
                     "source": "Google News RSS · 공식 도메인 한정",
                     "disclaimer": "공개된 보도자료를 수집해 분류한 참고자료입니다. "
@@ -433,7 +550,8 @@ def main():
     json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     from collections import Counter
-    print(f"\n수집 {len(raw)} → 채택 {len(kept)} → 누적 저장 {len(allitems)}건")
+    print(f"\n수집 {len(raw)} → 채택 {len(kept)} → 누적 저장 {len(allitems)}건"
+          f" (기간 {START_DATE}~ · 직링크 {sum(1 for x in allitems if x.get('resolved'))}건)")
     print("  제외:", dict(sorted(dropped.items(), key=lambda x: -x[1])))
     print("  기관:", dict(Counter(x.get("org") for x in allitems).most_common(8)))
     print("  등급:", dict(Counter(x.get("ax_rank") for x in allitems)))
