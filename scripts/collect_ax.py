@@ -96,8 +96,8 @@ BRIEFING_QUERIES = [
  # 관광·문화 (가중 영역)
  'site:korea.kr 관광 인공지능', 'site:korea.kr 관광 AI', 'site:korea.kr 스마트관광',
  'site:korea.kr 문화체육관광부 인공지능', 'site:korea.kr 관광 빅데이터',
- # 커버리지 보강 — 문체부·관광공사·과기정통부·AI 챔피언이 빠진다는 실사용 피드백 반영
- 'site:korea.kr 문화체육관광부', 'site:korea.kr 한국관광공사',
+ # 커버리지 보강 — AX 낱말을 반드시 동반시킨다 (기관명 단독 질의는 잡음 유입 경로였음)
+ 'site:korea.kr 문화체육관광부 AI', 'site:korea.kr 한국관광공사 AI',
  'site:korea.kr 과학기술정보통신부 인공지능', 'site:korea.kr AI 챔피언',
 ]
 
@@ -141,7 +141,16 @@ NOISE_RX = [
  r"\|\s?공지사항\s?\||공지사항\s*(-|$)",
  r"\(목록\)|목록\s*(-|$)|카드뉴스|강좌\s?소개|e배움터",
  r"안내\s*(\||$|-)|접수\s?기간|신청\s?안내",
+ r"\.(?:go|or|re|co)\.kr|\.net\b|\.com\b",          # 제목에 도메인 = 기관 게시판
+ r"열린도지사실|영상기록|영상축사|축사\s*$|사진\s?자료",
 ]
+
+def _is_board(t):
+    """게시판 카테고리 페이지 — '예산/재정/계약/세금', '조류인플루엔자(AI)' 같은 명사 나열"""
+    t = (t or "").strip()
+    if len(t) < 12: return True
+    if t.count("/") >= 2 and len(t) <= 34: return True
+    return False
 
 # 정책 '추진'이 아니라 지원사업 절차에 가까운 말 — 단독으로는 정책 신호로 보지 않는다
 PROCEDURAL = ["공모 선정", "선정 결과", "지원 규모", "접수", "신청", "모집 안내"]
@@ -151,22 +160,71 @@ def is_self(x, title, body=""):
     if any(d in dom for d in SELF_DOMAINS): return True
     q = x.get("query") or ""
     if any(d in q for d in SELF_DOMAINS): return True
-    return any(n in (title or "") for n in SELF_NAMES)
+    return any(n in f"{title} {body}" for n in SELF_NAMES)
 
 def is_noise(title):
     t = (title or "").strip()
+    if _is_board(t): return True
     return any(re.search(p, t) for p in NOISE_RX)
 
 
 def clean(s=""):
-    s = re.sub(r"<[^>]+>", "", s or "")
-    return html.unescape(s).strip()
+    s = html.unescape(s or "")            # 반드시 태그 제거보다 먼저
+    s = re.sub(r"<[^>]*>", " ", s)
+    s = re.sub(r"<[^>]*$", " ", s)        # 잘린 태그 꼬리
+    s = re.sub(r"https?://\S+", " ", s)   # 본문 속 URL(구글 base64 포함) 제거
+    return re.sub(r"\s+", " ", s).strip()
+
+def strip_tail(t=""):
+    """'제목 - 대한민국 정책브리핑' / '제목 - inhen.gyeongbuk.go.kr' 꼬리 제거"""
+    t = re.sub(r"\s*-\s*(대한민국 정책브리핑|[\w.\-]+\.(?:go|or|re|co)\.kr[^-]*|[\w.\-]+\.(?:net|com))\s*$",
+               "", t or "")
+    return t.strip().lstrip("-·•—").strip()   # 앞머리 불릿 잔여물 제거 ("- 5대 분야 AI 상담…" 류)
 
 
 def fetch(url, headers=None, timeout=20):
     req = urllib.request.Request(url, headers={"User-Agent": UA, **(headers or {})})
     with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
         return r.read().decode("utf-8", "replace")
+
+
+KOREA_RSS = [
+    ("보도자료", "https://www.korea.kr/rss/pressrelease.xml"),
+    ("정책뉴스", "https://www.korea.kr/rss/policy.xml"),
+]
+
+def korea_rss(label, url):
+    """정책브리핑 공식 RSS. 링크가 korea.kr 원문 직링크라 해석 단계도 필요 없다."""
+    try:
+        xml = fetch(url)
+    except Exception as e:
+        print(f"   ! {label} RSS 실패: {e}")
+        return []
+    out = []
+    for m in re.finditer(r"<item>(.*?)</item>", xml, re.S):
+        blk = m.group(1)
+        def g(tag):
+            mm = re.search(rf"<{tag}[^>]*>\s*(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?\s*</{tag}>", blk, re.S)
+            return (mm.group(1) if mm else "").strip()
+        title = strip_tail(clean(g("title")))
+        desc  = clean(g("description"))[:300]
+        if title and title[:15] in desc: desc = ""
+        link  = html.unescape(g("link")).strip()
+        d = g("pubDate")
+        date = ""
+        mm = re.search(r"(\d{1,2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})", d)
+        if mm:
+            MON = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,"Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}
+            date = f"{mm.group(3)}-{MON[mm.group(2)]:02d}-{int(mm.group(1)):02d}"
+        else:
+            mm = re.search(r"(\d{4})-(\d{2})-(\d{2})", d)
+            if mm: date = mm.group(0)
+        if not title or not link: continue
+        out.append({"title": title, "description": desc, "link": link, "date": date,
+                    "source": "대한민국 정책브리핑", "source_url": "https://www.korea.kr",
+                    "source_domain": "www.korea.kr", "query": f"korea.kr RSS {label}",
+                    "resolved": True})   # 이미 원문 직링크
+    return out
 
 
 def google_news(query):
@@ -202,8 +260,12 @@ def google_news(query):
         if surl:
             try: sdom = urllib.parse.urlparse(surl).netloc.lower()
             except Exception: sdom = ""
-        out.append({"title": clean(g("title")),
-                    "description": clean(g("description"))[:300],
+        title = strip_tail(clean(g("title")))
+        desc  = clean(g("description"))[:300]
+        # 구글뉴스 RSS description은 제목 반복이 대부분 — 반복이면 비운다
+        if title and title[:15] and title[:15] in desc: desc = ""
+        out.append({"title": title,
+                    "description": desc,
                     "link": clean(g("link")),
                     "date": ts.astimezone(KST).strftime("%Y-%m-%d") if ts else None,
                     "source": src, "source_url": surl, "source_domain": sdom,
@@ -265,24 +327,18 @@ def resolve_links(items):
     todo = todo[:RESOLVE_MAX]
     if not todo:
         print("■ 직링크 해석 — 대상 없음"); return 0
-    print(f"■ 직링크 해석 — 대상 {len(todo)}건 (상한 {RESOLVE_MAX})")
+    print(f"■ 직링크 해석 — 대상 {len(todo)}건 (상한 {RESOLVE_MAX}) · 1건=1요청(순서 뒤섞임 방지)")
     ok = 0
-    for i in range(0, len(todo), 10):
-        chunk = todo[i:i+10]
-        sig = []
-        for it in chunk:
-            aid = _gn_id(it.get("link"))
-            p = _gn_params(aid) if aid else None
-            sig.append((it, p)); time.sleep(0.25)
-        good = [(it, p) for it, p in sig if p]
-        if good:
-            urls = _gn_decode([p for _, p in good])
-            if urls and len(urls) == len(good):
-                for (it, _), u in zip(good, urls):
-                    if u and u.startswith("http") and "news.google.com" not in u:
-                        it["gnews"] = it["link"]; it["link"] = u
-                        it["resolved"] = True; ok += 1
-        time.sleep(0.8)
+    for it in todo:
+        aid = _gn_id(it.get("link"))
+        p = _gn_params(aid) if aid else None
+        if p:
+            urls = _gn_decode([p])
+            u = urls[0] if urls and len(urls) == 1 else None
+            if u and u.startswith("http") and "news.google.com" not in u:
+                it["gnews"] = it.get("gnews") or it["link"]
+                it["link"] = u; it["resolved"] = True; ok += 1
+        time.sleep(0.4)
     print(f"   해석 성공 {ok} / {len(todo)}")
     return ok
 
@@ -308,17 +364,57 @@ def is_official(x):
     return any(host.endswith(sfx) or sfx in host for sfx in OFFICIAL_SUFFIX)
 
 
-def ax_score(title, body=""):
-    """AX 관련도. 0이면 후보 아님."""
+# 2~3자 영문 약어는 다른 낱말의 조각으로 걸린다 — 조류인플루엔자(AI), base64 난수 속 ax/dx 등.
+# 낱말 경계가 있을 때만 인정한다.
+_SHORT_RX = {w: re.compile(rf"(?<![A-Za-z0-9]){re.escape(w)}(?![A-Za-z0-9])") for w in ("AI","A.I","AX","DX","LLM")}
+# AI가 '조류인플루엔자'의 약어로 쓰이는 글 — 다른 AX 신호가 없으면 배제
+BIRD_FLU = ["조류인플루엔자","조류독감","고병원성","살처분","가금","방역대","구제역","아프리카돼지열병"]
+
+def _kw_in(w, text):
+    if w in _SHORT_RX: return bool(_SHORT_RX[w].search(text))
+    return (w.lower() in text.lower()) if w.isascii() else (w in text)
+
+AX_WEAK_TITLE = ["데이터","빅데이터","디지털","플랫폼","스마트"]   # Gov.AX 밀접 규칙의 '데이터'류
+
+# 주제 분류 — Gov.AX의 주제 칩 구성을 관광AX에 맞게 손질한 것. 위에서부터 먼저 매치되는 게 이긴다.
+TOPICS = [
+ ("관광·문화 AX",   ["관광","여행","축제","문화유산","박물관","공연","한류","크루즈","마이스","MICE"]),
+ ("생성형 AI·LLM",  ["생성형","거대언어","LLM","챗GPT","GPT","초거대"]),
+ ("AI 에이전트",    ["에이전트","비서","상담봇","챗봇"]),
+ ("피지컬 AI·로봇", ["로봇","자율주행","드론","피지컬"]),
+ ("AI 인프라·컴퓨팅",["데이터센터","GPU","클라우드","컴퓨팅","반도체","NPU"]),
+ ("AI 데이터",      ["데이터","빅데이터"]),
+ ("AI 인재·교육",   ["인재","교육","양성","챔피언","아카데미","역량"]),
+ ("법·제도·거버넌스",["법","제도","기본법","가이드라인","거버넌스","윤리","규제","조례"]),
+ ("AI 보안·안전",   ["보안","안전","딥페이크","침해","사이버"]),
+ ("AI 스타트업·투자",["스타트업","투자","펀드","창업","벤처"]),
+ ("국제협력",       ["국제","글로벌","협력","수출","해외","정상"]),
+ ("공공서비스 AI",  ["행정","민원","공공서비스","복지","의료","국민"]),
+]
+
+def topic_of(title, body=""):
     t = f"{title} {body}"
-    tl = t.lower()
-    hits = [w for w in AX_KEYWORDS if (w.lower() in tl if w.isascii() else w in t)]
-    if hits:
-        # 제목에 있으면 1순위
-        strong = [w for w in hits if (w.lower() in title.lower() if w.isascii() else w in title)]
-        return (2 if strong else 1), hits[:5]
-    weak = [w for w in AX_WEAK if w in t]
-    return 0, weak
+    for name, ws in TOPICS:
+        if any(w in t for w in ws): return name
+    return "산업·기타 AX"
+
+def ax_score(title, body=""):
+    """AX 관련도. 0이면 후보 아님.
+    Gov.AX Insight와 같은 2단계 —
+      1순위(2): 제목에 인공지능·AI·AX 등 키워드
+      밀접(1) : 제목에 키워드가 없어도, 제목에 '데이터'류 낱말이 있고
+                제목·본문에서 AI 관련이 낱말 경계로 확인될 때
+    본문 '아무 데나' 매치는 허용하지 않는다 — 그게 대청호 녹조·농안법까지 들여온 통로였다(실측 50건 중 42건 무관)."""
+    t = f"{title} {body}"
+    if any(w in t for w in BIRD_FLU):
+        others = [w for w in AX_KEYWORDS if w not in ("AI","A.I") and _kw_in(w, t)]
+        if not others: return 0, ["조류인플루엔자 약어"]
+    strong = [w for w in AX_KEYWORDS if _kw_in(w, title)]
+    if strong: return 2, strong[:5]
+    if any(w in title for w in AX_WEAK_TITLE):
+        near = [w for w in AX_KEYWORDS if _kw_in(w, t)]
+        if near: return 1, near[:5]
+    return 0, []
 
 
 TOURISM_W = ["관광","여행","관광객","방문객","여행객","숙박","호텔","축제","관광지",
@@ -392,8 +488,20 @@ SOURCE_ORG = {
  "한국문화정보원": ("한국문화정보원","유관"), "한국문화관광연구원": ("한국문화관광연구원","유관"),
 }
 
+_LEAD_ORG_RX = re.compile(r"^\[?([가-힣]{2,12}(?:부|처|청|위원회|공사|진흥원|정보원|연구원|재단))\]?\s*[,·-]")
+
 def guess_org(x, title, body=""):
     """기관 추정. 최종 확정은 LLM이 한다. 못 찾으면 None을 두고 넘긴다."""
+    m = _LEAD_ORG_RX.match((title or "").strip())      # 「과기정통부, ○○ 추진」 꼴
+    if m:
+        lead = m.group(1)
+        full = {"문체부":"문화체육관광부","과기정통부":"과학기술정보통신부","행안부":"행정안전부",
+                "국토부":"국토교통부","중기부":"중소벤처기업부","해수부":"해양수산부",
+                "산업부":"산업통상자원부","기재부":"기획재정부","복지부":"보건복지부","교육부":"교육부"}
+        lead = full.get(lead, lead)
+        tag = ("부처" if lead.endswith(("부","처","청","위원회"))
+               else "공사" if lead.endswith("공사") else "유관")
+        return lead, tag
     host = (x.get("source_domain") or "").lower()
     if not host:
         try: host = urllib.parse.urlparse(x.get("link") or "").netloc.lower()
@@ -427,10 +535,22 @@ def guess_org(x, title, body=""):
     return None, None
 
 
+# 부처별 site: 질의 — RSS는 '지금부터'만 주므로, 과거분은 부처명 질의로 구글뉴스에서 보강
+MINISTRY_QUERIES = [f'site:korea.kr {n} 인공지능' for n, _ in MINISTRY
+                    if len(n) >= 4 and n not in ("문체부","과기정통부","행안부","국토부","중기부","해수부")]
+
 def collect():
     raw = []
-    print("■ 1차 · 대한민국 정책브리핑")
-    for q in BRIEFING_QUERIES:
+    print("■ 0차 · korea.kr 공식 RSS (직수집)")
+    for label, url in KOREA_RSS:
+        r = korea_rss(label, url)
+        for x in r: x["src_tier"] = "정책브리핑"
+        raw += r
+        print(f"   {label}: {len(r)}건")
+        time.sleep(0.4)
+
+    print("■ 1차 · 대한민국 정책브리핑 (구글뉴스 색인)")
+    for q in BRIEFING_QUERIES + MINISTRY_QUERIES:
         r = google_news(q)
         for x in r: x["src_tier"] = "정책브리핑"
         raw += r
@@ -478,7 +598,8 @@ def main():
             drop("기간 밖"); continue
         if not x.get("date"):
             x["date"] = NOW.strftime("%Y-%m-%d")   # 날짜 불명은 수집일로 둔다
-        title = x.get("title") or ""
+        x["title"] = strip_tail(x.get("title") or "")   # 이중 방어 — 수집 경로와 무관하게 꼬리 제거
+        title = x["title"]
         body  = x.get("description") or ""
 
         if not USE_MEDIA and not is_official(x):
@@ -492,10 +613,12 @@ def main():
             drop("AX 신호 없음"); continue
         # 관광 여부는 더 이상 채택 조건이 아니다. 분류용 표시로만 남긴다.
         tour = is_tourism(title, body)
-        if not has_policy_signal(title, body):
+        from_rss = (x.get("query") or "").startswith("korea.kr RSS")
+        if not from_rss and not has_policy_signal(title, body):
             drop("정책·사례 신호 없음"); continue
 
         org, tag = guess_org(x, title, body)
+        x["topic"] = topic_of(title, body)
         kept.append({**x,
                      "org": org, "org_tag": tag, "tourism": tour,
                      "ax_rank": "제목" if score == 2 else "밀접",
@@ -509,16 +632,32 @@ def main():
     if os.path.exists(OUT):
         try: prev = json.load(open(OUT, encoding="utf-8")).get("items", [])
         except Exception: prev = []
-    ENG = "ax-v5-20260826"
-    carried = []
+    ENG = "ax-v7-20260826"
+    carried, cdrop = [], {}
+    def _cdrop(w): cdrop[w] = cdrop.get(w, 0) + 1
     for it in prev:
-        if (it.get("date") or "") < START_DATE: continue     # 2026-01 이전 폐기
-        org, tag = guess_org(it, it.get("title") or "", it.get("description") or "")
-        it["org"], it["org_tag"] = org, tag                  # 기관 재추정(매핑 보강분 반영)
+        if (it.get("date") or "") < START_DATE: _cdrop("2026-01 이전"); continue
+        # 본문 재세척 — 옛 clean() 버그로 구글 링크 잔해가 저장돼 있다 (전수 오염 실측)
+        title = strip_tail(clean(it.get("title") or ""))
+        desc  = clean(it.get("description") or "")[:300]
+        if title and title[:15] in desc: desc = ""
+        it["title"], it["description"] = title, desc
+        # 새 기준으로 재심사 — 오염된 본문으로 통과했던 것들을 걸러낸다
+        if is_self(it, title, desc):        _cdrop("제주 기관"); continue
+        if is_noise(title):                 _cdrop("게시판·공고"); continue
+        score, hits = ax_score(title, desc)
+        if score == 0:                      _cdrop("AX 신호 없음"); continue
+        it["ax_rank"], it["ax_hits"] = ("제목" if score == 2 else "밀접"), hits
+        org, tag = guess_org(it, title, desc)
+        it["org"], it["org_tag"] = org, tag
+        it["topic"] = topic_of(title, desc)
+        # 일괄 방식으로 해석했던 링크는 순서 뒤섞임 가능성이 있어 무효화하고 1:1로 다시 푼다
+        if it.get("resolved") and it.get("gnews"):
+            it["link"] = it["gnews"]; it["resolved"] = False
         it["engine"] = ENG
         carried.append(it)
-    if len(prev) != len(carried):
-        print(f"■ 누적 정리 — {len(prev)}건 중 {len(prev)-len(carried)}건 제외(2026-01 이전), {len(carried)}건 유지")
+    if cdrop:
+        print(f"■ 누적 재심사 — {len(prev)}건 → {len(carried)}건 유지 · 제외 {dict(sorted(cdrop.items(), key=lambda x:-x[1]))}")
     for it in kept: it["engine"] = ENG
 
     # 해석된 링크가 덮이지 않도록 병합 키는 '구글 원본 링크'를 우선 쓴다
@@ -531,15 +670,28 @@ def main():
             continue                                         # 이미 해석된 쪽을 지킨다
         merged[k] = it
 
-    allitems = list(merged.values())
-    resolved_n = resolve_links(allitems)                     # 구글 리다이렉트 → 원문 직링크
+    # 같은 글이 RSS(직링크)와 구글뉴스(리다이렉트)로 두 번 들어온다 — 제목·날짜로 한 번 더 접는다.
+    # 직링크(korea.kr 원문) 쪽을 남긴다.
+    by_td = {}
+    for it in merged.values():
+        k2 = (re.sub(r"\s+", "", it.get("title") or "")[:40], it.get("date") or "")
+        cur = by_td.get(k2)
+        if cur is None:
+            by_td[k2] = it
+        else:
+            keep_new = ("news.google.com" not in (it.get("link") or "")) and \
+                       ("news.google.com" in (cur.get("link") or ""))
+            if keep_new: by_td[k2] = it
+    allitems = list(by_td.values())
     allitems.sort(key=lambda x: x.get("date") or "", reverse=True)   # 최신순 고정
+    resolved_n = resolve_links(allitems)   # 최신 글부터 직링크 해석 (상한 걸려도 위쪽부터 풀림)
 
     out = {"meta": {"updated": NOW.strftime("%Y-%m-%d %H:%M"),
                     "engine": ENG,
                     "collected": len(raw), "kept": len(kept), "stored": len(allitems),
                     "since": START_DATE,
                     "resolved": sum(1 for x in allitems if x.get("resolved")),
+                    "channels": "korea.kr RSS 직수집 + 구글뉴스 색인 + 기관 공식 채널",
                     "stage": "2단계(업계 언론 포함)" if USE_MEDIA else "1단계(공식 채널)",
                     "source": "Google News RSS · 공식 도메인 한정",
                     "disclaimer": "공개된 보도자료를 수집해 분류한 참고자료입니다. "
