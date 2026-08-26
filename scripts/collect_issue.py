@@ -39,6 +39,12 @@ UA  = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0
 # 수집 질의어 — 중립어 + 지역 조합
 QUERIES = ["제주 여행", "제주도 여행", "제주 관광", "제주도 관광", "제주 관광정책",
            "제주 렌터카", "제주 숙소", "제주 맛집", "제주 물가", "제주 관광객"]
+# 불만 탐지용 (블로그·카페·스레드) — 중립어로는 불만글이 검색에 잡히지 않는다.
+# ※ 이 질의어로 모은 표본은 부정에 치우친다. 그래서 지수를 '부정 비중'이 아니라
+#   '모인 불만 안에서의 분야 구성비'로 쓴다(index_calc.py 참고).
+VOICE_EXTRA = ["제주 바가지", "제주 불친절", "제주 여행 실망", "제주 렌터카 불만",
+               "제주 숙소 후기 별로", "제주 물가 비싸", "제주 여행 후회", "제주 관광지 불편",
+               "제주 주차 불편", "제주 여행 다신"]
 # 사건 탐지용 (뉴스 채널만) — 지역명 조합으로 놓치는 것 방지
 NEWS_EXTRA = ["제주 사고", "제주 실종", "제주 화재", "제주 단속", "제주 관광 불편",
               "서귀포 사고", "제주 안전"]
@@ -175,6 +181,13 @@ def collect():
         for ch in CH:
             r=naver(ch,q); raw+=r
             print(f"   {ch:5s} '{q}': {len(r)}건"); time.sleep(0.15)
+    print("■ 불만 보강 질의 (블로그·카페)")
+    for q in VOICE_EXTRA:
+        got=0
+        for ch in ("blog","cafe"):
+            if ch not in CH: continue
+            r=naver(ch,q,display=50); raw+=r; got+=len(r); time.sleep(0.15)
+        print(f"   '{q}': {got}건")
     print("■ 뉴스 보강 질의")
     for q in NEWS_EXTRA:
         r=naver("news",q) if "news" in CH else []; raw+=r
@@ -186,7 +199,7 @@ def collect():
         print(f"   '{q}': {len(g)}건"); time.sleep(0.2)
     if THREADS_TOKEN:
         print("■ 스레드")
-        for q in ["제주","제주도","제주여행"]:
+        for q in ["제주","제주도","제주여행","제주 여행 후기","제주 렌터카","제주 물가"]:
             r=threads(q); raw+=r; print(f"   '{q}': {len(r)}건"); time.sleep(0.3)
     else:
         print("■ 스레드 — 토큰 없음, 건너뜀")
@@ -229,7 +242,8 @@ def main():
             key=f"{r['stage']}·{r['why']}"
             dropped[key]=dropped.get(key,0)+1
             continue
-        it.update({k:r[k] for k in ("type","category","sentiment","strength","neg","pos","reasons","pending","rel_why")})
+        it.update({k:r.get(k) for k in ("type","category","nature","track","policy",
+                                        "sentiment","strength","neg","pos","reasons","pending","rel_why")})
         kept.append(it)
 
     print("■ 제외 사유")
