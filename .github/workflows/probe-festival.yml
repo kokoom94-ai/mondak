@@ -1,0 +1,19 @@
+name: 제주행사 기간경로 확인(probe)
+
+# 진단 전용. 저장·커밋 없음. 비짓제주에서 축제 기간을 얻는 경로를 찾는다.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 기간 경로 탐색
+        env:
+          VISITJEJU_KEY: ${{ secrets.VISITJEJU_KEY }}
+        run: python scripts/probe_festival_date.py
