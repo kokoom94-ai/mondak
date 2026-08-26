@@ -49,7 +49,8 @@ VOICE_EXTRA = ["제주 바가지", "제주 불친절", "제주 여행 실망", "
 NEWS_EXTRA = ["제주 사고", "제주 실종", "제주 화재", "제주 단속", "제주 관광 불편",
               "서귀포 사고", "제주 안전"]
 
-DAYS_BACK = 21   # 이 기간 밖의 글은 버림
+DAYS_BACK = 21   # 한 번 실행에서 새로 받아올 범위
+KEEP_DAYS = 60   # 누적 보관 기간 — 이보다 오래된 글만 버린다
 
 def clean(s=""):
     s = re.sub(r"<[^>]+>", "", s or "")
@@ -256,11 +257,30 @@ def main():
     print("   채널:", dict(Counter(x["channel"] for x in kept)))
     print("   분류:", dict(Counter(x["category"] for x in kept if x["category"])))
 
+    # ── 누적 병합
+    # 네이버 검색 API는 최신순 일부만 돌려주므로, 매 실행마다 덮어쓰면 과거가 남지 않는다.
+    # (실측: 21일치라 해도 최근 이틀이 전체의 62%를 차지했다)
+    # 기존 파일과 링크 기준으로 합쳐야 월 단위 비교가 실제로 가능해진다.
+    prev=[]
+    if os.path.exists(OUT):
+        try: prev=json.load(open(OUT,encoding="utf-8")).get("items",[])
+        except Exception: prev=[]
+    keep_cut=(NOW - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
+    merged={}
+    for it in prev + kept:                      # 새 판정 결과가 옛 것을 덮어쓴다
+        k=(it.get("link") or it.get("title") or "").strip()
+        if not k: continue
+        if it.get("date") and it["date"] < keep_cut: continue
+        merged[k]=it
+    allitems=sorted(merged.values(), key=lambda x: x.get("date") or "", reverse=True)
+    print(f"■ 누적  기존 {len(prev)} + 신규 {len(kept)} → 병합 {len(allitems)}건 (보관 {KEEP_DAYS}일)")
+
     out={"meta":{"updated":NOW.strftime("%Y-%m-%d %H:%M"),"engine":ENGINE_VERSION,
-                 "collected":len(items),"kept":len(kept),"days":DAYS_BACK,
+                 "collected":len(items),"kept":len(kept),"stored":len(allitems),
+                 "days":DAYS_BACK,"keep_days":KEEP_DAYS,
                  "source":"네이버 검색 오픈API · Google News RSS",
                  "disclaimer":"공개된 게시물을 수집해 규칙으로 분류한 참고자료입니다. 원인 해석이나 위험도 판단은 하지 않습니다."},
-         "dropped":dropped,"items":kept}
+         "dropped":dropped,"items":allitems}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(out, open(OUT,"w",encoding="utf-8"), ensure_ascii=False, indent=1)
     print("\n저장:", os.path.relpath(OUT))
