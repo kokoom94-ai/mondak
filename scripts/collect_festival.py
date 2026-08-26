@@ -71,12 +71,18 @@ def flatten(o, prefix=""):
     return out
 
 
+# 날짜를 찾을 때 무시할 필드 — 사진 경로(.../202507/23/...)나 등록·수정 시각이
+# 축제 기간으로 오인되던 문제. 실측: 471건 전부 사진 업로드 연월일이었다.
+SKIP_DATE_PATH = ("photo", "img", "thumbnail", "path", "url", "seo",
+                  "reg", "mod", "upd", "cre", "insert", "write")
+
 def pick_dates(item):
-    """항목 전체를 훑어 날짜꼴 값을 모으고, 가장 이른/늦은 것을 기간으로 삼는다.
-    필드명이 startDate·sDate·fstvlStartDate 무엇이든 걸린다."""
+    """항목에서 날짜꼴 값을 모아 기간을 잡는다. 사진 경로·등록시각 계열은 제외한다."""
     flat = flatten(item)
     found = []
     for path, v in flat.items():
+        pl = path.lower()
+        if any(w in pl for w in SKIP_DATE_PATH): continue
         d = as_date(v)
         if d: found.append((path, d))
     if not found: return None, None, []
@@ -97,7 +103,7 @@ def pick(item, *names, default=""):
 
 def status_of(sd, ed):
     """진행 중 / 예정 / 종료"""
-    if not sd: return "미정"
+    if not sd: return "기간미상"
     e = ed or sd
     if TODAY < sd:  return "예정"
     if TODAY > e:   return "종료"
@@ -162,14 +168,70 @@ def collect(cat):
     return items
 
 
+DETAIL = "https://api.visitjeju.net/vsjApi/contents/contentsid"
+DETAIL_MAX = int(os.environ.get("FEST_DETAIL_MAX", "900"))
+
+def detail(cid):
+    """상세 조회. searchList에는 기간이 없어 여기서 받아온다.
+    엔드포인트 형태를 확신할 수 없으므로 두 가지를 차례로 시도하고,
+    처음 성공한 형태를 계속 쓴다."""
+    forms = [f"{DETAIL}/{cid}?apiKey={urllib.parse.quote(KEY)}&locale=kr",
+             f"{DETAIL}?apiKey={urllib.parse.quote(KEY)}&locale=kr&contentsid={cid}"]
+    if detail.form is not None: forms = [forms[detail.form]]
+    for i, u in enumerate(forms):
+        try:
+            d = json.loads(fetch(u))
+        except Exception:
+            continue
+        body = d.get("item") or d.get("items") or d.get("result") or d
+        if isinstance(body, list): body = body[0] if body else None
+        if isinstance(body, dict) and body:
+            if detail.form is None: detail.form = i
+            return body
+    return None
+detail.form = None
+
+
+def enrich(items):
+    """축제 항목에 상세를 붙여 기간을 채운다."""
+    todo = items[:DETAIL_MAX]
+    print(f"■ 상세 조회 — {len(todo)}건 (기간 확보)")
+    ok = miss = 0
+    for n, x in enumerate(todo, 1):
+        cid = str(pick(x, "contentsid", default="")).strip()
+        if not cid: continue
+        d = detail(cid)
+        if d:
+            x["_detail"] = d
+            sd, ed, _ = pick_dates(d)
+            if sd: ok += 1
+            else:  miss += 1
+        else:
+            miss += 1
+        if n % 100 == 0: print(f"   {n}건 · 기간확보 {ok}")
+        time.sleep(0.2)
+    form = getattr(detail, "form", None)
+    print(f"   기간 확보 {ok} / 실패·없음 {miss}"
+          + (f" · 응답형태 {form}" if form is not None else ""))
+    if ok == 0:
+        print("   ! 상세에서도 기간을 못 찾았습니다. 아래 상세 응답 한 건을 확인하세요:")
+        for x in todo:
+            if x.get("_detail"):
+                print(json.dumps(x["_detail"], ensure_ascii=False, indent=1)[:2000]); break
+    return ok
+
+
 def normalize(raw):
     """화면이 쓰는 모양으로 정리."""
     out, no_date = [], 0
     for x in raw:
         title = str(pick(x, "title", default="")).strip()
         if not title: continue
-        sd, ed, found = pick_dates(x)
+        det = x.get("_detail")
+        sd, ed, found = pick_dates(det) if det else (None, None, [])
+        if not sd: sd, ed, found = pick_dates(x)      # 상세에 없으면 목록에서라도
         if not sd: no_date += 1
+        if det: x = {**det, **{k: v for k, v in x.items() if k != "_detail"}}
         region = str(pick(x, "region2cd.label", "region2", "region1cd.label", default="")).strip()
         addr   = str(pick(x, "roadaddress", "address", default="")).strip()
         lat    = pick(x, "latitude", "lat", default=None)
@@ -236,9 +298,10 @@ def main():
         return
 
     raw = collect(cat)
+    enrich(raw)
     items = normalize(raw)
     items = [x for x in items if in_range(x)]
-    order = {"진행중": 0, "예정": 1, "미정": 2, "종료": 3}
+    order = {"진행중": 0, "예정": 1, "기간미상": 2, "종료": 3}
     items.sort(key=lambda x: (order.get(x["status"], 9), x.get("start") or "9999"))
 
     by_status, by_region = {}, {}
