@@ -493,6 +493,24 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 
 /* ===== 관광AX인사이트 ===== */
+.axtoprow{display:flex;gap:6px;overflow-x:auto;padding:2px 1px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.axtoprow::-webkit-scrollbar{display:none}
+.axtop{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px 11px;white-space:nowrap;cursor:pointer}
+.axtop.on{color:#fff;background:var(--navy);border-color:var(--navy)}
+.axsearch{margin:0 0 9px}
+.axsearch input{width:100%;box-sizing:border-box;font-size:13px;padding:9px 13px;border:1px solid var(--line);border-radius:11px;background:var(--card);color:var(--ink);outline:none}
+.axsearch input:focus{border-color:var(--navy)}
+.axnew{font-size:9px;font-weight:800;color:#fff;background:#E8590C;border-radius:4px;padding:1px 4px;vertical-align:1px}
+.axmore{display:block;width:100%;font-size:12.5px;font-weight:700;color:var(--navy);background:var(--card);border:1px dashed var(--line);border-radius:11px;padding:11px;margin-top:6px;cursor:pointer}
+.axrf-g{font-size:11.5px;font-weight:800;color:var(--sub);margin:13px 2px 6px;letter-spacing:.02em}
+.axrf{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 13px;margin-bottom:7px}
+.axrf-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.axrf-h b{font-size:13.5px;color:var(--navy)}
+.axrf-by{font-size:11px;color:var(--sub)}
+.axrf-due{font-size:10.5px;font-weight:700;color:#8A6A12;background:#FEF6E7;border:1px solid #F5E0B0;border-radius:20px;padding:2px 8px;margin-left:auto}
+.axrf-d{font-size:11.5px;color:var(--sub);margin-top:4px;line-height:1.6;word-break:keep-all}
+.axrf-l{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.axrf-l a{font-size:11px;font-weight:700;color:#4A3FC0;background:#F0EEFC;border:1px solid #D8D3F5;border-radius:20px;padding:4px 10px;text-decoration:none}
 .axintro{background:#F0EEFC;border:1px solid #D8D3F5;border-radius:13px;padding:12px 14px;
   margin-bottom:11px;font-size:12.5px;line-height:1.7;color:#4A3FC0;word-break:keep-all}
 .axintro b{color:#3A2FA8}
@@ -3786,7 +3804,27 @@ function renderGwan(v){
    기관별 관광 인공지능 전환(AX) 동향. 수집·판정은 저장소 데이터로만 하고,
    화면에서는 원문·발행일·출처를 반드시 함께 보여준다.               */
 const AX_SRC='data/ax.json';
-let AXDATA=null, axLoading=false, axTab='news', axOrg='', axTopic='', axTourOnly=false;
+/* 정책담당자를 위한 누리집 — 항목 추가는 이 배열만 고치면 됨 */
+const AX_REFS=[
+ {group:'지원기관',items:[
+  {name:'공공AI사업지원센터',by:'한국지능정보사회진흥원',desc:'공공부문 AI 도입·사업 지원',
+   links:[{t:'누리집',url:'https://www.nia.or.kr/site/nia_kor/27/12702000000002026041001.jsp'}]},
+  {name:'AX 원스톱 지원센터',by:'정보통신산업진흥원',desc:'기업·기관 AX 전환 원스톱 지원',
+   links:[{t:'누리집',url:'https://www.nipa.kr/home/bsnsAll/3/detail?bsnsDtlsIemNo=854'}]}]},
+ {group:'플랫폼',items:[
+  {name:'AX360',by:'정보통신산업진흥원',desc:'AX 원스톱 매칭 플랫폼',
+   links:[{t:'누리집',url:'https://ax360.kr/main'}]},
+  {name:'한국관광 데이터랩',by:'한국관광공사',desc:'이동통신·카드·내비게이션 등 관광특화 빅데이터 플랫폼',
+   links:[{t:'누리집',url:'https://datalab.visitkorea.or.kr/'}]}]},
+ {group:'지원사업',items:[
+  {name:'2026년 공공 AX 프로젝트',by:'과학기술정보통신부 · 정보통신산업진흥원',due:'접수마감 26년 2월',
+   links:[{t:'사업 공고(기업마당)',url:'https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000118550'},
+          {t:'사업 공고(NIPA)',url:'https://www.nipa.kr/home/2-2/16471'}]},
+  {name:'공공부문 AI 서비스 지원사업',by:'행정안전부 · 한국지능정보사회진흥원',due:'접수마감 26년 2월',
+   links:[{t:'사업 공고(NIA)',url:'https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=99835&bcIdx=29024'},
+          {t:'사업 설명 영상',url:'https://www.youtube.com/watch?v=7l4q_MLfV9M'}]}]}
+];
+let AXDATA=null, axLoading=false, axTab='news', axOrg='', axTopic='', axTourOnly=false, axQ='', axLim=20;
 
 function loadAX(){
   if(AXDATA||axLoading) { renderAX(); return; }
@@ -3799,6 +3837,7 @@ function loadAX(){
 }
 
 function axCard(x){
+  const _fresh=x.date && (Date.now()-new Date(x.date).getTime())<48*3600*1000;
   const org=x.org||x.org_hint||'', tp=x.topic||'', st=x.stage||'';
   return '<a class="axc" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
     '<div class="axc-h">'+
@@ -3807,7 +3846,7 @@ function axCard(x){
       (st?'<span class="axc-s">'+orgEsc(st)+'</span>':'')+
       (x.tourism?'<span class="axc-tr">관광</span>':'')+
       (x.milestone?'<span class="axc-m">이정표</span>':'')+
-      '<span class="axc-d">'+orgEsc(x.date||'')+'</span>'+
+      '<span class="axc-d">'+(_fresh?'<span class="axnew">NEW</span> ':'')+orgEsc(x.date||'')+'</span>'+
     '</div>'+
     '<div class="axc-t">'+orgEsc(x.title||'')+'</div>'+
     (x.summary?'<div class="axc-x">'+orgEsc(x.summary)+'</div>':
@@ -3841,6 +3880,8 @@ function renderAX(){
   if(axOrg)     L=L.filter(x=>(x.org||x.org_hint)===axOrg);
   if(axTopic)   L=L.filter(x=>x.topic===axTopic);
   if(axTourOnly)L=L.filter(x=>x.tourism);
+  if(axQ){ const q=axQ.toLowerCase();
+    L=L.filter(x=>(x.title||'').toLowerCase().includes(q)||((x.org||x.org_hint||'')).toLowerCase().includes(q)); }
 
   let h='';
   h+='<div class="axintro">제주관광AX인사이트는 <b>정부 및 각 정부부처, 공공기관의 공식 채널</b>을 통해 '+
@@ -3857,7 +3898,15 @@ function renderAX(){
      '</div>';
 
   if(axTab==='news'){
-    if(axOrg||axTopic){
+    /* 주제 칩 — Gov.AX 상단 주제 칩과 같은 역할. 누르면 그 주제만. */
+    const TOPN=Object.entries(tops).sort((a,b)=>b[1]-a[1]);
+    if(TOPN.length){
+      h+='<div class="axtoprow"><button class="axtop'+(!axTopic?' on':'')+'" data-topic="">전체 '+IT.length+'</button>';
+      TOPN.forEach(([k,v])=>{ h+='<button class="axtop'+(axTopic===k?' on':'')+'" data-topic="'+orgEsc(k)+'">'+orgEsc(k)+' '+v+'</button>'; });
+      h+='</div>';
+    }
+    h+='<div class="axsearch"><input id="axq" type="search" placeholder="제목·기관 검색" value="'+orgEsc(axQ)+'"></div>';
+    if(axOrg||axTopic||axQ){
       h+='<div class="axfl">필터 '+
          (axOrg?'<em>'+orgEsc(axOrg)+'</em>':'')+
          (axTopic?'<em>'+orgEsc(axTopic)+'</em>':'')+
@@ -3869,9 +3918,9 @@ function renderAX(){
     h+='<div class="tjsec"><h3>🤖 '+(axTourOnly?'관광 AX 동향':'공공 AX 동향')+'</h3>'+
        '<div class="tjsub">정부부처·공공기관의 인공지능 전환 추진상황과 타 지역 사례입니다. '+
        '관광은 기반 사업이라 교통·안전·행정 등 인접 분야 사례도 함께 봅니다 · 제목을 누르면 원문으로 이동합니다</div>';
-    h+= L.length? L.slice(0,400).map(axCard).join('')
+    h+= L.length? L.slice(0,axLim).map(axCard).join('')
        : '<div class="isempty">해당 조건의 자료가 없습니다.</div>';
-    if(L.length>400) h+='<div class="tjnote">최신 400건까지 표시합니다.</div>';
+    if(L.length>axLim) h+='<button class="axmore" id="axmore">+ '+(L.length-axLim)+'건 더 보기</button>';
     h+='</div>';
   }
 
@@ -3916,7 +3965,8 @@ function renderAX(){
       '공식 도메인(<b>go.kr · or.kr · re.kr</b>)으로 한정합니다. '+
       '<b>2026년 1월부터 현재까지</b>를 매일 자동으로 이어서 수집합니다.</p></div>'+
       '<div class="isf-a">→</div>'+
-      '<div class="isf"><span class="isf-n">2</span><b>선별</b><p>제목에 <b>인공지능·AI·AX·디지털 전환</b> 등이 있으면 1순위로 담습니다. '+
+      '<div class="isf"><span class="isf-n">2</span><b>선별</b><p><b>1순위(제목 키워드)</b> — 제목에 <b>인공지능·AI·AX·디지털 전환</b> 등이 있으면 자동 수집. '+
+      '<b>AX 밀접(판정)</b> — 제목에 키워드가 없어도 제목에 <b>데이터</b>류 낱말이 있고 AI 관련이 확인되면 포함. '+
       '관광에 한정하지 않고 <b>공공 AX 전반</b>을 담습니다. 채용·입찰 같은 <b>단순 공고</b>는 뺍니다. '+
       '제주관광공사·제주도는 보는 주체이므로 수집하지 않습니다.</p></div>'+
       '<div class="isf-a">→</div>'+
@@ -3931,6 +3981,20 @@ function renderAX(){
       '· 본문 전체는 복제하지 않습니다. 자세한 내용은 원문에서 확인해 주세요.<br>'+
       '· 자체 수집·분류이므로 일부 누락이나 오분류가 있을 수 있습니다.'+
       '</div></div></div>';
+    /* ── 참고 자료 — 정책담당자를 위한 누리집 ── */
+    h+='<div class="tjsec"><h3>📌 관광AX 정책담당자를 위한 누리집</h3>'+
+       '<div class="tjsub">AX 도입을 지원하는 기관·플랫폼·지원사업 모음입니다</div>';
+    AX_REFS.forEach(g=>{
+      h+='<div class="axrf-g">'+orgEsc(g.group)+'</div>';
+      g.items.forEach(r=>{
+        h+='<div class="axrf"><div class="axrf-h"><b>'+orgEsc(r.name)+'</b>'+
+           (r.by?'<span class="axrf-by">'+orgEsc(r.by)+'</span>':'')+
+           (r.due?'<span class="axrf-due">'+orgEsc(r.due)+'</span>':'')+'</div>'+
+           (r.desc?'<div class="axrf-d">'+orgEsc(r.desc)+'</div>':'')+
+           '<div class="axrf-l">'+r.links.map(l=>'<a href="'+orgEsc(l.url)+'" target="_blank" rel="noopener">'+orgEsc(l.t)+' ↗</a>').join('')+'</div></div>';
+      });
+    });
+    h+='<div class="tjnote">외부 누리집으로 연결되며, 공고 일정·내용은 각 기관 안내를 기준으로 확인해 주세요.</div></div>';
     h+='<div class="tjnote">참고 — 이 화면은 정부기관 AX 동향을 정리한 '+
        '<a href="https://gov-ax.vercel.app/" target="_blank" rel="noopener">Gov.AX Insight</a>의 구성을 참고했습니다.</div>';
   }
@@ -3940,9 +4004,18 @@ function renderAX(){
   const tb=document.getElementById('axtabs');
   if(tb) tb.addEventListener('click',e=>{
     const t=e.target.closest('button'); if(!t)return;
-    if(t.dataset.t==='news'){ axOrg=''; axTopic=''; axTourOnly=false; }  // 전체 = 필터까지 초기화
+    if(t.dataset.t==='news'){ axOrg=''; axTopic=''; axTourOnly=false; axQ=''; axLim=20; }  // 전체 = 필터까지 초기화
     axTab=t.dataset.t; renderAX();
   });
+  const mq=b.querySelector('#axq');
+  if(mq){ mq.addEventListener('input',()=>{ axQ=mq.value.trim(); axLim=20;
+            clearTimeout(mq._t); mq._t=setTimeout(()=>{ const p=mq.selectionStart; renderAX();
+              const nq=document.getElementById('axq'); if(nq){ nq.focus(); nq.setSelectionRange(p,p); } },250); }); }
+  const mb=b.querySelector('#axmore');
+  if(mb){ mb.addEventListener('click',()=>{ axLim+=30; renderAX(); }); }
+  b.querySelectorAll('.axtop').forEach(el=>el.addEventListener('click',()=>{
+    axTopic=el.dataset.topic||''; axLim=20; axTab='news'; renderAX();
+  }));
   b.querySelectorAll('[data-org]').forEach(el=>el.addEventListener('click',()=>{
     axOrg = (axOrg===el.dataset.org)?'':el.dataset.org; axTab='news'; renderAX();
   }));
