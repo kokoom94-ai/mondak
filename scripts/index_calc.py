@@ -234,7 +234,19 @@ def main():
                            "prev_neg":None,"delta":None,
                            "natures":{k:nc.get(k,0) for k in NATS if nc.get(k)},
                            "top":top_titles(m30,c,40)})
+    # 일별 추이 — 30일치. 썸트렌드의 긍·부정 추이 막대에 대응한다.
+    d30=[]
+    for dd in sorted({x["date"] for x in m30 if x.get("date")}):
+        v=[x for x in m30 if x.get("date")==dd]
+        if not v: continue
+        ng=sum(1 for x in v if x["sentiment"]=="부정")
+        nu=sum(1 for x in v if x["sentiment"]=="중립")
+        po=sum(1 for x in v if x["sentiment"]=="긍정")
+        d30.append({"date":dd,"total":len(v),"neg_n":ng,"neu_n":nu,"pos_n":po,
+                    "neg":round(ng/len(v)*100,1),"pos":round(po/len(v)*100,1)})
+
     window30={"total":len(m30),"neg_n":len(m30_neg),
+              "daily":d30,
               "from":(base-timedelta(days=29)).strftime("%Y-%m-%d"),
               "to":base.strftime("%Y-%m-%d"),
               "stats":M30,
