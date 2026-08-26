@@ -3,7 +3,8 @@ name: 관광 데이터 수집
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 20 5 * *'   # 매월 6일 05:00 KST
+    - cron: '10 0,9 * * *'   # 매일 09:10 / 18:10 KST — 원천(제주관광 빅데이터 플랫폼)이
+                             # 전일치를 오전 중 갱신하므로 오전·오후 두 번 받아온다
 
 permissions:
   contents: write
