@@ -2479,7 +2479,7 @@ function renderSchools(){
       (nc?'<br>· 점선 표시 '+nc+'개교는 공시정보 연동 준비 중입니다.':'');}
 }
 document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
-let ISDATA=null, isLoading=false, isTab='week', isOpenCat=null;
+let ISDATA=null, isLoading=false, isTab='30d', isOpenCat=null;
 let isCh={news:true,blog:true,cafe:true}, isPostTab='neg';
 function loadIS(){
   if(ISDATA||isLoading){ if(ISDATA) renderIS(); return; }
@@ -2529,11 +2529,18 @@ function renderIS(){
   const neg=C.neg||0, neu=C.neu||0, pos=C.pos||0;
   let h='';
 
+  const W30=D.window30||null;
+  const is30=(isTab==='30d'&&W30);
+  /* 기간 표기는 지금 보고 있는 창을 따른다 */
+  const pFrom = is30 ? (W30.from||'') : (M.period?M.period.from:'');
+  const pTo   = is30 ? (W30.to||'')   : (M.period?M.period.to:'');
+
   /* ── 필터바 ── */
   h+='<div class="isbar-f"><div class="isbf-l">'+
-     '<span class="isbf-d">📅 '+orgEsc(M.period?M.period.from.replace(/-/g,'.'):'')+
-     ' ~ '+orgEsc(M.period?M.period.to.replace(/-/g,'.'):'')+'</span>'+
+     '<span class="isbf-d">📅 '+orgEsc((pFrom||'').replace(/-/g,'.'))+
+     ' ~ '+orgEsc((pTo||'').replace(/-/g,'.'))+'</span>'+
      '<div class="istabs2" id="istabs">'+
+       '<button data-t="30d"'+(isTab==='30d'?' class="on"':'')+'>30일</button>'+
        '<button data-t="week"'+(isTab==='week'?' class="on"':'')+'>주간</button>'+
        '<button data-t="month"'+(isTab==='month'?' class="on"':'')+'>월간</button>'+
      '</div></div>'+
@@ -2567,9 +2574,30 @@ function renderIS(){
   }
   h+='</div>';
 
-  /* ── 수요자 불만 구성비 — 정책 신호 ── */
+  /* ── 불만 구성비 — 정책 신호 ── */
+  /* 30일 창은 사건 축약을 거친 전체 불만, 주간 창은 수요자 글만 본다 */
+  if(is30){
+    const MX=W30.mix||[];
+    h+='<div class="tjsec"><h3>📊 불만은 어느 분야에 몰려 있나 <span class="isdisc">자체 분석이므로 일부 오류가 있을 수 있습니다. 참고만 해주시기 바랍니다.</span></h3>'+
+       '<div class="tjsub">최근 30일 · 같은 사건의 중복 보도는 한 건으로 세어, 사건 하나가 분야 신호를 덮지 않게 했습니다</div>';
+    if(MX.length){
+      h+='<div class="ismix">';
+      MX.forEach(m=>{
+        h+='<div class="ismx"><div class="ismx-h"><b>'+orgEsc(m.name)+'</b>'+
+           '<i>'+m.share+'<span style="font-size:12px">%</span></i></div>'+
+           '<div class="ismx-p">불만 '+m.n+'건 · 보완 소관 — '+orgEsc(m.policy||'')+'</div>'+
+           '<div class="ismx-b"><i style="width:'+Math.max(3,m.share)+'%"></i></div></div>';
+      });
+      h+='</div><div class="tjnote">※ 비율은 「모인 불만」 안에서의 구성비입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.</div>';
+    } else {
+      h+='<div class="isempty">최근 30일 동안 불만으로 분류된 글이 없습니다.</div>';
+    }
+    h+='</div>';
+  }
+
+  /* ── 수요자 목소리 (주간) ── */
   const V=D.voice;
-  if(V){
+  if(V&&!is30){
     h+='<div class="tjsec"><h3>🗣 관광객 불만은 어디에 몰려 있나 <span class="isdisc">자체 분석이므로 일부 오류가 있을 수 있습니다. 참고만 해주시기 바랍니다.</span></h3>'+
        '<div class="tjsub">겪은 사람이 직접 쓴 글(블로그·카페·스레드)만 셉니다. 언론 보도는 아래 「이슈 감시」에서 따로 봅니다</div>';
     if(!V.sample_ok){
@@ -2596,10 +2624,11 @@ function renderIS(){
 
   /* ── 이슈 감시 — 사건 단위 ── */
   const RK=D.risk;
-  if(RK&&(RK.clusters||[]).length){
+  const CLS=(is30?(W30.clusters||[]):((RK&&RK.clusters)||[]));
+  if(CLS.length){
     h+='<div class="tjsec"><h3>🚨 이슈 감시 <span class="isdisc">같은 사건어로 묶은 근사치이며 동일 사건임을 보장하지 않습니다.</span></h3>'+
-       '<div class="tjsub">하나의 사건이 여러 매체로 번지면 관광 이미지에 타격이 됩니다. 건수가 아니라 매체 수로 확산을 봅니다</div>';
-    (RK.clusters||[]).forEach(c=>{
+       '<div class="tjsub">'+(is30?'최근 30일':'최근 7일')+' · 하나의 사건이 여러 매체로 번지면 관광 이미지에 타격이 됩니다. 건수가 아니라 매체 수로 확산을 봅니다</div>';
+    CLS.forEach(c=>{
       h+='<div class="iscl"><div class="iscl-h"><b>'+orgEsc(c.label)+'</b>'+
          '<span class="sp '+orgEsc(c.spread)+'">'+orgEsc(c.spread)+'</span>'+
          '<span class="cnt">보도 '+c.n+'건 · 매체 '+c.media+'곳</span></div>'+
@@ -2609,7 +2638,7 @@ function renderIS(){
   }
 
   if(isTab==='week'){
-    /* ── 지수 ── */
+    /* ── 지수 (주간 전용) ── */
     h+='<div class="tjsec"><h3>📡 긍·부정 비율</h3>'+
        '<div class="ishero2"><div class="ish-d">'+isDonut(neg,neu,pos)+'</div><div class="ish-s">'+
        '<div class="ishr neg"><span class="k"></span><b>부정</b><i>'+neg+'%</i>'+
@@ -2663,7 +2692,7 @@ function renderIS(){
       }
       h+='</div>';
     }
-  } else {
+  } else if(isTab==='month'){
     h+='<div class="tjsec"><h3>📅 월간 여론지수</h3>';
     if(!MO.ready) h+='<div class="isready"><div class="isr-i">🗓</div><div>'+
       '<div class="isr-t">전월 대비 비교는 2026년 9월부터</div>'+
@@ -2681,8 +2710,8 @@ function renderIS(){
     h+='<div class="tjnote">※ 이번 달은 진행 중이라 월말에 값이 달라질 수 있습니다.</div></div>';
   }
 
-  /* ── 분야별 (부정 기준) ── */
-  const R=D.rank||[];
+  /* ── 분야별 (부정 기준·7일) — 주간 탭에서만 ── */
+  const R=(isTab==='week')?(D.rank||[]):[];
   if(R.length){
     const mx=Math.max.apply(null,R.map(r=>r.neg_n||0))||1;
     h+='<div class="tjsec"><h3>📊 분야별 부정 여론 <span class="isdisc">자체 분석이므로 일부 오류가 있을 수 있습니다. 참고만 해주시기 바랍니다.</span></h3>'+
@@ -2717,7 +2746,7 @@ function renderIS(){
   }
 
   /* ── 부정 표현 ── */
-  const RS=D.reasons||[];
+  const RS=(isTab==='week')?(D.reasons||[]):[];
   if(RS.length){
     const mx=RS[0].n||1;
     h+='<div class="tjsec"><h3>🔎 부정 판정에 걸린 표현</h3>'+
