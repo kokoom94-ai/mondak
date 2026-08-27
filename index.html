@@ -493,6 +493,9 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 
 
+.isnotice{display:flex;align-items:flex-start;gap:7px;font-size:12px;line-height:1.65;color:#8A6A12;background:#FEF8EC;border:1px solid #F3E0B5;border-radius:12px;padding:10px 12px;margin-bottom:10px;word-break:keep-all}
+.isn-b{flex:0 0 auto;font-size:10px;font-weight:800;color:#fff;background:#E8A317;border-radius:5px;padding:2px 6px;margin-top:1px}
+.isnotice b{color:#7A5A08}
 /* ===== 제주행사모음 ===== */
 .ftintro{font-size:12px;color:var(--sub);line-height:1.7;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:10px;word-break:keep-all}
 .ftsum{display:flex;gap:6px;margin-bottom:10px}
@@ -1417,7 +1420,17 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 #landing .ltag{font-size:16px;color:var(--sub);margin-top:0;font-weight:700}
 #landing #enterbtn{margin-top:22px;background:#E8590C;color:#fff;font-size:19.5px;font-weight:800;border-radius:99px;padding:18px 76px;box-shadow:0 10px 26px rgba(232,89,12,.35)}
 #landing #enterbtn:hover{transform:translateY(-1px)}
-#landing .ldesc{font-size:14.5px;color:var(--sub);line-height:1.8;margin:20px auto 0;max-width:640px;word-break:keep-all}
+#landing .ldesc{font-size:14.5px;line-height:1.85;color:var(--sub);margin:14px auto 0;max-width:31em;word-break:keep-all}
+#landing .lbeta{font-size:11.5px;line-height:1.7;color:#8A94A8;margin:16px auto 0;max-width:27em;word-break:keep-all}
+@media(max-width:560px){
+  #landing{padding:20px 18px}
+  #landing h1{font-size:31px;letter-spacing:-1px}
+  #landing .ltag{font-size:13.5px}
+  #landing #enterbtn{margin-top:18px;font-size:17px;padding:15px 54px}
+  #landing .ldesc{font-size:13.5px;line-height:1.8;margin-top:13px}
+  #landing .lbeta{font-size:10.5px;margin-top:13px}
+  #landing .lbr{display:none}   /* 좁은 화면에선 자연스럽게 흐르도록 */
+}
 .noticeitem{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:8px;font-size:13px;line-height:1.6}
 .noticeitem b{color:var(--navy);margin-right:6px}
 .noticeitem span{color:var(--sub)}
@@ -1426,7 +1439,6 @@ a.rankrow{cursor:pointer}a.rankrow:hover .rtxt>span:first-child{text-decoration:
 .dmham:hover{border-color:var(--navy)}
 @media(max-width:1180px){.lsub{display:none}}
 body{padding-bottom:78px}
-@media(max-width:640px){#landing .ldesc br{display:none}}
 
 .lawchips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 2px}
 .lc{font-size:12px;font-weight:700;padding:5px 13px;border-radius:99px;border:1.5px solid var(--c,#999);color:var(--c,#333);background:#fff}
@@ -1507,13 +1519,18 @@ body{padding-bottom:78px}
     <h1>AI 제주정책 <em>보부상</em></h1>
     <button id="enterbtn">입장하기</button>
     <p class="ldesc">
-      예로부터 생산자와 소비자의 길을 이어주던 보부상처럼,<br>
-      ‘AI 제주정책 보부상’은 도민과 정책 사이의 막힌 길을 뚫어주는 안내자가 되고자 합니다.
+      예로부터 생산자와 소비자의 길을 이어주던 보부상처럼,<br class="lbr">
+      ‘AI 제주정책 보부상’은 도민과 정책 사이의<br class="lbr">
+      막힌 길을 뚫어주는 안내자가 되고자 합니다.
     </p>
-    <p class="ldesc" style="margin-top:10px">
-      개인 제작 무료 서비스 특성상 작고 소소한 오류가 있을 수 있으나,<br>
-      제주도민 모두가 유용한 정보에서 소외되지 않도록<br>
+    <p class="ldesc">
+      개인 제작 무료 서비스 특성상 작고 소소한 오류가 있을 수 있으나,<br class="lbr">
+      제주도민 모두가 유용한 정보에서 소외되지 않도록<br class="lbr">
       진심을 담아 알찬 정책을 들고 달리겠습니다!
+    </p>
+    <p class="lbeta">
+      본 서비스는 베타 버전으로 시범 운영 중이며, 바이브 코딩 방식으로 개발되어
+      운영에 미숙한 점이 있더라도 양해 부탁드립니다.
     </p>
   </div>
 </div>
@@ -2646,6 +2663,9 @@ function renderIS(){
   if(!D){ b.innerHTML='<div class="isload">아직 수집된 여론 데이터가 없습니다.</div>'; return; }
   const M=D.meta||{}, DL=D.delta, MO=D.monthly||{};
   let h='';
+  /* 공지 — 분류 정확도 개선 작업 중임을 먼저 알린다 */
+  h+='<div class="isnotice"><span class="isn-b">공지</span>'+
+     '이슈체크 서비스는 현재 단어 분류 중에 오류를 잡기 위해 테스트 중이며 <b>9월 중 완료 예정</b>입니다.</div>';
 
   const W30=D.window30||null;
   const is30=(isTab==='30d'&&W30);
