@@ -1876,7 +1876,7 @@ body{padding-bottom:78px}
 <div class="wrap">
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">보부상위키</div>
-  <div class="viewsub">보부상위키 — 제주위키의 도민판.<br class="mbr">용어를 누르면 세 줄 설명이 뜹니다.</div>
+  <div class="viewsub">용어를 누르면 세 줄 설명이 뜹니다.</div>
   <div class="rankcard">
     <h2>제주 정책 기사 빈출 단어 TOP 20 <span style="font-size:11px;color:var(--sub);font-weight:500">시연 집계</span></h2>
     <div id="wordrank"></div>
@@ -4649,7 +4649,7 @@ document.addEventListener('click',e=>{
 const pop=document.getElementById('wikipop');
 function showWiki(term,x,y){
   const body=WIKI[term];if(!body)return;
-  pop.innerHTML=`<div class="wtag">보부상위키 — 제주위키의 도민판</div><div class="wterm">${term}</div><div class="wbody">${body}</div>`;
+  pop.innerHTML=`<div class="wtag">보부상위키</div><div class="wterm">${term}</div><div class="wbody">${body}</div>`;
   pop.style.display='block';
   pop.style.left=Math.min(Math.max(10,x-40),window.innerWidth-300)+'px';
   pop.style.top=(y+16)+'px';
