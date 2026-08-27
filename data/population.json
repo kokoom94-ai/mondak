@@ -1,100 +1,115 @@
 {
  "meta": {
-  "updated": "2026-08-27 09:58",
+  "updated": "2026-08-27 10:15",
   "month": "202606",
   "source": "제주특별자치도 인구빅데이터 (주민등록인구 및 등록외국인)",
-  "total": 8712058,
+  "total": 691268,
   "emd_count": 43
  },
  "regions": {
   "한림": {
-   "total": 202606,
+   "total": 23828,
    "house": 0,
    "foreign": 3829,
+   "local": 19999,
    "emd": 1
   },
   "애월": {
-   "total": 202606,
+   "total": 39919,
    "house": 0,
    "foreign": 1590,
+   "local": 38329,
    "emd": 1
   },
   "구좌": {
-   "total": 202606,
+   "total": 15764,
    "house": 0,
    "foreign": 882,
+   "local": 14882,
    "emd": 1
   },
   "조천": {
-   "total": 202606,
+   "total": 26803,
    "house": 0,
    "foreign": 872,
+   "local": 25931,
    "emd": 1
   },
   "한경": {
-   "total": 202606,
+   "total": 10032,
    "house": 0,
    "foreign": 538,
+   "local": 9494,
    "emd": 1
   },
   "추자도": {
-   "total": 202606,
+   "total": 1742,
    "house": 0,
    "foreign": 244,
+   "local": 1498,
    "emd": 1
   },
   "우도": {
-   "total": 202606,
+   "total": 1528,
    "house": 0,
    "foreign": 32,
+   "local": 1496,
    "emd": 1
   },
   "제주시내": {
-   "total": 3849514,
+   "total": 383145,
    "house": 0,
    "foreign": 10651,
+   "local": 372494,
    "emd": 19
   },
   "대정": {
-   "total": 202606,
+   "total": 23377,
    "house": 0,
    "foreign": 1885,
+   "local": 21492,
    "emd": 1
   },
   "남원": {
-   "total": 202606,
+   "total": 18717,
    "house": 0,
    "foreign": 1038,
+   "local": 17679,
    "emd": 1
   },
   "성산": {
-   "total": 202606,
+   "total": 16391,
    "house": 0,
    "foreign": 1843,
+   "local": 14548,
    "emd": 1
   },
   "안덕": {
-   "total": 202606,
+   "total": 13094,
    "house": 0,
    "foreign": 801,
+   "local": 12293,
    "emd": 1
   },
   "표선": {
-   "total": 202606,
+   "total": 13402,
    "house": 0,
    "foreign": 582,
+   "local": 12820,
    "emd": 1
   },
   "서귀포시내": {
-   "total": 2026060,
+   "total": 87184,
    "house": 0,
    "foreign": 3094,
+   "local": 84090,
    "emd": 10
   },
   "중문": {
-   "total": 405212,
+   "total": 16342,
    "house": 0,
    "foreign": 595,
+   "local": 15747,
    "emd": 2
   }
  },
@@ -110,389 +125,432 @@
   {
    "name": "한림읍",
    "region": "한림",
-   "total": 202606,
+   "total": 23828,
    "house": 0,
    "foreign": 3829,
-   "male": 0,
-   "female": 0
+   "local": 19999,
+   "male": 13094,
+   "female": 10734
   },
   {
    "name": "애월읍",
    "region": "애월",
-   "total": 202606,
+   "total": 39919,
    "house": 0,
    "foreign": 1590,
-   "male": 0,
-   "female": 0
+   "local": 38329,
+   "male": 20490,
+   "female": 19429
   },
   {
    "name": "구좌읍",
    "region": "구좌",
-   "total": 202606,
+   "total": 15764,
    "house": 0,
    "foreign": 882,
-   "male": 0,
-   "female": 0
+   "local": 14882,
+   "male": 8271,
+   "female": 7493
   },
   {
    "name": "조천읍",
    "region": "조천",
-   "total": 202606,
+   "total": 26803,
    "house": 0,
    "foreign": 872,
-   "male": 0,
-   "female": 0
+   "local": 25931,
+   "male": 13646,
+   "female": 13157
   },
   {
    "name": "한경면",
    "region": "한경",
-   "total": 202606,
+   "total": 10032,
    "house": 0,
    "foreign": 538,
-   "male": 0,
-   "female": 0
+   "local": 9494,
+   "male": 5140,
+   "female": 4892
   },
   {
    "name": "추자면",
    "region": "추자도",
-   "total": 202606,
+   "total": 1742,
    "house": 0,
    "foreign": 244,
-   "male": 0,
-   "female": 0
+   "local": 1498,
+   "male": 1073,
+   "female": 669
   },
   {
    "name": "우도면",
    "region": "우도",
-   "total": 202606,
+   "total": 1528,
    "house": 0,
    "foreign": 32,
-   "male": 0,
-   "female": 0
+   "local": 1496,
+   "male": 811,
+   "female": 717
   },
   {
    "name": "일도1동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 2224,
    "house": 0,
    "foreign": 172,
-   "male": 0,
-   "female": 0
+   "local": 2052,
+   "male": 1172,
+   "female": 1052
   },
   {
    "name": "일도2동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 31032,
    "house": 0,
    "foreign": 447,
-   "male": 0,
-   "female": 0
+   "local": 30585,
+   "male": 15156,
+   "female": 15876
   },
   {
    "name": "이도1동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 7737,
    "house": 0,
    "foreign": 193,
-   "male": 0,
-   "female": 0
+   "local": 7544,
+   "male": 3816,
+   "female": 3921
   },
   {
    "name": "이도2동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 46287,
    "house": 0,
    "foreign": 798,
-   "male": 0,
-   "female": 0
+   "local": 45489,
+   "male": 22335,
+   "female": 23952
   },
   {
    "name": "삼도1동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 12864,
    "house": 0,
    "foreign": 271,
-   "male": 0,
-   "female": 0
+   "local": 12593,
+   "male": 6269,
+   "female": 6595
   },
   {
    "name": "삼도2동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 7924,
    "house": 0,
    "foreign": 385,
-   "male": 0,
-   "female": 0
+   "local": 7539,
+   "male": 4118,
+   "female": 3806
   },
   {
    "name": "용담1동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 6489,
    "house": 0,
    "foreign": 202,
-   "male": 0,
-   "female": 0
+   "local": 6287,
+   "male": 3378,
+   "female": 3111
   },
   {
    "name": "용담2동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 13696,
    "house": 0,
    "foreign": 271,
-   "male": 0,
-   "female": 0
+   "local": 13425,
+   "male": 6864,
+   "female": 6832
   },
   {
    "name": "건입동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 8676,
    "house": 0,
    "foreign": 332,
-   "male": 0,
-   "female": 0
+   "local": 8344,
+   "male": 4438,
+   "female": 4238
   },
   {
    "name": "화북동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 23192,
    "house": 0,
    "foreign": 411,
-   "male": 0,
-   "female": 0
+   "local": 22781,
+   "male": 11531,
+   "female": 11661
   },
   {
    "name": "삼양동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 26921,
    "house": 0,
    "foreign": 259,
-   "male": 0,
-   "female": 0
+   "local": 26662,
+   "male": 13392,
+   "female": 13529
   },
   {
    "name": "봉개동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 5307,
    "house": 0,
    "foreign": 126,
-   "male": 0,
-   "female": 0
+   "local": 5181,
+   "male": 2729,
+   "female": 2578
   },
   {
    "name": "아라동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 42213,
    "house": 0,
    "foreign": 1116,
-   "male": 0,
-   "female": 0
+   "local": 41097,
+   "male": 20728,
+   "female": 21485
   },
   {
    "name": "오라동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 16318,
    "house": 0,
    "foreign": 257,
-   "male": 0,
-   "female": 0
+   "local": 16061,
+   "male": 8194,
+   "female": 8124
   },
   {
    "name": "연동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 45137,
    "house": 0,
    "foreign": 2232,
-   "male": 0,
-   "female": 0
+   "local": 42905,
+   "male": 22116,
+   "female": 23021
   },
   {
    "name": "노형동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 56613,
    "house": 0,
    "foreign": 2398,
-   "male": 0,
-   "female": 0
+   "local": 54215,
+   "male": 27587,
+   "female": 29026
   },
   {
    "name": "외도동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 22691,
    "house": 0,
    "foreign": 359,
-   "male": 0,
-   "female": 0
+   "local": 22332,
+   "male": 11335,
+   "female": 11356
   },
   {
    "name": "이호동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 4474,
    "house": 0,
    "foreign": 244,
-   "male": 0,
-   "female": 0
+   "local": 4230,
+   "male": 2330,
+   "female": 2144
   },
   {
    "name": "도두동",
    "region": "제주시내",
-   "total": 202606,
+   "total": 3350,
    "house": 0,
    "foreign": 178,
-   "male": 0,
-   "female": 0
+   "local": 3172,
+   "male": 1777,
+   "female": 1573
   },
   {
    "name": "대정읍",
    "region": "대정",
-   "total": 202606,
+   "total": 23377,
    "house": 0,
    "foreign": 1885,
-   "male": 0,
-   "female": 0
+   "local": 21492,
+   "male": 11575,
+   "female": 11802
   },
   {
    "name": "남원읍",
    "region": "남원",
-   "total": 202606,
+   "total": 18717,
    "house": 0,
    "foreign": 1038,
-   "male": 0,
-   "female": 0
+   "local": 17679,
+   "male": 9882,
+   "female": 8835
   },
   {
    "name": "성산읍",
    "region": "성산",
-   "total": 202606,
+   "total": 16391,
    "house": 0,
    "foreign": 1843,
-   "male": 0,
-   "female": 0
+   "local": 14548,
+   "male": 9041,
+   "female": 7350
   },
   {
    "name": "안덕면",
    "region": "안덕",
-   "total": 202606,
+   "total": 13094,
    "house": 0,
    "foreign": 801,
-   "male": 0,
-   "female": 0
+   "local": 12293,
+   "male": 6716,
+   "female": 6378
   },
   {
    "name": "표선면",
    "region": "표선",
-   "total": 202606,
+   "total": 13402,
    "house": 0,
    "foreign": 582,
-   "male": 0,
-   "female": 0
+   "local": 12820,
+   "male": 6981,
+   "female": 6421
   },
   {
    "name": "송산동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 4166,
    "house": 0,
    "foreign": 452,
-   "male": 0,
-   "female": 0
+   "local": 3714,
+   "male": 2339,
+   "female": 1827
   },
   {
    "name": "정방동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 2128,
    "house": 0,
    "foreign": 120,
-   "male": 0,
-   "female": 0
+   "local": 2008,
+   "male": 1058,
+   "female": 1070
   },
   {
    "name": "중앙동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 3072,
    "house": 0,
    "foreign": 155,
-   "male": 0,
-   "female": 0
+   "local": 2917,
+   "male": 1444,
+   "female": 1628
   },
   {
    "name": "천지동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 3426,
    "house": 0,
    "foreign": 165,
-   "male": 0,
-   "female": 0
+   "local": 3261,
+   "male": 1751,
+   "female": 1675
   },
   {
    "name": "효돈동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 5286,
    "house": 0,
    "foreign": 100,
-   "male": 0,
-   "female": 0
+   "local": 5186,
+   "male": 2675,
+   "female": 2611
   },
   {
    "name": "영천동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 5296,
    "house": 0,
    "foreign": 298,
-   "male": 0,
-   "female": 0
+   "local": 4998,
+   "male": 2740,
+   "female": 2556
   },
   {
    "name": "동홍동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 23475,
    "house": 0,
    "foreign": 1059,
-   "male": 0,
-   "female": 0
+   "local": 22416,
+   "male": 11426,
+   "female": 12049
   },
   {
    "name": "서홍동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 11224,
    "house": 0,
    "foreign": 220,
-   "male": 0,
-   "female": 0
+   "local": 11004,
+   "male": 5618,
+   "female": 5606
   },
   {
    "name": "대륜동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 15070,
    "house": 0,
    "foreign": 272,
-   "male": 0,
-   "female": 0
+   "local": 14798,
+   "male": 7556,
+   "female": 7514
   },
   {
    "name": "대천동",
    "region": "서귀포시내",
-   "total": 202606,
+   "total": 14041,
    "house": 0,
    "foreign": 253,
-   "male": 0,
-   "female": 0
+   "local": 13788,
+   "male": 7116,
+   "female": 6925
   },
   {
    "name": "중문동",
    "region": "중문",
-   "total": 202606,
+   "total": 12343,
    "house": 0,
    "foreign": 320,
-   "male": 0,
-   "female": 0
+   "local": 12023,
+   "male": 6253,
+   "female": 6090
   },
   {
    "name": "예래동",
    "region": "중문",
-   "total": 202606,
+   "total": 3999,
    "house": 0,
    "foreign": 275,
-   "male": 0,
-   "female": 0
+   "local": 3724,
+   "male": 2053,
+   "female": 1946
   }
  ]
 }
