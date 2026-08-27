@@ -532,7 +532,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .ftc-t{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4;word-break:keep-all;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ftc-d{font-size:11px;font-weight:600;color:var(--navy)}
 .ftc-a{font-size:10.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ftstat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-top:11px}
+.ftstat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:9px}
 .ftstat.off{font-size:11.5px;color:var(--sub);line-height:1.6}
 .fts-h{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--navy);margin-bottom:9px;flex-wrap:wrap}
 .fts-m{font-size:10.5px;font-weight:600;color:var(--sub);margin-left:auto}
@@ -3960,6 +3960,10 @@ function renderFT(){
        '<button class="ftrb'+(ftRegion===r?' on':'')+'" data-reg="'+orgEsc(r)+'">'+orgEsc(r)+' '+byReg[r].length+'</button>').join('')+
      '</div>';
 
+  /* 지역 인구·관광객 현황 — 지도에서 고른 지역이 바로 보이도록 위쪽에 둔다 */
+  h+=ftPopBox(ftRegion);
+  h+=ftStatBox(ftRegion);
+
   /* 상태 탭 */
   let L=ftRegion? (byReg[ftRegion]||[]) : IT;
   const tcnt={};
@@ -3999,11 +4003,7 @@ function renderFT(){
   }
   h+='</div>';
 
-  /* 하단 — 지역 인구·관광객 현황 */
-  h+=ftPopBox(ftRegion);
-  h+=ftStatBox(ftRegion);
-
-  h+='<div class="tjnote">출처 — '+orgEsc(M.source||'비짓제주')+
+    h+='<div class="tjnote">출처 — '+orgEsc(M.source||'비짓제주')+
      (M.updated? ' · 갱신 '+orgEsc(M.updated):'')+
      '. 표시 기간은 '+orgEsc((M.range||['',''])[0])+' ~ '+orgEsc((M.range||['',''])[1])+'입니다. '+
      '일정은 주최 측 사정으로 바뀔 수 있으니 방문 전 원문을 확인해 주세요.</div>';
