@@ -27,12 +27,55 @@ UA  = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
        "(KHTML, like Gecko) Chrome/122.0 Safari/537.36")
 PROBE = "--probe" in sys.argv
 
+# 이 경로는 브라우저 요청만 받아준다(직접 부르면 401). 그래서 브라우저처럼 행동한다.
+#  ① 먼저 축제 목록 페이지를 열어 세션 쿠키를 받고
+#  ② 그 쿠키와 Origin/Referer를 붙여 API를 부른다
+import http.cookiejar
+JAR = http.cookiejar.CookieJar()
+OPENER = urllib.request.build_opener(
+    urllib.request.HTTPCookieProcessor(JAR),
+    urllib.request.HTTPSHandler(context=CTX))
+
+SITE = "https://www.visitjeju.net"
+LIST_PAGE = SITE + "/kr/festival/list?menuId=DOM_000001718007000000&cate1cd=cate0000001360"
+
+BROWSER_HEADERS = {
+    "User-Agent": UA,
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8",
+    "Origin": SITE,
+    "Referer": LIST_PAGE,
+    "Sec-Fetch-Site": "same-site",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+}
+# 필요하면 브라우저에서 복사한 헤더를 Secret으로 넣어 쓴다 (JSON 한 줄)
+EXTRA = os.environ.get("VISITJEJU_HEADERS", "").strip()
+if EXTRA:
+    try:
+        BROWSER_HEADERS.update(json.loads(EXTRA))
+        print("■ 추가 헤더 " + str(len(json.loads(EXTRA))) + "개 적용")
+    except Exception as e:
+        print("■ 추가 헤더 무시(형식 오류): " + str(e))
+
+
+def warmup():
+    """목록 페이지를 먼저 열어 세션 쿠키를 확보한다."""
+    try:
+        req = urllib.request.Request(LIST_PAGE, headers={
+            "User-Agent": UA, "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": "ko-KR,ko;q=0.9"})
+        with OPENER.open(req, timeout=25) as r:
+            r.read(2048)
+        names = [c.name for c in JAR]
+        print("■ 세션 준비 — 쿠키 " + str(len(names)) + "개 " + str(names[:6]))
+    except Exception as e:
+        print("■ 세션 준비 실패(계속 진행): " + str(e))
+
 
 def fetch(url, timeout=25):
-    req = urllib.request.Request(url, headers={
-        "User-Agent": UA, "Accept": "application/json, text/plain, */*",
-        "Accept-Language": "ko", "Referer": "https://www.visitjeju.net/kr/festival/list"})
-    with urllib.request.urlopen(req, timeout=timeout, context=CTX) as r:
+    req = urllib.request.Request(url, headers=BROWSER_HEADERS)
+    with OPENER.open(req, timeout=timeout) as r:
         return r.read().decode("utf-8", "replace")
 
 
@@ -228,9 +271,16 @@ def in_range(it):
 
 def main():
     print("■ 수집 · " + BASE)
+    warmup()
     raw = collect()
     if not raw:
-        print("수집 0건 — 중단합니다 (기존 파일 보존)"); return
+        print("수집 0건 — 중단합니다 (기존 파일 보존)")
+        print("")
+        print("401이 계속 나면 브라우저 요청 헤더가 더 필요합니다.")
+        print("  개발자도구 → Network → 그 list 요청 → Headers → Request Headers를")
+        print("  JSON 한 줄로 만들어 Secret VISITJEJU_HEADERS 에 넣어 주세요.")
+        print('  예: {"Authorization":"Bearer xxx","x-requested-with":"XMLHttpRequest"}')
+        return
 
     if PROBE:
         print("")
