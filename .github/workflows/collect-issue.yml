@@ -56,8 +56,15 @@ jobs:
           git add -A data/
           git diff --staged --quiet && echo "변경 없음" && exit 0
           git commit -m "여론 수집·판정·지수 $(date +'%Y-%m-%d %H:%M')"
-          for i in 1 2 3; do
-            git pull --rebase --autostash origin main && git push origin main && exit 0
+          # 다른 수집 작업이 먼저 밀어 넣었으면 저장소가 앞서 있다 — 다시 맞춘 뒤 재시도
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push 재시도 $i"
+            git pull --rebase --autostash origin ${GITHUB_REF_NAME:-main} || true
+            sleep 3
+          done
+          echo "push 실패 — 다음 실행에서 다시 시도합니다"
+          exit 0 origin main && exit 0
             echo "재시도 $i"; sleep 5
           done
           echo "푸시 실패" && exit 1

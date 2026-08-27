@@ -30,7 +30,16 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           test -f data/population.json || { echo "수집 결과 없음 — 커밋 생략"; exit 0; }
-          git add data/population.json
+          # 파일이 없으면 그 파일만 건너뛴다
+          for f in data/population.json; do [ -f "$f" ] && git add "$f"; done
           git diff --staged --quiet && echo "변경 없음" && exit 0
           git commit -m "제주 인구 갱신 ($(date +%Y-%m-%d))"
-          git push
+          # 다른 수집 작업이 먼저 밀어 넣었으면 저장소가 앞서 있다 — 다시 맞춘 뒤 재시도
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push 재시도 $i"
+            git pull --rebase --autostash origin ${GITHUB_REF_NAME:-main} || true
+            sleep 3
+          done
+          echo "push 실패 — 다음 실행에서 다시 시도합니다"
+          exit 0
