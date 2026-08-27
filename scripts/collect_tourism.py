@@ -16,9 +16,9 @@ H={"Content-Type":"application/json; charset=UTF-8",
 HERE=os.path.dirname(os.path.abspath(__file__))
 OUT=os.path.join(HERE,"..","data","tourism.json")
 
-def call(sn, idx=0):
+def call(sn, idx=0, bgn="", end=""):
     b=json.dumps({"regSn":str(sn),"chartIndex":idx,
-                  "searchDataBgnDt":"","searchDataEndDt":""}).encode()
+                  "searchDataBgnDt":bgn,"searchDataEndDt":end}).encode()
     for a in (1,2):
         try:
             with urllib.request.urlopen(
@@ -224,7 +224,17 @@ if c:
 
 # ══ ⑧ 일별 입도객 (18) ══
 print("⑧ 일별 입도객")
-c,dd=first(call(18))
+# 날짜를 비워 보내면 서버가 자기 기본 구간만 준다(실측: 오늘이 8/27인데 8/24까지).
+# 최근 30일을 명시해 최신치까지 받아오고, 실패하면 기본 호출로 되돌린다.
+from datetime import datetime as _dt, timedelta as _td, timezone as _tz
+_now=_dt.now(_tz(_td(hours=9)))
+_bgn=(_now-_td(days=30)).strftime("%Y%m%d"); _end=_now.strftime("%Y%m%d")
+c,dd=first(call(18, bgn=_bgn, end=_end))
+if c:
+    print(f"   구간 지정 {_bgn}~{_end}")
+else:
+    print("   구간 지정 실패 — 기본 구간으로 재시도")
+    c,dd=first(call(18))
 if c:
     rows=[]
     for r in c["data"]:
@@ -234,7 +244,9 @@ if c:
           "kor_yoy":num(r.get("visitorKor_yoy")),"forgn_yoy":num(r.get("visitorFor_yoy")),
           "total_yoy":num(r.get("Total_yoy"))})
     rows.sort(key=lambda x:str(x["date"]))
-    out["daily"]={"period":f"{dd.get('dataBgnDt')}~{dd.get('dataEndDt')}","items":rows}
+    rows=[r for r in rows if r["total"]]          # 아직 집계 안 된 날 제외
+    rows=rows[-14:]                                # 최근 14일치 보관
+    out["daily"]={"period":f"{rows[0]['date']}~{rows[-1]['date']}","items":rows}
     print(f"   {len(rows)}일치 · 최신 {rows[-1]['date']} 합계 {rows[-1]['total']:,}명")
 
 os.makedirs(os.path.dirname(OUT),exist_ok=True)
