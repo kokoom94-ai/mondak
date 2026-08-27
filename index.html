@@ -4045,13 +4045,13 @@ function renderFT(){
 function ftPopBox(region){
   if(!FTPOP || !FTPOP.regions) return '';
   const R=FTPOP.regions||{}, M=FTPOP.meta||{}, ALL=FTPOP.total;
-  let t=0,hh=0,fg=0,n=0,whole=false;
+  let t=0,hh=0,fg=0,lc=0,n=0,whole=false;
   const hasReg = Object.keys(R).length>0;
   if(hasReg){
-    if(region){ const v=R[region]; if(!v) return ''; t=v.total; hh=v.house; fg=v.foreign; n=v.emd; }
-    else Object.values(R).forEach(v=>{ t+=v.total; hh+=v.house; fg+=v.foreign; n+=v.emd; });
+    if(region){ const v=R[region]; if(!v) return ''; t=v.total; hh=v.house; fg=v.foreign; lc=v.local||0; n=v.emd; }
+    else Object.values(R).forEach(v=>{ t+=v.total; hh+=v.house; fg+=v.foreign; lc+=(v.local||0); n+=v.emd; });
   }else if(ALL && ALL.total){          // 읍면동 자료가 없을 때 — 도 전체 수치로 보여준다
-    t=ALL.total; hh=ALL.house; fg=ALL.foreign; whole=true;
+    t=ALL.total; hh=ALL.house; fg=ALL.foreign; lc=ALL.local||0; whole=true;
   }
   if(!t) return '';
   const mm=(M.month||'').replace(/(\d{4})(\d{2})/,'$1년 $2월');
@@ -4061,8 +4061,10 @@ function ftPopBox(region){
       '<div class="fts-c"><span class="fts-l">총 인구</span><b>'+t.toLocaleString()+'</b>'+
         '<span class="fts-y">'+(whole? (ALL.mom? (ALL.mom>0?'+':'')+ALL.mom.toLocaleString()+' 전월대비' : '주민등록 기준')
                                      : n+'개 읍면동')+'</span></div>'+
-      (hh? '<div class="fts-c"><span class="fts-l">세대수</span><b>'+hh.toLocaleString()+'</b>'+
-        '<span class="fts-y">세대당 '+(t/hh).toFixed(1)+'명</span></div>':'')+
+      (lc? '<div class="fts-c"><span class="fts-l">주민등록</span><b>'+lc.toLocaleString()+'</b>'+
+        '<span class="fts-y">내국인</span></div>'
+         : (hh? '<div class="fts-c"><span class="fts-l">세대수</span><b>'+hh.toLocaleString()+'</b>'+
+        '<span class="fts-y">세대당 '+(t/hh).toFixed(1)+'명</span></div>':''))+
       (fg? '<div class="fts-c"><span class="fts-l">외국인</span><b>'+fg.toLocaleString()+'</b>'+
         '<span class="fts-y">'+((fg/t)*100).toFixed(1)+'%</span></div>':'')+
     '</div>'+
