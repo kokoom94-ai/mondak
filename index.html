@@ -2090,6 +2090,27 @@ function renderTicker(){
   if(p)p.innerHTML=tkSet(STATS.pop)+tkSet(STATS.pop);   // 2배 복제 → 무한 루프
   if(t)t.innerHTML=tkSet(STATS.tour)+tkSet(STATS.tour);
 }
+/* 인구 티커 — data/population.json 으로 갱신 (아래 하드코딩 값은 첫 표시용) */
+function refreshPopTicker(){
+  fetch('data/population.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
+    if(!d) return;
+    const T=d.total||{}, M=d.meta||{};
+    const ym=String(T.month||M.month||'');
+    const tag=ym.length===6? "('"+ym.slice(2,4)+"."+(+ym.slice(4,6))+")" : "";
+    const arr=[];
+    if(T.total)   arr.push({l:"총인구 "+tag,     v:Number(T.total).toLocaleString()+"명"});
+    if(T.local)   arr.push({l:"주민등록 "+tag,   v:Number(T.local).toLocaleString()+"명"});
+    if(T.foreign) arr.push({l:"등록외국인 "+tag, v:Number(T.foreign).toLocaleString()+"명"});
+    if(T.house)   arr.push({l:"세대수 "+tag,     v:Number(T.house).toLocaleString()+"세대"});
+    if(arr.length){
+      STATS.pop=arr;
+      const p=document.getElementById('tickpop');
+      if(p) p.innerHTML=tkSet(arr)+tkSet(arr);
+    }
+  }).catch(()=>{});
+}
+setTimeout(refreshPopTicker, 400);
+
 /* 관광 티커는 수집된 실제 데이터로 갱신 (하드코딩 값은 초기 표시용) */
 function refreshTourTicker(){
   fetch('data/tourism.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
