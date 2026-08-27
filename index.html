@@ -2207,7 +2207,7 @@ function loadRAG(){
   RAGREADY=new Promise((ok)=>{
     if(window.MondakRAG) return ok(true);
     const sc=document.createElement('script');
-    sc.src='scripts/rag.js?v=1';
+    sc.src='scripts/rag.js?v=2';
     sc.onload=()=>ok(!!window.MondakRAG);
     sc.onerror=()=>{ console.warn('rag.js 로드 실패 → 기존 경로 사용'); ok(false); };
     document.head.appendChild(sc);
@@ -2215,14 +2215,17 @@ function loadRAG(){
   return RAGREADY;
 }
 /* 질문 → 후보 추출 → Worker 호출. 실패하면 null을 돌려 폴백을 유도한다. */
-async function askNew(question){
+async function askNew(question, scope){
   try{
     const ready=await loadRAG();
     if(!ready||!window.MondakRAG) return null;
+    // 자료 검색은 '사용자가 실제로 물은 문장'으로만 한다.
+    // 검색 범위 안내문(scope)에 '관광·데이터·빅데이터' 같은 낱말이 들어 있어,
+    // 그것까지 붙여 검색하면 어떤 질문이든 관광 통계가 1등으로 올라왔다.
     const cands=await window.MondakRAG.candidates(question,20);
     const r=await fetch(AI_API_NEW,{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        question: question,
+        question: question + (scope||""),
         documents: cands.map(d=>d.text),
         candidates: cands.map(d=>({title:d.title,url:d.url,contact:d.contact,kind:d.kind}))
       })});
@@ -2262,10 +2265,38 @@ function aiSafeLinks(links){
   });
 }
 /* 검색 범위를 질문에 실어 보낸다 — 서버가 웹검색할 때 공식 자료만 보게 함 */
-const AI_SCOPE = " (공식 자료만 참고: 제주도청 jeju.go.kr, 비짓제주 visitjeju.net,"
+function aiToday(){
+  const d=new Date(Date.now()+9*3600*1000);   // KST
+  return d.toISOString().slice(0,10);
+}
+const AI_SCOPE = " (오늘은 " + aiToday() + "입니다. 가장 최근 공고·개정 내용을 우선하고,"
+  + " 지난 연도·마감된 회차의 정보를 현재 정보처럼 답하지 말 것."
+  + " 공식 자료만 참고: 제주도청 jeju.go.kr, 비짓제주 visitjeju.net,"
   + " 제주관광 빅데이터 data.ijto.or.kr, 학교알리미 schoolinfo.go.kr, 국가법령정보 law.go.kr,"
   + " 정부24 gov.kr, 공공기관 .go.kr/.or.kr, 연합뉴스 등 언론사."
   + " 개인 블로그·링크모음·성인·도박 사이트는 절대 참고하지 말 것)";
+
+/* 답변이 질문과 관련 있는지 화면에서 한 번 더 본다.
+   서버가 엉뚱한 자료를 근거로 답하는 일이 있었다(예: 장애인 교통비 질문에 입도객 통계).
+   질문의 핵심 낱말이 답변에 하나도 없으면 그 답은 버린다. */
+const AI_QSTOP=new Set(["지원","신청","안내","운영","추진","사업","제도","관련","내용","방법",
+ "무엇","있어","있나","어디","언제","어떻게","알려","궁금","해줘","주세요","되나","돼요","인가",
+ "제주","제주도","우리","좀","가능","여부"]);
+function aiKeywords(q){
+  return (q.match(/[가-힣A-Za-z0-9]{2,}/g)||[]).filter(w=>!AI_QSTOP.has(w));
+}
+function aiRelevant(question, answer){
+  const ks=aiKeywords(question);
+  if(!ks.length) return true;                 // 판단할 낱말이 없으면 통과
+  const a=(answer||"").toLowerCase();
+  for(const k of ks){
+    const kl=k.toLowerCase();
+    if(a.includes(kl)) return true;
+    if(kl.length>=3 && a.includes(kl.slice(0,-1))) return true;   // 어미 차이 허용
+    if(kl.length>=3 && a.includes(kl.slice(0,2))) return true;    // 앞 두 글자
+  }
+  return false;
+}
 
 function aiEsc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\*\*(.+?)\*\*/g,"<b>$1</b>");}
 function aiFill(el){document.getElementById('aiq').value=el.textContent;aiAsk();}
@@ -2277,7 +2308,7 @@ async function aiAsk(){
   res.insertAdjacentHTML('beforeend','<div class="aimsg-bot loading" id="'+lid+'"><span class="aispin"></span> 제주 정책 자료를 찾고 있습니다…</div>');
   qEl.value=''; qEl.style.height='auto';
   try{
-    let d=await askNew(question + AI_SCOPE);
+    let d=await askNew(question, AI_SCOPE);
     if(!d){                                   // 새 경로 실패 → 기존 경로
       const r=await fetch(AI_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question: question + AI_SCOPE})});
       d=await r.json();
@@ -2287,6 +2318,12 @@ async function aiAsk(){
       : d.source==='web' ? '<span class="aibadge aibadge-web">🌐 웹 검색 결과</span><br>'
       : '<span class="aibadge aibadge-fb">📞 문의처 안내</span><br>';
     let ans = d.answer||'답변을 생성하지 못했습니다.';
+    // 질문과 무관한 답변이면 폐기한다 (엉뚱한 자료를 근거로 답하는 경우)
+    if(!aiRelevant(question, ans)){
+      console.warn('무관한 답변 폐기:', ans.slice(0,60));
+      ans = '이 질문에 맞는 자료를 찾지 못했습니다.\n'
+          + '제주도청 누리집(jeju.go.kr)이나 제주120(064-120)으로 문의하시면 정확한 안내를 받을 수 있습니다.';
+    }
     // 답변 본문에 부적절한 표현·주소가 섞이면 폐기하고 안내로 대체
     if(AI_BAD.test(ans)){
       ans = '요청하신 내용은 공식 자료에서 확인이 필요합니다.\n'
