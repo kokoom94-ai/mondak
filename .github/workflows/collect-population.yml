@@ -1,0 +1,35 @@
+name: 제주 인구 수집
+
+# 제주특별자치도 인구빅데이터(주민등록인구 및 등록외국인) 읍면동 현황.
+# 월 단위로 갱신되는 자료라 하루 한 번이면 충분하다.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 20 * * *'   # 매일 05:00 KST
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-population
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 인구 수집
+        run: python scripts/collect_population.py
+      - name: 변경사항 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/population.json
+          git diff --staged --quiet && echo "변경 없음" && exit 0
+          git commit -m "제주 인구 갱신 ($(date +%Y-%m-%d))"
+          git push
