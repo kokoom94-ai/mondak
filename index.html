@@ -492,6 +492,55 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 
 
 
+
+/* ===== 제주행사모음 ===== */
+.ftintro{font-size:12px;color:var(--sub);line-height:1.7;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:10px;word-break:keep-all}
+.ftsum{display:flex;gap:6px;margin-bottom:10px}
+.fts-i{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:10.5px;font-weight:700;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:11px;padding:8px 4px}
+.fts-i b{font-size:17px;color:var(--navy);line-height:1.1}
+.fts-i.on-ing b{color:#0E7C7B}.fts-i.on-will b{color:#E8590C}.fts-i.on-end b{color:#8A94A8}
+.ftmapwrap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:9px}
+.ftmap{position:relative;width:100%;padding-top:56%}
+.ftmap-bg{position:absolute;inset:0;width:100%;height:100%}
+.ftpin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:3px;font-size:10px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 7px;cursor:pointer;white-space:nowrap;box-shadow:0 1px 3px rgba(27,42,74,.12)}
+.ftpin.zero{opacity:.45}
+.ftpin.on{color:#fff;background:var(--navy);border-color:var(--navy)}
+.ftpin-c{font-size:9px;font-weight:800;color:#fff;background:#8A94A8;border-radius:9px;padding:0 4px;min-width:13px;text-align:center}
+.ftpin-c.ing{background:#0E7C7B}
+.ftpin.on .ftpin-c{background:#F08A24}
+.ftreg{display:flex;gap:5px;overflow-x:auto;padding:1px 1px 9px;scrollbar-width:none}
+.ftreg::-webkit-scrollbar{display:none}
+.ftrb{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px 11px;white-space:nowrap;cursor:pointer}
+.ftrb.on{color:#fff;background:var(--navy);border-color:var(--navy)}
+.fttabs{display:flex;gap:5px;margin-bottom:9px}
+.fttab{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;font-size:12px;font-weight:700;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:11px;padding:8px 4px;cursor:pointer}
+.fttab.on{color:#fff;background:var(--navy);border-color:var(--navy)}
+.ftt-c{font-size:10px;font-weight:800;opacity:.75}
+.ftlist{display:flex;flex-direction:column;gap:7px}
+.ftcard{display:flex;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:9px;text-decoration:none;color:inherit}
+.ftc-img{flex:0 0 74px;height:74px;border-radius:10px;background:#EEF2F8 center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:24px}
+.ftc-b{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.ftc-top{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.ftbadge{font-size:9.5px;font-weight:800;color:#fff;border-radius:5px;padding:1px 6px}
+.ftbadge.s-ing{background:#0E7C7B}.ftbadge.s-will{background:#E8590C}
+.ftbadge.s-end{background:#98A2B3}.ftbadge.s-na{background:#B0A48A}
+.ftdday{font-size:9.5px;font-weight:800;color:#E8590C;background:#FFF3E8;border-radius:5px;padding:1px 5px}
+.ftc-reg{font-size:10px;color:var(--sub)}
+.ftc-t{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4;word-break:keep-all;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ftc-d{font-size:11px;font-weight:600;color:var(--navy)}
+.ftc-a{font-size:10.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ftstat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-top:11px}
+.ftstat.off{font-size:11.5px;color:var(--sub);line-height:1.6}
+.fts-h{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--navy);margin-bottom:9px;flex-wrap:wrap}
+.fts-m{font-size:10.5px;font-weight:600;color:var(--sub);margin-left:auto}
+.fts-g{display:flex;gap:8px}
+.fts-c{flex:1;display:flex;flex-direction:column;gap:2px;background:var(--bg);border-radius:11px;padding:9px 11px}
+.fts-l{font-size:10.5px;font-weight:700;color:var(--sub)}
+.fts-c b{font-size:17px;color:var(--navy)}
+.fts-y{font-size:10.5px;font-weight:700;color:var(--sub)}
+.fts-y.up{color:#C6392F}.fts-y.dn{color:#2563C9}
+.fts-n{font-size:10px;color:var(--sub);line-height:1.6;margin-top:8px;word-break:keep-all}
+
 /* ===== 관광AX인사이트 ===== */
 .axtoprow{display:flex;gap:6px;overflow-x:auto;padding:2px 1px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .axtoprow::-webkit-scrollbar{display:none}
@@ -1865,6 +1914,7 @@ body{padding-bottom:78px}
     <button class="mitem" data-v="gwan-plan">여행플래너 <span class="mx">어디레 감수광 · 일자별 동선 설계</span></button>
     <button class="mitem" data-v="gwan-issue">이슈체크 <span class="mx">관광 여론지수 · 주간 모니터링</span></button>
     <button class="mitem" data-v="gwan-ax">관광AX인사이트 <span class="mx">기관별 AI 전환 동향 · 벤치마킹</span></button>
+    <button class="mitem" data-v="gwan-fest">제주행사모음 <span class="mx">지도 · 축제와 행사 일정</span></button>
     <button class="mitem soon" data-v="gwan-hero">축하햄수다 <span class="mx">미담 제주인</span></button>
 
     <div class="msep"></div>
@@ -1890,6 +1940,9 @@ body{padding-bottom:78px}
 
   <!-- 관광AX인사이트 : 기관별 AI 전환 동향 -->
   <div id="gwanax" hidden><div id="axbody"></div></div>
+
+  <!-- 제주행사모음 : 지도 · 축제와 행사 -->
+  <div id="gwanfest" hidden><div id="ftbody"></div></div>
 
   <!-- 지금제주 : 관광 데이터 -->
   <div id="gwanjeju" hidden><div id="tjbody"></div></div>
@@ -2354,13 +2407,14 @@ const BOARD={
  seog:"https://seogwipo.go.kr/info/news/law/law.htm",
  eup:"https://www.jejusi.go.kr/information/intro/notice.do",
  council:"https://www.council.jeju.kr"};
-const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','orgs','explore','orbit','biseo','gwan-jeju','gwan-plan','gwan-issue','gwan-ax','gwan-hero'];
+const VIEWS=['home','news','lawbot','council','support','edu','terms','notice','orgs','explore','orbit','biseo','gwan-jeju','gwan-plan','gwan-issue','gwan-ax','gwan-fest','gwan-hero'];
 // 관광보부상 하위 탭 메타 (준비중 화면 공유)
 const GWAN={
   'gwan-jeju':{t:'지금제주',d:'',ic:'📊'},
   'gwan-plan':{t:'여행플래너',d:'어디레 감수광 — 숙소와 가고 싶은 곳만 담으면 일자별 동선을 설계합니다',ic:'🗺️'},
   'gwan-issue':{t:'이슈체크',d:'제주 관광 관련 이슈와 평판을 살펴봅니다',ic:'📡'},
   'gwan-ax':{t:'관광AX인사이트',d:'기관별 관광 인공지능 전환 동향을 모아 봅니다',ic:'🤖'},
+  'gwan-fest':{t:'제주행사모음',d:'지역을 고르면 그곳의 축제와 행사, 관광객 현황을 함께 봅니다',ic:'🎪'},
   'gwan-hero':{t:'축하햄수다',d:'미담 제주인',ic:'🎉'}
 };
 let selIdx=null, supWho=null, newsSec='전체';
@@ -3789,15 +3843,209 @@ function renderGwan(v){
   const gsub=gd.closest('.viewsub'); if(gsub) gsub.hidden=!g.d;
   // 여행플래너 · 지금제주는 전용 화면, 나머지는 준비 중
   const isPlan = (v==='gwan-plan'), isTJ = (v==='gwan-jeju'),
-        isIS = (v==='gwan-issue'), isAX = (v==='gwan-ax');
+        isIS = (v==='gwan-issue'), isAX = (v==='gwan-ax'), isFT = (v==='gwan-fest');
   const soon=document.getElementById('gwansoon'), plan=document.getElementById('gwanplan'),
         tj=document.getElementById('gwanjeju'), is=document.getElementById('gwanissue'),
-        ax=document.getElementById('gwanax');
-  if(soon) soon.hidden = isPlan || isTJ || isIS || isAX;
+        ax=document.getElementById('gwanax'), ft=document.getElementById('gwanfest');
+  if(soon) soon.hidden = isPlan || isTJ || isIS || isAX || isFT;
   if(plan){ plan.hidden=!isPlan; if(isPlan) loadPlan(); }
   if(tj){ tj.hidden=!isTJ; if(isTJ) loadTJ(); }
   if(is){ is.hidden=!isIS; if(isIS) loadIS(); }
   if(ax){ ax.hidden=!isAX; if(isAX) loadAX(); }
+  if(ft){ ft.hidden=!isFT; if(isFT) loadFT(); }
+}
+
+
+/* ══════════ 제주행사모음 ══════════
+   비짓제주 축제·행사(매일 자동 수집) + 2026 통합일정 보완.
+   지도에서 지역을 고르면 그 지역의 행사와 관광객 현황을 함께 본다.     */
+const FT_SRC='data/festival.json';
+let FTDATA=null, ftLoading=false, ftRegion='', ftTab='진행중', ftLim=12;
+
+/* 지역 좌표 — 위경도를 그대로 지도에 얹는다 */
+const FT_GEO={
+ '제주시내':[33.500,126.531],'애월':[33.462,126.331],'한림':[33.410,126.267],
+ '한경':[33.340,126.183],'조천':[33.533,126.635],'구좌':[33.523,126.788],
+ '성산':[33.440,126.910],'표선':[33.326,126.833],'남원':[33.278,126.716],
+ '서귀포시내':[33.253,126.560],'중문':[33.250,126.420],'안덕':[33.253,126.330],
+ '대정':[33.223,126.253],'우도':[33.505,126.952],'비양도':[33.404,126.226],
+ '차귀도':[33.313,126.146],'가파도':[33.170,126.271],'마라도':[33.117,126.267],
+ '추자도':[33.955,126.300]
+};
+/* 비짓제주 지역 → 관광객 통계의 읍면동 */
+const FT_EMD={
+ '제주시내':['제주시 일도','제주시 이도','제주시 삼도','제주시 용담','제주시 건입','제주시 화북',
+  '제주시 삼양','제주시 봉개','제주시 아라','제주시 오라','제주시 연동','제주시 노형',
+  '제주시 외도','제주시 이호','제주시 도두'],
+ '애월':['제주시 애월읍'],'한림':['제주시 한림읍'],'한경':['제주시 한경면'],
+ '조천':['제주시 조천읍'],'구좌':['제주시 구좌읍'],'우도':['제주시 우도면'],'추자도':['제주시 추자면'],
+ '서귀포시내':['서귀포시 송산','서귀포시 정방','서귀포시 중앙','서귀포시 천지','서귀포시 효돈',
+  '서귀포시 영천','서귀포시 동홍','서귀포시 서홍','서귀포시 대륜','서귀포시 대천'],
+ '중문':['서귀포시 중문','서귀포시 예래'],
+ '성산':['서귀포시 성산읍'],'대정':['서귀포시 대정읍'],'안덕':['서귀포시 안덕면'],
+ '남원':['서귀포시 남원읍'],'표선':['서귀포시 표선면']
+};
+const FT_TABS=['전체','진행중','예정','종료'];
+
+function loadFT(){
+  const b=document.getElementById('ftbody'); if(!b) return;
+  if(FTDATA){ renderFT(); return; }
+  if(ftLoading) return; ftLoading=true;
+  b.innerHTML='<div class="isload">행사 정보를 불러오는 중입니다…</div>';
+  // 관광객 현황(tourism.json)도 함께 받아 하단 통계를 바로 보여준다
+  const need = (typeof TJDATA==='undefined' || !TJDATA);
+  Promise.all([
+    fetch(FT_SRC+'?v='+Date.now()).then(r=>r.json()),
+    need ? fetch('data/tourism.json?v='+Date.now()).then(r=>r.json()).catch(()=>null)
+         : Promise.resolve(null)
+  ]).then(([j,t])=>{
+    FTDATA=j;
+    if(t && (typeof TJDATA==='undefined' || !TJDATA)) TJDATA=t;
+    ftLoading=false; renderFT();
+  }).catch(()=>{ ftLoading=false;
+    b.innerHTML='<div class="isempty">행사 정보를 불러오지 못했습니다.</div>'; });
+}
+
+function ftDate(x){
+  if(!x.start) return '일정 미정';
+  const f=d=>d? d.replace(/-/g,'.').slice(2) : '';
+  return x.end && x.end!==x.start ? f(x.start)+' ~ '+f(x.end) : f(x.start);
+}
+function ftDday(x){
+  if(!x.start||x.status!=='예정') return '';
+  const d=Math.ceil((new Date(x.start)-new Date())/86400000);
+  return d>0? 'D-'+d : '';
+}
+
+function renderFT(){
+  const b=document.getElementById('ftbody'); if(!b||!FTDATA) return;
+  const IT=FTDATA.items||[], M=FTDATA.meta||{};
+  let h='';
+
+  /* 안내 */
+  h+='<div class="ftintro">제주행사모음은 <b>비짓제주 축제·행사 정보</b>를 매일 자동으로 모아 '+
+     '지역별로 보여줍니다. 지도에서 지역을 고르면 그곳의 행사와 관광객 현황을 함께 볼 수 있습니다.</div>';
+
+  /* 요약 */
+  const cnt={};
+  IT.forEach(x=>{ cnt[x.status]=(cnt[x.status]||0)+1; });
+  h+='<div class="ftsum">'+
+     '<span class="fts-i on-ing"><b>'+(cnt['진행중']||0)+'</b>진행 중</span>'+
+     '<span class="fts-i on-will"><b>'+(cnt['예정']||0)+'</b>예정</span>'+
+     '<span class="fts-i on-end"><b>'+(cnt['종료']||0)+'</b>종료</span>'+
+     (cnt['기간미상']? '<span class="fts-i on-na"><b>'+cnt['기간미상']+'</b>일정 미정</span>':'')+
+     '</div>';
+
+  /* 지도 */
+  const byReg={};
+  IT.forEach(x=>{ const r=x.region||''; if(!r) return; (byReg[r]=byReg[r]||[]).push(x); });
+  const LA0=33.10,LA1=33.60,LO0=126.10,LO1=127.00;
+  const px=lo=>((lo-LO0)/(LO1-LO0))*100, py=la=>((LA1-la)/(LA1-LA0))*100;
+  h+='<div class="ftmapwrap"><div class="ftmap">'+
+     '<svg viewBox="0 0 100 56" preserveAspectRatio="none" class="ftmap-bg">'+
+     '<path d="M8,30 C10,20 20,14 33,12 C46,10 60,10 72,14 C84,18 92,24 93,31'+
+     ' C94,38 86,44 74,47 C60,50 44,51 30,48 C17,45 7,39 8,30 Z"'+
+     ' fill="#DCEBFA" stroke="#9CC3E8" stroke-width="0.5"/></svg>';
+  Object.keys(FT_GEO).forEach(r=>{
+    const n=(byReg[r]||[]).length;
+    const ing=(byReg[r]||[]).filter(z=>z.status==='진행중').length;
+    if(r==='추자도') return;
+    const [la,lo]=FT_GEO[r];
+    h+='<button class="ftpin'+(ftRegion===r?' on':'')+(n?'':' zero')+'" data-reg="'+orgEsc(r)+'"'+
+       ' style="left:'+px(lo).toFixed(1)+'%;top:'+py(la).toFixed(1)+'%">'+
+       '<span class="ftpin-n">'+orgEsc(r)+'</span>'+
+       (n? '<span class="ftpin-c'+(ing?' ing':'')+'">'+n+'</span>':'')+'</button>';
+  });
+  h+='</div></div>';
+  h+='<div class="ftreg">'+
+     '<button class="ftrb'+(!ftRegion?' on':'')+'" data-reg="">제주도 전체 '+IT.length+'</button>'+
+     Object.keys(byReg).sort((a,b)=>byReg[b].length-byReg[a].length).map(r=>
+       '<button class="ftrb'+(ftRegion===r?' on':'')+'" data-reg="'+orgEsc(r)+'">'+orgEsc(r)+' '+byReg[r].length+'</button>').join('')+
+     '</div>';
+
+  /* 상태 탭 */
+  let L=ftRegion? (byReg[ftRegion]||[]) : IT;
+  const tcnt={};
+  L.forEach(x=>{ tcnt[x.status]=(tcnt[x.status]||0)+1; });
+  h+='<div class="fttabs">'+FT_TABS.map(t=>{
+      const c = t==='전체'? L.length : (tcnt[t]||0);
+      return '<button class="fttab'+(ftTab===t?' on':'')+'" data-tab="'+t+'">'+t+
+             '<span class="ftt-c">'+c+'</span></button>';
+    }).join('')+'</div>';
+
+  let SH = ftTab==='전체'? L : L.filter(x=>x.status===ftTab);
+  const ord={'진행중':0,'예정':1,'기간미상':2,'종료':3};
+  SH=SH.slice().sort((a,b)=>(ord[a.status]-ord[b.status])||((a.start||'9999').localeCompare(b.start||'9999')));
+
+  /* 목록 */
+  h+='<div class="ftlist">';
+  if(!SH.length){
+    h+='<div class="isempty">'+(ftRegion? orgEsc(ftRegion)+'에 ':'')+'해당하는 행사가 없습니다.</div>';
+  }else{
+    SH.slice(0,ftLim).forEach(x=>{
+      const dd=ftDday(x);
+      h+='<a class="ftcard" href="'+(x.link||'#')+'"'+(x.link?' target="_blank" rel="noopener"':'')+'>'+
+         (x.img? '<span class="ftc-img" style="background-image:url('+orgEsc(x.img)+')"></span>'
+               : '<span class="ftc-img noimg">🎪</span>')+
+         '<span class="ftc-b">'+
+           '<span class="ftc-top">'+
+             '<span class="ftbadge s-'+(x.status==='진행중'?'ing':x.status==='예정'?'will':x.status==='종료'?'end':'na')+'">'+orgEsc(x.status)+'</span>'+
+             (dd? '<span class="ftdday">'+dd+'</span>':'')+
+             (x.region? '<span class="ftc-reg">'+orgEsc(x.region)+'</span>':'')+
+           '</span>'+
+           '<span class="ftc-t">'+orgEsc(x.title)+'</span>'+
+           '<span class="ftc-d">'+orgEsc(ftDate(x))+'</span>'+
+           (x.addr? '<span class="ftc-a">'+orgEsc(x.addr)+'</span>':'')+
+         '</span></a>';
+    });
+    if(SH.length>ftLim) h+='<button class="axmore" id="ftmore">+ '+(SH.length-ftLim)+'건 더 보기</button>';
+  }
+  h+='</div>';
+
+  /* 하단 — 지역 관광객 현황 */
+  h+=ftStatBox(ftRegion);
+
+  h+='<div class="tjnote">출처 — '+orgEsc(M.source||'비짓제주')+
+     (M.updated? ' · 갱신 '+orgEsc(M.updated):'')+
+     '. 표시 기간은 '+orgEsc((M.range||['',''])[0])+' ~ '+orgEsc((M.range||['',''])[1])+'입니다. '+
+     '일정은 주최 측 사정으로 바뀔 수 있으니 방문 전 원문을 확인해 주세요.</div>';
+
+  b.innerHTML=h;
+
+  b.querySelectorAll('[data-reg]').forEach(el=>el.addEventListener('click',()=>{
+    ftRegion=el.dataset.reg||''; ftLim=12; renderFT();
+    const y=document.querySelector('.fttabs'); if(y&&ftRegion) y.scrollIntoView({behavior:'smooth',block:'center'});
+  }));
+  b.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>{
+    ftTab=el.dataset.tab; ftLim=12; renderFT();
+  }));
+  const mb=b.querySelector('#ftmore');
+  if(mb) mb.addEventListener('click',()=>{ ftLim+=12; renderFT(); });
+}
+
+/* 지역 관광객 현황 — 지금제주가 쓰는 tourism.json을 그대로 재활용 */
+function ftStatBox(region){
+  const T=(typeof TJDATA!=='undefined' && TJDATA) ? TJDATA : null;
+  const emd=T && T.emd && T.emd.items ? T.emd.items : null;
+  if(!emd) return '<div class="ftstat off">지역 관광객 현황은 <b>지금제주</b>를 한 번 열면 함께 표시됩니다.</div>';
+  const keys = region? (FT_EMD[region]||[]) : null;
+  const rows = keys? emd.filter(x=>keys.some(k=>x.name.startsWith(k))) : emd;
+  if(!rows.length) return '<div class="ftstat off">'+orgEsc(region)+'의 관광객 통계는 아직 집계되지 않았습니다.</div>';
+  let nat=0, forg=0;
+  rows.forEach(x=>{ nat+=x.native||0; forg+=x.foreign||0; });
+  const wy = rows.reduce((a,x)=>a+((x.native_yoy||0)*(x.native||0)),0)/(nat||1);
+  const fy = rows.reduce((a,x)=>a+((x.foreign_yoy||0)*(x.foreign||0)),0)/(forg||1);
+  const sign=v=>(v>0?'+':'')+v.toFixed(1)+'%';
+  const cls=v=>v>0?'up':(v<0?'dn':'');
+  return '<div class="ftstat"><div class="fts-h">📊 '+orgEsc(region||'제주도 전체')+' 관광객 현황'+
+    '<span class="fts-m">'+orgEsc((T.emd.month||'').replace(/(\d{4})(\d{2})/,'$1년 $2월'))+' 기준</span></div>'+
+    '<div class="fts-g">'+
+      '<div class="fts-c"><span class="fts-l">내국인</span><b>'+nat.toLocaleString()+'</b>'+
+        '<span class="fts-y '+cls(wy)+'">전년 대비 '+sign(wy)+'</span></div>'+
+      '<div class="fts-c"><span class="fts-l">외국인</span><b>'+forg.toLocaleString()+'</b>'+
+        '<span class="fts-y '+cls(fy)+'">전년 대비 '+sign(fy)+'</span></div>'+
+    '</div>'+
+    '<div class="fts-n">제주관광 빅데이터 서비스 플랫폼(제주관광공사) 읍면동 방문자 집계를 지역 단위로 합산한 값입니다.</div></div>';
 }
 
 /* ══════════ 관광AX인사이트 ══════════
