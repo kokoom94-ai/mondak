@@ -63,6 +63,8 @@ def warmup():
 
 
 RAW_SHOWN = [False]
+SUMMARY = [None]
+txt_cache = []
 
 def call(month, show=False):
     q = [("month", month), ("gender[]", "M"), ("gender[]", "F"),
@@ -146,6 +148,19 @@ def parse(rows):
     return out
 
 
+def summary_of(p):
+    """읍면동 목록이 아니라 도 전체 요약만 올 때 — 그것도 쓴다."""
+    if not isinstance(p, dict): return None
+    t = to_int(p.get("total"))
+    if not t: return None
+    return {"total": t,
+            "house": to_int(p.get("totalHouse")) or 0,
+            "foreign": to_int(p.get("totalFo")) or 0,
+            "local": to_int(p.get("totalLocal")) or 0,
+            "mom": to_int(p.get("totalMom")) or 0,
+            "month": str(p.get("currYm") or "")}
+
+
 def main():
     warmup()
     # 최신 월부터 거슬러 찾는다 (플랫폼이 한두 달 늦게 올린다)
@@ -161,7 +176,17 @@ def main():
                 print("      " + str(k) + " : " + kind + " " + str(size))
         rows = rows_of(p)
         got = parse(rows)
-        print("   " + mm + ": 목록 " + str(len(rows)) + "건 · 해석 " + str(len(got)) + "건")
+        sm = summary_of(p)
+        print("   " + mm + ": 목록 " + str(len(rows)) + "건 · 해석 " + str(len(got)) + "건"
+              + (" · 요약 총인구 " + format(sm["total"], ",") if sm else ""))
+        if sm and not SUMMARY[0]:
+            SUMMARY[0] = sm
+            if len(txt_cache) < 2:   # 값이 실제로 있는 첫 달의 원문을 한 번 보여준다
+                txt_cache.append(1)
+                print("")
+                print("── 값이 있는 달(" + mm + ") 응답 원문 ──")
+                print(json.dumps(p, ensure_ascii=False)[:900])
+                print("──────────")
         if PROBE and rows:
             print("")
             print("[probe] 첫 행 원문")
@@ -172,7 +197,22 @@ def main():
         time.sleep(0.5)
 
     if not data:
-        print("인구 데이터를 얻지 못했습니다 — 기존 파일 보존"); return
+        sm = SUMMARY[0]
+        if not sm:
+            print("인구 데이터를 얻지 못했습니다 — 기존 파일 보존"); return
+        # 읍면동 목록이 없을 때 — 도 전체 수치만이라도 남긴다
+        os.makedirs("data", exist_ok=True)
+        json.dump({"meta": {"updated": NOW.strftime("%Y-%m-%d %H:%M"), "month": sm["month"],
+                            "source": "제주특별자치도 인구빅데이터 (주민등록인구 및 등록외국인)",
+                            "total": sm["total"], "emd_count": 0, "scope": "제주도 전체"},
+                   "regions": {}, "total": sm, "emd": []},
+                  open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print("")
+        print("읍면동 목록이 없어 도 전체 수치만 저장했습니다.")
+        print("  기준월 " + sm["month"] + " · 총인구 " + format(sm["total"], ",")
+              + "명 · 세대 " + format(sm["house"], ",") + " · 외국인 " + format(sm["foreign"], ","))
+        print("→ " + OUT)
+        return
 
     by_region = {}
     for x in data:
