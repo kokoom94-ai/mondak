@@ -62,17 +62,30 @@ def warmup():
         print("■ 세션 준비 실패(계속): " + str(e))
 
 
-def call(month):
+RAW_SHOWN = [False]
+
+def call(month, show=False):
     q = [("month", month), ("gender[]", "M"), ("gender[]", "F"),
          ("destHdongNm", ""), ("inflowCd", ""), ("hdong", "true")]
     url = BASE + "?" + urllib.parse.urlencode(q)
     try:
         req = urllib.request.Request(url, headers=HEADERS)
         with OPENER.open(req, timeout=25) as r:
-            return json.loads(r.read().decode("utf-8", "replace"))
+            txt = r.read().decode("utf-8", "replace")
     except Exception as e:
         print("   ! " + month + ": " + str(e))
         return None
+    if (show or PROBE) and not RAW_SHOWN[0]:
+        RAW_SHOWN[0] = True
+        print("")
+        print("── 응답 원문 앞 1200자 (" + month + ", " + str(len(txt)) + "자) ──")
+        print(txt[:1200].replace("\n", " "))
+        print("──────────")
+    try:
+        return json.loads(txt)
+    except Exception as e:
+        print("   ! " + month + ": JSON 아님 (" + str(e) + ")")
+        return {"__raw__": txt}
 
 
 def rows_of(payload):
@@ -138,8 +151,14 @@ def main():
     # 최신 월부터 거슬러 찾는다 (플랫폼이 한두 달 늦게 올린다)
     months = [(NOW - timedelta(days=30 * i)).strftime("%Y%m") for i in range(0, 8)]
     data, used = [], ""
-    for mm in months:
-        p = call(mm)
+    for i, mm in enumerate(months):
+        p = call(mm, show=(i == 0))
+        if isinstance(p, dict) and i == 0:
+            print("   응답 최상위 키: " + str(list(p.keys())[:12]))
+            for k, v in list(p.items())[:12]:
+                kind = type(v).__name__
+                size = (len(v) if isinstance(v, (list, dict, str)) else "")
+                print("      " + str(k) + " : " + kind + " " + str(size))
         rows = rows_of(p)
         got = parse(rows)
         print("   " + mm + ": 목록 " + str(len(rows)) + "건 · 해석 " + str(len(got)) + "건")
