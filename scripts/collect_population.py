@@ -32,6 +32,22 @@ HEADERS = {"User-Agent": UA, "Accept": "application/json, text/plain, */*",
            "Accept-Language": "ko-KR,ko;q=0.9", "Referer": PAGE,
            "X-Requested-With": "XMLHttpRequest"}
 
+# 제주 43개 읍면동 — destHdongNm 파라미터에 하나씩 넣어 조회한다.
+# (인구빅데이터는 목록을 한 번에 주지 않고 읍면동을 지정해 묻는 방식이다)
+HDONG = [
+ # 제주시 읍면
+ "한림읍","애월읍","구좌읍","조천읍","한경면","추자면","우도면",
+ # 제주시 동
+ "일도1동","일도2동","이도1동","이도2동","삼도1동","삼도2동","용담1동","용담2동",
+ "건입동","화북동","삼양동","봉개동","아라동","오라동","연동","노형동",
+ "외도동","이호동","도두동",
+ # 서귀포시 읍면
+ "대정읍","남원읍","성산읍","안덕면","표선면",
+ # 서귀포시 동
+ "송산동","정방동","중앙동","천지동","효돈동","영천동","동홍동","서홍동",
+ "대륜동","대천동","중문동","예래동",
+]
+
 # 읍면동 → 비짓제주 축제 지역 (화면의 지역 구분과 같은 체계)
 REGION_OF = [
     ("애월", "애월"), ("한림", "한림"), ("한경", "한경"), ("조천", "조천"),
@@ -65,6 +81,7 @@ def warmup():
 RAW_SHOWN = [False]
 SUMMARY = [None]
 txt_cache = []
+GENDER = "https://www.jeju.go.kr/population/chart/getJuminHDongGender"
 
 def call(month, show=False):
     q = [("month", month), ("gender[]", "M"), ("gender[]", "F"),
@@ -88,6 +105,70 @@ def call(month, show=False):
     except Exception as e:
         print("   ! " + month + ": JSON 아님 (" + str(e) + ")")
         return {"__raw__": txt}
+
+
+def call_hdong(month, name, show=False):
+    """읍면동 하나의 인구를 조회한다."""
+    q = [("month", month), ("gender[]", "M"), ("gender[]", "F"),
+         ("destHdongNm", name), ("inflowCd", ""), ("hdong", "true")]
+    url = GENDER + "?" + urllib.parse.urlencode(q)
+    try:
+        req = urllib.request.Request(url, headers=HEADERS)
+        with OPENER.open(req, timeout=25) as r:
+            txt = r.read().decode("utf-8", "replace")
+    except Exception as e:
+        print("   ! " + name + ": " + str(e))
+        return None
+    if show:
+        print("")
+        print("── " + name + " 응답 원문 (" + str(len(txt)) + "자) ──")
+        print(txt[:900].replace("\n", " "))
+        print("──────────")
+    try:
+        return json.loads(txt)
+    except Exception:
+        return None
+
+
+def flat_nums(o, prefix=""):
+    """중첩 구조를 펴서 숫자 필드만 모은다."""
+    out = {}
+    if isinstance(o, dict):
+        for k, v in o.items():
+            out.update(flat_nums(v, prefix + "." + k if prefix else k))
+    elif isinstance(o, list):
+        for i, v in enumerate(o):
+            out.update(flat_nums(v, prefix + "[" + str(i) + "]"))
+    else:
+        n = to_int(o)
+        if n is not None: out[prefix] = n
+    return out
+
+
+def pick_pop(payload):
+    """한 읍면동 응답에서 총인구·세대수·외국인을 뽑는다."""
+    if not isinstance(payload, (dict, list)): return None
+    nums = flat_nums(payload)
+    if not nums: return None
+    def by(*words):
+        best = None
+        for k, v in nums.items():
+            kl = k.lower()
+            if any(w in kl for w in words):
+                if best is None or v > best: best = v
+        return best
+    total = by("total") or by("sum", "pop", "cnt")
+    house = by("house", "hous", "hh", "gagu", "세대")
+    forgn = by("fo", "foreign", "forgn", "외국")
+    male  = by("male", "man")
+    female= by("female", "woman")
+    if total is None and male is not None and female is not None:
+        total = male + female
+    if total is None:
+        total = max(nums.values())
+    if not total: return None
+    return {"total": total, "house": house or 0, "foreign": forgn or 0,
+            "male": male or 0, "female": female or 0}
 
 
 def rows_of(payload):
@@ -163,78 +244,60 @@ def summary_of(p):
 
 def main():
     warmup()
-    # 최신 월부터 거슬러 찾는다 (플랫폼이 한두 달 늦게 올린다)
+    # 1) 집계가 끝난 최신 월 찾기 (요약 조회로 빠르게 판별)
     months = [(NOW - timedelta(days=30 * i)).strftime("%Y%m") for i in range(0, 8)]
-    data, used = [], ""
-    for i, mm in enumerate(months):
-        p = call(mm, show=(i == 0))
-        if isinstance(p, dict) and i == 0:
-            print("   응답 최상위 키: " + str(list(p.keys())[:12]))
-            for k, v in list(p.items())[:12]:
-                kind = type(v).__name__
-                size = (len(v) if isinstance(v, (list, dict, str)) else "")
-                print("      " + str(k) + " : " + kind + " " + str(size))
-        rows = rows_of(p)
-        got = parse(rows)
-        sm = summary_of(p)
-        print("   " + mm + ": 목록 " + str(len(rows)) + "건 · 해석 " + str(len(got)) + "건"
-              + (" · 요약 총인구 " + format(sm["total"], ",") if sm else ""))
-        if sm and not SUMMARY[0]:
+    used = ""
+    for mm in months:
+        sm = summary_of(call(mm))
+        if sm and sm["total"]:
+            used = mm
+            print("■ 기준월 " + mm + " · 도 전체 " + format(sm["total"], ",") + "명")
             SUMMARY[0] = sm
-            if len(txt_cache) < 2:   # 값이 실제로 있는 첫 달의 원문을 한 번 보여준다
-                txt_cache.append(1)
-                print("")
-                print("── 값이 있는 달(" + mm + ") 응답 원문 ──")
-                print(json.dumps(p, ensure_ascii=False)[:900])
-                print("──────────")
-        if PROBE and rows:
-            print("")
-            print("[probe] 첫 행 원문")
-            print(json.dumps(rows[0], ensure_ascii=False, indent=1)[:1200])
-            return
-        if len(got) >= 20:
-            data, used = got, mm; break
-        time.sleep(0.5)
+            break
+        time.sleep(0.3)
+    if not used:
+        print("집계된 월을 찾지 못했습니다 — 기존 파일 보존"); return
+
+    # 2) 읍면동 43곳을 하나씩 조회
+    print("■ 읍면동 조회 — " + str(len(HDONG)) + "곳")
+    data, fail = [], []
+    for i, name in enumerate(HDONG, 1):
+        p = call_hdong(used, name, show=(i == 1))
+        v = pick_pop(p)
+        if not v:
+            fail.append(name)
+        else:
+            data.append({"name": name, "region": region_of(name), **v})
+        if i % 10 == 0:
+            print("   " + str(i) + "/" + str(len(HDONG)) + " · 확보 " + str(len(data)))
+        time.sleep(0.25)
+    if fail:
+        print("   ! 값을 못 얻은 곳 " + str(len(fail)) + ": " + ", ".join(fail[:8]))
 
     if not data:
-        sm = SUMMARY[0]
-        if not sm:
-            print("인구 데이터를 얻지 못했습니다 — 기존 파일 보존"); return
-        # 읍면동 목록이 없을 때 — 도 전체 수치만이라도 남긴다
-        os.makedirs("data", exist_ok=True)
-        json.dump({"meta": {"updated": NOW.strftime("%Y-%m-%d %H:%M"), "month": sm["month"],
-                            "source": "제주특별자치도 인구빅데이터 (주민등록인구 및 등록외국인)",
-                            "total": sm["total"], "emd_count": 0, "scope": "제주도 전체"},
-                   "regions": {}, "total": sm, "emd": []},
-                  open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        print("")
-        print("읍면동 목록이 없어 도 전체 수치만 저장했습니다.")
-        print("  기준월 " + sm["month"] + " · 총인구 " + format(sm["total"], ",")
-              + "명 · 세대 " + format(sm["house"], ",") + " · 외국인 " + format(sm["foreign"], ","))
-        print("→ " + OUT)
-        return
+        print("읍면동 인구를 얻지 못했습니다 — 기존 파일 보존"); return
 
+    # 3) 지역 단위로 합산
     by_region = {}
     for x in data:
         r = x["region"]
         if not r: continue
         b = by_region.setdefault(r, {"total": 0, "house": 0, "foreign": 0, "emd": 0})
-        b["total"] += x["total"] or 0
-        b["house"] += x["house"] or 0
-        b["foreign"] += x["foreign"] or 0
-        b["emd"] += 1
+        b["total"] += x["total"]; b["house"] += x["house"]
+        b["foreign"] += x["foreign"]; b["emd"] += 1
 
     total_all = sum(v["total"] for v in by_region.values())
     os.makedirs("data", exist_ok=True)
     json.dump({"meta": {"updated": NOW.strftime("%Y-%m-%d %H:%M"), "month": used,
                         "source": "제주특별자치도 인구빅데이터 (주민등록인구 및 등록외국인)",
                         "total": total_all, "emd_count": len(data)},
-               "regions": by_region, "emd": data},
+               "regions": by_region, "total": SUMMARY[0], "emd": data},
               open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print("")
-    print("기준월 " + used + " · 읍면동 " + str(len(data)) + "곳 · 총 " + format(total_all, ",") + "명")
-    print("지역: " + str({k: v["total"] for k, v in sorted(by_region.items(), key=lambda x: -x[1]["total"])}))
+    print("기준월 " + used + " · 읍면동 " + str(len(data)) + "곳 · 합계 " + format(total_all, ",") + "명")
+    for k, v in sorted(by_region.items(), key=lambda x: -x[1]["total"]):
+        print("  " + k.ljust(7) + " " + format(v["total"], ">9,") + "명 (" + str(v["emd"]) + "개)")
     print("→ " + OUT)
 
 
