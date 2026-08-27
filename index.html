@@ -3863,7 +3863,7 @@ function renderGwan(v){
    비짓제주 축제·행사(매일 자동 수집) + 2026 통합일정 보완.
    지도에서 지역을 고르면 그 지역의 행사와 관광객 현황을 함께 본다.     */
 const FT_SRC='data/festival.json';
-let FTDATA=null, ftLoading=false, ftRegion='', ftTab='진행중', ftLim=12;
+let FTDATA=null, FTPOP=null, ftLoading=false, ftRegion='', ftTab='진행중', ftLim=12;
 
 /* 제주 행정구역 폴리곤 — 우리 동네의원 알리미의 지역구 지도와 같은 도형을 쓴다.
    행정동/읍면을 비짓제주 축제 지역 단위로 묶었다. */
@@ -3894,9 +3894,10 @@ function loadFT(){
   Promise.all([
     fetch(FT_SRC+'?v='+Date.now()).then(r=>r.json()),
     need ? fetch('data/tourism.json?v='+Date.now()).then(r=>r.json()).catch(()=>null)
-         : Promise.resolve(null)
-  ]).then(([j,t])=>{
-    FTDATA=j;
+         : Promise.resolve(null),
+    fetch('data/population.json?v='+Date.now()).then(r=>r.json()).catch(()=>null)
+  ]).then(([j,t,p])=>{
+    FTDATA=j; FTPOP=p;
     if(t && (typeof TJDATA==='undefined' || !TJDATA)) TJDATA=t;
     ftLoading=false; renderFT();
   }).catch(()=>{ ftLoading=false;
@@ -3999,7 +4000,8 @@ function renderFT(){
   }
   h+='</div>';
 
-  /* 하단 — 지역 관광객 현황 */
+  /* 하단 — 지역 인구·관광객 현황 */
+  h+=ftPopBox(ftRegion);
   h+=ftStatBox(ftRegion);
 
   h+='<div class="tjnote">출처 — '+orgEsc(M.source||'비짓제주')+
@@ -4018,6 +4020,28 @@ function renderFT(){
   }));
   const mb=b.querySelector('#ftmore');
   if(mb) mb.addEventListener('click',()=>{ ftLim+=12; renderFT(); });
+}
+
+/* 지역 인구 현황 — 제주도 인구빅데이터(읍면동) */
+function ftPopBox(region){
+  if(!FTPOP || !FTPOP.regions) return '';
+  const R=FTPOP.regions, M=FTPOP.meta||{};
+  let t=0,hh=0,fg=0,n=0;
+  if(region){ const v=R[region]; if(!v) return ''; t=v.total; hh=v.house; fg=v.foreign; n=v.emd; }
+  else Object.values(R).forEach(v=>{ t+=v.total; hh+=v.house; fg+=v.foreign; n+=v.emd; });
+  if(!t) return '';
+  const mm=(M.month||'').replace(/(\d{4})(\d{2})/,'$1년 $2월');
+  return '<div class="ftstat"><div class="fts-h">👥 '+orgEsc(region||'제주도 전체')+' 인구 현황'+
+    (mm? '<span class="fts-m">'+orgEsc(mm)+' 기준</span>':'')+'</div>'+
+    '<div class="fts-g">'+
+      '<div class="fts-c"><span class="fts-l">총 인구</span><b>'+t.toLocaleString()+'</b>'+
+        '<span class="fts-y">'+n+'개 읍면동</span></div>'+
+      (hh? '<div class="fts-c"><span class="fts-l">세대수</span><b>'+hh.toLocaleString()+'</b>'+
+        '<span class="fts-y">세대당 '+(t/hh).toFixed(1)+'명</span></div>':'')+
+      (fg? '<div class="fts-c"><span class="fts-l">외국인</span><b>'+fg.toLocaleString()+'</b>'+
+        '<span class="fts-y">'+((fg/t)*100).toFixed(1)+'%</span></div>':'')+
+    '</div>'+
+    '<div class="fts-n">'+orgEsc(M.source||'제주특별자치도 인구빅데이터')+' 읍면동 자료를 지역 단위로 합산한 값입니다.</div></div>';
 }
 
 /* 지역 관광객 현황 — 지금제주가 쓰는 tourism.json을 그대로 재활용 */
