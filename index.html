@@ -496,6 +496,25 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .isnotice{display:flex;align-items:flex-start;gap:7px;font-size:12px;line-height:1.65;color:#8A6A12;background:#FEF8EC;border:1px solid #F3E0B5;border-radius:12px;padding:10px 12px;margin-bottom:10px;word-break:keep-all}
 .isn-b{flex:0 0 auto;font-size:10px;font-weight:800;color:#fff;background:#E8A317;border-radius:5px;padding:2px 6px;margin-top:1px}
 .isnotice b{color:#7A5A08}
+
+/* ── 관리자 공지 편집 ── */
+.nadmin{display:flex;gap:6px;justify-content:flex-end;margin-bottom:9px;flex-wrap:wrap}
+.nbtn{font-size:11.5px;font-weight:700;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:6px 13px;cursor:pointer}
+.nbtn.on{color:#fff;background:var(--gyul);border-color:var(--gyul)}
+.noticeitem.pinned{border-color:#F3D2A6;background:#FFFCF5}
+.npin{display:inline-block;font-size:9.5px;font-weight:800;color:#fff;background:#E8590C;border-radius:5px;padding:1px 6px;margin-right:6px;vertical-align:1px}
+.nact{display:flex;gap:5px;margin-top:9px}
+.nact button{font-size:10.5px;font-weight:700;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:4px 10px;cursor:pointer}
+.nact button.del{color:#C6392F;border-color:#F0C8C4}
+.nedit{background:var(--card);border:1px solid var(--gyul);border-radius:14px;padding:14px;margin-bottom:10px}
+.ne-h{font-size:13.5px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.nedit label{display:block;font-size:11px;font-weight:700;color:var(--sub);margin:9px 0 4px}
+.nedit input[type=text],.nedit input[type=date],.nedit textarea{width:100%;box-sizing:border-box;font-size:13px;font-family:inherit;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);outline:none}
+.nedit input:focus,.nedit textarea:focus{border-color:var(--gyul);background:var(--card)}
+.nedit textarea{resize:vertical;line-height:1.6}
+.ne-chk{display:flex!important;align-items:center;gap:6px;font-size:12px;color:var(--ink);margin-top:11px}
+.ne-chk input{width:auto}
+.ne-b{display:flex;gap:6px;justify-content:flex-end;margin-top:13px}
 /* ===== 제주행사모음 ===== */
 .ftintro{font-size:12px;color:var(--sub);line-height:1.7;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:10px;word-break:keep-all}
 .ftsum{display:flex;gap:6px;margin-bottom:10px}
@@ -1624,7 +1643,7 @@ body{padding-bottom:78px}
   <footer>
     <b>제주 정책, 찾지 말고 받아보세요. AI 제주정책 보부상이 짊어지고 갑니다!</b><br>
     AI 제주정책 보부상은 개인이 운영하는 무료 공익 서비스로, 광고·홍보는 받지 않습니다.<br>
-    본 서비스는 기관 공개자료·제주통계포털·관광빅데이터플랫폼·국가법령정보센터 등을 연동하여 시연 중입니다.
+    본 서비스는 제주관광 빅데이터 플랫폼, 제주특별자치도 인구빅데이터, 비짓제주, 국가법령정보센터, 열린국회정보, 지방의정포털, 대한민국 정책브리핑, 정부24, 학교알리미, 네이버 검색, 기상 정보 등 공개된 공공 데이터와 AX 서비스를 연계해 시연하고 있습니다.
     · 문의 <a href="mailto:kokoom94@gmail.com" style="color:var(--navy);font-weight:700">kokoom94@gmail.com</a>
   </footer>
 </div>
@@ -5118,17 +5137,152 @@ window.biseoAsk = ask;
 
 </script>
 <script>
-const NOTICES=[
- {d:'2026-08-18',t:'AI 제주정책 보부상 개편 오픈',s:'새소식 보드 개편 · 정부24 제주 지원서비스 161건 연동 · 뉴스 자동수집(하루 3회) 가동 중입니다. 오류나 제보는 위 「관리자에게 문의하기」로 보내주세요.'}
+/* ══════════ 관리자 공지사항 ══════════
+   화면에서 직접 쓰고 고칠 수 있다. 내용은 이 브라우저에 저장된다.
+   (서버가 없는 정적 사이트라, 쓴 글을 다른 사람에게도 보이려면
+    「내보내기」로 받은 내용을 index.html 의 NOTICE_SEED 에 넣으면 된다) */
+const NOTICE_PW = "8694";                 // 관리자 비밀번호
+const NOTICE_KEY = "mondak_notices_v1";   // 이 브라우저 저장 열쇠
+
+/* 기본 공지 — 모든 방문자에게 보이는 내용 */
+const NOTICE_SEED = [
+ {id:'open20260828', d:'2026-08-28', pin:false,
+  t:'AI 제주정책 보부상 오픈',
+  s:'공개 데이터를 활용해 개인 업무 보조 차원에서 만든 보부상 서비스를 오픈합니다.\n'+
+    '예산 0원, 바이브코딩으로 제작되어 오류가 있을 수 있으니 참고용으로 봐주시고, '+
+    '자세한 내용은 제주도청 누리집과 각 기관의 원문 자료를 확인해 주시기 바랍니다.'}
 ];
+
+let NOTICES = [];
+let NOTICE_ADMIN = sessionStorage.getItem('notice_admin') === '1';
+
+function noticeLoad(){
+  try{
+    const raw = localStorage.getItem(NOTICE_KEY);
+    NOTICES = raw ? JSON.parse(raw) : NOTICE_SEED.slice();
+  }catch(e){ NOTICES = NOTICE_SEED.slice(); }
+  if(!Array.isArray(NOTICES) || !NOTICES.length) NOTICES = NOTICE_SEED.slice();
+  noticeSort();
+}
+function noticeSave(){
+  try{ localStorage.setItem(NOTICE_KEY, JSON.stringify(NOTICES)); }
+  catch(e){ alert('저장에 실패했습니다. 브라우저 저장공간을 확인해 주세요.'); }
+}
+/* 고정 글이 맨 위, 그다음 등록일 최신순 */
+function noticeSort(){
+  NOTICES.sort((a,b)=>{
+    if(!!b.pin !== !!a.pin) return (b.pin?1:0)-(a.pin?1:0);
+    return String(b.d||'').localeCompare(String(a.d||''));
+  });
+}
+function noticeEsc(t){
+  return String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function noticeCard(n, admin){
+  return '<div class="noticeitem'+(n.pin?' pinned':'')+'">'+
+    (n.pin?'<span class="npin">고정</span>':'')+
+    '<b>'+noticeEsc(String(n.d||'').slice(5).replace('-','.'))+'</b>'+noticeEsc(n.t)+
+    '<br><span>'+noticeEsc(n.s).replace(/\n/g,'<br>')+'</span>'+
+    (admin?'<div class="nact">'+
+       '<button data-nedit="'+n.id+'">수정</button>'+
+       '<button data-npin="'+n.id+'">'+(n.pin?'고정 해제':'고정')+'</button>'+
+       '<button data-ndel="'+n.id+'" class="del">삭제</button>'+
+     '</div>':'')+
+    '</div>';
+}
+
+/* 전체보기 화면 */
 function renderNoticeAll(){
   const el=document.getElementById('noticeall'); if(!el)return;
-  el.innerHTML=NOTICES.map(n=>`<div class="noticeitem"><b>${n.d.slice(5).replace('-','.')}</b>${n.t}<br><span>${n.s}</span></div>`).join('')
-    ||'<div class="bempty">등록된 공지가 없습니다.</div>';
+  noticeSort();
+  let h='<div class="nadmin">'+
+    (NOTICE_ADMIN
+      ? '<button id="nnew" class="nbtn on">＋ 새 공지 쓰기</button>'+
+        '<button id="nexport" class="nbtn">내보내기</button>'+
+        '<button id="nout" class="nbtn">관리자 종료</button>'
+      : '<button id="nlogin" class="nbtn">🔒 관리자</button>')+
+    '</div>';
+  h += NOTICES.map(n=>noticeCard(n, NOTICE_ADMIN)).join('')
+     || '<div class="bempty">등록된 공지가 없습니다.</div>';
+  el.innerHTML=h;
+  noticeBind(el);
+  renderNoticeHome();
 }
+/* 첫 화면 요약 — 최신 3건 */
+function renderNoticeHome(){
+  const nb=document.getElementById('noticebox'); if(!nb)return;
+  noticeSort();
+  nb.innerHTML = NOTICES.slice(0,3).map(n=>noticeCard(n,false)).join('')
+    || '<div class="bempty">등록된 공지가 없습니다.</div>';
+}
+
+function noticeBind(el){
+  const $=(id)=>el.querySelector('#'+id);
+  const lg=$('nlogin');
+  if(lg) lg.addEventListener('click',()=>{
+    const p=prompt('관리자 비밀번호를 입력하세요');
+    if(p===null) return;
+    if(p===NOTICE_PW){ NOTICE_ADMIN=true; sessionStorage.setItem('notice_admin','1'); renderNoticeAll(); }
+    else alert('비밀번호가 맞지 않습니다.');
+  });
+  const out=$('nout');
+  if(out) out.addEventListener('click',()=>{
+    NOTICE_ADMIN=false; sessionStorage.removeItem('notice_admin'); renderNoticeAll();
+  });
+  const nw=$('nnew');
+  if(nw) nw.addEventListener('click',()=>noticeEdit(null));
+  const ex=$('nexport');
+  if(ex) ex.addEventListener('click',()=>{
+    const txt='const NOTICE_SEED = '+JSON.stringify(NOTICES,null,1)+';';
+    navigator.clipboard.writeText(txt).then(
+      ()=>alert('복사했습니다.\n\nindex.html 의 NOTICE_SEED 부분에 붙여넣고 올리면\n모든 방문자에게 같은 공지가 보입니다.'),
+      ()=>prompt('아래 내용을 복사해 index.html 의 NOTICE_SEED 에 넣으세요', txt));
+  });
+  el.querySelectorAll('[data-nedit]').forEach(b=>b.addEventListener('click',()=>noticeEdit(b.dataset.nedit)));
+  el.querySelectorAll('[data-npin]').forEach(b=>b.addEventListener('click',()=>{
+    const n=NOTICES.find(x=>x.id===b.dataset.npin); if(!n)return;
+    n.pin=!n.pin; noticeSave(); renderNoticeAll();
+  }));
+  el.querySelectorAll('[data-ndel]').forEach(b=>b.addEventListener('click',()=>{
+    const n=NOTICES.find(x=>x.id===b.dataset.ndel); if(!n)return;
+    if(!confirm('이 공지를 지울까요?\n\n'+n.t)) return;
+    NOTICES=NOTICES.filter(x=>x.id!==n.id); noticeSave(); renderNoticeAll();
+  }));
+}
+
+/* 쓰기·수정 창 */
+function noticeEdit(id){
+  const n = id ? NOTICES.find(x=>x.id===id) : null;
+  const box=document.getElementById('noticeall'); if(!box)return;
+  const today=new Date(Date.now()+9*3600*1000).toISOString().slice(0,10);
+  const wrap=document.createElement('div');
+  wrap.className='nedit';
+  wrap.innerHTML=
+    '<div class="ne-h">'+(n?'공지 수정':'새 공지 쓰기')+'</div>'+
+    '<label>날짜</label><input id="ne-d" type="date" value="'+noticeEsc(n?n.d:today)+'">'+
+    '<label>제목</label><input id="ne-t" type="text" maxlength="60" placeholder="제목을 입력하세요" value="'+noticeEsc(n?n.t:'')+'">'+
+    '<label>내용</label><textarea id="ne-s" rows="5" placeholder="내용을 입력하세요">'+noticeEsc(n?n.s:'')+'</textarea>'+
+    '<label class="ne-chk"><input id="ne-p" type="checkbox"'+(n&&n.pin?' checked':'')+'> 맨 위에 고정</label>'+
+    '<div class="ne-b"><button id="ne-cancel" class="nbtn">취소</button>'+
+    '<button id="ne-save" class="nbtn on">저장</button></div>';
+  box.insertBefore(wrap, box.firstChild);
+  wrap.scrollIntoView({behavior:'smooth',block:'center'});
+  wrap.querySelector('#ne-cancel').addEventListener('click',()=>renderNoticeAll());
+  wrap.querySelector('#ne-save').addEventListener('click',()=>{
+    const d=wrap.querySelector('#ne-d').value || today;
+    const t=wrap.querySelector('#ne-t').value.trim();
+    const sx=wrap.querySelector('#ne-s').value.trim();
+    const p=wrap.querySelector('#ne-p').checked;
+    if(!t){ alert('제목을 입력해 주세요.'); return; }
+    if(n){ n.d=d; n.t=t; n.s=sx; n.pin=p; }
+    else NOTICES.push({id:'n'+Date.now(), d:d, t:t, s:sx, pin:p});
+    noticeSave(); renderNoticeAll();
+  });
+}
+
+noticeLoad();
 (function(){
-  const nb=document.getElementById('noticebox');
-  if(nb)nb.innerHTML=NOTICES.slice(0,3).map(n=>`<div class="noticeitem"><b>${n.d.slice(5).replace('-','.')}</b>${n.t}<br><span>${n.s}</span></div>`).join('');
+  renderNoticeHome();
   const L=document.getElementById('landing');
   if(sessionStorage.getItem('bbs_in')){L.style.display='none';return;}
   document.getElementById('enterbtn').addEventListener('click',()=>{
