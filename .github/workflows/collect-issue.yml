@@ -15,7 +15,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -42,9 +42,10 @@ jobs:
         env:
           HUB_API_KEY: ${{ secrets.HUB_API_KEY }}
           HUB_MODEL: exaone-4.0-32b
-          LLM_BATCH: '8'
-          LLM_LIMIT: '400'
-          LLM_DAYS: '21'
+          LLM_BATCH: '12'
+          LLM_LIMIT: '99999'
+          LLM_DAYS: '60'
+          LLM_BUDGET_SEC: '18000'
         continue-on-error: true
         run: python scripts/llm_judge.py
 
