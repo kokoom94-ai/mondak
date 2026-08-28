@@ -202,7 +202,7 @@ def main():
     for m in mix:
         m["prev"]=pmix.get(m["name"])
         m["delta"]=round(m["share"]-m["prev"],1) if m["prev"] is not None else None
-        m["top"]=top_titles(cv,m["name"],10)
+        m["top"]=top_titles(cv,m["name"],40)
 
     voice={"total":len(cv),"neg_n":len(cv_neg),
            "neg_rate":round(len(cv_neg)/len(cv)*100,1) if cv else 0,
@@ -233,7 +233,7 @@ def main():
                            "neg_n":n30.get(c,0),"share":v["share"],"neg":v["neg"],
                            "prev_neg":None,"delta":None,
                            "natures":{k:nc.get(k,0) for k in NATS if nc.get(k)},
-                           "top":top_titles(m30,c,40)})
+                           "top":top_titles(m30,c,120,None)})
     # 일별 추이 — 30일치. 썸트렌드의 긍·부정 추이 막대에 대응한다.
     d30=[]
     for dd in sorted({x["date"] for x in m30 if x.get("date")}):
@@ -270,7 +270,7 @@ def main():
                      "prev_neg":pvv["neg"] if pvv else None,
                      "delta":round(v["neg"]-pvv["neg"],1) if pvv else None,
                      "natures":{k:nc.get(k,0) for k in NATS if nc.get(k)},
-                     "top":top_titles(cur,c,12)})
+                     "top":top_titles(cur,c,80,None)})   # 성격 숫자와 같은 집합을 보여준다
 
     bym=defaultdict(list)
     for x in items:
