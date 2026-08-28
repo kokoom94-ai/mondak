@@ -761,6 +761,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .iscd-n{display:flex;height:4px}
 .iscd-n span{display:block;height:100%}
 .iscd-n .ev{background:#EF4B6C}.iscd-n .cm{background:#F5B841}.iscd-n .nf{background:#9A90F0}
+.iscd-ng{font-style:normal;font-size:10.5px;font-weight:800;color:#C6392F;background:#FDECEA;border-radius:5px;padding:1px 6px;margin-left:5px}
 .iscd-nl{display:flex;gap:10px;flex-wrap:wrap;font-size:10px;color:var(--sub);padding:6px 13px 9px}
 .iscd-nl em{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:4px}
 .iscd-nl em.ev{background:#EF4B6C}.iscd-nl em.cm{background:#F5B841}.iscd-nl em.nf{background:#9A90F0}
@@ -2904,7 +2905,9 @@ function renderIS(){
       }
       if(open){
         const lst=isFilter(r.top);
-        h+='<div class="iscd-x"><div class="iscd-xt">이 분야에서 수집된 글 '+lst.length+'건</div>'+
+        const ng=lst.filter(z=>z.sentiment==='부정').length;
+        h+='<div class="iscd-x"><div class="iscd-xt">이 분야에서 수집된 글 '+lst.length+'건'+
+           (ng?' <em class="iscd-ng">부정 '+ng+'건</em>':'')+'</div>'+
            (lst.length?'<div class="ispc-w">'+lst.map(isCard).join('')+'</div>'
             :'<div class="isempty">선택한 채널에 해당하는 글이 없습니다.</div>')+'</div>';
       }
