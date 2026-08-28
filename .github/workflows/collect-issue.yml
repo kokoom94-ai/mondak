@@ -33,17 +33,20 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
         run: python scripts/collect_issue.py
 
-      # ② LLM 판정 — 최종 분류. 배치 API(단가 50%) + 프롬프트 캐싱.
+      # ② LLM 판정 — 최종 분류. Hasa AI Hub(공공 무료 LLM)를 쓴다.
+      #    규칙으로는 못 잡는 것들을 여기서 거른다.
+      #      · 문장의 반전 ("비싸다고 들었는데 아니었다" → 긍정)
+      #      · 제주가 비유·부수로만 나온 타 지역 기사 → 제외
       #    키가 없거나 실패해도 규칙 판정으로 화면은 돌아간다.
       - name: LLM 판정
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          LLM_MODEL: claude-haiku-4-5-20251001
-          LLM_BATCH: '20'
-          LLM_MAX_NEW: '2000'
-          LLM_WAIT_SEC: '900'
+          HUB_API_KEY: ${{ secrets.HUB_API_KEY }}
+          HUB_MODEL: exaone-4.0-32b
+          LLM_BATCH: '8'
+          LLM_LIMIT: '400'
+          LLM_DAYS: '21'
         continue-on-error: true
-        run: python scripts/llm_classify.py
+        run: python scripts/llm_judge.py
 
       # ③ 지수 산출
       - name: 여론지수 산출
