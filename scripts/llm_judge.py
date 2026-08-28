@@ -20,9 +20,9 @@ MODEL = os.environ.get("HUB_MODEL", "exaone-4.0-32b")
 KEY   = os.environ.get("HUB_API_KEY", "").strip()
 
 SRC   = os.path.join("data", "issue.json")
-BATCH = int(os.environ.get("LLM_BATCH", "8"))      # 한 번에 판정할 건수
-LIMIT = int(os.environ.get("LLM_LIMIT", "400"))    # 실행당 상한
-DAYS  = int(os.environ.get("LLM_DAYS", "21"))      # 최근 며칠분만 판정
+BATCH = int(os.environ.get("LLM_BATCH", "12"))     # 한 번에 판정할 건수
+LIMIT = int(os.environ.get("LLM_LIMIT", "99999"))  # 실행당 상한 (기본: 제한 없음)
+DAYS  = int(os.environ.get("LLM_DAYS", "60"))      # 보관 기간 전체를 판정한다
 VER   = "llm-v1"                                   # 판정 기준이 바뀌면 올린다
 
 KST = timezone(timedelta(hours=9))
@@ -144,17 +144,41 @@ def main():
     items = data.get("items") or []
     cut = (NOW - timedelta(days=DAYS)).strftime("%Y-%m-%d")
 
-    todo = [x for x in items
+    pool = [x for x in items
             if (x.get("date") or "") >= cut
             and (x.get("llm") or {}).get("v") != VER]
-    todo = todo[:LIMIT]
 
-    print("■ LLM 판정 — 대상 " + str(len(todo)) + "건 (최근 " + str(DAYS) + "일 · 상한 " + str(LIMIT) + ")")
+    # 화면에 보이는 것부터 판정한다.
+    # 분야별 부정 여론에 뜨는 건 '부정' 판정분이므로 그것이 1순위,
+    # 그다음 긍정(홍보글이 섞여 비율을 흔든다), 마지막이 중립이다.
+    def prio(x):
+        s = x.get("sentiment")
+        p = 0 if s == "부정" else (1 if s == "긍정" else 2)
+        return (p, -(len(x.get("date") or "")), str(x.get("date") or ""))
+    pool.sort(key=lambda x: (0 if x.get("sentiment") == "부정" else
+                             1 if x.get("sentiment") == "긍정" else 2,
+                             str(x.get("date") or "")), reverse=False)
+    # 같은 우선순위 안에서는 최신 글부터
+    pool.sort(key=lambda x: (0 if x.get("sentiment") == "부정" else
+                             1 if x.get("sentiment") == "긍정" else 2,
+                             "" if not x.get("date") else
+                             "".join(chr(255 - ord(c)) for c in str(x["date"]))))
+    todo = pool[:LIMIT]
+
+    import collections as _c
+    print("■ LLM 판정 — 남은 " + str(len(pool)) + "건 중 " + str(len(todo)) + "건 처리"
+          + " (최근 " + str(DAYS) + "일)")
+    print("   우선순위: " + str(dict(_c.Counter(x.get("sentiment") for x in todo))))
     if not todo:
         print("   판정할 항목이 없습니다"); return
 
+    BUDGET = int(os.environ.get("LLM_BUDGET_SEC", "18000"))   # 5시간
+    t0 = time.time()
     done = fail = 0
     for s in range(0, len(todo), BATCH):
+        if time.time() - t0 > BUDGET:
+            print("   시간 예산 도달 — 나머지는 다음 실행에서 이어갑니다")
+            break
         chunk = todo[s:s + BATCH]
         res = parse_answer(call_hub(make_prompt(chunk)), len(chunk))
         if not res:
@@ -165,9 +189,12 @@ def main():
                     x["llm"] = res[i]; done += 1
                 else:
                     fail += 1
-        if (s // BATCH) % 5 == 0:
-            print("   " + str(min(s + BATCH, len(todo))) + "/" + str(len(todo)) + " · 성공 " + str(done))
-        time.sleep(0.6)
+        if (s // BATCH) % 10 == 0:
+            el = int(time.time() - t0)
+            print("   " + str(min(s + BATCH, len(todo))) + "/" + str(len(todo))
+                  + " · 성공 " + str(done) + " · 실패 " + str(fail)
+                  + " · " + str(el // 60) + "분 경과")
+        time.sleep(0.4)
 
     # 판정 결과를 실제 분류에 반영한다 (규칙 판정은 llm_prev 에 남겨 둔다)
     changed = dropped = 0
