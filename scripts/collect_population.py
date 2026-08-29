@@ -67,6 +67,70 @@ def region_of(name):
     return ""
 
 
+STATS = "https://www.jeju.go.kr/open/stats/list/population.htm?format=json"
+
+
+def stats_portal():
+    """제주통계포털 인구 — 도청이 기준으로 삼는 자료.
+    인구빅데이터 API보다 먼저 갱신된다(실측: 포털 7월 / API 6월).
+    응답 구조를 확신할 수 없어 숫자를 스스로 찾아낸다."""
+    try:
+        req = urllib.request.Request(STATS, headers={
+            "User-Agent": UA, "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "ko-KR,ko;q=0.9"})
+        with OPENER.open(req, timeout=25) as r:
+            txt = r.read().decode("utf-8", "replace")
+    except Exception as e:
+        print("■ 통계포털 조회 실패: " + str(e)); return None
+
+    print("")
+    print("── 통계포털 응답 앞 700자 ──")
+    print(txt[:700].replace("\n", " "))
+    print("──────────")
+
+    try:
+        d = json.loads(txt)
+    except Exception:
+        print("■ 통계포털: JSON 아님"); return None
+
+    flat = flat_nums(d)
+    if not flat:
+        print("■ 통계포털: 숫자를 못 찾음"); return None
+
+    def by(*words, **kw):
+        exclude = kw.get("exclude", ())
+        best = None
+        for k, v in flat.items():
+            kl = k.lower()
+            if any(w in kl for w in exclude): continue
+            if any(w in kl for w in words):
+                if best is None or v > best: best = v
+        return best
+
+    # 기준월 — 문자열 어딘가에 202607 같은 값이 있다
+    ym = ""
+    for m in re.finditer(r"20\d{2}[-.]?(0[1-9]|1[0-2])", txt):
+        cand = re.sub(r"[-.]", "", m.group(0))
+        if not ym or cand > ym: ym = cand
+
+    total   = by("total", "합계", "인구", "pop", exclude=("house", "세대", "fo", "외국"))
+    house   = by("house", "세대", "hh")
+    foreign = by("foreign", "forgn", "외국", "totalfo")
+    local   = by("local", "내국", "jumin", "주민")
+
+    if total and total < 100000:      # 도 전체가 10만 미만일 수 없다
+        total = max(flat.values())
+    if not total:
+        print("■ 통계포털: 총인구를 못 찾음 · 숫자 후보 " + str(sorted(flat.items(), key=lambda x: -x[1])[:8]))
+        return None
+
+    print("■ 통계포털 — 기준월 " + (ym or "?") + " · 총 " + format(total, ",") + "명"
+          + (" · 세대 " + format(house, ",") if house else "")
+          + (" · 외국인 " + format(foreign, ",") if foreign else ""))
+    return {"total": total, "house": house or 0, "foreign": foreign or 0,
+            "local": local or 0, "mom": 0, "month": ym}
+
+
 def warmup():
     try:
         req = urllib.request.Request(PAGE, headers={
@@ -298,6 +362,9 @@ def summary_of(p):
 
 def main():
     warmup()
+    # 도 전체 수치는 통계포털을 먼저 본다 (도청 기준·갱신이 빠르다)
+    PORTAL = stats_portal()
+
     # 1) 집계가 끝난 최신 월 찾기 (요약 조회로 빠르게 판별)
     months = [(NOW - timedelta(days=30 * i)).strftime("%Y%m") for i in range(0, 8)]
     used = ""
@@ -367,10 +434,15 @@ def main():
 
     total_all = sum(v["total"] for v in by_region.values())
     os.makedirs("data", exist_ok=True)
+    # 도 전체는 통계포털(최신), 읍면동은 인구빅데이터(집계된 최신 월)
+    total_block = PORTAL if (PORTAL and PORTAL.get("total")) else SUMMARY[0]
+    src = ("제주통계포털 (도 전체) · 제주특별자치도 인구빅데이터 (읍면동)"
+           if PORTAL else "제주특별자치도 인구빅데이터 (주민등록인구 및 등록외국인)")
     json.dump({"meta": {"updated": NOW.strftime("%Y-%m-%d %H:%M"), "month": used,
-                        "source": "제주특별자치도 인구빅데이터 (주민등록인구 및 등록외국인)",
+                        "total_month": (total_block or {}).get("month") or used,
+                        "source": src,
                         "total": total_all, "emd_count": len(data)},
-               "regions": by_region, "total": SUMMARY[0], "emd": data},
+               "regions": by_region, "total": total_block, "emd": data},
               open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
     print("")
