@@ -51,33 +51,26 @@ def fetch_json(url, body, tries=3):
     return None
 
 
-SYSTEM = """당신은 한국어 감성 표현을 가려내는 전문가입니다.
-낱말 목록을 받아 각각이 '감성을 담은 표현'인지 판정해 JSON 배열로만 답하세요.
+SYSTEM = """한국어 낱말이 '감정·평가를 담은 표현'인지 판정합니다. JSON 배열로만 답하세요.
 
-【채택할 것 — 감성 표현】
-· 평가·느낌을 담은 형용사·동사·명사
-  좋다 만족 친절 깨끗 가성비 편하다 아름답다 즐겁다 감동 여유 기대
-  실망 불편 비싸다 불친절 불안 위험 부족 혼잡 논란 취소 지연 오염
-· 변화·상태를 나타내며 좋고 나쁨이 분명한 말
+keep=true 로 할 것 — 좋고 나쁨이나 느낌이 담긴 말
+  좋다 만족 친절 깨끗 편하다 즐겁다 맛있다 아름답다 추천 가성비 여유 기대 감동
+  실망 불편 비싸다 불친절 불안 위험 부족 혼잡 논란 취소 지연 오염 아쉽다 답답
   증가 감소 개선 악화 회복 급감 상승 하락
+  ※ '가볼만한·즐길거리'처럼 권하는 말도 감정 표현입니다.
 
-【버릴 것 — 감성이 없는 말】
-· 사람 이름, 지명, 기관명, 상호 (예: 장미란, 애월, 제주공항, 신화월드)
-· 사물·주제어 (예: 맛집, 숙소, 호텔, 렌터카, 실종, 경찰, 예산, 조례)
-· 행위·절차어 (예: 발표, 개최, 신청, 접수) — 다만 중립 표현으로는 채택 가능
-· 숫자·단위·날짜, 뜻이 모호한 조각
+keep=false 로 할 것
+  사람 이름·지명·기관명·상호 (장미란 애월 제주공항 신화월드)
+  사물이나 주제를 가리키는 말 (맛집 숙소 호텔 렌터카 실종 경찰 예산 조례 축제)
+  숫자·단위·날짜, 뜻이 불분명한 조각
 
-【감성 구분】
-pos = 좋게 보는 표현 / neg = 나쁘게 보는 표현 / neu = 사실 전달·행정 절차
-감성이 아예 없으면 keep을 false로 하세요.
+pol — pos(좋게 봄) / neg(나쁘게 봄) / neu(사실 전달·행정 절차: 추진 발표 개최 운영 조사 지원)
+label — 사전형으로. '맛있는·맛있었'은 '맛있다', '가볼만한'은 '가볼만하다'.
 
-【표기】
-label에는 사전형(기본형)을 쓰세요. '맛있는·맛있었'는 '맛있다'로.
+넉넉히 채택하세요. 조금이라도 평가나 느낌이 담겼으면 keep=true 입니다.
 
-【출력】
-설명 없이 JSON 배열만.
-[{"i":0,"keep":true,"pol":"pos","label":"맛있다"},
- {"i":1,"keep":false,"pol":"","label":""}]"""
+출력 예 (설명 없이 배열만):
+[{"i":0,"keep":true,"pol":"pos","label":"맛있다"},{"i":1,"keep":false,"pol":"","label":""}]"""
 
 
 def ask(words):
@@ -90,7 +83,9 @@ def ask(words):
     txt = (d.get("answer") or d.get("output") or d.get("result")
            or d.get("text") or d.get("response") or "").strip()
     m = re.search(r"\[[\s\S]*\]", txt)
-    if not m: return {}
+    if not m:
+        print("   ! 응답에서 JSON 배열을 못 찾음: " + txt[:200].replace("\n", " "))
+        return {}
     try:
         arr = json.loads(m.group(0))
     except Exception:
@@ -164,16 +159,23 @@ def main():
           + str(len(cand) - len(todo)) + "개)")
 
     judged = dict(prev)
-    B = 40
+    B = 20
     for s in range(0, len(todo), B):
         chunk = todo[s:s + B]
         res = ask(chunk)
+        if not res:
+            # 응답을 못 읽었으면 이 묶음은 건너뛴다.
+            # keep=false로 굳히면 멀쩡한 낱말이 영영 제외된다.
+            print("   " + str(min(s + B, len(todo))) + "/" + str(len(todo)) + " · 판정 실패(건너뜀)")
+            time.sleep(1.0); continue
+        got = 0
         for i, w in enumerate(chunk):
             r = res.get(i)
-            judged[w] = {"w": w, "keep": bool(r and r["keep"]),
-                         "pol": (r or {}).get("pol", ""),
-                         "label": (r or {}).get("label", w)}
-        print("   " + str(min(s + B, len(todo))) + "/" + str(len(todo)))
+            if not r: continue            # 개별 누락도 남겨 둔다
+            judged[w] = {"w": w, "keep": r["keep"], "pol": r["pol"], "label": r["label"]}
+            got += 1
+        print("   " + str(min(s + B, len(todo))) + "/" + str(len(todo))
+              + " · 판정 " + str(got) + "/" + str(len(chunk)))
         time.sleep(0.5)
 
     # 사전형이 같으면 합친다 (맛있는·맛있었 → 맛있다)
