@@ -520,6 +520,7 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .cntabs::-webkit-scrollbar{display:none}
 .cnt{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:5px 11px;white-space:nowrap;cursor:pointer}
 .cnt.on{color:#fff;background:var(--navy);border-color:var(--navy)}
+.cnt.zero{opacity:.45}
 .cnlist{display:flex;flex-direction:column}
 .cni{display:flex;gap:9px;align-items:baseline;padding:7px 2px;border-top:1px solid var(--line);text-decoration:none;color:inherit;flex-wrap:wrap}
 .cni:first-child{border-top:0}
@@ -4072,52 +4073,60 @@ function renderPB(){
 /* ══════════ 도의회 관련 보도 ══════════
    1차: 제목·본문에 '제주도의회' 또는 '제주특별자치도의회'
    2차: 의원 이름이 있으면 그 의원, 없으면 공통 */
-const CN_MEMBERS=["한권", "박호형", "김기환", "한동수", "정민구", "김황국", "강성의", "박안수", "김봉현", "양영수", "강정범", "양영식", "강철남", "양경호", "이경심", "송창권", "이남근", "장정훈", "강봉직", "강동우", "김덕홍", "김승준", "강충룡", "오은초", "김대진", "강명균", "임정은", "이경철", "양홍식", "하성용", "한동훈"];
+const CN_MEMBERS=["한권", "박호형", "김기환", "한동수", "정민구", "김황국", "강성의", "박안수", "김봉현", "양영수", "강정범", "양영식", "강철남", "양경호", "이경심", "송창권", "이남근", "장정훈", "강봉직", "강동우", "김덕홍", "김승준", "강충룡", "오은초", "김대진", "강명균", "임정은", "이경철", "송영훈", "양홍식", "하성용", "한동훈", "박지은", "임혜주", "정다운", "고석준", "장희순", "오경남", "강영아", "김효", "김태현", "이정한", "박왕철", "김경애", "김혜지"];
 let CNDATA=null, cnPick='공통', cnMore=false;
 function loadCN(){
   const el=document.getElementById('cnsec'); if(!el) return;
   if(CNDATA){ renderCN(); return; }
-  fetch('data/news.json?v='+Date.now()).then(r=>r.ok?r.json():null).then(j=>{
-    CNDATA=j||{items:[]}; renderCN();
+  // 도의회 전용 수집분을 쓴다. 없으면 일반 뉴스로 대체한다.
+  fetch('data/councilnews.json?v='+Date.now()).then(r=>r.ok?r.json():null).then(j=>{
+    if(j&&j.items&&j.items.length){ CNDATA=j; renderCN(); return; }
+    return fetch('data/news.json?v='+Date.now()).then(r=>r.ok?r.json():null)
+      .then(k=>{ CNDATA=k||{items:[]}; renderCN(); });
   }).catch(()=>{ CNDATA={items:[]}; renderCN(); });
 }
+let CN_FROM='2026-07-01';   // 표시 시작일 (데이터에 from이 있으면 그것을 쓴다)
 function cnBuckets(){
   const IT=(CNDATA&&CNDATA.items)||[];
   const hit=IT.filter(x=>{
-    const t=(x.t||'')+' '+(x.d||'');
-    return /제주\s?도의회|제주특별자치도의회/.test(t);
+    if((x.d||'') && x.d < CN_FROM) return false;
+    return /제주\s?도의회|제주특별자치도의회|도의회/.test(x.t||'');
   });
   const buk={'공통':[]};
-  CN_MEMBERS.forEach(n=>{ buk[n]=[]; });
+  CN_MEMBERS.forEach(n=>{ buk[n]=[]; });   // 기사가 없어도 탭은 유지
   hit.forEach(x=>{
-    const t=(x.t||'')+' '+(x.d||'');
-    const who=CN_MEMBERS.filter(n=>t.includes(n));
-    if(who.length) who.forEach(n=>buk[n].push(x));
+    // 수집 단계에서 붙인 who 태그가 있으면 그것을 쓴다
+    const who = (x.who && x.who.length) ? x.who
+              : CN_MEMBERS.filter(n=>(x.t||'').includes(n));
+    if(who.length) who.forEach(n=>{ if(buk[n]) buk[n].push(x); });
     else buk['공통'].push(x);
   });
   return buk;
 }
 function renderCN(){
   const el=document.getElementById('cnsec'); if(!el||!CNDATA) return;
+  if(CNDATA.meta&&CNDATA.meta.from) CN_FROM=CNDATA.meta.from;
   const B=cnBuckets();
   const total=Object.values(B).reduce((a,v)=>a+v.length,0);
   if(!total){ el.innerHTML='<div class="cnempty">최근 2주 사이 도의회 관련 보도가 없습니다.</div>'; return; }
-  const withN=Object.keys(B).filter(k=>k!=='공통'&&B[k].length)
-                    .sort((a,b)=>B[b].length-B[a].length);
-  if(!B[cnPick] || !B[cnPick].length) cnPick = B['공통'].length? '공통' : (withN[0]||'공통');
+  // 의원 탭은 기사가 없어도 항상 보여준다. 기사 많은 순 → 이름순.
+  const withN=CN_MEMBERS.slice().sort((a,b)=>(B[b].length-B[a].length)||a.localeCompare(b,'ko'));
+  if(!B[cnPick]) cnPick='공통';
 
-  let h='<div class="cnh"><b>🗞 도의회 관련 보도</b><span class="cnsub">최근 2주 · 총 '+total+'건</span></div>';
+  let h='<div class="cnh"><b>🗞 도의회 관련 보도</b>'+
+        '<span class="cnsub">'+CN_FROM.slice(2).replace(/-/g,'.')+' 이후 · 총 '+total+'건</span></div>';
   h+='<div class="cntabs">'+
      '<button class="cnt'+(cnPick==='공통'?' on':'')+'" data-cn="공통">공통 '+B['공통'].length+'</button>'+
-     withN.map(n=>'<button class="cnt'+(cnPick===n?' on':'')+'" data-cn="'+orgEsc(n)+'">'+orgEsc(n)+' '+B[n].length+'</button>').join('')+
+     withN.map(n=>'<button class="cnt'+(cnPick===n?' on':'')+(B[n].length?'':' zero')+
+       '" data-cn="'+orgEsc(n)+'">'+orgEsc(n)+' '+B[n].length+'</button>').join('')+
      '</div>';
   const L=B[cnPick]||[], n=cnMore? L.length : 5;
   h+='<div class="cnlist">'+ (L.length? L.slice(0,n).map(x=>
-      '<a class="cni" href="'+orgEsc(x.u||'#')+'" target="_blank" rel="noopener">'+
-      '<span class="cnd">'+orgEsc((x.date||'').slice(5).replace('-','.'))+'</span>'+
+      '<a class="cni" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
+      '<span class="cnd">'+orgEsc((x.d||'').slice(5).replace('-','.'))+'</span>'+
       '<span class="cnt2">'+orgEsc(x.t)+'</span>'+
-      (x.s?'<span class="cnsec2">'+orgEsc(x.s)+'</span>':'')+'</a>').join('')
-      : '<div class="cnempty">해당 항목의 보도가 없습니다.</div>') + '</div>';
+      (x.sec?'<span class="cnsec2">'+orgEsc(x.sec)+'</span>':'')+'</a>').join('')
+      : '<div class="cnempty">'+orgEsc(cnPick)+' 의원 관련 보도가 아직 없습니다.</div>') + '</div>';
   if(L.length>5) h+='<button class="cnmore" id="cnmore">'+(cnMore?'접기':'더보기 ('+(L.length-5)+'건)')+'</button>';
   el.innerHTML=h;
   el.querySelectorAll('[data-cn]').forEach(b=>b.addEventListener('click',()=>{
