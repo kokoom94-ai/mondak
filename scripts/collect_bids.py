@@ -90,8 +90,26 @@ def to_won(v):
         return None
 
 
-# 제주 판별 — 지역명이 기관명·지역제한·공고명 어디에 있어도 잡는다
-JEJU = re.compile(r"제주|서귀포|한라|탐라|우도|추자|성산|애월|한림|표선|남원|대정|안덕|조천|구좌|한경")
+# 제주 판별 — 「제주에서 나가는 입찰」이 기준이다.
+# 그래서 공고명이 아니라 **발주기관·수요기관·지역제한**으로만 판단한다.
+# (공고명으로 보면 한림대학교·성산초등학교처럼 타 지역이 딸려 온다)
+JEJU_ORG = re.compile(
+    r"제주|서귀포|한라산|탐라|"
+    r"JDC|국제자유도시개발센터|"
+    r"애월|한림읍|한경면|조천읍|구좌읍|우도면|추자면|"
+    r"성산읍|표선면|남원읍|대정읍|안덕면|중문")
+# 이름에 제주 낱말이 섞이지만 제주 기관이 아닌 것
+NOT_JEJU_ORG = re.compile(r"한림대|한라대|탐라대|한림성심|"
+                          r"강원|춘천|원주|부산|대구|인천|광주광역|대전|울산|세종|"
+                          r"경기|수원|충북|충남|전북|전남|경북|경남|서울")
+
+
+def is_jeju(org, region, dept=""):
+    """발주·수요기관이나 지역제한이 제주인가."""
+    blob = " ".join([org or "", region or "", dept or ""])
+    if not blob.strip(): return False
+    if NOT_JEJU_ORG.search(blob): return False
+    return bool(JEJU_ORG.search(blob))
 
 
 def normalize(rows, kind):
@@ -102,8 +120,8 @@ def normalize(rows, kind):
         if not title: continue
         org  = pick(r, "dminsttNm", "ntceInsttNm", "수요기관명", "발주기관")
         rgn  = pick(r, "prtcptLmtRgnNm", "rgnLmtBidLocplcJdgmBssCd", "지역제한")
-        blob = title + " " + org + " " + rgn
-        if not JEJU.search(blob): continue
+        dept = pick(r, "ntceInsttNm", "exctvNm", "발주기관")
+        if not is_jeju(org, rgn, dept): continue
         no   = pick(r, "bidNtceNo", "공고번호")
         ord_ = pick(r, "bidNtceOrd", "차수", default="00")
         link = pick(r, "bidNtceDtlUrl", "bidNtceUrl")
