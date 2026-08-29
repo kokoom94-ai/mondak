@@ -543,7 +543,9 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .iwtoggle{margin-left:auto;display:flex;gap:3px;background:var(--bg);border-radius:20px;padding:2px}
 .iwtb{font-size:11px;font-weight:700;color:var(--sub);background:transparent;border:0;border-radius:18px;padding:4px 12px;cursor:pointer}
 .iwtb.on{color:#fff;background:var(--navy)}
-.iwcloud{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px 13px;padding:16px 6px;min-height:150px}
+.iwcloud{width:100%;overflow:hidden;container-type:inline-size}
+.iwcanvas{position:relative;width:100%;padding-top:50%;transform-origin:top left}
+.iwcanvas .iww{position:absolute;white-space:nowrap}
 .iww{font-weight:800;line-height:1.25;cursor:default}
 .iww.k-pos{color:#5B4BC4}.iww.k-neg{color:#D9424A}.iww.k-neu{color:#E0A93B}
 .iwtable{display:flex;flex-direction:column;gap:3px}
@@ -562,7 +564,11 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .iwlg em{width:10px;height:10px;border-radius:3px;display:block}
 .iwlg em.k-pos{background:#5B4BC4}.iwlg em.k-neg{background:#D9424A}.iwlg em.k-neu{background:#E0A93B}
 .iwnote{font-size:10px;color:var(--sub);text-align:center;margin-top:8px;line-height:1.6}
-@media(max-width:420px){.iwcloud{gap:4px 9px;padding:12px 2px}.iwtr .iww{flex-basis:58px}}
+@supports not (font-size:1cqw){
+  /* 컨테이너 단위를 못 쓰는 브라우저 — 화면 폭 기준으로 대체 */
+  .iwcanvas .iww{font-size:inherit}
+}
+@media(max-width:420px){.iwtr .iww{flex-basis:58px}}
 /* 분야 카드 — 감성별 막대 */
 .isst{display:flex;flex-direction:column;gap:3px;margin-top:8px}
 .isst-r{display:flex;align-items:center;gap:7px}
@@ -4167,14 +4173,33 @@ function renderIW(list){
         '</span></div>';
 
   if(iwMode==='cloud'){
-    // 큰 낱말이 가운데로 오도록 번갈아 배치한다
-    const ordered=[];
-    show.forEach((r,i)=>{ if(i%2) ordered.push(r); else ordered.unshift(r); });
-    h+='<div class="iwcloud">'+ordered.map(r=>{
-      const sz=(12+Math.round((r.n-mn)/(mx-mn||1)*26));
-      return '<span class="iww k-'+r.k+'" style="font-size:'+sz+'px" '+
-             'title="'+orgEsc(r.w)+' · '+KN[r.k]+' '+r.n+'건">'+orgEsc(r.w)+'</span>';
-    }).join('')+'</div>';
+    /* 나선형 배치 — 큰 낱말이 가운데, 작은 낱말이 바깥으로.
+       글자 크기로 폭·높이를 어림해 겹치지 않게 자리를 찾는다. */
+    const W=680, H=340, cx=W/2, cy=H/2;
+    const placed=[], out=[];
+    const hit=(a,b)=>!(a.x+a.w<b.x||b.x+b.w<a.x||a.y+a.h<b.y||b.y+b.h<a.y);
+    show.forEach((r,idx)=>{
+      const sz = 13+Math.round(Math.pow((r.n-mn)/(mx-mn||1),0.6)*30);
+      const w  = r.w.length*sz*0.98+10, hgt = sz*1.5;
+      let x=cx-w/2, y=cy-hgt/2, ok=false;
+      // 가운데에서 바깥으로 돌며 빈 자리를 찾는다
+      for(let t=0;t<2400 && !ok;t++){
+        const ang=t*0.42, rad=t*1.15;
+        x = cx + Math.cos(ang)*rad*1.55 - w/2;
+        y = cy + Math.sin(ang)*rad*0.62 - hgt/2;
+        if(x<2||y<2||x+w>W-2||y+hgt>H-2) continue;
+        const box={x:x,y:y,w:w,h:hgt};
+        ok = !placed.some(p=>hit(box,p));
+        if(ok) placed.push(box);
+      }
+      if(!ok) return;                       // 자리가 없으면 그린다 만다
+      // 글자 크기도 폭에 비례시킨다. 좁은 화면에서 함께 작아진다.
+      const fs=(sz/W*100).toFixed(3);
+      out.push('<span class="iww k-'+r.k+'" style="left:'+(x/W*100).toFixed(2)+'%;'+
+        'top:'+(y/H*100).toFixed(2)+'%;font-size:'+fs+'cqw" '+
+        'title="'+orgEsc(r.w)+' · '+KN[r.k]+' '+r.n+'건">'+orgEsc(r.w)+'</span>');
+    });
+    h+='<div class="iwcloud"><div class="iwcanvas">'+out.join('')+'</div></div>';
   }else{
     h+='<div class="iwtable">'+show.map((r,i)=>
       '<div class="iwtr"><span class="iwrk">'+(i+1)+'</span>'+
