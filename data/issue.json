@@ -1,10 +1,10 @@
 {
  "meta": {
-  "updated": "2026-08-29 23:37",
+  "updated": "2026-08-29 23:58",
   "engine": "v14-20260826",
-  "collected": 3925,
-  "kept": 1490,
-  "stored": 3470,
+  "collected": 3926,
+  "kept": 1489,
+  "stored": 3476,
   "days": 21,
   "keep_days": 60,
   "source": "네이버 검색 오픈API · Google News RSS",
@@ -12,23 +12,23 @@
   "llm": {
    "version": "llm-v3",
    "model": "exaone-4.0-32b",
-   "judged": 888,
+   "judged": 887,
    "failed": 0,
-   "dropped": 390,
-   "updated": "2026-08-29 23:38"
+   "dropped": 362,
+   "updated": "2026-08-29 23:59"
   }
  },
  "dropped": {
-  "카테고리·분류 불가·중립": 305,
-  "관련성·관광 맥락 없음": 585,
-  "관련성·제주 지역 신호 없음": 78,
-  "관련성·관광 연결 없는 사건": 547,
+  "카테고리·분류 불가·중립": 306,
+  "관련성·관광 맥락 없음": 586,
+  "관련성·제주 지역 신호 없음": 79,
+  "관련성·관광 연결 없는 사건": 546,
   "관련성·홍보·영업 글": 120,
   "유형·연예": 75,
   "관련성·전국 나열형": 18,
   "관련성·타지역 기사": 33,
-  "관련성·제주 제외 명시": 63,
-  "유형·광고": 64,
+  "관련성·제주 제외 명시": 62,
+  "유형·광고": 65,
   "유형·인사": 25,
   "관련성·관광객 경험 아님": 482,
   "관련성·일상 공간 사건": 39,
@@ -47,7 +47,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -57,9 +57,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "이동·교통",
-    "why": "접근성 개선",
+    "why": "문턱 낮춤",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -887,7 +887,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "정책·행정",
-    "why": "관광객 수 변화",
+    "why": "관광객 변화",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -1221,7 +1221,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건",
+    "why": "치안 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -2796,7 +2796,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사망 원인 불명",
+    "why": "사망 경위 불명",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -2829,7 +2829,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "타살 의혹",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -4294,7 +4294,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "진실 은폐",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -5917,7 +5917,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "불안 증가",
+    "why": "관광객 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -6214,7 +6214,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "허위 보고",
+    "why": "실종사건",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -6247,7 +6247,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건",
+    "why": "허위보고",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -6351,7 +6351,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "CCTV 문제",
+    "why": "CCTV 미작동",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -7818,7 +7818,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "만족스러운 여행",
+    "why": "여행지 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8020,7 +8020,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "치안·안전",
-    "why": "통계 사실",
+    "why": "관광객 통계",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8041,7 +8041,7 @@
    "nature": "사건사고",
    "track": "risk",
    "policy": "관광객 안전·치안",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "강",
    "neg": 4,
    "pos": 0,
@@ -8053,9 +8053,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "치안·안전",
-    "why": "설명 보도",
+    "why": "괴담 확산",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8121,7 +8121,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 의혹",
+    "why": "실종사건",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8142,7 +8142,7 @@
    "nature": "사건사고",
    "track": "risk",
    "policy": "관광객 안전·치안",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "강",
    "neg": 4,
    "pos": 0,
@@ -8154,9 +8154,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "치안·안전",
-    "why": "사실 전달",
+    "why": "사건 재현실험",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8177,7 +8177,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "숙박 시설·거래 관행",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -8187,7 +8187,7 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "볼거리·체험",
     "why": "자연 감상",
     "v": "llm-v3"
@@ -8257,7 +8257,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "포비아 확산",
+    "why": "여행 취소 우려",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8391,7 +8391,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "음식 칭찬",
+    "why": "음식 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8424,7 +8424,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "가족 만족",
+    "why": "숙소 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8940,7 +8940,7 @@
    "nature": "정보·소식",
    "track": "voice",
    "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "중립",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -8950,9 +8950,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "등산 기록",
+    "why": "등산 경험",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -8969,7 +8969,7 @@
    "channel": "blog",
    "query": "제주도 여행",
    "type": "후기",
-   "category": "볼거리·체험",
+   "category": "먹거리",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 콘텐츠·시설 운영",
@@ -8984,7 +8984,7 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "볼거리·체험",
+    "cat": "먹거리",
     "why": "해수욕장 만족",
     "v": "llm-v3"
    },
@@ -9018,7 +9018,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "먹거리",
-    "why": "업체 비추천",
+    "why": "방문 거부",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9051,7 +9051,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "맛집 추천",
+    "why": "추천 강조",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9183,7 +9183,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "실종사건",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9218,7 +9218,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "경찰 부실 대응",
+    "why": "허위 종결 사건",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9383,7 +9383,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "만족 후기",
+    "why": "만족 표현",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9416,7 +9416,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "추천",
+    "why": "호평",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9449,7 +9449,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "숙박",
-    "why": "공유숙박 논의",
+    "why": "정책 논의",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9470,7 +9470,7 @@
    "nature": "정보·소식",
    "track": "voice",
    "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 1,
@@ -9480,9 +9480,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "명소 추천",
+    "why": "여행 정보",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9548,7 +9548,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "풍경 칭찬",
+    "why": "풍경 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9581,7 +9581,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "호텔 만족",
+    "why": "호감",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9614,7 +9614,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "카페 추천",
+    "why": "추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9647,7 +9647,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "맛집 후기",
+    "why": "만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9680,7 +9680,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "카페 추천",
+    "why": "추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9713,7 +9713,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "코스 소개",
+    "why": "여행 기록",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9746,7 +9746,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "여행 취소",
+    "why": "치안 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9779,7 +9779,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "맛집 추천",
+    "why": "추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9812,7 +9812,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "맛집 추천",
+    "why": "추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9845,7 +9845,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "명소 추천",
+    "why": "관광지 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9878,7 +9878,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사건 불안",
+    "why": "실종사건 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9895,7 +9895,7 @@
    "channel": "blog",
    "query": "제주 여행",
    "type": "후기",
-   "category": "숙박",
+   "category": "먹거리",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
@@ -9910,8 +9910,8 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "숙박",
-    "why": "후기 긍정",
+    "cat": "먹거리",
+    "why": "혼술집 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9946,7 +9946,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "치안·안전",
-    "why": "안전수칙",
+    "why": "안전수칙 강조",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -9979,7 +9979,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "이동·교통",
-    "why": "여행 후기",
+    "why": "일정 정리",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10012,7 +10012,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건",
+    "why": "실종사건 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10029,11 +10029,11 @@
    "channel": "blog",
    "query": "제주 여행",
    "type": "후기",
-   "category": "숙박",
+   "category": "먹거리",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
-   "sentiment": "중립",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 2,
@@ -10043,9 +10043,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "숙박",
-    "why": "맛집 후기",
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "맛집 호평",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10179,7 +10179,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "예약 취소",
+    "why": "예약 취소 사태",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10245,7 +10245,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "혼밥 가능",
+    "why": "혼밥 가능 긍정",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10266,7 +10266,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -10276,9 +10276,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "추천 코스",
+    "why": "오름 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10311,7 +10311,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "호텔 후기 긍정",
+    "why": "호텔 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10332,7 +10332,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "숙박 시설·거래 관행",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -10342,9 +10342,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "이동·교통",
-    "why": "여행 후기 긍정",
+    "why": "여행 코스",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10377,7 +10377,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "시장 후기",
+    "why": "여행코스 소개",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10410,7 +10410,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "펜션 후기 긍정",
+    "why": "펜션 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10443,7 +10443,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "관광지 추천",
+    "why": "박물관 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10476,7 +10476,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "펜션 후기 긍정",
+    "why": "펜션 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10542,7 +10542,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "호텔 후기 긍정",
+    "why": "호텔 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10592,7 +10592,7 @@
    "channel": "blog",
    "query": "제주도 관광",
    "type": "후기",
-   "category": "이동·교통",
+   "category": "볼거리·체험",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
@@ -10607,8 +10607,8 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "이동·교통",
-    "why": "여행 만족",
+    "cat": "볼거리·체험",
+    "why": "여행 행복",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10643,7 +10643,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "경찰 쇄신책",
+    "why": "사건 은폐 논란",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10676,7 +10676,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "이동·교통",
-    "why": "여행 준비",
+    "why": "여행 팁",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10742,7 +10742,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "음식 추천",
+    "why": "추천 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10775,7 +10775,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "여행 후기",
+    "why": "여행 경험",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10796,7 +10796,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -10806,9 +10806,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "긍정",
     "cat": "이동·교통",
-    "why": "여행 경험",
+    "why": "긍정적 경험",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -10843,78 +10843,12 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종지도",
+    "why": "실종지도 우려",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "부정",
     "category": "치안·안전"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주] 13,000원에 회가 나오는 뷔페!!! 정말 사장님 미쳤나요?!?!... '우....",
-   "description": "이번에 리뷰할 곳은 7월 말에 제주여행 때 갔던 곳 우리 사장님 미쳤어요 줄여서 '우사미뷔페'...ㄷㄷ... 제주도 여행 가면 꼭 가봐야지 했던게 이번이 되었다는...ㅋㅋ 가게 외관을 보니 원래 횟집이...",
-   "link": "https://blog.naver.com/gigagenieh/224394532428",
-   "date": "2026-08-29",
-   "channel": "blog",
-   "query": "제주 여행",
-   "type": "후기",
-   "category": "비용·상거래",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광종사자 응대·서비스 품질",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "비용·상거래",
-    "why": "가격 만족",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "응대·서비스"
-   },
-   "keep": true
-  },
-  {
-   "title": "4인가족 여름 제주 여행 준비 마일리지 발권 및 렌트카 등",
-   "description": "4인가족 제주여행 준비했던 내용 올려봅니다 1. 항공권 : 비행기 제주 갈때 218,000원 (1인은 제주항공 포인트사용) 비행기 돌아올 때 311,400원 (이스타) 2. 렌트카 : 젤 저렴한 것으로 143,000원 (엔젤렌트카...",
-   "link": "https://blog.naver.com/liedesfreud/224394527130",
-   "date": "2026-08-29",
-   "channel": "blog",
-   "query": "제주 여행",
-   "type": "후기",
-   "category": "이동·교통",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 교통·접근성",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "여행 준비",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "이동·교통"
    },
    "keep": true
   },
@@ -10953,53 +10887,20 @@
   },
   {
    "title": "제주 곶자왈손칼국수, 아이도 1인 1메뉴일까?",
-   "description": "아이와 제주여행 중 찾은 곶자왈손칼국수 아이와 제주도 여행을 하면 하루에 몇 끼를 먹는 것조차 여행 일정이 되죠. 특히 관광지를 돌아다니다 보면 아이가 갑자기 배고프다고 하기도 하고, 반대로 어른은...",
+   "description": "아이와 제주여행 중 찾은 곶자왈손칼국수 아이와 제주도 여행을 하면 하루에 몇 끼를 먹는 것조차 여행... 제주도 아이와 맛집으로 괜찮았던 이유 아이와 제주도 맛집을 찾을 때 저는 개인적으로 ‘맛집이다!’...",
    "link": "https://blog.naver.com/arodea/224394421084",
-   "date": "2026-08-29",
-   "channel": "blog",
-   "query": "제주 여행",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "먹거리",
-    "why": "정보성",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "볼거리·체험"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주 서귀포 올레시장근처 해물라면 중섭이네식당",
-   "description": "여긴 8월초 제주도여행할때 방문했던 서귀포 올레시장근처... 중섭이네식당 < 주소 > 제주 서귀포시 이중섭로 19 < 운영시간 > 화~일 08... 주메뉴는 해물라면과 덮밥류 등 제주도만의 특색있는 메뉴들이...",
-   "link": "https://blog.naver.com/fly1911/224394427682",
    "date": "2026-08-29",
    "channel": "blog",
    "query": "제주도 여행",
    "type": "후기",
    "category": "먹거리",
-   "nature": "정보·소식",
+   "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
    "sentiment": "긍정",
    "strength": "",
    "neg": 0,
-   "pos": 0,
+   "pos": 2,
    "reasons": [],
    "pending": false,
    "rel_why": "관광객 경험",
@@ -11008,11 +10909,11 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "음식 만족",
+    "why": "아이 맛집",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "중립",
+    "sentiment": "긍정",
     "category": "먹거리"
    },
    "keep": true
@@ -11109,7 +11010,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "음식 추천",
+    "why": "추천 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -11126,11 +11027,11 @@
    "channel": "blog",
    "query": "제주도 관광",
    "type": "후기",
-   "category": "볼거리·체험",
+   "category": "이동·교통",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 교통·접근성",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -11140,9 +11041,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
-    "cat": "볼거리·체험",
-    "why": "여행 일기",
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "통계 언급",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -11159,7 +11060,7 @@
    "channel": "blog",
    "query": "제주 숙소",
    "type": "후기",
-   "category": "먹거리",
+   "category": "응대·서비스",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "숙박 시설·거래 관행",
@@ -11174,8 +11075,8 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "먹거리",
-    "why": "호평",
+    "cat": "응대·서비스",
+    "why": "긍정적 경험",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -11192,7 +11093,7 @@
    "channel": "blog",
    "query": "제주 맛집",
    "type": "후기",
-   "category": "먹거리",
+   "category": "응대·서비스",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
@@ -11207,8 +11108,8 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "",
-    "why": "대기 불만",
+    "cat": "응대·서비스",
+    "why": "웨이팅 불만",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -11241,7 +11142,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "호평",
+    "why": "향토음식 호평",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -11274,7 +11175,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "만족",
+    "why": "맛집 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -11307,7 +11208,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "추천",
+    "why": "오일장 맛집",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -11340,12 +11241,744 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "입소문",
+    "why": "입소문 맛집",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "긍정",
     "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "\"관광객 있는 곳으로 직접 찾아간다\"…제주, 전국 5개 도시서 '관광객 모...",
+   "description": "내국인의 제주여행 수요가 주춤하고 항공좌석 공급 부족까지 겹치면서 제주 관광업계가 관광객을 직접 찾아 나섰다. 제주에서 여행객을 기다리는 대신 서울·부산·경주·광주·청주 등 전국 주요 도시로 무대를 옮겨 가을...",
+   "link": "https://www.tournews21.com/news/articleView.html?idxno=142112",
+   "date": "2026-08-29",
+   "channel": "news",
+   "query": "제주 여행",
+   "type": "뉴스",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "행정 소식(지수 제외)",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "이동·교통",
+    "why": "홍보 활동",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "정책·행정"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주관광협회, 전국 5대 도시서 '밀착 로드홍보' ... \"항공난·악성 루머...",
+   "description": "제주 △제주여행 공공플랫폼 탐나오 '더 제주 포시즌, 더 머무는 제주' 프로모션 추진 등이다. △2026년 제주 방문 단체관광객 유형별 탐나는 전 지원 제주 방문 단체관광객을 위한 '탐나는 전' 지역화폐 지원 사업은...",
+   "link": "http://www.ttlnews.com/news/articleView.html?idxno=3138284",
+   "date": "2026-08-29",
+   "channel": "news",
+   "query": "제주 여행",
+   "type": "뉴스",
+   "category": "이동·교통",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "행정 소식(지수 제외)",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "이동·교통",
+    "why": "홍보 활동",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "정책·행정"
+   },
+   "keep": true
+  },
+  {
+   "title": "짧은 추석 연휴 알차게…렌터카 타고 소도시로",
+   "description": "한국 여행객의 국내 렌터카 예약은 같은 기간 194% 늘었다. 제주가 가장 인기 있는 지역으로 꼽혔고 서울, 부산, 여수, 강릉, 경주가 뒤를 이었다. 기차나 항공편으로 거점 도시에 도착한 뒤 렌터카를 빌려 주변 소도시까지...",
+   "link": "https://www.newsway.co.kr/news/view?ud=2026082812245066788",
+   "date": "2026-08-29",
+   "channel": "news",
+   "query": "제주 여행",
+   "type": "뉴스",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 1,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "통계 언급",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "[23개월 아기랑 제주 여행] 늦여름 3박 4일 가족 호캉스 & 물놀이 일정....",
+   "description": "제주도 여행을 다녀왔어요! 이번 여행의 컨셉은 \"바다 그리고 수영\" 이예요. 그래서 아주아주 더운 8월달로 여행 계획을 잡았답니다. 9월달만 되도, 야외 수영하기 추워여. ✈️ &  여행 준비 (항공 / 숙소...",
+   "link": "https://blog.naver.com/silzon/224394556272",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 여행",
+   "type": "후기",
+   "category": "숙박",
+   "nature": "정보·소식",
+   "track": "voice",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "숙박",
+    "why": "가족 호캉스",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "먹구름 뒤엔 언제나 태양이 빛나",
+   "description": "제주 여행을 기약하고.... 드디어 숙소를 예약함 숙소 정하는데 백만년 걸렸지만 그래도 괜찮아 군대 후임한테 맛집 추천도 받음 제주도 현지인이라 그런가 아주 믿을맨 맛집 전수 받고 공항 도착 밖에 있는...",
+   "link": "https://blog.naver.com/ksw777trek/224394514521",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 여행",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "강",
+   "neg": 3,
+   "pos": 2,
+   "reasons": [
+    "악재"
+   ],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "맛집 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "부정",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "[여행]#둘째와 함께한 제주여행#부영호텔#야외수영장",
+   "description": "자녀들과 여행을 다니려면 아침시간은 따로 따로 보내야 한다. 8시 전에 눈이 떠져 근처에 있다는 공원으로~ 갔더니 자연사박물관이 있어 더위도 식힐겸 관람을 했다. 그럭저럭 배가 슬슬 고파지면서 둘째와...",
+   "link": "https://blog.naver.com/copygo7/224394511195",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 여행",
+   "type": "후기",
+   "category": "숙박",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "숙박",
+    "why": "가족 여행",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "2022年 2月의 JEJU 회고",
+   "description": "2022의 제주도 여행 회고 시작합니다 사실 여행하자마자 바로바로... 타고 제주 도착✈️ 도착하자마자 바아로 렌터카 빌려서 첫 숙소인 휘닉스 제주로 갔다 ! 이렇게 제주 바다가 잘 보이는 객실이라 마음에...",
+   "link": "https://blog.naver.com/artella2000/224394546722",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "숙박",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "숙박",
+    "why": "여행 경험",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도 조천읍 가볼만한곳 제주 미디어아트 이너리스 소요시간 입....",
+   "description": "제주도 조천읍 가볼만한곳 제주 미디어아트 이너리스 소요시간 입장료 제주도 여행하면서 실내에서 즐길 만한 곳이 고민된다면 이너리스... 있어서 제주 여행 중 색다른 실내 가볼만한곳을 찾는 분들에게도...",
+   "link": "https://blog.naver.com/spxl1010/224394546684",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 1,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "볼거리·체험",
+    "why": "여행 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도 vs 추자도 비교｜렌터카·올레길·낚시, 어디로 여행 갈까? (20....",
+   "description": "제주도 여행을 계획할 때 대부분은 제주 본섬을 떠올리지만, 배를 한 번 더 타고 들어가는... 제주도는 선택지가 많은 렌터카 여행 제주 본섬의 가장 큰 장점은 여행 취향이 다른 일행도 일정을 맞추기...",
+   "link": "https://blog.naver.com/climaxna/224394527577",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "정보·소식",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "여행 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "여름 제주도 여행 2박 3일 일정 | 1일차 | 제주 동쪽 | 제주공항 지브....",
+   "description": "리뷰 다 쓰면 링크도 넣을 예정...인데 할 수 있겠지 2박3일 제주도 여행 1일차 일정은 <제주 여행 1일차... 되네요ㅋㅋㅋ 제주국제공항 지브리 숍 아침 일찍 비행기를 타고 제주도에 갔어요 국내선 나오는 곳 거의...",
+   "link": "https://blog.naver.com/yooooon5_/224394522017",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "여행 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도 료칸 크로베 펜션 후기! 일본 감성 넘치는 가족 여행 숙소 추....",
+   "description": "이번에 제주도 여행을 하며 아주아주 괜찮은 일본 감성 숙소를 발견했어요! 산방산 근처에 자리한... 산방산숙소 #제주도가족여행 #제주감성숙소 #제주히노끼탕 #제주도아이랑숙소 #제주도일본숙소...",
+   "link": "https://blog.naver.com/sujie1209/224394518781",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "숙박",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "숙박",
+    "why": "숙소 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주-서귀포3박4일일정",
+   "description": "#제주여행 #제주도3박4일 #제주3박4일코스 #제주도가볼만한곳 #제주여행코스추천 #제주도여행후기 #8월제주여행 #제주서쪽코스 #제주서귀포가볼만한곳 #보고타렌터카 #제주원앙폭포 #정방폭포 #앞뱅디식당...",
+   "link": "https://blog.naver.com/thestoryofcore/224394484901",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 1,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "여행 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "미키광수, 제주 슬리퍼 도난 사건, \"착각할 수 없다\" 직접 밝힌 분실 ....",
+   "description": "미키광수, 제주 슬리퍼 도난 사건 개그맨 미키광수가 제주도 여행 중 아끼는 슬리퍼를 분실했다며... ─── #미키광수 #제주슬리퍼도난사건 #판포포구 #미키광수SNS #제주여행 #도난주장 #직접경고 #슬리퍼분실...",
+   "link": "https://blog.naver.com/ddobot17/224394458167",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "사건",
+   "category": "치안·안전",
+   "nature": "사건사고",
+   "track": "risk",
+   "policy": "관광객 안전·치안",
+   "sentiment": "부정",
+   "strength": "약",
+   "neg": 2,
+   "pos": 0,
+   "reasons": [
+    "도난"
+   ],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "치안·안전",
+    "why": "도난 사건",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "부정",
+    "category": "치안·안전"
+   },
+   "keep": true
+  },
+  {
+   "title": "추억을 담은 제주도 선물 하이제주 기념품샵 방문기",
+   "description": "제주여행 추억을 담아온 하이제주 기념품샵  제주도 여행의 마지막 날  여행을 마무리하고 집으로 돌아가기 전, 하이제주 기념품샵에 방문했어요. 다양한 제주도 기념품들이 가득해서 하나하나 구경하는...",
+   "link": "https://blog.naver.com/munmr21/224394422368",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 물가·요금 공정성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "여행 추억",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "비용·상거래"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도 동문시장 소품샵 우디버디 행운거북이 제주 여행 선물 추천",
+   "description": "여행 인플루언서 윤달달입니다. 제주도 여행가면 꼭 들러보는 코스가 바로 제주도 소품샵 투어인데요! 예전에는 제주 디저트를 많이 사갔었는데 요즘은 귀여운 감성 소품 선물을 더 좋아해서 이번엔 제주도...",
+   "link": "https://blog.naver.com/oahu00/224394419982",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "여행 선물",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "미키광수, 제주 판포포구서 한정판 슬리퍼 도난 피해…“돌려주면 ....",
+   "description": "미키광수가 제주도 여행 중 아끼던 슬리퍼를 잃어버렸다며 직접... 통해 제주도에서 겪은 일을 공개했습니다. 장소는 제주... ‘한정판 신발’이라 더 속상했던 듯 누구라도 여행지에서 신발이나 개인 물건을...",
+   "link": "https://blog.naver.com/philip7496/224394414969",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주도 여행",
+   "type": "사건",
+   "category": "치안·안전",
+   "nature": "사건사고",
+   "track": "risk",
+   "policy": "관광객 안전·치안",
+   "sentiment": "부정",
+   "strength": "약",
+   "neg": 2,
+   "pos": 0,
+   "reasons": [
+    "도난"
+   ],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "치안·안전",
+    "why": "도난 피해",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "부정",
+    "category": "치안·안전"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 전역 '지붕 없는 미술관'으로…1호 공간 개관",
+   "description": "도민과 관광객이 걷는 산책로와 일상 동선 자체를 전시 무대로 전환한 야외 대안 공간이다. 별도의 입장 절차나 시간 제약 없이 연중무휴 누구나 일상 속에서 작품을 감상할 수 있다. 특히 이번 갤러리는 제주의 길 위에...",
+   "link": "https://www.jemin.com/news/articleView.html?idxno=842240",
+   "date": "2026-08-29",
+   "channel": "news",
+   "query": "제주 관광",
+   "type": "뉴스",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "관광시설 개관",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "(2026) 3월의 제주",
+   "description": "반년 만에 올리는 제주여행 기록 ㅋㅋ 올리지 말까 싶었지만 그래도 추억용으로..! 렌터카 반납하는 날, 아침! 남에서 북으로 이동하는 길에 들린 노루생태관찰원  원래 사려니숲길에 가려고 했지만 주차 위치가...",
+   "link": "https://blog.naver.com/summer_j12/224394151806",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 렌터카",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "렌터카 이용 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "9월 제주 다자녀 여행, 3박4일 머물면 4만원 받을 수 있어요",
+   "description": "제주여행을 준비하다 보면 항공권 1만원 차이에도 며칠을 검색하게 되고, 렌터카 몇 천원 차이에도 다시 예약창을 열어보게 됩니다. 네 식구 여행이라면 더 그렇습니다. 그래서 이런 혜택은 금액보다도 “어차피...",
+   "link": "https://blog.naver.com/money_care_/224393891301",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 렌터카",
+   "type": "후기",
+   "category": "비용·상거래",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "비용·상거래",
+    "why": "할인 혜택 소개",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주렌터카 할인율 60% 상한제와 자차 면책 기준 통일정리",
+   "description": "제주 렌터카 요금 때문에 속상했던 분들 많으실 겁니다 저는 몇 년 전 제주에서 렌터카 예약했다가 결제 직전에 금액이 확 뛰는 걸 겪은 적이 있습니다 싸게 보였던 가격에 이것저것 붙으니 완전히 다른 숫자가...",
+   "link": "https://blog.naver.com/namejjy7072/224393514058",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 렌터카",
+   "type": "후기",
+   "category": "비용·상거래",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "부정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "비용·상거래",
+    "why": "요금 불만",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "애견동반 상추네 서귀포 일정과 함께 머문 직접 다녀온 후기",
+   "description": "반려견과 함께 제주에서 머물 숙소를 찾을 때는 관광지와의 거리뿐 아니라 숙소에서 시간을 보내는 방식까지 함께 보게 된다. 여러 장소를 비교하다가 눈에 들어온 곳이 서귀포시 토평동에 있는 애견동반...",
+   "link": "https://blog.naver.com/kkonii_/224387515659",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 숙소",
+   "type": "후기",
+   "category": "숙박",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "숙박",
+    "why": "숙소 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "[제주도] 2박3일 제주여행! ~ 2일차 ~ 성산일출봉 ⛰️ 아침미소목장  ....",
+   "description": "이번 제주여행에서는 첫날 흑돼지집이랑 둘쨋날 성산일출봉 산책이었음!!!! 일출봉 아침산책 대추천 드림미다 숙소 돌아가는 길에 기념품점 털고 성산해녀빵도 있길래 머거봣다...",
+   "link": "https://blog.naver.com/jessy5009/224394350357",
+   "date": "2026-08-29",
+   "channel": "blog",
+   "query": "제주 숙소",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "여행 경험",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
    },
    "keep": true
   },
@@ -12813,7 +13446,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "위협 사건",
+    "why": "살해 위협",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -15332,7 +15965,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "통계 논란",
+    "why": "허위종결",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -15705,7 +16338,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "비용·상거래",
-    "why": "관광비 비싸짐",
+    "why": "관광비 비싸다",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -15872,7 +16505,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "치안·안전",
-    "why": "범죄율 낮음",
+    "why": "범죄 왜곡 반박",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -15996,7 +16629,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -16006,9 +16639,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "먹거리",
-    "why": "음식 만족",
+    "why": "음식 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -16043,7 +16676,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "경찰 오류",
+    "why": "거짓 증언",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -16113,7 +16746,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "경찰 거짓",
+    "why": "거짓 인정",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -16848,7 +17481,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "허위수사",
+    "why": "허위 종결",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -16881,7 +17514,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "허위수사",
+    "why": "거짓말이었다",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -16914,7 +17547,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "거짓말이었다",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -18581,7 +19214,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광객 안전·치안",
-   "sentiment": "중립",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -18591,9 +19224,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "긍정",
     "cat": "치안·안전",
-    "why": "통계 설명",
+    "why": "통계 착시",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -18626,7 +19259,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "불안 조장",
+    "why": "안전 우려",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20174,7 +20807,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광객 안전·치안",
-   "sentiment": "부정",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -20184,9 +20817,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
+    "sent": "긍정",
     "cat": "치안·안전",
-    "why": "범죄율 우려",
+    "why": "안전 강조",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20221,7 +20854,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "치안 우려",
+    "why": "치안 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20254,7 +20887,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 공포",
+    "why": "실종사건 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20275,7 +20908,7 @@
    "nature": "사건사고",
    "track": "risk",
    "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "부정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -20285,9 +20918,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
+    "sent": "중립",
     "cat": "치안·안전",
-    "why": "치안 불안",
+    "why": "치안 대책 요청",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20320,7 +20953,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "치안 문제",
+    "why": "치안 문제 지적",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20353,7 +20986,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "관광업계 우려",
+    "why": "관광업계 피해 우려",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20389,7 +21022,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "부실 대응",
+    "why": "수사 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20424,7 +21057,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "허위 종결",
+    "why": "부실 대응",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20457,7 +21090,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "수사 촉구",
+    "why": "관광업계 피해 우려",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20492,7 +21125,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "범죄율 지적",
+    "why": "범죄율 논란",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20525,7 +21158,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "범죄율 논란",
+    "why": "범죄율 지적",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20546,7 +21179,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광객 안전·치안",
-   "sentiment": "부정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -20556,9 +21189,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
+    "sent": "중립",
     "cat": "치안·안전",
-    "why": "안전 강화",
+    "why": "안전 강조",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20614,7 +21247,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광객 안전·치안",
-   "sentiment": "부정",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -20624,7 +21257,7 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
+    "sent": "긍정",
     "cat": "치안·안전",
     "why": "CCTV 확충",
     "v": "llm-v3"
@@ -20647,7 +21280,7 @@
    "nature": "사건사고",
    "track": "risk",
    "policy": "관광객 안전·치안",
-   "sentiment": "부정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -20657,9 +21290,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
+    "sent": "중립",
     "cat": "치안·안전",
-    "why": "사건 미흡",
+    "why": "범죄율 설명",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20749,7 +21382,7 @@
    "nature": "정보·소식",
    "track": "risk",
    "policy": "관광객 안전·치안",
-   "sentiment": "부정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -20759,9 +21392,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
+    "sent": "중립",
     "cat": "치안·안전",
-    "why": "시스템 허점",
+    "why": "치안 개선 요청",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20796,7 +21429,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "범죄율 지적",
+    "why": "수사 비판",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20831,7 +21464,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "범죄율 지적",
+    "why": "범죄율 논란",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20934,7 +21567,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "실종사건 영향",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -20967,7 +21600,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "관광지 소개",
+    "why": "여행 정보",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21037,7 +21670,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "실종사건 영향",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21105,7 +21738,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "실종사건 영향",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21155,7 +21788,7 @@
    "channel": "blog",
    "query": "제주 렌터카",
    "type": "후기",
-   "category": "이동·교통",
+   "category": "치안·안전",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 물가·요금 공정성",
@@ -21170,8 +21803,8 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "이동·교통",
-    "why": "바가지요금",
+    "cat": "치안·안전",
+    "why": "안전 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21377,7 +22010,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 미스터리",
+    "why": "수사 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21654,7 +22287,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 지연",
+    "why": "실종 장기화",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21759,7 +22392,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "수사 의혹",
+    "why": "의혹 제기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21794,7 +22427,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "진술 번복",
+    "why": "수사 부실",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -21966,7 +22599,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 주검",
+    "why": "수사 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -22034,7 +22667,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "수사 의혹",
+    "why": "수사 부실",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -22282,7 +22915,7 @@
    "channel": "news",
    "query": "제주 관광객",
    "type": "뉴스",
-   "category": "정책·행정",
+   "category": "응대·서비스",
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광 콘텐츠·시설 운영",
@@ -22297,7 +22930,7 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "정책·행정",
+    "cat": "응대·서비스",
     "why": "무장애 관광",
     "v": "llm-v3"
    },
@@ -22366,7 +22999,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "안전 불안",
+    "why": "불안 확산",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -22939,7 +23572,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 영향",
+    "why": "실종사건 영향",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23079,7 +23712,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 강화",
+    "why": "실종 대응",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23112,7 +23745,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "이동·교통",
-    "why": "정시율 향상",
+    "why": "정시율 1위",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23155,14 +23788,14 @@
    "keep": true
   },
   {
-   "title": "제주살이 계기",
-   "description": "제주관광공사에서 진행하는 제주 안전 인증 농어촌민박에서 폭삭 쉬멍 한달 살기 프로그램을 신청했고, 좋은 기회로 당첨이 되었다. 막내 딸이 있는 제주도행 배편을 예약했고, 짐이 많아져서 차도 제주도로...",
-   "link": "https://blog.naver.com/chief_jeju/224392961692",
+   "title": "도시의 침묵 보다는 바다의 속삭임이 좋아요",
+   "description": "~ 8.6 ~ 8.9 제주 여행 기록 ~ DAY 1 이번 여름, 미루가 제주도 숙소에 방남는다고 초대해줘서 제주도 여행을 다녀왔다 헿 비행기 내리자마자 렌터카셔틀탐 친구들과 같이오지 않아서 나혼자 렌터카 픽업하러 가는데...",
+   "link": "https://blog.naver.com/qlxnej125/224393166524",
    "date": "2026-08-28",
    "channel": "blog",
-   "query": "제주 관광",
+   "query": "제주 렌터카",
    "type": "후기",
-   "category": "숙박",
+   "category": "볼거리·체험",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 교통·접근성",
@@ -23177,40 +23810,7 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "숙박",
-    "why": "안전 인증 민박",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "이동·교통"
-   },
-   "keep": true
-  },
-  {
-   "title": "도시의 침묵 보다는 바다의 속삭임이 좋아요",
-   "description": "~ 8.6 ~ 8.9 제주 여행 기록 ~ DAY 1 이번 여름, 미루가 제주도 숙소에 방남는다고 초대해줘서 제주도 여행을 다녀왔다 헿 비행기 내리자마자 렌터카셔틀탐 친구들과 같이오지 않아서 나혼자 렌터카 픽업하러 가는데...",
-   "link": "https://blog.naver.com/qlxnej125/224393166524",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 렌터카",
-   "type": "후기",
-   "category": "이동·교통",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 교통·접근성",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
+    "cat": "볼거리·체험",
     "why": "여행 기록",
     "v": "llm-v3"
    },
@@ -23244,7 +23844,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "바다 뷰 감동",
+    "why": "숙소 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23320,72 +23920,6 @@
    "keep": true
   },
   {
-   "title": "제주관광협회,장애인체전·전국체전 대비 도내 숙박시설 사전점검",
-   "description": "전국체전과 장애인체전을 앞두고 제주도관광협회 건전관광질서계도반이 도내 숙박시설에 대한 사전 점검 및 현장 계도 활동을 하고 있다. (사진=제주도관광협회) 제주특별자치도관광협회(회장 강동훈)는 다가오는...",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=598131",
-   "date": "2026-08-28",
-   "channel": "news",
-   "query": "제주도 관광",
-   "type": "뉴스",
-   "category": "숙박",
-   "nature": "불만·후기",
-   "track": "info",
-   "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 사안",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "숙박",
-    "why": "사전점검",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "숙박"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주도 여행 경비 아끼는 법 : '탐나는전' 발급, 10% 캐시백 총정리",
-   "description": "(단, 제주 로컬 렌터카 업체 관련 추가 비용 청구 문제가 계속해서 나오고 있는데, 가성비를 위해 로컬 렌터카를 이용하실 땐 이용후기와 세부 약관을 꼼꼼히 챙겨보시길 권장드려요~) 5. 놓치면 아쉬운 추가...",
-   "link": "https://blog.naver.com/do-won1/224389663763",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 렌터카",
-   "type": "후기",
-   "category": "비용·상거래",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 교통·접근성",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "비용·상거래",
-    "why": "경비 절약",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "이동·교통"
-   },
-   "keep": true
-  },
-  {
    "title": "고개 숙인 경찰…14년 만에 연찬회 선 박근혜[노컷한컷]",
    "description": "인천공항=황진환 기자 \"집에서 구워 먹기도 겁나네\"…삼겹살 밥상물가 12% '껑충' 집에서 삼겹살을 구워... 황진환 기자 '제주 실종사건' 고개 숙인 경찰 지휘부와 윤호중 장관 윤호중 행정안전부 장관과 유재성 경찰청장...",
    "link": "https://www.nocutnews.co.kr/news/6569716?utm_source=naver&utm_medium=article&utm_campaign=20260828030128",
@@ -23419,39 +23953,6 @@
    "keep": true
   },
   {
-   "title": "전국체전 선수단 숙소 130곳 사전 점검 철저",
-   "description": "제주자치도관광협회는 지난 24일부터 선수단 예약이 이뤄진 일반숙박업소와 관광호텔 등 130여 곳을 대상으로 현장점검을 실시하고 있습니다. 숙박과 부대시설 요금, 취소.환불 기준이 제대로 안내되는지 확인하고 비상구...",
-   "link": "https://www.jibs.co.kr/news/articles/articlesDetail/64952?feed=na",
-   "date": "2026-08-28",
-   "channel": "news",
-   "query": "제주 숙소",
-   "type": "뉴스",
-   "category": "숙박",
-   "nature": "불만·후기",
-   "track": "info",
-   "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 사안",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "숙박",
-    "why": "사전점검",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "숙박"
-   },
-   "keep": true
-  },
-  {
    "title": "“한국 오면 무조건 갑니다”···‘구내식당 덕후’ 일본인이 뽑은 한...",
    "description": "여행 안내지에 소개되지 않은 관광지와 맛집을 찾아 ‘나만의 여행 루트’를 만들고, 그곳에서 살아보듯... 당시에는 여행사 투어를 이용해 서울과 부산, 제주 등 대표적인 관광지를 찾았다. 한국을 오가는 횟수가 급격히...",
    "link": "https://www.khan.co.kr/article/202608280700001",
@@ -23475,7 +23976,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "대표 관광지",
+    "why": "관광지 소개",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23518,39 +24019,6 @@
    "keep": true
   },
   {
-   "title": "제주관광협회,장애인체전·전국체전 대비 도내 숙박시설 사전점검 - 헤드라인제주",
-   "description": "<a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTE5MT0NNQkhOa0pCNTBKd0JlempUMnlNYm5IbkpPVW1DU0lWMWlCS2g5MFNFR2R4UU91aHRld2VSVWdKYXhFX0E3eThmSEgtMmQtbWhRT3ZBTDRpRElUalItS2Fncno2MVo2R050QlFVczNON0U?oc=5\" target=\"_blank\">제주관광협회,장애인체전·전국체전 대비 도내 숙박시설 사전점검</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">헤",
-   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5MT0NNQkhOa0pCNTBKd0JlempUMnlNYm5IbkpPVW1DU0lWMWlCS2g5MFNFR2R4UU91aHRld2VSVWdKYXhFX0E3eThmSEgtMmQtbWhRT3ZBTDRpRElUalItS2Fncno2MVo2R050QlFVczNON0U?oc=5",
-   "date": "2026-08-28",
-   "channel": "news",
-   "query": "제주 관광",
-   "type": "뉴스",
-   "category": "숙박",
-   "nature": "불만·후기",
-   "track": "info",
-   "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 사안",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "숙박",
-    "why": "사전점검",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "숙박"
-   },
-   "keep": true
-  },
-  {
    "title": "청춘정거장 제주로 제주 이주살이 다녀온 후기!",
    "description": "기회로 제주도 관광공사에서 지원을 받아서 제주도 이주살이라는 경험을 갖게 되었습니다! 여러분들도... 퀴즈나 제주 정착하신 분들의 강연을 들을 수 있어서 더 좋았던 것 같아요~ 천지연 폭포랑 바다도 실컷...",
    "link": "https://blog.naver.com/heeinseoul__/224393336344",
@@ -23558,7 +24026,7 @@
    "channel": "blog",
    "query": "제주도 관광",
    "type": "후기",
-   "category": "볼거리·체험",
+   "category": "먹거리",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 콘텐츠·시설 운영",
@@ -23573,8 +24041,8 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "볼거리·체험",
-    "why": "이주살이 경험",
+    "cat": "먹거리",
+    "why": "이주살이 호평",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23607,177 +24075,12 @@
     "rel": true,
     "sent": "중립",
     "cat": "이동·교통",
-    "why": "버스 여행",
+    "why": "여행 정보",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "이동·교통"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주맛집 제주보말 메밀칼국수 수평선본점 바다 보며 제대로 즐긴 ....",
-   "description": "---  제주 여행 중 이런 한 끼 어떠세요? 여행을 하다 보면 하루 세끼를 전부 유명한 맛집으로 채우기보다는 한 번쯤은 따뜻하고 편안한 음식을 먹으며 쉬어가는 시간도 필요하잖아요. 그럴 때 제주보말...",
-   "link": "https://blog.naver.com/ellyluv00/224393672228",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "보말 칼국수 만족",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "쥔장 최애 제주 맛집 우진해장국 평일 오픈런 후기",
-   "description": "여름이 끝나가기 전에 부지런히 올려보는 제주 맛집들 포스팅 제목처럼 코튼의 제주 최애 맛집인 #우진해장국 포스팅 시작입니다 우진해장국은 세 번째 방문인데요 웨이팅 극악이라 전 항상 오픈런 해서...",
-   "link": "https://blog.naver.com/cotton_0108/224393655524",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "정보·소식",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "우진해장국 호평",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주 장인의집 본점] 제주도민 점심 맛집 찾다가 먹은 *얼큰해장국....",
-   "description": "#제주장인의집 #제주장인의집본점 #장인의집본점 #제주맛집 #제주도민맛집 #제주점심맛집 #제주만두맛집 #제주만두 #4색모듬만두 #얼큰해장국 #제주해장국 #제주점심 #제주도맛집 #제주여행맛집 #제주도민일상",
-   "link": "https://blog.naver.com/0625cjs/224393639590",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "장인의집 만족",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주 함덕해수욕장 현지인 맛집] 전복솥밥과 오리 풀코스의 완벽한....",
-   "description": "제주 맛집 투어 2탄으로 함덕해수욕장 인근에서 알찬 가성비 점심 정식으로 입소문 난 제주 함덕해수욕장 현지인 맛집 '오리삼춘'을 다녀왔습니다. 제주함덕맛집 제주현지인맛집 오리삼춘  매장 정보 & 이용...",
-   "link": "https://blog.naver.com/adk12top/224393625915",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 4,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "오리삼춘 추천",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "볼거리·체험"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주관광협회 장애인체전·전국체전 대비 도내 숙박시설 사전점검 - 뉴스N제주",
-   "description": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE0tR0x4by1JcldLMU0yTVhkYzg4NW56Slh2VWlvQVo4S2dHeXMySWxUR09MNDNPV0FteEU1T0lBd3A3eGJ6RXM2eE43Q09kZzRSMEpOY1p5emlac2xvRVNIek5xbGF5bWdOX0tSbw?oc=5\" target=\"_blank\">제주관광협회 장애인체전·전국체전 대비 도내 숙박시설 사전점검</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">뉴스N제주</fon",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0tR0x4by1JcldLMU0yTVhkYzg4NW56Slh2VWlvQVo4S2dHeXMySWxUR09MNDNPV0FteEU1T0lBd3A3eGJ6RXM2eE43Q09kZzRSMEpOY1p5emlac2xvRVNIek5xbGF5bWdOX0tSbw?oc=5",
-   "date": "2026-08-28",
-   "channel": "news",
-   "query": "제주 관광",
-   "type": "뉴스",
-   "category": "숙박",
-   "nature": "불만·후기",
-   "track": "info",
-   "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 사안",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "숙박",
-    "why": "점검 보도",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "숙박"
    },
    "keep": true
   },
@@ -23805,45 +24108,12 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "쿠사마 작품 호평",
+    "why": "예술 작품 소개",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "볼거리·체험"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주 24시] '2026 제주국제환경포럼주간', ICC제주서 9월9일 개막",
-   "description": "제주도는 기후경제와 순환경제, 환경교육, 지속가능한 산림 관리, 국제 환경협력 등 서로 다른 분야의... ◇ 제주드림타워 38층 '스카이뷰 포차', K푸드 '코리안 플래터 세트' 출시 제주를 찾는 관광객들이 제주 최고층인...",
-   "link": "https://www.sisajournal.com/news/articleView.html?idxno=385300",
-   "date": "2026-08-28",
-   "channel": "news",
-   "query": "제주도 관광",
-   "type": "뉴스",
-   "category": "정책·행정",
-   "nature": "불만·후기",
-   "track": "info",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 사안",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "정책·행정",
-    "why": "행사 개최",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "먹거리"
    },
    "keep": true
   },
@@ -23855,7 +24125,7 @@
    "channel": "news",
    "query": "제주도 관광",
    "type": "행정",
-   "category": "치안·안전",
+   "category": "정책·행정",
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광지 환경·위생 관리",
@@ -23870,8 +24140,8 @@
    "llm": {
     "rel": true,
     "sent": "중립",
-    "cat": "치안·안전",
-    "why": "시설 정비",
+    "cat": "정책·행정",
+    "why": "행사 준비",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23904,7 +24174,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "숙박",
-    "why": "숙박 점검",
+    "why": "시설 점검",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23937,7 +24207,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "문화 해설",
+    "why": "문화 홍보",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -23947,317 +24217,86 @@
    "keep": true
   },
   {
-   "title": "제주용담맛집 돔베와고등어 내돈내산 후기",
-   "description": "제주 공항에 도착해서 렌터카를 인수하고 나니 배가 슬슬 고파지더라고용~ 첫 끼로 너무 부담스럽거나 거창한 메뉴보다는 제주 느낌이 물씬 나면서도 속 편하게 먹을 수 있는 밥집을 원했습니당!! 그렇게 용담...",
-   "link": "https://blog.naver.com/ian_island/224390521084",
+   "title": "글래드 호텔 '불꽃 페스트 패키지'→제주신화월드 '열린관광 페스타'",
+   "description": "위한 제주, 열린관광 페스타'에 참여한다. 행사는 9월 1일부터 10월 31일까지 진행되며 장애인·고령자·임산부·영유아 동반 고객 등 관광 약자가 편안하게 여행하도록 할인 혜택과 맞춤 서비스를 제공해 장벽 없는 관광...",
+   "link": "https://www.slist.kr/news/articleView.html?idxno=762062",
    "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 렌터카",
-   "type": "후기",
-   "category": "먹거리",
+   "channel": "news",
+   "query": "제주 여행",
+   "type": "뉴스",
+   "category": "정책·행정",
    "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 4,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주 맛집] 제주공항 근처 용담동 파스타 맛집 '양식당' 방문 후기",
-   "description": "아 이거 너~무 맛있습니다 상큼하게 마무리하니 좋았어요 용담 맛집 인정 #제주공항파스타 맛집을 찾고 계시면 무조건 추천하는 맛집이에요! 공항이랑 가까워서 접근성도 좋고 브레이크타임이 없어 여행 중간에...",
-   "link": "https://blog.naver.com/joah____/224393699138",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 4,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 추천",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주맛집] 함덕 흑돼지 맛집, 함덕 해수욕장 맛집, 제주삼춘 함덕해....",
-   "description": "고기꾸워 먹어야죠오 #함덕해수욕장맛집 #함덕흑돼지맛집 으로 엄청나게 추천을 받은 곳입니다 #제주맛집 #조천맛집 #함덕맛집 ‘#제주삼춘 함덕해수욕장 흑돼지’ 입니다✨ 제주 돼지고기 판매 인증점...",
-   "link": "https://blog.naver.com/ek_om/224393683230",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주맛집 제주보말 메밀칼국수 수평선본점 공항 가기 전 꼭 먹어본 ....",
-   "description": "제주칼국수맛집 #제주보말맛집 #제주공항근처맛집 #제주공항맛집 #제주공항맛집추천 #제주공항근처식당 #제주공항근처밥집 #제주제주시맛집 #제주시맛집추천 #제주맛집 #제주맛집추천 #제주도맛집 #제",
-   "link": "https://blog.naver.com/eianna00/224393671077",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주맛집 제주보말 메밀칼국수 수평선본점 공항 근처에서 만난 제....",
-   "description": "제주맛집 #제주맛집추천 #제주시맛집 #제주시칼국수 #제주메밀맛집 #제주향토음식 #제주도맛집 #제주여행맛집 #제주여행코스 #제주도여행 #제주공항근처가볼만한곳 #도두동맛집 #도두동맛집추천 #도두봉맛집...",
-   "link": "https://blog.naver.com/king45111/224393669991",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 3,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주 서귀포] 현지인 추천 흑돼지 맛집 '토평골'  내돈내산 솔직 후....",
-   "description": "안녕하세요 제가 7월에 다녀온 제주맛집 토평골 이야기를 하려고요! 제주 여행을 오면 빠질 수 없는... 구글 리뷰가 이미 맛집임을 인증하고 있습니다. 제주도 갔다고 하니 지인이 여기 가보라고 보내준 주소...",
-   "link": "https://blog.naver.com/jflower01/224393528148",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "올레시장맛집 천보식당 오리전문점 맛있어서 또 간집",
-   "description": "제주 서귀포 여행하면서 올레시장 근처 맛집을 찾다가 방문한 천보식당! 시장 구경도 하고 든든하게... 흔히 제주 맛집 하면 흑돼지나 해산물을 많이 떠올리는데, 천보식당은 오리요리를 제대로 즐길 수 있어서...",
-   "link": "https://blog.naver.com/ppppmj95/224393495931",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주맛집 제주김만복김밥 본점 제주공항근처 맛집 추천 제주 김밥 ....",
-   "description": "기대보다 맛있었던건 비빔면 ~  총평 ⭐ 맛 ★★★★☆ ⭐ 양 ★★★☆☆ ⭐ 가격 ★★★☆☆ ⭐ 분위기 ★★★☆☆ ⭐ 재방문 의사 ★★★★☆  이런 분께 추천해요 ✔️ 제주공항 근처 맛집을 찾는 분...",
-   "link": "https://blog.naver.com/minimalcuration/224393470296",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 7,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주 한림디저트 맛집 쿠키미야오｜협재에서 만난 고급 수제쿠키 4....",
-   "description": "#한림디저트 #협재디저트 #제주맛집 #쿠키미야오 제주 여행 중 맛있는 디저트를 찾다가 한림디저트... 제주에서 디저트 맛집을 찾는다면 한 번쯤 들러볼 만한 곳이었어요 :) 하르방 앙금샌드 (흑임자쿠키...",
-   "link": "https://blog.naver.com/cloudaru/224393441034",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 2,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "맛집 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주 호캉스 추천｜더 시에나 리조트 후기 + 제주 맛집 코스",
-   "description": "먹었던 제주 맛집 추천까지 같이 소개해볼게요 :) 더 시에나 리조트는 제주 서귀포에 위치하고... 마지막 맛집 추천은 카페 홉히입니다! 여기는 제주도 갈 때마다 방문하는 것 같아요. 일단 제주공항과 아주...",
-   "link": "https://blog.naver.com/jji_ni_99/224393432925",
-   "date": "2026-08-28",
-   "channel": "blog",
-   "query": "제주 맛집",
-   "type": "후기",
-   "category": "숙박",
-   "nature": "불만·후기",
-   "track": "voice",
+   "track": "info",
    "policy": "숙박 시설·거래 관행",
    "sentiment": "긍정",
    "strength": "",
    "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 맥락",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "포용 관광",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주관광공사, '모두를 위한 제주' 열린 관광 페스타 9월부터 두 달간 개...",
+   "description": "또 GKL사회공헌재단과 함께 지체장애인을 위한 맞춤형 제주 여행을 지원하며, 제주신화월드와 제주항공우주박물관 등 117개 관광사업체와 60개 공영관광지는 할인과 동반 서비스 등 맞춤형 혜택을 제공합니다. 프로모션...",
+   "link": "https://news.bbsi.co.kr/news/articleView.html?idxno=4103333",
+   "date": "2026-08-28",
+   "channel": "news",
+   "query": "제주 여행",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "맞춤 혜택",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도 관광지 에코랜드 테마파크 ㅣ 시즌마다 만나는 예쁜 꽃",
+   "description": "안녕하세요~ 제주도 관광지 에코랜드 테마파크 다녀왔어요. 제주 곶자왈 숲을 기차를 타고 여행을 할 수... 제주도 제주시 조천읍 번영로 1278-169 매일 09:00 ~ 19:00 입장마감 17:30 전용 주차장이 넓게 마련되어...",
+   "link": "https://blog.naver.com/chang__min_/224393687092",
+   "date": "2026-08-28",
+   "channel": "blog",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
    "pos": 2,
    "reasons": [],
    "pending": false,
@@ -24265,14 +24304,344 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
-    "cat": "숙박",
-    "why": "리조트 후기",
+    "sent": "중립",
+    "cat": "볼거리·체험",
+    "why": "관광지 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "긍정",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "[제주도] 제주도 에코랜드, 기차 타고 즐기는 제주도관광지 추천",
+   "description": "제주도 에코랜드, 기차 타고 즐기는 제주도관광지 추천  흥미로운 생활... 테마파크예요 제주도는 예쁜 관광지가 정말 많지만, 에코랜드는 조금 특별하게 기차를 타고 제주 곶자왈을 여행할 수 있는 곳이라...",
+   "link": "https://blog.naver.com/a1004-js/224393567683",
+   "date": "2026-08-28",
+   "channel": "blog",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "볼거리·체험",
+    "why": "관광지 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 여행 코스 3박4일 렌터카 실동선, 스폿 이동시간까지",
+   "description": "구간 수단 거리·시간 공항→함덕해수욕장 렌터카 약 20km 공항→성산일출봉 렌터카 약 49km·1시간~1시간10분 성산항→우도 도항선 약 10~15분 성산일출봉→서귀포 시내 렌터카 약 49분 거리·시간은 비짓제주와...",
+   "link": "https://blog.naver.com/seiok/224393602062",
+   "date": "2026-08-28",
+   "channel": "blog",
+   "query": "제주 렌터카",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "여행 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "[제주 여행] 렌터카 없이 숙소 주변에서 하루 보내는 여행법",
+   "description": "즉각 실천 가능한 제주 여행 준비 전략 렌터카 없이 제주 숙소 주변에서 하루를 보내려면 대중교통과 도보 활용법을 익혀두는 게 핵심입니다. 미리 교통편과 방문지를 조사하고 계획을 세워두면 예상치 못한...",
+   "link": "https://blog.naver.com/go-in/224393047280",
+   "date": "2026-08-28",
+   "channel": "blog",
+   "query": "제주 렌터카",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "정보·소식",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "대중교통 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주공항에서 서귀포 하루코스",
+   "description": "서귀포에서 렌터카로 다니신다면 아래 코스를 추천해요. 지금 계신 곳 기준으로도 이동하기 좋은... 올레시장은 감귤·한라봉, 갈치·고등어 등 제주 먹거리를 구경하기 좋습니다. 제가 추천한다면 오늘은...",
+   "link": "https://blog.naver.com/kbw1998/224392725861",
+   "date": "2026-08-28",
+   "channel": "blog",
+   "query": "제주 렌터카",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "볼거리·체험",
+    "why": "관광지 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "테슬라 모델 Y 주니퍼 주문부터 인도 과정, 설레는 출고기",
+   "description": "차 없어도 괜찮다며 제주 뚜벅이 생활을 하다 가끔 남편 올 때만 렌트를 했는데 중동 전쟁이 터지고 난 후 기름값 오르고, 물가 오르고, 안되겠다 싶어 더 늦기 전에 전기차를 사야겠다 맘먹었다. 결국 남편의...",
+   "link": "https://blog.naver.com/loveya83/224391099491",
+   "date": "2026-08-28",
+   "channel": "blog",
+   "query": "제주 물가",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 물가·요금 공정성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "이동·교통",
+    "why": "전기차 구매 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "비용·상거래"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주신화월드가 장애인·임산부·아이 동반 가족 여행 돕는 법",
+   "description": "제주자치도가 주최하고 제주관광공사가 주관하는 ‘2026 모두를 위한 제주, 열린관광 페스타’는 관광... 거동이 불편한 고객에게는 휠체어 대여 서비스를 제공한다. 영유아를 동반한 투숙객을 위해 리조트 전 객실에서...",
+   "link": "https://sports.donga.com/life/article/all/20260828/134562322/1",
+   "date": "2026-08-28",
+   "channel": "news",
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "관광 약자 지원",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
     "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주신화월드, '2026 열린관광 페스타' 동참",
+   "description": "제주특별자치도가 주최하고 제주관광공사가 주관하는 이번 행사는 장애인, 고령자, 임산부, 영유아 동반... 객실로 관광 약자의 이동 편의성과 공간 접근성을 크게 높였다. 거동이 불편한 고객을 위해 휠체어 대여...",
+   "link": "https://www.mt.co.kr/policy/2026/08/28/2026082809594124697",
+   "date": "2026-08-28",
+   "channel": "news",
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "관광 약자 지원",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주신화월드, '2026 열린관광 페스타' 참여… 관광 약자 편의성 강화",
+   "description": "주최하고 제주관광공사가 주관하는 '2026 모두를 위한 제주, 열린관광 페스타' 프로모션에 동참한다. 이번... 대여 서비스: 거동이 불편한 방문객을 위한 휠체어 대여 서비스와 함께, 전 객실을 대상으로 젖병소독기 대여...",
+   "link": "https://www.discoverynews.kr/news/articleView.html?idxno=1099913",
+   "date": "2026-08-28",
+   "channel": "news",
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "관광 약자 지원",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주수어통역센터, ‘도내 관광지 수어해설 영상’ 제작·배포 - 에이블뉴스",
+   "description": "<a href=\"https://news.google.com/rss/articles/CBMibkFVX3lxTE1uU0ZETlVpLTgtanRLZVZGU0pmMTJTQ3BIcUhkQVhKbFNQYmhveG9VVnVEV2RmWHRmN21fRlYteXRIcFlJbktjMTlPZXlQbzRtNmp1X1dQUWxTNVdJS3FaNGRKOEVWZkdiUlQzZU930gFyQVVfeXFMUFBJVjJfNXFOZnBwLVdQMEdKbENFZmNFakFiaHBwbXNGYXZsVFZhN0xiUktXVU9oSno5X3FQVHZISWRtalV6R0M1RU",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1uU0ZETlVpLTgtanRLZVZGU0pmMTJTQ3BIcUhkQVhKbFNQYmhveG9VVnVEV2RmWHRmN21fRlYteXRIcFlJbktjMTlPZXlQbzRtNmp1X1dQUWxTNVdJS3FaNGRKOEVWZkdiUlQzZU930gFyQVVfeXFMUFBJVjJfNXFOZnBwLVdQMEdKbENFZmNFakFiaHBwbXNGYXZsVFZhN0xiUktXVU9oSno5X3FQVHZISWRtalV6R0M1RUxxWnVpZkJPc2QwdjNsaDExNTFCa1JTNlNPQXdmZWo4VUVLQ1JBbEVn?oc=5",
+   "date": "2026-08-28",
+   "channel": "news",
+   "query": "제주 관광",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "접근성 개선",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도수어통역센터, 관광지 수어해설 영상 제작 배포 - 제주도민일보",
+   "description": "<a href=\"https://news.google.com/rss/articles/CBMib0FVX3lxTE9aLUlTczU4MUZKV1RGWE8wd2lfZGNQNk1hWUQzeXRZem1ycGFpVGE5cEZ3OWwtNTV3VmVjTVFQRzREdHhkUFZrUGdrVkJ5VTBfN0hSLXNtNkNoZmNESFY3aXJRV1FDYVlfYTBjODg2Yw?oc=5\" target=\"_blank\">제주도수어통역센터, 관광지 수어해설 영상 제작 배포</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">제주도민일보</fon",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9aLUlTczU4MUZKV1RGWE8wd2lfZGNQNk1hWUQzeXRZem1ycGFpVGE5cEZ3OWwtNTV3VmVjTVFQRzREdHhkUFZrUGdrVkJ5VTBfN0hSLXNtNkNoZmNESFY3aXJRV1FDYVlfYTBjODg2Yw?oc=5",
+   "date": "2026-08-28",
+   "channel": "news",
+   "query": "제주도 관광",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "접근성 개선",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
    },
    "keep": true
   },
@@ -25404,7 +25773,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 치안",
+    "why": "치안 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -25539,7 +25908,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 치안",
+    "why": "치안 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -26781,7 +27150,7 @@
    "channel": "blog",
    "query": "제주 관광",
    "type": "후기",
-   "category": "정책·행정",
+   "category": "비용·상거래",
    "nature": "정보·소식",
    "track": "voice",
    "policy": "행정 소식(지수 제외)",
@@ -26796,7 +27165,7 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "정책·행정",
+    "cat": "비용·상거래",
     "why": "관광객 감소",
     "v": "llm-v3"
    },
@@ -26830,7 +27199,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "무장애 관광지 후기",
+    "why": "무장애 관광지 호평",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -29149,7 +29518,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 우려",
+    "why": "실종사건 지적",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -29358,7 +29727,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 공포",
+    "why": "실종 지도",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -29494,7 +29863,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 대응",
+    "why": "실종사고",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -29798,7 +30167,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 대응",
+    "why": "CCTV 확대",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -29866,7 +30235,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 대응",
+    "why": "안전대책",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -29901,7 +30270,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 대응",
+    "why": "안전망 재점검",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -29936,7 +30305,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 대응",
+    "why": "사각지대 해소",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -30070,7 +30439,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "정책·행정",
-    "why": "무장애 정책",
+    "why": "무장애 정책 추진",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -30242,7 +30611,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "교통사고",
+    "why": "교통사고 발생",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -30275,7 +30644,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 대응",
+    "why": "실종 대응 강화",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -30642,7 +31011,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 대응",
+    "why": "실종 괴담",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -30948,7 +31317,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 불안",
+    "why": "실종사건 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -31117,7 +31486,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 불안",
+    "why": "실종사건 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -31942,7 +32311,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 우려",
+    "why": "여행 취소 고민",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -34735,7 +35104,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "관광업계 노심초사",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -34807,7 +35176,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "실종자 사망",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35092,7 +35461,7 @@
    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5vbzNDQnMza3dvZlJqcF84dnYzZHk3SXVaN3VmZlhVWlpzZHZXOWl2V043SVdtS3VRd3o2VzZhYzYzdmFCVHVnbHlGcUpBbjJqS2pWVDhHSTVxcEFVMG5QbXpZUEMwdw?oc=5",
    "date": "2026-08-27",
    "channel": "news",
-   "query": "제주 안전",
+   "query": "제주 관광",
    "type": "뉴스",
    "category": "치안·안전",
    "nature": "불만·후기",
@@ -35112,7 +35481,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "관광 불안",
+    "why": "불안감 확산",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35147,7 +35516,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "안전 우려",
+    "why": "도민 불안 해소",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35218,7 +35587,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "범죄 사건",
+    "why": "살해 사건",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35254,7 +35623,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "범죄 사건",
+    "why": "보복 살해",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35271,7 +35640,7 @@
    "channel": "news",
    "query": "제주 단속",
    "type": "사건",
-   "category": "정책·행정",
+   "category": "치안·안전",
    "nature": "사건사고",
    "track": "risk",
    "policy": "관광객 안전·치안",
@@ -35288,7 +35657,7 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "정책·행정",
+    "cat": "치안·안전",
     "why": "탁상행정 비판",
     "v": "llm-v3"
    },
@@ -35339,7 +35708,7 @@
    "channel": "news",
    "query": "제주 단속",
    "type": "사건",
-   "category": "정책·행정",
+   "category": "치안·안전",
    "nature": "사건사고",
    "track": "risk",
    "policy": "관광객 안전·치안",
@@ -35356,8 +35725,8 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "정책·행정",
-    "why": "행정 비판",
+    "cat": "치안·안전",
+    "why": "현장 검토 부족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35440,7 +35809,7 @@
    "channel": "news",
    "query": "제주 관광정책",
    "type": "행정",
-   "category": "정책·행정",
+   "category": "볼거리·체험",
    "nature": "정보·소식",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
@@ -35455,8 +35824,8 @@
    "llm": {
     "rel": true,
     "sent": "중립",
-    "cat": "정책·행정",
-    "why": "홍보 추진",
+    "cat": "볼거리·체험",
+    "why": "홍보 활동",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35489,7 +35858,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "비용·상거래",
-    "why": "환급 정책",
+    "why": "정책 논의",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35528,39 +35897,6 @@
    "llm_prev": {
     "sentiment": "중립",
     "category": "볼거리·체험"
-   },
-   "keep": true
-  },
-  {
-   "title": "서용주 \"이준석, 개혁신당 한계 체감... 당 대표 내려놓고 'FA 시장' 출사...",
-   "description": "보완 수사권 폐지, 최근에 제주 실종 사건 치안 문제 있지, 부동산 세제 개편·공급·전월세 뭐 이런 거 있지, 뭐 물가도 지금 있지, 뭐 사회적 양극화는 벌어지고 있지, 거기에 주가도 지금 너무 롤러코스터… 이렇게 해서...",
-   "link": "https://www.ytn.co.kr/_ln/0101_202608270745259144",
-   "date": "2026-08-27",
-   "channel": "news",
-   "query": "제주 물가",
-   "type": "사건",
-   "category": "치안·안전",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광 물가·요금 공정성",
-   "sentiment": "부정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 맥락",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "부정",
-    "cat": "치안·안전",
-    "why": "실종사건 불안",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "비용·상거래"
    },
    "keep": true
   },
@@ -35659,45 +35995,12 @@
     "rel": true,
     "sent": "긍정",
     "cat": "이동·교통",
-    "why": "이동 방법 만족",
+    "why": "이동 방법 소개",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "긍정",
     "category": "이동·교통"
-   },
-   "keep": true
-  },
-  {
-   "title": "\"선배가 女후배 뺨 때리고 발로 찼다\" 블랑카 정철규, 충격 폭로[스타이...",
-   "description": "그리고 제주도 힐링 여행!!'이라는 제목의 '미키네 게스트하우스' 1회 영상에 등장했다. 이날 영상에서 정철규는 \"2005년 선배 A씨가 여성 개그맨 B씨를 폭행하는 장면을 직접 목격했다\"라며 \"개그맨 기획사로 키우고 싶어서...",
-   "link": "https://www.starnewskorea.com/star/2026/08/27/2026082721492630121",
-   "date": "2026-08-27",
-   "channel": "news",
-   "query": "제주도 여행",
-   "type": "사건",
-   "category": "치안·안전",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "숙박 시설·거래 관행",
-   "sentiment": "부정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 시설 사건",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "부정",
-    "cat": "치안·안전",
-    "why": "폭행 사건",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "숙박"
    },
    "keep": true
   },
@@ -35735,17 +36038,151 @@
    "keep": true
   },
   {
-   "title": "사진도 찍고 굿즈도 구경하고! 누리프렌즈카페제주 다녀왔어요",
-   "description": "이번 제주 여행에서 발견한 누리프렌즈카페! 일단 주차장이 넓어서 렌터카로 가기 편하고, 입구부터 귀여운 분위기가 느껴져서 사진부터 찰칵 그런데 안으로 들어가니 카페만 있는 게 아니더라고요. 캐릭터...",
-   "link": "https://blog.naver.com/butter7942/224392486557",
+   "title": "가족과 함께하는 완벽 관광지도 추천 5選",
+   "description": "가족과 함께하는 완벽 관광지도 추천 5選 휴대용 제주도 여행지도 - 방수 제주 관광 지도 우리나라, 상세페이지 참조 1. 휴대용 제주도 여행지도 - 방수 제주 관광 지도 우리나라, 상세페이지 참조...",
+   "link": "https://blog.naver.com/d75wqgcuu/224391770549",
    "date": "2026-08-27",
    "channel": "blog",
-   "query": "제주 렌터카",
+   "query": "제주 관광",
    "type": "후기",
    "category": "볼거리·체험",
    "nature": "불만·후기",
    "track": "voice",
-   "policy": "음식점 품질·가격",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "볼거리·체험",
+    "why": "관광지 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "폭염·가뭄 위기는 뒷전?...임기 시작부터 '관광성 연수' 논란",
+   "description": "일정으로 제주도 연수를 다녀왔습니다. 예산 심사 등 의정활동 교육도 있었지만, 일정 상당 부분은 '벤치마킹'이란 이름으로 사려니숲길과 함덕해수욕장 등 관광지를 둘러보는데 쓰였습니다. 당시 부안에도 폭염이...",
+   "link": "http://www.jmbc.co.kr/news/view/67448",
+   "date": "2026-08-27",
+   "channel": "news",
+   "query": "제주 관광정책",
+   "type": "뉴스",
+   "category": "치안·안전",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "부정",
+   "strength": "약",
+   "neg": 2,
+   "pos": 0,
+   "reasons": [
+    "논란"
+   ],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "치안·안전",
+    "why": "관광성 연수",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "부정",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "[시사천국] 김한규·한지아, 여야 정국 진단…지지율 하락과 경찰개혁 ...",
+   "description": "▶한지아: 이번 이재명 정부가 처음 시작했을 때 정책적으로는 유능하다라는 평가를 받지 않았습니까?... 특히 제주도 같은 경우에는 이게 관광지인데 위험한 지역으로 국민들한테 보여지게 되면 일단 제주도민 일상에...",
+   "link": "https://news.cpbc.co.kr/article/1175337?division=NAVER",
+   "date": "2026-08-27",
+   "channel": "news",
+   "query": "제주 관광정책",
+   "type": "뉴스",
+   "category": "치안·안전",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "관광객 안전·치안",
+   "sentiment": "부정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "치안·안전",
+    "why": "관광지 이미지 훼손",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "치안·안전"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주여행 다이소 추천템 ｜직접 써보고 살아남은 여행 준비물",
+   "description": "다이소추천템 #다이소여행용품 #제주물놀이 #제주해수욕장 #제주바다준비물 #제주여름여행 #제주가족여행 #아이와제주여행 #다이소여행템 #다이소꿀템 #제주렌터카 #여행준비물 #물놀이준비물 #파라솔준비물",
+   "link": "https://blog.naver.com/kej803/224392498427",
+   "date": "2026-08-27",
+   "channel": "blog",
+   "query": "제주 렌터카",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "준비물 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 비오는날 실내 가볼만한곳 추천,  비와도 실망하지 마세요!",
+   "description": "비가 온다고 제주 여행이 망한 건 아니니까요. 비와도 실망하지 말고, 제주에서만 즐길 수 있는 실내 여행지를 찾아보세요. 1. 비 오는 날에도 압도적인 몰입감, 아르떼뮤지엄 제주 제주 실내 가볼만한곳을...",
+   "link": "https://blog.naver.com/yeon_ordinary_day/224392015769",
+   "date": "2026-08-27",
+   "channel": "blog",
+   "query": "제주 여행 실망",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
    "sentiment": "긍정",
    "strength": "",
    "neg": 0,
@@ -35758,40 +36195,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "여행 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주 성산일출봉·우도 100배 즐기기｜배시간·입장료·렌터카·하루....",
-   "description": "렌터카 이용자는 성산포항 주차장에 차를 두고 배를 타는 방식이 일반적입니다. 제주관광공사도 최근 우도 여행 안내에서 같은 방식을 권하고 있습니다. 11. 우도 배를 탈 때 신분증을 챙기세요 성산포항에...",
-   "link": "https://blog.naver.com/lonelyfox99/224390265037",
-   "date": "2026-08-27",
-   "channel": "blog",
-   "query": "제주 렌터카",
-   "type": "후기",
-   "category": "이동·교통",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "중립",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "정보성 글",
+    "why": "실내 여행지 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35801,63 +36205,96 @@
    "keep": true
   },
   {
-   "title": "김해국제공항 내부 입점 렌터카 내돈내산 후기",
-   "description": "2026년 상반기에 이용한 김해공항 제주원렌터카(하이렌터카) 후기입니다. 공항 렌트카를 검색하면 유독 광고글만 나와서 써보는 후기. 김해공항 렌터카 가격 평일 27시간 대여 차종 레이(경차) 반납 때 기름값 2만...",
-   "link": "https://blog.naver.com/doramoa/224392294681",
+   "title": "제주은행, 외국인 관광객 전용 선불카드 보급 확대 추진",
+   "description": "제주은행 관계자는 \"외국인 관광객의 결제와 이동, 세금 환급 과정의 불편을 줄이는 것이 제주 관광 만족도를 높이는데 도움이 될 것\"이라며 \"제주은행의 지역 네트워크를 활용해 카드 보급을 적극적으로 추진하고...",
+   "link": "https://www.newsjeju.net/news/articleView.html?idxno=425072",
    "date": "2026-08-27",
-   "channel": "blog",
-   "query": "제주 렌터카",
-   "type": "후기",
-   "category": "이동·교통",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 교통·접근성",
-   "sentiment": "부정",
-   "strength": "",
-   "neg": 0,
-   "pos": 1,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "부정",
-    "cat": "이동·교통",
-    "why": "렌터카 불만",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "이동·교통"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주도 가서 바가지 쓰기 싫다면 필독! 리얼 후기로 검증된 '제주 렌....",
-   "description": "설레는 제주도 여행의 시작과 끝을 책임지는 렌터카, 아무 곳이나... 있는 제주 렌터카 및 비교 플랫폼 베스트 5를 낱낱이 파헤쳐 드립니다. 1. 롯데렌터카 (제주공항점) - \"가장 안전하고 확실한 대기업의 품격...",
-   "link": "https://blog.naver.com/cmccmc111/224392196729",
-   "date": "2026-08-27",
-   "channel": "blog",
-   "query": "제주 바가지",
-   "type": "후기",
-   "category": "비용·상거래",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 물가·요금 공정성",
-   "sentiment": "부정",
+   "channel": "news",
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "행정 소식(지수 제외)",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 0,
    "reasons": [],
    "pending": false,
-   "rel_why": "관광객 경험",
+   "rel_why": "관광 사안",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
-    "cat": "비용·상거래",
-    "why": "바가지 경고",
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "외국인 관광객 편의 증진",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "정책·행정"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주은행, '호텔서 부가세 환급' 외국인 전용 선불카드 보급",
+   "description": "제주은행 관계자는 \"외국인 관광객의 결제와 이동, 세금 환급 과정의 불편을 줄이는 것이 제주 관광 만족도를 높이는데 도움이 될 것\"이라며, \"제주은행의 지역 네트워크를 활용해 카드 보급을 적극적으로 추진하고...",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=598094",
+   "date": "2026-08-27",
+   "channel": "news",
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "외국인 관광객 편의 증진",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "'환급 세금 소비로'… 제주은행 외국 관광객 선불카드 확대",
+   "description": "제주은행 관계자는 \"외국인 관광객의 결제와 이동, 세금 환급 과정의 불편을 줄이는 것이 제주 관광 만족도를 높이는데 도움이 될 것\"이라며 \"제주은행의 지역 네트워크를 활용해 카드 보급을 적극적으로 추진하고...",
+   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321722",
+   "date": "2026-08-27",
+   "channel": "news",
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "관광 물가·요금 공정성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "외국인 관광객 편의 증진",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -35867,212 +36304,202 @@
    "keep": true
   },
   {
-   "title": "제주도, 점심시간 주차 단속 유예 구간 확장",
-   "description": "다만 제주공항과 제주시청 일원, 버스터미널, 버스중앙차로 주변 등 원활한 교통흐름이 필요한 특별관리구역과 주요 간선도로는 단속유예 대상에서 제외된다. 제주도는 이번 기준 개선으로 소상공인·자영업자와...",
-   "link": "https://www.jemin.com/news/articleView.html?idxno=842219",
+   "title": "제주은행, 외국인 관광객 전용 선불카드 보급 확대",
+   "description": "제주은행 관계자는 \"외국인 관광객의 결제와 이동, 세금 환급 과정의 불편을 줄이는 것이 제주 관광 만족도를 높이는데 도움이 될 것\"이라며 \"제주은행의 지역 네트워크를 활용해 카드 보급을 적극적으로 추진하고...",
+   "link": "http://www.lawissue.co.kr/view.php?ud=2026082711000785229817d053b9_12",
    "date": "2026-08-27",
    "channel": "news",
-   "query": "제주 단속",
-   "type": "사건",
-   "category": "이동·교통",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광객 안전·치안",
-   "sentiment": "중립",
-   "strength": "약",
-   "neg": 1,
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "관광 물가·요금 공정성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
    "pos": 0,
-   "reasons": [
-    "단속"
-   ],
+   "reasons": [],
    "pending": false,
-   "rel_why": "관광 시설 사건",
+   "rel_why": "관광 사안",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "주차 단속",
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "외국인 관광객 편의 증진",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "부정",
-    "category": "치안·안전"
+    "sentiment": "중립",
+    "category": "비용·상거래"
    },
    "keep": true
   },
   {
-   "title": "제주, 점심시간 주정차 단속 유예···3차로 포함 구간까지 확대",
-   "description": "다만 제주공항과 제주시청 일원, 버스터미널, 버스중앙차로 주변 등 원활한 교통흐름이 필요한 특별 관리구역과 주요 간선도로는 기존처럼 단속 유예 대상에서 제외된다. 제주도는 이번 기준 개선으로 소상공인과...",
-   "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404110",
+   "title": "호텔서 부가세 환급…제주은행, 외국관광객 전용 선불카드",
+   "description": "외국인 관광객은 올해 1월 13만 8998명에서 6월 24만9035명으로 79% 증가했다. 제주은행 관계자는 \"외국인 관광객의 결제와 이동, 세금 환급 과정의 불편을 줄이는 게 제주 관광 만족도를 높이는 데 도움이 될 것\"으로 내다봤다.",
+   "link": "https://www.nocutnews.co.kr/news/6568973?utm_source=naver&utm_medium=article&utm_campaign=20260827105410",
    "date": "2026-08-27",
    "channel": "news",
-   "query": "제주 단속",
-   "type": "사건",
-   "category": "이동·교통",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광객 안전·치안",
-   "sentiment": "중립",
-   "strength": "약",
-   "neg": 1,
+   "query": "제주 관광 불편",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
    "pos": 0,
-   "reasons": [
-    "단속"
-   ],
+   "reasons": [],
    "pending": false,
-   "rel_why": "관광 시설 사건",
+   "rel_why": "관광 사안",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "주차 단속",
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "외국인 관광객 편의 증진",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "부정",
-    "category": "치안·안전"
+    "sentiment": "중립",
+    "category": "숙박"
    },
    "keep": true
   },
   {
-   "title": "점심시간 주차 단속 유예 구간 넓어진다",
-   "description": "다만 제주공항과 제주시청 일원, 버스터미널, 버스중앙차로 주변 등 원활한 교통흐름이 필요한 특별관리구역과 주요 간선도로는 기존처럼 단속유예 대상에서 제외된다. 제주도는 이번 기준 개선을 통해 지역상권의 영업...",
-   "link": "https://www.mediajeju.com/news/articleView.html?idxno=365941",
+   "title": "“변함없는 평화의 섬…안심하고 찾는 안전 관광지 제주” - 제주매일",
+   "description": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE1hU2ozWXVIaEloRy1xODRSamJlbDctOWtjMDVqOXlCNFpZMHIwN1ZadFZBbVFnVldPbm1JQU9YZGIzejQxdzZlQllpc2RzU0NPWHU0WEdrN0NzNG1BYjQ3TU4xU085ZUg1eXJlNw?oc=5\" target=\"_blank\">“변함없는 평화의 섬…안심하고 찾는 안전 관광지 제주”</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">제주매일</font>",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1hU2ozWXVIaEloRy1xODRSamJlbDctOWtjMDVqOXlCNFpZMHIwN1ZadFZBbVFnVldPbm1JQU9YZGIzejQxdzZlQllpc2RzU0NPWHU0WEdrN0NzNG1BYjQ3TU4xU085ZUg1eXJlNw?oc=5",
    "date": "2026-08-27",
    "channel": "news",
-   "query": "제주 단속",
-   "type": "사건",
-   "category": "이동·교통",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광객 안전·치안",
-   "sentiment": "중립",
-   "strength": "약",
-   "neg": 1,
+   "query": "제주 안전",
+   "type": "뉴스",
+   "category": "치안·안전",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
    "pos": 0,
-   "reasons": [
-    "단속"
-   ],
+   "reasons": [],
    "pending": false,
-   "rel_why": "관광 시설 사건",
+   "rel_why": "관광 사안",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "주차 단속",
+    "sent": "긍정",
+    "cat": "치안·안전",
+    "why": "안전 관광지 홍보",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "부정",
-    "category": "치안·안전"
+    "sentiment": "중립",
+    "category": "볼거리·체험"
    },
    "keep": true
   },
   {
-   "title": "제주도 점심시간 불법주정차 단속 유예 구간 추가",
-   "description": "다만 제주공항과 제주시청 일원, 버스터미널, 버스중앙차로 주변 등 원활한 교통흐름이 필요한 특별관리구역과 주요 간선도로는 지금처럼 단속유예 대상에서 빠진다. 제주도는 이번 기준 개선으로 소상공인·자영업자와...",
-   "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=321712",
+   "title": "'미용비·제주여행 향응 의혹' 김제시장, 이번엔 베트남 경비 대납 '논란' - 뉴시스",
+   "description": "<a href=\"https://news.google.com/rss/articles/CBMiYEFVX3lxTFBsRDEwV1VCUVZvM2diQy15RFJKeDFZWjBpREJyd2ZVUDN2ZlgtTldoel9aQXFZVThxUmpvck1qQ0gxS0YwV216NXJ6TGlLRlNUUXA3VjNnY3JVak9FQWM1dNIBeEFVX3lxTFBqTm1NTW96aXNCRHFaSG8zdFVyTVQ2RkN1bDN1bUNhOUtkU1RLSWd5SVZLdHlTYWJ6QXlOdnhHbV9SaVplNmt2cTBHNk5QN29OeEtIaWNhbG",
+   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBsRDEwV1VCUVZvM2diQy15RFJKeDFZWjBpREJyd2ZVUDN2ZlgtTldoel9aQXFZVThxUmpvck1qQ0gxS0YwV216NXJ6TGlLRlNUUXA3VjNnY3JVak9FQWM1dNIBeEFVX3lxTFBqTm1NTW96aXNCRHFaSG8zdFVyTVQ2RkN1bDN1bUNhOUtkU1RLSWd5SVZLdHlTYWJ6QXlOdnhHbV9SaVplNmt2cTBHNk5QN29OeEtIaWNhbGFNUDNFR1pic0hQSHRLN1Rqd0VwSzFTbC1GdmdYZ0xrTw?oc=5",
    "date": "2026-08-27",
    "channel": "news",
-   "query": "제주 단속",
-   "type": "사건",
-   "category": "이동·교통",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광객 안전·치안",
-   "sentiment": "중립",
+   "query": "제주 여행",
+   "type": "뉴스",
+   "category": "치안·안전",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": null,
+   "sentiment": "부정",
    "strength": "약",
-   "neg": 1,
+   "neg": 2,
    "pos": 0,
    "reasons": [
-    "단속"
+    "논란"
    ],
    "pending": false,
-   "rel_why": "관광 시설 사건",
+   "rel_why": "관광 맥락",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "주차 단속",
+    "sent": "부정",
+    "cat": "치안·안전",
+    "why": "향응 의혹",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "부정",
-    "category": "치안·안전"
+    "category": null
    },
    "keep": true
   },
   {
-   "title": "점심시간 주차 단속 유예 편도 3차로까지 확대",
-   "description": "다만 제주공항과 제주시청 일원, 버스터미널, 버스중앙차로 주변 등 원활한 교통흐름이 필요한 특별관리구역과 주요 간선도로는 지금처럼 단속유예 대상에서 빠진다. 제주도는 이번 기준 개선으로 소상공인·자영업자와...",
-   "link": "http://www.samdailbo.com/news/articleView.html?idxno=269533",
+   "title": "제주은행, 외국인 관광객 전용 선불카드 보급 확대 추진 - 제주매일",
+   "description": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTFBpQmVBd2VOLW5EWEpKam03dVk4OG5oNFRpcVI1YWo0amVsUEFoSzZ2cjg1SjZzUHRrS0RaQUZGRE1JSjBMNmJqTjk3cjJVelc1V1JOaFBZOUhsQThvX1VXMW1HTkF4T1pIMlJMVA?oc=5\" target=\"_blank\">제주은행, 외국인 관광객 전용 선불카드 보급 확대 추진</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">제주매일</font>",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBpQmVBd2VOLW5EWEpKam03dVk4OG5oNFRpcVI1YWo0amVsUEFoSzZ2cjg1SjZzUHRrS0RaQUZGRE1JSjBMNmJqTjk3cjJVelc1V1JOaFBZOUhsQThvX1VXMW1HTkF4T1pIMlJMVA?oc=5",
    "date": "2026-08-27",
    "channel": "news",
-   "query": "제주 단속",
-   "type": "사건",
-   "category": "이동·교통",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광객 안전·치안",
-   "sentiment": "중립",
-   "strength": "약",
-   "neg": 1,
+   "query": "제주도 여행",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "정보·소식",
+   "track": "info",
+   "policy": "행정 소식(지수 제외)",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
    "pos": 0,
-   "reasons": [
-    "단속"
-   ],
+   "reasons": [],
    "pending": false,
-   "rel_why": "관광 시설 사건",
+   "rel_why": "관광 사안",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "주차 단속",
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "외국인 관광객 편의 증진",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "부정",
-    "category": "치안·안전"
+    "sentiment": "중립",
+    "category": "정책·행정"
    },
    "keep": true
   },
   {
-   "title": "제주 점심시간 주정차 단속 유예구간 확대",
-   "description": "편도 3차로 포함 구간도 가능…공항·시청 주변 등은 제외 제주지역 점심시간 불법 주정차 단속 유예 구간이 편도 3차로가 포함된 도로까지 확대된다. 제주도는 지역 상권과 소상공인의 영업 여건을 돕기 위해 점심시간...",
-   "link": "https://www.yna.co.kr/view/AKR20260827062400056?input=1195m",
+   "title": "호텔서 부가세 환급…제주은행, 외국관광객 전용 선불카드 - 제주노컷",
+   "description": "<a href=\"https://news.google.com/rss/articles/CBMiU0FVX3lxTE9MWGdremVIMFdWRDFMcUJlVk92enItOWNLdFpLLWR2dzZjdzEtQ0w0dUdEb2taenhpQzJZajFCc2FsSThXdVItbzg4MGdLYUwyVmdJ?oc=5\" target=\"_blank\">호텔서 부가세 환급…제주은행, 외국관광객 전용 선불카드</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">제주노컷</font>",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9MWGdremVIMFdWRDFMcUJlVk92enItOWNLdFpLLWR2dzZjdzEtQ0w0dUdEb2taenhpQzJZajFCc2FsSThXdVItbzg4MGdLYUwyVmdJ?oc=5",
    "date": "2026-08-27",
    "channel": "news",
-   "query": "제주 단속",
-   "type": "사건",
-   "category": "이동·교통",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광객 안전·치안",
-   "sentiment": "중립",
-   "strength": "약",
-   "neg": 1,
+   "query": "제주 관광",
+   "type": "뉴스",
+   "category": "정책·행정",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
    "pos": 0,
-   "reasons": [
-    "단속"
-   ],
+   "reasons": [],
    "pending": false,
-   "rel_why": "관광 시설 사건",
+   "rel_why": "관광 사안",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "주차 단속",
+    "sent": "긍정",
+    "cat": "정책·행정",
+    "why": "외국인 관광객 편의 증진",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "부정",
-    "category": "치안·안전"
+    "sentiment": "중립",
+    "category": "숙박"
    },
    "keep": true
   },
@@ -38602,7 +39029,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종 불안",
+    "why": "관광객 불안 요소",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -38670,7 +39097,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "경찰 대응 문제",
+    "why": "실종사건 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -41495,7 +41922,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "경찰 대응 문제",
+    "why": "실종사건 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -46453,7 +46880,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "천지연폭포 방문 후기",
+    "why": "야간관람 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -53371,7 +53798,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "한일식당 이용 후기",
+    "why": "음식 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -54559,7 +54986,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "불안감 조성",
+    "why": "가짜뉴스 불안",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -55525,7 +55952,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사망 추정",
+    "why": "범죄 사건",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -55704,7 +56131,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사망 속보",
+    "why": "실종 사망",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -55737,7 +56164,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "차가네갈비탕 후기",
+    "why": "가격 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -55770,7 +56197,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "흑돼지 맛집 후기",
+    "why": "음식 평가",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -55803,7 +56230,106 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "수제비 맛집 후기",
+    "why": "음식 만족",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 여행 준비물과 주의사항, 이 5가지는 꼭 확인하세요",
+   "description": "요즘 제주 물가, 정말 바가지가 많을까? 2026년 8월에도 서귀포시의 한 고깃집에서 손님이 주문한 특수부위 고기가 대부분 비계였다는 경험담이 온라인 커뮤니티에 퍼지면서 이른바 '비계 삼겹살' 논란이 다시...",
+   "link": "https://blog.naver.com/issueisshu/224391268181",
+   "date": "2026-08-26",
+   "channel": "blog",
+   "query": "제주 물가",
+   "type": "후기",
+   "category": "비용·상거래",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 물가·요금 공정성",
+   "sentiment": "부정",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "비용·상거래",
+    "why": "바가지 불만",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "비용·상거래"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 여행에서 빼놓을 수 없는 건 역시 맛집 투어",
+   "description": "줄 서서 먹어도 절대 후회 없는 제주 웨이팅 끝판왕 맛집 10곳! 제주 여행을 하다 보면 “여기는 꼭... 즐기는 제주 해산물과 낭만포차 제주에서는 보는 즐거움도 좋지만 여행의 기억을 오래 남겨주는 건 역시...",
+   "link": "https://blog.naver.com/slimbodyline/224391217104",
+   "date": "2026-08-26",
+   "channel": "blog",
+   "query": "제주 여행 후회",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "맛집 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "편리한 주차와 세심한 손길이 돋보였던 애월 맛집 추천 방문했습니....",
+   "description": "제주 여행 계획을 세우면서 가장 고민되는 부분이 바로 어떤 음식을... 수많은 식당 중에서 어디를 가야 후회 없는 한 끼를 먹을 수 있을지... 제주를 찾을 때마다 매번 비슷한 음식을 먹어 지루했다면, 이번에...",
+   "link": "https://blog.naver.com/yeonhan0121/224390698475",
+   "date": "2026-08-26",
+   "channel": "blog",
+   "query": "제주 여행 후회",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "정보·소식",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 3,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "음식 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -56461,7 +56987,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "실종사건 불안",
+    "why": "범죄 보도",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -56529,7 +57055,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "살해 사건",
+    "why": "살인 사건",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -58644,7 +59170,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "비용·상거래",
-    "why": "수익 감소",
+    "why": "관광수익 감소",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -58962,7 +59488,7 @@
    "channel": "blog",
    "query": "제주 물가",
    "type": "사건",
-   "category": "치안·안전",
+   "category": "볼거리·체험",
    "nature": "불만·후기",
    "track": "risk",
    "policy": "관광 물가·요금 공정성",
@@ -58977,8 +59503,8 @@
    "llm": {
     "rel": true,
     "sent": "중립",
-    "cat": "치안·안전",
-    "why": "안전 정보",
+    "cat": "볼거리·체험",
+    "why": "여행정보",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -59186,7 +59712,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "이동·교통",
-    "why": "여행 경로",
+    "why": "여행경로",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -59324,7 +59850,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "경찰 무능 지적",
+    "why": "경찰 비판",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -59746,68 +60272,68 @@
    "keep": true
   },
   {
-   "title": "전국 유일 '제주 자치경찰'?...\"도지사 사병\" \"경호업체\" 말 나온 이유",
-   "description": "제주 자치경찰의 주 업무는 주민 생활안전 순찰, 교통 단속, 관광지 질서 유치, 행사 경비 등이다. 복장과 순찰차 역시 일반 경찰과 유사하게 보이지만 상세 디자인과 제복 색상이 다르다. 이 같은 구조가 재조명되자 주요...",
-   "link": "https://www.ajunews.com/view/20260825140808926",
+   "title": "제주관광 후 제주공항근처 갈치구이 먹어요",
+   "description": "꾸며진 가게하며 반찬들 관리까지 갈끔하게 잘하시다라구요? 다음 제주도관광 하고 또 들러야겠어요❤️ 생선이 살아있다!!! #제주도관광 #제주도맛집 #제주도생선구이 #제주공항근처",
+   "link": "https://blog.naver.com/shchung1207/224390140017",
    "date": "2026-08-25",
-   "channel": "news",
-   "query": "제주 단속",
-   "type": "사건",
-   "category": "이동·교통",
-   "nature": "사건사고",
-   "track": "risk",
-   "policy": "관광객 안전·치안",
-   "sentiment": "중립",
+   "channel": "blog",
+   "query": "제주 관광",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
-   "pos": 0,
+   "pos": 2,
    "reasons": [],
    "pending": false,
-   "rel_why": "관광 사안",
+   "rel_why": "관광객 경험",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "이동·교통",
-    "why": "자치경찰 업무 설명",
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "음식 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "중립",
-    "category": "치안·안전"
+    "sentiment": "긍정",
+    "category": "이동·교통"
    },
    "keep": true
   },
   {
-   "title": "전현무 즉흥여행 조작 의혹, '나혼산' 거짓말 일파만파[MD이슈](종합)",
-   "description": "전현무는 공항에서 즉흥적으로 여행지를 골라 1박 2일 일정의 여행을 떠났다고 밝혔으나, 렌터카 대여부터... 이어 \"무슨 제주도에서 차를 빌리듯 그려 놓았다. 역시 '느그들끼리 산다'\"라며 비판의 목소리를 높였다....",
-   "link": "https://www.mydaily.co.kr/page/view/2026082514064904312",
+   "title": "제주도 자유여행 패키지 덕분에 완벽한 제주 관광했어요.",
+   "description": "제주도 자유여행 패키지 덕분에 완벽한 제주 관광했어요. 이웃 여러분 안녕하세요. 오늘은 제주도... 그리고 저희들이 원하는 관광지로 코스가 완성되었답니다. 여유 있게 일정을 만들 수도 있었답니다....",
+   "link": "https://blog.naver.com/haesoltour/224386854462",
    "date": "2026-08-25",
-   "channel": "news",
-   "query": "제주 렌터카",
-   "type": "뉴스",
-   "category": "이동·교통",
+   "channel": "blog",
+   "query": "제주 관광",
+   "type": "후기",
+   "category": "볼거리·체험",
    "nature": "불만·후기",
-   "track": "info",
-   "policy": "관광 교통·접근성",
-   "sentiment": "부정",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
-   "pos": 0,
+   "pos": 2,
    "reasons": [],
    "pending": false,
-   "rel_why": "관광 맥락",
+   "rel_why": "관광객 경험",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
-    "cat": "이동·교통",
-    "why": "조작 의혹",
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "여행 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "중립",
-    "category": "이동·교통"
+    "sentiment": "긍정",
+    "category": "볼거리·체험"
    },
    "keep": true
   },
@@ -59967,7 +60493,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "이동·교통",
-    "why": "경험 후기",
+    "why": "정보성 글",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -60169,7 +60695,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "이동·교통",
-    "why": "교통 문제",
+    "why": "교통대책 필요",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -60557,7 +61083,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광 물가·요금 공정성",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 2,
@@ -60567,9 +61093,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "비용·상거래",
-    "why": "외국인 소비 증가",
+    "why": "소비 분석",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -60612,39 +61138,6 @@
    "keep": true
   },
   {
-   "title": "[ET시론] K관광의 다음 도약 '여행 반경'을 넓혀야 한다",
-   "description": "부산 골목 맛집에 줄을 서거나 경주 유적지를 둘러보고, 제주에서 하이킹을 즐기는 외국인 관광객. 한국을 찾은 이들의 목적지가 서울을 넘어 지역으로 넓어지고 있음을 실감한다. 이러한 변화는 숫자로도 확인된다. 올해...",
-   "link": "https://www.etnews.com/20260824000130",
-   "date": "2026-08-24",
-   "channel": "news",
-   "query": "제주 맛집",
-   "type": "뉴스",
-   "category": "볼거리·체험",
-   "nature": "불만·후기",
-   "track": "info",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 사안",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "볼거리·체험",
-    "why": "긍정적 평가",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
    "title": "서초동고기집 탐라도야지 교대역본점 후기 제주 숙성 오겹살과 푸....",
    "description": "서초동고기집 탐라도야지 교대역본점 후기 제주 숙성 오겹살과 푸짐한 돌판 한상 요즘 물가가 워낙 많이 올라서 여럿이 모여 고기 한번 푸짐하게 구워 먹으려면 비용 부담부터 먼저 생각하게 되잖아요? 특히...",
    "link": "https://blog.naver.com/alicec__/224388956360",
@@ -60656,7 +61149,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 물가·요금 공정성",
-   "sentiment": "긍정",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -60666,14 +61159,80 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "부정",
     "cat": "먹거리",
-    "why": "호의적 평가",
+    "why": "비용 부담",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "비용·상거래"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도 2박 3일 뚜벅이 여행｜한라산 윗세오름·협재·용머리해안 코....",
+   "description": "등산 전후로 제주도 관광과 맛집까지 알차게 즐기기 위해 2박 3일 일정으로 계획했다. 숙소는... 카페 → 제주공항 #제주도여행 #제주도2박3일 #제주2박3일 #제주도뚜벅이여행 #제주뚜벅이 #제주도여행코스...",
+   "link": "https://blog.naver.com/sweetbox220/224388899441",
+   "date": "2026-08-24",
+   "channel": "blog",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "이동·교통",
+   "nature": "정보·소식",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 3,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "이동·교통",
+    "why": "여행 만족",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "반드시 들러야 할 제주 애월 필수 코스 찾아내서 신나게 즐기고 왔....",
+   "description": "제주 여행을 계획하면서 빼놓지 않고 넣어야 하는 곳을 찾다 보니... 이름난 곳들을 다니다 보면 기대를 너무 많이 해서 실망하는 경우도... 제주애월필수코스 #문개어멍 #제주해물라면 #애월맛집 #제주도여행...",
+   "link": "https://blog.naver.com/brim9830/224388396078",
+   "date": "2026-08-24",
+   "channel": "blog",
+   "query": "제주 여행 실망",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "정보·소식",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "부정",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "볼거리·체험",
+    "why": "실망 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
    },
    "keep": true
   },
@@ -60784,7 +61343,7 @@
    "channel": "blog",
    "query": "제주 여행 실망",
    "type": "후기",
-   "category": "응대·서비스",
+   "category": "먹거리",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
@@ -60799,8 +61358,8 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "응대·서비스",
-    "why": "실망 후기",
+    "cat": "먹거리",
+    "why": "불만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -60817,7 +61376,7 @@
    "channel": "blog",
    "query": "제주 여행 후회",
    "type": "후기",
-   "category": "먹거리",
+   "category": "볼거리·체험",
    "nature": "불만·후기",
    "track": "voice",
    "policy": null,
@@ -60832,8 +61391,8 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "먹거리",
-    "why": "만족 후기",
+    "cat": "볼거리·체험",
+    "why": "여행 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -60940,6 +61499,105 @@
    "llm_prev": {
     "sentiment": "중립",
     "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 스카이워터쇼 할인 8월 9월 관람권 예매 방법 및 가격",
+   "description": "여행이나 제주도 관광을 계획하는 분들에게 꾸준히 관심을 받고 있는 공연인데요. 특히 늦은 8월... 제주 여행 중 특별한 공연을 찾고 있거나 아이들과 함께 즐길 만한 제주 관광지를 찾는 분들이라면 예매 전에...",
+   "link": "https://blog.naver.com/calcium201/224387855273",
+   "date": "2026-08-23",
+   "channel": "blog",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "정보·소식",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "볼거리·체험",
+    "why": "공연 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도관광지 추천! 서프라이즈 테마파크 국내 최대 정크아트와 제....",
+   "description": "제주 우수 관광 사업체다운 내실 있는 볼거리가 가득한 이곳에서 특별한 추억을 만들어보시길 바랍니다. 알찬 제주도관광지를 찾으신다면, 혹은 특별한 제주여행코스와 이색적인 제주볼거리를 찾으신다면...",
+   "link": "https://blog.naver.com/jejusunset_/224387428323",
+   "date": "2026-08-23",
+   "channel": "blog",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "볼거리·체험",
+    "why": "테마파크 정보",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 성산 빵집 보룡제과 나혼산 유리 빵집",
+   "description": "제주 성산 빵집 보룡제과 제주 여행가서 제주 가볼만한곳 검색해서 나온 보룡제과 빵이 싸고 시식만... 했는데 안갔으면 후회했을 제주 성산 빵집 보룡제과 소개해보겠습니다 보룡제과 주차장 없음 제주...",
+   "link": "https://blog.naver.com/jhakstp0704/224387182206",
+   "date": "2026-08-23",
+   "channel": "blog",
+   "query": "제주 여행 후회",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 교통·접근성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 1,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "빵집 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "이동·교통"
    },
    "keep": true
   },
@@ -61099,7 +61757,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "응대·서비스",
-    "why": "불친절 지적",
+    "why": "불친절",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -61116,7 +61774,7 @@
    "channel": "blog",
    "query": "제주 불친절",
    "type": "후기",
-   "category": "비용·상거래",
+   "category": "먹거리",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 콘텐츠·시설 운영",
@@ -61131,8 +61789,8 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "비용·상거래",
-    "why": "가성비 불만",
+    "cat": "먹거리",
+    "why": "가격 불만",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -61235,7 +61893,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "물가 만족",
+    "why": "만족 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -61619,7 +62277,7 @@
    "nature": "정보·소식",
    "track": "info",
    "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "중립",
+   "sentiment": "긍정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -61629,9 +62287,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "긍정",
     "cat": "정책·행정",
-    "why": "정책 소개",
+    "why": "정책 개선",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -61664,7 +62322,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "이동·교통",
-    "why": "교통 문제",
+    "why": "좌석난",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62031,7 +62689,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "야경 만족",
+    "why": "추천 명소",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62081,11 +62739,11 @@
    "channel": "news",
    "query": "제주 관광 불편",
    "type": "뉴스",
-   "category": "정책·행정",
+   "category": "이동·교통",
    "nature": "불만·후기",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62095,9 +62753,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
-    "cat": "정책·행정",
-    "why": "현장 방문",
+    "sent": "부정",
+    "cat": "이동·교통",
+    "why": "좌석난",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62163,7 +62821,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "여행 경험",
+    "why": "여행 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62196,7 +62854,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "도민 추천",
+    "why": "만족 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62262,7 +62920,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "미식 체험 호평",
+    "why": "체험 긍정",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62295,7 +62953,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "전통음식 체험 만족",
+    "why": "체험 긍정",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62349,7 +63007,7 @@
    "nature": "정보·소식",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62359,9 +63017,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석난",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62382,7 +63040,7 @@
    "nature": "정보·소식",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62392,9 +63050,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석 부족 불편",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62427,7 +63085,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "정책·행정",
-    "why": "예산 논의",
+    "why": "정책 논의",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62448,7 +63106,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "관광 물가·요금 공정성",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62458,9 +63116,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석 부족 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62481,7 +63139,7 @@
    "nature": "정보·소식",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62491,9 +63149,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석 부족 대응",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62559,7 +63217,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "이동·교통",
-    "why": "좌석 감소",
+    "why": "좌석 감소 영향",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62613,7 +63271,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62623,9 +63281,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석 감소",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62646,7 +63304,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62656,9 +63314,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석 부족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62679,7 +63337,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62689,9 +63347,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석 부족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62745,7 +63403,7 @@
    "nature": "정보·소식",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62755,9 +63413,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "이동·교통",
-    "why": "정책 대응",
+    "why": "좌석난 문제",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62790,7 +63448,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "이동·교통",
-    "why": "좌석난 불편",
+    "why": "좌석난 심화",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62811,7 +63469,7 @@
    "nature": "불만·후기",
    "track": "info",
    "policy": "행정 소식(지수 제외)",
-   "sentiment": "부정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -62821,9 +63479,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "부정",
+    "sent": "중립",
     "cat": "이동·교통",
-    "why": "교통 문제 지적",
+    "why": "교통 문제 논의",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -62833,16 +63491,16 @@
    "keep": true
   },
   {
-   "title": "수성구 맛집 메뉴판에 '언어 장벽' 낮춘다…QR 하나로 5개 언어 제공",
-   "description": "한편 제주도와 서울, 전주 등 주요 관광 거점 지자체들이 앞다퉈 '스마트 외식 환경' 구축에 나서고 있다. 외국인 관광객이 급증함에 따라 언어 장벽을 낮추는 것이 지역 관광 경쟁력의 핵심으로 떠올랐기 때문이다. 제주...",
-   "link": "https://www.bzeronews.com/news/articleView.html?idxno=821389",
+   "title": "18,900원 참숯 무한리필 제주도민 맛집 제주도 고깃집 화로집",
+   "description": "18,900원 참숯 무한리필 제주도민 맛집 제주도 고깃집 화로집 물가가 비싼 관광지 제주 특히나 먹는게 바가지니 삼겹살 비계만 주니 하면서 방송에 나온적이 있는데 이번에 다녀온 화로집은 18,900원 가격으로...",
+   "link": "https://blog.naver.com/love386600/224384740287",
    "date": "2026-08-20",
-   "channel": "news",
-   "query": "제주 맛집",
-   "type": "뉴스",
-   "category": "이동·교통",
+   "channel": "blog",
+   "query": "제주 물가",
+   "type": "후기",
+   "category": "먹거리",
    "nature": "불만·후기",
-   "track": "info",
+   "track": "voice",
    "policy": "음식점 품질·가격",
    "sentiment": "긍정",
    "strength": "",
@@ -62850,13 +63508,13 @@
    "pos": 2,
    "reasons": [],
    "pending": false,
-   "rel_why": "관광 사안",
+   "rel_why": "관광객 경험",
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "이동·교통",
-    "why": "언어 장벽 개선",
+    "cat": "먹거리",
+    "why": "가성비 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63021,7 +63679,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "볼거리·체험",
-    "why": "관심도 저조",
+    "why": "관심도 낮음",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63087,7 +63745,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "횟집 만족",
+    "why": "맛 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63104,7 +63762,7 @@
    "channel": "blog",
    "query": "제주 여행 실망",
    "type": "후기",
-   "category": "응대·서비스",
+   "category": "먹거리",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
@@ -63119,7 +63777,7 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "응대·서비스",
+    "cat": "먹거리",
     "why": "운영 시간 불만",
     "v": "llm-v3"
    },
@@ -63153,7 +63811,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "갈치조림 만족",
+    "why": "기억에 남는 식사",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63521,7 +64179,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "응대·서비스",
-    "why": "인지도 굴욕",
+    "why": "반응 실망",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63554,7 +64212,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "생선구이 만족",
+    "why": "재방문 의사",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63587,44 +64245,11 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "현지인 맛집 추천",
+    "why": "현지인 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "긍정",
-    "category": "먹거리"
-   },
-   "keep": true
-  },
-  {
-   "title": "취미 넘어 해양정화까지...심평원 '히라퐁당'의 특별한 잠수",
-   "description": "이호중 대리는 “그동안 맛집이나 명소를 구경하는 여행을 했다면, 지금은 바다거북이와 함께 수영하고... 또 활동 지역을 고성 외에 제주도, 울진 등으로 넓혀갈 예정이다. \"플로빙하러 가실래요?\"...원주 공공기관들과...",
-   "link": "https://www.dailypharm.com/user/news/341496?REFERER=NP",
-   "date": "2026-08-18",
-   "channel": "news",
-   "query": "제주 맛집",
-   "type": "뉴스",
-   "category": "볼거리·체험",
-   "nature": "불만·후기",
-   "track": "info",
-   "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광 맥락",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "볼거리·체험",
-    "why": "해양정화 활동",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
     "category": "먹거리"
    },
    "keep": true
@@ -63653,12 +64278,80 @@
     "rel": true,
     "sent": "부정",
     "cat": "응대·서비스",
-    "why": "서비스 실망",
+    "why": "실망 경험",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "긍정",
     "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "침체 늪에 빠진 지방상권… 생존 키워드는 '체류 소비'",
+   "description": "제주 연동은 공항과 가까운 데다 면세점·카지노·호텔·맛집 등이 모여 관광객과 출장객의 소비를 흡수하고 있다. 여수에서는 관광객 동선에 따라 낮에는 이순신광장, 밤에는 종포해양공원 낭만포차거리로 소비 중심이...",
+   "link": "http://www.kbiznews.co.kr/news/articleView.html?idxno=114653",
+   "date": "2026-08-18",
+   "channel": "news",
+   "query": "제주 맛집",
+   "type": "뉴스",
+   "category": "비용·상거래",
+   "nature": "불만·후기",
+   "track": "info",
+   "policy": "관광 물가·요금 공정성",
+   "sentiment": "부정",
+   "strength": "강",
+   "neg": 3,
+   "pos": 0,
+   "reasons": [
+    "침체"
+   ],
+   "pending": false,
+   "rel_why": "관광 사안",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "비용·상거래",
+    "why": "지방상권 침체",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "부정",
+    "category": "비용·상거래"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 흑돼지거리 정육점 사장이 보는 가을 관광객 물가체감",
+   "description": "정확한 가격은 방문하시는 식당이나 정육점에 직접 확인하시기 바랍니다. #제주흑돼지가격 #가을관광객물가 #흑돼지성수기비수기차이 #제주여행물가체감 #흑돼지거리상권",
+   "link": "https://blog.naver.com/party_11/224382672713",
+   "date": "2026-08-18",
+   "channel": "blog",
+   "query": "제주 물가",
+   "type": "후기",
+   "category": "비용·상거래",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "중립",
+    "cat": "비용·상거래",
+    "why": "물가 체감",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "중립",
+    "category": "먹거리"
    },
    "keep": true
   },
@@ -63686,7 +64379,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "숙박",
-    "why": "숙소 시장 어려움",
+    "why": "시장 어려움",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63752,12 +64445,78 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "음식 만족",
+    "why": "만족 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "비용·상거래"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주독채풀빌라 해담풀하우스에서의 편안한 휴식",
+   "description": "지난번 제주 여행 때 독채 숙소를 예약했었는데, 사진과 실물이 너무 달라서 실망했었어요. 이번에는 정말 제대로 힐링하고 싶어서 숙소를 고르는 데 시간을 많이 투자했답니다. 여러 곳을 찾아보다가 제주독채...",
+   "link": "https://blog.naver.com/hhhin999/224380162981",
+   "date": "2026-08-17",
+   "channel": "blog",
+   "query": "제주 여행 실망",
+   "type": "후기",
+   "category": "숙박",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "숙박 시설·거래 관행",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 2,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "숙박",
+    "why": "숙박 만족",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "숙박"
+   },
+   "keep": true
+  },
+  {
+   "title": "애월 해안가 바라보며 찾아간 제주도고기집 정말 기억에 남습니다",
+   "description": "제주 여행의 즐거움 중 단연 손에 꼽히는 것은 맛있는 음식을 마주하는 순간이에요. 특히 제주의 푸른... 제주도고기집을 찾고 있다면 이곳에서 후회 없는 시간을 보내보기를 바랄게요. 대담 애월흑돼지 본점...",
+   "link": "https://blog.naver.com/ravagskt/224381027264",
+   "date": "2026-08-17",
+   "channel": "blog",
+   "query": "제주 여행 후회",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "맛집 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
    },
    "keep": true
   },
@@ -63785,7 +64544,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "비용·상거래",
-    "why": "물가 상승",
+    "why": "물가 불만",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63854,7 +64613,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사고",
+    "why": "렌터카 사고",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63889,7 +64648,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사고",
+    "why": "렌터카 사고",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63924,7 +64683,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사고",
+    "why": "렌터카 사고",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -63960,7 +64719,7 @@
     "rel": true,
     "sent": "부정",
     "cat": "치안·안전",
-    "why": "사고",
+    "why": "렌터카 사고",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -64046,7 +64805,7 @@
    "channel": "news",
    "query": "제주 사고",
    "type": "사건",
-   "category": "치안·안전",
+   "category": "이동·교통",
    "nature": "사건사고",
    "track": "risk",
    "policy": "관광객 안전·치안",
@@ -64063,8 +64822,8 @@
    "llm": {
     "rel": true,
     "sent": "부정",
-    "cat": "치안·안전",
-    "why": "사고",
+    "cat": "이동·교통",
+    "why": "렌터카 사고",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -64145,6 +64904,39 @@
    "keep": true
   },
   {
+   "title": "[제주 중문 맛집] 싱싱함이 살아 숨 쉬는 '중문 회 어시장', 내돈내산....",
+   "description": "✨ (더본호텔,중문다이소 옆)(김수미 한식뷔페옆건물) 관광지 근처는 바가지가 많다는 편견을 깨준, 친절함과 맛까지 모두 잡은 찐 후기를 시작해 볼게요!  찾아가는 길 & 기본 정보 주소: 제주 서귀포시...",
+   "link": "https://blog.naver.com/bengals1/224379395707",
+   "date": "2026-08-15",
+   "channel": "blog",
+   "query": "제주 바가지",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 4,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "맛집 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
    "title": "광복절 연휴 제주 여행객 23만 명 예상…제주공항 혼잡 전 확인할 점....",
    "description": "광복절 연휴 제주 관광객, 어느 정도 예상되나 제주도관광협회는 8월 13일부터 17일까지 제주 입도객을... 제주 도착 후 렌터카를 이용한다면 인수 장소와 셔틀 시간, 반납 장소를 미리 체크하면 이동 시간을...",
    "link": "https://blog.naver.com/uk7uk/224377634475",
@@ -64185,7 +64977,7 @@
    "channel": "blog",
    "query": "제주 물가",
    "type": "후기",
-   "category": "이동·교통",
+   "category": "볼거리·체험",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 물가·요금 공정성",
@@ -64200,8 +64992,8 @@
    "llm": {
     "rel": true,
     "sent": "긍정",
-    "cat": "이동·교통",
-    "why": "가성비 호평",
+    "cat": "볼거리·체험",
+    "why": "가성비 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -64432,7 +65224,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "관광지 후기",
+    "why": "관광 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -64471,6 +65263,72 @@
    "llm_prev": {
     "sentiment": "긍정",
     "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 섭지코지 제주도 관광지 성산 흑돼지 맛집 흑돈쭐 동쪽 코스",
+   "description": "탁 트인 자연 속에서 천천히 산책도 즐기고 맛있는 고기까지 곁들여서 즐거운 시간을 보내보셨으면 좋겠습니다  #섭지코지 #제주섭지코지 #제주도섭지코지 #제주관광지 #제주도관광지 #성산 #성산관광지...",
+   "link": "https://blog.naver.com/findjeju/224377439437",
+   "date": "2026-08-14",
+   "channel": "blog",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 3,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "관광지 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "[제주 중문 흑돼지 맛집] 숙성도 뼈등심 뼈목살 캐치테이블 웨이팅 ....",
+   "description": "이번 제주 여행에서도 고민 없이 숙성도 중문점을 찾았어요. 명불허전 역시 실망시키지 않는 흑돼지 맛집이더라고요. 점심시간대에 맞춰... 제주도 여행 중 품격 있는 진짜 흑돼지 구이를 제대로 즐기고...",
+   "link": "https://blog.naver.com/duckoo_j/224373028038",
+   "date": "2026-08-14",
+   "channel": "blog",
+   "query": "제주 여행 실망",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "맛집 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
    },
    "keep": true
   },
@@ -64522,7 +65380,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 2,
    "pos": 3,
@@ -64532,9 +65390,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "장소 추천",
+    "why": "여행 일기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -64742,21 +65600,54 @@
    "keep": true
   },
   {
-   "title": "애월 흑돼지, 후회 없는 선택을 위한 고기 판별법과 미식 팁",
-   "description": "제주의 상징, 흑돼지의 특별함 제주 여행을 계획할 때 가장 먼저 떠오르는 메뉴는 역시 흑돼지예요.... 식당을 선택할 때 매장의 인테리어나 뷰를 눈여겨보는 것도 여행의 완성도를 높이는 좋은 방법이에요....",
-   "link": "https://blog.naver.com/jufatexv/224377838873",
+   "title": "[제주도 관광지] 애월 가볼만한 곳 추천! 제주 실내관광지 제주홀릭....",
+   "description": "#제주애월가볼만한곳 #제주도실내관광지 #제주도관광지 #홀릭뮤지엄 #제주홀릭뮤지엄 #제주도전시회 #제주실내가볼만한곳 #제주도여행 #제주여행코스 #제주핫플 #제주인생샷 #제주데이트코스 #제주비오는날...",
+   "link": "https://blog.naver.com/soeun0326/224377884795",
    "date": "2026-08-13",
    "channel": "blog",
-   "query": "제주 여행 후회",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 4,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "관광지 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "울산병영맛집 고기집 추천! 제주돼지 육즙 가득한 울산연탄갈비 병....",
+   "description": "제주돼지 육즙 가득한 울산연탄갈비 병영본점 솔직 후기 안녕하세요! 오늘은 얼마 전 지인들과 함께... 요즘 물가가 많이 올라서 외식 한 번 하려고 하면 부담스러운 경우가 많은데요. 여기는 고기 질은 물론이고...",
+   "link": "https://blog.naver.com/01191511020/224377460308",
+   "date": "2026-08-13",
+   "channel": "blog",
+   "query": "제주 물가",
    "type": "후기",
    "category": "먹거리",
-   "nature": "정보·소식",
+   "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
    "sentiment": "긍정",
    "strength": "",
    "neg": 0,
-   "pos": 0,
+   "pos": 3,
    "reasons": [],
    "pending": false,
    "rel_why": "관광객 경험",
@@ -64765,12 +65656,45 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "음식 추천",
+    "why": "맛집 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
-    "sentiment": "중립",
+    "sentiment": "긍정",
     "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "혼자 떠나면 여행하기 좋은 탑 10",
+   "description": "양평 두물머리 물가산책 ㆍ생각 정리하기 좋음 2. 담양 메타세쿼이아길 걷기만 해도 힐링 3. 강릉 안목 해변 바다보며 멍때리기 4. 제주 올레길 혼자 걷기 최적 코스 5. 순천만 국가정원 꽃과 자연속 힐링 6....",
+   "link": "https://blog.naver.com/k06112/224377374031",
+   "date": "2026-08-13",
+   "channel": "blog",
+   "query": "제주 물가",
+   "type": "후기",
+   "category": "볼거리·체험",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 물가·요금 공정성",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "볼거리·체험",
+    "why": "올레길 추천",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "비용·상거래"
    },
    "keep": true
   },
@@ -64798,7 +65722,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "비용·상거래",
-    "why": "물가 정보",
+    "why": "여행비 정보",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -64930,45 +65854,12 @@
     "rel": true,
     "sent": "중립",
     "cat": "이동·교통",
-    "why": "관광객 통계",
+    "why": "관광객 수 통계",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "이동·교통"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주도 관광코스 화순 금모래해수욕장 근처 비밀역카페",
-   "description": "5 제주도관광코스 및 총평 안녕하세요 제주킨치입니다 이번에는... 주변 관광지까지 함께 둘러볼 예정이라면 자차가 조금 더 편한... 담장과 제주 돌담 사이로 실제 기찻길처럼 선로가 이어져 있고 건널목...",
-   "link": "https://blog.naver.com/yapdaon02/224376714889",
-   "date": "2026-08-12",
-   "channel": "blog",
-   "query": "제주도 관광",
-   "type": "후기",
-   "category": "볼거리·체험",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "볼거리·체험",
-    "why": "관광지 추천",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "볼거리·체험"
    },
    "keep": true
   },
@@ -64984,7 +65875,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 콘텐츠·시설 운영",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -64994,80 +65885,14 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "동굴 추천",
+    "why": "관광지 소개",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "볼거리·체험"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주 서쪽 숙소 추천 애월오션스테이 내돈내산 후기",
-   "description": "태풍영향으로 하늘이 흐려 사진이 별로지만 앞에 해안길도 있고 돌담도 제주스러운 숙소였어요 애월오션스테이 스탠다드룸 제주 서쪽 숙소 애월오션스테이 스텐다드룸(산전망)으로 예약하였고 내부는...",
-   "link": "https://blog.naver.com/ranananamar/224376251299",
-   "date": "2026-08-12",
-   "channel": "blog",
-   "query": "제주 숙소 후기 별로",
-   "type": "후기",
-   "category": "숙박",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "숙박 시설·거래 관행",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 1,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "숙박",
-    "why": "숙소 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "숙박"
-   },
-   "keep": true
-  },
-  {
-   "title": "[제주] 돈사촌 본점 제주공항 흑돼지, 여행 마지막까지 만족했던 제....",
-   "description": "제주 여행을 마무리하면서 맛있는 흑돼지를 먹고 싶다면 돈사촌 본점 추천드립니다. 제주 삼도이동 맛집을 찾는 분, 공항 근처에서 제대로 된 흑돼지를 먹고 싶은 분, 여행 마지막 식사를 고민하는 분들에게...",
-   "link": "https://blog.naver.com/dhjh0509/224376136647",
-   "date": "2026-08-12",
-   "channel": "blog",
-   "query": "제주 여행 후회",
-   "type": "후기",
-   "category": "먹거리",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "관광 교통·접근성",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 6,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "먹거리",
-    "why": "만족 후기",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "긍정",
-    "category": "이동·교통"
    },
    "keep": true
   },
@@ -65083,7 +65908,7 @@
    "nature": "불만·후기",
    "track": "voice",
    "policy": "음식점 품질·가격",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -65093,9 +65918,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
+    "sent": "중립",
     "cat": "볼거리·체험",
-    "why": "관광지 추천",
+    "why": "여행 후기",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -65112,11 +65937,11 @@
    "channel": "blog",
    "query": "제주 여행 후회",
    "type": "후기",
-   "category": "볼거리·체험",
+   "category": "이동·교통",
    "nature": "불만·후기",
    "track": "voice",
    "policy": "관광 교통·접근성",
-   "sentiment": "긍정",
+   "sentiment": "중립",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -65126,9 +65951,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "긍정",
-    "cat": "볼거리·체험",
-    "why": "여행 후기",
+    "sent": "중립",
+    "cat": "이동·교통",
+    "why": "여행 경험",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -65149,7 +65974,7 @@
    "nature": "사건사고",
    "track": "risk",
    "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -65159,7 +65984,7 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "치안·안전",
     "why": "안전조사",
     "v": "llm-v3"
@@ -65182,7 +66007,7 @@
    "nature": "사건사고",
    "track": "risk",
    "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -65192,9 +66017,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "치안·안전",
-    "why": "안전조사",
+    "why": "화재안전조사",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -65215,7 +66040,7 @@
    "nature": "사건사고",
    "track": "risk",
    "policy": "숙박 시설·거래 관행",
-   "sentiment": "중립",
+   "sentiment": "부정",
    "strength": "",
    "neg": 0,
    "pos": 0,
@@ -65225,9 +66050,9 @@
    "engine": "v14-20260826",
    "llm": {
     "rel": true,
-    "sent": "중립",
+    "sent": "부정",
     "cat": "치안·안전",
-    "why": "안전조사",
+    "why": "화재안전조사",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -65359,7 +66184,7 @@
     "rel": true,
     "sent": "중립",
     "cat": "이동·교통",
-    "why": "준비물",
+    "why": "준비물 정보",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -65464,6 +66289,39 @@
    "llm_prev": {
     "sentiment": "긍정",
     "category": "이동·교통"
+   },
+   "keep": true
+  },
+  {
+   "title": "한담해변 맛집 고이정 애월흑돼지 보리짚불구이 솔직 먹방, 육즙 가....",
+   "description": "여행의 묘미, 맛과 힐링 매장이 쾌적하고 주차 공간도 잘 마련되어 있어 저처럼 렌터카를 이용하는... 최고의 제주 여행 루트예요. #제주애월흑돼지 #고이정애월흑돼지보리짚불구이 #애월흑돼지맛집...",
+   "link": "https://blog.naver.com/crcr889977/224373890163",
+   "date": "2026-08-10",
+   "channel": "blog",
+   "query": "제주 여행 후회",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "관광 콘텐츠·시설 운영",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 8,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "만족 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "볼거리·체험"
    },
    "keep": true
   },
@@ -65623,45 +66481,12 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "추천",
+    "why": "추천 관광지",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "볼거리·체험"
-   },
-   "keep": true
-  },
-  {
-   "title": "제주도 신화월드 호텔앤리조트 4개 관 비교추천 예약",
-   "description": "제주도 관광을 하지 않고 리조트 내에서만 시간을 보내고 워터파크를 즐길 예정이었다면 고민 없이 신화관을 골랐겠지만 저희는 제주도도 관광하면서 5성급 리조트의 시설도 즐기고 싶었던 거라 가성비 좋게...",
-   "link": "https://blog.naver.com/jiseon620/224373331564",
-   "date": "2026-08-09",
-   "channel": "blog",
-   "query": "제주도 관광",
-   "type": "후기",
-   "category": "숙박",
-   "nature": "불만·후기",
-   "track": "voice",
-   "policy": "숙박 시설·거래 관행",
-   "sentiment": "긍정",
-   "strength": "",
-   "neg": 0,
-   "pos": 0,
-   "reasons": [],
-   "pending": false,
-   "rel_why": "관광객 경험",
-   "engine": "v14-20260826",
-   "llm": {
-    "rel": true,
-    "sent": "긍정",
-    "cat": "숙박",
-    "why": "추천",
-    "v": "llm-v3"
-   },
-   "llm_prev": {
-    "sentiment": "중립",
-    "category": "숙박"
    },
    "keep": true
   },
@@ -65689,11 +66514,77 @@
     "rel": true,
     "sent": "긍정",
     "cat": "먹거리",
-    "why": "추천",
+    "why": "카페 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주도청맛집에서 즐기는 접짝뼈국과 몸국의 깊은 맛",
+   "description": "이번 제주 여행에서는 제주도청맛집으로 소문난 일억조를 방문했어요. 친구의 추천으로 가게 되었고, 실망하지 않을 맛을 기대하면서... 제주도 여행 시 갈치조림이나 흑돼지 외에도 로컬 음식들이 정말 기억에...",
+   "link": "https://blog.naver.com/aiqd8480/224373200900",
+   "date": "2026-08-09",
+   "channel": "blog",
+   "query": "제주 여행 실망",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "행정 소식(지수 제외)",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "추천 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "정책·행정"
+   },
+   "keep": true
+  },
+  {
+   "title": "제주 중문 흑돼지 맛집 돈이랑 본점｜숙성 흑돼지 모둠 후기",
+   "description": "안녕하세요, 하루온입니다 ˖ ࣪⊹ 제주 여행 중 흑돼지는 꼭 한 번 먹어보고 싶어서 알아보다가 돈이랑 제주 흑돼지 본점에 다녀왔어요. 최고의 맛집입니다... 한 번 만 갔다온 걸 후회중이예요 돈이랑...",
+   "link": "https://blog.naver.com/happpink/224373239950",
+   "date": "2026-08-09",
+   "channel": "blog",
+   "query": "제주 여행 후회",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 5,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "만족 후기",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
     "category": "먹거리"
    },
    "keep": true
@@ -65722,7 +66613,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "숙박",
-    "why": "추천",
+    "why": "호텔 조식 만족",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -65755,7 +66646,7 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "추천",
+    "why": "관광지 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
@@ -65788,12 +66679,179 @@
     "rel": true,
     "sent": "긍정",
     "cat": "볼거리·체험",
-    "why": "추천",
+    "why": "관광명소 추천",
     "v": "llm-v3"
    },
    "llm_prev": {
     "sentiment": "중립",
     "category": "볼거리·체험"
+   },
+   "keep": true
+  },
+  {
+   "title": "(제주도) 관광객이 외면하는 좃나이유’ repeat 찐자이유 ㅎㅇㅎ",
+   "description": "제주도 관광객들이 외면하는 진짜이유 https://youtu.be/Q5PsP0JROgU 부산 기장군 일광해빛6로 65-8 1층102호... 내국인 관광객 추이 · 제주데이터허브 — 6월 제주도 주요 소비동향 분석 (2026년 6월, 잠정)...",
+   "link": "https://blog.naver.com/ceb4747/224372006404",
+   "date": "2026-08-08",
+   "channel": "blog",
+   "query": "제주도 관광",
+   "type": "후기",
+   "category": "비용·상거래",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": null,
+   "sentiment": "부정",
+   "strength": "강",
+   "neg": 3,
+   "pos": 0,
+   "reasons": [
+    "이탈"
+   ],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "비용·상거래",
+    "why": "바가지",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "부정",
+    "category": null
+   },
+   "keep": true
+  },
+  {
+   "title": "[덩슐랭가이드 67] - 제주 관광객 없는 로컬식당 노형동 경일낙지 본....",
+   "description": "+ 맵기 선택하면 기본찬으로 순두부랑 계란말이를 주심,,,, 글 쓰면서도 또 먹고 싶다,,, + 밥 부족하면 셀프 무한리필,, + 양 많고 낙지가 통통하니 정말정말 맛있음,,,",
+   "link": "https://blog.naver.com/hypersinx/224372253810",
+   "date": "2026-08-08",
+   "channel": "blog",
+   "query": "제주 관광객",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 3,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "맛있음",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "[제주맛집] 금능맛집 둘레길",
+   "description": "여행 첫끼로 먹었던 음식에 너무 실망을 하고 속상했는데 둘레길을 다녀오고 나서는 기분이 넘 좋았어요! 둘레길 둘레길 외부 제주 여행... 제주가 괜히 사랑이 아니에요~ 물론 바다 근처 식당이라 가능한...",
+   "link": "https://blog.naver.com/sad8789/224371821752",
+   "date": "2026-08-08",
+   "channel": "blog",
+   "query": "제주 여행 실망",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "긍정",
+   "strength": "",
+   "neg": 0,
+   "pos": 4,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "긍정",
+    "cat": "먹거리",
+    "why": "기분 좋음",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "가성비와 분위기 다 잡은 제주 스시 맛집 스시산요",
+   "description": "제인입니다✨ 제주 여행 오면 회나 스시는 한 번쯤 꼭 먹게 되잖아요? 하지만 관광지 특유의 어수선한 분위기나 터무니없는 가격에 실망하... 나왔던 제주 스시 맛집 방문 후기를 제대로 풀어볼게요. 초밥은...",
+   "link": "https://blog.naver.com/shuiri22/224371796433",
+   "date": "2026-08-08",
+   "channel": "blog",
+   "query": "제주 여행 실망",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "부정",
+   "strength": "",
+   "neg": 2,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "먹거리",
+    "why": "실망",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
+   },
+   "keep": true
+  },
+  {
+   "title": "서귀포 맛집, 진작 올레시장 올걸 그랬다",
+   "description": "아쉬웠어요 제주 여행 마지막 날, 숙소 체크아웃 직전에 올레시장을 잠깐 들렀다가 그게 그렇게 후회될 줄 몰랐다 진작 첫날에 왔더라면 매일 여기서 밥 먹었을 텐데 싶은 그런 기분 있잖아요 여행 내내...",
+   "link": "https://blog.naver.com/oohoo8888/224371834515",
+   "date": "2026-08-08",
+   "channel": "blog",
+   "query": "제주 여행 후회",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "부정",
+   "strength": "",
+   "neg": 0,
+   "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826",
+   "llm": {
+    "rel": true,
+    "sent": "부정",
+    "cat": "먹거리",
+    "why": "후회",
+    "v": "llm-v3"
+   },
+   "llm_prev": {
+    "sentiment": "긍정",
+    "category": "먹거리"
    },
    "keep": true
   },
@@ -84060,7 +85118,7 @@
    "link": "https://cafe.naver.com/ungsangjang/870892",
    "date": null,
    "channel": "cafe",
-   "query": "제주도 여행",
+   "query": "제주 렌터카",
    "type": "후기",
    "category": "이동·교통",
    "nature": "불만·후기",
@@ -89771,6 +90829,50 @@
    "strength": "",
    "neg": 0,
    "pos": 2,
+   "reasons": [],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826"
+  },
+  {
+   "title": "제주 여행 취소 고민, 실종 사건과 안전 대책 한눈에 정리",
+   "description": "제주에서 실종·사망 사건이 잇따라 알려지며 여행을 앞둔 관광객들의 불안이 커지고 있습니다. 제주 여행 취소 고민부터 안전 대책, 관광업계 우려까지 정리했습니다. 최근 제주 여행을 앞둔 분들 사이에서 불안한 반응이...",
+   "link": "https://cafe.naver.com/koreabriefing/185",
+   "date": null,
+   "channel": "cafe",
+   "query": "제주 여행",
+   "type": "사건",
+   "category": "치안·안전",
+   "nature": "사건사고",
+   "track": "risk",
+   "policy": "관광객 안전·치안",
+   "sentiment": "부정",
+   "strength": "강",
+   "neg": 4,
+   "pos": 0,
+   "reasons": [
+    "실종"
+   ],
+   "pending": false,
+   "rel_why": "관광객 경험",
+   "engine": "v14-20260826"
+  },
+  {
+   "title": "제주도 편의점은 뷰도 좋더라구요 !!",
+   "description": "제주도 다녀오면서 여기 꼭 가보고 싶었는데 이번 제주도 여행때 드디어 다녀왔어요 ㅎㅎ 혼저옵서예 CU점인데 여기는 진짜 감성 터지더라구요 편의점인데 뷰가 무슨 카페보다 좋아요 ㅋㅋㅋㅋ 바다 바로 앞이라 앉아서...",
+   "link": "https://cafe.naver.com/happyibook/6265223",
+   "date": null,
+   "channel": "cafe",
+   "query": "제주도 여행",
+   "type": "후기",
+   "category": "먹거리",
+   "nature": "불만·후기",
+   "track": "voice",
+   "policy": "음식점 품질·가격",
+   "sentiment": "중립",
+   "strength": "",
+   "neg": 0,
+   "pos": 0,
    "reasons": [],
    "pending": false,
    "rel_why": "관광객 경험",
