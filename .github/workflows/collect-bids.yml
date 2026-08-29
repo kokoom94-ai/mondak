@@ -1,0 +1,45 @@
+name: 나라장터 제주 입찰공고 수집
+
+# 조달청 입찰공고정보서비스(공공데이터포털)에서 제주 지역 공고를 모은다.
+# 인증키는 정부24와 같은 data.go.kr 키(GOV24_KEY)를 쓴다.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 21 * * *'   # 매일 06:30 KST
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-bids
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 입찰공고 수집
+        env:
+          GOV24_KEY: ${{ secrets.GOV24_KEY }}
+          BID_DAYS: '30'
+        run: python scripts/collect_bids.py
+      - name: 변경사항 커밋
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          for f in data/bids.json; do [ -f "$f" ] && git add "$f"; done
+          git diff --staged --quiet && echo "변경 없음" && exit 0
+          git commit -m "나라장터 제주 공고 갱신 ($(date +%Y-%m-%d))"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push 재시도 $i"
+            git pull --rebase --autostash origin ${GITHUB_REF_NAME:-main} || true
+            sleep 3
+          done
+          echo "push 실패 — 다음 실행에서 다시 시도합니다"
+          exit 0
