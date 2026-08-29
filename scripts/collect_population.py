@@ -303,12 +303,25 @@ def main():
     used = ""
     for mm in months:
         sm = summary_of(call(mm))
-        if sm and sm["total"]:
+        tot = (sm or {}).get("total") or 0
+        print("   " + mm + ": 도 전체 " + (format(tot, ",") + "명" if tot else "집계 전"))
+        if tot:
             used = mm
-            print("■ 기준월 " + mm + " · 도 전체 " + format(sm["total"], ",") + "명")
             SUMMARY[0] = sm
             break
         time.sleep(0.3)
+    if used:
+        print("■ 기준월 " + used)
+    if not used:
+        # 요약이 비어도 읍면동 자료가 먼저 올라오는 경우가 있다. 한 곳으로 찔러본다.
+        print("   요약이 모두 비어 있어 읍면동으로 직접 확인합니다")
+        for mm in months:
+            v = pick_pop(call_hdong(mm, "연동"))
+            if v and v.get("total"):
+                used = mm
+                print("   → " + mm + " 읍면동 자료 확인 (연동 " + format(v["total"], ",") + "명)")
+                break
+            time.sleep(0.3)
     if not used:
         print("집계된 월을 찾지 못했습니다 — 기존 파일 보존"); return
 
