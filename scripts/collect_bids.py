@@ -150,6 +150,7 @@ def main():
     print("■ 나라장터 제주 입찰공고 — " + bgn[:8] + " ~ " + end[:8])
 
     all_items, shown = [], False
+    seen_rows, shown_row = [0], [False]
     for kind, op in KINDS:
         got = 0
         for page in range(1, 21):
@@ -165,6 +166,13 @@ def main():
             picked = normalize(rows, kind)
             all_items += picked
             got += len(picked)
+            seen_rows[0] += len(rows)
+            if not shown_row[0] and rows:
+                shown_row[0] = True
+                print("")
+                print("[표본] 첫 항목 원문 (필드 확인용)")
+                print(json.dumps(rows[0], ensure_ascii=False)[:900])
+                print("")
             if len(rows) < ROWS: break
             time.sleep(0.4)
         print("   " + kind + ": 제주 " + str(got) + "건")
@@ -190,6 +198,12 @@ def main():
     import collections
     live = [x for x in items if x["close"] >= today]
     print("")
+    print("응답에서 받은 공고 " + str(seen_rows[0]) + "건 · 그중 제주 " + str(len(all_items)) + "건")
+    if seen_rows[0] and not all_items:
+        print("!! 공고는 받았으나 제주로 판정된 것이 없습니다.")
+        print("   위 [표본]의 기관·지역 필드 이름을 확인해 주세요.")
+    if not seen_rows[0]:
+        print("!! 공고를 한 건도 받지 못했습니다 — 활용신청 승인 여부와 키를 확인해 주세요.")
     print("저장 " + str(len(items[:300])) + "건 · 마감 전 " + str(len(live)) + "건")
     print("종류: " + str(dict(collections.Counter(x["kind"] for x in items))))
     print("→ " + OUT)
