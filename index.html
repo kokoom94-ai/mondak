@@ -2194,7 +2194,7 @@ function refreshPopTicker(){
   fetch('data/population.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
     if(!d) return;
     const T=d.total||{}, M=d.meta||{};
-    const ym=String(T.month||M.month||'');
+    const ym=String(T.month||M.total_month||M.month||'');
     const tag=ym.length===6? "('"+ym.slice(2,4)+"."+(+ym.slice(4,6))+")" : "";
     const arr=[];
     if(T.total)   arr.push({l:"총인구 "+tag,     v:Number(T.total).toLocaleString()+"명"});
@@ -4492,7 +4492,9 @@ function ftPopBox(region){
     t=ALL.total; hh=ALL.house; fg=ALL.foreign; lc=ALL.local||0; whole=true;
   }
   if(!t) return '';
-  const mm=(M.month||'').replace(/(\d{4})(\d{2})/,'$1년 $2월');
+  const emdYm=(M.month||''), allYm=(M.total_month||M.month||'');
+  const fm=(y)=>String(y||'').replace(/(\d{4})(\d{2})/,'$1년 $2월');
+  const mm=fm(whole? allYm : emdYm);
   return '<div class="ftstat"><div class="fts-h">👥 '+orgEsc(whole?'제주도 전체':(region||'제주도 전체'))+' 인구 현황'+
     (mm? '<span class="fts-m">'+orgEsc(mm)+' 기준</span>':'')+'</div>'+
     '<div class="fts-g">'+
@@ -4507,8 +4509,11 @@ function ftPopBox(region){
         '<span class="fts-y">'+((fg/t)*100).toFixed(1)+'%</span></div>':'')+
     '</div>'+
     '<div class="fts-n">'+orgEsc(M.source||'제주특별자치도 인구빅데이터')+
-    (whole? ' 제주도 전체 수치입니다. 지역별 인구는 준비 중입니다.'
-          : ' 읍면동 자료를 지역 단위로 합산한 값입니다.')+'</div></div>';
+    (whole? ' 제주도 전체 수치입니다.'
+          : ' 읍면동 자료를 지역 단위로 합산한 값입니다.')+
+    (allYm && emdYm && allYm!==emdYm && !whole
+       ? ' 도 전체 인구는 '+orgEsc(fm(allYm))+' 기준으로 따로 집계됩니다.' : '')+
+    '</div></div>';
 }
 
 /* 지역 관광객 현황 — 지금제주가 쓰는 tourism.json을 그대로 재활용 */
