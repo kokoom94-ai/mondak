@@ -98,7 +98,13 @@ def gnews(q):
 
 
 # 도의회 기사인지 — 제목·본문에 도의회 표기가 있어야 한다
-IS_COUNCIL = re.compile(r"제주\s?도의회|제주특별자치도의회|도의회")
+IS_COUNCIL = re.compile(r"제주\s?도의회|제주특별자치도의회")
+# 다른 지역 의회 기사는 뺀다 (검색에 '세종시의회' 같은 것이 딸려 온다)
+OTHER_COUNCIL = re.compile(r"세종시\s?의회|서울시\s?의회|부산시\s?의회|대구시\s?의회|"
+                           r"인천시\s?의회|광주시\s?의회|대전시\s?의회|울산시\s?의회|"
+                           r"경기도\s?의회|강원도\s?의회|충북도\s?의회|충남도\s?의회|"
+                           r"전북도\s?의회|전남도\s?의회|경북도\s?의회|경남도\s?의회|"
+                           r"국회의원")
 
 
 def main():
@@ -130,7 +136,19 @@ def main():
     merged = {}
     for x in prev + raw:
         t = (x.get("t") or "").strip()
-        if not t or not IS_COUNCIL.search(t + " " + (x.get("desc") or "")): continue
+        if not t: continue
+        # 제주도의회 기사인가 — 제목 기준으로 본다
+        head = t
+        ok = bool(IS_COUNCIL.search(head))
+        if not ok:
+            # 제목에 '의원 이름 + 직함'이 있으면 도의원 기사로 본다.
+            # 검색어 자체가 '제주도의회 ○○'이라 결과는 제주 문맥 안에 있다.
+            # ('제주'가 제목에 없는 기사도 많다 — 학교 없는 섬…박왕철 의원)
+            for n in MEMBERS:
+                if re.search(n + r"\s*(의원|도의원|위원장|부위원장|의장)", head):
+                    ok = True; break
+        if not ok: continue
+        if OTHER_COUNCIL.search(head): continue
         d = x.get("d") or ""
         if d and d < FROM: continue
         if d and d > NOW.strftime("%Y-%m-%d"): continue
@@ -143,11 +161,17 @@ def main():
                        "src": x.get("src") or "", "desc": (x.get("desc") or "")[:150]}
 
     items = list(merged.values())
-    # 의원 태깅
+    # 의원 태깅 — 제목만 본다.
+    # 본문까지 보면 공통 기사가 개별 의원으로 새어 나간다.
+    # (전체 기사는 제목에 '제주도의회'만 쓰고, 본문에서 대표로 발언한 의원을 언급한다)
     for x in items:
-        blob = x["t"] + " " + x.get("desc", "")
-        who = [n for n in MEMBERS if n in blob]
-        x["who"] = who
+        t = x["t"]
+        who = [n for n in MEMBERS if n in t]
+        # '○○ 의원'·'○○ 도의원'처럼 직함이 붙은 경우만 확실하다.
+        # 이름만 스친 경우는 동명이인·타 지역 의원일 수 있어 걸러 낸다.
+        strong = [n for n in who
+                  if re.search(n + r"\s*(의원|도의원|위원장|부위원장|의장|대표)", t)]
+        x["who"] = strong if strong else who
     items.sort(key=lambda x: x.get("d") or "", reverse=True)
 
     os.makedirs("data", exist_ok=True)
