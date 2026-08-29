@@ -127,24 +127,49 @@ def as_date(v):
     m = DATE_RX.search(v)
     if not m: return None
     y, mo, d = m.groups()
-    if not ("2020" <= y <= "2030" and "01" <= mo <= "12" and "01" <= d <= "31"): return None
+    # 상설전시처럼 먼 미래까지 가는 행사가 있다(예: 2033.10.31).
+    # 2030년으로 막아 두면 그 날짜가 버려지고 엉뚱한 값이 종료일이 된다.
+    if not ("2015" <= y <= "2045" and "01" <= mo <= "12" and "01" <= d <= "31"): return None
     return y + "-" + mo + "-" + d
 
 
+HOW = {"named": 0, "scan": 0, "lost": 0}   # 기간을 어떻게 얻었는지 센다
+LOST = []                                  # 날짜로 못 읽은 값들
+
+
 def pick_period(item):
-    """기간. 먼저 이름이 맞는 필드를 보고, 없으면 날짜꼴 값을 훑는다."""
-    s = pick(item, "startdate", "startDate", "sdate", "fstvlstartdate", "startymd", default="")
-    e = pick(item, "enddate", "endDate", "edate", "fstvlenddate", "endymd", default="")
-    sd, ed = as_date(str(s)), as_date(str(e))
-    if sd: return sd, (ed or sd)
+    """기간을 뽑고, 어떻게 얻었는지도 함께 돌려준다.
+
+    'named' = startDate/endDate 처럼 이름이 맞는 필드에서 얻음 (믿을 수 있다)
+    'scan'  = 이름 맞는 필드가 없어 값들을 훑어 주움 (사진 등록일이 섞일 수 있다)
+    2033.10.31 이 2026-08-19 로 바뀐 사고가 바로 scan 경로에서 났다.
+    """
+    raw_s = pick(item, "startdate", "startDate", "sdate", "fstvlstartdate", "startymd", default="")
+    raw_e = pick(item, "enddate", "endDate", "edate", "fstvlenddate", "endymd", default="")
+    sd, ed = as_date(str(raw_s)), as_date(str(raw_e))
+
+    # 값은 있는데 날짜로 못 읽은 칸이 있으면 반드시 알린다.
+    # 2033.10.31 이 조용히 버려져 종료일이 뒤바뀐 사고가 여기서 났다.
+    lost = []
+    if str(raw_s).strip() and not sd: lost.append("start=" + repr(raw_s)[:26])
+    if str(raw_e).strip() and not ed: lost.append("end=" + repr(raw_e)[:26])
+    if lost:
+        HOW["lost"] += 1
+        LOST.append((str(pick(item, "title", default=""))[:26], " ".join(lost)))
+        print("   ! 기간 값을 날짜로 못 읽음: " + " ".join(lost))
+
+    if sd or ed:
+        HOW["named"] += 1
+        return (sd or ed), (ed or sd), ("named" if not lost else "partial")
     found = []
     for path, v in flatten(item).items():
         if any(w in path.lower() for w in SKIP): continue
         d = as_date(v)
         if d: found.append(d)
-    if not found: return None, None
+    if not found: return None, None, "none"
     found.sort()
-    return found[0], found[-1]
+    HOW["scan"] += 1
+    return found[0], found[-1], "scan"
 
 
 def status_of(sd, ed):
@@ -193,7 +218,7 @@ def normalize(raw):
     for x in raw:
         title = str(pick(x, "title", default="")).strip()
         if not title: continue
-        sd, ed = pick_period(x)
+        sd, ed, how = pick_period(x)
         if not sd: nodate += 1
         cid = str(pick(x, "contentsid", "contentsId", "cid", default="")).strip()
         lat = pick(x, "latitude", "lat", default=None)
@@ -215,7 +240,7 @@ def normalize(raw):
             "img": str(pick(x, "thumbnailpath", "imgpath", default="")).strip(),
             "phone": str(pick(x, "phoneno", "phone", default="")).strip(),
             "link": ("https://www.visitjeju.net/kr/detail/view?contentsid=" + cid) if cid else "",
-            "source": "비짓제주",
+            "source": "비짓제주", "how": how,
         })
     if nodate: print("   ! 기간 없는 항목 " + str(nodate) + "건")
     return out
@@ -300,6 +325,53 @@ def main():
         by_status[x["status"]] = by_status.get(x["status"], 0) + 1
         r = x["region"] or "미상"
         by_region[r] = by_region.get(r, 0) + 1
+
+    # ── 저장 전 자체 점검 ──
+    # 원문과 우리 저장값이 어긋나는 일이 있었다(2033.10.31 → 2026-08-19).
+    # 사람이 눈으로 찾지 않아도 드러나게 여기서 확인한다.
+    warn = []
+    for x in items:
+        sd, ed = x.get("start"), x.get("end")
+        if sd and ed and ed < sd:
+            warn.append("종료일이 시작일보다 빠름: " + x["title"][:30] + " (" + sd + "~" + ed + ")")
+        if x["status"] == "종료" and ed and ed >= TODAY:
+            warn.append("아직 안 끝났는데 종료: " + x["title"][:30] + " (~" + ed + ")")
+        if x["status"] == "진행중" and ed and ed < TODAY:
+            warn.append("끝났는데 진행중: " + x["title"][:30] + " (~" + ed + ")")
+        if sd and sd[:4] < "2020":
+            warn.append("시작 연도가 이상함: " + x["title"][:30] + " (" + sd + ")")
+    # 같은 행사인데 기간이 딴판인 경우 (사진 등록일을 집었을 때 나타난다)
+    from collections import defaultdict
+    byname = defaultdict(list)
+    for x in items:
+        k = clean_title(x["title"])[:14]
+        if k: byname[k].append(x)
+    for k, g in byname.items():
+        ends = sorted(set(y.get("end") or "" for y in g if y.get("end")))
+        if len(ends) > 1 and ends[-1][:4] != ends[0][:4]:
+            warn.append("같은 이름인데 종료 연도가 다름: " + g[0]["title"][:26]
+                        + " (" + ", ".join(ends) + ")")
+
+    partial = [x for x in items if x.get("how") == "partial"]
+    if partial or LOST:
+        warn.append("기간 값을 날짜로 못 읽은 항목 " + str(max(len(partial), len(LOST))) + "건 — 원문과 다를 수 있음: "
+                    + ", ".join(t for t, _ in LOST[:5]))
+    scanned = [x for x in items if x.get("how") == "scan"]
+    if scanned:
+        warn.append("기간을 훑어서 주운 항목 " + str(len(scanned)) + "건 — 원문 확인 권장: "
+                    + ", ".join(x["title"][:14] for x in scanned[:5]))
+    print("")
+    print("기간 출처 — 정상 " + str(HOW["named"]) + "건 · 훑어서 주움 " + str(HOW["scan"])
+          + "건 · 값을 못 읽음 " + str(HOW["lost"]) + "건")
+
+    if warn:
+        print("")
+        print("!! 자체 점검에서 " + str(len(warn)) + "건이 걸렸습니다 — 원문 확인이 필요합니다")
+        for w in warn[:20]:
+            print("   · " + w)
+    else:
+        print("")
+        print("자체 점검 통과 — 기간·상태에 모순 없음")
 
     os.makedirs("data", exist_ok=True)
     json.dump({"meta": {"updated": NOW.strftime("%Y-%m-%d %H:%M"),
