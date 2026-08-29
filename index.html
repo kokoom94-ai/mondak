@@ -516,9 +516,13 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .cnh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:9px}
 .cnh b{font-size:13.5px;color:var(--navy)}
 .cnsub{font-size:10.5px;color:var(--sub)}
-.cntabs{display:flex;gap:5px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
-.cntabs::-webkit-scrollbar{display:none}
-.cnt{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:5px 11px;white-space:nowrap;cursor:pointer}
+/* 의원 탭 — 가로 스크롤은 모바일에서 끝이 안 보인다. 여러 줄로 감싼다. */
+.cntabs{display:flex;flex-wrap:wrap;gap:4px;padding-bottom:8px}
+.cntabs.fold{max-height:74px;overflow:hidden}
+.cnt{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:5px 10px;white-space:nowrap;cursor:pointer;line-height:1.2}
+.cntoggle{width:100%;font-size:11.5px;font-weight:700;color:var(--navy);background:transparent;border:1px dashed var(--line);border-radius:9px;padding:6px;margin:2px 0 8px;cursor:pointer}
+.cnt-common{background:var(--card);border-color:#C9D6EA}
+@media(max-width:420px){.cnt{font-size:10.5px;padding:5px 9px}.cntabs.fold{max-height:70px}}
 .cnt.on{color:#fff;background:var(--navy);border-color:var(--navy)}
 .cnt.zero{opacity:.45}
 .cnlist{display:flex;flex-direction:column}
@@ -4074,7 +4078,7 @@ function renderPB(){
    1차: 제목·본문에 '제주도의회' 또는 '제주특별자치도의회'
    2차: 의원 이름이 있으면 그 의원, 없으면 공통 */
 let CN_MEMBERS=["한권", "박호형", "김기환", "한동수", "정민구", "김황국", "강성의", "박안수", "김봉현", "양영수", "강정범", "양영식", "강철남", "양경호", "이경심", "송창권", "이남근", "장정훈", "강봉직", "강동우", "김덕홍", "김승준", "강충룡", "오은초", "김대진", "강명균", "임정은", "이경철", "송영훈", "양홍식", "하성용", "한동훈", "박지은", "임혜주", "정다운", "고석준", "장희순", "오경남", "강영아", "김효", "김태현", "이정한", "박왕철", "김경애", "김혜지"];
-let CNDATA=null, cnPick='공통', cnMore=false;
+let CNDATA=null, cnPick='공통', cnMore=false, cnFold=true;
 function loadCN(){
   const el=document.getElementById('cnsec'); if(!el) return;
   if(CNDATA){ renderCN(); return; }
@@ -4126,11 +4130,12 @@ function renderCN(){
 
   let h='<div class="cnh"><b>🗞 도의회 관련 보도</b>'+
         '<span class="cnsub">'+CN_FROM.slice(2).replace(/-/g,'.')+' 이후 · 총 '+total+'건</span></div>';
-  h+='<div class="cntabs">'+
-     '<button class="cnt'+(cnPick==='공통'?' on':'')+'" data-cn="공통">공통 '+B['공통'].length+'</button>'+
+  h+='<div class="cntabs'+(cnFold?' fold':'')+'" id="cntabs">'+
+     '<button class="cnt cnt-common'+(cnPick==='공통'?' on':'')+'" data-cn="공통">공통 '+B['공통'].length+'</button>'+
      withN.map(n=>'<button class="cnt'+(cnPick===n?' on':'')+(B[n].length?'':' zero')+
        '" data-cn="'+orgEsc(n)+'">'+orgEsc(n)+' '+B[n].length+'</button>').join('')+
      '</div>';
+  h+='<button class="cntoggle" id="cntoggle">'+(cnFold?'의원 전체 보기 ('+withN.length+'명) ▾':'접기 ▴')+'</button>';
   const L=B[cnPick]||[], n=cnMore? L.length : 5;
   h+='<div class="cnlist">'+ (L.length? L.slice(0,n).map(x=>
       '<a class="cni" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
@@ -4141,10 +4146,12 @@ function renderCN(){
   if(L.length>5) h+='<button class="cnmore" id="cnmore">'+(cnMore?'접기':'더보기 ('+(L.length-5)+'건)')+'</button>';
   el.innerHTML=h;
   el.querySelectorAll('[data-cn]').forEach(b=>b.addEventListener('click',()=>{
-    cnPick=b.dataset.cn; cnMore=false; renderCN();
+    cnPick=b.dataset.cn; cnMore=false; cnFold=true; renderCN();
   }));
   const mb=el.querySelector('#cnmore');
   if(mb) mb.addEventListener('click',()=>{ cnMore=!cnMore; renderCN(); });
+  const tg=el.querySelector('#cntoggle');
+  if(tg) tg.addEventListener('click',()=>{ cnFold=!cnFold; renderCN(); });
 }
 
 /* ══════════ 제주행사모음 ══════════
