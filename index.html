@@ -4073,7 +4073,7 @@ function renderPB(){
 /* ══════════ 도의회 관련 보도 ══════════
    1차: 제목·본문에 '제주도의회' 또는 '제주특별자치도의회'
    2차: 의원 이름이 있으면 그 의원, 없으면 공통 */
-const CN_MEMBERS=["한권", "박호형", "김기환", "한동수", "정민구", "김황국", "강성의", "박안수", "김봉현", "양영수", "강정범", "양영식", "강철남", "양경호", "이경심", "송창권", "이남근", "장정훈", "강봉직", "강동우", "김덕홍", "김승준", "강충룡", "오은초", "김대진", "강명균", "임정은", "이경철", "송영훈", "양홍식", "하성용", "한동훈", "박지은", "임혜주", "정다운", "고석준", "장희순", "오경남", "강영아", "김효", "김태현", "이정한", "박왕철", "김경애", "김혜지"];
+let CN_MEMBERS=["한권", "박호형", "김기환", "한동수", "정민구", "김황국", "강성의", "박안수", "김봉현", "양영수", "강정범", "양영식", "강철남", "양경호", "이경심", "송창권", "이남근", "장정훈", "강봉직", "강동우", "김덕홍", "김승준", "강충룡", "오은초", "김대진", "강명균", "임정은", "이경철", "송영훈", "양홍식", "하성용", "한동훈", "박지은", "임혜주", "정다운", "고석준", "장희순", "오경남", "강영아", "김효", "김태현", "이정한", "박왕철", "김경애", "김혜지"];
 let CNDATA=null, cnPick='공통', cnMore=false;
 function loadCN(){
   const el=document.getElementById('cnsec'); if(!el) return;
@@ -4088,16 +4088,25 @@ function loadCN(){
 let CN_FROM='2026-07-01';   // 표시 시작일 (데이터에 from이 있으면 그것을 쓴다)
 function cnBuckets(){
   const IT=(CNDATA&&CNDATA.items)||[];
+  const TITLE=/제주\s?도의회|제주특별자치도의회/;
+  const OTHER=/세종시\s?의회|서울시\s?의회|부산시\s?의회|경기도\s?의회|국회의원/;
+  const ROLE=/(의원|도의원|위원장|부위원장|의장)/;
   const hit=IT.filter(x=>{
+    const t=x.t||'';
     if((x.d||'') && x.d < CN_FROM) return false;
-    return /제주\s?도의회|제주특별자치도의회|도의회/.test(x.t||'');
+    if(OTHER.test(t)) return false;
+    if(TITLE.test(t)) return true;
+    // 제목에 '이름 + 직함'이 있으면 그 의원 기사로 본다
+    return CN_MEMBERS.some(n=>new RegExp(n+'\\s*'+ROLE.source).test(t));
   });
   const buk={'공통':[]};
   CN_MEMBERS.forEach(n=>{ buk[n]=[]; });   // 기사가 없어도 탭은 유지
   hit.forEach(x=>{
-    // 수집 단계에서 붙인 who 태그가 있으면 그것을 쓴다
-    const who = (x.who && x.who.length) ? x.who
-              : CN_MEMBERS.filter(n=>(x.t||'').includes(n));
+    // 분류는 제목만 본다. 본문까지 보면 공통 기사가 개별로 새어 나간다.
+    const t=x.t||'';
+    let who = (x.who && x.who.length) ? x.who : CN_MEMBERS.filter(n=>t.includes(n));
+    const strong = who.filter(n=>new RegExp(n+'\\s*'+ROLE.source).test(t));
+    if(strong.length) who=strong;
     if(who.length) who.forEach(n=>{ if(buk[n]) buk[n].push(x); });
     else buk['공통'].push(x);
   });
@@ -4106,6 +4115,8 @@ function cnBuckets(){
 function renderCN(){
   const el=document.getElementById('cnsec'); if(!el||!CNDATA) return;
   if(CNDATA.meta&&CNDATA.meta.from) CN_FROM=CNDATA.meta.from;
+  if(CNDATA.meta&&CNDATA.meta.members&&CNDATA.meta.members.length)
+    CN_MEMBERS=CNDATA.meta.members;
   const B=cnBuckets();
   const total=Object.values(B).reduce((a,v)=>a+v.length,0);
   if(!total){ el.innerHTML='<div class="cnempty">최근 2주 사이 도의회 관련 보도가 없습니다.</div>'; return; }
