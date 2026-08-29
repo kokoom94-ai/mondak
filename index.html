@@ -648,6 +648,9 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .ftc-t{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4;word-break:keep-all;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .ftc-d{font-size:11px;font-weight:600;color:var(--navy)}
 .ftc-a{font-size:10.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ftcard.nolink{cursor:default}
+.ftcard.nolink:hover{background:var(--card)}
+.ftc-nl{font-size:10px;color:var(--sub);background:var(--bg);border-radius:5px;padding:1px 6px;align-self:flex-start;margin-top:2px}
 .ftstat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:9px}
 .ftstat.off{font-size:11.5px;color:var(--sub);line-height:1.6}
 .fts-h{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--navy);margin-bottom:9px;flex-wrap:wrap}
@@ -4468,7 +4471,11 @@ function renderFT(){
   }else{
     SH.slice(0,ftLim).forEach(x=>{
       const dd=ftDday(x);
-      h+='<a class="ftcard" href="'+(x.link||'#')+'"'+(x.link?' target="_blank" rel="noopener"':'')+'>'+
+      // 링크가 없는 항목(통합일정에서 온 행사)은 누를 수 없게 한다.
+      // href="#"로 두면 홈으로 돌아가 버린다.
+      const tag = x.link? 'a' : 'div';
+      const att = x.link? ' href="'+orgEsc(x.link)+'" target="_blank" rel="noopener"' : '';
+      h+='<'+tag+' class="ftcard'+(x.link?'':' nolink')+'"'+att+'>'+
          (x.img? '<span class="ftc-img" style="background-image:url('+orgEsc(x.img)+')"></span>'
                : '<span class="ftc-img noimg">🎪</span>')+
          '<span class="ftc-b">'+
@@ -4480,7 +4487,8 @@ function renderFT(){
            '<span class="ftc-t">'+orgEsc(x.title)+'</span>'+
            '<span class="ftc-d">'+orgEsc(ftDate(x))+'</span>'+
            (x.addr? '<span class="ftc-a">'+orgEsc(x.addr)+'</span>':'')+
-         '</span></a>';
+           (x.link? '' : '<span class="ftc-nl">원문 링크 준비 중</span>')+
+         '</span></'+tag+'>';
     });
     if(SH.length>ftLim) h+='<button class="axmore" id="ftmore">+ '+(SH.length-ftLim)+'건 더 보기</button>';
   }
