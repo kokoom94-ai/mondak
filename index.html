@@ -481,6 +481,8 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .bzc .dday{font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 7px}
 .dd-soon{background:#FBE9E7;color:#C6392F;border:1px solid #F2C9C4}
 .dd-nor{background:#E4F4F3;color:#0E7C7B;border:1px solid #B9E2E0}
+.bzc .bp{font-size:10.5px;font-weight:800;color:#0E7C7B;background:#E4F4F3;border:1px solid #B9E2E0;border-radius:6px;padding:2px 7px}
+.bzc .bsrc{font-size:10px;font-weight:700;color:#4A6FA5;background:#EEF3FB;border:1px solid #CBD9F0;border-radius:6px;padding:2px 6px}
 .bznote{font-size:11px;color:var(--sub);margin-top:10px;padding-top:9px;border-top:1px dashed var(--line);line-height:1.6}
 .bzmore{width:100%;margin-top:8px;padding:9px;border:1px dashed var(--line);background:transparent;border-radius:11px;color:var(--sub);font-size:12.5px;cursor:pointer}
 .bzmore:hover{border-color:var(--ok);color:var(--ok)}
@@ -494,6 +496,39 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .isnotice b{color:#7A5A08}
 
 
+
+
+/* 정부정책 브리핑 */
+.pbsec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin:10px 0 4px}
+.pbh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:9px}
+.pbh b{font-size:13.5px;color:var(--navy)}
+.pbsub{font-size:10.5px;color:var(--sub)}
+.pblist{display:flex;flex-direction:column}
+.pbi{display:flex;gap:9px;align-items:baseline;padding:7px 2px;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.pbi:first-child{border-top:0}
+.pbi:hover .pbt{color:var(--gyul)}
+.pbd{flex:0 0 34px;font-size:10.5px;font-weight:700;color:var(--sub)}
+.pbt{font-size:12.5px;line-height:1.5;color:var(--ink);word-break:keep-all}
+.pbmore{width:100%;font-size:12px;font-weight:700;color:var(--navy);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px;margin-top:8px;cursor:pointer}
+.pbnote{font-size:10px;color:var(--sub);line-height:1.6;margin-top:8px;word-break:keep-all}
+/* 도의회 관련 보도 */
+.cnsec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin:10px 0}
+.cnh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:9px}
+.cnh b{font-size:13.5px;color:var(--navy)}
+.cnsub{font-size:10.5px;color:var(--sub)}
+.cntabs{display:flex;gap:5px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.cntabs::-webkit-scrollbar{display:none}
+.cnt{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:5px 11px;white-space:nowrap;cursor:pointer}
+.cnt.on{color:#fff;background:var(--navy);border-color:var(--navy)}
+.cnlist{display:flex;flex-direction:column}
+.cni{display:flex;gap:9px;align-items:baseline;padding:7px 2px;border-top:1px solid var(--line);text-decoration:none;color:inherit;flex-wrap:wrap}
+.cni:first-child{border-top:0}
+.cni:hover .cnt2{color:var(--gyul)}
+.cnd{flex:0 0 34px;font-size:10.5px;font-weight:700;color:var(--sub)}
+.cnt2{flex:1;min-width:0;font-size:12.5px;line-height:1.5;color:var(--ink);word-break:keep-all}
+.cnsec2{font-size:10px;color:var(--sub);background:var(--bg);border-radius:5px;padding:1px 6px}
+.cnmore{width:100%;font-size:12px;font-weight:700;color:var(--navy);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px;margin-top:8px;cursor:pointer}
+.cnempty{font-size:12px;color:var(--sub);padding:14px 2px}
 /* 분야 카드 — 감성별 막대 */
 .isst{display:flex;flex-direction:column;gap:3px;margin-top:8px}
 .isst-r{display:flex;align-items:center;gap:7px}
@@ -1683,6 +1718,9 @@ body{padding-bottom:78px}
   <button class="backbtn" data-v="home" style="margin-top:14px">← 홈</button>
   <div class="viewtitle">정책참고서</div>
   <div class="viewsub">제주 특별법·시행령·조례·규칙과 제주 정책의 근거가 되는 국가법률을 한눈에<br class="mbr">— 카드를 누르면 국가법령정보센터 원문으로 연결됩니다</div>
+  <!-- 정부정책 브리핑 — 대한민국 정책브리핑 정책뉴스 -->
+  <div class="pbsec" id="pbsec"></div>
+
   <div class="metarow" style="margin-top:6px"><span class="livebadge" id="lawsrc">큐레이션 14건 · 법제처 API 연동 대기</span></div>
   <div class="lawchips" id="lawchips"></div>
   <div class="uni" style="margin-top:10px">
@@ -1762,6 +1800,8 @@ body{padding-bottom:78px}
 
   <div class="csec" style="margin-top:22px">
     <div class="dh"><h2>도의회는 지금 무엇을 다루나</h2><span class="sub" id="cbmeta">의안정보 연동 대기</span></div>
+    <!-- 도의회 관련 보도 — 공통 / 의원별 -->
+    <div class="cnsec" id="cnsec"></div>
     <div class="cgrid" id="cbstat"></div>
     <div id="cbills" style="margin-top:12px"></div>
   </div>
@@ -1811,7 +1851,7 @@ body{padding-bottom:78px}
     <div class="bzfilter" id="bzfilter"></div>
     <div id="bzlist" class="bzlist"></div>
     <div class="bznote">
-      각 기관 누리집 공개 공고를 매일 새벽 자동 수집합니다. <b>신청 조건과 마감일은 반드시 원문 공고에서 확인</b>하세요.
+      각 기관 누리집 공개 공고와 <b>조달청 나라장터</b> 제주 입찰공고를 매일 새벽 자동 수집합니다. <b>신청 조건과 마감일은 반드시 원문 공고에서 확인</b>하세요.
     </div>
   </div>
 
@@ -2541,9 +2581,9 @@ function show(v,push=true){
   if(v==='orbit')requestAnimationFrame(()=>drawOrbit(DATA.slice()));
   if(v==='explore'||v==='support'){renderRail();renderList();if(v==='support')loadBZ();}
   if(v==='news')renderNews();
-  if(v==='lawbot'){renderLaws();loadMirinae();}
+  if(v==='lawbot'){renderLaws();loadMirinae();loadPB();}
   if(v==='notice'){renderNoticeAll();}
-  if(v==='council'){renderNP();renderCB();}
+  if(v==='council'){renderNP();renderCB();loadCN();}
   if(v==='orgs'){loadOrgs();}
   if(v==='edu'){loadEdu();}
 }
@@ -2559,13 +2599,23 @@ function bzDday(end){
 function loadBZ(){
   if(BZDATA||bzLoading){ if(BZDATA) renderBZ(); return; }
   bzLoading=true;
-  fetch(BZ_SRC).then(r=>r.json()).then(d=>{
+  // 비즈 플랫폼 공고 + 나라장터 제주 입찰공고를 함께 읽는다.
+  // 나라장터는 대부분 입찰이므로 제주공모의 '용역·입찰' 유형으로 합친다.
+  Promise.all([
+    fetch(BZ_SRC).then(r=>r.json()),
+    fetch('data/bids.json?v='+Date.now()).then(r=>r.ok?r.json():null).catch(()=>null)
+  ]).then(([d,g])=>{
     const today=bzToday();
-    // 접수중 + 마감일 유효한 것만 (경량화: 필요한 필드만 보관)
-    BZDATA=(d.items||[]).filter(x=>x.status==='open'&&((x.apply_end||'')>=today||x.always_open))
+    let arr=(d.items||[]).filter(x=>x.status==='open'&&((x.apply_end||'')>=today||x.always_open))
       .map(x=>({t:x.title,u:x.url,i:x.institution,e:x.apply_end,a:x.always_open,ty:x.type,p:x.posted_at,
-                sc:(x.group===6?'nat':'jj')}))
-      .sort((a,b)=>{
+                sc:(x.group===6?'nat':'jj')}));
+    if(g&&g.items){
+      arr=arr.concat(g.items
+        .filter(x=>(x.close||'')>=today)
+        .map(x=>({t:x.title,u:x.link,i:x.org,e:x.close,a:false,ty:'bid',p:x.posted,
+                  sc:'jj',g2b:true,price:x.price})));
+    }
+    BZDATA=arr.sort((a,b)=>{
         const ae=a.a?'9999-99-99':(a.e||'9999'), be=b.a?'9999-99-99':(b.e||'9999');
         return ae<be?-1:ae>be?1:0;
       });
@@ -2622,9 +2672,16 @@ function renderBZ(){
     const dd=x.a?null:bzDday(x.e);
     const ddh = x.a ? '<span class="dday dd-nor">상시</span>'
       : (dd!=null ? '<span class="dday '+(dd<=7?'dd-soon':'dd-nor')+'">'+(dd===0?'오늘 마감':'D-'+dd)+'</span>' : '');
+    // 나라장터에서 온 건은 추정가격과 출처를 함께 보여준다
+    const won = (n)=>!n?'' : (n>=100000000 ? (n/100000000).toFixed(n>=1000000000?0:1)+'억'
+                            : n>=10000 ? Math.round(n/10000).toLocaleString()+'만'
+                            : n.toLocaleString());
+    const extra = x.g2b
+      ? (x.price?'<span class="bp">'+won(x.price)+'원</span>':'')+'<span class="bsrc">나라장터</span>'
+      : '';
     return '<a class="bzc" href="'+orgEsc(x.u)+'" target="_blank" rel="noopener">'+
       '<div class="b1">'+orgEsc(x.t)+'</div><div class="b2">'+
-      '<span class="bi">'+orgEsc(x.i)+'</span>'+ddh+
+      '<span class="bi">'+orgEsc(x.i)+'</span>'+ddh+extra+
       (x.e&&!x.a?'<span class="bd">~'+orgEsc(x.e)+'</span>':'')+'</div></a>';
   }).join('');
   const old=sec.querySelector('.bzmore'); if(old) old.remove();
@@ -3977,6 +4034,97 @@ function renderGwan(v){
   if(is){ is.hidden=!isIS; if(isIS) loadIS(); }
   if(ax){ ax.hidden=!isAX; if(isAX) loadAX(); }
   if(ft){ ft.hidden=!isFT; if(isFT) loadFT(); }
+}
+
+
+
+/* ══════════ 정부정책 브리핑 ══════════
+   대한민국 정책브리핑(korea.kr) 정책뉴스. RSS가 2026-07-01 중단돼
+   검색 색인으로 모으고 원문 직링크로 되돌린 것을 보여준다. */
+let PBDATA=null, pbMore=false;
+function loadPB(){
+  const el=document.getElementById('pbsec'); if(!el||PBDATA) { if(PBDATA) renderPB(); return; }
+  fetch('data/policybrief.json?v='+Date.now()).then(r=>r.ok?r.json():null).then(j=>{
+    PBDATA=j||{items:[]}; renderPB();
+  }).catch(()=>{ PBDATA={items:[]}; renderPB(); });
+}
+function renderPB(){
+  const el=document.getElementById('pbsec'); if(!el||!PBDATA) return;
+  const IT=PBDATA.items||[], M=PBDATA.meta||{};
+  if(!IT.length){ el.innerHTML=''; return; }
+  const n=pbMore? Math.min(IT.length,30) : 5;
+  let h='<div class="pbh"><b>📰 정부정책 브리핑</b>'+
+        '<span class="pbsub">대한민국 정책브리핑 정책뉴스'+(M.updated?' · '+orgEsc(M.updated.slice(0,10)):'')+'</span></div>'+
+        '<div class="pblist">';
+  IT.slice(0,n).forEach(x=>{
+    h+='<a class="pbi" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
+       '<span class="pbd">'+orgEsc((x.date||'').slice(5).replace('-','.'))+'</span>'+
+       '<span class="pbt">'+orgEsc(x.title)+'</span></a>';
+  });
+  h+='</div>';
+  if(IT.length>5) h+='<button class="pbmore" id="pbmore">'+(pbMore?'접기':'더보기 ('+(IT.length-5)+'건)')+'</button>';
+  h+='<div class="pbnote">정책브리핑 RSS 서비스는 2026년 7월 1일 중단되어, 공개된 기사 색인을 통해 제목과 원문 링크만 모읍니다.</div>';
+  el.innerHTML=h;
+  const b=el.querySelector('#pbmore');
+  if(b) b.addEventListener('click',()=>{ pbMore=!pbMore; renderPB(); });
+}
+
+/* ══════════ 도의회 관련 보도 ══════════
+   1차: 제목·본문에 '제주도의회' 또는 '제주특별자치도의회'
+   2차: 의원 이름이 있으면 그 의원, 없으면 공통 */
+const CN_MEMBERS=["한권", "박호형", "김기환", "한동수", "정민구", "김황국", "강성의", "박안수", "김봉현", "양영수", "강정범", "양영식", "강철남", "양경호", "이경심", "송창권", "이남근", "장정훈", "강봉직", "강동우", "김덕홍", "김승준", "강충룡", "오은초", "김대진", "강명균", "임정은", "이경철", "양홍식", "하성용", "한동훈"];
+let CNDATA=null, cnPick='공통', cnMore=false;
+function loadCN(){
+  const el=document.getElementById('cnsec'); if(!el) return;
+  if(CNDATA){ renderCN(); return; }
+  fetch('data/news.json?v='+Date.now()).then(r=>r.ok?r.json():null).then(j=>{
+    CNDATA=j||{items:[]}; renderCN();
+  }).catch(()=>{ CNDATA={items:[]}; renderCN(); });
+}
+function cnBuckets(){
+  const IT=(CNDATA&&CNDATA.items)||[];
+  const hit=IT.filter(x=>{
+    const t=(x.t||'')+' '+(x.d||'');
+    return /제주\s?도의회|제주특별자치도의회/.test(t);
+  });
+  const buk={'공통':[]};
+  CN_MEMBERS.forEach(n=>{ buk[n]=[]; });
+  hit.forEach(x=>{
+    const t=(x.t||'')+' '+(x.d||'');
+    const who=CN_MEMBERS.filter(n=>t.includes(n));
+    if(who.length) who.forEach(n=>buk[n].push(x));
+    else buk['공통'].push(x);
+  });
+  return buk;
+}
+function renderCN(){
+  const el=document.getElementById('cnsec'); if(!el||!CNDATA) return;
+  const B=cnBuckets();
+  const total=Object.values(B).reduce((a,v)=>a+v.length,0);
+  if(!total){ el.innerHTML='<div class="cnempty">최근 2주 사이 도의회 관련 보도가 없습니다.</div>'; return; }
+  const withN=Object.keys(B).filter(k=>k!=='공통'&&B[k].length)
+                    .sort((a,b)=>B[b].length-B[a].length);
+  if(!B[cnPick] || !B[cnPick].length) cnPick = B['공통'].length? '공통' : (withN[0]||'공통');
+
+  let h='<div class="cnh"><b>🗞 도의회 관련 보도</b><span class="cnsub">최근 2주 · 총 '+total+'건</span></div>';
+  h+='<div class="cntabs">'+
+     '<button class="cnt'+(cnPick==='공통'?' on':'')+'" data-cn="공통">공통 '+B['공통'].length+'</button>'+
+     withN.map(n=>'<button class="cnt'+(cnPick===n?' on':'')+'" data-cn="'+orgEsc(n)+'">'+orgEsc(n)+' '+B[n].length+'</button>').join('')+
+     '</div>';
+  const L=B[cnPick]||[], n=cnMore? L.length : 5;
+  h+='<div class="cnlist">'+ (L.length? L.slice(0,n).map(x=>
+      '<a class="cni" href="'+orgEsc(x.u||'#')+'" target="_blank" rel="noopener">'+
+      '<span class="cnd">'+orgEsc((x.date||'').slice(5).replace('-','.'))+'</span>'+
+      '<span class="cnt2">'+orgEsc(x.t)+'</span>'+
+      (x.s?'<span class="cnsec2">'+orgEsc(x.s)+'</span>':'')+'</a>').join('')
+      : '<div class="cnempty">해당 항목의 보도가 없습니다.</div>') + '</div>';
+  if(L.length>5) h+='<button class="cnmore" id="cnmore">'+(cnMore?'접기':'더보기 ('+(L.length-5)+'건)')+'</button>';
+  el.innerHTML=h;
+  el.querySelectorAll('[data-cn]').forEach(b=>b.addEventListener('click',()=>{
+    cnPick=b.dataset.cn; cnMore=false; renderCN();
+  }));
+  const mb=el.querySelector('#cnmore');
+  if(mb) mb.addEventListener('click',()=>{ cnMore=!cnMore; renderCN(); });
 }
 
 /* ══════════ 제주행사모음 ══════════
