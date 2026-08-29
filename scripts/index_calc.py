@@ -233,6 +233,8 @@ def main():
                            "neg_n":n30.get(c,0),"share":v["share"],"neg":v["neg"],
                            "prev_neg":None,"delta":None,
                            "natures":{k:nc.get(k,0) for k in NATS if nc.get(k)},
+                           "pos_n":sum(1 for x in m30 if x.get("category")==c and x.get("sentiment")=="긍정"),
+                           "neu_n":sum(1 for x in m30 if x.get("category")==c and x.get("sentiment")=="중립"),
                            "top":top_titles(m30,c,120,None)})
     # 일별 추이 — 30일치. 썸트렌드의 긍·부정 추이 막대에 대응한다.
     d30=[]
@@ -265,7 +267,9 @@ def main():
         pvv=(P or {}).get("categories",{}).get(c)
         sub=[x for x in cur if x.get("category")==c]
         nc=Counter(x.get("nature") or "불만·후기" for x in sub)
-        rank.append({"name":c,"policy":POLICY.get(c,""),"n":v["n"],"neg_n":negcnt.get(c,0),
+        sc=Counter(x.get("sentiment") or "중립" for x in sub)   # 같은 집합에서 센다
+        rank.append({"name":c,"policy":POLICY.get(c,""),"n":len(sub),"neg_n":sc.get("부정",0),
+                     "pos_n":sc.get("긍정",0),"neu_n":sc.get("중립",0),
                      "share":v["share"],"neg":v["neg"],
                      "prev_neg":pvv["neg"] if pvv else None,
                      "delta":round(v["neg"]-pvv["neg"],1) if pvv else None,
