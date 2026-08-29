@@ -1,22 +1,15 @@
 {
  "meta": {
-  "updated": "2026-08-29 23:31",
+  "updated": "2026-08-29 23:50",
   "days": 30,
-  "based_on": 1983,
-  "count": 3,
+  "based_on": 1971,
+  "count": 2,
   "by": {
-   "pos": 3
+   "pos": 1,
+   "neg": 1
   }
  },
  "words": [
-  {
-   "label": "가족",
-   "pol": "pos",
-   "n": 30,
-   "words": [
-    "가족"
-   ]
-  },
   {
    "label": "가볼만하다",
    "pol": "pos",
@@ -26,11 +19,11 @@
    ]
   },
   {
-   "label": "제주도여행코",
-   "pol": "pos",
-   "n": 8,
+   "label": "부족하다",
+   "pol": "neg",
+   "n": 12,
    "words": [
-    "제주도여행코"
+    "부족으로"
    ]
   }
  ],
@@ -1030,6 +1023,36 @@
    "keep": false,
    "pol": "",
    "label": "있어서"
+  },
+  {
+   "w": "주변",
+   "keep": false,
+   "pol": "",
+   "label": "주변"
+  },
+  {
+   "w": "현장",
+   "keep": false,
+   "pol": "",
+   "label": "현장"
+  },
+  {
+   "w": "다만",
+   "keep": false,
+   "pol": "",
+   "label": "다만"
+  },
+  {
+   "w": "부족으로",
+   "keep": true,
+   "pol": "neg",
+   "label": "부족하다"
+  },
+  {
+   "w": "제주공항과",
+   "keep": false,
+   "pol": "",
+   "label": "제주공항과"
   }
  ]
 }
