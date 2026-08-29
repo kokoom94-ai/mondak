@@ -4126,7 +4126,8 @@ let IWAUTO=null;   // data/keywords.json — 데이터에서 자동으로 뽑은
 function loadIWAuto(){
   if(IWAUTO!==null) return Promise.resolve();
   return fetch('data/keywords.json?v='+Date.now()).then(r=>r.ok?r.json():null)
-    .then(j=>{ IWAUTO=(j&&j.words&&j.words.length)?j:false; })
+    // 자동 추출분이 너무 적으면(판정 실패 등) 내장 사전으로 그린다
+    .then(j=>{ IWAUTO=(j&&j.words&&j.words.length>=8)?j:false; })
     .catch(()=>{ IWAUTO=false; });
 }
 
