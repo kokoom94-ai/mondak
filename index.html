@@ -534,6 +534,35 @@ w{color:var(--ok);border-bottom:1.5px dashed rgba(14,124,123,.5);cursor:help;fon
 .cnsec2{font-size:10px;color:var(--sub);background:var(--bg);border-radius:5px;padding:1px 6px}
 .cnmore{width:100%;font-size:12px;font-weight:700;color:var(--navy);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px;margin-top:8px;cursor:pointer}
 .cnempty{font-size:12px;color:var(--sub);padding:14px 2px}
+
+/* 긍·부정 키워드 워드맵 */
+.iwsec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin:10px 0}
+.iwh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.iwh b{font-size:13.5px;color:var(--navy)}
+.iwsub{font-size:10.5px;color:var(--sub)}
+.iwtoggle{margin-left:auto;display:flex;gap:3px;background:var(--bg);border-radius:20px;padding:2px}
+.iwtb{font-size:11px;font-weight:700;color:var(--sub);background:transparent;border:0;border-radius:18px;padding:4px 12px;cursor:pointer}
+.iwtb.on{color:#fff;background:var(--navy)}
+.iwcloud{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px 13px;padding:16px 6px;min-height:150px}
+.iww{font-weight:800;line-height:1.25;cursor:default}
+.iww.k-pos{color:#5B4BC4}.iww.k-neg{color:#D9424A}.iww.k-neu{color:#E0A93B}
+.iwtable{display:flex;flex-direction:column;gap:3px}
+.iwtr{display:flex;align-items:center;gap:7px;padding:4px 2px}
+.iwrk{flex:0 0 18px;font-size:10.5px;font-weight:800;color:var(--sub);text-align:right}
+.iwtr .iww{flex:0 0 68px;font-size:12px!important}
+.iwkn{flex:0 0 30px;font-size:9.5px;font-weight:800;border-radius:5px;padding:1px 5px;text-align:center}
+.iwkn.k-pos{color:#5B4BC4;background:#EEEBFA}.iwkn.k-neg{color:#D9424A;background:#FDECEC}.iwkn.k-neu{color:#B8862A;background:#FCF4E3}
+.iwbar{flex:1;height:9px;background:var(--bg);border-radius:5px;overflow:hidden}
+.iwbar i{display:block;height:100%;border-radius:5px}
+.iwbar i.k-pos{background:#5B4BC4}.iwbar i.k-neg{background:#D9424A}.iwbar i.k-neu{background:#E0A93B}
+.iwn{flex:0 0 28px;text-align:right;font-size:11px;font-weight:700;color:var(--navy)}
+.iwlegend{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.iwlg{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:5px 12px;cursor:pointer;opacity:.45}
+.iwlg.on{opacity:1;color:var(--ink)}
+.iwlg em{width:10px;height:10px;border-radius:3px;display:block}
+.iwlg em.k-pos{background:#5B4BC4}.iwlg em.k-neg{background:#D9424A}.iwlg em.k-neu{background:#E0A93B}
+.iwnote{font-size:10px;color:var(--sub);text-align:center;margin-top:8px;line-height:1.6}
+@media(max-width:420px){.iwcloud{gap:4px 9px;padding:12px 2px}.iwtr .iww{flex-basis:58px}}
 /* 분야 카드 — 감성별 막대 */
 .isst{display:flex;flex-direction:column;gap:3px;margin-top:8px}
 .isst-r{display:flex;align-items:center;gap:7px}
@@ -2761,6 +2790,7 @@ function renderSchools(){
 document.addEventListener('input',e=>{ if(e.target&&e.target.id==='schq') renderSchools(); });
 let ISDATA=null, isLoading=false, isTab='30d', isOpenCat=null;
 let isCh={news:true,blog:true,cafe:true}, isPostTab='neg';
+let ISRAW=null;   // 원본 글 — 워드맵 계산에 쓴다
 function loadIS(){
   if(ISDATA||isLoading){ if(ISDATA) renderIS(); return; }
   isLoading=true;
@@ -2768,6 +2798,11 @@ function loadIS(){
   if(b) b.innerHTML='<div class="isload"><span class="aispin"></span> 여론 데이터를 불러오는 중…</div>';
   fetch('data/issue_index.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
     ISDATA=d; isLoading=false; renderIS();
+    // 지수를 먼저 그리고, 원본은 뒤이어 받아 워드맵만 다시 그린다
+    loadIWAuto().then(()=>renderIS());
+    fetch('data/issue.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(j=>{
+      if(j&&j.items&&j.items.length){ ISRAW=j.items; renderIS(); }
+    }).catch(()=>{});
   }).catch(()=>{ isLoading=false;
     if(b) b.innerHTML='<div class="isload">여론 데이터를 불러오지 못했습니다.</div>';
   });
@@ -2928,6 +2963,16 @@ function renderIS(){
           Math.round(v/tot*100)+'%</i></span>').join('')+'</div>';
       }
       h+='</div>';
+
+      /* ── 긍·부정 키워드 워드맵 — 글의 성격 바로 아래 ── */
+      if(IWAUTO && IWAUTO.words){
+        h+=renderIW(null);
+      }else if(ISRAW){
+        const days = is30? 30 : 7;
+        const cut = new Date(Date.now()+9*3600*1000 - days*86400000).toISOString().slice(0,10);
+        const src = ISRAW.filter(x=>(x.date||'')>=cut);
+        h+=renderIW(isFilter(src.length?src:ISRAW));
+      }
     }
   } else if(isTab==='month'){
     h+='<div class="tjsec"><h3>📅 월간 여론지수</h3>';
@@ -2947,6 +2992,7 @@ function renderIS(){
     h+='<div class="tjnote">※ 이번 달은 진행 중이라 월말에 값이 달라질 수 있습니다.</div></div>';
   }
 
+  /* ── 긍·부정 키워드 워드맵 ── */
   /* ── 분야별 (부정 기준·7일) — 주간 탭에서만 ── */
   const R=is30?(W30.rank||[]):((isTab==='week')?(D.rank||[]):[]);
   if(R.length){
@@ -3026,6 +3072,7 @@ function renderIS(){
   h+='<div class="orgnote">· '+orgEsc(M.source||'')+'<br>· '+orgEsc(M.note||'')+
      '<br>· 개별 글의 사실 여부는 확인하지 않았습니다. 분류는 규칙 기반이라 오분류가 있을 수 있습니다.</div>';
   b.innerHTML=h;
+  bindIW(b);
 
   const tb=document.getElementById('istabs');
   if(tb) tb.addEventListener('click',e=>{const el=e.target.closest('button'); if(el){isTab=el.dataset.t; renderIS();}});
@@ -4042,6 +4089,121 @@ function renderGwan(v){
 }
 
 
+
+
+/* ══════════ 긍·부정 키워드 워드맵 ══════════
+   수집된 글에서 '감성을 담은 표현'만 뽑아 크기·색으로 보여준다.
+   주제어(맛집·실종 등)나 사람 이름은 넣지 않는다 —
+   사전에 있는 표현만 세므로 피해자 이름 같은 것이 노출될 일이 없다. */
+const IW_LEX = {
+  pos: {
+    '좋다':['좋다','좋았','좋은','좋고','좋아'], '만족':['만족'], '추천':['추천'],
+    '친절':['친절'], '깨끗':['깨끗','청결'], '가성비':['가성비','저렴','합리적'],
+    '편하다':['편했','편하','편리','수월'], '아름답다':['아름답','예쁘','예뻤','멋있','멋졌'],
+    '맛있다':['맛있','맛집','존맛','맛도'], '즐겁다':['즐거','즐겁','재밌','재미있','신나'],
+    '감동':['감동','인상적','최고였','대박'], '여유':['여유','힐링','평화','한적'],
+    '늘었다':['늘어','증가','상승','확대','회복'], '개선':['개선','나아졌','좋아졌','해소'],
+    '기대':['기대','설레'], '성공':['성공','성과','달성'],
+    '재방문':['재방문','또 가','다시 가'], '안전':['안전해','안심']
+  },
+  neg: {
+    '비싸다':['비싸','비쌌','바가지','폭리','과다 청구'], '불친절':['불친절','무례','퉁명'],
+    '불편':['불편','번거','짜증','답답'], '실망':['실망','아쉬','후회','별로'],
+    '더럽다':['더러','지저분','불결','냄새'], '불안':['불안','걱정','무섭','두렵','공포'],
+    '위험':['위험','사고','피해'], '부족':['부족','모자','없어서','품절','대란'],
+    '줄었다':['줄어','감소','하락','급감','침체'], '혼잡':['혼잡','붐비','대기','기다렸','밀려'],
+    '논란':['논란','비판','지적','문제'], '취소':['취소','환불','포기','돌렸'],
+    '오염':['오염','쓰레기','훼손','난개발'], '지연':['지연','결항','늦어','밀렸']
+  },
+  neu: {
+    '추진':['추진','계획','검토','예정'], '운영':['운영','시행','도입'],
+    '개최':['개최','열린','진행'], '발표':['발표','밝혔','공개'],
+    '조사':['조사','점검','실태'], '지원':['지원','보조','예산']
+  }
+};
+let iwMode='cloud', iwOn={pos:true,neg:true,neu:true};
+let IWAUTO=null;   // data/keywords.json — 데이터에서 자동으로 뽑은 키워드
+function loadIWAuto(){
+  if(IWAUTO!==null) return Promise.resolve();
+  return fetch('data/keywords.json?v='+Date.now()).then(r=>r.ok?r.json():null)
+    .then(j=>{ IWAUTO=(j&&j.words&&j.words.length)?j:false; })
+    .catch(()=>{ IWAUTO=false; });
+}
+
+function iwCount(list){
+  const out={pos:{},neg:{},neu:{}};
+  (list||[]).forEach(x=>{
+    const t=((x.title||'')+' '+(x.description||'')).toLowerCase();
+    ['pos','neg','neu'].forEach(k=>{
+      Object.keys(IW_LEX[k]).forEach(label=>{
+        if(IW_LEX[k][label].some(v=>t.includes(v.toLowerCase())))
+          out[k][label]=(out[k][label]||0)+1;
+      });
+    });
+  });
+  return out;
+}
+function renderIW(list){
+  let rows=[];
+  if(IWAUTO && IWAUTO.words){
+    // 자동 추출분을 쓴다. 데이터가 바뀌면 키워드도 따라 바뀐다.
+    rows = IWAUTO.words.map(x=>({w:x.label, n:x.n, k:x.pol}));
+  }else{
+    const C=iwCount(list);
+    ['pos','neg','neu'].forEach(k=>Object.keys(C[k]).forEach(w=>rows.push({w:w,n:C[k][w],k:k})));
+  }
+  if(!rows.length) return '';
+  rows.sort((a,b)=>b.n-a.n);
+  const show=rows.filter(r=>iwOn[r.k]).slice(0,40);
+  const mx=Math.max(1,...show.map(r=>r.n)), mn=Math.min(...show.map(r=>r.n));
+  const KN={pos:'긍정',neg:'부정',neu:'중립'};
+
+  let h='<div class="iwsec"><div class="iwh"><b>긍·부정 키워드</b>'+
+        '<span class="iwsub">수집된 글에서 자주 나온 표현</span>'+
+        '<span class="iwtoggle">'+
+          '<button class="iwtb'+(iwMode==='cloud'?' on':'')+'" data-iwm="cloud">워드맵</button>'+
+          '<button class="iwtb'+(iwMode==='table'?' on':'')+'" data-iwm="table">표</button>'+
+        '</span></div>';
+
+  if(iwMode==='cloud'){
+    // 큰 낱말이 가운데로 오도록 번갈아 배치한다
+    const ordered=[];
+    show.forEach((r,i)=>{ if(i%2) ordered.push(r); else ordered.unshift(r); });
+    h+='<div class="iwcloud">'+ordered.map(r=>{
+      const sz=(12+Math.round((r.n-mn)/(mx-mn||1)*26));
+      return '<span class="iww k-'+r.k+'" style="font-size:'+sz+'px" '+
+             'title="'+orgEsc(r.w)+' · '+KN[r.k]+' '+r.n+'건">'+orgEsc(r.w)+'</span>';
+    }).join('')+'</div>';
+  }else{
+    h+='<div class="iwtable">'+show.map((r,i)=>
+      '<div class="iwtr"><span class="iwrk">'+(i+1)+'</span>'+
+      '<span class="iww k-'+r.k+'">'+orgEsc(r.w)+'</span>'+
+      '<span class="iwkn k-'+r.k+'">'+KN[r.k]+'</span>'+
+      '<span class="iwbar"><i class="k-'+r.k+'" style="width:'+Math.round(r.n/mx*100)+'%"></i></span>'+
+      '<span class="iwn">'+r.n+'</span></div>').join('')+'</div>';
+  }
+
+  h+='<div class="iwlegend">'+['pos','neg','neu'].map(k=>
+      '<label class="iwlg'+(iwOn[k]?' on':'')+'" data-iwk="'+k+'">'+
+      '<em class="k-'+k+'"></em>'+KN[k]+'</label>').join('')+'</div>';
+  const auto = !!(IWAUTO && IWAUTO.words);
+  h+='<div class="iwnote">'+
+     (auto? '수집된 글에서 자동으로 뽑아 감성을 판정한 표현입니다'+
+            (IWAUTO.meta&&IWAUTO.meta.updated?' · '+orgEsc(IWAUTO.meta.updated.slice(0,10)):'')+
+            ' 기준, 최근 '+((IWAUTO.meta&&IWAUTO.meta.days)||30)+'일.'
+          : '감성 표현만 셉니다.')+
+     ' 사람 이름·지명 같은 고유명사는 넣지 않습니다.</div>';
+  return h+'</div>';
+}
+function bindIW(el){
+  if(!el) return;
+  el.querySelectorAll('[data-iwm]').forEach(b=>b.addEventListener('click',()=>{
+    iwMode=b.dataset.iwm; renderIS();
+  }));
+  el.querySelectorAll('[data-iwk]').forEach(b=>b.addEventListener('click',()=>{
+    iwOn[b.dataset.iwk]=!iwOn[b.dataset.iwk]; renderIS();
+  }));
+}
 
 /* ══════════ 정부정책 브리핑 ══════════
    대한민국 정책브리핑(korea.kr) 정책뉴스. RSS가 2026-07-01 중단돼
