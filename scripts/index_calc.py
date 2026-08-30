@@ -265,7 +265,8 @@ def main():
     negcnt={c:sum(1 for x in cur_neg_c if x.get("category")==c) for c in C["categories"]}
     for c,v in sorted(C["categories"].items(), key=lambda x:(-negcnt.get(x[0],0),-x[1]["n"])):
         pvv=(P or {}).get("categories",{}).get(c)
-        sub=[x for x in cur if x.get("category")==c]
+        # 한 글이 두 분야에 걸릴 수 있다(예: 행정 대응 기사 = 정책·행정 + 이동·교통)
+        sub=[x for x in cur if c in (x.get("categories") or [x.get("category")])]
         nc=Counter(x.get("nature") or "불만·후기" for x in sub)
         sc=Counter(x.get("sentiment") or "중립" for x in sub)   # 같은 집합에서 센다
         rank.append({"name":c,"policy":POLICY.get(c,""),"n":len(sub),"neg_n":sc.get("부정",0),
