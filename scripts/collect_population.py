@@ -72,8 +72,14 @@ STATS = "https://www.jeju.go.kr/open/stats/list/population.htm?format=json"
 
 def stats_portal():
     """제주통계포털 인구 — 도청이 기준으로 삼는 자료.
-    인구빅데이터 API보다 먼저 갱신된다(실측: 포털 7월 / API 6월).
-    응답 구조를 확신할 수 없어 숫자를 스스로 찾아낸다."""
+
+    응답 안의 jejunetPeople 블록에 값이 들어 있다(실측 확인).
+      year/month  기준 연·월
+      tt 총인구 · tl 내국인 · tf 외국인 · th 세대수
+      jep 제주시 · sep 서귀포시
+    ※ 값을 스스로 찾게 두면 담당자 조직코드(1000007002004) 같은 큰 수를
+      인구로 집는다. 그래서 필드를 이름으로 정확히 읽는다.
+    """
     try:
         req = urllib.request.Request(STATS, headers={
             "User-Agent": UA, "Accept": "application/json, text/plain, */*",
@@ -83,52 +89,48 @@ def stats_portal():
     except Exception as e:
         print("■ 통계포털 조회 실패: " + str(e)); return None
 
-    print("")
-    print("── 통계포털 응답 앞 700자 ──")
-    print(txt[:700].replace("\n", " "))
-    print("──────────")
-
     try:
         d = json.loads(txt)
     except Exception:
-        print("■ 통계포털: JSON 아님"); return None
-
-    flat = flat_nums(d)
-    if not flat:
-        print("■ 통계포털: 숫자를 못 찾음"); return None
-
-    def by(*words, **kw):
-        exclude = kw.get("exclude", ())
-        best = None
-        for k, v in flat.items():
-            kl = k.lower()
-            if any(w in kl for w in exclude): continue
-            if any(w in kl for w in words):
-                if best is None or v > best: best = v
-        return best
-
-    # 기준월 — 문자열 어딘가에 202607 같은 값이 있다
-    ym = ""
-    for m in re.finditer(r"20\d{2}[-.]?(0[1-9]|1[0-2])", txt):
-        cand = re.sub(r"[-.]", "", m.group(0))
-        if not ym or cand > ym: ym = cand
-
-    total   = by("total", "합계", "인구", "pop", exclude=("house", "세대", "fo", "외국"))
-    house   = by("house", "세대", "hh")
-    foreign = by("foreign", "forgn", "외국", "totalfo")
-    local   = by("local", "내국", "jumin", "주민")
-
-    if total and total < 100000:      # 도 전체가 10만 미만일 수 없다
-        total = max(flat.values())
-    if not total:
-        print("■ 통계포털: 총인구를 못 찾음 · 숫자 후보 " + str(sorted(flat.items(), key=lambda x: -x[1])[:8]))
+        print("■ 통계포털: JSON 아님 · 앞 300자: " + txt[:300].replace("\n", " "))
         return None
 
-    print("■ 통계포털 — 기준월 " + (ym or "?") + " · 총 " + format(total, ",") + "명"
-          + (" · 세대 " + format(house, ",") if house else "")
-          + (" · 외국인 " + format(foreign, ",") if foreign else ""))
+    p = d.get("jejunetPeople")
+    if not isinstance(p, dict):
+        print("■ 통계포털: jejunetPeople 블록이 없습니다 · 최상위 키: "
+              + str(list(d.keys())[:15]))
+        return None
+
+    def num(k):
+        v = p.get(k)
+        return v if isinstance(v, int) and v > 0 else None
+
+    total   = num("tt")
+    local   = num("tl")
+    foreign = num("tf")
+    house   = num("th")
+    y, mo   = p.get("year"), p.get("month")
+    ym = (str(y) + str(mo).zfill(2)) if (y and mo) else ""
+
+    if not total:
+        print("■ 통계포털: 총인구(tt)를 못 읽었습니다 · 블록: "
+              + json.dumps(p, ensure_ascii=False)[:300])
+        return None
+    # 제주 인구는 60만~80만 사이다. 벗어나면 쓰지 않는다.
+    if not (500000 <= total <= 900000):
+        print("■ 통계포털: 총인구가 범위를 벗어남(" + format(total, ",") + ") — 쓰지 않습니다")
+        return None
+    if not ym:
+        print("■ 통계포털: 기준월을 못 읽었습니다 — 쓰지 않습니다"); return None
+
+    print("■ 통계포털 — " + str(y) + "년 " + str(mo) + "월 · 총 " + format(total, ",") + "명"
+          + " · 내국인 " + format(local or 0, ",")
+          + " · 외국인 " + format(foreign or 0, ",")
+          + " · 세대 " + format(house or 0, ","))
+    print("   제주시 " + format(num("jep") or 0, ",") + " · 서귀포시 " + format(num("sep") or 0, ","))
     return {"total": total, "house": house or 0, "foreign": foreign or 0,
-            "local": local or 0, "mom": 0, "month": ym}
+            "local": local or 0, "mom": 0, "month": ym,
+            "jeju_si": num("jep") or 0, "seogwipo": num("sep") or 0}
 
 
 def warmup():
