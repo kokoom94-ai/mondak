@@ -1,9 +1,9 @@
-name: 제주관광 여론 수집
+name: collect-issue
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 21,9 * * *'   # 06:00 / 18:00 KST
+    - cron: '0 21,9 * * *'
 
 permissions:
   contents: write
@@ -18,39 +18,31 @@ jobs:
     timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      # ① 수집 — 규칙 엔진은 여기까지(1차 선별·중복제거). 누적 병합됨.
-      - name: 여론 수집
+      - name: Collect
         env:
-          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
-          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
           NAVER_ID: ${{ secrets.NAVER_ID }}
           NAVER_SECRET: ${{ secrets.NAVER_SECRET }}
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
         run: python scripts/collect_issue.py
 
-      # ② LLM 판정 — 최종 분류. Hasa AI Hub(공공 무료 LLM)를 쓴다.
-      #    규칙으로는 못 잡는 것들을 여기서 거른다.
-      #      · 문장의 반전 ("비싸다고 들었는데 아니었다" → 긍정)
-      #      · 제주가 비유·부수로만 나온 타 지역 기사 → 제외
-      #    키가 없거나 실패해도 규칙 판정으로 화면은 돌아간다.
-      - name: LLM 판정
+      - name: LLM judge
         env:
           HUB_API_KEY: ${{ secrets.HUB_API_KEY }}
           HUB_MODEL: exaone-4.0-32b
-          LLM_BATCH: '12'
+          LLM_BATCH: '8'
           LLM_LIMIT: '99999'
           LLM_DAYS: '60'
           LLM_BUDGET_SEC: '18000'
         continue-on-error: true
         run: python scripts/llm_judge.py
 
-      # ③ 키워드 자동 추출 — 워드맵용. 데이터가 바뀌면 키워드도 바뀐다.
-      - name: 감성 키워드 추출
+      - name: Keywords
         env:
           HUB_API_KEY: ${{ secrets.HUB_API_KEY }}
           HUB_MODEL: exaone-4.0-32b
@@ -59,26 +51,21 @@ jobs:
         continue-on-error: true
         run: python scripts/build_keywords.py
 
-      # ④ 지수 산출
-      - name: 여론지수 산출
+      - name: Index
         run: python scripts/index_calc.py
 
-      - name: 변경사항 커밋
+      - name: Commit
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A data/
-          git diff --staged --quiet && echo "변경 없음" && exit 0
-          git commit -m "여론 수집·판정·지수 $(date +'%Y-%m-%d %H:%M')"
-          # 다른 수집 작업이 먼저 밀어 넣었으면 저장소가 앞서 있다 — 다시 맞춘 뒤 재시도
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -m "issue update ($(date +%Y-%m-%d))"
           for i in 1 2 3 4 5; do
             git push && exit 0
-            echo "push 재시도 $i"
+            echo "retry push $i"
             git pull --rebase --autostash origin ${GITHUB_REF_NAME:-main} || true
             sleep 3
           done
-          echo "push 실패 — 다음 실행에서 다시 시도합니다"
-          exit 0 origin main && exit 0
-            echo "재시도 $i"; sleep 5
-          done
-          echo "푸시 실패" && exit 1
+          echo "push failed - will retry next run"
+          exit 0
