@@ -2836,7 +2836,9 @@ function isCard(x){
   return '<a class="ispc" href="'+orgEsc(x.link||'#')+'" target="_blank" rel="noopener">'+
     '<div class="ispc-h"><b class="ch ch-'+orgEsc(x.channel)+'">'+(IS_CH[x.channel]||x.channel)+'</b>'+
       '<span class="dt">'+orgEsc(x.date||'')+'</span>'+
-      (x.category?'<span class="cg">'+orgEsc(x.category)+'</span>':'')+
+      // 한 글이 두 분야에 걸릴 수 있다 (행정 대응 기사 등)
+      ((x.categories&&x.categories.length? x.categories : (x.category?[x.category]:[]))
+        .map(c=>'<span class="cg">'+orgEsc(c)+'</span>').join(''))+
       (x.sentiment?'<span class="sm '+(x.sentiment==='부정'?'neg':(x.sentiment==='긍정'?'pos':''))+'">'+orgEsc(x.sentiment)+'</span>':'')+
     '</div>'+
     '<div class="ispc-t">'+orgEsc(x.title)+'</div>'+
