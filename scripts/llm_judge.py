@@ -20,10 +20,10 @@ MODEL = os.environ.get("HUB_MODEL", "exaone-4.0-32b")
 KEY   = os.environ.get("HUB_API_KEY", "").strip()
 
 SRC   = os.path.join("data", "issue.json")
-BATCH = int(os.environ.get("LLM_BATCH", "12"))     # 한 번에 판정할 건수
+BATCH = int(os.environ.get("LLM_BATCH", "8"))     # 한 번에 판정할 건수
 LIMIT = int(os.environ.get("LLM_LIMIT", "99999"))  # 실행당 상한 (기본: 제한 없음)
 DAYS  = int(os.environ.get("LLM_DAYS", "60"))      # 보관 기간 전체를 판정한다
-VER   = "llm-v7"                                   # 판정 기준이 바뀌면 올린다
+VER   = "llm-v8"                                   # 판정 기준이 바뀌면 올린다
 
 KST = timezone(timedelta(hours=9))
 NOW = datetime.now(KST)
@@ -35,16 +35,24 @@ CATS = ["치안·안전", "비용·상거래", "숙박", "이동·교통", "먹�
 SYSTEM = """당신은 제주 관광 여론을 분류합니다. 아래 세 질문을 순서대로 던져 판정하고,
 JSON 배열로만 답하세요. 예시는 이해를 돕는 참고일 뿐, 판단은 항상 질문으로 하세요.
 
-═══ 질문 1. 이 글의 중심이 제주 관광인가? (rel) ═══
-"이 글을 한 줄로 요약하면 무엇에 대한 글인가"를 스스로 물으세요.
-그 한 줄에 제주 관광·여행이 들어가지 않으면 rel=false 입니다.
+═══ 질문 1. 이 글은 누구에 대한 글인가? (rel) ═══
+**"이 글이 다루는 대상, 평가하거나 문제 삼는 상대가 누구인가"**를 먼저 물으세요.
+그 대상이 제주(제주도·제주 관광업계·제주를 찾은 여행자)가 아니면 rel=false 입니다.
+제주에서 일어난 일이라도, 따지는 상대가 제주가 아니면 제주 여론이 아닙니다.
 
 false 인 경우
+ · **대상이 다른 지역의 사람·기관인 글**
+   타 지역 의회·지자체·정치인·기업의 처신을 다루는 기사는, 제주가 그 무대였더라도
+   그 지역의 문제입니다. 제주는 장소로만 등장합니다.
+   (다른 지역 의원들의 제주 연수·출장을 지적하는 기사, 다른 지역 인사의 제주 관련 의혹)
  · 제주가 비유·예시·나열의 하나로만 스쳐 나옴
-   (다른 지역 사건 기사에 제주가 함께 묶인 것, 여행업계·증권가 전반 동향에 제주가 사례로 나온 것,
+   (다른 곳 사건과 제주를 함께 묶은 기사, 여행업계·증권가 전반 동향에 제주가 사례로 나온 것,
     지점 나열에 제주점이 포함된 것, 다른 곳 여행기에 제주가 비유로 나온 것)
- · 사건의 주체와 무대가 제주 밖 (다른 지역 정치·행정·기업 사안)
  · 제주에서 일어났어도 여행·관광과 무관 (지역 상권 광고, 주민 생활 서비스)
+
+판별이 헷갈리면 이렇게 물으세요.
+"이 기사를 읽고 고개를 숙여야 할 쪽이 제주인가, 다른 곳인가."
+다른 곳이면 false 입니다.
 
 ═══ 질문 2. 알리는 글인가, 평가하는 글인가? ═══
 **알리는 글이면 rel=false 입니다.** 여론이 아니라 발표·홍보이기 때문입니다.
@@ -213,6 +221,15 @@ def main():
             break
         chunk = todo[s:s + BATCH]
         res = parse_answer(call_hub(make_prompt(chunk)), len(chunk))
+        if not res and len(chunk) > 3:
+            # 응답이 길어 잘렸을 수 있다. 반으로 쪼개 다시 묻는다.
+            res = {}
+            half = len(chunk) // 2
+            for off, part in ((0, chunk[:half]), (half, chunk[half:])):
+                r2 = parse_answer(call_hub(make_prompt(part)), len(part))
+                if r2:
+                    for k, v in r2.items(): res[k + off] = v
+                time.sleep(0.4)
         if not res:
             fail += len(chunk)
         else:
