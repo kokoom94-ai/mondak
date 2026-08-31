@@ -2,10 +2,12 @@ name: collect-jeju-notice
 
 # 제주도청 고시/공고 — 하루 두 번. 도청이 직접 내는 사업(예: 히트펌프 보급사업)은
 # 정부24 API에 없어 이 경로로만 들어온다.
+# 2026-08-31: 도청이 GitHub 러너 IP를 막아 연결이 되지 않는다(curl 도 TCP 타임아웃).
+# 차단이 풀릴 수 있으므로 하루 한 번만 조용히 시도한다. 실패해도 아무 영향이 없다.
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 22,10 * * *'      # 07:20 · 19:20 KST
+    - cron: '20 22 * * *'         # 07:20 KST
 
 permissions:
   contents: write
@@ -17,7 +19,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
