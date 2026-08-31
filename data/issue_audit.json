@@ -1,20 +1,20 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-08-31 14:15",
+  "updated": "2026-08-31 16:26",
   "mode": "judge",
-  "judged_this_run": 1480,
+  "judged_this_run": 1467,
   "failed_this_run": 0,
-  "judged_total": 2269,
-  "items_total": 2269,
+  "judged_total": 2279,
+  "items_total": 2279,
   "conf": {
-   "높음": 1786,
-   "미기재": 483
+   "높음": 1817,
+   "미기재": 462
   },
   "sent": {
-   "중립": 385,
-   "부정": 1199,
-   "긍정": 685
+   "중립": 373,
+   "부정": 1228,
+   "긍정": 678
   }
  },
  "rules": {
@@ -24,7 +24,7 @@
   },
   "B": {
    "name": "알림글",
-   "n": 9
+   "n": 11
   },
   "C": {
    "name": "제주 부재",
@@ -36,149 +36,87 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 6
+   "n": 4
   },
   "G": {
    "name": "분야 없음",
-   "n": 4
+   "n": 6
   }
  },
- "dropped": 9,
- "rechecked": 19,
- "unresolved": 4,
+ "dropped": 12,
+ "rechecked": 18,
+ "unresolved": 2,
  "samples": {
-  "감성 불일치": [
+  "알림글": [
    {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 예산 투입에도 불구 이미지 개선 필요성 지적",
-    "action": "재판정",
-    "title": "김대진 의원, \"제주관광 이미지, 근본 대책 필요\" - MoaPic! 모아픽!",
-    "link": "https://cafe.naver.com/moapic/35411",
+    "rule": "알림글",
+    "note": "대상 없음/홍보: 없음",
+    "action": "제외",
+    "title": "오늘 어승생악... 다녀왔씀돠!",
+    "link": "https://cafe.naver.com/jejutip/2657669",
     "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "예산 투입에도 불구 이미지 개선 필요성 지적",
-    "sent": "부정",
-    "conf": "높음"
+    "who": "없음",
+    "why": "경험 공유",
+    "sent": "중립",
+    "conf": ""
    },
    {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 고비용 이미지 개선 필요성 강조",
-    "action": "재판정",
-    "title": "“갈치구이가 인당 10만원”… 제주지사 ‘비싼 관광지’ 오명에 작심 발언",
-    "link": "https://cafe.naver.com/pink6vlu7/66884",
+    "rule": "알림글",
+    "note": "대상 없음/홍보: 없음",
+    "action": "제외",
+    "title": "본식 전인데 피부도 타고 땀도 많아서 걱정이에요",
+    "link": "https://cafe.naver.com/makemywedding/663926",
     "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "고비용 이미지 개선 필요성 강조",
+    "who": "없음",
+    "why": "불편 호소",
     "sent": "부정",
-    "conf": "높음"
+    "conf": ""
    },
    {
-    "rule": "감성 불일치",
-    "note": "긍정인데 근거가 부정: 실종사건 해결",
+    "rule": "알림글",
+    "note": "대상 없음/홍보: 없음",
+    "action": "제외",
+    "title": "육지살았으면 거지될뻔....ㅋ",
+    "link": "https://cafe.naver.com/idiolle/1872609",
+    "channel": "cafe",
+    "who": "없음",
+    "why": "경험 공유",
+    "sent": "중립",
+    "conf": ""
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 로드홍보",
     "action": "재판정",
-    "title": "미키광수, 제주서 도난당한 슬리퍼 찾았다…\"착각해서 신고 간 게 아냐...",
-    "link": "https://www.tvreport.co.kr/breaking/article/1072277/",
+    "title": "악재에도 흔들림없이…제주관광협회, 전국 주요도시에서 제주여행 매력...",
+    "link": "https://sports.khan.co.kr/article/202608311623003?pt=nv",
     "channel": "news",
-    "who": "제주 치안",
-    "why": "실종사건 해결",
+    "who": "제주관광협회",
+    "why": "로드홍보",
     "sent": "긍정",
     "conf": "높음"
    },
    {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 추천 요청",
-    "action": "재판정",
-    "title": "제주 맛집",
-    "link": "https://cafe.naver.com/rebeler/58558",
-    "channel": "cafe",
-    "who": "제주 맛집",
-    "why": "추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 신뢰 회복 필요",
-    "action": "재판정",
-    "title": "제주 안전 논란, '나 홀로 여행'객 발길까지 막나?",
-    "link": "https://blog.naver.com/sunhoo272/224395351915",
-    "channel": "blog",
-    "who": "제주 치안",
-    "why": "신뢰 회복 필요",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 개선 필요",
-    "action": "재판정",
-    "title": "제주관광  무엇을 바꿔야  하나",
-    "link": "https://blog.naver.com/1004villagejang/224392410907",
-    "channel": "blog",
-    "who": "제주 관광",
-    "why": "개선 필요",
-    "sent": "부정",
-    "conf": "높음"
-   }
-  ],
-  "알림글": [
-   {
     "rule": "알림글",
-    "note": "알림성 근거: 앱 출시",
-    "action": "재판정",
-    "title": "“누구에게나 여행은 필요하니까”…제주도 이동 장벽 낮춘다",
-    "link": "https://cafe.naver.com/silvervisitingcare/5903",
-    "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "앱 출시",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 축제 개최 안내",
+    "note": "알림성 근거: 축제 개최",
     "action": "재판정",
     "title": "중문골프장서 자전거 달린다…'미니벨로 페스타' 9월 개최",
     "link": "https://www.newsjeju.net/news/articleView.html?idxno=425157",
     "channel": "news",
-    "who": "제주 관광",
-    "why": "축제 개최 안내",
+    "who": "제주 관광업계",
+    "why": "축제 개최",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 축제 개최 안내",
+    "note": "알림성 근거: 축제 개최",
     "action": "재판정",
     "title": "자전거 타고 중문 달린다…'제주&교촌 미니벨로 페스타' 9월 개최",
     "link": "https://news.bbsi.co.kr/news/articleView.html?idxno=4103651",
     "channel": "news",
-    "who": "제주 관광",
-    "why": "축제 개최 안내",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 맛집 홍보",
-    "action": "재판정",
-    "title": "#최홍만 님 단골 #쯔양 님도 다녀가신 #제주도민 리얼 #맛집 #꿈낭밥집 이사 ....",
-    "link": "https://cafe.naver.com/jejudohdskps/16174",
-    "channel": "cafe",
-    "who": "제주 관광",
-    "why": "맛집 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 정책 토론회 개최",
-    "action": "재판정",
-    "title": "정일영, 제주관광과 지정 면세점 상생방안 정책 토론회 개최",
-    "link": "https://cafe.naver.com/allthatsongdo/119577",
-    "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "정책 토론회 개최",
+    "who": "제주 관광업계",
+    "why": "축제 개최",
     "sent": "중립",
     "conf": "높음"
    },
@@ -201,33 +139,95 @@
     "title": "아시아 최대 관광포럼 제주 개최...중국.일본 등 10개국 참가 (2011. 09. 13)",
     "link": "https://cafe.naver.com/koreamicestation/382",
     "channel": "cafe",
-    "who": "제주 관광공사",
+    "who": "제주도 행정",
     "why": "포럼 개최",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 제품 홍보",
+    "note": "알림성 근거: 행사 개최 안내",
     "action": "재판정",
-    "title": "제주 오메기떡, 6종 혼합 30개 후기 1,070개 리뷰 4.82점의 비밀",
-    "link": "https://cafe.naver.com/purplen1qod/951",
-    "channel": "cafe",
-    "who": "제주 오메기떡",
-    "why": "제품 홍보",
-    "sent": "긍정",
+    "title": "제약 없이 모두가 온전히 누리는 열린 관광지 제주로",
+    "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404160",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최 안내",
+    "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
     "note": "알림성 근거: 홍보 활동",
     "action": "재판정",
-    "title": "제주 관광객 유치 총력전...숙박-렌터카 할인혜택",
-    "link": "https://cafe.naver.com/gray3h2dj/1907",
-    "channel": "cafe",
-    "who": "제주도 행정",
+    "title": "제주관광협회, 전국 누비며 가을 제주여행 매력 알린다",
+    "link": "https://www.seoulfn.com/news/articleView.html?idxno=636777",
+    "channel": "news",
+    "who": "제주관광협회",
     "why": "홍보 활동",
     "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 홍보 활동",
+    "action": "재판정",
+    "title": "강동훈 제주관광협회장, 관광객 기다리지 않고 찾아갔다...전국 5개 도시...",
+    "link": "https://www.ajunews.com/view/20260829235618378",
+    "channel": "news",
+    "who": "제주관광협회",
+    "why": "홍보 활동",
+    "sent": "중립",
+    "conf": "높음"
+   }
+  ],
+  "감성 불일치": [
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 실내 관광지 추천 요청",
+    "action": "재판정",
+    "title": "비 오는 날 서귀포 근처에서 갈만한 실내 관광지 추천 부탁드려요",
+    "link": "https://cafe.naver.com/skybluehwfsd/658",
+    "channel": "cafe",
+    "who": "제주 이동·교통",
+    "why": "실내 관광지 추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "제주 맛집 추천받습니다(_ _)",
+    "link": "https://cafe.naver.com/consumerizm/2466176",
+    "channel": "cafe",
+    "who": "제주 맛집",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 신뢰 회복 필요",
+    "action": "재판정",
+    "title": "제주 안전 논란, '나 홀로 여행'객 발길까지 막나?",
+    "link": "https://blog.naver.com/sunhoo272/224395351915",
+    "channel": "blog",
+    "who": "제주 관광업계",
+    "why": "신뢰 회복 필요",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 개선 필요",
+    "action": "재판정",
+    "title": "제주관광  무엇을 바꿔야  하나",
+    "link": "https://blog.naver.com/1004villagejang/224392410907",
+    "channel": "blog",
+    "who": "제주도 행정",
+    "why": "개선 필요",
+    "sent": "부정",
     "conf": "높음"
    }
   ],
@@ -236,35 +236,11 @@
     "rule": "분야 없음",
     "note": "분야 없음",
     "action": "재판정",
-    "title": "\"제주 여행 불안해\" 예약 취소까지…내국인 관광객 감소세 - 연합뉴스TV",
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1DNjM3ZDVMZmNaNk5rSnJ1c3haYldaYzVvOGVMcnIwMlVvcW5iekhvWVBvY0d0czJUR0hWcHhtUGZkU0ZraVVHbXZRUWl3T29YZXFuZ3VlMkZmRE5oZ3d4dU44ZG1PYjQ?oc=5",
-    "channel": "news",
+    "title": "제주 여행 괜찮을까? 예약 취소까지…‘안전한 관광지’ 이미지 흔....",
+    "link": "https://blog.naver.com/huilim41/224394939809",
+    "channel": "blog",
     "who": "제주 관광",
-    "why": "관광객 감소",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "“온다던 손님도 예약 취소하겠다네요”…실종사건 이후 계속 줄어드는 제주 관광객 - v.daum.net",
-    "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBXRjVSQk11eDg2X2d6cllveFQ3ZzkwVnZUZnFGUkZnUXZCZWdCT21MNkJGel9NZ1ZBZlNQcEVuX1R0bEhqUzAtdTRSaWZvQ3M?oc=5",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "예약 취소",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "31만 실종자 싹 다 훑는다? 뭇매 맞는 경찰 다급한 쇄신책 ‘현실성 없...",
-    "link": "https://biz.heraldcorp.com/article/10855796?ref=naver",
-    "channel": "news",
-    "who": "경찰청",
-    "why": "타지역 수사 논란",
+    "why": "안전 이미지 흔든",
     "sent": "부정",
     "conf": ""
    },
@@ -272,13 +248,61 @@
     "rule": "분야 없음",
     "note": "분야 없음",
     "action": "재판정",
-    "title": "[시론]원주경찰서 수사중지, '증거가 없다'인가 '있는 증거를 안 본 것'...",
-    "link": "https://www.ppss.kr/news/articleView.html?idxno=307904",
-    "channel": "news",
-    "who": "경찰청",
-    "why": "타지역 수사 논란",
+    "title": "제주도, 흔들리는 ‘안전 관광지’…예약 취소까지? 관광객 감소 이....",
+    "link": "https://blog.naver.com/dokjaminkkyu/224394850067",
+    "channel": "blog",
+    "who": "제주 관광",
+    "why": "관광 이미지 부담",
     "sent": "부정",
     "conf": ""
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "나사 풀린 경찰이 낳은 ‘제주 포비아’… 발길 돌리는 관광객들",
+    "link": "https://www.kmib.co.kr/article/view.asp?arcid=9000007405&cp=nv",
+    "channel": "news",
+    "who": "제주 치안",
+    "why": "실종 대응 문제 지적",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "\"제주 여행 예약 다 취소했어요\" 온라인 발칵 뒤집힌 괴담의 진짜 이....",
+    "link": "https://blog.naver.com/ttyy401/224395322774",
+    "channel": "blog",
+    "who": "제주도 행정",
+    "why": "관광객 감소 문제 지적",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "104일 동안 아무도 몰랐다…허위 보고 하나가 제주 관광을 무너뜨리....",
+    "link": "https://blog.naver.com/youngk28/224394206701",
+    "channel": "blog",
+    "who": "제주 관광",
+    "why": "허위보고 영향",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "일가족 탑승한 SUV 호텔 지하주차장 들이받아",
+    "link": "https://www.jibs.co.kr/news/replay/viewNewsReplayDetail/2026082717453218800?feed=na",
+    "channel": "news",
+    "who": "제주 관광업계",
+    "why": "사고 발생",
+    "sent": "부정",
+    "conf": "높음"
    }
   ]
  },
