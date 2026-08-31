@@ -1,0 +1,347 @@
+{
+ "meta": {
+  "version": "llm-v9",
+  "updated": "2026-08-31 12:14",
+  "mode": "judge",
+  "judged_this_run": 3922,
+  "failed_this_run": 1,
+  "judged_total": 2171,
+  "items_total": 2172,
+  "conf": {
+   "높음": 1704,
+   "미기재": 467
+  },
+  "sent": {
+   "중립": 360,
+   "부정": 1154,
+   "긍정": 657
+  }
+ },
+ "rules": {
+  "A": {
+   "name": "대상 불일치",
+   "n": 0
+  },
+  "B": {
+   "name": "알림글",
+   "n": 18
+  },
+  "C": {
+   "name": "제주 부재",
+   "n": 0
+  },
+  "D": {
+   "name": "저확신",
+   "n": 0
+  },
+  "E": {
+   "name": "감성 불일치",
+   "n": 4
+  },
+  "G": {
+   "name": "분야 없음",
+   "n": 2
+  }
+ },
+ "dropped": 21,
+ "rechecked": 23,
+ "unresolved": 3,
+ "samples": {
+  "알림글": [
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 축제 개최 계획",
+    "action": "재판정",
+    "title": "공연부터 나이트런·키즈 워터파크까지…제주 ‘컬러풀 산지 페스티벌’ ....",
+    "link": "https://cafe.naver.com/rankingking/14970",
+    "channel": "cafe",
+    "who": "제주 관광공사",
+    "why": "축제 개최 계획",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 채용 공고",
+    "action": "재판정",
+    "title": "공기업 인턴 찾는다면｜제주관광공사 청년인턴(체험형) 채용",
+    "link": "https://cafe.naver.com/cafenema/34648",
+    "channel": "cafe",
+    "who": "제주관광공사",
+    "why": "채용 공고",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "제주 밤바다에서 즐기는 친환경 축제…'2026 이호 필터 페스티벌' 열린다",
+    "link": "https://cafe.naver.com/rankingking/14720",
+    "channel": "cafe",
+    "who": "제주 관광",
+    "why": "행사 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 지원사업 공고",
+    "action": "재판정",
+    "title": "[정책지원금 제주특별자치도 3,000만원] 2026 제주 관광콘텐츠 프로젝트 지원....",
+    "link": "https://cafe.naver.com/sajangnimhereyo/90",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "지원사업 공고",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 포럼 개최",
+    "action": "재판정",
+    "title": "\"복합리조트는 제주 관광 경쟁력 필수요소\"",
+    "link": "https://cafe.naver.com/paradiseoperation/749",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "포럼 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 포럼 개최",
+    "action": "재판정",
+    "title": "제주서 28∼30일 섬관광정책 포럼…12개국 150명 참가",
+    "link": "https://cafe.naver.com/koreamicestation/392",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "포럼 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "대상 없음/홍보: 만장굴 재개장",
+    "action": "제외",
+    "title": "2026년 제주 만장굴 재개장 일정·입장료·꿀팁 총정리 (모르면 헛걸음)",
+    "link": "https://cafe.naver.com/orange9hmsc/237",
+    "channel": "cafe",
+    "who": "만장굴 재개장",
+    "why": "폐쇄로 헛걸음",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 축제 개최 안내",
+    "action": "재판정",
+    "title": "자전거 타고 중문 달린다…'제주&교촌 미니벨로 페스타' 9월 개최",
+    "link": "https://news.bbsi.co.kr/news/articleView.html?idxno=4103651",
+    "channel": "news",
+    "who": "제주 관광",
+    "why": "축제 개최 안내",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 체험 활동 홍보",
+    "action": "재판정",
+    "title": "2026.8.30 제주도 체험 배낚시 승룡호(2호)한치낚시1부",
+    "link": "https://cafe.naver.com/seungryong/13076",
+    "channel": "cafe",
+    "who": "제주도 관광업계",
+    "why": "체험 활동 홍보",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "아이도 부모도 '손심엉'…제주도, 함께 즐기는 양성평등주간",
+    "link": "https://www.gukjenews.com/news/articleView.html?idxno=3679384",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "제주 김녕 해변이 체육관 된다… 3인 1조 '비치 챌린지' 첫선",
+    "link": "https://www.fnnews.com/news/202608301153305058",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최 안내",
+    "action": "재판정",
+    "title": "제약 없이 모두가 온전히 누리는 열린 관광지 제주로",
+    "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404160",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최 안내",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 축제 개최",
+    "action": "재판정",
+    "title": "제주 여행에 장벽은 없다...9~10월 제주 전역서 '열린 관광 페스타'",
+    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=598130",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "축제 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "[제주 24시] '2026 제주국제환경포럼주간', ICC제주서 9월9일 개막",
+    "link": "https://www.sisajournal.com/news/articleView.html?idxno=385300",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최 안내",
+    "action": "재판정",
+    "title": "한계 넘어 펼쳐지는 감동적인 도전 응원한다",
+    "link": "http://www.samdailbo.com/news/articleView.html?idxno=269568",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최 안내",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 안전 관광지 홍보",
+    "action": "재판정",
+    "title": "“변함없는 평화의 섬…안심하고 찾는 안전 관광지 제주” - 제주매일",
+    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1hU2ozWXVIaEloRy1xODRSamJlbDctOWtjMDVqOXlCNFpZMHIwN1ZadFZBbVFnVldPbm1JQU9YZGIzejQxdzZlQllpc2RzU0NPWHU0WEdrN0NzNG1BYjQ3TU4xU085ZUg1eXJlNw?oc=5",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "안전 관광지 홍보",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 대책 회의 개최",
+    "action": "재판정",
+    "title": "제주도 \"확인 안 된 실종사건 내용 유포 자제\"",
+    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425023",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "대책 회의 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 전담팀 출범",
+    "action": "재판정",
+    "title": "제주도, 항공좌석 공급 전담팀 출범",
+    "link": "https://www.jejusori.net/news/articleView.html?idxno=505709",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "전담팀 출범",
+    "sent": "중립",
+    "conf": "높음"
+   }
+  ],
+  "감성 불일치": [
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "제주도 관광지는 거의 다 간것 같은데~",
+    "link": "https://cafe.naver.com/jejutip/2652457",
+    "channel": "cafe",
+    "who": "제주 관광업계",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "제주 맛집 추천해 주세요",
+    "link": "https://cafe.naver.com/bluemp3/1799695",
+    "channel": "cafe",
+    "who": "제주 맛집",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 신뢰 회복 필요",
+    "action": "재판정",
+    "title": "'실종 허위종결' 후폭풍에 입 연 제주지사 \"통합 수색 매뉴얼로 막겠다...",
+    "link": "https://lawtalknews.co.kr/article/FMD7D4B66ALC",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "신뢰 회복 필요",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 개선 필요",
+    "action": "재판정",
+    "title": "제주관광  무엇을 바꿔야  하나",
+    "link": "https://blog.naver.com/1004villagejang/224392410907",
+    "channel": "blog",
+    "who": "제주도 행정",
+    "why": "개선 필요",
+    "sent": "부정",
+    "conf": "높음"
+   }
+  ],
+  "분야 없음": [
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "20268.28 제주도 체험 배낚시 승룡호(2호)한치낚시2부",
+    "link": "https://cafe.naver.com/seungryong/13067",
+    "channel": "cafe",
+    "who": "제주 관광",
+    "why": "낚시 후기",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "제주도여행 제주공항 근처 가볼만한곳 레이싱 카트 체험 액티비티 9....",
+    "link": "https://blog.naver.com/zinizio/224392792868",
+    "channel": "blog",
+    "who": "제주 체험",
+    "why": "정보 전달",
+    "sent": "중립",
+    "conf": "높음"
+   }
+  ]
+ },
+ "fail_samples": [],
+ "note": "samples 는 규칙별 최대 40건. 제외된 글은 issue.json 에서 빠지고 여기 기록만 남습니다."
+}
