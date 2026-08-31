@@ -47,7 +47,7 @@ jobs:
           HUB_API_KEY: ${{ secrets.HUB_API_KEY }}
           HUB_MODEL: exaone-4.0-32b
           KW_DAYS: '30'
-          KW_TOPN: '180'
+          KW_TOPN: '360'   # 감성별 후보를 60→120개로 늘려 부정 표현이 후보에 들어오게 한다
         continue-on-error: true
         run: python scripts/build_keywords.py
 
