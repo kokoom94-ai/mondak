@@ -23,7 +23,7 @@
 
 환경변수 없음. 실패해도 이전 파일을 지우지 않는다.
 """
-import json, os, re, ssl, sys, time, urllib.parse, urllib.request, http.cookiejar
+import json, os, re, socket, ssl, subprocess, sys, time, urllib.parse, urllib.request, http.cookiejar
 from datetime import datetime, timedelta, timezone
 
 KST  = timezone(timedelta(hours=9))
@@ -38,7 +38,38 @@ MAXP = int(os.environ.get("NOTICE_PAGES", "12"))   # 페이지 넘김이 되면 
 UA   = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
         "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
-CTX = ssl.create_default_context(); CTX.check_hostname = False; CTX.verify_mode = ssl.CERT_NONE
+def _ctx(level=None, legacy=True, minver=None):
+    """도청 서버는 오래된 TLS 설정을 쓴다. 파이썬 3.11(OpenSSL 3.x)은 기본값으로
+    이를 거부해 'sslv3 alert handshake failure' 가 난다.
+    옛 협상 허용·보안수준 낮춤·구버전 TLS 허용을 단계적으로 켠 상자를 만든다."""
+    c = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    c.check_hostname = False
+    c.verify_mode = ssl.CERT_NONE
+    if legacy:
+        c.options |= getattr(ssl, "OP_LEGACY_SERVER_CONNECT", 0x4)
+    if minver is not None:
+        try: c.minimum_version = minver
+        except Exception: pass
+    if level is not None:
+        for spec in ("DEFAULT@SECLEVEL=%d" % level, "ALL:@SECLEVEL=%d" % level):
+            try: c.set_ciphers(spec); break
+            except Exception: continue
+    return c
+
+# 위에서부터 차례로 시도한다. 먼저 통하는 것을 계속 쓴다.
+CTXS = [
+    ("기본",              _ctx()),
+    ("보안수준 1",         _ctx(level=1, minver=getattr(ssl.TLSVersion, "TLSv1", None))),
+    ("보안수준 0",         _ctx(level=0, minver=getattr(ssl.TLSVersion, "TLSv1", None))),
+]
+CTX = CTXS[0][1]
+
+# 공공기관 서버는 IPv6 주소가 등록돼 있어도 응답하지 않는 경우가 많다.
+# 러너는 IPv6 를 먼저 시도하다 그대로 시간을 다 쓰고 타임아웃이 난다. IPv4 로 고정한다.
+_getaddrinfo = socket.getaddrinfo
+def _ipv4_only(host, port, family=0, type=0, proto=0, flags=0):
+    return _getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+socket.getaddrinfo = _ipv4_only
 
 class HttpsRedirect(urllib.request.HTTPRedirectHandler):
     """도청이 가끔 http:// 로 되돌린다. 러너에서 http 는 연결이 막혀 타임아웃이 나므로
@@ -49,11 +80,14 @@ class HttpsRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 JAR = http.cookiejar.CookieJar()
-OP  = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(JAR),
-                                  urllib.request.HTTPSHandler(context=CTX),
-                                  HttpsRedirect())
+def _opener(ctx):
+    return urllib.request.build_opener(urllib.request.HTTPCookieProcessor(JAR),
+                                       urllib.request.HTTPSHandler(context=ctx),
+                                       HttpsRedirect())
+OP = _opener(CTX)
+TLS_NAME = CTXS[0][0]
 
-def call(url, data=None, enc="utf-8", tries=4):
+def call(url, data=None, enc="utf-8", tries=4, timeout=45):
     """목록 페이지를 받아 온다. 실패하면 잠깐 쉬고 다시."""
     h = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml",
          "Accept-Language": "ko-KR,ko;q=0.9", "Referer": LIST}
@@ -61,10 +95,11 @@ def call(url, data=None, enc="utf-8", tries=4):
     if data is not None:
         body = urllib.parse.urlencode(data, encoding=enc, errors="replace").encode()
         h["Content-Type"] = "application/x-www-form-urlencoded"
+    global OP, CTX, TLS_NAME
     last = None
     for t in range(tries):
         try:
-            with OP.open(urllib.request.Request(url, data=body, headers=h), timeout=30) as r:
+            with OP.open(urllib.request.Request(url, data=body, headers=h), timeout=timeout) as r:
                 raw = r.read(); ct = r.headers.get("Content-Type", "")
             e = "euc-kr" if "euc-kr" in ct.lower() else "utf-8"
             txt = raw.decode(e, "replace")
@@ -72,9 +107,43 @@ def call(url, data=None, enc="utf-8", tries=4):
                 txt = raw.decode("euc-kr", "replace")
             return txt
         except Exception as ex:
-            last = ex; time.sleep(1.5 + t * 2)
-    print("   ! 요청 실패:", repr(last))
+            last = ex
+            # TLS 협상 실패면 다음 상자로 바꿔 다시 시도한다
+            if isinstance(getattr(ex, "reason", None), ssl.SSLError) or isinstance(ex, ssl.SSLError):
+                for nm, c in CTXS:
+                    if nm == TLS_NAME: continue
+                    TLS_NAME, CTX = nm, c
+                    OP = _opener(c)
+                    print("   TLS 설정 변경 →", nm)
+                    break
+            time.sleep(2 + t * 3)
+    # 파이썬이 끝내 못 붙으면 curl 로 우회한다.
+    # curl 은 옛 TLS 서버를 훨씬 잘 다루고, 러너에 기본 설치돼 있다.
+    t2 = curl(url, data, enc)
+    if t2:
+        print("   curl 로 받았습니다:", url[:70])
+        return t2
+    print("   ! 요청 실패:", url[:80], "→", repr(last))
     return ""
+
+
+def curl(url, data=None, enc="utf-8"):
+    cmd = ["curl", "-4", "-sS", "-L", "--max-time", "45", "--compressed",
+           "-A", UA, "-H", "Accept-Language: ko-KR,ko;q=0.9", "-H", "Referer: " + LIST]
+    if data is not None:
+        cmd += ["--data", urllib.parse.urlencode(data, encoding=enc, errors="replace")]
+    cmd.append(url)
+    try:
+        r = subprocess.run(cmd, capture_output=True, timeout=60)
+    except Exception as ex:
+        print("   ! curl 실행 실패:", repr(ex)); return ""
+    if r.returncode != 0:
+        print("   ! curl 오류:", r.stderr.decode("utf-8", "replace")[:160]); return ""
+    raw = r.stdout
+    txt = raw.decode("utf-8", "replace")
+    if txt.count("\ufffd") > 30:
+        txt = raw.decode("euc-kr", "replace")
+    return txt
 
 # ── 행 파싱 ────────────────────────────────────────────────────
 # <tr ... onclick="viewData('67621','A')" >
@@ -167,8 +236,8 @@ def opens(url, item):
     if not key: return False
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9"})
-        opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=CTX), HttpsRedirect())
-        with opener.open(req, timeout=25) as r:
+        opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=CTX), HttpsRedirect())  # 통한 TLS 설정 재사용
+        with opener.open(req, timeout=30) as r:
             raw = r.read()
         t = raw.decode("utf-8", "replace")
         if t.count("\ufffd") > 30: t = raw.decode("euc-kr", "replace")
@@ -213,9 +282,20 @@ def resolve_link(samples):
 def main():
     os.makedirs("data", exist_ok=True)
     print("■ 제주도청 고시/공고 수집")
-    html = call(LIST)
+    html = ""
+    for entry in (LIST, LIST + "?currPageNo=1",
+                  LIST.replace("https://www.", "https://"),
+                  BASE + "/news/news/law.htm"):
+        html = call(entry)
+        if html and "d_tb_left" in html:
+            if entry != LIST: print("   진입 주소:", entry)
+            print("   TLS 설정:", TLS_NAME)
+            break
+        html = ""
     if not html:
-        print("목록을 받지 못했습니다. 이전 파일을 그대로 둡니다."); return
+        print("목록을 받지 못했습니다. 이전 파일을 그대로 둡니다.")
+        print("   (도청 서버 응답 없음 — 다음 실행에서 다시 시도합니다)")
+        return
     first = parse(html)
     print("   1페이지", len(first), "건")
     if not first:
@@ -272,6 +352,7 @@ def main():
         "source": "제주특별자치도 고시/공고 (jeju.go.kr)",
         "list_url": LIST,
         "pager": name or "1페이지만",
+        "tls": TLS_NAME,
         "link_way": way or "목록 주소(바로 열리는 주소를 찾지 못함)",
         "count": len(merged),
         "new_this_run": len([x for x in items if x["sno"] not in {p["sno"] for p in prev}]),
