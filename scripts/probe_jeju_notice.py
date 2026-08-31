@@ -1,79 +1,106 @@
 # -*- coding: utf-8 -*-
-"""제주도청 고시/공고 구조 확인용 probe — 수집기가 아니라 '무엇이 오는지 보는' 스크립트.
+"""제주도청 고시/공고 구조 확인 probe 2단계.
 
-왜 필요한가
-  제주도청(jeju.go.kr)은 여기(개발 샌드박스)에서 접근이 막혀 있어 응답을 볼 수 없다.
-  구조를 모르는 채로 파서를 쓰면 반드시 다시 만들게 되므로, GitHub Actions 러너에서
-  실제 응답을 먼저 찍어 본다. 이 출력만 보내주면 수집기를 정확히 쓸 수 있다.
+1단계에서 알아낸 것
+  · 목록 https://www.jeju.go.kr/news/news/law/jeju.htm · UTF-8 · <table> 행 구조
+    열 = 공고번호 / 제목 / 부서 / 날짜 / 조회수
+  · 상세는 링크가 아니라 onclick="viewData('67621','A')"
+  · 뒤에 붙은 처리 주소 /citynet/jsp/sap/SAPGosiBizProcess.do
+  · ?page=2 는 1페이지와 같은 내용 → 페이지 넘김 방식이 따로 있다
 
-아무 파일도 만들지 않고, 화면에만 출력한다. (읽기 전용)
+2단계에서 확인할 것
+  ① viewData 가 실제로 어디로 보내는가 (상세 직링크를 만들 수 있는가)
+  ② 페이지 넘김은 어떤 이름의 값으로 하는가
+  ③ 고시(gosi.htm) 목록은 어디서 자료를 받아오는가
+
+아무 파일도 만들지 않고 화면에만 출력한다.
 """
-import re, ssl, sys, urllib.request, urllib.parse
+import re, ssl, urllib.request, urllib.parse
 
 CTX = ssl.create_default_context(); CTX.check_hostname = False; CTX.verify_mode = ssl.CERT_NONE
-UA  = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+UA  = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+BASE = "https://www.jeju.go.kr"
+LIST = BASE + "/news/news/law/jeju.htm"
 
-# 확인할 후보 주소 — 어느 것이 목록을 주는지 본다
-CANDS = [
-    ("공고 목록",      "https://www.jeju.go.kr/news/news/law/jeju.htm"),
-    ("고시 목록",      "https://www.jeju.go.kr/news/news/law.htm"),
-    ("고시공고 통합",  "https://www.jeju.go.kr/news/news/law/gosi.htm"),
-    ("공고 2페이지",   "https://www.jeju.go.kr/news/news/law/jeju.htm?page=2"),
-    ("검색(히트펌프)", "https://www.jeju.go.kr/news/news/law/jeju.htm?q=히트펌프"),
-]
-
-def get(url):
-    req = urllib.request.Request(url, headers={
-        "User-Agent": UA, "Accept": "text/html,application/xhtml+xml",
-        "Accept-Language": "ko-KR,ko;q=0.9", "Referer": "https://www.jeju.go.kr/"})
+def get(url, data=None, ref=BASE + "/"):
+    h = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml,application/json",
+         "Accept-Language": "ko-KR,ko;q=0.9", "Referer": ref}
+    body = None
+    if data is not None:
+        body = urllib.parse.urlencode(data, encoding="utf-8").encode()
+        h["Content-Type"] = "application/x-www-form-urlencoded"
+    req = urllib.request.Request(url, data=body, headers=h)
     with urllib.request.urlopen(req, timeout=25, context=CTX) as r:
-        raw = r.read()
-        return r.status, dict(r.headers), raw
+        return r.status, r.read().decode("utf-8", "replace")
 
-def show(name, url):
-    print("=" * 70)
-    print("[" + name + "] " + url)
+def head(s): print("\n" + "=" * 70 + "\n" + s)
+
+# ── ① 목록 페이지의 스크립트·폼 ───────────────────────────────
+head("① 목록 페이지 내부 — viewData / 폼 / 페이지 넘김")
+st, html = get(LIST)
+print("상태", st, "길이", len(html))
+
+for fn in ("viewData", "goPage", "fn_page", "doSearch", "gotoPage", "fnList"):
+    m = re.search(r"function\s+" + fn + r"\s*\([^)]*\)\s*\{[\s\S]{0,700}?\n\s*\}", html)
+    if m:
+        print("\n[function " + fn + "]")
+        print(re.sub(r"\n\s*", "\n  ", m.group(0))[:700])
+
+print("\n[form]")
+for m in re.finditer(r"<form[^>]*>", html):
+    print("  ", m.group(0)[:200])
+print("[hidden input]")
+for m in re.finditer(r'<input[^>]*type=["\']?hidden["\']?[^>]*>', html, re.I):
+    print("  ", re.sub(r"\s+", " ", m.group(0))[:160])
+print("[페이지 넘김 부분]")
+for m in re.finditer(r'<a[^>]*(?:href|onclick)="[^"]*(?:page|Page|pg)[^"]*"[^>]*>[\s\S]{0,40}?</a>', html):
+    print("  ", re.sub(r"\s+", " ", m.group(0))[:200])
+print("[전체 행 수]", len(re.findall(r'onclick="viewData\(', html)))
+print("[viewData 인자 예시]", re.findall(r"viewData\('([^']+)','([^']+)'\)", html)[:6])
+
+# ── ② 상세 주소 후보 시험 ────────────────────────────────────
+head("② 상세 주소 후보 — 어느 것이 본문을 주는가 (seq=67621)")
+for name, url, data in [
+    ("GET .do?q_seq",  BASE + "/citynet/jsp/sap/SAPGosiBizProcess.do?act=view&seq=67621&gb=A", None),
+    ("GET .do?gosiGbn", BASE + "/citynet/jsp/sap/SAPGosiBizProcess.do?gosiGbn=A&gosiSeq=67621", None),
+    ("POST .do",       BASE + "/citynet/jsp/sap/SAPGosiBizProcess.do", {"act": "view", "seq": "67621", "gb": "A"}),
+    ("목록 htm?seq",    LIST + "?act=view&seq=67621&gb=A", None),
+]:
     try:
-        st, hd, raw = get(url)
+        s, t = get(url, data, ref=LIST)
+        hit = "히트펌프" in t
+        print(f"  {name:16s} 상태 {s} · 길이 {len(t):7d} · 히트펌프 {hit}")
+        if hit:
+            i = t.index("히트펌프")
+            print("      본문 주변:", re.sub(r"\s+", " ", t[max(0, i-200):i+300])[:480])
     except Exception as e:
-        print("  실패:", repr(e)); return
-    print("  상태:", st, "· 길이:", len(raw), "· Content-Type:", hd.get("Content-Type"))
-    enc = "utf-8"
-    m = re.search(r"charset=([\w-]+)", hd.get("Content-Type", ""), re.I)
-    if m: enc = m.group(1)
-    html = raw.decode(enc, "replace")
-    if "euc-kr" not in enc.lower() and "charset=euc-kr" in html[:2000].lower():
-        html = raw.decode("euc-kr", "replace"); enc = "euc-kr"
-    print("  인코딩:", enc)
+        print(f"  {name:16s} 실패: {e!r}")
 
-    # 목록으로 보이는 링크 — 상세 주소 형태를 알아야 직링크를 만들 수 있다
-    links = re.findall(r'<a[^>]+href="([^"]+)"[^>]*>\s*([^<]{4,80}?)\s*</a>', html)
-    cand = [(h, t.strip()) for h, t in links
-            if re.search(r"(seq|idx|no|articleNo|nttId|bbsId)=", h) or "act=view" in h]
-    print("  상세로 보이는 링크:", len(cand))
-    for h, t in cand[:8]:
-        print("     ", t[:46], "→", h[:100])
+# ── ③ 페이지 넘김 값 시험 ────────────────────────────────────
+head("③ 페이지 넘김 — 2페이지가 1페이지와 다른가")
+first_titles = re.findall(r'd_tb_left">\s*([^<]{6,80}?)\s*</td>', html)[:3]
+print("  1페이지 첫 제목:", first_titles)
+for key in ("pageIndex", "currentPage", "cpage", "pageNo", "startPage", "p_page", "nowPage"):
+    try:
+        s, t = get(LIST + "?" + key + "=2", ref=LIST)
+        ts = re.findall(r'd_tb_left">\s*([^<]{6,80}?)\s*</td>', t)[:3]
+        print(f"  {key:12s} → {'다름 ★' if ts and ts != first_titles else '같음'} {ts[:2]}")
+    except Exception as e:
+        print(f"  {key:12s} 실패: {e!r}")
 
-    # 목록 행 구조 — 표인지 목록인지
-    print("  <table>", html.count("<table"), "· <tbody>", html.count("<tbody"),
-          "· <tr>", html.count("<tr"), "· <li>", html.count("<li"))
-    m = re.search(r"<tbody[\s\S]{0,1200}?</tr>", html)
-    if m: print("  첫 행 원문:\n     ", re.sub(r"\s+", " ", m.group(0))[:600])
+# ── ④ 고시 목록의 자료 출처 ─────────────────────────────────
+head("④ 고시 목록(gosi.htm)이 부르는 자료 주소")
+try:
+    s, g = get(BASE + "/news/news/law/gosi.htm")
+    for m in re.finditer(r'(?:axios|fetch|\$\.(?:get|post|ajax))\s*\(\s*["\']([^"\']+)["\']', g):
+        print("   ", m.group(1)[:160])
+    for m in re.finditer(r'url\s*:\s*["\']([^"\']+)["\']', g):
+        print("   url:", m.group(1)[:160])
+    for m in re.finditer(r'["\'](/[\w/\.\-]*(?:gosi|Gosi|GOSI)[\w/\.\-]*)["\']', g):
+        print("   후보:", m.group(1)[:160])
+except Exception as e:
+    print("  실패:", repr(e))
 
-    # 날짜·부서처럼 보이는 것
-    for label, pat in (("날짜", r"20\d\d[-.]\d\d[-.]\d\d"), ("공고번호", r"제\s?20\d\d\s?-\s?\d+\s?호")):
-        f = re.findall(pat, html)[:5]
-        print("  " + label + " 예시:", f)
-
-    # 목록이 스크립트로 그려지는 경우 — 호출 주소를 찾는다
-    ajax = set(re.findall(r'["\'](/[\w/\.\-]+\.(?:do|json|jsp|htm))\?[^"\']*["\']', html))
-    if ajax: print("  스크립트가 부르는 주소:", list(ajax)[:8])
-
-    if "히트펌프" in html:
-        i = html.index("히트펌프")
-        print("  ※ '히트펌프' 발견 —", re.sub(r"\s+", " ", html[max(0, i-160):i+160]))
-
-for name, url in CANDS:
-    show(name, url)
-print("=" * 70)
-print("여기까지의 출력을 그대로 보내주시면 파서를 씁니다.")
+print("\n" + "=" * 70)
+print("이 출력을 그대로 보내주시면 수집기를 씁니다.")
