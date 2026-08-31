@@ -450,6 +450,23 @@ function extraDocs(asm, cnc, edu, nws, plg, sch, sts){
   return out;
 }
 
+// 제주도청 고시/공고(jeju_notice.json) → 코퍼스
+// 도청이 직접 내는 사업(히트펌프 보급사업 등)은 정부24 API에 없어 여기로만 들어온다.
+function normNotice(x){
+  const parts=[
+    "[도청 공고] "+(x.sec||""),
+    x.no ? "공고번호 "+x.no : "",
+    x.dept ? "담당 "+x.dept : "",
+    x.d ? "게시 "+x.d : "",
+    x.apply ? "신청·모집 공고입니다. 접수 기간과 지원 규모는 원문 공고에서 확인하세요." : "",
+    "도청 고시/공고 목록에서 공고번호 " + (x.no||"") + " 로 찾을 수 있습니다.",
+    "문의는 제주120(064-120).",
+  ].filter(Boolean);
+  return { title: x.t||"", text: clip(parts.join(" / "), 300),
+           url: x.link || x.list || "https://www.jeju.go.kr/news/news/law/jeju.htm",
+           contact: "제주120 064-120", kind: "도청공고" };
+}
+
 // 화면에는 있는데 챗봇이 모르던 나머지 데이터
 //  관광AX인사이트 / 인구현황 / 정부정책 브리핑 / 도의회 보도 / 입찰공고 / 이슈체크 여론지수 / 축제 시드
 function moreDocs(ax, pop, pb, cn, bid, idx, fseed){
@@ -591,6 +608,10 @@ async function buildCorpus(needTour) {
   ]);
   for (const d of moreDocs(axd, popd, pbd, cnd, bidd, idxd, fsd)) corpus.push(d);
 
+  // 5-5) 제주도청 고시/공고 (jeju_notice.json)
+  const nt = await loadJson("jeju_notice.json");
+  if (nt && nt.items) for (const x of nt.items) if (x && x.t) corpus.push(normNotice(x));
+
   // 6) 정책 FAQ 100선 (faq.json)
   const faq = await loadJson("faq.json");
   if (faq && faq.items) for (const f of faq.items) if (f && f.q) corpus.push(normFaq(f));
@@ -603,7 +624,7 @@ async function buildCorpus(needTour) {
   }
 
   CACHE.corpus = corpus; CACHE.at = Date.now(); CACHE.key = key;
-  console.log("코퍼스 구축:", corpus.length, "건 (지원+조례+관광+축제+기관+FAQ+관광통계+의회+교육+학교+공약+뉴스+AX+인구+정책브리핑+공고+여론)");
+  console.log("코퍼스 구축:", corpus.length, "건 (지원+조례+관광+축제+기관+FAQ+관광통계+의회+교육+학교+공약+뉴스+AX+인구+정책브리핑+공고+여론+도청공고)");
   return corpus;
 }
 
@@ -663,6 +684,7 @@ function prefilter(question, corpus, N) {
       if (doc.kind === "정책브리핑" && /정부|국정|정책|브리핑|부처/.test(question)) sc += 4;
       if (doc.kind === "공고"     && /공고|입찰|용역|발주|나라장터|수의|계약/.test(question)) sc += 6;
       if (doc.kind === "여론"     && /여론|이슈|평판|불만|부정|긍정|민심|이슈체크/.test(question)) sc += 6;
+      if (doc.kind === "도청공고" && /공고|고시|모집|접수|신청|지원|보조금|사업|보급|공모/.test(question)) sc += 7;
       if (boostPol && (doc.kind === "법령·조례" || doc.kind === "지원사업")) sc += 3;
       if (boostOrg && (doc.kind === "공공기관" || doc.kind === "민원전화")) sc += 4;
       if (doc.kind === "정책FAQ") sc += 3;
