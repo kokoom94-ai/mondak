@@ -1,0 +1,72 @@
+name: collect-issue
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 21,9 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-issue
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Collect
+        env:
+          NAVER_ID: ${{ secrets.NAVER_ID }}
+          NAVER_SECRET: ${{ secrets.NAVER_SECRET }}
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+        run: python scripts/collect_issue.py
+
+      - name: LLM judge
+        env:
+          HUB_API_KEY: ${{ secrets.HUB_API_KEY }}
+          HUB_MODEL: exaone-4.0-32b
+          LLM_BATCH: '8'
+          LLM_LIMIT: '99999'
+          LLM_DAYS: '60'
+          LLM_BUDGET_SEC: '18000'
+        continue-on-error: true
+        run: python scripts/llm_judge.py
+
+      - name: Keywords
+        env:
+          HUB_API_KEY: ${{ secrets.HUB_API_KEY }}
+          HUB_MODEL: exaone-4.0-32b
+          KW_DAYS: '30'
+          KW_TOPN: '180'
+        continue-on-error: true
+        run: python scripts/build_keywords.py
+
+      - name: Index
+        continue-on-error: true      # 지수 계산이 실패해도 판정 결과(issue.json·issue_audit.json)는 커밋한다
+        run: python scripts/index_calc.py
+
+      - name: Commit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A data/
+          git diff --staged --quiet && echo "no change" && exit 0
+          git commit -m "issue update ($(date +%Y-%m-%d))"
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "retry push $i"
+            git pull --rebase --autostash origin ${GITHUB_REF_NAME:-main} || true
+            sleep 3
+          done
+          echo "push failed - will retry next run"
+          exit 0
