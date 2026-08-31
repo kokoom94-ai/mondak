@@ -2979,13 +2979,16 @@ function renderIS(){
       h+='</div>';
 
       /* ── 긍·부정 키워드 워드맵 — 글의 성격 바로 아래 ── */
-      if(IWAUTO && IWAUTO.words){
-        h+=renderIW(null);
-      }else if(ISRAW){
-        const days = is30? 30 : 7;
-        const cut = new Date(Date.now()+9*3600*1000 - days*86400000).toISOString().slice(0,10);
-        const src = ISRAW.filter(x=>(x.date||'')>=cut);
-        h+=renderIW(isFilter(src.length?src:ISRAW));
+      // 원본 글은 항상 함께 넘긴다 — 자동 추출이 비어 있는 감성을 내장 사전으로 메우기 때문
+      if(IWAUTO || ISRAW){
+        let src = null;
+        if(ISRAW){
+          const days = is30? 30 : 7;
+          const cut = new Date(Date.now()+9*3600*1000 - days*86400000).toISOString().slice(0,10);
+          const f = ISRAW.filter(x=>(x.date||'')>=cut);
+          src = isFilter(f.length?f:ISRAW);
+        }
+        h+=renderIW(src);
       }
     }
   } else if(isTab==='month'){
@@ -4140,13 +4143,7 @@ let IWAUTO=null;   // data/keywords.json — 데이터에서 자동으로 뽑은
 function loadIWAuto(){
   if(IWAUTO!==null) return Promise.resolve();
   return fetch('data/keywords.json?v='+Date.now()).then(r=>r.ok?r.json():null)
-    // 자동 추출분이 너무 적거나 한쪽 감성만 나오면 내장 사전으로 그린다.
-    // (실측: 부정 후보가 '실종·경찰' 같은 주제어뿐이라 긍정 9개만 남아 워드맵이 긍정 일색이 됐다)
-    .then(j=>{
-      const w=(j&&j.words)||[];
-      const pol=new Set(w.map(x=>x.pol));
-      IWAUTO=(w.length>=8 && pol.has('pos') && pol.has('neg')) ? j : false;
-    })
+    .then(j=>{ IWAUTO = (j && j.words && j.words.length) ? j : false; })
     .catch(()=>{ IWAUTO=false; });
 }
 
@@ -4164,17 +4161,24 @@ function iwCount(list){
   return out;
 }
 function renderIW(list){
+  // 자동 추출분과 내장 사전을 «합쳐서» 쓴다. 둘 중 하나만 쓰면
+  // 자동 추출에 없는 감성(예: 중립)이 통째로 사라진다.
+  // 같은 감성은 자동분을 우선하고, 비어 있는 감성만 내장 사전으로 메운다.
   let rows=[];
+  const C=iwCount(list);
+  const autoBy={pos:[],neg:[],neu:[]};
   if(IWAUTO && IWAUTO.words){
-    // 자동 추출분을 쓴다. 데이터가 바뀌면 키워드도 따라 바뀐다.
-    rows = IWAUTO.words.map(x=>({w:x.label, n:x.n, k:x.pol}));
-  }else{
-    const C=iwCount(list);
-    ['pos','neg','neu'].forEach(k=>Object.keys(C[k]).forEach(w=>rows.push({w:w,n:C[k][w],k:k})));
+    IWAUTO.words.forEach(x=>{ if(autoBy[x.pol]) autoBy[x.pol].push({w:x.label, n:x.n, k:x.pol}); });
   }
+  ['pos','neg','neu'].forEach(k=>{
+    if(autoBy[k].length >= 3){ rows = rows.concat(autoBy[k]); }
+    else { Object.keys(C[k]).forEach(w=>rows.push({w:w, n:C[k][w], k:k})); }
+  });
   if(!rows.length) return '';
   rows.sort((a,b)=>b.n-a.n);
-  const show=rows.filter(r=>iwOn[r.k]).slice(0,40);
+  // 감성별 정원 — 한쪽이 상위 40개를 독차지해 다른 감성이 안 보이는 일이 없게 한다
+  const QUOTA={pos:16, neg:16, neu:8}, used={pos:0, neg:0, neu:0};
+  const show=rows.filter(r=>iwOn[r.k] && (used[r.k]=(used[r.k]||0)+1) <= QUOTA[r.k]).slice(0,40);
   const mx=Math.max(1,...show.map(r=>r.n)), mn=Math.min(...show.map(r=>r.n));
   const KN={pos:'긍정',neg:'부정',neu:'중립'};
 
@@ -4227,7 +4231,7 @@ function renderIW(list){
       '<em class="k-'+k+'"></em>'+KN[k]+'</label>').join('')+'</div>';
   const auto = !!(IWAUTO && IWAUTO.words);
   h+='<div class="iwnote">'+
-     (auto? '수집된 글에서 자동으로 뽑아 감성을 판정한 표현입니다'+
+     (auto? '수집된 글에서 자동으로 뽑아 감성을 판정한 표현입니다(자동 추출이 적은 감성은 기본 표현으로 채움)'+
             (IWAUTO.meta&&IWAUTO.meta.updated?' · '+orgEsc(IWAUTO.meta.updated.slice(0,10)):'')+
             ' 기준, 최근 '+((IWAUTO.meta&&IWAUTO.meta.days)||30)+'일.'
           : '감성 표현만 셉니다.')+
