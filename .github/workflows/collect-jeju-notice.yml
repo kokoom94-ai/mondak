@@ -1,0 +1,43 @@
+name: collect-jeju-notice
+
+# 제주도청 고시/공고 — 하루 두 번. 도청이 직접 내는 사업(예: 히트펌프 보급사업)은
+# 정부24 API에 없어 이 경로로만 들어온다.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 22,10 * * *'      # 07:20 · 19:20 KST
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-jeju-notice
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Collect
+        continue-on-error: true
+        run: python scripts/collect_jeju_notice.py
+
+      - name: Commit
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ ! -f data/jeju_notice.json ]; then echo "파일 없음 — 건너뜀"; exit 0; fi
+          git add data/jeju_notice.json
+          git diff --cached --quiet && { echo "변경 없음"; exit 0; }
+          git commit -m "chore: 제주도청 고시/공고 갱신"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin main && exit 0
+            echo "재시도 $i"; sleep 5
+          done
+          echo "푸시 실패"; exit 1
