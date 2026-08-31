@@ -39,11 +39,21 @@ UA   = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
         "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
 CTX = ssl.create_default_context(); CTX.check_hostname = False; CTX.verify_mode = ssl.CERT_NONE
+
+class HttpsRedirect(urllib.request.HTTPRedirectHandler):
+    """도청이 가끔 http:// 로 되돌린다. 러너에서 http 는 연결이 막혀 타임아웃이 나므로
+    되돌아온 주소가 http 면 https 로 바꿔 따라간다. (실제로 probe 가 여기서 죽었다)"""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if newurl.startswith("http://"):
+            newurl = "https://" + newurl[len("http://"):]
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
 JAR = http.cookiejar.CookieJar()
 OP  = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(JAR),
-                                  urllib.request.HTTPSHandler(context=CTX))
+                                  urllib.request.HTTPSHandler(context=CTX),
+                                  HttpsRedirect())
 
-def call(url, data=None, enc="utf-8", tries=3):
+def call(url, data=None, enc="utf-8", tries=4):
     """목록 페이지를 받아 온다. 실패하면 잠깐 쉬고 다시."""
     h = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml",
          "Accept-Language": "ko-KR,ko;q=0.9", "Referer": LIST}
@@ -157,7 +167,7 @@ def opens(url, item):
     if not key: return False
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9"})
-        opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=CTX))
+        opener = urllib.request.build_opener(urllib.request.HTTPSHandler(context=CTX), HttpsRedirect())
         with opener.open(req, timeout=25) as r:
             raw = r.read()
         t = raw.decode("utf-8", "replace")
@@ -231,7 +241,10 @@ def main():
     # ── 직링크가 실제로 열리는지 확인한다 ────────────────────────
     # 상세는 사이트 안에서 폼으로 넘어가는 구조라, 주소만으로 열리지 않을 수 있다.
     # 열리지 않으면 이용자에게 깨진 링크를 주지 않고 목록 주소로 돌린다(공고번호로 찾게).
-    way, linkfn = resolve_link(first[:2])
+    try:
+        way, linkfn = resolve_link(first[:2])
+    except Exception as ex:                     # 링크 확인이 실패해도 수집은 계속한다
+        print("   ! 링크 확인 중 오류:", repr(ex)); way, linkfn = "", None
 
     # 이전 결과와 합치기 (누적)
     prev = []
