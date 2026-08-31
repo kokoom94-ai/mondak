@@ -2315,7 +2315,7 @@ function loadRAG(){
   RAGREADY=new Promise((ok)=>{
     if(window.MondakRAG) return ok(true);
     const sc=document.createElement('script');
-    sc.src='scripts/rag.js?v=3';
+    sc.src='scripts/rag.js?v=4';
     sc.onload=()=>ok(!!window.MondakRAG);
     sc.onerror=()=>{ console.warn('rag.js 로드 실패 → 기존 경로 사용'); ok(false); };
     document.head.appendChild(sc);
@@ -2379,6 +2379,9 @@ function aiToday(){
 }
 const AI_SCOPE = " (오늘은 " + aiToday() + "입니다. 가장 최근 공고·개정 내용을 우선하고,"
   + " 지난 연도·마감된 회차의 정보를 현재 정보처럼 답하지 말 것."
+  + " 웹을 참고할 때는 기관이 낸 보도자료·공고를 우선하고, 개인 블로그·카페·커뮤니티 글은 근거로 쓰지 말 것."
+  + " 자료가 없거나 확실하지 않으면 지어내지 말고 '확인이 필요하다'고 밝힌 뒤"
+  + " 제주도청 누리집(jeju.go.kr)과 제주120(064-120)으로 안내할 것."
   + " 공식 자료만 참고: 제주도청 jeju.go.kr, 비짓제주 visitjeju.net,"
   + " 제주관광 빅데이터 data.ijto.or.kr, 학교알리미 schoolinfo.go.kr, 국가법령정보 law.go.kr,"
   + " 정부24 gov.kr, 공공기관 .go.kr/.or.kr, 연합뉴스 등 언론사."
