@@ -24,6 +24,16 @@ jobs:
         with:
           python-version: '3.11'
 
+      # 도청 서버가 러너에서 가끔 응답하지 않는다. 먼저 연결만 확인해 로그에 남긴다.
+      - name: Reach check
+        continue-on-error: true
+        run: |
+          echo "--- DNS"
+          getent ahostsv4 www.jeju.go.kr | head -3 || true
+          echo "--- HTTPS (IPv4, 20초)"
+          curl -4 -sS -o /dev/null -w "status=%{http_code} time=%{time_total}s size=%{size_download}\n" \
+               --max-time 20 -A "Mozilla/5.0" https://www.jeju.go.kr/news/news/law/jeju.htm || echo "curl 실패"
+
       - name: Collect
         continue-on-error: true
         run: python scripts/collect_jeju_notice.py
