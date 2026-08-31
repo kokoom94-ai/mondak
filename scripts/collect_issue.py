@@ -236,6 +236,23 @@ def main():
     items = collect()
     print(f"\n원본 {len(items)}건 (중복·기간 제거 후)\n")
 
+    # ── 작성일이 없는 글(네이버 카페 API는 날짜를 주지 않는다) 처리
+    # 날짜가 없으면 LLM 판정 대상에서 빠지고 지수 계산에서도 빠져,
+    # 카페 채널이 화면에 통째로 사라졌다 (실측: 카페 1,198건 전부 date=None).
+    # 처음 본 날(수집일)을 날짜로 쓰고 date_est 로 표시한다. 최신순 검색이라 실제 작성일과 하루 안팎 차이다.
+    prev0=[]
+    if os.path.exists(OUT):
+        try: prev0=json.load(open(OUT,encoding="utf-8")).get("items",[])
+        except Exception: prev0=[]
+    seen_date={ (p.get("link") or p.get("title") or "").strip(): p.get("date")
+                for p in prev0 if p.get("date") }
+    today=NOW.strftime("%Y-%m-%d"); est=0
+    for it in items:
+        if not it.get("date"):
+            k=(it.get("link") or it.get("title") or "").strip()
+            it["date"]=seen_date.get(k) or today; it["date_est"]=True; est+=1
+    if est: print(f"■ 작성일 없는 글 {est}건 → 수집일 기준으로 날짜 부여 (date_est)\n")
+
     kept=[]; dropped={}
     for it in items:
         r = judge(it)
@@ -272,6 +289,8 @@ def main():
     rejudged = dropped_old = 0
     fresh_prev = []
     for it in prev:
+        if not it.get("date"):                      # 누적분에 남은 날짜 없는 글도 같은 기준
+            it["date"]=today; it["date_est"]=True
         if it.get("engine") == ENGINE_VERSION:
             fresh_prev.append(it); continue
         r = judge(it)
