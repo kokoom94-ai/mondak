@@ -1,0 +1,18 @@
+name: probe-jeju-notice
+
+# 제주도청 고시/공고 구조 확인용. 수동 실행만 하고, 아무것도 커밋하지 않는다.
+# 로그 출력만 보고 수집기를 작성한 뒤에는 이 워크플로우와 스크립트를 지워도 된다.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Probe
+        run: python scripts/probe_jeju_notice.py
