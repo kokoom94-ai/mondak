@@ -1,106 +1,121 @@
 # -*- coding: utf-8 -*-
-"""제주도청 고시/공고 구조 확인 probe 2단계.
+"""제주도청 고시/공고 probe 3단계 — 마지막 확인.
 
-1단계에서 알아낸 것
-  · 목록 https://www.jeju.go.kr/news/news/law/jeju.htm · UTF-8 · <table> 행 구조
-    열 = 공고번호 / 제목 / 부서 / 날짜 / 조회수
-  · 상세는 링크가 아니라 onclick="viewData('67621','A')"
-  · 뒤에 붙은 처리 주소 /citynet/jsp/sap/SAPGosiBizProcess.do
-  · ?page=2 는 1페이지와 같은 내용 → 페이지 넘김 방식이 따로 있다
+2단계에서 알아낸 것
+  · 상세  : SAPGosiBizProcess.do?command=searchDetail&flag=gosiGL&svp=Y&sido=&sno=&gosiGbn= 로 폼 전송
+  · 목록  : 같은 .do 에 command=searchList, 폼값 currPageNo 로 페이지 넘김
+  · 전송 인코딩은 EUC-KR (document.charset="euc-kr")
+  · 폼에 TOKEN_SAB(세션 토큰)·기간(conIfmStdt_Date/conIfmEnddt_Date)이 함께 간다
+  · 한 페이지 10건
 
-2단계에서 확인할 것
-  ① viewData 가 실제로 어디로 보내는가 (상세 직링크를 만들 수 있는가)
-  ② 페이지 넘김은 어떤 이름의 값으로 하는가
-  ③ 고시(gosi.htm) 목록은 어디서 자료를 받아오는가
+3단계에서 확인할 것
+  ① 목록 페이지에서 토큰·쿠키를 받아 POST 하면 2·3페이지가 실제로 넘어가는가
+  ② 기간을 넓히면(예: 2026-01-01~) 더 많은 건이 나오는가
+  ③ 상세 POST 가 본문을 주는가 — 내용·첨부·신청기간을 뽑을 수 있는가
+  ④ 이용자에게 줄 원문 '직링크'가 성립하는가 (주소만으로 열리는가)
 
 아무 파일도 만들지 않고 화면에만 출력한다.
 """
-import re, ssl, urllib.request, urllib.parse
+import re, ssl, urllib.request, urllib.parse, http.cookiejar
 
 CTX = ssl.create_default_context(); CTX.check_hostname = False; CTX.verify_mode = ssl.CERT_NONE
 UA  = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
        "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 BASE = "https://www.jeju.go.kr"
 LIST = BASE + "/news/news/law/jeju.htm"
+DO   = BASE + "/citynet/jsp/sap/SAPGosiBizProcess.do"
 
-def get(url, data=None, ref=BASE + "/"):
-    h = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml,application/json",
+JAR = http.cookiejar.CookieJar()
+OP  = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(JAR),
+                                  urllib.request.HTTPSHandler(context=CTX))
+
+def call(url, data=None, ref=LIST, enc="euc-kr"):
+    h = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml",
          "Accept-Language": "ko-KR,ko;q=0.9", "Referer": ref}
     body = None
     if data is not None:
-        body = urllib.parse.urlencode(data, encoding="utf-8").encode()
+        body = urllib.parse.urlencode(data, encoding=enc, errors="replace").encode()
         h["Content-Type"] = "application/x-www-form-urlencoded"
     req = urllib.request.Request(url, data=body, headers=h)
-    with urllib.request.urlopen(req, timeout=25, context=CTX) as r:
-        return r.status, r.read().decode("utf-8", "replace")
+    with OP.open(req, timeout=30) as r:
+        raw = r.read(); ct = r.headers.get("Content-Type", "")
+    e = "euc-kr" if "euc-kr" in ct.lower() else "utf-8"
+    t = raw.decode(e, "replace")
+    if e == "utf-8" and t.count("\ufffd") > 30:
+        t = raw.decode("euc-kr", "replace"); e = "euc-kr(재해석)"
+    return len(raw), e, t
+
+def titles(t):
+    return [re.sub(r"\s+", " ", x).strip()
+            for x in re.findall(r'd_tb_left">\s*([^<]{6,90}?)\s*</td>', t)][:6:2]
 
 def head(s): print("\n" + "=" * 70 + "\n" + s)
 
-# ── ① 목록 페이지의 스크립트·폼 ───────────────────────────────
-head("① 목록 페이지 내부 — viewData / 폼 / 페이지 넘김")
-st, html = get(LIST)
-print("상태", st, "길이", len(html))
+# 목록 페이지에서 폼 값 수집
+n, e, html = call(LIST, ref=BASE + "/")
+form = {}
+for m in re.finditer(r"<input[^>]*name=['\"]?([\w]+)['\"]?[^>]*value=['\"]?([^'\">]*)", html):
+    form[m.group(1)] = m.group(2)
+print("목록 응답", n, e, "· 쿠키", [c.name for c in JAR])
+print("폼 값:", {k: v[:24] for k, v in form.items()})
+base_titles = titles(html)
+print("1페이지 제목:", base_titles)
 
-for fn in ("viewData", "goPage", "fn_page", "doSearch", "gotoPage", "fnList"):
-    m = re.search(r"function\s+" + fn + r"\s*\([^)]*\)\s*\{[\s\S]{0,700}?\n\s*\}", html)
-    if m:
-        print("\n[function " + fn + "]")
-        print(re.sub(r"\n\s*", "\n  ", m.group(0))[:700])
-
-print("\n[form]")
-for m in re.finditer(r"<form[^>]*>", html):
-    print("  ", m.group(0)[:200])
-print("[hidden input]")
-for m in re.finditer(r'<input[^>]*type=["\']?hidden["\']?[^>]*>', html, re.I):
-    print("  ", re.sub(r"\s+", " ", m.group(0))[:160])
-print("[페이지 넘김 부분]")
-for m in re.finditer(r'<a[^>]*(?:href|onclick)="[^"]*(?:page|Page|pg)[^"]*"[^>]*>[\s\S]{0,40}?</a>', html):
-    print("  ", re.sub(r"\s+", " ", m.group(0))[:200])
-print("[전체 행 수]", len(re.findall(r'onclick="viewData\(', html)))
-print("[viewData 인자 예시]", re.findall(r"viewData\('([^']+)','([^']+)'\)", html)[:6])
-
-# ── ② 상세 주소 후보 시험 ────────────────────────────────────
-head("② 상세 주소 후보 — 어느 것이 본문을 주는가 (seq=67621)")
-for name, url, data in [
-    ("GET .do?q_seq",  BASE + "/citynet/jsp/sap/SAPGosiBizProcess.do?act=view&seq=67621&gb=A", None),
-    ("GET .do?gosiGbn", BASE + "/citynet/jsp/sap/SAPGosiBizProcess.do?gosiGbn=A&gosiSeq=67621", None),
-    ("POST .do",       BASE + "/citynet/jsp/sap/SAPGosiBizProcess.do", {"act": "view", "seq": "67621", "gb": "A"}),
-    ("목록 htm?seq",    LIST + "?act=view&seq=67621&gb=A", None),
-]:
+# ── ① 페이지 넘김 ─────────────────────────────────────────
+head("① currPageNo 로 페이지가 넘어가는가")
+url_list = DO + "?command=searchList&flag=gosiGL&svp=Y&sido="
+for p in ("1", "2", "3"):
+    d = dict(form); d["currPageNo"] = p; d["flag"] = "gosiGL"
     try:
-        s, t = get(url, data, ref=LIST)
-        hit = "히트펌프" in t
-        print(f"  {name:16s} 상태 {s} · 길이 {len(t):7d} · 히트펌프 {hit}")
-        if hit:
-            i = t.index("히트펌프")
-            print("      본문 주변:", re.sub(r"\s+", " ", t[max(0, i-200):i+300])[:480])
-    except Exception as e:
-        print(f"  {name:16s} 실패: {e!r}")
+        n, e, t = call(url_list, d)
+        ts = titles(t)
+        print(f"  {p}페이지 · {n:7d}바이트 · {e} · {'다름 ★' if ts and ts != base_titles else '같음/빈값'}")
+        for x in ts[:2]: print("      ", x[:60])
+    except Exception as ex:
+        print(f"  {p}페이지 실패: {ex!r}")
 
-# ── ③ 페이지 넘김 값 시험 ────────────────────────────────────
-head("③ 페이지 넘김 — 2페이지가 1페이지와 다른가")
-first_titles = re.findall(r'd_tb_left">\s*([^<]{6,80}?)\s*</td>', html)[:3]
-print("  1페이지 첫 제목:", first_titles)
-for key in ("pageIndex", "currentPage", "cpage", "pageNo", "startPage", "p_page", "nowPage"):
-    try:
-        s, t = get(LIST + "?" + key + "=2", ref=LIST)
-        ts = re.findall(r'd_tb_left">\s*([^<]{6,80}?)\s*</td>', t)[:3]
-        print(f"  {key:12s} → {'다름 ★' if ts and ts != first_titles else '같음'} {ts[:2]}")
-    except Exception as e:
-        print(f"  {key:12s} 실패: {e!r}")
-
-# ── ④ 고시 목록의 자료 출처 ─────────────────────────────────
-head("④ 고시 목록(gosi.htm)이 부르는 자료 주소")
+# ── ② 기간 넓히기 ────────────────────────────────────────
+head("② 기간을 넓히면 더 나오는가 (2026-01-01 ~ 오늘)")
+d = dict(form); d["currPageNo"] = "1"
+d["conIfmStdt_Date"] = "20260101"; d["conIfmEnddt_Date"] = "20261231"
 try:
-    s, g = get(BASE + "/news/news/law/gosi.htm")
-    for m in re.finditer(r'(?:axios|fetch|\$\.(?:get|post|ajax))\s*\(\s*["\']([^"\']+)["\']', g):
-        print("   ", m.group(1)[:160])
-    for m in re.finditer(r'url\s*:\s*["\']([^"\']+)["\']', g):
-        print("   url:", m.group(1)[:160])
-    for m in re.finditer(r'["\'](/[\w/\.\-]*(?:gosi|Gosi|GOSI)[\w/\.\-]*)["\']', g):
-        print("   후보:", m.group(1)[:160])
-except Exception as e:
-    print("  실패:", repr(e))
+    n, e, t = call(url_list, d)
+    rows = re.findall(r"viewData\('(\d+)','(\w)'\)", t)
+    print("  응답", n, e, "· 행", len(rows), "· 총건수 표기:",
+          re.findall(r"(?:총|전체)\s*[:：]?\s*([\d,]+)\s*건", t)[:3])
+    for x in titles(t)[:3]: print("      ", x[:60])
+except Exception as ex:
+    print("  실패:", repr(ex))
+
+# ── ③ 상세 본문 ─────────────────────────────────────────
+head("③ 상세 POST 가 본문을 주는가 (sno=67621)")
+sno, gb = "67621", "A"
+url_det = (DO + "?command=searchDetail&flag=gosiGL&svp=Y&sido=&sno=" + sno + "&gosiGbn=" + gb)
+d = dict(form); d["sno"] = sno; d["gosiGbn"] = gb; d["flag"] = "gosiGL"
+try:
+    n, e, t = call(url_det, d)
+    print("  응답", n, e, "· 히트펌프 포함:", "히트펌프" in t)
+    txt = re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>", " ", t)
+    txt = re.sub(r"<[^>]+>", " ", txt); txt = re.sub(r"\s+", " ", txt).strip()
+    print("  본문 앞부분:", txt[:700])
+    print("  첨부파일 링크:", re.findall(r'href="([^"]*(?:download|file|atch)[^"]*)"', t, re.I)[:5])
+except Exception as ex:
+    print("  실패:", repr(ex))
+
+# ── ④ 직링크 성립 여부 ──────────────────────────────────
+head("④ 주소만으로 상세가 열리는가 (새 접속 = 쿠키 없음)")
+for name, url in (("GET 상세 .do", url_det),
+                  ("GET 목록 htm", LIST)):
+    try:
+        h = {"User-Agent": UA, "Referer": ""}
+        req = urllib.request.Request(url, headers=h)
+        with urllib.request.build_opener(urllib.request.HTTPSHandler(context=CTX)).open(req, timeout=25) as r:
+            raw = r.read()
+        t2 = raw.decode("utf-8", "replace")
+        if t2.count("\ufffd") > 30: t2 = raw.decode("euc-kr", "replace")
+        print(f"  {name:12s} {len(raw):7d}바이트 · 히트펌프 {'히트펌프' in t2}")
+    except Exception as ex:
+        print(f"  {name:12s} 실패: {ex!r}")
 
 print("\n" + "=" * 70)
-print("이 출력을 그대로 보내주시면 수집기를 씁니다.")
+print("이 출력을 보내주시면 수집기를 씁니다.")
