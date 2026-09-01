@@ -2315,7 +2315,7 @@ function loadRAG(){
   RAGREADY=new Promise((ok)=>{
     if(window.MondakRAG) return ok(true);
     const sc=document.createElement('script');
-    sc.src='scripts/rag.js?v=4';
+    sc.src='scripts/rag.js?v=5';
     sc.onload=()=>ok(!!window.MondakRAG);
     sc.onerror=()=>{ console.warn('rag.js 로드 실패 → 기존 경로 사용'); ok(false); };
     document.head.appendChild(sc);
@@ -2380,6 +2380,9 @@ function aiToday(){
 const AI_SCOPE = " (오늘은 " + aiToday() + "입니다. 가장 최근 공고·개정 내용을 우선하고,"
   + " 지난 연도·마감된 회차의 정보를 현재 정보처럼 답하지 말 것."
   + " 웹을 참고할 때는 기관이 낸 보도자료·공고를 우선하고, 개인 블로그·카페·커뮤니티 글은 근거로 쓰지 말 것."
+  + " 검색 결과에 서울·경기 등 다른 지역 자료가 섞이면 그 자료는 버리고, 답변에 언급하지도 말 것."
+  + " (다른 지역 자료를 찾았다는 말이나 '제주와 관련 없는 내용이 검색되었다'는 설명을 쓰지 말 것)"
+  + " 쓸 자료가 없으면 그 사실만 짧게 밝히고 문의처를 안내할 것."
   + " 자료가 없거나 확실하지 않으면 지어내지 말고 '확인이 필요하다'고 밝힌 뒤"
   + " 제주도청 누리집(jeju.go.kr)과 제주120(064-120)으로 안내할 것."
   + " 공식 자료만 참고: 제주도청 jeju.go.kr, 비짓제주 visitjeju.net,"
