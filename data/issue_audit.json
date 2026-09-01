@@ -1,20 +1,20 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-09-01 09:17",
+  "updated": "2026-09-01 22:51",
   "mode": "judge",
-  "judged_this_run": 1483,
-  "failed_this_run": 1,
-  "judged_total": 2537,
-  "items_total": 2538,
+  "judged_this_run": 1502,
+  "failed_this_run": 0,
+  "judged_total": 2701,
+  "items_total": 2701,
   "conf": {
-   "높음": 2040,
-   "미기재": 497
+   "높음": 2134,
+   "미기재": 567
   },
   "sent": {
-   "부정": 1274,
-   "중립": 477,
-   "긍정": 786
+   "부정": 1356,
+   "중립": 486,
+   "긍정": 859
   }
  },
  "rules": {
@@ -24,7 +24,7 @@
   },
   "B": {
    "name": "알림글",
-   "n": 8
+   "n": 9
   },
   "C": {
    "name": "제주 부재",
@@ -36,99 +36,111 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 4
+   "n": 5
   },
   "G": {
    "name": "분야 없음",
-   "n": 3
+   "n": 7
   }
  },
- "dropped": 8,
- "rechecked": 14,
- "unresolved": 4,
+ "dropped": 13,
+ "rechecked": 20,
+ "unresolved": 1,
  "samples": {
   "알림글": [
    {
     "rule": "알림글",
-    "note": "알림성 근거: 지원금 정책 홍보",
+    "note": "알림성 근거: 앱 출시",
     "action": "재판정",
-    "title": "\"진짜 100만 원 줍니다\" 학교들 잡으려 파격 제안 던진 제주도, 관광 민심 잡....",
-    "link": "https://cafe.naver.com/jejudoonemonth/15412",
+    "title": "“누구에게나 여행은 필요하니까”…제주도 이동 장벽 낮춘다",
+    "link": "https://cafe.naver.com/silvervisitingcare/5903",
     "channel": "cafe",
     "who": "제주도 행정",
-    "why": "지원금 정책 홍보",
+    "why": "앱 출시",
+    "sent": "중립",
+    "conf": ""
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 관광지 홍보",
+    "action": "재판정",
+    "title": "해수부, 9월 이달의 등대에 제주 차귀도 죽도 등대 선정",
+    "link": "https://www.aflnews.co.kr/news/articleView.html?idxno=327298",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "관광지 홍보",
     "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
+    "note": "알림성 근거: 축제 개최",
     "action": "재판정",
-    "title": "제주도·제주관광공사, 9월 12~13일 서귀포 중문골프장 일대서 개최",
-    "link": "http://www.bizwnews.com/news/articleView.html?idxno=144829",
+    "title": "드론으로 바다 지키고 케이크로 이어도 빚고…청소년들의 '이어도축제'",
+    "link": "https://www.gukjenews.com/news/articleView.html?idxno=3681521",
     "channel": "news",
-    "who": "제주도 행정",
-    "why": "행사 개최",
-    "sent": "중립",
+    "who": "제주 관광업계",
+    "why": "축제 개최",
+    "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 정책 포럼 개최",
+    "note": "알림성 근거: 축제 개최",
     "action": "재판정",
-    "title": "\"복합리조트는 제주 관광 경쟁력 필수요소\"",
-    "link": "https://cafe.naver.com/paradiseoperation/749",
+    "title": "이어도청년지킴이 '제12회 2026 이어도축제' 12일 개최",
+    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425240",
+    "channel": "news",
+    "who": "제주 관광업계",
+    "why": "축제 개최",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 축제 개최",
+    "action": "재판정",
+    "title": "'제주인의 이상향과 미래세대의 만남'",
+    "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404273",
+    "channel": "news",
+    "who": "제주 관광업계",
+    "why": "축제 개최",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 용역 공고",
+    "action": "재판정",
+    "title": "[조달청 용역발주] (등록공고) (제주관광공사) 제주해녀문화 인류무형문화....",
+    "link": "https://cafe.naver.com/uworldexam/463790",
     "channel": "cafe",
     "who": "제주도 행정",
-    "why": "정책 포럼 개최",
+    "why": "용역 공고",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 정책 포럼 개최",
+    "note": "알림성 근거: 포럼 개최 계획",
     "action": "재판정",
     "title": "제주서 28∼30일 섬관광정책 포럼…12개국 150명 참가",
     "link": "https://cafe.naver.com/koreamicestation/392",
     "channel": "cafe",
     "who": "제주도 행정",
-    "why": "정책 포럼 개최",
+    "why": "포럼 개최 계획",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 정책 포럼 개최",
+    "note": "알림성 근거: 포럼 개최 계획",
     "action": "재판정",
     "title": "아시아 최대 관광포럼 제주 개최...중국.일본 등 10개국 참가 (2011. 09. 13)",
     "link": "https://cafe.naver.com/koreamicestation/382",
     "channel": "cafe",
     "who": "제주도 행정",
-    "why": "정책 포럼 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 골프 패키지 홍보",
-    "action": "재판정",
-    "title": "[추석 황금연휴] 제주 3색 골프 2박3일 54홀 올포함 파격특가! (아덴힐....",
-    "link": "https://blog.naver.com/corea_fox89/224395823016",
-    "channel": "blog",
-    "who": "제주 관광업계",
-    "why": "골프 패키지 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 안내",
-    "action": "재판정",
-    "title": "중문골프장서 자전거 달린다…'미니벨로 페스타' 9월 개최",
-    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425157",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "행사 개최 안내",
+    "why": "포럼 개최 계획",
     "sent": "중립",
     "conf": "높음"
    },
@@ -136,8 +148,8 @@
     "rule": "알림글",
     "note": "알림성 근거: 행사 개최",
     "action": "재판정",
-    "title": "'제주&교촌 미니벨로 페스타' 개최",
-    "link": "https://www.jemin.com/news/articleView.html?idxno=842311",
+    "title": "'손심엉 만드는 평등 제주'…양성평등주간 즐길거리 풍성",
+    "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404212",
     "channel": "news",
     "who": "제주도 행정",
     "why": "행사 개최",
@@ -150,8 +162,20 @@
     "rule": "감성 불일치",
     "note": "부정인데 근거가 긍정: 추천 요청",
     "action": "재판정",
-    "title": "부모님과 함께 가기 좋은 제주 맛집 찾고 있어요",
-    "link": "https://cafe.naver.com/skybluehwfsd/517",
+    "title": "제주도 관광지 추천 부탁드립니다.",
+    "link": "https://cafe.naver.com/fashionsensation/31715",
+    "channel": "cafe",
+    "who": "제주 관광업계",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "제주 맛집좀 추천해주세요",
+    "link": "https://cafe.naver.com/team0wind/94407",
     "channel": "cafe",
     "who": "제주 맛집",
     "why": "추천 요청",
@@ -160,26 +184,26 @@
    },
    {
     "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 관광 질 개선 필요",
+    "note": "부정인데 근거가 긍정: 추천 요청",
     "action": "재판정",
-    "title": "제주 관광, 만족도는 확인 / \"양보다 질\" 위해, 정책 초점 어디에?",
-    "link": "https://cafe.naver.com/jejuhee/51291",
+    "title": "제주 맛집 협재해수욕장 안녕협재씨",
+    "link": "https://cafe.naver.com/directwedding/9301553",
     "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "관광 질 개선 필요",
+    "who": "제주 맛집",
+    "why": "추천 요청",
     "sent": "부정",
-    "conf": ""
+    "conf": "높음"
    },
    {
     "rule": "감성 불일치",
-    "note": "긍정인데 근거가 부정: 사망사고 0건",
+    "note": "부정인데 근거가 긍정: 추천 요청",
     "action": "재판정",
-    "title": "‘안전문자 41건’ 제주 해수욕장 사망사고는 0건 - v.daum.net",
-    "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE5OMlNUZlB4RUgyQXhKZGpKY0t0OVRsVnNGcktDLVd2V3l2Y1NTUVVkUjNmeFhOMzctUUJreTRRblZSVU5ic3c?oc=5",
-    "channel": "news",
-    "who": "제주 치안",
-    "why": "사망사고 0건",
-    "sent": "긍정",
+    "title": "제주 맛집 추천해주세요",
+    "link": "https://cafe.naver.com/sayosayofen/244963",
+    "channel": "cafe",
+    "who": "제주 맛집",
+    "why": "추천 요청",
+    "sent": "부정",
     "conf": "높음"
    },
    {
@@ -200,13 +224,37 @@
     "rule": "분야 없음",
     "note": "분야 없음",
     "action": "재판정",
-    "title": "불안해서? 무서워서?…제주 방문객 줄어든 ‘진짜’ 이유는 - khan.co.kr",
-    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBoSmdNQURqR3A2YnlrX2NhZk9KaWRoakoxZ1pLRUN1bVpDRUI5QjF4d2hRSnpSdXRiY0NkX0xWU2sxVGtpbHNZNUJfWlJrMnZXRzJqN0N2YjU5QdIBX0FVX3lxTE9fR2hxdURCVi1zMlFNei14ZFZ3QmtQaU5vT2dXcDlhZjdCYkxKbGlsV20tUkxNZzBIbi0taWpkbzRHM2poZVNMUldLZXAzMUZGdXdheDNhNEJIa1AwejMw?oc=5",
-    "channel": "news",
-    "who": "제주 관광업계",
-    "why": "방문객 감소",
+    "title": "제주 공항근처 10만원 초반 야외수영장 숙소 추천 l  호텔 휘슬락 제....",
+    "link": "https://blog.naver.com/momo_shi/224397746985",
+    "channel": "blog",
+    "who": "제주 관광",
+    "why": "밤길 불안 언급",
     "sent": "부정",
     "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "제주 관광 불안감 확산 안전 제주 만들 것",
+    "link": "https://cafe.naver.com/jejuhee/90415",
+    "channel": "cafe",
+    "who": "제주 관광",
+    "why": "불안감 확산",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "104일간 묻혔던 실종 신고, 한 줄 보고가 바꿔버린 제주 관광의 운명",
+    "link": "https://blog.naver.com/sudal-130/224394590292",
+    "channel": "blog",
+    "who": "제주 관광업계",
+    "why": "불안 언급",
+    "sent": "부정",
+    "conf": ""
    },
    {
     "rule": "분야 없음",
@@ -229,6 +277,30 @@
     "channel": "blog",
     "who": "제주 관광업계",
     "why": "관광객 감소",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "104일 방치된 실종 신고, 제주 관광이 무너지는 진짜 이유",
+    "link": "https://blog.naver.com/mkim9002/224394045237",
+    "channel": "blog",
+    "who": "제주 관광",
+    "why": "관광 붕괴 우려",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "“9월 제주여행 괜찮을까?” 잇따른 실종 사건에 제주 관광까지 흔....",
+    "link": "https://blog.naver.com/prosper_wealth/224394106089",
+    "channel": "blog",
+    "who": "제주 관광",
+    "why": "예약 취소 증가",
     "sent": "부정",
     "conf": "높음"
    }
