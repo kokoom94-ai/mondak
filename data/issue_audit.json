@@ -1,20 +1,20 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-09-07 23:39",
+  "updated": "2026-09-08 08:14",
   "mode": "judge",
-  "judged_this_run": 1485,
+  "judged_this_run": 1493,
   "failed_this_run": 0,
-  "judged_total": 4033,
-  "items_total": 4033,
+  "judged_total": 4160,
+  "items_total": 4160,
   "conf": {
-   "높음": 3403,
-   "미기재": 630
+   "높음": 3545,
+   "미기재": 615
   },
   "sent": {
-   "중립": 848,
-   "부정": 1677,
-   "긍정": 1508
+   "긍정": 1608,
+   "중립": 863,
+   "부정": 1689
   }
  },
  "rules": {
@@ -24,7 +24,7 @@
   },
   "B": {
    "name": "알림글",
-   "n": 11
+   "n": 13
   },
   "C": {
    "name": "제주 부재",
@@ -36,111 +36,87 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 2
+   "n": 1
   },
   "G": {
    "name": "분야 없음",
-   "n": 11
+   "n": 1
   }
  },
- "dropped": 11,
- "rechecked": 24,
- "unresolved": 2,
+ "dropped": 13,
+ "rechecked": 14,
+ "unresolved": 1,
  "samples": {
   "알림글": [
    {
     "rule": "알림글",
-    "note": "알림성 근거: 결의대회 개최",
+    "note": "알림성 근거: 축제 홍보",
     "action": "재판정",
-    "title": "\"안전·친절 회복\" 민관 협력 결의대회 시작",
-    "link": "https://www.jibs.co.kr/news/replay/viewNewsReplayDetail/2026090718102421569?feed=na",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "결의대회 개최",
+    "title": "공연부터 나이트런·키즈 워터파크까지…제주 ‘컬러풀 산지 페스티벌’ ....",
+    "link": "https://cafe.naver.com/rankingking/14970",
+    "channel": "cafe",
+    "who": "제주 관광공사",
+    "why": "축제 홍보",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
+    "note": "알림성 근거: 숙소 홍보",
     "action": "재판정",
-    "title": "'제주레저힐링축제' 12~13일 함덕해수욕장서 개최",
-    "link": "https://www.news1.kr/local/jeju/6282615",
-    "channel": "news",
-    "who": "제주 관광업계",
-    "why": "행사 개최",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "레저와 힐링을 한꺼번에 '제주레저힐링축제'",
-    "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404436",
-    "channel": "news",
-    "who": "제주 관광업계",
-    "why": "행사 개최",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 맛집 홍보",
-    "action": "재판정",
-    "title": "제주에서 이제 문어라면 맛집 따로 찾지 않아도 될듯요…",
-    "link": "https://cafe.naver.com/jennyshomejeju/1288",
+    "title": "제주 한 달 살기, 지금이 기회입니다. 난방 OK, 가성비 숙소",
+    "link": "https://cafe.naver.com/suddengongyou/156769",
     "channel": "cafe",
     "who": "제주 관광업계",
-    "why": "맛집 홍보",
+    "why": "숙소 홍보",
     "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 동행 모집",
-    "action": "재판정",
-    "title": "10월 초 제주도 동행 구해용!(한라산은 필수..⛰️)",
-    "link": "https://cafe.naver.com/myguesthouse/1025640",
+    "note": "대상 없음/홍보: 없음",
+    "action": "제외",
+    "title": "내 제주도 맛집 리스트, 여기 다 있어! 꼼꼼히 알아본 후기",
+    "link": "https://cafe.naver.com/moneydirectors/172",
     "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "동행 모집",
-    "sent": "부정",
+    "who": "없음",
+    "why": "맛집 후기",
+    "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 축제 개최",
+    "note": "알림성 근거: 성과보고회 개최",
     "action": "재판정",
-    "title": "2026 제주레저힐링축제 12~13일 함덕해수욕장",
-    "link": "http://www.samdailbo.com/news/articleView.html?idxno=269971",
+    "title": "올여름 제주 해수욕장 160만6000명 찾아...전년보다 11% 증가↑",
+    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425476",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "축제 개최",
+    "why": "성과보고회 개최",
     "sent": "중립",
-    "conf": "높음"
+    "conf": ""
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 축제 개최",
+    "note": "알림성 근거: 개장 시기 조정 효과",
     "action": "재판정",
-    "title": "'밤낮없는 함덕의 즐거움'…제주레저힐링축제 12일 개막",
-    "link": "https://www.yna.co.kr/view/AKR20260907091500056?input=1195m",
+    "title": "올해 제주 해수욕장 '160만6천명' 방문 흥행",
+    "link": "https://www.jejusori.net/news/articleView.html?idxno=506266",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "축제 개최",
-    "sent": "중립",
-    "conf": "높음"
+    "why": "개장 시기 조정 효과",
+    "sent": "긍정",
+    "conf": ""
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 축제 개최",
+    "note": "알림성 근거: 내비게이션 앱 출시",
     "action": "재판정",
-    "title": "제주 함덕서 레저와 힐링의 향연…12~13일 제주레저힐링축제",
-    "link": "https://news.bbsi.co.kr/news/articleView.html?idxno=4104967",
-    "channel": "news",
+    "title": "“누구에게나 여행은 필요하니까”…제주도 이동 장벽 낮춘다",
+    "link": "https://cafe.naver.com/silvervisitingcare/5903",
+    "channel": "cafe",
     "who": "제주도 행정",
-    "why": "축제 개최",
+    "why": "내비게이션 앱 출시",
     "sent": "중립",
     "conf": "높음"
    },
@@ -170,30 +146,80 @@
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 문화 홍보",
+    "note": "알림성 근거: 협약 성과",
     "action": "재판정",
-    "title": "제주도에는 '도깨비'가 산다",
-    "link": "http://www.newstown.co.kr/news/articleView.html?idxno=714632",
+    "title": "제주 호텔 협력사 임금격차 줄인다…노사정 12.2억원 투입",
+    "link": "https://www.dailian.co.kr/news/view/1686628/?sc=Naver",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "문화 홍보",
+    "why": "협약 성과",
+    "sent": "긍정",
+    "conf": ""
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 협약 성과",
+    "action": "재판정",
+    "title": "노동부, 제주 호텔리조트업 원하청 격차 줄인다…12.2억 투입",
+    "link": "https://www.newspim.com/news/view/20260904000818",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "협약 성과",
+    "sent": "긍정",
+    "conf": ""
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 협약 추진",
+    "action": "재판정",
+    "title": "오래 일하고 싶은 제주 관광 일터로! 호텔·리조트 상생협약",
+    "link": "https://blog.naver.com/jejudo_official/224400999826",
+    "channel": "blog",
+    "who": "제주도 행정",
+    "why": "협약 추진",
     "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 협약 추진",
+    "action": "재판정",
+    "title": "제주 리조트 노동자 오래 일할 수 있게…정부·원하청 힘 모은다",
+    "link": "https://www.yna.co.kr/view/AKR20260904094500530?input=1195m",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "협약 추진",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 홍보 성과",
+    "action": "재판정",
+    "title": "악재에도 흔들림없이…제주관광협회, 전국 주요도시에서 제주여행 매력 전파 - 스포츠경향",
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9kTHBkekJLYkdGUW5JRkp4QTNYQVpwSlpJd19fSDVFaWJINTRqS2F6WVl4WlhuYUd4UEdrYTlXYzU5VkJNMWhfRWI1M3lSTWJvOUd2TV9SQURjRnJmc1HSAWNBVV95cUxQLUhMQ0tWOGlKVlpHZERGRExTb1l0c2N2MUM5MlBacVo4aHkyNFFTSmpKZHR0Ql9wTVFqb2pxanhucVNLcjQtVHVsS2pieVB5Rnl3bFpxenQ4eVNoM0hNVVpNU1k?oc=5",
+    "channel": "news",
+    "who": "제주관광협회",
+    "why": "홍보 성과",
+    "sent": "긍정",
+    "conf": "높음"
+   }
+  ],
+  "분야 없음": [
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "3박4일 제주관광 전일정식사 포함으로 식비 걱정 끝난 솔직후기",
+    "link": "https://cafe.naver.com/bmjmo4/1059",
+    "channel": "cafe",
+    "who": "제주 관광업계",
+    "why": "만족 후기",
+    "sent": "긍정",
     "conf": "높음"
    }
   ],
   "감성 불일치": [
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "제주 맛집 추천 부탁드려요",
-    "link": "https://cafe.naver.com/sdadaae/65010",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
    {
     "rule": "감성 불일치",
     "note": "부정인데 근거가 긍정: 정책 개선 필요",
@@ -204,141 +230,7 @@
     "who": "제주도 행정",
     "why": "정책 개선 필요",
     "sent": "부정",
-    "conf": "높음"
-   }
-  ],
-  "분야 없음": [
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "폐장 후 즐기는 물놀이",
-    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227593",
-    "channel": "news",
-    "who": "제주 치안",
-    "why": "안전요원 부재",
-    "sent": "부정",
     "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "[현장 카메라]우도 ‘1등 고객’이지만…달갑지 않은 이유",
-    "link": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000548158",
-    "channel": "news",
-    "who": "제주 관광업계",
-    "why": "관광객 불편",
-    "sent": "부정",
-    "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "“그날 밤 어디로 사라졌나”…장미란씨 ‘마지막 동선’ 따라가 보니 ...",
-    "link": "https://www.seoul.co.kr/news/society/2026/09/01/20260901500345?wlog_tag3=naver",
-    "channel": "news",
-    "who": "제주 치안",
-    "why": "실종사건 불안",
-    "sent": "부정",
-    "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "야자수 숲의 미스터리...부 경장의 두 얼굴 [여기잇슈]",
-    "link": "https://www.ytn.co.kr/_ln/0115_202609011618094201",
-    "channel": "news",
-    "who": "제주 치안",
-    "why": "실종사건 문제",
-    "sent": "부정",
-    "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "\"왜 허위 종결했나\" \"살릴 수 있지 않았나\"…부 경장 '묵묵부답'",
-    "link": "https://www.news1.kr/local/jeju/6276266",
-    "channel": "news",
-    "who": "제주 치안",
-    "why": "실종사건 문제",
-    "sent": "부정",
-    "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "\"제주 여행 불안해\"⋯발길 돌리는 내국인 관광객 - 아이뉴스24",
-    "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5iZ0k2UmF3TmEyZXFSSWpvQUFMT0xpUlNJaG1RMnFyTUVNT0daQ192eDBWSXQ0R09PREVSQ0xIZzA2UGxIcEh4dFhraw?oc=5",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "여행 취소 우려",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "\"제주 불안하다\" 예약 취소까지…흔들리는 '안전 관광지' - 연합뉴스",
-    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5Mc3FMTnh5RS1wVzNQNFNOYXphalh5U1dsU0N3enBhR1hfeUtlazJNVFUtNjNSX1RTczJCc3Y3OUhWWGRoZ01yT0M4aFZkd1U3WnpqNVphZWFnY1XSAWBBVV95cUxPVTBqSlYwRnJGQm5YV2RRcF9Jal9FdWhWOVFNdjhvcWFlekc3T1l0NXRhbFhJX05WcmpLclN1a1RpZVhtbk9EX1dSaXpXOEZZbHVNUGgtb0ZhZHU4blZjUG0?oc=5",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "예약 취소 증가",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "\"제주 여행 불안해\"⋯발길 돌리는 내국인 관광객 - 네이트",
-    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAyNzVsTkRyNmNOWnBVM2FTVTVmMXhQaVhsNngwWTVrV1Y4OXhvSUxPNW0teWg4OTRLREIyZllTQnUwN2ZfLU1PVWZDWWQyUldieWRJ?oc=5",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "관광객 감소",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "잇단 실종·괴담에 ‘제주 관광 쇼크’…관광객 10% 넘게 줄어든 날도 - 동아일보",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE4zQTRqQlh2NVJJMTFNLU83a2FLV1ZWd2JlODNHdzZQRE54WkRLa3JmaGgzdGpma28zcXU3dlNZMUNaY2dZOHAtMl9YRmhBMTdSdVZWa1k1cElHWDU4N2VBRWZVZUtKWl8xZ1pSOXJrYU0ybFZqTGc?oc=5",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "관광객 감소",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "\"제주 불안하다\" 예약 취소까지…흔들리는 '안전 관광지' - v.daum.net",
-    "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5UdERfYTRnVWh4RDlWeUZ2b2haWmJqSjFuZC13MVBmck9wdExIeGFXbndWa3dFM2RidzZKZjlCcEs4dmNjbFpucjJ0OG1TNkRyY3FQUw?oc=5",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "예약 취소 증가",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "\"제주 불안하다\" 예약 취소까지…흔들리는 '안전 관광지' - v.daum.net",
-    "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBIWnpwejBuM3QxdFhCYWFtd1QyWEJ2NEktMlJIRGlIN2ZfVXhCUC15Ym5GOW9BaGNEUXlYcjkyaVhRWWY1cUE?oc=5",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "관광객 감소",
-    "sent": "부정",
-    "conf": "높음"
    }
   ]
  },
