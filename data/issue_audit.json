@@ -1,20 +1,20 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-09-11 22:09",
+  "updated": "2026-09-12 07:56",
   "mode": "judge",
-  "judged_this_run": 1556,
+  "judged_this_run": 1541,
   "failed_this_run": 0,
-  "judged_total": 4916,
-  "items_total": 4916,
+  "judged_total": 4973,
+  "items_total": 4973,
   "conf": {
-   "높음": 4178,
-   "미기재": 738
+   "높음": 4228,
+   "미기재": 745
   },
   "sent": {
-   "중립": 1052,
-   "부정": 1928,
-   "긍정": 1936
+   "부정": 1937,
+   "긍정": 1970,
+   "중립": 1066
   }
  },
  "rules": {
@@ -24,7 +24,7 @@
   },
   "B": {
    "name": "알림글",
-   "n": 13
+   "n": 14
   },
   "C": {
    "name": "제주 부재",
@@ -36,128 +36,18 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 8
+   "n": 4
   },
   "G": {
    "name": "분야 없음",
-   "n": 2
+   "n": 3
   }
  },
- "dropped": 18,
- "rechecked": 23,
- "unresolved": 3,
+ "dropped": 17,
+ "rechecked": 17,
+ "unresolved": 1,
  "samples": {
-  "감성 불일치": [
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "제주 여행 선배님들 밥집 추천 부탁드립니다 !",
-    "link": "https://cafe.naver.com/jejutip/2670833",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 오름 추천 요청",
-    "action": "재판정",
-    "title": "제주 오름 추천, 초보자도 걷기 좋은 제주 오름 4곳",
-    "link": "https://cafe.naver.com/hyjnavercom/272606",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "오름 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 함덕 자연체험 추천 요청",
-    "action": "재판정",
-    "title": "제주도 함덕 자연체험 가볼만한곳, 서우봉과 해변을 천천히 살펴보는 함덕 ....",
-    "link": "https://cafe.naver.com/orangegiuqg/715",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "함덕 자연체험 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 우도 추천 요청",
-    "action": "재판정",
-    "title": "제주도 우도 부모님과 가볼만한곳, 걷는 부담을 줄이고 바다 풍경을 즐기는....",
-    "link": "https://cafe.naver.com/orangegiuqg/713",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "우도 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 성읍 체험 추천 요청",
-    "action": "재판정",
-    "title": "제주 성읍 가족 체험 여행코스, 초가마을과 전통 체험을 함께 보는 하루",
-    "link": "https://cafe.naver.com/orangegiuqg/712",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "성읍 체험 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "부모님과 함께 가기 좋은 제주 맛집 찾고 있어요",
-    "link": "https://cafe.naver.com/skybluehwfsd/517",
-    "channel": "cafe",
-    "who": "제주 맛집",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "제주맛집 투어했어요~~",
-    "link": "https://cafe.naver.com/zzop/4205479",
-    "channel": "cafe",
-    "who": "제주 맛집",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 우도 방문 비추천",
-    "action": "재판정",
-    "title": "[제주 우도 여행 솔직후기] 갈까 말까 고민된다면 꼭 읽어보세요 (fea....",
-    "link": "https://blog.naver.com/simplificasan/224399068277",
-    "channel": "blog",
-    "who": "제주 관광지",
-    "why": "우도 방문 비추천",
-    "sent": "부정",
-    "conf": "높음"
-   }
-  ],
   "알림글": [
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 불법광고물 문제",
-    "action": "재판정",
-    "title": "깨끗한 서귀포, 불법광고물 없는 거리에서 시작된다",
-    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425748",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "불법광고물 문제",
-    "sent": "부정",
-    "conf": "높음"
-   },
    {
     "rule": "알림글",
     "note": "알림성 근거: 행사 개최",
@@ -165,7 +55,7 @@
     "title": "공연부터 나이트런·키즈 워터파크까지…제주 ‘컬러풀 산지 페스티벌’ ....",
     "link": "https://cafe.naver.com/rankingking/14970",
     "channel": "cafe",
-    "who": "제주 관광공사",
+    "who": "제주도 행정",
     "why": "행사 개최",
     "sent": "중립",
     "conf": "높음"
@@ -177,20 +67,80 @@
     "title": "2026 제주올레 걷기축제 일정 공유, 11월 5~7일 19·20 코스 걷는다",
     "link": "https://cafe.naver.com/kys6933/7682",
     "channel": "cafe",
-    "who": "제주 관광공사",
+    "who": "제주도 행정",
     "why": "행사 개최",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 자연환경 홍보",
+    "note": "알림성 근거: 정책 홍보",
     "action": "재판정",
-    "title": "[제주여행 정보] 김녕 바다는 왜 에메랄드빛일까?",
-    "link": "https://cafe.naver.com/jejudoonemonth/16407",
+    "title": "2박 이상 제주 관광객에게 탐나는전 2만원 지급(6월초부터. 제주공항에서 지....",
+    "link": "https://cafe.naver.com/triptomeet/33264",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "정책 홍보",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 숙소 홍보",
+    "action": "재판정",
+    "title": "제주 한 달 살기, 지금이 기회입니다. 난방 OK, 가성비 숙소",
+    "link": "https://cafe.naver.com/suddengongyou/156769",
     "channel": "cafe",
     "who": "제주 관광",
-    "why": "자연환경 홍보",
+    "why": "숙소 홍보",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "대상 없음/홍보: 제주 관광안내소",
+    "action": "제외",
+    "title": "거문오름 예약 방법과 시간 총정리 (제주 세계자연유산 직접 다녀온 후기)",
+    "link": "https://cafe.naver.com/goodinfo53/183",
+    "channel": "cafe",
+    "who": "제주 관광안내소",
+    "why": "예약 정보",
+    "sent": "중립",
+    "conf": ""
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 간담회 개최",
+    "action": "재판정",
+    "title": "제주도의회, 관광업계와 위기 대응 현장 소통 간담회 - 헤드라인제주",
+    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5DbFg2Z3pXTm02ZE1kTHVGSktIMHhnNkpzVG1mRzIyZFMwZlNUd2dXZFRDU3RGMjN3R1JuM2dSazFOOE04LWFhQlJpVFV2TnpnLWlkWkc2YkFxQ1hHTy1GOWtUV090SHB3WjlENGhmSGxKVUE?oc=5",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "간담회 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "'무한의 우주를 열다' 제46회 전국장애인체전, 제주서 개막",
+    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425710",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 불법광고물 개선",
+    "action": "재판정",
+    "title": "깨끗한 서귀포, 불법광고물 없는 거리에서 시작된다",
+    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425748",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "불법광고물 개선",
     "sent": "긍정",
     "conf": "높음"
    },
@@ -198,35 +148,35 @@
     "rule": "알림글",
     "note": "알림성 근거: 포럼 개최",
     "action": "재판정",
-    "title": "제주서 28∼30일 섬관광정책 포럼…12개국 150명 참가",
-    "link": "https://cafe.naver.com/koreamicestation/392",
-    "channel": "cafe",
+    "title": "유네스코 등재 10년 포럼 '제주해녀와 AI'",
+    "link": "https://www.jejusori.net/news/articleView.html?idxno=506470",
+    "channel": "news",
     "who": "제주 관광",
     "why": "포럼 개최",
-    "sent": "긍정",
+    "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 포럼 개최",
-    "action": "재판정",
-    "title": "아시아 최대 관광포럼 제주 개최...중국.일본 등 10개국 참가 (2011. 09. 13)",
-    "link": "https://cafe.naver.com/koreamicestation/382",
-    "channel": "cafe",
-    "who": "제주 관광",
-    "why": "포럼 개최",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 협약 체결",
+    "note": "알림성 근거: 업무협약 체결",
     "action": "재판정",
     "title": "제주교도소, 제주특별자치도 개인택시운송사업조합과 업무협약 체결",
     "link": "http://www.lawissue.co.kr/view.php?ud=2026091112253313379a8c8bf58f_12",
     "channel": "news",
-    "who": "제주 치안",
-    "why": "협약 체결",
+    "who": "제주도 행정",
+    "why": "업무협약 체결",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "대상 없음/홍보: 없음",
+    "action": "제외",
+    "title": "제주도 일정 봐주세요~~",
+    "link": "https://cafe.naver.com/no1cheonan/4328159",
+    "channel": "cafe",
+    "who": "없음",
+    "why": "일정 정리",
     "sent": "중립",
     "conf": "높음"
    },
@@ -244,63 +194,77 @@
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 회의 개최",
-    "action": "재판정",
-    "title": "[오늘의 주요일정]제주(9월10일 목요일)",
-    "link": "https://www.newsis.com/view/NISX20260909_0003783236",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "회의 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 관광지 홍보",
-    "action": "재판정",
-    "title": "세계 럭셔리 여행업계가 반한 제주…해녀문화·청정자연 ‘최상급 관광지’ - 제주팟닷컴",
-    "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE02Q1BoMWpDSFJwQjNUX0lPM1YyMHlLS2JmTDdzUFFwVGllLVZwZ3FiWFdTQS1OazRUV1Nnck5qU3FYOFhId3NKcTF6M05raGFFS2diWWlYWE1hZ0du?oc=5",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "관광지 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 협약 체결",
-    "action": "재판정",
-    "title": "제주 관광산업의 얼굴 호텔리조트업, 함께 웃는 일터로",
-    "link": "https://blog.naver.com/molab_suda/224403292777",
+    "note": "대상 없음/홍보: 제주 관광안내",
+    "action": "제외",
+    "title": "2026년 김포공항, 제주공항",
+    "link": "https://blog.naver.com/0804koh/224402672226",
     "channel": "blog",
-    "who": "제주 관광산업",
-    "why": "협약 체결",
-    "sent": "긍정",
+    "who": "제주 관광안내",
+    "why": "불편 호소",
+    "sent": "부정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 위반행위 홍보",
+    "note": "알림성 근거: 홍보 활동 강화",
     "action": "재판정",
-    "title": "장애인전용주차구역 위반 4년간 2만2천여 건 적발",
-    "link": "http://www.samdailbo.com/news/articleView.html?idxno=269933",
+    "title": "제주시, 장애인전용주차구역 위반 근절 나선다",
+    "link": "https://www.mediajeju.com/news/articleView.html?idxno=366078",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "위반행위 홍보",
+    "why": "홍보 활동 강화",
     "sent": "중립",
+    "conf": "높음"
+   }
+  ],
+  "감성 불일치": [
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "흑돼지부터 고기국수까지, 내가 가고 싶은 제주 맛집 공유하기",
+    "link": "https://cafe.naver.com/skybluehwfsd/889",
+    "channel": "cafe",
+    "who": "제주 맛집",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "제주 맛집 추천요",
+    "link": "https://cafe.naver.com/cantsb/3530023",
+    "channel": "cafe",
+    "who": "제주 맛집",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "대가족이 함께 가기 좋은 제주 맛집 찾고 있어요",
+    "link": "https://cafe.naver.com/skybluehwfsd/846",
+    "channel": "cafe",
+    "who": "제주 맛집",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 만족도 낮음",
+    "action": "재판정",
+    "title": "제주 관광 현실은?…“만족도 낮고 물가 비싸”",
+    "link": "https://cafe.naver.com/jejuhee/71219",
+    "channel": "cafe",
+    "who": "제주 관광업계",
+    "why": "만족도 낮음",
+    "sent": "부정",
     "conf": ""
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 협약 체결",
-    "action": "재판정",
-    "title": "오래 일하고 싶은 제주 관광 일터로! 호텔·리조트 상생협약",
-    "link": "https://blog.naver.com/jejudo_official/224400999826",
-    "channel": "blog",
-    "who": "제주도 행정",
-    "why": "협약 체결",
-    "sent": "중립",
-    "conf": "높음"
    }
   ],
   "분야 없음": [
@@ -308,11 +272,11 @@
     "rule": "분야 없음",
     "note": "분야 없음",
     "action": "재판정",
-    "title": "[독자기고] 작업 멈춘 공사장, 안전은 멈추지 말아야",
-    "link": "https://www.jemin.com/news/articleView.html?idxno=842749",
-    "channel": "news",
-    "who": "제주 공사장",
-    "why": "화재 위험 지적",
+    "title": "제주 영어캠프 19박20일 보낼까 말까... 금액이 너무 고민이네요.",
+    "link": "https://cafe.naver.com/fm0rm1/42929",
+    "channel": "cafe",
+    "who": "제주 영어캠프",
+    "why": "비용 불만",
     "sent": "부정",
     "conf": "높음"
    },
@@ -320,12 +284,24 @@
     "rule": "분야 없음",
     "note": "분야 없음",
     "action": "재판정",
-    "title": "반려견과 한달살기(10. 구좌,조천)",
-    "link": "https://cafe.naver.com/seogwipoguesthouse2/666841",
+    "title": "제주도 일정 봐주세요~~",
+    "link": "https://cafe.naver.com/no1cheonan/4328159",
     "channel": "cafe",
-    "who": "제주 관광지",
-    "why": "반려견 출입 제한",
-    "sent": "부정",
+    "who": "없음",
+    "why": "일정 정리",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "물놀이 안전을 좌우하는 사전 점검, 수심동선구명용품 확인법까지 ....",
+    "link": "https://blog.naver.com/uidcneamaea5l1lnrei4/224403178225",
+    "channel": "blog",
+    "who": "제주 관광",
+    "why": "안전 점검",
+    "sent": "중립",
     "conf": "높음"
    }
   ]
