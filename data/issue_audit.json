@@ -1,30 +1,30 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-09-13 22:34",
+  "updated": "2026-09-14 07:45",
   "mode": "judge",
   "judged_this_run": 1507,
   "failed_this_run": 3,
-  "judged_total": 5305,
-  "items_total": 5308,
+  "judged_total": 5359,
+  "items_total": 5362,
   "conf": {
-   "높음": 4595,
-   "미기재": 710
+   "높음": 4601,
+   "미기재": 758
   },
   "sent": {
-   "중립": 1136,
-   "부정": 2013,
-   "긍정": 2156
+   "부정": 2026,
+   "긍정": 2194,
+   "중립": 1139
   }
  },
  "rules": {
   "A": {
    "name": "대상 불일치",
-   "n": 0
+   "n": 1
   },
   "B": {
    "name": "알림글",
-   "n": 8
+   "n": 13
   },
   "C": {
    "name": "제주 부재",
@@ -36,210 +36,236 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 8
+   "n": 4
   },
   "G": {
    "name": "분야 없음",
-   "n": 3
+   "n": 1
   }
  },
- "dropped": 11,
- "rechecked": 19,
- "unresolved": 4,
+ "dropped": 14,
+ "rechecked": 18,
+ "unresolved": 3,
  "samples": {
-  "감성 불일치": [
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 추천 요청",
-    "action": "재판정",
-    "title": "대가족이 함께 가기 좋은 제주 맛집 찾고 있어요",
-    "link": "https://cafe.naver.com/skybluehwfsd/846",
-    "channel": "cafe",
-    "who": "제주 맛집",
-    "why": "추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 여행지 추천 요청",
-    "action": "재판정",
-    "title": "제주도 관광지 추천 부탁드립니다.",
-    "link": "https://cafe.naver.com/fashionsensation/31715",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "여행지 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 숙소 추천 요청",
-    "action": "재판정",
-    "title": "제주 한달살기 독채 숙소 추천 부부 둘이 조용히 지내고 싶어요~",
-    "link": "https://cafe.naver.com/hyjnavercom/272757",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "숙소 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "긍정인데 근거가 부정: 실종자 발견",
-    "action": "재판정",
-    "title": "제주 실종 신고 40대 남성, 수색 5시간 만에 무사히 발견",
-    "link": "https://www.ytn.co.kr/_ln/0115_202609120932116242",
-    "channel": "news",
-    "who": "제주 치안",
-    "why": "실종자 발견",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "긍정인데 근거가 부정: 실종자 발견",
-    "action": "재판정",
-    "title": "제주 금능서 실종 신고 40대, 5시간 수색 끝 무사 발견",
-    "link": "https://www.fnnews.com/news/202609120823083241",
-    "channel": "news",
-    "who": "제주 치안",
-    "why": "실종자 발견",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 이미지 개선 필요",
-    "action": "재판정",
-    "title": "김대진 의원, \"제주관광 이미지, 근본 대책 필요\" - MoaPic! 모아픽!",
-    "link": "https://cafe.naver.com/moapic/35411",
-    "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "이미지 개선 필요",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 만족도 하락",
-    "action": "재판정",
-    "title": "제주 문제점, 뭐가 있을까?",
-    "link": "https://cafe.naver.com/xiaohongshumaster/104",
-    "channel": "cafe",
-    "who": "제주 관광",
-    "why": "만족도 하락",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "긍정인데 근거가 부정: 사망사고 0건",
-    "action": "재판정",
-    "title": "‘안전문자 41건’ 제주 해수욕장 사망사고는 0건 - 제주의소리",
-    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1EOU1RQXNoS1d6VGtrcm5mbU5Jd3liSTZpNTExUVlyd09BSGVDM1QyQ3d0eFlRa3Y2cFpIRFJMMlFvYkMzVDZUTkJKUHBvN0djc1hTSlpISFNmbGhvaHRTaVlSUEJGT3g3SEU4?oc=5",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "사망사고 0건",
-    "sent": "긍정",
-    "conf": "높음"
-   }
-  ],
   "알림글": [
    {
     "rule": "알림글",
-    "note": "알림성 근거: 택시 카풀 모집",
-    "action": "재판정",
-    "title": "제주공항-곽지해수욕장 택시 카풀 구합니다",
-    "link": "https://cafe.naver.com/myguesthouse/1027702",
-    "channel": "cafe",
-    "who": "제주 관광",
-    "why": "택시 카풀 모집",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 홍보성 후기",
+    "note": "알림성 근거: 명소 소개 및 홍보",
     "action": "재판정",
     "title": "제주관광의 폭포 트레일, 사진보다 먼저 마음이 설레다",
     "link": "https://cafe.naver.com/sellceo/5046",
     "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "홍보성 후기",
+    "who": "제주 관광명소",
+    "why": "명소 소개 및 홍보",
     "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 정책 포럼 개최",
+    "note": "알림성 근거: 할인 광고",
     "action": "재판정",
-    "title": "\"복합리조트는 제주 관광 경쟁력 필수요소\"",
-    "link": "https://cafe.naver.com/paradiseoperation/749",
+    "title": "제주도 관광지 4곳 990원",
+    "link": "https://cafe.naver.com/jejumonkey/31",
+    "channel": "cafe",
+    "who": "제주 관광업계",
+    "why": "할인 광고",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 지원사업 공고",
+    "action": "재판정",
+    "title": "[정책지원금 제주특별자치도 3,000만원] 2026 제주 관광콘텐츠 프로젝트 지원....",
+    "link": "https://cafe.naver.com/sajangnimhereyo/90",
     "channel": "cafe",
     "who": "제주도 행정",
-    "why": "정책 포럼 개최",
+    "why": "지원사업 공고",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 간담회 개최",
+    "note": "알림성 근거: 행사 개최",
     "action": "재판정",
-    "title": "제주도의회, 관광업계와 위기 대응 현장 소통 간담회 - 헤드라인제주",
-    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5DbFg2Z3pXTm02ZE1kTHVGSktIMHhnNkpzVG1mRzIyZFMwZlNUd2dXZFRDU3RGMjN3R1JuM2dSazFOOE04LWFhQlJpVFV2TnpnLWlkWkc2YkFxQ1hHTy1GOWtUV090SHB3WjlENGhmSGxKVUE?oc=5",
-    "channel": "news",
-    "who": "제주도의회",
-    "why": "간담회 개최",
+    "title": "제주서 28∼30일 섬관광정책 포럼…12개국 150명 참가",
+    "link": "https://cafe.naver.com/koreamicestation/392",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "행사 개최",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 상품 출시",
+    "note": "알림성 근거: 행사 개최",
     "action": "재판정",
-    "title": "신라스테이, 아가방과 손잡고 '태교·키즈 패키지' 이색 상품 출시",
-    "link": "https://www.newsworks.co.kr/news/articleView.html?idxno=853522",
-    "channel": "news",
-    "who": "신라스테이",
-    "why": "상품 출시",
+    "title": "아시아 최대 관광포럼 제주 개최...중국.일본 등 10개국 참가 (2011. 09. 13)",
+    "link": "https://cafe.naver.com/koreamicestation/382",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "행사 개최",
     "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 가격 정책 홍보",
+    "action": "재판정",
+    "title": "서귀포 맛집 유명한 제주 남원읍 맛집 고등어구이",
+    "link": "https://cafe.naver.com/ungsangjang/868257",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "가격 정책 홍보",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 앱 출시",
+    "action": "재판정",
+    "title": "“누구에게나 여행은 필요하니까”…제주도 이동 장벽 낮춘다",
+    "link": "https://cafe.naver.com/silvervisitingcare/5903",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "앱 출시",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "\"비행기로 50분\"…제주, 상하이서 中2030세대 관광객 유치행사 - 네이트",
+    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE83RERXX0FpT21rNWxmYmE2VC1kTW9OY3VzTnlFMHRaQUVCVUk4TDJnanhOVFlCOXViOGFWZXRreHVBUU9BbFVWVGZha2Q3WXVVR25j?oc=5",
+    "channel": "news",
+    "who": "제주 관광",
+    "why": "행사 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "\"비행기로 50분\"…제주, 상하이서 中2030세대 관광객 유치행사 - 뉴시스",
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9ZOVdSbWIzMnV0azJlU2F2MGhYc2lybkZFbTdMcDRjbzhVTndsUm9CR2RZeG5QQXUyUW12ZjE2Znhad0Q2OUJRRUdxeTBlNXRJTGd3b3FQY1A1V1JENXlIVtIBeEFVX3lxTE5jQ3ZFSDNSWFNQcWZNSlpyNmJyWERYSGNId0RMY0RHY0tITVhyeHFqZEQ4QUFKN1R2Q1FUZW04X2JrTXZzQXZ5RmZ6eXNtX2tiRTdqWnVnekJNSjRwbDJJVTFkY2hhcEZuM1d2d2dkdTV6X3ViYnJ0Nw?oc=5",
+    "channel": "news",
+    "who": "제주 관광",
+    "why": "행사 개최",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 조기 개장 효과",
+    "action": "재판정",
+    "title": "올 제주 해수욕장 160만 '북적'…'바가지 근절·조기 개장' 통했다",
+    "link": "https://view.asiae.co.kr/article/2026090716214660490",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "조기 개장 효과",
+    "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
     "note": "알림성 근거: 협약 체결",
     "action": "재판정",
-    "title": "제주 야간 치안 민관 안전망 구축",
-    "link": "https://www.jemin.com/news/articleView.html?idxno=842787",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "협약 체결",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 협력 체결",
-    "action": "재판정",
-    "title": "제주자치경찰단, 민간경비 3사와 야간 치안 협력",
-    "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=322327",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "협력 체결",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 상생 협약",
-    "action": "재판정",
     "title": "제주 관광산업의 얼굴 호텔리조트업, 함께 웃는 일터로",
     "link": "https://blog.naver.com/molab_suda/224403292777",
     "channel": "blog",
-    "who": "제주 호텔리조트업",
-    "why": "상생 협약",
+    "who": "제주도 행정",
+    "why": "협약 체결",
     "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 위반행위 근절 홍보",
+    "action": "재판정",
+    "title": "장애인전용주차구역 위반 4년간 2만2천여 건 적발",
+    "link": "http://www.samdailbo.com/news/articleView.html?idxno=269933",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "위반행위 근절 홍보",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 정책 스터디 개최",
+    "action": "재판정",
+    "title": "‘로컬 중심’ 여행 선호, MZ세대 트렌드 잡아라 - MoaPic! 모아픽!",
+    "link": "https://cafe.naver.com/moapic/13863",
+    "channel": "cafe",
+    "who": "제주도 행정",
+    "why": "정책 스터디 개최",
+    "sent": "중립",
+    "conf": "높음"
+   }
+  ],
+  "대상 불일치": [
+   {
+    "rule": "대상 불일치",
+    "note": "대상이 제주 아님: 김포공항 주차장",
+    "action": "제외",
+    "title": "김포공항 무료주차 카드서비스로 제주다녀온 후기",
+    "link": "https://cafe.naver.com/hotellife/1617110",
+    "channel": "cafe",
+    "who": "김포공항 주차장",
+    "why": "불편 후기",
+    "sent": "부정",
+    "conf": "높음"
+   }
+  ],
+  "감성 불일치": [
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 만족도 낮음",
+    "action": "재판정",
+    "title": "제주도 여행가는데 가족들과 흑돼지 맛집 가고 싶어요",
+    "link": "https://cafe.naver.com/skybluehwfsd/991",
+    "channel": "cafe",
+    "who": "제주 음식",
+    "why": "만족도 낮음",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 교통편의 개선 필요",
+    "action": "재판정",
+    "title": "위성곤 \"심야 제주공항 이용객 교통편의 개선 필요\"",
+    "link": "http://www.samdailbo.com/news/articleView.html?idxno=270159",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "교통편의 개선 필요",
+    "sent": "부정",
+    "conf": ""
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "긍정인데 근거가 부정: 값비쌀 비판",
+    "action": "재판정",
+    "title": "아직도 비싼 돈 주고 제주 흑돼지 드세요? 오라동 맛집 정육마당 가....",
+    "link": "https://blog.naver.com/rosepark265/224406198404",
+    "channel": "blog",
+    "who": "오라동 맛집",
+    "why": "값비쌀 비판",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 서핑 추천",
+    "action": "재판정",
+    "title": "제주도 서핑 어디 갈지 고민이라면? 안 가면 진짜 후회할 제주 표선....",
+    "link": "https://blog.naver.com/starry0227/224404276211",
+    "channel": "blog",
+    "who": "제주 관광업계",
+    "why": "서핑 추천",
+    "sent": "부정",
     "conf": "높음"
    }
   ],
@@ -248,48 +274,24 @@
     "rule": "분야 없음",
     "note": "분야 없음",
     "action": "재판정",
-    "title": "제주 카지노서 ‘마킹 카드’ 중국인 고객 상대 1억대 사기 도박",
-    "link": "https://www.segye.com/newsView/20260913504087?OutUrl=naver",
-    "channel": "news",
-    "who": "제주 카지노",
-    "why": "사기 도박",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "굳게 잠긴 핫플 제주 해변, 계속되는 비지정 해변 사고",
-    "link": "https://www.jejusori.net/news/articleView.html?idxno=506301",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "해변 사고 다발",
+    "title": "제주한치 출조하셨던 분들에게 질문~",
+    "link": "https://cafe.naver.com/team0wind/86427",
+    "channel": "cafe",
+    "who": "제주 한치 낚시 업계",
+    "why": "불만 제기",
     "sent": "부정",
     "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "제주도한달살기숙소들",
-    "link": "https://cafe.naver.com/jejudoonemonth/3235",
-    "channel": "cafe",
-    "who": "제주철이삼춘 투어",
-    "why": "만족 후기",
-    "sent": "긍정",
-    "conf": "높음"
    }
   ]
  },
  "fail_samples": [
   {
-   "title": "경찰, 김승원 ‘신약 임상시험 승인 청탁 의혹’ 수사 착수…고발인 이...",
-   "resp": "[{\"i\":0,\"rel\":false,\"who\":\"김승원\",\"sent\":\"부정\",\"cats\":[\"],\"why\":\"타지역 인사 논란\",\"conf\":\"높음\"}]"
+   "title": "‘안전문자 41건’ 제주 해수욕장 사망사고는 0건 - v.daum.net",
+   "resp": "(빈 응답)"
   },
   {
-   "title": "‘특별당비 남편 급여’ 의혹 용혜인, 경찰 수사착수…잇따라 고발인 조...",
-   "resp": "[{\"i\":0,\"rel\":false,\"who\":\"김포공항\",\"sent\":\"부정\",\"cats\":[\"],\"why\":\"타지역 공항 이용 논란\",\"conf\":\"높음\"}]"
+   "title": "\"제주 여행 불안해\" 예약 취소까지…내국인 관광객 감소세 - 연합뉴스TV",
+   "resp": "(빈 응답)"
   }
  ],
  "note": "samples 는 규칙별 최대 40건. 제외된 글은 issue.json 에서 빠지고 여기 기록만 남습니다."
