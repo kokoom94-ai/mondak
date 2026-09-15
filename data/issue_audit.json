@@ -1,20 +1,20 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-09-15 00:32",
+  "updated": "2026-09-15 08:39",
   "mode": "judge",
-  "judged_this_run": 1404,
-  "failed_this_run": 4,
-  "judged_total": 5461,
-  "items_total": 5465,
+  "judged_this_run": 1368,
+  "failed_this_run": 0,
+  "judged_total": 5558,
+  "items_total": 5558,
   "conf": {
-   "높음": 4727,
-   "미기재": 734
+   "높음": 4788,
+   "미기재": 770
   },
   "sent": {
-   "긍정": 2221,
-   "부정": 2066,
-   "중립": 1174
+   "긍정": 2300,
+   "중립": 1187,
+   "부정": 2071
   }
  },
  "rules": {
@@ -24,7 +24,7 @@
   },
   "B": {
    "name": "알림글",
-   "n": 15
+   "n": 7
   },
   "C": {
    "name": "제주 부재",
@@ -36,136 +36,52 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 8
+   "n": 11
   },
   "G": {
    "name": "분야 없음",
-   "n": 2
+   "n": 0
   }
  },
- "dropped": 15,
- "rechecked": 25,
- "unresolved": 7,
+ "dropped": 7,
+ "rechecked": 18,
+ "unresolved": 8,
  "samples": {
   "알림글": [
    {
     "rule": "알림글",
-    "note": "알림성 근거: 채용 공고",
+    "note": "알림성 근거: 정책 토론회 개최",
     "action": "재판정",
-    "title": "[제주관광공사 채용] 정규직 신입 (관광마케팅/건축) (~9.22)",
-    "link": "https://cafe.naver.com/studentstudyhard/2815818",
+    "title": "2026년 06월 관광레저산업노동조합 활동 특별판 - 6월 24일 《제주특별자치도 ....",
+    "link": "https://cafe.naver.com/ktlwu/322",
     "channel": "cafe",
     "who": "제주도 행정",
-    "why": "채용 공고",
+    "why": "정책 토론회 개최",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 안내",
+    "note": "알림성 근거: 수상 실적 홍보",
     "action": "재판정",
-    "title": "공연부터 나이트런·키즈 워터파크까지…제주 ‘컬러풀 산지 페스티벌’ ....",
-    "link": "https://cafe.naver.com/rankingking/14970",
+    "title": "[Jeju] 제주, 아시아태평양지역 대표 웰니스 관광지로 우뚝!",
+    "link": "https://cafe.naver.com/2012511fishgoodcom12/197675",
     "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "행사 개최 안내",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 안내",
-    "action": "재판정",
-    "title": "2026 제주올레 걷기축제 일정 공유, 11월 5~7일 19·20 코스 걷는다",
-    "link": "https://cafe.naver.com/kys6933/7682",
-    "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "행사 개최 안내",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 홍보성 내용",
-    "action": "재판정",
-    "title": "[제주여행 정보] 김녕 바다는 왜 에메랄드빛일까?",
-    "link": "https://cafe.naver.com/jejudoonemonth/16407",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "홍보성 내용",
+    "who": "제주 관광공사",
+    "why": "수상 실적 홍보",
     "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 제주 제품 홍보",
+    "note": "알림성 근거: 성공 개최",
     "action": "재판정",
-    "title": "치즈같은 두부 제주 콩으로 만든 수제두부 5종 먹어본 솔직 후기",
-    "link": "https://cafe.naver.com/uouv96/59822",
-    "channel": "cafe",
-    "who": "제주 콩",
-    "why": "제주 제품 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 업체 홍보",
-    "action": "재판정",
-    "title": "없는게없는 제주 동문시장 소품샵 [효돈에반하다] 기념품 구매 후기....",
-    "link": "https://blog.naver.com/dwdwdw1105/224411732219",
-    "channel": "blog",
-    "who": "제주 관광업계",
-    "why": "업체 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 업체 홍보",
-    "action": "재판정",
-    "title": "[제주 숙소] 가성비 최고 백종원 호텔 더본, '탐모라' 조식 뷔페",
-    "link": "https://blog.naver.com/moon_121519/224411696094",
-    "channel": "blog",
-    "who": "제주 관광업계",
-    "why": "업체 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 리조트 홍보",
-    "action": "재판정",
-    "title": "제주도리조트 협재 오션뷰 웨이브 제주 호텔 수영장 조식",
-    "link": "https://blog.naver.com/zzanguna/224411658215",
-    "channel": "blog",
-    "who": "제주 관광업계",
-    "why": "리조트 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 관광 홍보",
-    "action": "재판정",
-    "title": "감귤박물관, 귤림추색의 가을을 준비하다",
-    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425831",
+    "title": "'무한의 우주를 열다' 제46회 전국장애인체전, 제주서 개막",
+    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425710",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "관광 홍보",
+    "why": "성공 개최",
     "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 간담회 개최",
-    "action": "재판정",
-    "title": "제주도의회, 관광업계와 위기 대응 현장 소통 간담회 - 헤드라인제주",
-    "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5DbFg2Z3pXTm02ZE1kTHVGSktIMHhnNkpzVG1mRzIyZFMwZlNUd2dXZFRDU3RGMjN3R1JuM2dSazFOOE04LWFhQlJpVFV2TnpnLWlkWkc2YkFxQ1hHTy1GOWtUV090SHB3WjlENGhmSGxKVUE?oc=5",
-    "channel": "news",
-    "who": "제주도의회",
-    "why": "간담회 개최",
-    "sent": "중립",
     "conf": "높음"
    },
    {
@@ -194,18 +110,6 @@
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 상품 출시",
-    "action": "재판정",
-    "title": "우주여행·미지에서 하룻밤…특별한 경험에 돈 몰린다 [호모 엑스페리엔...",
-    "link": "https://www.sedaily.com/article/20089558?ref=naver",
-    "channel": "news",
-    "who": "롯데호텔 제주",
-    "why": "상품 출시",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
     "note": "알림성 근거: 협약 체결",
     "action": "재판정",
     "title": "제주 관광산업의 얼굴 호텔리조트업, 함께 웃는 일터로",
@@ -218,48 +122,24 @@
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 홍보 진행",
+    "note": "알림성 근거: 위반 행위 근절 홍보",
     "action": "재판정",
     "title": "장애인전용주차구역 위반 4년간 2만2천여 건 적발",
     "link": "http://www.samdailbo.com/news/articleView.html?idxno=269933",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "홍보 진행",
+    "why": "위반 행위 근절 홍보",
     "sent": "중립",
-    "conf": "높음"
+    "conf": ""
    }
   ],
   "감성 불일치": [
    {
     "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 관광지 추천 요청",
-    "action": "재판정",
-    "title": "제주도 관광지 추천 부탁드립니다.",
-    "link": "https://cafe.naver.com/fashionsensation/31715",
-    "channel": "cafe",
-    "who": "제주도 관광업계",
-    "why": "관광지 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 경기 회복 지연",
-    "action": "재판정",
-    "title": "관광객 증가 불구 제주 경기 회복세 지지부진",
-    "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=400103",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "경기 회복 지연",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
     "note": "긍정인데 근거가 부정: 사망사고 제로",
     "action": "재판정",
-    "title": "제주 해수욕장 사망사고 '0'…119시민수상구조대 1만 건 활동",
-    "link": "https://www.newsjeju.net/news/articleView.html?idxno=425862",
+    "title": "제주 소방 해수욕장 1만건 안전활동…사망사고 '제로'",
+    "link": "https://www.jemin.com/news/articleView.html?idxno=842944",
     "channel": "news",
     "who": "제주 치안",
     "why": "사망사고 제로",
@@ -292,6 +172,54 @@
    },
    {
     "rule": "감성 불일치",
+    "note": "긍정인데 근거가 부정: 실종사건 영향 제한적",
+    "action": "재판정",
+    "title": "8월 제주 방문객 전년比 5.6만명 늘어…\"실종 사건 영향 제한적\"",
+    "link": "https://www.yna.co.kr/view/AKR20260912038300030?input=1195m",
+    "channel": "news",
+    "who": "제주 치안",
+    "why": "실종사건 영향 제한적",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "긍정인데 근거가 부정: 실종사건 영향 제한적",
+    "action": "재판정",
+    "title": "8월 제주 방문객 전년比 5.6만명 늘어…\"실종 사건 영향 제한적\" - v.daum.net",
+    "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE13cUpWVU9PZGxrNFk3QlZBYWVjRTRTeFRVM3dCX1dzd3lQSmlWYWZUd0lYUVZ1ZjhVZ0xqdnJtUXU4bGliTkZuR29hRFRieTQ?oc=5",
+    "channel": "news",
+    "who": "제주 치안",
+    "why": "실종사건 영향 제한적",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "긍정인데 근거가 부정: 실종사건 영향 제한적",
+    "action": "재판정",
+    "title": "8월 제주 방문객 전년比 5.6만명 늘어…\"실종 사건 영향 제한적\" - 연합뉴스",
+    "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9DMFlyVjA4VzBmQlllS2l1S25ZV21qeHA0b1JoUWpXaHhJQkh3azRiWU5YQXloQzMzcmZpNmR2N0VHalcwb09OZnA5QnRYZ3FaOEthVU9xdnlucFXSAWBBVV95cUxObXV2WUkwdmVPcWdjcGo3Q01hZFlVczdUUW00R2ltWmxmX1o4NXljM3dCUC0zbUFoRlUzZE1pc21zTktKa2RqRDRQREZyNUs1d3l2UmE1VlU0dUhxNGNaMjY?oc=5",
+    "channel": "news",
+    "who": "제주 치안",
+    "why": "실종사건 영향 제한적",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "긍정인데 근거가 부정: 실종사건 영향 제한적",
+    "action": "재판정",
+    "title": "지난 달 제주 방문객 5.6만명 증가…\"실종 사건 영향 제한적\"",
+    "link": "https://biz.sbs.co.kr/article_hub/20000334289?division=NAVER",
+    "channel": "news",
+    "who": "제주 치안",
+    "why": "실종사건 영향 제한적",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
     "note": "긍정인데 근거가 부정: 실종자 발견",
     "action": "재판정",
     "title": "제주 실종 신고 40대 남성, 수색 5시간 만에 무사히 발견",
@@ -304,52 +232,38 @@
    },
    {
     "rule": "감성 불일치",
-    "note": "긍정인데 근거가 부정: 실종자 발견",
+    "note": "긍정인데 근거가 부정: 실종자 무사 발견",
     "action": "재판정",
     "title": "제주 금능서 실종 신고 40대, 5시간 수색 끝 무사 발견",
     "link": "https://www.fnnews.com/news/202609120823083241",
     "channel": "news",
     "who": "제주 치안",
-    "why": "실종자 발견",
+    "why": "실종자 무사 발견",
     "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "감성 불일치",
-    "note": "긍정인데 근거가 부정: 사망사고 없음",
+    "note": "긍정인데 근거가 부정: 사망사고 0건 확인",
     "action": "재판정",
     "title": "‘안전문자 41건’ 제주 해수욕장 사망사고는 0건 - v.daum.net",
     "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE5OMlNUZlB4RUgyQXhKZGpKY0t0OVRsVnNGcktDLVd2V3l2Y1NTUVVkUjNmeFhOMzctUUJreTRRblZSVU5ic3c?oc=5",
     "channel": "news",
-    "who": "제주 행정",
-    "why": "사망사고 없음",
+    "who": "제주도 행정",
+    "why": "사망사고 0건 확인",
     "sent": "긍정",
-    "conf": "높음"
-   }
-  ],
-  "분야 없음": [
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "JTC, ‘제주 해린면세점’ 오픈…韓시장 본격 진출",
-    "link": "https://www.fntimes.com/html/view.php?ud=202609111702024046892e2583cc_18",
-    "channel": "news",
-    "who": "제주 면세점",
-    "why": "사업 확장",
-    "sent": "중립",
     "conf": "높음"
    },
    {
-    "rule": "분야 없음",
-    "note": "분야 없음",
+    "rule": "감성 불일치",
+    "note": "긍정인데 근거가 부정: 사망사고 0건 확인",
     "action": "재판정",
-    "title": "제주 실종 괴담 여행 취소 후폭풍 비상",
-    "link": "https://cafe.naver.com/eideaclub/30555",
-    "channel": "cafe",
-    "who": "제주 치안",
-    "why": "실종사건 불안",
-    "sent": "부정",
+    "title": "‘안전문자 41건’ 제주 해수욕장 사망사고는 0건 - jejusori.net",
+    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1EOU1RQXNoS1d6VGtrcm5mbU5Jd3liSTZpNTExUVlyd09BSGVDM1QyQ3d0eFlRa3Y2cFpIRFJMMlFvYkMzVDZUTkJKUHBvN0djc1hTSlpISFNmbGhvaHRTaVlSUEJGT3g3SEU4?oc=5",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "사망사고 0건 확인",
+    "sent": "긍정",
     "conf": "높음"
    }
   ]
