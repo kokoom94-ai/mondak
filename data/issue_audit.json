@@ -1,30 +1,30 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-09-19 07:57",
+  "updated": "2026-09-19 21:49",
   "mode": "judge",
-  "judged_this_run": 1387,
+  "judged_this_run": 1349,
   "failed_this_run": 0,
-  "judged_total": 6335,
-  "items_total": 6335,
+  "judged_total": 6413,
+  "items_total": 6413,
   "conf": {
-   "높음": 5494,
-   "미기재": 841
+   "높음": 5535,
+   "미기재": 878
   },
   "sent": {
-   "긍정": 2734,
-   "중립": 1360,
-   "부정": 2241
+   "긍정": 2767,
+   "중립": 1377,
+   "부정": 2269
   }
  },
  "rules": {
   "A": {
    "name": "대상 불일치",
-   "n": 1
+   "n": 0
   },
   "B": {
    "name": "알림글",
-   "n": 16
+   "n": 13
   },
   "C": {
    "name": "제주 부재",
@@ -36,113 +36,115 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 4
+   "n": 5
   },
   "G": {
    "name": "분야 없음",
-   "n": 0
+   "n": 1
   }
  },
- "dropped": 18,
- "rechecked": 20,
- "unresolved": 3,
+ "dropped": 17,
+ "rechecked": 17,
+ "unresolved": 2,
  "samples": {
+  "분야 없음": [
+   {
+    "rule": "분야 없음",
+    "note": "분야 없음",
+    "action": "재판정",
+    "title": "제주 이색체험 추천  감귤나무숲 청귤따기 & 청귤청 만들기 체험 후....",
+    "link": "https://blog.naver.com/jelee6855/224417216199",
+    "channel": "blog",
+    "who": "감귤나무숲",
+    "why": "호평",
+    "sent": "긍정",
+    "conf": "높음"
+   }
+  ],
   "감성 불일치": [
    {
     "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 숙소 추천 요청",
+    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
     "action": "재판정",
-    "title": "서귀포로 부모님과 3박 4일 여행가려고 하는데 조용하고 뷰 좋은 숙소 추천 ....",
-    "link": "https://cafe.naver.com/skybluehwfsd/1052",
+    "title": "이번 제주 여행 때 부모님 모시고 갈만한 갈치조림 맛집을 찾고 있어요!",
+    "link": "https://cafe.naver.com/skybluehwfsd/1059",
     "channel": "cafe",
     "who": "제주 관광업계",
-    "why": "숙소 추천 요청",
+    "why": "맛집 추천 요청",
     "sent": "부정",
     "conf": "높음"
    },
    {
     "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 경기 회복 부진",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "제주도 관광지는 거의 다 간것 같은데~",
+    "link": "https://cafe.naver.com/jejutip/2652457",
+    "channel": "cafe",
+    "who": "제주 관광업계",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 추천 요청",
+    "action": "재판정",
+    "title": "제주도 관광지 추천 부탁드립니다.",
+    "link": "https://cafe.naver.com/fashionsensation/31715",
+    "channel": "cafe",
+    "who": "제주 관광업계",
+    "why": "추천 요청",
+    "sent": "부정",
+    "conf": "높음"
+   },
+   {
+    "rule": "감성 불일치",
+    "note": "부정인데 근거가 긍정: 경기 회복 지연",
     "action": "재판정",
     "title": "관광객 증가 불구 제주 경기 회복세 지지부진",
     "link": "https://www.jejudomin.co.kr/news/articleView.html?idxno=400103",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "경기 회복 부진",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 고비용 이미지 개선 주문",
-    "action": "재판정",
-    "title": "\"갈치구이 1인당 10만원?\"…제주지사까지 직접 나선 까닭",
-    "link": "https://cafe.naver.com/inthepouchcommunity/28586",
-    "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "고비용 이미지 개선 주문",
+    "why": "경기 회복 지연",
     "sent": "부정",
     "conf": ""
    },
    {
     "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 만족도 하락",
+    "note": "긍정인데 근거가 부정: 사망사고 0건",
     "action": "재판정",
-    "title": "제주 문제점, 뭐가 있을까?",
-    "link": "https://cafe.naver.com/xiaohongshumaster/104",
-    "channel": "cafe",
-    "who": "제주 관광",
-    "why": "만족도 하락",
-    "sent": "부정",
+    "title": "‘안전문자 41건’ 제주 해수욕장 사망사고는 0건 - 제주의소리",
+    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1EOU1RQXNoS1d6VGtrcm5mbU5Jd3liSTZpNTExUVlyd09BSGVDM1QyQ3d0eFlRa3Y2cFpIRFJMMlFvYkMzVDZUTkJKUHBvN0djc1hTSlpISFNmbGhvaHRTaVlSUEJGT3g3SEU4?oc=5",
+    "channel": "news",
+    "who": "제주 치안",
+    "why": "사망사고 0건",
+    "sent": "긍정",
     "conf": "높음"
    }
   ],
   "알림글": [
    {
     "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
+    "note": "알림성 근거: 축제 개최",
     "action": "재판정",
-    "title": "공연부터 나이트런·키즈 워터파크까지…제주 ‘컬러풀 산지 페스티벌’ ....",
-    "link": "https://cafe.naver.com/rankingking/14970",
-    "channel": "cafe",
-    "who": "제주 관광공사",
-    "why": "행사 개최",
-    "sent": "중립",
+    "title": "해녀문화 유네스코 등재 10주년…제주해녀축제 성황리 개막",
+    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599276",
+    "channel": "news",
+    "who": "제주 해녀",
+    "why": "축제 개최",
+    "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
+    "note": "알림성 근거: 포럼 개최",
     "action": "재판정",
-    "title": "2026 제주올레 걷기축제 일정 공유, 11월 5~7일 19·20 코스 걷는다",
-    "link": "https://cafe.naver.com/kys6933/7682",
-    "channel": "cafe",
-    "who": "제주 관광공사",
-    "why": "행사 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "김녕해변이 스포츠 경기장으로…'제주 비치 게임즈' 10월 개최",
-    "link": "https://www.mediajeju.com/news/articleView.html?idxno=366358",
+    "title": "제주해녀문화 유네스코 등재 10주년…\"다음 10년은 공동체 중심 보존\"",
+    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599275",
     "channel": "news",
     "who": "제주도 행정",
-    "why": "행사 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "제주 비치 게임즈 10월 개최…김녕해수욕장서 해변 스포츠 축제 열린다",
-    "link": "https://www.mhns.co.kr/news/articleView.html?idxno=760978",
-    "channel": "news",
-    "who": "제주 관광업계",
-    "why": "행사 개최",
+    "why": "포럼 개최",
     "sent": "중립",
     "conf": "높음"
    },
@@ -153,8 +155,20 @@
     "title": "제주 바다에서 '크로스핏·하이록스' 이색 대회",
     "link": "https://www.jejusori.net/news/articleView.html?idxno=506709",
     "channel": "news",
-    "who": "제주 관광업계",
+    "who": "제주도 행정",
     "why": "행사 모집",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 개최",
+    "action": "재판정",
+    "title": "제주 비치 게임즈 10월 개최…김녕해수욕장서 해변 스포츠 축제 열린다",
+    "link": "https://www.mhns.co.kr/news/articleView.html?idxno=760978",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "행사 개최",
     "sent": "중립",
     "conf": "높음"
    },
@@ -165,144 +179,106 @@
     "title": "김녕 바다가 경기장으로…'제주 비치 게임즈' 10월 개최",
     "link": "https://www.newsjeju.net/news/articleView.html?idxno=426072",
     "channel": "news",
-    "who": "제주 관광업계",
+    "who": "제주도 행정",
     "why": "행사 개최",
     "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 개인전 개최",
-    "action": "재판정",
-    "title": "제주 화가 홍선주, 첫 개인전 '제주의 집'",
-    "link": "https://www.jejusori.net/news/articleView.html?idxno=506704",
-    "channel": "news",
-    "who": "제주 화가",
-    "why": "개인전 개최",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 계획",
-    "action": "재판정",
-    "title": "김녕 바다가 경기장으로…'제주 비치 게임즈' 개최",
-    "link": "https://www.jemin.com/news/articleView.html?idxno=843177",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "행사 개최 계획",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 계획",
+    "note": "알림성 근거: 행사 성과 홍보",
     "action": "재판정",
     "title": "김녕 바다가 110분짜리 경기장으로… 제주 ‘비치 게임즈’ 첫선",
     "link": "https://www.jibs.co.kr/news/articles/articlesDetail/65657?feed=na",
     "channel": "news",
-    "who": "제주도 행정",
-    "why": "행사 개최 계획",
-    "sent": "중립",
+    "who": "제주 관광업계",
+    "why": "행사 성과 홍보",
+    "sent": "긍정",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 계획",
+    "note": "알림성 근거: 행사 성과 홍보",
+    "action": "재판정",
+    "title": "바다가 경기장으로…110분간 펼쳐지는 '제주 비치 게임즈'",
+    "link": "https://www.nocutnews.co.kr/news/6580346?utm_source=naver&utm_medium=article&utm_campaign=20260918111044",
+    "channel": "news",
+    "who": "제주 관광업계",
+    "why": "행사 성과 홍보",
+    "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 행사 성과 홍보",
     "action": "재판정",
     "title": "제주 비치 게임즈 10월 개최…김녕해수욕장서 해변 스포츠 축제 열린다 - 더쎈뉴스",
     "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1TS05laENEYU1DcmQ5ckJhUW5sR2hnMGRvY3cxd0hiUU83dUp1M0pOVV9YcVU5M1NOODgzcVRZSUw1LWEtaFoyTnNGODFmZm9NSHZCUHlLZmhYb09ITmVaRTRvNlJIR2hY?oc=5",
     "channel": "news",
-    "who": "제주도 행정",
-    "why": "행사 개최 계획",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 홍보 안내문 제작",
-    "action": "재판정",
-    "title": "서귀포시, 공영 관광지 ‘모바일 홍보 안내문’ 제작 - 뉴스N제주",
-    "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5paXVyYlp2NV85NHo2SDBxdThvREUyNjkyc2hnVmpMVTRGWEhKNkVKdEU3WG05Vzg0bHIwanFrUkFVb3g4RWtoNTlVQ0dtVlBZLUJNY0FqRnhXaDFFam85dUl2ZnNsVGNEQVNpbA?oc=5",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "홍보 안내문 제작",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 미식 홍보",
-    "action": "재판정",
-    "title": "‘K푸드’ 뷔페로 무장한 제주 드림타워...한우·전복회·치킨 등 무제한",
-    "link": "https://www.mk.co.kr/article/12155835",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "미식 홍보",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 이벤트 개최",
-    "action": "재판정",
-    "title": "자전거 하나에 1,000명이 움직였다… “이젠 ‘할 일’ 따라 제주 찾아...",
-    "link": "https://www.jibs.co.kr/news/articles/articlesDetail/65518?feed=na",
-    "channel": "news",
     "who": "제주 관광업계",
-    "why": "이벤트 개최",
+    "why": "행사 성과 홍보",
     "sent": "긍정",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 협약 추진",
+    "action": "재판정",
+    "title": "제주관광협회, 베트남 카인호아성과 우호협약...상품 개발 등 추진 - 헤드라인제주",
+    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9HV1pON1NSUUIzYjhkUGJvTEdLTmpyQTNGYVExVHhwWmxpQUJObzRWQzFhT3FVZzdFLUhpNVRsNlhBVFZobmRoV0JHSUhGZE1VT24zcy1WUm1UOU8yQjR2R0FFT0syMzVLRlFwc0lkemxwQQ?oc=5",
+    "channel": "news",
+    "who": "제주도 행정",
+    "why": "협약 추진",
+    "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
     "note": "알림성 근거: 이벤트 홍보",
     "action": "재판정",
-    "title": "기린빌라리조트, 추석 보름달 포토존 이벤트",
-    "link": "http://www.smarttimes.co.kr/news/articleView.html?idxno=48960",
+    "title": "기린빌라리조트, ‘보름달 포토존’ 이벤트",
+    "link": "https://cooknchefnews.com/news/view/1065616573881239",
     "channel": "news",
-    "who": "기린빌라리조트",
+    "who": "제주 관광",
     "why": "이벤트 홍보",
-    "sent": "긍정",
+    "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 이벤트 홍보",
-    "action": "재판정",
-    "title": "제주의 밤에 뜬 3m 보름달…기린빌라리조트, 추석 야간 포토존 선보여",
-    "link": "http://www.fieldnews.kr/news/articleView.html?idxno=31504",
-    "channel": "news",
-    "who": "기린빌라리조트",
-    "why": "이벤트 홍보",
-    "sent": "긍정",
+    "note": "대상 없음/홍보: 없음",
+    "action": "제외",
+    "title": "지인들과 함께한 힐링 DAY",
+    "link": "https://blog.naver.com/yungs0208/224412928410",
+    "channel": "blog",
+    "who": "없음",
+    "why": "여행 계획",
+    "sent": "중립",
     "conf": "높음"
    },
    {
     "rule": "알림글",
-    "note": "알림성 근거: 방역·홍보 엇박자",
+    "note": "대상 없음/홍보: 없음",
+    "action": "제외",
+    "title": "여행 준비를 완벽하게 도와줄 지도들",
+    "link": "https://blog.naver.com/wpsvnqlvrz3pnijq/224412836125",
+    "channel": "blog",
+    "who": "없음",
+    "why": "지도 소개",
+    "sent": "중립",
+    "conf": "높음"
+   },
+   {
+    "rule": "알림글",
+    "note": "알림성 근거: 정책 포럼 개최",
     "action": "재판정",
-    "title": "제주관광, 방역·홍보 두 마리 토끼 잡아야",
-    "link": "https://cafe.naver.com/jejuallimi/3483",
+    "title": "\"복합리조트는 제주 관광 경쟁력 필수요소\"",
+    "link": "https://cafe.naver.com/paradiseoperation/749",
     "channel": "cafe",
     "who": "제주도 행정",
-    "why": "방역·홍보 엇박자",
-    "sent": "부정",
+    "why": "정책 포럼 개최",
+    "sent": "중립",
     "conf": ""
-   }
-  ],
-  "대상 불일치": [
-   {
-    "rule": "대상 불일치",
-    "note": "대상이 제주 아님: 홍성방",
-    "action": "제외",
-    "title": "홍성방 제주여행 일곱번째 짬뽕",
-    "link": "https://cafe.naver.com/jjambbongstory/106693",
-    "channel": "cafe",
-    "who": "홍성방",
-    "why": "만족도 높음",
-    "sent": "긍정",
-    "conf": "높음"
    }
   ]
  },
