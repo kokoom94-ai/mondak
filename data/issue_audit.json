@@ -1,20 +1,20 @@
 {
  "meta": {
   "version": "llm-v9",
-  "updated": "2026-09-20 07:36",
+  "updated": "2026-09-20 22:23",
   "mode": "judge",
-  "judged_this_run": 1333,
-  "failed_this_run": 0,
-  "judged_total": 6458,
-  "items_total": 6458,
+  "judged_this_run": 0,
+  "failed_this_run": 512,
+  "judged_total": 5926,
+  "items_total": 7269,
   "conf": {
-   "높음": 5619,
-   "미기재": 839
+   "높음": 5172,
+   "미기재": 754
   },
   "sent": {
-   "부정": 2261,
-   "긍정": 2817,
-   "중립": 1380
+   "부정": 2015,
+   "긍정": 2637,
+   "중립": 1274
   }
  },
  "rules": {
@@ -24,7 +24,7 @@
   },
   "B": {
    "name": "알림글",
-   "n": 13
+   "n": 0
   },
   "C": {
    "name": "제주 부재",
@@ -36,324 +36,98 @@
   },
   "E": {
    "name": "감성 불일치",
-   "n": 7
+   "n": 0
   },
   "G": {
    "name": "분야 없음",
-   "n": 5
+   "n": 0
   }
  },
- "dropped": 18,
- "rechecked": 25,
- "unresolved": 2,
- "samples": {
-  "알림글": [
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "추석 연휴 제주 곳곳 즐길거리…빛 축제·민속놀이·미술관 행사",
-    "link": "https://www.yna.co.kr/view/AKR20260918072500056?input=1195m",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "행사 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "제주서 28∼30일 섬관광정책 포럼…12개국 150명 참가",
-    "link": "https://cafe.naver.com/koreamicestation/392",
-    "channel": "cafe",
-    "who": "제주 관광",
-    "why": "행사 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "아시아 최대 관광포럼 제주 개최...중국.일본 등 10개국 참가 (2011. 09. 13)",
-    "link": "https://cafe.naver.com/koreamicestation/382",
-    "channel": "cafe",
-    "who": "제주 관광",
-    "why": "행사 개최",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 축제 개최",
-    "action": "재판정",
-    "title": "\"숨비소리에 담은 10년의 발자취\"…제19회 제주해녀축제 개막",
-    "link": "https://www.jeonmae.co.kr/news/articleView.html?idxno=1294972",
-    "channel": "news",
-    "who": "제주 해녀문화",
-    "why": "축제 개최",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 포럼 개최",
-    "action": "재판정",
-    "title": "제주해녀 유네스코 등재 10년 '살아 있는 문화'",
-    "link": "https://www.jejusori.net/news/articleView.html?idxno=506711",
-    "channel": "news",
-    "who": "제주 해녀문화",
-    "why": "포럼 개최",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 포럼 개최",
-    "action": "재판정",
-    "title": "제주해녀문화 유네스코 등재 10주년…\"다음 10년은 공동체 중심 보존\"",
-    "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599275",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "포럼 개최",
-    "sent": "중립",
-    "conf": ""
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 계획",
-    "action": "재판정",
-    "title": "김녕해변이 스포츠 경기장으로…'제주 비치 게임즈' 10월 개최",
-    "link": "https://www.mediajeju.com/news/articleView.html?idxno=366358",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "행사 개최 계획",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최 계획",
-    "action": "재판정",
-    "title": "김녕 바다가 경기장으로…'제주 비치 게임즈' 개최",
-    "link": "https://www.jemin.com/news/articleView.html?idxno=843177",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "행사 개최 계획",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 모집",
-    "action": "재판정",
-    "title": "제주 바다에서 '크로스핏·하이록스' 이색 대회",
-    "link": "https://www.jejusori.net/news/articleView.html?idxno=506709",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "행사 모집",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "제주 비치 게임즈 10월 개최…김녕해수욕장서 해변 스포츠 축제 열린다",
-    "link": "https://www.mhns.co.kr/news/articleView.html?idxno=760978",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "행사 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 행사 개최",
-    "action": "재판정",
-    "title": "김녕 바다가 경기장으로…'제주 비치 게임즈' 10월 개최",
-    "link": "https://www.newsjeju.net/news/articleView.html?idxno=426072",
-    "channel": "news",
-    "who": "제주 관광",
-    "why": "행사 개최",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 협약 추진",
-    "action": "재판정",
-    "title": "제주관광협회, 베트남 카인호아성과 우호협약...상품 개발 등 추진 - 헤드라인제주",
-    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9HV1pON1NSUUIzYjhkUGJvTEdLTmpyQTNGYVExVHhwWmxpQUJObzRWQzFhT3FVZzdFLUhpNVRsNlhBVFZobmRoV0JHSUhGZE1VT24zcy1WUm1UOU8yQjR2R0FFT0syMzVLRlFwc0lkemxwQQ?oc=5",
-    "channel": "news",
-    "who": "제주관광협회",
-    "why": "협약 추진",
-    "sent": "중립",
-    "conf": "높음"
-   },
-   {
-    "rule": "알림글",
-    "note": "알림성 근거: 대회 개최",
-    "action": "재판정",
-    "title": "‘무한의 우주를 열다’ 제46회 전국장애인체전 개막",
-    "link": "https://www.segye.com/newsView/20260911514232?OutUrl=naver",
-    "channel": "news",
-    "who": "제주도 행정",
-    "why": "대회 개최",
-    "sent": "긍정",
-    "conf": ""
-   }
-  ],
-  "감성 불일치": [
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "흑돼지부터 고기국수까지, 내가 가고 싶은 제주 맛집 공유하기",
-    "link": "https://cafe.naver.com/skybluehwfsd/889",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "제주 맛집 추천요",
-    "link": "https://cafe.naver.com/cantsb/3530023",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "대가족이 함께 가기 좋은 제주 맛집 찾고 있어요",
-    "link": "https://cafe.naver.com/skybluehwfsd/846",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천 요청",
-    "action": "재판정",
-    "title": "부모님과 함께 가기 좋은 제주 맛집 찾고 있어요",
-    "link": "https://cafe.naver.com/skybluehwfsd/517",
-    "channel": "cafe",
-    "who": "제주 맛집",
-    "why": "맛집 추천 요청",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 맛집 추천",
-    "action": "재판정",
-    "title": "제주맛집 투어했어요~~",
-    "link": "https://cafe.naver.com/zzop/4205479",
-    "channel": "cafe",
-    "who": "제주 맛집",
-    "why": "맛집 추천",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 관광 이미지 개선 필요",
-    "action": "재판정",
-    "title": "김대진 의원, \"제주관광 이미지, 근본 대책 필요\" - MoaPic! 모아픽!",
-    "link": "https://cafe.naver.com/moapic/35411",
-    "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "관광 이미지 개선 필요",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "감성 불일치",
-    "note": "부정인데 근거가 긍정: 관광 만족도 개선 필요",
-    "action": "재판정",
-    "title": "제주 관광, 만족도는 확인 / \"양보다 질\" 위해, 정책 초점 어디에?",
-    "link": "https://cafe.naver.com/jejuhee/51291",
-    "channel": "cafe",
-    "who": "제주도 행정",
-    "why": "관광 만족도 개선 필요",
-    "sent": "부정",
-    "conf": ""
-   }
-  ],
-  "분야 없음": [
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "# 제주도 <동문시장>",
-    "link": "https://cafe.naver.com/fobn/130148",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "시장 호평",
-    "sent": "긍정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "제주 관광객 4개월째 줄었다… 실종 사건까지 알려지며 지역 상권이....",
-    "link": "https://blog.naver.com/onsfama/224408504299",
-    "channel": "blog",
-    "who": "제주 관광",
-    "why": "관광객 감소 영향",
-    "sent": "부정",
-    "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "우도 중국인 관광객 80% 체감 논란, 실제 제주 통계와는 얼마나 달랐....",
-    "link": "https://blog.naver.com/kth4828/224408791760",
-    "channel": "blog",
-    "who": "제주 관광",
-    "why": "관광객 구성 논란",
-    "sent": "중립",
-    "conf": ""
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "실종사건 파장…제주 관광업계 “안전강화 계기 삼겠다” - 농민신문",
-    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15ajM4VktSbjRQU0hTaUZpRk1xaGllUnRnOWMwZ255bzdhNGc5YmNxekEzMXdUUm9sTy1TdmMzMmxkMDVCano1TkRBbVh2VklEWG51dkhmT2lPZw?oc=5",
-    "channel": "news",
-    "who": "제주 관광업계",
-    "why": "실종사건 불안",
-    "sent": "부정",
-    "conf": "높음"
-   },
-   {
-    "rule": "분야 없음",
-    "note": "분야 없음",
-    "action": "재판정",
-    "title": "“장미란씨, 경장이 살해했다” “중국인이 그랬다”…실종사건 추측글 난....",
-    "link": "https://cafe.naver.com/rokkhammer/21744",
-    "channel": "cafe",
-    "who": "제주 관광업계",
-    "why": "실종사건 불안",
-    "sent": "부정",
-    "conf": "높음"
-   }
-  ]
- },
- "fail_samples": [],
+ "dropped": 0,
+ "rechecked": 0,
+ "unresolved": 0,
+ "samples": {},
+ "fail_samples": [
+  {
+   "title": "공항 122배·해안 40㎏… 제주 마약 '유입·경유·노출' 3중 위험",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "제주 관광객 1000만 일찍 돌파...실종 사건 은폐만 없었어도..",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "추석 연휴 감염병‧식중독 주의…비상체계 유지",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "제주관광공사 비상임이사 공개모집 공고",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "섬의 고립성 그리고 연결성: 2028 G20 정상회의 제주 유치 사명",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "다른 연락처는 찾았는데 실종자는 왜…\"태만이기엔 치밀\"",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "제주 매장 방문 상담 후 계약했는데요.모델y 궁금증있습니다",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "제주 연동 보관이사비용, 진짜 괜찮은 곳 없나요?",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "[예물] 아크레도 종로점 웨딩반지 계약후기",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "[제주 공항 근처 숙소] 하이 레지던스 신신호텔 제주공항 아이진 호텔 추천 ....",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "✈️대한항공 마일리지 사용 팁 ~ 캐시앤마일즈",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "강원 바닷가 vs 제주 바닷가 비용 어디가 더 물가 비싸요?",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "‘그것이알고싶다’ 장미란 제주도 실종 사건",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "제주 돈돗 신화월드 인근 고기집 픽업 가능한 식당 추천해요",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "행복밀 제주빵집",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "제주 엑스트론 슬림 구매후기 (전동연구소)",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "차량 배정되고 난 후에는 페이스가 상당히 빠르네요!",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "2월 21일 어리목-윗세오름 겨울산행 후기",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "'그것이 알고싶다', 제주 실종사건 조작한 경찰의 뻔뻔한 거짓말",
+   "resp": "(빈 응답)"
+  },
+  {
+   "title": "제주 관광객 이탈 심상치않다",
+   "resp": "(빈 응답)"
+  }
+ ],
  "note": "samples 는 규칙별 최대 40건. 제외된 글은 issue.json 에서 빠지고 여기 기록만 남습니다."
 }
