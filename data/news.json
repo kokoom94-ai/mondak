@@ -1,6 +1,6 @@
 {
  "meta": {
-  "collected_at": "2026-09-21 05:23 KST",
+  "collected_at": "2026-09-21 08:00 KST",
   "window_days": 14,
   "cadence": "3h",
   "source": "지역 언론 RSS 5곳(직링크)+Google News — 사안별 보도 매체수 집계",
@@ -15,7 +15,8 @@
    "outlets_prev": [
     "뉴스제주",
     "jeju.nocutnews.co.kr",
-    "연합뉴스"
+    "연합뉴스",
+    "제주노컷"
    ],
    "outlets": [
     "뉴스제주",
@@ -33,7 +34,9 @@
    "d": "2026-09-21",
    "outlets_prev": [
     "헤드라인제주",
-    "제주의소리"
+    "제주의소리",
+    "미디어제주",
+    "한라일보"
    ],
    "outlets": [
     "헤드라인제주",
@@ -45,13 +48,33 @@
    "sec": "정치/행정"
   },
   {
+   "t": "[오늘의 주요일정]제주(9월21일 월요일)",
+   "link": "https://www.newsis.com/view/NISX20260920_0003797262",
+   "src": "뉴시스",
+   "d": "2026-09-21",
+   "outlets_prev": [
+    "samdailbo.com",
+    "뉴스1",
+    "뉴시스"
+   ],
+   "outlets": [
+    "뉴시스",
+    "samdailbo.com",
+    "뉴스1",
+    "제주도민일보"
+   ],
+   "n": 4,
+   "sec": "사건사고/기타"
+  },
+  {
    "t": "제주문예재단 이사장 첫 내부 출신, 조선희 임명",
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506676",
    "src": "제주의소리",
    "d": "2026-09-21",
    "outlets_prev": [
     "제주의소리",
-    "headlinejeju.co.kr"
+    "headlinejeju.co.kr",
+    "헤드라인제주"
    ],
    "outlets": [
     "제주의소리",
@@ -62,17 +85,21 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "[오늘의 주요일정]제주(9월21일 월요일)",
-   "link": "https://www.newsis.com/view/NISX20260920_0003797262",
-   "src": "뉴시스",
+   "t": "\"마사회·공항공사 제주로\"…공공기관 유치에 지역사회 뭉쳤다",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227824",
+   "src": "제주일보",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주일보",
+    "연합뉴스"
+   ],
    "outlets": [
-    "samdailbo.com",
-    "뉴스1",
-    "뉴시스"
+    "제주일보",
+    "연합뉴스",
+    "jejunews.com"
    ],
    "n": 3,
-   "sec": "사건사고/기타"
+   "sec": "1차산업"
   },
   {
    "t": "국내 최초 'RE100 달걀' 생산 안착...애월아빠들의 성공 비결은?",
@@ -139,26 +166,14 @@
    "sec": "1차산업"
   },
   {
-   "t": "\"마사회·공항공사 제주로\"…공공기관 유치에 지역사회 뭉쳤다",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227824",
-   "src": "제주일보",
-   "d": "2026-09-21",
-   "outlets_prev": [
-    "제주일보",
-    "연합뉴스"
-   ],
-   "outlets": [
-    "제주일보",
-    "연합뉴스"
-   ],
-   "n": 2,
-   "sec": "1차산업"
-  },
-  {
    "t": "[제주도 날씨예보] 대체로 맑음…낮 최고 28도, 해안 너울 주의",
    "link": "https://www.thefairnews.co.kr/news/articleView.html?idxno=88626",
    "src": "thefairnews.co.kr",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "thefairnews.co.kr",
+    "뉴시스"
+   ],
    "outlets": [
     "thefairnews.co.kr",
     "뉴시스"
@@ -171,12 +186,85 @@
    "link": "https://www.hankookilbo.com/news/article/A2026091816490005532?did=NA",
    "src": "hankookilbo.com",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "hankookilbo.com",
+    "한국일보"
+   ],
    "outlets": [
     "hankookilbo.com",
     "한국일보"
    ],
    "n": 2,
    "sec": "1차산업"
+  },
+  {
+   "t": "제13대 제주문화예술재단 이사장에 조선희씨",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227825",
+   "src": "제주일보",
+   "d": "2026-09-21",
+   "outlets_prev": [
+    "제주일보"
+   ],
+   "outlets": [
+    "제주일보",
+    "뉴스제주"
+   ],
+   "n": 2,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "대구서 부산으로 옮겨간 ‘미분양 무덤’… 광주·제주도 고위험",
+   "link": "https://www.kmib.co.kr/article/view.asp?arcid=9000013880&cp=nv",
+   "src": "kmib.co.kr",
+   "d": "2026-09-21",
+   "outlets_prev": [
+    "kmib.co.kr"
+   ],
+   "outlets": [
+    "kmib.co.kr",
+    "v.daum.net"
+   ],
+   "n": 2,
+   "sec": "정치/행정"
+  },
+  {
+   "t": "[오늘의 날씨] 제주(21일, 월)…가끔 구름 많음, 큰 일교차 주의",
+   "link": "https://www.news1.kr/local/jeju/6296613",
+   "src": "뉴스1",
+   "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스1"
+   ],
+   "outlets": [
+    "뉴스1",
+    "연합뉴스"
+   ],
+   "n": 2,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "제주도교육청, 난치병 학생 215명에게 3억원 지원",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227809",
+   "src": "제주일보",
+   "d": "2026-09-21",
+   "outlets": [
+    "제주일보",
+    "jejunews.com"
+   ],
+   "n": 2,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "미불용지 지급 미루다...제주도, 계좌 압류 당했다",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227804",
+   "src": "제주일보",
+   "d": "2026-09-21",
+   "outlets": [
+    "제주일보",
+    "jejunews.com"
+   ],
+   "n": 2,
+   "sec": "정치/행정"
   },
   {
    "t": "[제주 오늘(21일) 날씨] 아침 최저 21도 '선선'…남쪽 먼바다 중심 높은...",
@@ -613,20 +701,6 @@
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "제13대 제주문화예술재단 이사장에 조선희씨",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227825",
-   "src": "제주일보",
-   "d": "2026-09-21",
-   "outlets_prev": [
-    "제주일보"
-   ],
-   "outlets": [
-    "제주일보"
-   ],
-   "n": 1,
-   "sec": "문화/관광/스포츠"
-  },
-  {
    "t": "해경, 유류 예산 소진 \"해양주권 수호 비상\"",
    "link": "http://www.jejunews.com/news/articleView.html?idxno=2227821",
    "src": "제주일보",
@@ -697,20 +771,6 @@
    "sec": "안전/민원행정"
   },
   {
-   "t": "대구서 부산으로 옮겨간 ‘미분양 무덤’… 광주·제주도 고위험",
-   "link": "https://www.kmib.co.kr/article/view.asp?arcid=9000013880&cp=nv",
-   "src": "kmib.co.kr",
-   "d": "2026-09-21",
-   "outlets_prev": [
-    "kmib.co.kr"
-   ],
-   "outlets": [
-    "kmib.co.kr"
-   ],
-   "n": 1,
-   "sec": "정치/행정"
-  },
-  {
    "t": "'한라산 관음사 코스' 21일부터 탐방예약...소요시간 얼마?",
    "link": "https://www.gukjenews.com/news/articleView.html?idxno=3701390",
    "src": "gukjenews.com",
@@ -729,6 +789,9 @@
    "link": "https://www.newsjeju.net/news/articleView.html?idxno=426071",
    "src": "뉴스제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스제주"
+   ],
    "outlets": [
     "뉴스제주"
    ],
@@ -740,6 +803,9 @@
    "link": "https://www.newsjeju.net/news/articleView.html?idxno=426069",
    "src": "뉴스제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스제주"
+   ],
    "outlets": [
     "뉴스제주"
    ],
@@ -751,6 +817,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506708",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -762,6 +831,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506709",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -773,6 +845,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506707",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -784,6 +859,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506705",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -795,6 +873,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506704",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -806,6 +887,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506702",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -817,6 +901,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506696",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -828,6 +915,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506699",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -839,6 +929,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506698",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -850,6 +943,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506694",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -861,6 +957,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506697",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -872,6 +971,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506695",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -883,6 +985,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506693",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -894,6 +999,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506691",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -905,6 +1013,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506692",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -916,6 +1027,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506687",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -927,6 +1041,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506690",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -938,6 +1055,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506689",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -949,6 +1069,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506688",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -960,6 +1083,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506686",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -971,6 +1097,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506685",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -982,6 +1111,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506684",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -993,6 +1125,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506682",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -1004,6 +1139,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506680",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -1015,6 +1153,9 @@
    "link": "https://www.jejusori.net/news/articleView.html?idxno=506678",
    "src": "제주의소리",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "제주의소리"
+   ],
    "outlets": [
     "제주의소리"
    ],
@@ -1026,6 +1167,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300265",
    "src": "뉴스N제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -1037,6 +1181,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300259",
    "src": "뉴스N제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -1048,6 +1195,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300260",
    "src": "뉴스N제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -1059,6 +1209,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300264",
    "src": "뉴스N제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -1070,6 +1223,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300263",
    "src": "뉴스N제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -1081,6 +1237,9 @@
    "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300262",
    "src": "뉴스N제주",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴스N제주"
+   ],
    "outlets": [
     "뉴스N제주"
    ],
@@ -1092,6 +1251,9 @@
    "link": "https://www.newsis.com/view/NISX20260920_0003797244",
    "src": "뉴시스",
    "d": "2026-09-21",
+   "outlets_prev": [
+    "뉴시스"
+   ],
    "outlets": [
     "뉴시스"
    ],
@@ -1099,26 +1261,172 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "[오늘의 날씨] 제주(21일, 월)…가끔 구름 많음, 큰 일교차 주의",
-   "link": "https://www.news1.kr/local/jeju/6296613",
+   "t": "바람-돌-해녀… 제주의 모든 게 작품이 된다",
+   "link": "https://www.donga.com/news/Culture/article/all/20260921/134706355/2",
+   "src": "동아일보",
+   "d": "2026-09-21",
+   "outlets_prev": [
+    "동아일보"
+   ],
+   "outlets": [
+    "동아일보"
+   ],
+   "n": 1,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "[오늘 날씨] 전국 대체로 맑고, 선선한 가을바람...추석연휴 기간 예보는?",
+   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599300",
+   "src": "헤드라인제주",
+   "d": "2026-09-21",
+   "outlets": [
+    "헤드라인제주"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주에서 배우는 글로벌 교육, 학교 현장의 변화로 이어진다",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300211",
+   "src": "뉴스N제주",
+   "d": "2026-09-21",
+   "outlets": [
+    "뉴스N제주"
+   ],
+   "n": 1,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "李대통령 연임 생각 전혀 없어...김승원 아직 결론 못내",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227813",
+   "src": "제주일보",
+   "d": "2026-09-21",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "엉또폭포 실시간 상황, CCTV로 볼 수 있다",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227806",
+   "src": "제주일보",
+   "d": "2026-09-21",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "김순이 선생, 평생 모은 미술작품 68점 도립미술관 기증",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227802",
+   "src": "제주일보",
+   "d": "2026-09-21",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "출소 한 달 만에 전국 무대로 절돌 벌인 50대 구속",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227799",
+   "src": "제주일보",
+   "d": "2026-09-21",
+   "outlets": [
+    "제주일보"
+   ],
+   "n": 1,
+   "sec": "사건사고/기타"
+  },
+  {
+   "t": "서귀포 안덕면 밭에서 트랙터 전복…70대 작업자 심정지",
+   "link": "https://www.news1.kr/local/jeju/6296777",
    "src": "뉴스1",
    "d": "2026-09-21",
    "outlets": [
     "뉴스1"
    ],
    "n": 1,
-   "sec": "문화/관광/스포츠"
+   "sec": "사건사고/기타"
   },
   {
-   "t": "바람-돌-해녀… 제주의 모든 게 작품이 된다",
-   "link": "https://www.donga.com/news/Culture/article/all/20260921/134706355/2",
-   "src": "동아일보",
+   "t": "[더벨][코스포 in 제주] 프리아이디어, 10억 프리A 추진…호텔 AIoT 양산...",
+   "link": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202609181735432880105358",
+   "src": "thebell.co.kr",
    "d": "2026-09-21",
    "outlets": [
-    "동아일보"
+    "thebell.co.kr"
    ],
    "n": 1,
    "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "[더벨][코스포 in 제주] 위성곤 제주도지사 \"창업도시 조성 추진…코스...",
+   "link": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202609200923200040102424",
+   "src": "thebell.co.kr",
+   "d": "2026-09-21",
+   "outlets": [
+    "thebell.co.kr"
+   ],
+   "n": 1,
+   "sec": "신산업/AX"
+  },
+  {
+   "t": "[더벨][코스포 in 제주] 코스포, 제주 스타트업 투자 기회 확대…지역 유...",
+   "link": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202609201019169640106936",
+   "src": "thebell.co.kr",
+   "d": "2026-09-21",
+   "outlets": [
+    "thebell.co.kr"
+   ],
+   "n": 1,
+   "sec": "창업/경제"
+  },
+  {
+   "t": "추석 연휴 날씨, 초반엔 구름만…토요일 남부·제주에 비 [날씨]",
+   "link": "http://www.joseilbo.com/news/news_read.php?uid=576065&class=33&grp=",
+   "src": "joseilbo.com",
+   "d": "2026-09-21",
+   "outlets": [
+    "joseilbo.com"
+   ],
+   "n": 1,
+   "sec": "안전/민원행정"
+  },
+  {
+   "t": "D-25, 서울 스포츠 스타들 제주 집결…세계 1위부터 올림픽 메달리스트...",
+   "link": "https://www.stardailynews.co.kr/news/articleView.html?idxno=550405",
+   "src": "stardailynews.co.kr",
+   "d": "2026-09-21",
+   "outlets": [
+    "stardailynews.co.kr"
+   ],
+   "n": 1,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "전국 대체로 맑거나 구름…토요일 남부·제주 비[이주의 날씨]",
+   "link": "https://www.newsis.com/view/NISX20260920_0003797045",
+   "src": "뉴시스",
+   "d": "2026-09-21",
+   "outlets": [
+    "뉴시스"
+   ],
+   "n": 1,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "[사설] 제주 2035 탄소중립, 정부 뒷받침 절실하다",
+   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9IU0ItVWRmN2YzeXVZM0ZNUzFISXhWUEVSUWplNmtZb2JOejNWX1FBenVwamhCTUx1d1lZRFBDSzJSWUk3ajJjU1lxM21RVF9yTHl4RzRpekQ5TVR3Yk1ydDI4akRRbDRH?oc=5",
+   "src": "한라일보",
+   "d": "2026-09-21",
+   "outlets": [
+    "한라일보"
+   ],
+   "n": 1,
+   "sec": "환경/에너지"
   },
   {
    "t": "제주 관광개발사업장 37곳 후속점검.…실적 미흡 사업장 집중 관리",
@@ -1282,10 +1590,12 @@
    "src": "jejumaeil.net",
    "d": "2026-09-20",
    "outlets_prev": [
-    "제주일보",
     "jejumaeil.net",
+    "제주일보",
     "연합뉴스",
-    "headlinejeju.co.kr"
+    "headlinejeju.co.kr",
+    "해사신문",
+    "헤드라인제주"
    ],
    "outlets": [
     "jejumaeil.net",
@@ -1365,6 +1675,47 @@
    "sec": "사건사고/기타"
   },
   {
+   "t": "제주도교육청, 21일 ‘제주형 체육고등학교 설립 검토 전문가 TF 협의회’ 회의 개최",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227830",
+   "src": "제주일보",
+   "d": "2026-09-20",
+   "outlets_prev": [
+    "제주일보",
+    "뉴스N제주",
+    "헤드라인제주",
+    "JIBS"
+   ],
+   "outlets": [
+    "제주일보",
+    "뉴스N제주",
+    "헤드라인제주",
+    "JIBS",
+    "jejunews.com"
+   ],
+   "n": 5,
+   "sec": "교육/청년"
+  },
+  {
+   "t": "SUV·경차 충돌부터 단독사고까지…제주 오토바이 사고 잇따라",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBBb3BZOWJENkxPcXFfOUJoUzEwYzVQa1ZlOWk4UnN4eFJQVFp0UU04cTNlVGFiV2JnZXVnYTlycDFvYnd1by1hd040V184T215eXNsNk8xdTNDV1c2OWRMOFhnbkw0WUFpYmFWZ0VaSzgxVkJaR0JtNtIBeEFVX3lxTFBBb3BZOWJENkxPcXFfOUJoUzEwYzVQa1ZlOWk4UnN4eFJQVFp0UU04cTNlVGFiV2JnZXVnYTlycDFvYnd1by1hd040V184T215eXNsNk8xdTNDV1c2OWRMOFhnbkw0WUFpYmFWZ0VaSzgxVkJaR0JtNg?oc=5",
+   "src": "뉴시스",
+   "d": "2026-09-20",
+   "outlets_prev": [
+    "뉴시스",
+    "제주일보",
+    "콜뉴스24"
+   ],
+   "outlets": [
+    "뉴시스",
+    "제주일보",
+    "콜뉴스24",
+    "jejunews.com",
+    "callnews.co.kr"
+   ],
+   "n": 5,
+   "sec": "사건사고/기타"
+  },
+  {
    "t": "[독자기고] 자동차가 멈춘 거리에서 제주의 미래를 보다",
    "link": "https://www.jemin.com/news/articleView.html?idxno=843226",
    "src": "jemin.com",
@@ -1383,26 +1734,6 @@
    ],
    "n": 4,
    "sec": "사건사고/기타"
-  },
-  {
-   "t": "제주도교육청, 21일 ‘제주형 체육고등학교 설립 검토 전문가 TF 협의회’ 회의 개최",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227830",
-   "src": "제주일보",
-   "d": "2026-09-20",
-   "outlets_prev": [
-    "제주일보",
-    "뉴스N제주",
-    "헤드라인제주",
-    "JIBS"
-   ],
-   "outlets": [
-    "제주일보",
-    "뉴스N제주",
-    "헤드라인제주",
-    "JIBS"
-   ],
-   "n": 4,
-   "sec": "교육/청년"
   },
   {
    "t": "2026 제주청년의 날 기념식 개최…청년들이 직접 만들고 채웠다",
@@ -1463,6 +1794,25 @@
    ],
    "n": 4,
    "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "제주서 '제11회 한중일 탄소가격 메커니즘 포럼' 개최",
+   "link": "http://www.samdailbo.com/news/articleView.html?idxno=270523",
+   "src": "samdailbo.com",
+   "d": "2026-09-20",
+   "outlets_prev": [
+    "samdailbo.com",
+    "헤드라인제주",
+    "headlinejeju.co.kr"
+   ],
+   "outlets": [
+    "samdailbo.com",
+    "헤드라인제주",
+    "headlinejeju.co.kr",
+    "제주뉴스"
+   ],
+   "n": 4,
+   "sec": "환경/에너지"
   },
   {
    "t": "다이빙 주한중국대사 “중국에서 제주 지명도, 서울보다 높다”",
@@ -1609,32 +1959,14 @@
    "sec": "정치/행정"
   },
   {
-   "t": "SUV·경차 충돌부터 단독사고까지…제주 오토바이 사고 잇따라",
-   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBBb3BZOWJENkxPcXFfOUJoUzEwYzVQa1ZlOWk4UnN4eFJQVFp0UU04cTNlVGFiV2JnZXVnYTlycDFvYnd1by1hd040V184T215eXNsNk8xdTNDV1c2OWRMOFhnbkw0WUFpYmFWZ0VaSzgxVkJaR0JtNtIBeEFVX3lxTFBBb3BZOWJENkxPcXFfOUJoUzEwYzVQa1ZlOWk4UnN4eFJQVFp0UU04cTNlVGFiV2JnZXVnYTlycDFvYnd1by1hd040V184T215eXNsNk8xdTNDV1c2OWRMOFhnbkw0WUFpYmFWZ0VaSzgxVkJaR0JtNg?oc=5",
-   "src": "뉴시스",
-   "d": "2026-09-20",
-   "outlets_prev": [
-    "뉴시스",
-    "제주일보",
-    "콜뉴스24"
-   ],
-   "outlets": [
-    "뉴시스",
-    "제주일보",
-    "콜뉴스24"
-   ],
-   "n": 3,
-   "sec": "사건사고/기타"
-  },
-  {
    "t": "제주 전국체전 향하는 대전 학생선수 499명…뜨거운 도전과 종합 8위 염...",
    "link": "https://www.ccdailynews.com/news/articleView.html?idxno=2441998",
    "src": "ccdailynews.com",
    "d": "2026-09-20",
    "outlets_prev": [
+    "ccdailynews.com",
     "ccdn.co.kr",
-    "joongdo.co.kr",
-    "ccdailynews.com"
+    "joongdo.co.kr"
    ],
    "outlets": [
     "ccdailynews.com",
@@ -1645,32 +1977,14 @@
    "sec": "문화/관광/스포츠"
   },
   {
-   "t": "제주서 '제11회 한중일 탄소가격 메커니즘 포럼' 개최",
-   "link": "http://www.samdailbo.com/news/articleView.html?idxno=270523",
-   "src": "samdailbo.com",
-   "d": "2026-09-20",
-   "outlets_prev": [
-    "samdailbo.com",
-    "헤드라인제주",
-    "headlinejeju.co.kr"
-   ],
-   "outlets": [
-    "samdailbo.com",
-    "헤드라인제주",
-    "headlinejeju.co.kr"
-   ],
-   "n": 3,
-   "sec": "환경/에너지"
-  },
-  {
    "t": "포항경주공항, '2026년 동계 스케줄' 확정…제주노선 중심 이용 활성화...",
    "link": "https://www.polinews.co.kr/news/articleView.html?idxno=743634",
    "src": "polinews.co.kr",
    "d": "2026-09-20",
    "outlets_prev": [
+    "polinews.co.kr",
     "eroun.net",
-    "gukjenews.com",
-    "polinews.co.kr"
+    "gukjenews.com"
    ],
    "outlets": [
     "polinews.co.kr",
@@ -1697,6 +2011,23 @@
    ],
    "n": 3,
    "sec": "교육/청년"
+  },
+  {
+   "t": "[제주] 드론·인공지능 활용 농업관측 기반 마련",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1xa3hjTWo5YkJjVUcwM1RkOTJwUmllV1RmRVhRdl9Fc0U4WU04X1BRLVlVRk9EWDhqVjRUUWxMMERoWW84NTNTZ0xmTmhLVEJuZkVueWNRS0hESENDYU5wQ1VTOHF5bGlUbVR0UF93ci1aZw?oc=5",
+   "src": "digitalorganic.net",
+   "d": "2026-09-20",
+   "outlets_prev": [
+    "digitalorganic.net",
+    "삼다일보"
+   ],
+   "outlets": [
+    "digitalorganic.net",
+    "삼다일보",
+    "samdailbo.com"
+   ],
+   "n": 3,
+   "sec": "신산업/AX"
   },
   {
    "t": "[사설] 제주~칭다오 항로 재협상 막바지…성과 기대",
@@ -2177,22 +2508,6 @@
    ],
    "n": 2,
    "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "[제주] 드론·인공지능 활용 농업관측 기반 마련",
-   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1xa3hjTWo5YkJjVUcwM1RkOTJwUmllV1RmRVhRdl9Fc0U4WU04X1BRLVlVRk9EWDhqVjRUUWxMMERoWW84NTNTZ0xmTmhLVEJuZkVueWNRS0hESENDYU5wQ1VTOHF5bGlUbVR0UF93ci1aZw?oc=5",
-   "src": "digitalorganic.net",
-   "d": "2026-09-20",
-   "outlets_prev": [
-    "digitalorganic.net",
-    "삼다일보"
-   ],
-   "outlets": [
-    "digitalorganic.net",
-    "삼다일보"
-   ],
-   "n": 2,
-   "sec": "신산업/AX"
   },
   {
    "t": "제주해녀 유네스코 10년…세계의 유산, 줄어드는 숨비소리",
@@ -4813,6 +5128,9 @@
    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBaQ1JrUEx3LVg1NVBPMVBsRlpQWHRJc1BFMnZmUndHTHpIOXc5OXhuZm92dWlkMmNqbHlsWXgwd1NXeWFMUE9abDRTN29nVjlGelFLOGFIeFRyOVlndEdZdXNobUk1dw?oc=5",
    "src": "제민일보",
    "d": "2026-09-20",
+   "outlets_prev": [
+    "제민일보"
+   ],
    "outlets": [
     "제민일보"
    ],
@@ -4824,6 +5142,9 @@
    "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE4xbDBYMGl5cTI2azlvQlFkNjBUTzdnbW94djZ6T0xGLU9uQ2NMMEdBS2ZJalRxQ0RSVzlsaU1lbjN4Ty1aUmtJUGU3bw?oc=5",
    "src": "v.daum.net",
    "d": "2026-09-20",
+   "outlets_prev": [
+    "v.daum.net"
+   ],
    "outlets": [
     "v.daum.net"
    ],
@@ -4831,31 +5152,14 @@
    "sec": "사건사고/기타"
   },
   {
-   "t": "제주관광협회, 제주관광인이 하나되는 화합의장 ‘2026 제주관광인 한마음대회’개최",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300089",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주",
-    "헤드라인제주",
-    "newsnjeju.com",
-    "제주도민일보",
-    "samdailbo.com",
-    "삼다일보",
-    "제주의소리",
-    "v.daum.net"
-   ],
+   "t": "'제주관광인 한마음대회' 열려…항공좌석난 해소 촉구",
+   "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404881",
+   "src": "jejumaeil.net",
+   "d": "2026-09-20",
    "outlets": [
-    "제주의소리",
-    "jejumaeil.net",
-    "제주매일",
-    "v.daum.net",
-    "제주도민일보",
-    "뉴스N제주",
-    "헤드라인제주",
-    "newsnjeju.com"
+    "jejumaeil.net"
    ],
-   "n": 10,
+   "n": 1,
    "sec": "문화/관광/스포츠"
   },
   {
@@ -4911,8 +5215,64 @@
     "v.daum.net",
     "제주뉴스"
    ],
-   "n": 9,
+   "n": 10,
    "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주관광협회, 제주관광인이 하나되는 화합의장 ‘2026 제주관광인 한마음대회’개최",
+   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300089",
+   "src": "뉴스N제주",
+   "d": "2026-09-19",
+   "outlets_prev": [
+    "제주의소리",
+    "jejumaeil.net",
+    "제주매일",
+    "v.daum.net",
+    "제주도민일보",
+    "뉴스N제주",
+    "헤드라인제주",
+    "newsnjeju.com"
+   ],
+   "outlets": [
+    "뉴스N제주",
+    "제주의소리",
+    "jejumaeil.net",
+    "제주매일",
+    "v.daum.net",
+    "제주도민일보",
+    "헤드라인제주",
+    "newsnjeju.com"
+   ],
+   "n": 9,
+   "sec": "문화/관광/스포츠"
+  },
+  {
+   "t": "경찰, 제주도의회 K의원 압수수색",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227801",
+   "src": "제주일보",
+   "d": "2026-09-19",
+   "outlets_prev": [
+    "제주일보",
+    "헤드라인제주",
+    "연합뉴스",
+    "제주의소리",
+    "뉴스N제주",
+    "제주도민일보",
+    "jejudomin.co.kr",
+    "일간제주"
+   ],
+   "outlets": [
+    "제주일보",
+    "헤드라인제주",
+    "연합뉴스",
+    "제주의소리",
+    "뉴스N제주",
+    "제주도민일보",
+    "jejudomin.co.kr",
+    "일간제주"
+   ],
+   "n": 9,
+   "sec": "사건사고/기타"
   },
   {
    "t": "제주도, 한국에너지기술평가원 본원 제주 이전 제안",
@@ -4941,34 +5301,6 @@
    ],
    "n": 8,
    "sec": "환경/에너지"
-  },
-  {
-   "t": "경찰, 제주도의회 K의원 압수수색",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227801",
-   "src": "제주일보",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "제주일보",
-    "헤드라인제주",
-    "연합뉴스",
-    "제주의소리",
-    "뉴스N제주",
-    "제주도민일보",
-    "jejudomin.co.kr",
-    "일간제주"
-   ],
-   "outlets": [
-    "제주일보",
-    "헤드라인제주",
-    "연합뉴스",
-    "제주의소리",
-    "뉴스N제주",
-    "제주도민일보",
-    "jejudomin.co.kr",
-    "일간제주"
-   ],
-   "n": 8,
-   "sec": "사건사고/기타"
   },
   {
    "t": "[오늘(19일)의 날씨] 전국 대체로 맑음…강원·경상 동해안·제주는 비",
@@ -5038,7 +5370,8 @@
     "news.sbs.co.kr",
     "yonhapnewstv.co.kr",
     "news.kbs.co.kr",
-    "뉴스핌"
+    "뉴스핌",
+    "newspim.com"
    ],
    "outlets": [
     "gametoc.co.kr",
@@ -5052,6 +5385,30 @@
    ],
    "n": 8,
    "sec": "안전/민원행정"
+  },
+  {
+   "t": "제주도, ‘올해의 사회복지 공무원’ 6명 선정",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA2TnZNT1lLM1pXSE5YUTJkWmJWMXhjTzkyNm1paG9ITVdubnlYLWZScnh2RVB4ZHBiX1VYb251Vmk0bElvZFpENjFneTJJS01oSnJoOXhJelRMT0FNT3oxbFdqQy15TTg5djBqNy04NU7SAXBBVV95cUxQNk52TU9ZSzNaV0hOWFEyZFpiVjF4Y085MjZtaWhvSE1Xbm55WC1mUnJ4dkVQeGRwYl9VWG9udVZpNGxJb2RaRDYxZ3kySUtNaEpyaDl4SXpUTE9BTU96MWxXakMteU04OXYwajctODVO?oc=5",
+   "src": "더최고신문",
+   "d": "2026-09-19",
+   "outlets_prev": [
+    "제주도민일보",
+    "jejumaeil.net",
+    "삼다일보",
+    "더최고신문"
+   ],
+   "outlets": [
+    "더최고신문",
+    "제주도민일보",
+    "jejumaeil.net",
+    "삼다일보",
+    "미디어제주",
+    "DWBNEWS",
+    "제주뉴스",
+    "samdailbo.com"
+   ],
+   "n": 8,
+   "sec": "복지/사회서비스"
   },
   {
    "t": "제주해녀문화 유네스코 등재 10주년…\"다음 10년은 공동체 중심 보존\"",
@@ -5209,8 +5566,10 @@
    "src": "HKBC환경방송",
    "d": "2026-09-19",
    "outlets_prev": [
+    "HKBC환경방송",
     "jemin.com",
-    "HKBC환경방송"
+    "제민일보",
+    "더최고신문"
    ],
    "outlets": [
     "HKBC환경방송",
@@ -5220,20 +5579,6 @@
    ],
    "n": 4,
    "sec": "정치/행정"
-  },
-  {
-   "t": "제주도, ‘올해의 사회복지 공무원’ 6명 선정",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA2TnZNT1lLM1pXSE5YUTJkWmJWMXhjTzkyNm1paG9ITVdubnlYLWZScnh2RVB4ZHBiX1VYb251Vmk0bElvZFpENjFneTJJS01oSnJoOXhJelRMT0FNT3oxbFdqQy15TTg5djBqNy04NU7SAXBBVV95cUxQNk52TU9ZSzNaV0hOWFEyZFpiVjF4Y085MjZtaWhvSE1Xbm55WC1mUnJ4dkVQeGRwYl9VWG9udVZpNGxJb2RaRDYxZ3kySUtNaEpyaDl4SXpUTE9BTU96MWxXakMteU04OXYwajctODVO?oc=5",
-   "src": "더최고신문",
-   "d": "2026-09-19",
-   "outlets": [
-    "제주도민일보",
-    "jejumaeil.net",
-    "삼다일보",
-    "더최고신문"
-   ],
-   "n": 4,
-   "sec": "복지/사회서비스"
   },
   {
    "t": "김만덕기념관, ‘제47회 만덕제 봉행’ 도민 제관 공개 모집",
@@ -5368,7 +5713,8 @@
    "d": "2026-09-19",
    "outlets_prev": [
     "jejunews.biz",
-    "벤처스퀘어"
+    "벤처스퀘어",
+    "venturesquare.net"
    ],
    "outlets": [
     "jejunews.biz",
@@ -5384,8 +5730,9 @@
    "src": "뉴시스",
    "d": "2026-09-19",
    "outlets_prev": [
+    "뉴시스",
     "KBS 뉴스",
-    "뉴시스"
+    "뉴스N제주"
    ],
    "outlets": [
     "뉴시스",
@@ -5394,6 +5741,23 @@
    ],
    "n": 3,
    "sec": "정치/행정"
+  },
+  {
+   "t": "제주, 제46회 전국장애인체전 종합 9위...역대 최고 성적",
+   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227775",
+   "src": "제주일보",
+   "d": "2026-09-19",
+   "outlets_prev": [
+    "제주일보",
+    "삼다일보"
+   ],
+   "outlets": [
+    "제주일보",
+    "삼다일보",
+    "samdailbo.com"
+   ],
+   "n": 3,
+   "sec": "문화/관광/스포츠"
   },
   {
    "t": "서귀포시, 추석연휴 종합상황실 가동...9개 분야",
@@ -5458,22 +5822,6 @@
    ],
    "n": 2,
    "sec": "교육/청년"
-  },
-  {
-   "t": "제주, 제46회 전국장애인체전 종합 9위...역대 최고 성적",
-   "link": "http://www.jejunews.com/news/articleView.html?idxno=2227775",
-   "src": "제주일보",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "제주일보",
-    "삼다일보"
-   ],
-   "outlets": [
-    "제주일보",
-    "삼다일보"
-   ],
-   "n": 2,
-   "sec": "문화/관광/스포츠"
   },
   {
    "t": "제주특별자치도장애인스포츠클럽,제46회 전국장애인체육대회서 메달 14개 획득",
@@ -5778,248 +6126,6 @@
    ],
    "n": 2,
    "sec": "교육/청년"
-  },
-  {
-   "t": "제주도, 어린이·임신부·어르신 인플루엔자 예방접종 시작",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599244",
-   "src": "헤드라인제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "헤드라인제주",
-    "headlinejeju.co.kr"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "headlinejeju.co.kr"
-   ],
-   "n": 2,
-   "sec": "복지/사회서비스"
-  },
-  {
-   "t": "제주도, 평생교육이용권 우수이용자 신청 접수",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599242",
-   "src": "헤드라인제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "헤드라인제주",
-    "headlinejeju.co.kr"
-   ],
-   "outlets": [
-    "헤드라인제주",
-    "headlinejeju.co.kr"
-   ],
-   "n": 2,
-   "sec": "교육/청년"
-  },
-  {
-   "t": "제주형 체육고 설립 본격 검토…고의숙 교육감, 12월 최종 결론",
-   "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599224",
-   "src": "헤드라인제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "헤드라인제주"
-   ],
-   "outlets": [
-    "헤드라인제주"
-   ],
-   "n": 1,
-   "sec": "교육/청년"
-  },
-  {
-   "t": "제주 해안서 또 마약 의심 물체…1년간 40kg 발견",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=426045",
-   "src": "뉴스제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스제주"
-   ],
-   "outlets": [
-    "뉴스제주"
-   ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "제주위미농협, 취약계층 추석맞이 장보기 지원 500만원 기탁",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=426020",
-   "src": "뉴스제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스제주"
-   ],
-   "outlets": [
-    "뉴스제주"
-   ],
-   "n": 1,
-   "sec": "1차산업"
-  },
-  {
-   "t": "성산일출봉농협, 조합원과 함께하는 ‘한가위 맞이 영화데이’",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=426036",
-   "src": "뉴스제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스제주"
-   ],
-   "outlets": [
-    "뉴스제주"
-   ],
-   "n": 1,
-   "sec": "1차산업"
-  },
-  {
-   "t": "제주농협, 공명선거 실천 결의",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=426032",
-   "src": "뉴스제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스제주"
-   ],
-   "outlets": [
-    "뉴스제주"
-   ],
-   "n": 1,
-   "sec": "1차산업"
-  },
-  {
-   "t": "JDC, 개인정보 보호의 날 맞아 어린이 대상 유관기관 합동 캠페인 전개",
-   "link": "https://www.newsjeju.net/news/articleView.html?idxno=426024",
-   "src": "뉴스제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스제주"
-   ],
-   "outlets": [
-    "뉴스제주"
-   ],
-   "n": 1,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "해양레저를 넘어 관광으로… 제주-베트남 카인호아성 교류 확대",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300121",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "경종·축산이 함께하는  경축순환농업 현장 해법 모색",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300119",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "사건사고/기타"
-  },
-  {
-   "t": "친환경농업 확산 위한 농업환경보전 정책방향 논의",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300118",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "환경/에너지"
-  },
-  {
-   "t": "제주형 체육고 설립 논의 본궤도…오경남 “TF, 실질 추진 출발점 돼야”",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300116",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "문화/관광/스포츠"
-  },
-  {
-   "t": "[도민기고]제주 제2공항, 건설보다 검증이 우선",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300099",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "정치/행정"
-  },
-  {
-   "t": "늘푸른신협, 한가위맞이 나눔행사 진행",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300112",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "복지/사회서비스"
-  },
-  {
-   "t": "제주창조경제혁신센터 투자기업 메가플랜, 일본 수출 본격화",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300111",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "창업/경제"
-  },
-  {
-   "t": "제주 양돈·말산업 손잡았다…‘제주도니’ 해외 홍보 확대",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300105",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "1차산업"
-  },
-  {
-   "t": "[아침시]무미타 할더(Amb. Dr. Moumita Halder) 시인의 “인류애의 주소”",
-   "link": "https://www.newsnjeju.com/news/articleView.html?idxno=300104",
-   "src": "뉴스N제주",
-   "d": "2026-09-19",
-   "outlets_prev": [
-    "뉴스N제주"
-   ],
-   "outlets": [
-    "뉴스N제주"
-   ],
-   "n": 1,
-   "sec": "문화/관광/스포츠"
   }
  ]
 }
