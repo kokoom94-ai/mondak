@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-09-26 13:48",
+  "updated": "2026-09-27 03:34",
   "period": {
    "from": "2026-09-20",
    "to": "2026-09-26"
@@ -12,35 +12,35 @@
   "engine": "v14-20260826",
   "source": "네이버 검색 오픈API · Google News RSS",
   "note": "불만 구성비는 '모인 불만' 안에서의 비율입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.",
-  "date_est_n": 1913,
+  "date_est_n": 1969,
   "date_est_note": "카페 글은 작성일이 제공되지 않아 수집일을 날짜로 씁니다. 30일 집계에는 포함하되 일별 추이에는 넣지 않습니다.",
   "disclaimer": "자체 수집·분류한 참고자료이며 일부 오류가 있을 수 있습니다.",
   "judge": {
    "version": "llm-v9",
    "model": "exaone-4.0-32b",
    "judged": 0,
-   "failed": 552,
+   "failed": 512,
    "dropped": 0,
    "audit_dropped": 0,
-   "updated": "2026-09-26 08:45"
+   "updated": "2026-09-26 22:33"
   }
  },
  "voice": {
-  "total": 3409,
-  "neg_n": 20,
+  "total": 3675,
+  "neg_n": 21,
   "neg_rate": 0.6,
   "channels": {
-   "blog": 2641,
-   "cafe": 768
+   "blog": 2852,
+   "cafe": 823
   },
   "mix": [
    {
     "name": "응대·서비스",
     "policy": "관광종사자 응대·서비스 품질",
     "n": 5,
-    "share": 25.0,
+    "share": 23.8,
     "prev": 4.8,
-    "delta": 20.2,
+    "delta": 19.0,
     "top": [
      {
       "title": "제주 매장 방문 상담 후 계약했는데요.모델y 궁금증있습니다",
@@ -106,9 +106,9 @@
     "name": "정책·행정",
     "policy": "행정 소식",
     "n": 3,
-    "share": 15.0,
+    "share": 14.3,
     "prev": 4.8,
-    "delta": 10.2,
+    "delta": 9.5,
     "top": [
      {
       "title": "제주관광공사 비상임이사 공개모집 공고",
@@ -150,9 +150,9 @@
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
     "n": 3,
-    "share": 15.0,
+    "share": 14.3,
     "prev": 28.6,
-    "delta": -13.6,
+    "delta": -14.3,
     "top": [
      {
       "title": "[제주 공항 근처 숙소] 하이 레지던스 신신호텔 제주공항 아이진 호텔 추천 ....",
@@ -196,9 +196,9 @@
     "name": "비용·상거래",
     "policy": "관광 물가·요금 공정성",
     "n": 2,
-    "share": 10.0,
+    "share": 9.5,
     "prev": 7.9,
-    "delta": 2.1,
+    "delta": 1.6,
     "top": [
      {
       "title": "강원 바닷가 vs 제주 바닷가 비용 어디가 더 물가 비싸요?",
@@ -230,9 +230,9 @@
     "name": "먹거리",
     "policy": "음식점 품질·가격",
     "n": 2,
-    "share": 10.0,
+    "share": 9.5,
     "prev": 12.7,
-    "delta": -2.7,
+    "delta": -3.2,
     "top": [
      {
       "title": "제주 서귀포 맛집인데 아무도 안 알려줬다는 억울함",
@@ -260,9 +260,9 @@
     "name": "숙박",
     "policy": "숙박 시설·거래 관행",
     "n": 1,
-    "share": 5.0,
+    "share": 4.8,
     "prev": 20.6,
-    "delta": -15.6,
+    "delta": -15.8,
     "top": [
      {
       "title": "제주 여행하며 기대했던 중문 흑돼지 맛집 실상과 궤네깃도의 기록",
@@ -280,9 +280,9 @@
     "name": "볼거리·체험",
     "policy": "관광 콘텐츠·시설 운영",
     "n": 1,
-    "share": 5.0,
+    "share": 4.8,
     "prev": 7.9,
-    "delta": -2.9,
+    "delta": -3.1,
     "top": [
      {
       "title": "\"중국인 없으면 못 산다\"던 우도 상인의 경고",
@@ -422,6 +422,18 @@
     "desc": "지금 뜨는 다른 이슈 \" \" \" \" \" \" \" \" ────────────────── #제주중국인관광객 #제주관광 #제주여행 #중국인관광객 #제주도 #우도 #크루즈관광 #제주크루즈 #위성곤 #제주도지"
    },
    {
+    "title": "제주여행 구좌읍 송당리 스튜디오 지브리전 인 제주 사진스팟 포토....",
+    "link": "https://blog.naver.com/yumding-ing/224422895729",
+    "channel": "blog",
+    "date": "2026-09-26",
+    "category": null,
+    "sentiment": "부정",
+    "reasons": [
+     "실망"
+    ],
+    "desc": "올해 제주여행코스로 새롭게 떠오르는 한 곳을 다녀왔는데요. 7월... 다소 실망했던 곳, 지금 소개합니다. 제주 구좌읍 송당동화마을에... 2026년 7월 11일에 오픈한 신상 중의 신상 여행지입니"
+   },
+   {
     "title": "[제주/협재] 도나토스 - 불편함과 편함의 공존",
     "link": "https://blog.naver.com/adabtu/224417481663",
     "channel": "blog",
@@ -520,33 +532,23 @@
     "sentiment": "부정",
     "reasons": [],
     "desc": "혼저옵서예~ 힙스터 돌하르방이 반겨주는 제주도에 왔다  이번 제주도의 목적은 한라산 등반⛰️ 1.... 중국인들이 제주도 땅을 많이 샀다는 뉴스가 괜히 나온게 아니구나 싶어 기분이 이상했다. 두 번"
-   },
-   {
-    "title": "제주 여정의 피로를 덜어내는 서귀포마사지 선택의 세심한 관찰 과....",
-    "link": "https://blog.naver.com/qui1olw0/224417426053",
-    "channel": "blog",
-    "date": "2026-09-20",
-    "category": "응대·서비스",
-    "sentiment": "부정",
-    "reasons": [],
-    "desc": "선정 제주를 여행하다 보면 예기치 않게 쌓이는 육체적 피로를 마주하기 마련입니다. 단순히 유명한 곳을 찾아 이동하는 것보다 숙소나 당일 동선 내에서 가장 접근성이 뛰어난 곳을 정하는 안목이 필요합니"
    }
   ]
  },
  "risk": {
-  "total": 131,
-  "neg_n": 64,
+  "total": 138,
+  "neg_n": 65,
   "clusters": [
    {
     "label": "단속·적발",
-    "n": 25,
+    "n": 24,
     "media": 13,
     "from": "2026-09-21",
     "to": "2026-09-23",
     "days": 2,
     "spread": "확산",
     "categories": {
-     "치안·안전": 25
+     "치안·안전": 24
     },
     "top": [
      {
@@ -563,7 +565,7 @@
       "desc": "제주에서 다음 달 열리는 2026 전국체육대회를 앞두고 관광객과 선수단, 대회 관계자가 요금 문제로 불편을 겪지 않도록 바가지요금 등 불법·부당행위 엄정 대응에 나선다. 제주특별자치도는 다음 달 1"
      },
      {
-      "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - newsjeju.net",
+      "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - 뉴스제주",
       "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9wUkdzaUdXX1gwcVBsNUZrM0lwMmNkWG5NNUNSaWxlbDdXM3ctQlNMSkVwTDVBa29iWFdQSWxUajJXUjZ4eEl3OFcyUHlKZURzcEh6R3NjMk0wcnozUnp0aXhUMnRmZnBISU13?oc=5",
       "channel": "news",
       "date": "2026-09-21",
@@ -871,7 +873,7 @@
     },
     "top": [
      {
-      "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+      "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
       "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5EUUlmMEpVdXJaWnlNVnd1VUR4bEhSOFVaQVVNQTJ6ckRoMnpZX1c0S2pTZVBVVDhtdUZBR1FjeWEyMmd5VlE0THZTcGNySDlxTWdNV2xOeWN2dEN3Sm9VbW5rUmphQVJN?oc=5",
       "channel": "news",
       "date": "2026-09-22",
@@ -895,7 +897,7 @@
       "desc": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTFA4NnAwMl80Z1RKckp3ZGJSWXNoMGlCdk43RDdqcURvQjdBaW8w"
      },
      {
-      "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+      "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBveXNGcU5TWG5PVXVxS19OQjhuMHR4S082S0ZwakhSbUY2TzhFNnBEYnN0ai11dVBWV1diN2g2Q0hHdVdqRTQyV282OVFXWUpwcUhqajNNQkQ3Z3RzMGtBRUZsTEw1cEE?oc=5",
       "channel": "news",
       "date": "2026-09-22",
@@ -957,6 +959,32 @@
     ]
    },
    {
+    "label": "절도·도난",
+    "n": 1,
+    "media": 1,
+    "from": "2026-09-26",
+    "to": "2026-09-26",
+    "days": 1,
+    "spread": "단발",
+    "categories": {
+     "치안·안전": 1
+    },
+    "top": [
+     {
+      "title": "여행용크로스백, 미니크로스백 추천 트래블기어 도난방지가방",
+      "link": "https://blog.naver.com/jwl1229/224423204293",
+      "channel": "blog",
+      "date": "2026-09-26",
+      "category": "치안·안전",
+      "sentiment": "부정",
+      "reasons": [
+       "도난"
+      ],
+      "desc": "제가 요번 제주도 여행에서 알차게 잘 가지고 다닌 귀여운 미니크로스백을 추천드리려고 합니다.... 해외여행 다니면서 걱정되는 것 중 하나가 바로 도난인데요, 칼로 가방을 튿어 훔쳐가는 경우가 있는데"
+     }
+    ]
+   },
+   {
     "label": "추락",
     "n": 1,
     "media": 1,
@@ -1006,32 +1034,6 @@
        "마약"
       ],
       "desc": "대검찰청의 2025년 마약류 범죄백서에 따르면 지난해 제주에서 단속된 마약류 사범은 205명이다. 2024년 156명보다 49명, 31.4% 증가했다. 증가율은 전국 17개 시·도 가운데 가장 높았"
-     }
-    ]
-   },
-   {
-    "label": "조난·고립",
-    "n": 1,
-    "media": 1,
-    "from": "2026-09-20",
-    "to": "2026-09-20",
-    "days": 1,
-    "spread": "단발",
-    "categories": {
-     "치안·안전": 1
-    },
-    "top": [
-     {
-      "title": "섬의 고립성 그리고 연결성: 2028 G20 정상회의 제주 유치 사명",
-      "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=599284",
-      "channel": "news",
-      "date": "2026-09-20",
-      "category": "치안·안전",
-      "sentiment": "부정",
-      "reasons": [
-       "고립"
-      ],
-      "desc": "한덕환 제주특별자치도 관광정책과장 1991년 제주에서는 한반도 해빙의 물꼬를 튼 한·소 정상회담이 열렸다. 샛노란 유채꽃을 배경으로 외신 헤드라인을 장식했던 한·미 정상회담 역시 몇 해 뒤인 199"
      }
     ]
    }
@@ -1113,7 +1115,7 @@
     "desc": "강원 3명, 인천·경남 각 2명, 전남·제주·울산 각 1명으로 충남의 사망자가 가장 많았다. 충남 서천에서 야간 해루질 실종된 관광객을 해경이 수색 중이다. [사진=보령해경] 충남에서는 8월에만 4"
    },
    {
-    "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - newsjeju.net",
+    "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - 뉴스제주",
     "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9wUkdzaUdXX1gwcVBsNUZrM0lwMmNkWG5NNUNSaWxlbDdXM3ctQlNMSkVwTDVBa29iWFdQSWxUajJXUjZ4eEl3OFcyUHlKZURzcEh6R3NjMk0wcnozUnp0aXhUMnRmZnBISU13?oc=5",
     "channel": "news",
     "date": "2026-09-21",
@@ -1148,6 +1150,18 @@
      "숨진"
     ],
     "desc": "제주시 구좌읍 종달항 테트라포드에서 70대 여성이 숨진 채 발견됐다. 해경은 전날 오후 8시 49분쯤 가족으로부터 \"아침에 해산물을 채취하러 바다로 나간 가족이 돌아오지 않는다\"는 신고를 받고 수색"
+   },
+   {
+    "title": "여행용크로스백, 미니크로스백 추천 트래블기어 도난방지가방",
+    "link": "https://blog.naver.com/jwl1229/224423204293",
+    "channel": "blog",
+    "date": "2026-09-26",
+    "category": "치안·안전",
+    "sentiment": "부정",
+    "reasons": [
+     "도난"
+    ],
+    "desc": "제가 요번 제주도 여행에서 알차게 잘 가지고 다닌 귀여운 미니크로스백을 추천드리려고 합니다.... 해외여행 다니면서 걱정되는 것 중 하나가 바로 도난인데요, 칼로 가방을 튿어 훔쳐가는 경우가 있는데"
    },
    {
     "title": "제주 공항 근처 한달살기 제주도 찜질방 추천, 해미안녹차해수사우나 이용....",
@@ -1220,27 +1234,15 @@
      "익사"
     ],
     "desc": "사고는 제주도 여행 도중 아버지와 딸이 수영을 하다 조류와 파도에 휩쓸려 발생한 것으로 전해졌다. 이 씨의 선행은 사고 이후 아버지가 공단 누리집 '창찬합시다' 게시판에 감사 글을 올리며 알려졌다."
-   },
-   {
-    "title": "제주, 실종·위기사건 협업 매뉴얼 수립… 긴급 사건 대응 강화",
-    "link": "https://www.kmib.co.kr/article/view.asp?arcid=9000016899&cp=nv",
-    "channel": "news",
-    "date": "2026-09-23",
-    "category": "치안·안전",
-    "sentiment": "부정",
-    "reasons": [
-     "실종"
-    ],
-    "desc": "제주도가 실종자의 생활반응 정보를 수사기관에 신속히 제공해 대응 속도를 높이는 체계를 마련했다.... 내역, 관광지 예약, 렌터카 이용 내역 등 실종자의 생활반응을 확인할 수 있는 자료를 신속히 제"
    }
   ]
  },
  "info": {
-  "total": 490
+  "total": 501
  },
  "window30": {
-  "total": 9758,
-  "neg_n": 1277,
+  "total": 10043,
+  "neg_n": 1280,
   "daily": [
    {
     "date": "2026-08-28",
@@ -1442,12 +1444,12 @@
    },
    {
     "date": "2026-09-19",
-    "total": 159,
-    "neg_n": 10,
+    "total": 160,
+    "neg_n": 11,
     "neu_n": 60,
     "pos_n": 89,
-    "neg": 6.3,
-    "pos": 56.0
+    "neg": 6.9,
+    "pos": 55.6
    },
    {
     "date": "2026-09-20",
@@ -1460,12 +1462,12 @@
    },
    {
     "date": "2026-09-21",
-    "total": 593,
-    "neg_n": 44,
+    "total": 592,
+    "neg_n": 43,
     "neu_n": 327,
     "pos_n": 222,
-    "neg": 7.4,
-    "pos": 37.4
+    "neg": 7.3,
+    "pos": 37.5
    },
    {
     "date": "2026-09-22",
@@ -1478,62 +1480,62 @@
    },
    {
     "date": "2026-09-23",
-    "total": 564,
+    "total": 565,
     "neg_n": 24,
-    "neu_n": 312,
+    "neu_n": 313,
     "pos_n": 228,
-    "neg": 4.3,
+    "neg": 4.2,
     "pos": 40.4
    },
    {
     "date": "2026-09-24",
-    "total": 494,
+    "total": 497,
     "neg_n": 0,
-    "neu_n": 265,
+    "neu_n": 268,
     "pos_n": 229,
     "neg": 0.0,
-    "pos": 46.4
+    "pos": 46.1
    },
    {
     "date": "2026-09-25",
-    "total": 449,
+    "total": 451,
     "neg_n": 0,
-    "neu_n": 211,
+    "neu_n": 213,
     "pos_n": 238,
     "neg": 0.0,
-    "pos": 53.0
+    "pos": 52.8
    },
    {
     "date": "2026-09-26",
-    "total": 168,
-    "neg_n": 2,
-    "neu_n": 78,
-    "pos_n": 88,
-    "neg": 1.2,
-    "pos": 52.4
+    "total": 391,
+    "neg_n": 5,
+    "neu_n": 194,
+    "pos_n": 192,
+    "neg": 1.3,
+    "pos": 49.1
    }
   ],
   "from": "2026-08-28",
   "to": "2026-09-26",
   "stats": {
-   "total": 9254,
-   "neg": 13.8,
-   "pos": 47.0,
-   "neu": 39.3,
+   "total": 9539,
+   "neg": 13.4,
+   "pos": 46.8,
+   "neu": 39.8,
    "channels": {
-    "news": 1906,
-    "blog": 5435,
-    "cafe": 1913
+    "news": 1922,
+    "blog": 5648,
+    "cafe": 1969
    },
    "categories": {
     "응대·서비스": {
      "n": 126,
      "neg": 35.7,
-     "share": 1.4
+     "share": 1.3
     },
     "비용·상거래": {
-     "n": 335,
-     "neg": 17.0,
+     "n": 346,
+     "neg": 16.5,
      "share": 3.6
     },
     "환경·청결": {
@@ -1542,73 +1544,73 @@
      "share": 0.7
     },
     "이동·교통": {
-     "n": 1168,
-     "neg": 14.0,
-     "share": 12.6
+     "n": 1197,
+     "neg": 13.6,
+     "share": 12.5
     },
     "숙박": {
-     "n": 1926,
-     "neg": 5.5,
-     "share": 20.8
+     "n": 2020,
+     "neg": 5.2,
+     "share": 21.2
     },
     "먹거리": {
-     "n": 2560,
-     "neg": 3.2,
+     "n": 2647,
+     "neg": 3.1,
      "share": 27.7
     },
     "볼거리·체험": {
-     "n": 1520,
-     "neg": 4.7,
+     "n": 1567,
+     "neg": 4.6,
      "share": 16.4
     },
     "치안·안전": {
-     "n": 644,
-     "neg": 77.6,
-     "share": 7.0
+     "n": 649,
+     "neg": 77.3,
+     "share": 6.8
     },
     "정책·행정": {
-     "n": 805,
-     "neg": 25.5,
-     "share": 8.7
+     "n": 807,
+     "neg": 25.4,
+     "share": 8.5
     }
    },
    "natures": {
     "정보·소식": {
-     "n": 1436,
-     "share": 15.5
+     "n": 1468,
+     "share": 15.4
     },
     "사건사고": {
-     "n": 607,
-     "share": 6.6
+     "n": 615,
+     "share": 6.4
     },
     "불만·후기": {
-     "n": 7211,
-     "share": 77.9
+     "n": 7456,
+     "share": 78.2
     }
    },
    "tracks": {
-    "risk": 751,
-    "voice": 7119,
-    "info": 1384
+    "risk": 759,
+    "voice": 7385,
+    "info": 1395
    }
   },
   "rank": [
    {
     "name": "치안·안전",
     "policy": "관광객 안전·치안",
-    "n": 644,
-    "neg_n": 504,
-    "share": 7.0,
-    "neg": 77.6,
+    "n": 649,
+    "neg_n": 506,
+    "share": 6.8,
+    "neg": 77.3,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 728,
-     "불만·후기": 231,
+     "사건사고": 732,
+     "불만·후기": 232,
      "정보·소식": 49
     },
     "pos_n": 12,
-    "neu_n": 176,
+    "neu_n": 179,
     "top": [
      {
       "title": "제주, 20대 직업군인 3일만에 숨진 채 발견…8월에만 실종·사망 5명",
@@ -3148,19 +3150,19 @@
    {
     "name": "정책·행정",
     "policy": "행정 소식",
-    "n": 805,
+    "n": 807,
     "neg_n": 205,
-    "share": 8.7,
-    "neg": 25.5,
+    "share": 8.5,
+    "neg": 25.4,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 249,
      "불만·후기": 318,
-     "정보·소식": 348
+     "정보·소식": 350
     },
     "pos_n": 82,
-    "neu_n": 608,
+    "neu_n": 610,
     "top": [
      {
       "title": "\"가을 관광 시즌은 끝났다\"…실종자 잇단 사망에 관광도시 제주 비상",
@@ -4548,19 +4550,19 @@
    {
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
-    "n": 1168,
+    "n": 1197,
     "neg_n": 163,
-    "share": 12.6,
-    "neg": 14.0,
+    "share": 12.5,
+    "neg": 13.6,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 51,
-     "불만·후기": 918,
-     "정보·소식": 207
+     "사건사고": 52,
+     "불만·후기": 945,
+     "정보·소식": 208
     },
-    "pos_n": 282,
-    "neu_n": 725,
+    "pos_n": 294,
+    "neu_n": 742,
     "top": [
      {
       "title": "실종사건 논란에 제주 관광도 '흔들'…하루 최대 7000명 줄었다 - 네이트",
@@ -5833,19 +5835,19 @@
    {
     "name": "숙박",
     "policy": "숙박 시설·거래 관행",
-    "n": 1926,
+    "n": 2020,
     "neg_n": 106,
-    "share": 20.8,
-    "neg": 5.5,
+    "share": 21.2,
+    "neg": 5.2,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 19,
-     "불만·후기": 1575,
-     "정보·소식": 332
+     "사건사고": 21,
+     "불만·후기": 1658,
+     "정보·소식": 341
     },
-    "pos_n": 869,
-    "neu_n": 951,
+    "pos_n": 889,
+    "neu_n": 1025,
     "top": [
      {
       "title": "이번 일로 제주 관광산업 전체가 위축될까 걱정됩니다. 제주 선배님들 어떻....",
@@ -7068,19 +7070,19 @@
    {
     "name": "먹거리",
     "policy": "음식점 품질·가격",
-    "n": 2560,
+    "n": 2647,
     "neg_n": 81,
     "share": 27.7,
-    "neg": 3.2,
+    "neg": 3.1,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 8,
-     "불만·후기": 2365,
-     "정보·소식": 189
+     "불만·후기": 2441,
+     "정보·소식": 200
     },
-    "pos_n": 2184,
-    "neu_n": 295,
+    "pos_n": 2243,
+    "neu_n": 323,
     "top": [
      {
       "title": "제주 관광지 주변 음식점 원산지 표시 단속 결과, 위반 업체 무더기 적발 - 헤드라인제주",
@@ -8306,19 +8308,19 @@
    {
     "name": "볼거리·체험",
     "policy": "관광 콘텐츠·시설 운영",
-    "n": 1520,
+    "n": 1567,
     "neg_n": 72,
     "share": 16.4,
-    "neg": 4.7,
+    "neg": 4.6,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 32,
-     "불만·후기": 1287,
-     "정보·소식": 216
+     "사건사고": 33,
+     "불만·후기": 1326,
+     "정보·소식": 223
     },
-    "pos_n": 707,
-    "neu_n": 742,
+    "pos_n": 721,
+    "neu_n": 775,
     "top": [
      {
       "title": "\"제주도 혼자 여행 괜찮을까?\" 잇단 실종 사건 논란 및 안전한 제주 ....",
@@ -9613,19 +9615,19 @@
    {
     "name": "비용·상거래",
     "policy": "관광 물가·요금 공정성",
-    "n": 335,
+    "n": 346,
     "neg_n": 57,
     "share": 3.6,
-    "neg": 17.0,
+    "neg": 16.5,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 2,
-     "불만·후기": 283,
-     "정보·소식": 50
+     "불만·후기": 293,
+     "정보·소식": 51
     },
-    "pos_n": 41,
-    "neu_n": 237,
+    "pos_n": 46,
+    "neu_n": 243,
     "top": [
      {
       "title": "비계삼겹살 바가지 요금 논란에도ㅣ제주 관광객 1천만 명 돌파",
@@ -10888,7 +10890,7 @@
     "policy": "관광종사자 응대·서비스 품질",
     "n": 126,
     "neg_n": 45,
-    "share": 1.4,
+    "share": 1.3,
     "neg": 35.7,
     "prev_neg": null,
     "delta": null,
@@ -12800,7 +12802,7 @@
       "desc": "장소는 제주관광대학교 체육관 확정입니다. 2. 당일 참가선수는 정부정책과 도체육회의 대회관련지시로 인해 자체방역시스템을 가동하고 선수PCR검사 음성확인서 제출은 생략합니다. 3. 관중도 허용합니다."
      },
      {
-      "title": "쓰레기 7t 걷어낸 제주관광, 여행복지로 넓혔다 - newscj.com",
+      "title": "쓰레기 7t 걷어낸 제주관광, 여행복지로 넓혔다 - 천지일보",
       "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1GSVUwZjFONnZ2WVhZZDZ5ZjNzcERDdHJYUUN5Tm1Sd2l3Y3JIT3J3SDA5VjJOWFE1R3hLbmFYYVhNRnRBckJmNmZFbTVWRVdOYmZDSnNnNjZxUUZMNWF3SWptSjU1ek12OEE?oc=5",
       "channel": "news",
       "date": "2026-09-20",
@@ -12887,7 +12889,7 @@
    },
    {
     "word": "수사",
-    "n": 35
+    "n": 36
    },
    {
     "word": "논란",
@@ -15268,20 +15270,20 @@
    {
     "name": "치안·안전",
     "policy": "관광객 안전·치안",
-    "n": 504,
+    "n": 506,
     "share": 39.5
    },
    {
     "name": "정책·행정",
     "policy": "행정 소식",
     "n": 205,
-    "share": 16.1
+    "share": 16.0
    },
    {
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
     "n": 163,
-    "share": 12.8
+    "share": 12.7
    },
    {
     "name": "숙박",
@@ -15456,7 +15458,7 @@
     "media": 18,
     "from": "2026-08-31",
     "to": "2026-09-23",
-    "days": 6,
+    "days": 7,
     "spread": "확산",
     "categories": {
      "치안·안전": 32,
@@ -15491,7 +15493,7 @@
       "desc": "제주에서 다음 달 열리는 2026 전국체육대회를 앞두고 관광객과 선수단, 대회 관계자가 요금 문제로 불편을 겪지 않도록 바가지요금 등 불법·부당행위 엄정 대응에 나선다. 제주특별자치도는 다음 달 1"
      },
      {
-      "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - newsjeju.net",
+      "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - 뉴스제주",
       "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9wUkdzaUdXX1gwcVBsNUZrM0lwMmNkWG5NNUNSaWxlbDdXM3ctQlNMSkVwTDVBa29iWFdQSWxUajJXUjZ4eEl3OFcyUHlKZURzcEh6R3NjMk0wcnozUnp0aXhUMnRmZnBISU13?oc=5",
       "channel": "news",
       "date": "2026-09-21",
@@ -15959,7 +15961,7 @@
       "desc": "제주 평화로서 렌터카 사고 후 화재…관광객 4명 부상 2026년 8월 15일 제주에서 관광객들이 탑승한 렌터카가 도로에서 충돌한 뒤 화재가 발생해 4명이 다치는 사고가 발생했다. 제주도소방안전본부에"
      },
      {
-      "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+      "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
       "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5EUUlmMEpVdXJaWnlNVnd1VUR4bEhSOFVaQVVNQTJ6ckRoMnpZX1c0S2pTZVBVVDhtdUZBR1FjeWEyMmd5VlE0THZTcGNySDlxTWdNV2xOeWN2dEN3Sm9VbW5rUmphQVJN?oc=5",
       "channel": "news",
       "date": "2026-09-22",
@@ -15983,7 +15985,7 @@
       "desc": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTFA4NnAwMl80Z1RKckp3ZGJSWXNoMGlCdk43RDdqcURvQjdBaW8w"
      },
      {
-      "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+      "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBveXNGcU5TWG5PVXVxS19OQjhuMHR4S082S0ZwakhSbUY2TzhFNnBEYnN0ai11dVBWV1diN2g2Q0hHdVdqRTQyV282OVFXWUpwcUhqajNNQkQ3Z3RzMGtBRUZsTEw1cEE?oc=5",
       "channel": "news",
       "date": "2026-09-22",
@@ -16153,14 +16155,14 @@
    },
    {
     "label": "절도·도난",
-    "n": 10,
+    "n": 11,
     "media": 7,
     "from": "2026-08-29",
-    "to": "2026-08-31",
-    "days": 3,
+    "to": "2026-09-26",
+    "days": 4,
     "spread": "확산",
     "categories": {
-     "치안·안전": 5,
+     "치안·안전": 6,
      "응대·서비스": 5
     },
     "top": [
@@ -16176,6 +16178,18 @@
        "도난"
       ],
       "desc": "렌터카 반납하고 근처 숲에 누가 버리고 갔다\"라며 도난당했던 슬리퍼의 행방을 알렸다. 앞서 지난 28일 미키광수는 \"분노를 참지 못해서 이 글을 쓴다\"라면서 제주도 판포포구에서 스노쿨링을 하던 중 "
+     },
+     {
+      "title": "여행용크로스백, 미니크로스백 추천 트래블기어 도난방지가방",
+      "link": "https://blog.naver.com/jwl1229/224423204293",
+      "channel": "blog",
+      "date": "2026-09-26",
+      "category": "치안·안전",
+      "sentiment": "부정",
+      "reasons": [
+       "도난"
+      ],
+      "desc": "제가 요번 제주도 여행에서 알차게 잘 가지고 다닌 귀여운 미니크로스백을 추천드리려고 합니다.... 해외여행 다니면서 걱정되는 것 중 하나가 바로 도난인데요, 칼로 가방을 튿어 훔쳐가는 경우가 있는데"
      },
      {
       "title": "미키광수, 제주서 도난 피해…CCTV까지 확인 \"근처 숲에 버리고 가\"",
@@ -16248,32 +16262,20 @@
        "도난"
       ],
       "desc": "코미디언 미키광수가 제주도에서 스노클링을 하던 중 슬리퍼를 도난당했다며 공개적으로 반환을 요구했다.... 해변이나 관광지처럼 개인 소지품을 한곳에 벗어놓는 장소에서는 비슷한 물건을 착각해 가져가는 "
-     },
-     {
-      "title": "미키광수 제주 슬리퍼 도난 주장…“지금은 구할 수도 없는 색, 빨....",
-      "link": "https://blog.naver.com/dwej49821/224394385043",
-      "channel": "blog",
-      "date": "2026-08-29",
-      "category": "응대·서비스",
-      "sentiment": "부정",
-      "reasons": [
-       "도난"
-      ],
-      "desc": "제주 슬리퍼 도난 주장…“지금은 구할 수도 없는 색, 빨리 가온나” 스노클링을 즐기러 물에 들어갔다가 밖으로 나왔는데 벗어둔 슬리퍼가 사라졌다면 황당할 수밖에 없겠죠. 개그맨 미키광수가 제주 여행 "
      }
     ]
    }
   ]
  },
  "current": {
-  "total": 4030,
-  "neg": 2.6,
-  "pos": 43.0,
-  "neu": 54.5,
+  "total": 4314,
+  "neg": 2.5,
+  "pos": 42.9,
+  "neu": 54.7,
   "channels": {
-   "blog": 2650,
-   "news": 607,
-   "cafe": 773
+   "blog": 2863,
+   "news": 622,
+   "cafe": 829
   },
   "categories": {
    "응대·서비스": {
@@ -16282,8 +16284,8 @@
     "share": 0.4
    },
    "비용·상거래": {
-    "n": 190,
-    "neg": 3.2,
+    "n": 201,
+    "neg": 3.0,
     "share": 4.7
    },
    "환경·청결": {
@@ -16292,65 +16294,65 @@
     "share": 0.2
    },
    "이동·교통": {
-    "n": 583,
+    "n": 612,
     "neg": 0.7,
-    "share": 14.5
+    "share": 14.2
    },
    "숙박": {
-    "n": 1013,
+    "n": 1107,
     "neg": 0.1,
-    "share": 25.1
+    "share": 25.7
    },
    "먹거리": {
-    "n": 1233,
+    "n": 1320,
     "neg": 0.2,
     "share": 30.6
    },
    "볼거리·체험": {
-    "n": 737,
+    "n": 784,
     "neg": 0.4,
-    "share": 18.3
+    "share": 18.2
    },
    "치안·안전": {
-    "n": 106,
-    "neg": 60.4,
-    "share": 2.6
+    "n": 110,
+    "neg": 59.1,
+    "share": 2.5
    },
    "정책·행정": {
-    "n": 59,
-    "neg": 6.8,
-    "share": 1.5
+    "n": 61,
+    "neg": 6.6,
+    "share": 1.4
    }
   },
   "natures": {
    "정보·소식": {
-    "n": 628,
-    "share": 15.6
+    "n": 660,
+    "share": 15.3
    },
    "불만·후기": {
-    "n": 3284,
-    "share": 81.5
+    "n": 3529,
+    "share": 81.8
    },
    "사건사고": {
-    "n": 118,
+    "n": 125,
     "share": 2.9
    }
   },
   "tracks": {
-   "voice": 3409,
-   "info": 490,
-   "risk": 131
+   "voice": 3675,
+   "info": 501,
+   "risk": 138
   }
  },
  "previous": {
-  "total": 1527,
+  "total": 1528,
   "neg": 17.5,
-  "pos": 49.6,
+  "pos": 49.5,
   "neu": 32.9,
   "channels": {
+   "news": 420,
    "blog": 824,
-   "cafe": 284,
-   "news": 419
+   "cafe": 284
   },
   "categories": {
    "응대·서비스": {
@@ -16381,7 +16383,7 @@
    "먹거리": {
     "n": 404,
     "neg": 4.0,
-    "share": 26.5
+    "share": 26.4
    },
    "볼거리·체험": {
     "n": 245,
@@ -16389,9 +16391,9 @@
     "share": 16.0
    },
    "치안·안전": {
-    "n": 136,
-    "neg": 75.7,
-    "share": 8.9
+    "n": 137,
+    "neg": 75.9,
+    "share": 9.0
    },
    "정책·행정": {
     "n": 159,
@@ -16400,6 +16402,10 @@
    }
   },
   "natures": {
+   "사건사고": {
+    "n": 159,
+    "share": 10.4
+   },
    "불만·후기": {
     "n": 1135,
     "share": 74.3
@@ -16407,20 +16413,16 @@
    "정보·소식": {
     "n": 234,
     "share": 15.3
-   },
-   "사건사고": {
-    "n": 158,
-    "share": 10.3
    }
   },
   "tracks": {
+   "risk": 168,
    "voice": 1090,
-   "info": 270,
-   "risk": 167
+   "info": 270
   }
  },
  "delta": {
-  "neg": -14.9,
+  "neg": -15.0,
   "pos": -6.6
  },
  "monthly": {
@@ -16434,18 +16436,18 @@
    },
    {
     "month": "2026-09",
-    "total": 7984,
-    "neg": 10.6,
-    "neu": 41.9,
-    "pos": 47.5
+    "total": 8269,
+    "neg": 10.3,
+    "neu": 42.4,
+    "pos": 47.3
    }
   ],
   "current": {
    "month": "2026-09",
-   "total": 7984,
-   "neg": 10.6,
-   "neu": 41.9,
-   "pos": 47.5
+   "total": 8269,
+   "neg": 10.3,
+   "neu": 42.4,
+   "pos": 47.3
   },
   "previous": {
    "month": "2026-08",
@@ -16457,25 +16459,25 @@
   "ready": true,
   "note": "",
   "delta": {
-   "neg": -31.2,
-   "pos": 10.6
+   "neg": -31.5,
+   "pos": 10.4
   }
  },
  "rank": [
   {
    "name": "치안·안전",
    "policy": "관광객 안전·치안",
-   "n": 106,
-   "neg_n": 64,
+   "n": 110,
+   "neg_n": 65,
    "pos_n": 0,
-   "neu_n": 42,
-   "share": 2.6,
-   "neg": 60.4,
-   "prev_neg": 75.7,
-   "delta": -15.3,
+   "neu_n": 45,
+   "share": 2.5,
+   "neg": 59.1,
+   "prev_neg": 75.9,
+   "delta": -16.8,
    "natures": {
-    "사건사고": 82,
-    "불만·후기": 14,
+    "사건사고": 85,
+    "불만·후기": 15,
     "정보·소식": 10
    },
    "top": [
@@ -16555,7 +16557,7 @@
      "desc": "강원 3명, 인천·경남 각 2명, 전남·제주·울산 각 1명으로 충남의 사망자가 가장 많았다. 충남 서천에서 야간 해루질 실종된 관광객을 해경이 수색 중이다. [사진=보령해경] 충남에서는 8월에만 4"
     },
     {
-     "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - newsjeju.net",
+     "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - 뉴스제주",
      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9wUkdzaUdXX1gwcVBsNUZrM0lwMmNkWG5NNUNSaWxlbDdXM3ctQlNMSkVwTDVBa29iWFdQSWxUajJXUjZ4eEl3OFcyUHlKZURzcEh6R3NjMk0wcnozUnp0aXhUMnRmZnBISU13?oc=5",
      "channel": "news",
      "date": "2026-09-21",
@@ -16844,7 +16846,7 @@
      "desc": "한덕환 제주특별자치도 관광정책과장 1991년 제주에서는 한반도 해빙의 물꼬를 튼 한·소 정상회담이 열렸다. 샛노란 유채꽃을 배경으로 외신 헤드라인을 장식했던 한·미 정상회담 역시 몇 해 뒤인 199"
     },
     {
-     "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+     "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5EUUlmMEpVdXJaWnlNVnd1VUR4bEhSOFVaQVVNQTJ6ckRoMnpZX1c0S2pTZVBVVDhtdUZBR1FjeWEyMmd5VlE0THZTcGNySDlxTWdNV2xOeWN2dEN3Sm9VbW5rUmphQVJN?oc=5",
      "channel": "news",
      "date": "2026-09-22",
@@ -16868,7 +16870,7 @@
      "desc": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTFA4NnAwMl80Z1RKckp3ZGJSWXNoMGlCdk43RDdqcURvQjdBaW8w"
     },
     {
-     "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+     "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBveXNGcU5TWG5PVXVxS19OQjhuMHR4S082S0ZwakhSbUY2TzhFNnBEYnN0ai11dVBWV1diN2g2Q0hHdVdqRTQyV282OVFXWUpwcUhqajNNQkQ3Z3RzMGtBRUZsTEw1cEE?oc=5",
      "channel": "news",
      "date": "2026-09-22",
@@ -16976,6 +16978,18 @@
      "desc": "폐쇄회로(CC)TV 통합관제센터에서는 경찰·소방과 함께 폭력과 교통사고, 실종 등 위험 상황을 집중적으로 살핀다. 자치경찰은 제주경찰청 등과 함께 22일부터 27일까지 281명을 투입해 제주공항과 "
     },
     {
+     "title": "여행용크로스백, 미니크로스백 추천 트래블기어 도난방지가방",
+     "link": "https://blog.naver.com/jwl1229/224423204293",
+     "channel": "blog",
+     "date": "2026-09-26",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "도난"
+     ],
+     "desc": "제가 요번 제주도 여행에서 알차게 잘 가지고 다닌 귀여운 미니크로스백을 추천드리려고 합니다.... 해외여행 다니면서 걱정되는 것 중 하나가 바로 도난인데요, 칼로 가방을 튿어 훔쳐가는 경우가 있는데"
+    },
+    {
      "title": "제주 공항 근처 한달살기 제주도 찜질방 추천, 해미안녹차해수사우나 이용....",
      "link": "https://cafe.naver.com/hyjnavercom/273760",
      "channel": "cafe",
@@ -17006,6 +17020,16 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "공항에 나가서 관광객 불안요소 없애고 안전한 제주 홍보하겠다고 저리 광대춤이나 추고.. 제주도민으로서 부끄러워서 못살겠다. 그리고 이 사건을 부경장 경찰관 한 명의 일탈로 끝내서도 안 된다. 물론 "
+    },
+    {
+     "title": "제주도 여행, 가도 괜찮을까요? 제주 범죄도시 아닙니다!",
+     "link": "https://blog.naver.com/sanmool001/224423142735",
+     "channel": "blog",
+     "date": "2026-09-26",
+     "category": "치안·안전",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "추석 제주도 여행, 가도 괜찮을까요? 신문 기사를 토대로 글을 작성해봅니다~ 추석 연휴로 가족들과 함께 제주 여행을 많이 다녀가셨는데요. 가을은 마음이 한창 설레는 때이기도 하죠. 그런데 올해는 조"
     },
     {
      "title": "\"바가지 요금 차단\"...제주, 전국체전 '숙박.렌터카 요금' 집중 단속",
@@ -17176,18 +17200,6 @@
      "desc": "추석 명절 연휴 기간 제주를 찾는 관광객과 귀성객의 불편을 최소화하기 위해 불법 주·정차 단속을 탄력적으로 운영한다. 제주시는 전통시장을 포함한 일반구역을 대상으로 오는 23일부터 27일까지 닷새간"
     },
     {
-     "title": "추석 닷새간 제주 주정차 단속 완화…공항·제주시청·성판악은 그대로 - 제주뉴스",
-     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9HY2VaZ1NuMVNJOXVTRW5LVjVEcjh2YXlwc190UGF4UDdSbC1qM2FMeXZDd0s4eHp3MUlWUFRoZkhjNTV6ZHAwQ0I5bGt6UVUyeE92Uk9LcTl2c0tyS2haczJCeXpCZHJieVHSAW5BVV95cUxPRjFrZG9wUEt6S1JZRE1jR1N6alJWbnpBb0pkbUVRVDViSTNSWlBXb0NGWUlkd0ZOdVd1WlI1VU9jb0F6YkQ5bFZ2NWRDbGVWREtXZUpISDZnWUIwUy1oMUJYckx2b2VDNWx4T0tBQQ?oc=5",
-     "channel": "news",
-     "date": "2026-09-21",
-     "category": "치안·안전",
-     "sentiment": "부정",
-     "reasons": [
-      "단속"
-     ],
-     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE9HY2VaZ1NuMVNJOXVTRW5LVjVEcjh2YXlwc190UGF4UDdSbC1q"
-    },
-    {
      "title": "제주시, 추석 명절 연휴 전통시장 불법 주·정차 단속 유예 - 제주도민일보",
      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBNQXl3Vi1oc0RxUTc4YW5QVkI4RF9pN25Rc2JReE5oV3dlSk9RU1VXYUhYdk9XRVJRcWZLZE1VdTcycnBrUHEwaDNaM3R3d000N19qNWZSLTBDQ3JkSnphZ1FyVHp4RDNrVFVlTVZMOA?oc=5",
      "channel": "news",
@@ -17200,7 +17212,7 @@
      "desc": "<a href=\"https://news.google.com/rss/articles/CBMib0FVX3lxTFBNQXl3Vi1oc0RxUTc4YW5QVkI4RF9pN25Rc2JReE5oV3dlSk9R"
     },
     {
-     "title": "‘공항·혼잡지역은 단속’ 추석 연휴 제주 주차단속 한시 유예 - newsfreezone.co.kr",
+     "title": "‘공항·혼잡지역은 단속’ 추석 연휴 제주 주차단속 한시 유예 - 뉴스프리존",
      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1obmxPS3RjVkZLbUdEOW05UHhVSVhDU1I4R00xd3FlTW1acURGSmc0d1NWQ1hoaFhMOVk2bndjc0dNRkJxU0puY241dG9qMUlNbDY5RmVmVXcwUnFzVFRzbHVPclA4NjhCbG5BZU4xN1llM2vSAXdBVV95cUxOb2lsdzZUMUxaeGhia1pKLXJvWV95ZmxvRlQ2aFNRX21uUXJhYTI0ZDNxdG50MGJwZ1Q5SDNfN0U2ckRxcjlUMmZ0aEdiT2d0WG5paEwxaUFCR1FGbXlXTVZ1TkxCUllrcUE2ZkcxQnNRNmxIeV9tZw?oc=5",
      "channel": "news",
      "date": "2026-09-21",
@@ -17236,7 +17248,7 @@
      "desc": "<a href=\"https://news.google.com/rss/articles/CBMib0FVX3lxTE5iaktpdS1qZHNKaGFuOHFkNFZhRGYxNE9QVVlwdEgzTFBDNVFQ"
     },
     {
-     "title": "전국체전 앞둔 제주, 숙박·렌터카 요금 집중 단속 - 제주뉴스",
+     "title": "전국체전 앞둔 제주, 숙박·렌터카 요금 집중 단속 - jejunews.biz",
      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9OeGUzaS13N3N0akI4RHp5WUJLUThoNWJFX01JREdMVlJPNGdfNlphUHFORjIycXdoakJSaklfU0VLck1Rb3VJVzhBTGQ4eDFhUnlhLUJlMW13RWhXQTNYNGYtcGlzN1FFTFHSAW5BVV95cUxPak1BWlhadm1QTlBSMzhaTlE5RkF1cDVpREdaR0tFRklNeUszSFVEXzlKM09GVXNWcmtVWTBsc0t0WkxqR2hWb0gzcFl3ek1mNDBQUXpjSkhHUFVFSFdUZ2JZMDNfT0Fha29kbW9jUQ?oc=5",
      "channel": "news",
      "date": "2026-09-21",
@@ -17270,6 +17282,18 @@
       "단속"
      ],
      "desc": "아울러 산지천 주변 숙박업소를 방문해 성매매방지 게시물 부착 여부를 점검했으며, 불법 성매매를 조장하는 호객행위에 대해서도 집중 단속을 진행했다. 제주시는 올해 연말까지 매월 한 차례 성매매 예방 "
+    },
+    {
+     "title": "문금주 의원 “항만 사이버공격 1168건… 해경 전담 수사인력은 8명뿐”...",
+     "link": "https://www.kmib.co.kr/article/view.asp?arcid=9000017319&cp=nv",
+     "channel": "news",
+     "date": "2026-09-26",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "수사"
+     ],
+     "desc": "특히 중부·서해·동해·제주지방해양경찰청 등 나머지 4개 지방청에는 사이버수사를 위한 별도의 정원조차 없는 실정이다. 해경은 지방청 광역수사대와 경찰서 수사과 등 현장에 83명의 사이버수사 인력을 배"
     },
     {
      "title": "제주 추석 연휴 24시간 안전대응…의료·교통·생활불편 살핀다",
@@ -17390,44 +17414,24 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "제주도자치경찰단 기마대는 말을 매개로 도민과 관광객에게 친근하게 다가가며 안전한 제주를 만드는 현장 활동을 이어오고 있다. 말을 타고 제주 곳곳을 누비며 느끼는 것은 제주의 말이 단순한 동물을 넘어"
-    },
-    {
-     "title": "제주경찰, 추석 앞두고 오일장·공항 치안 점검",
-     "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404987",
-     "channel": "news",
-     "date": "2026-09-22",
-     "category": "치안·안전",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "김 청장은 \"도민과 제주를 찾는 관광객 모두가 안심하고 명절을 보낼 수 있도록 현장 중심의 치안활동을 강화하겠다\"며 \"제주경찰의 모든 역량을 집중해 빈틈없는 안전관리에 최선을 다해달라\"고 당부했다."
-    },
-    {
-     "title": "제주 범죄 발생비 전국 최고지만···관광객 반영하면 격차 줄고 10년새...",
-     "link": "https://www.todaykorea.co.kr/news/articleView.html?idxno=406428",
-     "channel": "news",
-     "date": "2026-09-22",
-     "category": "치안·안전",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "22일 박창열 제주연구원 제주재난안전연구센터장이 경찰청 범죄통계를 분석한 정책이슈브리프... 관광객이 제주에서 범죄의 피해자나 가해자가 될 경우 범죄 발생건수에는 포함되지만 범죄 발생비 산정의 기준"
     }
    ]
   },
   {
    "name": "비용·상거래",
    "policy": "관광 물가·요금 공정성",
-   "n": 190,
+   "n": 201,
    "neg_n": 6,
-   "pos_n": 21,
-   "neu_n": 163,
+   "pos_n": 26,
+   "neu_n": 169,
    "share": 4.7,
-   "neg": 3.2,
+   "neg": 3.0,
    "prev_neg": 21.0,
-   "delta": -17.8,
+   "delta": -18.0,
    "natures": {
     "사건사고": 2,
-    "불만·후기": 155,
-    "정보·소식": 33
+    "불만·후기": 165,
+    "정보·소식": 34
    },
    "top": [
     {
@@ -18443,18 +18447,18 @@
   {
    "name": "이동·교통",
    "policy": "관광 교통·접근성",
-   "n": 583,
+   "n": 612,
    "neg_n": 4,
-   "pos_n": 140,
-   "neu_n": 439,
-   "share": 14.5,
+   "pos_n": 152,
+   "neu_n": 456,
+   "share": 14.2,
    "neg": 0.7,
    "prev_neg": 18.5,
    "delta": -17.8,
    "natures": {
-    "사건사고": 16,
-    "불만·후기": 461,
-    "정보·소식": 106
+    "사건사고": 17,
+    "불만·후기": 488,
+    "정보·소식": 107
    },
    "top": [
     {
@@ -19270,18 +19274,18 @@
   {
    "name": "정책·행정",
    "policy": "행정 소식",
-   "n": 59,
+   "n": 61,
    "neg_n": 4,
    "pos_n": 0,
-   "neu_n": 55,
-   "share": 1.5,
-   "neg": 6.8,
+   "neu_n": 57,
+   "share": 1.4,
+   "neg": 6.6,
    "prev_neg": 21.4,
-   "delta": -14.6,
+   "delta": -14.8,
    "natures": {
     "사건사고": 2,
     "불만·후기": 6,
-    "정보·소식": 51
+    "정보·소식": 53
    },
    "top": [
     {
@@ -19871,6 +19875,16 @@
      "desc": "IBK기업은행은 영동고속도로 인천방향 덕평휴게소에 이동점포를 열고 연휴 기간 국내외 여행객들을 위한... 신한은행은 김포공항과 청주공항·제주공항에 환전소 문을 엽니다. 무인 환전 공간인 'SOL트래"
     },
     {
+     "title": "제주도 2박3일 여행 경비 얼마? 2인 80만원 현실 예산 공개",
+     "link": "https://blog.naver.com/inno_times/224422920994",
+     "channel": "blog",
+     "date": "2026-09-26",
+     "category": "정책·행정",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "싶었던 분들이라면 이 정도 금액부터 한번 계산해보시면 됩니다. #제주도2박3일여행경비 #제주도2박3일비용 #제주여행경비 #제주도여행예산 #제주도항공권 #제주렌터카비용 #제주숙소가격 #제주2박3일"
+    },
+    {
      "title": "역대 최대 규모 예산과 외교 안보 등 현안, 2026년 국정감사 일정은?",
      "link": "https://slownews.kr/166956",
      "channel": "news",
@@ -19878,25 +19892,35 @@
      "category": "정책·행정",
      "sentiment": "중립",
      "reasons": [],
-     "desc": "제주특별자치도·제주경찰청. 10월 26일(월) 행정안전부·중앙선거관리위원회·진실·화해를위한과거사정리위원회 등. 문화체육관광위원회. 10월 7일(수) 문화체육관광부. 10월 8일(목) 국가유산청(소속"
+     "desc": "제주특별자치도·제주경찰청. 10월 26일(월): 행정안전부·중앙선거관리위원회·진실·화해를위한과거사정리위원회 등. 10월 7일(수): 문화체육관광부. 10월 8일(목): 국가유산청(소속기관 포함)·한"
+    },
+    {
+     "title": "삼다수 재생에너지·AI 여행계획… 제주 17개 공공기관 혁신 상시점검",
+     "link": "https://www.fnnews.com/news/202609260851448910",
+     "channel": "news",
+     "date": "2026-09-26",
+     "category": "정책·행정",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "제주관광공사는 인공지능을 활용한 여행계획 서비스 도입을 추진하고, 제주에너지공사는 재생에너지 사업에 도민 직접투자와 도내 기업 참여를 확대하는 이익공유 모델을 마련한다. 제주경제통상진흥원은 지원 건"
     }
    ]
   },
   {
    "name": "볼거리·체험",
    "policy": "관광 콘텐츠·시설 운영",
-   "n": 737,
+   "n": 784,
    "neg_n": 3,
-   "pos_n": 216,
-   "neu_n": 518,
-   "share": 18.3,
+   "pos_n": 230,
+   "neu_n": 551,
+   "share": 18.2,
    "neg": 0.4,
    "prev_neg": 5.7,
    "delta": -5.3,
    "natures": {
-    "사건사고": 6,
-    "불만·후기": 624,
-    "정보·소식": 107
+    "사건사고": 7,
+    "불만·후기": 663,
+    "정보·소식": 114
    },
    "top": [
     {
@@ -20710,18 +20734,18 @@
   {
    "name": "먹거리",
    "policy": "음식점 품질·가격",
-   "n": 1233,
+   "n": 1320,
    "neg_n": 2,
-   "pos_n": 1002,
-   "neu_n": 229,
+   "pos_n": 1061,
+   "neu_n": 257,
    "share": 30.6,
    "neg": 0.2,
    "prev_neg": 4.0,
    "delta": -3.8,
    "natures": {
     "사건사고": 3,
-    "불만·후기": 1140,
-    "정보·소식": 90
+    "불만·후기": 1216,
+    "정보·소식": 101
    },
    "top": [
     {
@@ -21529,18 +21553,18 @@
   {
    "name": "숙박",
    "policy": "숙박 시설·거래 관행",
-   "n": 1013,
+   "n": 1107,
    "neg_n": 1,
-   "pos_n": 276,
-   "neu_n": 736,
-   "share": 25.1,
+   "pos_n": 296,
+   "neu_n": 810,
+   "share": 25.7,
    "neg": 0.1,
    "prev_neg": 10.7,
    "delta": -10.6,
    "natures": {
-    "사건사고": 7,
-    "불만·후기": 796,
-    "정보·소식": 210
+    "사건사고": 9,
+    "불만·후기": 879,
+    "정보·소식": 219
    },
    "top": [
     {
@@ -22392,7 +22416,7 @@
      "desc": "장소는 제주관광대학교 체육관 확정입니다. 2. 당일 참가선수는 정부정책과 도체육회의 대회관련지시로 인해 자체방역시스템을 가동하고 선수PCR검사 음성확인서 제출은 생략합니다. 3. 관중도 허용합니다."
     },
     {
-     "title": "쓰레기 7t 걷어낸 제주관광, 여행복지로 넓혔다 - newscj.com",
+     "title": "쓰레기 7t 걷어낸 제주관광, 여행복지로 넓혔다 - 천지일보",
      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1GSVUwZjFONnZ2WVhZZDZ5ZjNzcERDdHJYUUN5Tm1Sd2l3Y3JIT3J3SDA5VjJOWFE1R3hLbmFYYVhNRnRBckJmNmZFbTVWRVdOYmZDSnNnNjZxUUZMNWF3SWptSjU1ek12OEE?oc=5",
      "channel": "news",
      "date": "2026-09-20",
@@ -22476,12 +22500,12 @@
   },
   {
    "date": "2026-09-21",
-   "total": 593,
-   "neg_n": 44,
+   "total": 592,
+   "neg_n": 43,
    "neu_n": 327,
    "pos_n": 222,
-   "neg": 7.4,
-   "pos": 37.4
+   "neg": 7.3,
+   "pos": 37.5
   },
   {
    "date": "2026-09-22",
@@ -22494,45 +22518,45 @@
   },
   {
    "date": "2026-09-23",
-   "total": 564,
+   "total": 565,
    "neg_n": 24,
-   "neu_n": 312,
+   "neu_n": 313,
    "pos_n": 228,
-   "neg": 4.3,
+   "neg": 4.2,
    "pos": 40.4
   },
   {
    "date": "2026-09-24",
-   "total": 494,
+   "total": 497,
    "neg_n": 0,
-   "neu_n": 265,
+   "neu_n": 268,
    "pos_n": 229,
    "neg": 0.0,
-   "pos": 46.4
+   "pos": 46.1
   },
   {
    "date": "2026-09-25",
-   "total": 449,
+   "total": 451,
    "neg_n": 0,
-   "neu_n": 211,
+   "neu_n": 213,
    "pos_n": 238,
    "neg": 0.0,
-   "pos": 53.0
+   "pos": 52.8
   },
   {
    "date": "2026-09-26",
-   "total": 168,
-   "neg_n": 2,
-   "neu_n": 78,
-   "pos_n": 88,
-   "neg": 1.2,
-   "pos": 52.4
+   "total": 391,
+   "neg_n": 5,
+   "neu_n": 194,
+   "pos_n": 192,
+   "neg": 1.3,
+   "pos": 49.1
   }
  ],
  "reasons": [
   {
    "word": "단속",
-   "n": 22
+   "n": 21
   },
   {
    "word": "우려",
@@ -22547,6 +22571,10 @@
    "n": 5
   },
   {
+   "word": "수사",
+   "n": 4
+  },
+  {
    "word": "불친절",
    "n": 4
   },
@@ -22555,7 +22583,7 @@
    "n": 4
   },
   {
-   "word": "수사",
+   "word": "실망",
    "n": 3
   },
   {
@@ -22564,10 +22592,6 @@
   },
   {
    "word": "침체",
-   "n": 3
-  },
-  {
-   "word": "화재",
    "n": 3
   }
  ],
@@ -22648,7 +22672,7 @@
    "desc": "강원 3명, 인천·경남 각 2명, 전남·제주·울산 각 1명으로 충남의 사망자가 가장 많았다. 충남 서천에서 야간 해루질 실종된 관광객을 해경이 수색 중이다. [사진=보령해경] 충남에서는 8월에만 4"
   },
   {
-   "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - newsjeju.net",
+   "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - 뉴스제주",
    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9wUkdzaUdXX1gwcVBsNUZrM0lwMmNkWG5NNUNSaWxlbDdXM3ctQlNMSkVwTDVBa29iWFdQSWxUajJXUjZ4eEl3OFcyUHlKZURzcEh6R3NjMk0wcnozUnp0aXhUMnRmZnBISU13?oc=5",
    "channel": "news",
    "date": "2026-09-21",
@@ -22949,6 +22973,30 @@
    "desc": "지금 뜨는 다른 이슈 \" \" \" \" \" \" \" \" ────────────────── #제주중국인관광객 #제주관광 #제주여행 #중국인관광객 #제주도 #우도 #크루즈관광 #제주크루즈 #위성곤 #제주도지"
   },
   {
+   "title": "제주여행 구좌읍 송당리 스튜디오 지브리전 인 제주 사진스팟 포토....",
+   "link": "https://blog.naver.com/yumding-ing/224422895729",
+   "channel": "blog",
+   "date": "2026-09-26",
+   "category": null,
+   "sentiment": "부정",
+   "reasons": [
+    "실망"
+   ],
+   "desc": "올해 제주여행코스로 새롭게 떠오르는 한 곳을 다녀왔는데요. 7월... 다소 실망했던 곳, 지금 소개합니다. 제주 구좌읍 송당동화마을에... 2026년 7월 11일에 오픈한 신상 중의 신상 여행지입니"
+  },
+  {
+   "title": "여행용크로스백, 미니크로스백 추천 트래블기어 도난방지가방",
+   "link": "https://blog.naver.com/jwl1229/224423204293",
+   "channel": "blog",
+   "date": "2026-09-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "도난"
+   ],
+   "desc": "제가 요번 제주도 여행에서 알차게 잘 가지고 다닌 귀여운 미니크로스백을 추천드리려고 합니다.... 해외여행 다니면서 걱정되는 것 중 하나가 바로 도난인데요, 칼로 가방을 튿어 훔쳐가는 경우가 있는데"
+  },
+  {
    "title": "[제주/협재] 도나토스 - 불편함과 편함의 공존",
    "link": "https://blog.naver.com/adabtu/224417481663",
    "channel": "blog",
@@ -23029,26 +23077,6 @@
    "sentiment": "부정",
    "reasons": [],
    "desc": "바뀌었습니다 제주 여행길 중문에서 마주한 흑돼지의 첫인상 제주를 방문할 때마다 느끼지만 뻔한 코스... 그저 여행지의 필수 관문처럼 여겨지는 식당 정도로만 치부했습니다. 곶자왈 직영 농장이 가진.."
-  },
-  {
-   "title": "제주 서귀포 맛집인데 아무도 안 알려줬다는 억울함",
-   "link": "https://blog.naver.com/wngus5046/224417416141",
-   "channel": "blog",
-   "date": "2026-09-20",
-   "category": "먹거리",
-   "sentiment": "부정",
-   "reasons": [],
-   "desc": "제주 살면서 이걸 이제 알았다는 게 진짜 말이 안 됨 제주도 여행 가면 늘 유명한 데만 찾아다녔어요... 거잖아요 제주도 횟집 한 번이라도 더 가봤더라면 벌써 알았을 텐데 싶기도 하고요 모슬포 맛집"
-  },
-  {
-   "title": "제주 우진해장국 택배 카톡 주문 후기 / 4개월이상 걸림",
-   "link": "https://blog.naver.com/saramara1122/224417408395",
-   "channel": "blog",
-   "date": "2026-09-20",
-   "category": "먹거리",
-   "sentiment": "부정",
-   "reasons": [],
-   "desc": "우진해장국 택배주문 방법 카톡 주문 글.사진ⓒ사라마라 안녕하세요 사라예요 제주도 여행에서... 제주우진해장국 #제주도맛집 #제주맛집추천 #택배맛집 #우진해장국전화주문 #우진해장국꿀팁..."
   }
  ],
  "top_positive": [
@@ -23250,7 +23278,7 @@
    "desc": "강원 3명, 인천·경남 각 2명, 전남·제주·울산 각 1명으로 충남의 사망자가 가장 많았다. 충남 서천에서 야간 해루질 실종된 관광객을 해경이 수색 중이다. [사진=보령해경] 충남에서는 8월에만 4"
   },
   {
-   "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - newsjeju.net",
+   "title": "제주도, 전국체전 앞두고 숙박·렌터카 바가지요금 집중 단속 - 뉴스제주",
    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9wUkdzaUdXX1gwcVBsNUZrM0lwMmNkWG5NNUNSaWxlbDdXM3ctQlNMSkVwTDVBa29iWFdQSWxUajJXUjZ4eEl3OFcyUHlKZURzcEh6R3NjMk0wcnozUnp0aXhUMnRmZnBISU13?oc=5",
    "channel": "news",
    "date": "2026-09-21",
@@ -23671,7 +23699,7 @@
    "desc": "\"제주용달 비용이 너무 비싸면 어쩌지?\" \"짐 옮기다 스크래치 나면 어떡하나.\" \"불친절한 기사님 만나면 어쩌지?\" 오늘 그 걱정 다 해결해 드립니다. 제주에서 용달 비용 아끼고 좋은 업체 고르는 "
   },
   {
-   "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+   "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
    "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5EUUlmMEpVdXJaWnlNVnd1VUR4bEhSOFVaQVVNQTJ6ckRoMnpZX1c0S2pTZVBVVDhtdUZBR1FjeWEyMmd5VlE0THZTcGNySDlxTWdNV2xOeWN2dEN3Sm9VbW5rUmphQVJN?oc=5",
    "channel": "news",
    "date": "2026-09-22",
@@ -23695,7 +23723,7 @@
    "desc": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTFA4NnAwMl80Z1RKckp3ZGJSWXNoMGlCdk43RDdqcURvQjdBaW8w"
   },
   {
-   "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+   "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBveXNGcU5TWG5PVXVxS19OQjhuMHR4S082S0ZwakhSbUY2TzhFNnBEYnN0ai11dVBWV1diN2g2Q0hHdVdqRTQyV282OVFXWUpwcUhqajNNQkQ3Z3RzMGtBRUZsTEw1cEE?oc=5",
    "channel": "news",
    "date": "2026-09-22",
@@ -23849,6 +23877,30 @@
    "sentiment": "긍정",
    "reasons": [],
    "desc": "추석 연휴를 맞아 아름다운 제주로 여행 오신 분들 많으시죠? 하지만 즐거운 제주 여행 중 갑자기 아이가 열이 나거나, 맛있는 음식을 먹고 체했을 때 문 연 병원이나 약국을 찾지 못해 당황하시는 경우"
+  },
+  {
+   "title": "제주여행 구좌읍 송당리 스튜디오 지브리전 인 제주 사진스팟 포토....",
+   "link": "https://blog.naver.com/yumding-ing/224422895729",
+   "channel": "blog",
+   "date": "2026-09-26",
+   "category": null,
+   "sentiment": "부정",
+   "reasons": [
+    "실망"
+   ],
+   "desc": "올해 제주여행코스로 새롭게 떠오르는 한 곳을 다녀왔는데요. 7월... 다소 실망했던 곳, 지금 소개합니다. 제주 구좌읍 송당동화마을에... 2026년 7월 11일에 오픈한 신상 중의 신상 여행지입니"
+  },
+  {
+   "title": "여행용크로스백, 미니크로스백 추천 트래블기어 도난방지가방",
+   "link": "https://blog.naver.com/jwl1229/224423204293",
+   "channel": "blog",
+   "date": "2026-09-26",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "도난"
+   ],
+   "desc": "제가 요번 제주도 여행에서 알차게 잘 가지고 다닌 귀여운 미니크로스백을 추천드리려고 합니다.... 해외여행 다니면서 걱정되는 것 중 하나가 바로 도난인데요, 칼로 가방을 튿어 훔쳐가는 경우가 있는데"
   },
   {
    "title": "[제주/협재] 도나토스 - 불편함과 편함의 공존",
@@ -24071,26 +24123,6 @@
    "sentiment": "긍정",
    "reasons": [],
    "desc": "제주도 여행 계획 중이시라면 이 근처 지나실 때 한 번쯤 들러보시는 거 추천 드려요. 다음에 제주 가면... 뷰가 계속 생각나네요ㅎㅎ #애월맛집 #애월흑돼지맛집 #제주흑돼지 #제주맛집 #애월카페거리"
-  },
-  {
-   "title": "제주 여행길에서 마주한 중문 맛집의 진짜 고기 미학",
-   "link": "https://blog.naver.com/harle5694/224417412124",
-   "channel": "blog",
-   "date": "2026-09-20",
-   "category": "먹거리",
-   "sentiment": "긍정",
-   "reasons": [],
-   "desc": "풍미 제주 여행 중 마주친 중문 맛집 궤네깃도 중문흑돼지는 고기 자체의... 식사를 마친 후 느껴지는 든든한 포만감은 여행의 또 다른 추억이 되며 이곳이 왜 주목받는지 실감하게 됩니다. 제주 맛집에"
-  },
-  {
-   "title": "30대 여행객이 직접 체험한 제주 중문 맛집의 고기 맛",
-   "link": "https://blog.naver.com/jury_buzz61233/224417412015",
-   "channel": "blog",
-   "date": "2026-09-20",
-   "category": "먹거리",
-   "sentiment": "긍정",
-   "reasons": [],
-   "desc": "특별한 날이나 가족 동반 여행 시 중문에서 고기 식사를 고려한다면 충분히 고려할만한 가치가 있습니다. #제주중문맛집 #제주흑돼지 #궤네깃도 #중문흑돼지 #제주여행맛집 #서귀포맛집"
   }
  ]
 }
