@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-09-30 05:21",
+  "updated": "2026-09-30 14:07",
   "period": {
    "from": "2026-09-24",
    "to": "2026-09-30"
@@ -12,35 +12,35 @@
   "engine": "v14-20260826",
   "source": "네이버 검색 오픈API · Google News RSS",
   "note": "불만 구성비는 '모인 불만' 안에서의 비율입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.",
-  "date_est_n": 2224,
+  "date_est_n": 2263,
   "date_est_note": "카페 글은 작성일이 제공되지 않아 수집일을 날짜로 씁니다. 30일 집계에는 포함하되 일별 추이에는 넣지 않습니다.",
   "disclaimer": "자체 수집·분류한 참고자료이며 일부 오류가 있을 수 있습니다.",
   "judge": {
    "version": "llm-v9",
    "model": "exaone-4.0-32b",
    "judged": 0,
-   "failed": 504,
+   "failed": 536,
    "dropped": 0,
    "audit_dropped": 0,
-   "updated": "2026-09-30 00:17"
+   "updated": "2026-09-30 09:02"
   }
  },
  "voice": {
-  "total": 2843,
-  "neg_n": 6,
+  "total": 3037,
+  "neg_n": 7,
   "neg_rate": 0.2,
   "channels": {
-   "blog": 2400,
-   "cafe": 443
+   "blog": 2555,
+   "cafe": 482
   },
   "mix": [
    {
     "name": "숙박",
     "policy": "숙박 시설·거래 관행",
     "n": 1,
-    "share": 16.7,
+    "share": 14.3,
     "prev": 19.2,
-    "delta": -2.5,
+    "delta": -4.9,
     "top": [
      {
       "title": "[여행] 돈 아깝지 않은 제주도 찐맛집·숙소 총정리! 3대 가족 맞춤 4....",
@@ -60,9 +60,9 @@
     "name": "비용·상거래",
     "policy": "관광 물가·요금 공정성",
     "n": 1,
-    "share": 16.7,
+    "share": 14.3,
     "prev": 6.4,
-    "delta": 10.3,
+    "delta": 7.9,
     "top": [
      {
       "title": "배에 육공이 싣기 비싸네요.",
@@ -75,6 +75,28 @@
        "비쌈"
       ],
       "desc": "담 주에 제주 여행을 육공이랑 가려고 배 예약중인데 육공이 승선료가 편도 15만원이네요. 왕복 30만원입니다. 국산 경차는 편도 10.5만원이라 육공이 경차라고 다시 문의 했는데, 660은 15만원"
+     }
+    ]
+   },
+   {
+    "name": "이동·교통",
+    "policy": "관광 교통·접근성",
+    "n": 1,
+    "share": 14.3,
+    "prev": 23.1,
+    "delta": -8.8,
+    "top": [
+     {
+      "title": "10월 제주여행 3~4일, 성읍민속마을 그냥 지나치면 아쉬운 이유",
+      "link": "https://blog.naver.com/money_care_/224426645501",
+      "channel": "blog",
+      "date": "2026-09-30",
+      "category": "이동·교통",
+      "sentiment": "부정",
+      "reasons": [
+       "아쉬움"
+      ],
+      "desc": "성읍민속마을은 제주 동쪽 여행 일정 가운데 넣기 좋습니다. 오전에 따라비오름 쪽을 걷고, 점심 전후... 10월 제주여행, 숙소 지금 잡아야 할까? 전국체전·렌터카 변수까지 정리 10월 제주 억새,"
      }
     ]
    }
@@ -152,23 +174,35 @@
      "긴장"
     ],
     "desc": "제주 여행의 분주한 일정 속에서 정교한 쉼표를 찍으려면 신체가 어떤 결핍을 느끼는지 먼저 파악해야... 예약 절차가 주는 안정감의 차이 성수기의 제주를 여행할 때는 정해진 관리 일정을 미리 확정해두"
+   },
+   {
+    "title": "10월 제주여행 3~4일, 성읍민속마을 그냥 지나치면 아쉬운 이유",
+    "link": "https://blog.naver.com/money_care_/224426645501",
+    "channel": "blog",
+    "date": "2026-09-30",
+    "category": "이동·교통",
+    "sentiment": "부정",
+    "reasons": [
+     "아쉬움"
+    ],
+    "desc": "성읍민속마을은 제주 동쪽 여행 일정 가운데 넣기 좋습니다. 오전에 따라비오름 쪽을 걷고, 점심 전후... 10월 제주여행, 숙소 지금 잡아야 할까? 전국체전·렌터카 변수까지 정리 10월 제주 억새,"
    }
   ]
  },
  "risk": {
-  "total": 193,
-  "neg_n": 131,
+  "total": 198,
+  "neg_n": 132,
   "clusters": [
    {
     "label": "사망·변사",
-    "n": 58,
+    "n": 59,
     "media": 31,
     "from": "2026-09-27",
     "to": "2026-09-29",
     "days": 3,
     "spread": "확산",
     "categories": {
-     "치안·안전": 58
+     "치안·안전": 59
     },
     "top": [
      {
@@ -994,11 +1028,11 @@
   ]
  },
  "info": {
-  "total": 370
+  "total": 387
  },
  "window30": {
-  "total": 10429,
-  "neg_n": 919,
+  "total": 10648,
+  "neg_n": 920,
   "daily": [
    {
     "date": "2026-09-01",
@@ -1083,12 +1117,12 @@
    },
    {
     "date": "2026-09-10",
-    "total": 178,
+    "total": 179,
     "neg_n": 47,
-    "neu_n": 49,
+    "neu_n": 50,
     "pos_n": 82,
-    "neg": 26.4,
-    "pos": 46.1
+    "neg": 26.3,
+    "pos": 45.8
    },
    {
     "date": "2026-09-11",
@@ -1173,12 +1207,12 @@
    },
    {
     "date": "2026-09-20",
-    "total": 395,
+    "total": 396,
     "neg_n": 11,
-    "neu_n": 220,
+    "neu_n": 221,
     "pos_n": 164,
     "neg": 2.8,
-    "pos": 41.5
+    "pos": 41.4
    },
    {
     "date": "2026-09-21",
@@ -1191,9 +1225,9 @@
    },
    {
     "date": "2026-09-22",
-    "total": 594,
+    "total": 595,
     "neg_n": 14,
-    "neu_n": 325,
+    "neu_n": 326,
     "pos_n": 255,
     "neg": 2.4,
     "pos": 42.9
@@ -1245,128 +1279,128 @@
    },
    {
     "date": "2026-09-28",
-    "total": 514,
-    "neg_n": 66,
+    "total": 515,
+    "neg_n": 67,
     "neu_n": 264,
     "pos_n": 184,
-    "neg": 12.8,
-    "pos": 35.8
+    "neg": 13.0,
+    "pos": 35.7
    },
    {
     "date": "2026-09-29",
-    "total": 582,
+    "total": 586,
     "neg_n": 19,
-    "neu_n": 326,
-    "pos_n": 237,
-    "neg": 3.3,
-    "pos": 40.7
+    "neu_n": 329,
+    "pos_n": 238,
+    "neg": 3.2,
+    "pos": 40.6
    },
    {
     "date": "2026-09-30",
-    "total": 9,
-    "neg_n": 0,
-    "neu_n": 7,
-    "pos_n": 2,
-    "neg": 0.0,
-    "pos": 22.2
+    "total": 181,
+    "neg_n": 1,
+    "neu_n": 104,
+    "pos_n": 76,
+    "neg": 0.6,
+    "pos": 42.0
    }
   ],
   "from": "2026-09-01",
   "to": "2026-09-30",
   "stats": {
-   "total": 10071,
-   "neg": 9.1,
-   "pos": 46.3,
-   "neu": 44.6,
+   "total": 10289,
+   "neg": 8.9,
+   "pos": 46.1,
+   "neu": 45.0,
    "channels": {
-    "blog": 6302,
-    "cafe": 1823,
-    "news": 1946
+    "blog": 6458,
+    "cafe": 1862,
+    "news": 1969
    },
    "categories": {
     "응대·서비스": {
-     "n": 100,
-     "neg": 30.0,
+     "n": 101,
+     "neg": 29.7,
      "share": 1.0
     },
     "비용·상거래": {
-     "n": 380,
-     "neg": 10.0,
+     "n": 388,
+     "neg": 9.8,
      "share": 3.8
     },
     "환경·청결": {
-     "n": 57,
-     "neg": 26.3,
+     "n": 60,
+     "neg": 25.0,
      "share": 0.6
     },
     "이동·교통": {
-     "n": 1345,
-     "neg": 9.8,
+     "n": 1374,
+     "neg": 9.7,
      "share": 13.4
     },
     "숙박": {
-     "n": 2278,
-     "neg": 3.9,
-     "share": 22.6
+     "n": 2349,
+     "neg": 3.7,
+     "share": 22.8
     },
     "먹거리": {
-     "n": 2937,
+     "n": 2991,
      "neg": 2.4,
-     "share": 29.2
+     "share": 29.1
     },
     "볼거리·체험": {
-     "n": 1740,
-     "neg": 2.8,
+     "n": 1784,
+     "neg": 2.7,
      "share": 17.3
     },
     "치안·안전": {
-     "n": 472,
-     "neg": 67.8,
-     "share": 4.7
+     "n": 473,
+     "neg": 67.7,
+     "share": 4.6
     },
     "정책·행정": {
-     "n": 632,
-     "neg": 23.4,
-     "share": 6.3
+     "n": 636,
+     "neg": 23.3,
+     "share": 6.2
     }
    },
    "natures": {
     "불만·후기": {
-     "n": 8061,
-     "share": 80.0
+     "n": 8249,
+     "share": 80.2
     },
     "사건사고": {
-     "n": 473,
-     "share": 4.7
+     "n": 476,
+     "share": 4.6
     },
     "정보·소식": {
-     "n": 1537,
-     "share": 15.3
+     "n": 1564,
+     "share": 15.2
     }
    },
    "tracks": {
-    "voice": 8014,
-    "risk": 585,
-    "info": 1472
+    "voice": 8208,
+    "risk": 590,
+    "info": 1491
    }
   },
   "rank": [
    {
     "name": "치안·안전",
     "policy": "관광객 안전·치안",
-    "n": 472,
+    "n": 473,
     "neg_n": 324,
-    "share": 4.7,
-    "neg": 67.8,
+    "share": 4.6,
+    "neg": 67.7,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 543,
+     "사건사고": 545,
      "불만·후기": 176,
      "정보·소식": 42
     },
     "pos_n": 10,
-    "neu_n": 180,
+    "neu_n": 181,
     "top": [
      {
       "title": "실종자 찾다 경찰까지 밀물에 고립…천지연폭포 추락 50대 숨져",
@@ -1635,7 +1669,7 @@
       "desc": "8시32분쯤 서귀포시 천지연폭포에서 사진을 찍던 관광객이 물에 빠졌다는 신고가 119에 접수됐다. 신고를 받고 출동한 소방당국은 50대 관광객 A씨를 구조해 병원으로 옮겼으나 숨졌다. 경찰은 정확한"
      },
      {
-      "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - imaeil.com",
+      "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - 매일신문",
       "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA2QWotWGpucUFfTGpySXlEMXZYMTNremNFMnU1eFgtV0lFTHljX3R4U3dLSkZ3WXhFRkpDbzFVWmdtMHJSYmFwa3RLZTd2cFRjamNGRTdqLTZJT1RoVWdUVmhn?oc=5",
       "channel": "news",
       "date": "2026-09-27",
@@ -1677,7 +1711,7 @@
       "desc": "<a href=\"https://news.google.com/rss/articles/CBMiSkFVX3lxTFBlNWVQNGJaUEx1dWEtdU1hbnpYSTBKYW95LVFxUXBkMWxYdkdG"
      },
      {
-      "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - headlinejeju.co.kr",
+      "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - 헤드라인제주",
       "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBHY0N5QWxuVVdnNGQydlBvbWJ5enBUYk5ZRG9UN2RuOXdubmd4aXZmcDhjTlh1MVBkOUdTSWtxT1ViV2xqQjlfQTZKczZpWEZIQVBCVWRKV1VvSHBkQ3hxaGFIbUk1NXVpaWY1dFN3?oc=5",
       "channel": "news",
       "date": "2026-09-27",
@@ -2011,6 +2045,20 @@
        "침체"
       ],
       "desc": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DS0Nob3JQaWlyRVJBWHFVRWdsZDZDSFRHbThDSDU0OTB4RFBm"
+     },
+     {
+      "title": "제주 천지연폭포서 50대 관광객 추락해 숨져…야간개장 잠정 중단 - v.daum.net",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhUbUkyXzJqemxjdGVHOGVlR2VPVHVvMm5DTVNPODk4TjhnUW8?oc=5",
+      "channel": "news",
+      "date": "2026-09-28",
+      "category": "치안·안전",
+      "sentiment": "부정",
+      "reasons": [
+       "숨져",
+       "추락",
+       "침체"
+      ],
+      "desc": "<a href=\"https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhU"
      },
      {
       "title": "제주 천지연 폭포 사진 찍다 추락한 관광객 숨져",
@@ -2368,19 +2416,6 @@
        "침체"
       ],
       "desc": "제주시 우도에서 자전거를 타던 외국인 관광객이 도로 아래로 추락해 크게 다쳤다. 9일 제주도 소방안전본부에 따르면 전날 오후 4시 37분께 제주시 우도면에서 자전거를 타던 40대 중국인 관광객 A씨"
-     },
-     {
-      "title": "우도서 자전거 타던 중국인 2.5m 추락…닥터헬기 이송",
-      "link": "https://www.jejumaeil.net/news/articleView.html?idxno=404521",
-      "channel": "news",
-      "date": "2026-09-09",
-      "category": "치안·안전",
-      "sentiment": "부정",
-      "reasons": [
-       "추락",
-       "침체"
-      ],
-      "desc": "제주시 우도면에서 자전거를 타던 40대 중국인 관광객이 2.5m 높이에서 추락해 중상을 입었다. 제주소방안전본부에 따르면 8일 오후 4시 37분경 제주시 우도면 비양동 일대에서 자전거를 운행하던 4"
      },
      {
       "title": "[2026] 제주 실종 사건과 바가지 논란의 나비효과: 10조 원 제주 관광 ....",
@@ -2939,19 +2974,19 @@
    {
     "name": "정책·행정",
     "policy": "행정 소식",
-    "n": 632,
+    "n": 636,
     "neg_n": 148,
-    "share": 6.3,
-    "neg": 23.4,
+    "share": 6.2,
+    "neg": 23.3,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 157,
      "불만·후기": 212,
-     "정보·소식": 326
+     "정보·소식": 330
     },
     "pos_n": 68,
-    "neu_n": 469,
+    "neu_n": 473,
     "top": [
      {
       "title": "실종사건 영향 제주 관광객 급감 우려했지만…내국인 8월 2.5% ↓, 5∼7월...",
@@ -4312,19 +4347,19 @@
    {
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
-    "n": 1345,
-    "neg_n": 132,
+    "n": 1374,
+    "neg_n": 133,
     "share": 13.4,
-    "neg": 9.8,
+    "neg": 9.7,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 46,
-     "불만·후기": 1096,
-     "정보·소식": 205
+     "사건사고": 47,
+     "불만·후기": 1122,
+     "정보·소식": 207
     },
-    "pos_n": 343,
-    "neu_n": 870,
+    "pos_n": 351,
+    "neu_n": 890,
     "top": [
      {
       "title": "제주 안덕 렌트카 음주운전 면허취소 여행 중 렌터카로 적발돼도 동....",
@@ -4647,6 +4682,18 @@
       "sentiment": "긍정",
       "reasons": [],
       "desc": "♨️ #해미안녹차해수사우나 #해미안사우나 #제주사우나 #제주해수사우나 #제주오션뷰사우나 #제주노천탕 #제주목욕탕 #제주공항근처 #제주비오는날갈만한곳 #제주가볼만한곳 #제주여행 #제주힐링여행..."
+     },
+     {
+      "title": "10월 제주여행 3~4일, 성읍민속마을 그냥 지나치면 아쉬운 이유",
+      "link": "https://blog.naver.com/money_care_/224426645501",
+      "channel": "blog",
+      "date": "2026-09-30",
+      "category": "이동·교통",
+      "sentiment": "부정",
+      "reasons": [
+       "아쉬움"
+      ],
+      "desc": "성읍민속마을은 제주 동쪽 여행 일정 가운데 넣기 좋습니다. 오전에 따라비오름 쪽을 걷고, 점심 전후... 10월 제주여행, 숙소 지금 잡아야 할까? 전국체전·렌터카 변수까지 정리 10월 제주 억새,"
      },
      {
       "title": "파라타항공의 상황처리방식",
@@ -5567,35 +5614,25 @@
       "sentiment": "부정",
       "reasons": [],
       "desc": "1박2일의 제주도여행을 마치고 다시 공항으로 돌아갑니다... 보안검색하고 바로 앞에서 탈 수 있는 제주여행 2만보의 여파로 아픈... 쿠로미와 함께 에이카스 영수증도 왔습니다 제주도 기상치고 상당히"
-     },
-     {
-      "title": "아이와 함께한 제주 버스투어 소소한 즐거움",
-      "link": "https://blog.naver.com/jsm16284/224401820477",
-      "channel": "blog",
-      "date": "2026-09-05",
-      "category": "이동·교통",
-      "sentiment": "긍정",
-      "reasons": [],
-      "desc": "아이와 함께한 제주 버스투어 소소한 즐거움 제주 여행을 계획하면서 아이와 함께 버스투어를... 운전기사분들도 조심스럽게 운행해 주셔서 마음 놓고 여행할 수 있었죠. 제주의 자연과 문화 체험하기 버스"
      }
     ]
    },
    {
     "name": "숙박",
     "policy": "숙박 시설·거래 관행",
-    "n": 2278,
+    "n": 2349,
     "neg_n": 88,
-    "share": 22.6,
-    "neg": 3.9,
+    "share": 22.8,
+    "neg": 3.7,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 31,
-     "불만·후기": 1868,
-     "정보·소식": 379
+     "불만·후기": 1929,
+     "정보·소식": 389
     },
-    "pos_n": 857,
-    "neu_n": 1333,
+    "pos_n": 877,
+    "neu_n": 1384,
     "top": [
      {
       "title": "전국체전 앞둔 제주, 숙박업소 '바가지요금·안전' 집중 점검",
@@ -6818,19 +6855,19 @@
    {
     "name": "먹거리",
     "policy": "음식점 품질·가격",
-    "n": 2937,
+    "n": 2991,
     "neg_n": 71,
-    "share": 29.2,
+    "share": 29.1,
     "neg": 2.4,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 6,
-     "불만·후기": 2696,
-     "정보·소식": 235
+     "불만·후기": 2745,
+     "정보·소식": 240
     },
-    "pos_n": 2447,
-    "neu_n": 419,
+    "pos_n": 2488,
+    "neu_n": 432,
     "top": [
      {
       "title": "[제주] 인스타 보고 갔다가 실망한 지구상회 제주애월본점 내돈내산....",
@@ -8049,19 +8086,19 @@
    {
     "name": "볼거리·체험",
     "policy": "관광 콘텐츠·시설 운영",
-    "n": 1740,
+    "n": 1784,
     "neg_n": 48,
     "share": 17.3,
-    "neg": 2.8,
+    "neg": 2.7,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 26,
-     "불만·후기": 1462,
-     "정보·소식": 253
+     "사건사고": 27,
+     "불만·후기": 1502,
+     "정보·소식": 256
     },
-    "pos_n": 704,
-    "neu_n": 989,
+    "pos_n": 711,
+    "neu_n": 1026,
     "top": [
      {
       "title": "‘허위 실종 종결 논란’에도 제주 방문 관광객 증가 - 제민일보",
@@ -9293,19 +9330,19 @@
    {
     "name": "비용·상거래",
     "policy": "관광 물가·요금 공정성",
-    "n": 380,
+    "n": 388,
     "neg_n": 38,
     "share": 3.8,
-    "neg": 10.0,
+    "neg": 9.8,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 5,
-     "불만·후기": 323,
-     "정보·소식": 52
+     "불만·후기": 329,
+     "정보·소식": 54
     },
-    "pos_n": 50,
-    "neu_n": 292,
+    "pos_n": 52,
+    "neu_n": 298,
     "top": [
      {
       "title": "바가지요금에 택시 난폭운전…올해 관광불편신고 '역대 최대'",
@@ -9438,7 +9475,7 @@
       "reasons": [
        "침체"
       ],
-      "desc": "이처럼 면세점 매출이 감소한 이유로는 코로나19가 진정 국면에 접어들면서 제주를 찾던 여행객들의 발길이 해외로 옮겨진 점, 상품구매 채널이 온라인으로 변화한 점, 소비자들이 구매 성향이 가성비 위주"
+      "desc": "이처럼 면세점 매출이 감소한 이유로는 코로나19가 진정 국면에 접어들면서 제주를 찾던 여행객들의... 29%로 10%포인트 이상 크게 줄었다\"며 \"제주도 방문객 및 면세점 이용자 감소에 대비한 면세"
      },
      {
       "title": "제주도 라면 솔직후기: 돗멘에 실망하고 별 기대 없이 먹어본 '딱멘'....",
@@ -10553,19 +10590,19 @@
    {
     "name": "응대·서비스",
     "policy": "관광종사자 응대·서비스 품질",
-    "n": 100,
+    "n": 101,
     "neg_n": 30,
     "share": 1.0,
-    "neg": 30.0,
+    "neg": 29.7,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 2,
      "불만·후기": 85,
-     "정보·소식": 15
+     "정보·소식": 16
     },
     "pos_n": 58,
-    "neu_n": 12,
+    "neu_n": 13,
     "top": [
      {
       "title": "제주도 2박3일 3일차 경비, 일정공유/ 할머니떡집,중문고등어쌈밥, ....",
@@ -11456,6 +11493,16 @@
       "desc": "서귀포 복자네식당의 특정식(1인 13000)에 딸려나온, 작은 도미 구이. 아마 붉돔이나 황돔일텐데.. 혼자 운영하시는 사장님이 새벽 5시에 서귀포항에 가서 사오시는거라 가능한 것. (어종 랜덤) "
      },
      {
+      "title": "[똑똑한케어] 코스맥스, 이니스프리, 유씨엘, 룰루랩, 컬리-아모레퍼시...",
+      "link": "https://www.ekn.kr/web/view.php?key=20260930023090233",
+      "channel": "news",
+      "date": "2026-09-30",
+      "category": "응대·서비스",
+      "sentiment": "중립",
+      "reasons": [],
+      "desc": "'3X 레티놀 컴플렉스'와 '3X 제주 시카™'를 적용했으며 모공과 피지, 피부 진정 등을 한 번에 관리할 수... 최용준 룰루랩 대표는 “AI 개인화 서비스가 확대될수록 분석 정확도뿐 아니라 데이"
+     },
+     {
       "title": "서귀포마사지 선택시 몸의 컨디션을 고려하는 세심한 안목과 과정",
       "link": "https://blog.naver.com/vycsl0xu/224416650530",
       "channel": "blog",
@@ -11610,18 +11657,18 @@
    {
     "name": "환경·청결",
     "policy": "관광지 환경·위생 관리",
-    "n": 57,
+    "n": 60,
     "neg_n": 15,
     "share": 0.6,
-    "neg": 26.3,
+    "neg": 25.0,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 3,
-     "불만·후기": 41,
+     "불만·후기": 44,
      "정보·소식": 14
     },
-    "pos_n": 26,
+    "pos_n": 29,
     "neu_n": 16,
     "top": [
      {
@@ -12111,7 +12158,7 @@
       "desc": "장소는 제주관광대학교 체육관 확정입니다. 2. 당일 참가선수는 정부정책과 도체육회의 대회관련지시로 인해 자체방역시스템을 가동하고 선수PCR검사 음성확인서 제출은 생략합니다. 3. 관중도 허용합니다."
      },
      {
-      "title": "쓰레기 7t 걷어낸 제주관광, 여행복지로 넓혔다 - newscj.com",
+      "title": "쓰레기 7t 걷어낸 제주관광, 여행복지로 넓혔다 - 천지일보",
       "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1GSVUwZjFONnZ2WVhZZDZ5ZjNzcERDdHJYUUN5Tm1Sd2l3Y3JIT3J3SDA5VjJOWFE1R3hLbmFYYVhNRnRBckJmNmZFbTVWRVdOYmZDSnNnNjZxUUZMNWF3SWptSjU1ek12OEE?oc=5",
       "channel": "news",
       "date": "2026-09-20",
@@ -12209,6 +12256,36 @@
       "sentiment": "긍정",
       "reasons": [],
       "desc": "그림동화 - 버섯을 찾아봐 ☘️ 퍼포먼스 - 혼자옵서예 제주도 “혼저 옵서예~” 제주도 인사를 나누며 제주 여행을 떠나보았어요~ 돌하르방 할아버지를 꾸미며 우리만의 멋진 돌하르방을 만들어보고~ 나무"
+     },
+     {
+      "title": "제주 해안 쓰레기 발견하면 안전신문고로 신고하세요｜여행 중 발....",
+      "link": "https://blog.naver.com/ghtn1616174/224423381477",
+      "channel": "blog",
+      "date": "2026-09-30",
+      "category": "환경·청결",
+      "sentiment": "긍정",
+      "reasons": [],
+      "desc": "아름다운 제주 풍경입니다. 저도 제주 여행을 생각하면 예쁜 카페나 맛집도 떠오르지만, 사실 제주... 오히려 제주를 여행하면서 현장을 직접 본 사람이 문제를 발견하고 알려주는 것은 지역 환경 관리에"
+     },
+     {
+      "title": "제주 사모아모텔 총평 완벽한 위치와 깨끗함이 돋보이는 제주 여행 ....",
+      "link": "https://blog.naver.com/nightcap_stay/224420231394",
+      "channel": "blog",
+      "date": "2026-09-30",
+      "category": "환경·청결",
+      "sentiment": "긍정",
+      "reasons": [],
+      "desc": "항구에서도 가깝고, 제주를 돌아다니는 거점 숙소로 완벽하게 자리 잡은 느낌이 들었습니다. 기대 이상으로 청결했던 방과 상쾌한 냄새 사실 가격대비 큰 기대를 하지 않았는데, 실제로 묵어보니 청결 상태"
+     },
+     {
+      "title": "맛부터 배달까지 혁신… 고객만족도 12년째 정상",
+      "link": "https://www.donga.com/news/Economy/article/all/20260929/134750115/2",
+      "channel": "news",
+      "date": "2026-09-30",
+      "category": "환경·청결",
+      "sentiment": "긍정",
+      "reasons": [],
+      "desc": "2021년 피자 업계 최초로 드론 배달 서비스를 론칭해 2022년 제주 삼양해수욕장, 2023년 대구 수성못에서 드론... 위생과 안전에 만전을 기하고 있으며 피자 박스에 안심 배달 스티커를 부착해"
      }
     ]
    }
@@ -12220,11 +12297,11 @@
    },
    {
     "word": "침체",
-    "n": 93
+    "n": 94
    },
    {
     "word": "추락",
-    "n": 83
+    "n": 84
    },
    {
     "word": "우려",
@@ -12232,7 +12309,7 @@
    },
    {
     "word": "숨져",
-    "n": 37
+    "n": 38
    },
    {
     "word": "사망",
@@ -12531,7 +12608,7 @@
     "desc": "8시32분쯤 서귀포시 천지연폭포에서 사진을 찍던 관광객이 물에 빠졌다는 신고가 119에 접수됐다. 신고를 받고 출동한 소방당국은 50대 관광객 A씨를 구조해 병원으로 옮겼으나 숨졌다. 경찰은 정확한"
    },
    {
-    "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - imaeil.com",
+    "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - 매일신문",
     "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA2QWotWGpucUFfTGpySXlEMXZYMTNremNFMnU1eFgtV0lFTHljX3R4U3dLSkZ3WXhFRkpDbzFVWmdtMHJSYmFwa3RLZTd2cFRjamNGRTdqLTZJT1RoVWdUVmhn?oc=5",
     "channel": "news",
     "date": "2026-09-27",
@@ -12573,7 +12650,7 @@
     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiSkFVX3lxTFBlNWVQNGJaUEx1dWEtdU1hbnpYSTBKYW95LVFxUXBkMWxYdkdG"
    },
    {
-    "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - headlinejeju.co.kr",
+    "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - 헤드라인제주",
     "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBHY0N5QWxuVVdnNGQydlBvbWJ5enBUYk5ZRG9UN2RuOXdubmd4aXZmcDhjTlh1MVBkOUdTSWtxT1ViV2xqQjlfQTZKczZpWEZIQVBCVWRKV1VvSHBkQ3hxaGFIbUk1NXVpaWY1dFN3?oc=5",
     "channel": "news",
     "date": "2026-09-27",
@@ -13354,7 +13431,7 @@
     "desc": "8시32분쯤 서귀포시 천지연폭포에서 사진을 찍던 관광객이 물에 빠졌다는 신고가 119에 접수됐다. 신고를 받고 출동한 소방당국은 50대 관광객 A씨를 구조해 병원으로 옮겼으나 숨졌다. 경찰은 정확한"
    },
    {
-    "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - imaeil.com",
+    "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - 매일신문",
     "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA2QWotWGpucUFfTGpySXlEMXZYMTNremNFMnU1eFgtV0lFTHljX3R4U3dLSkZ3WXhFRkpDbzFVWmdtMHJSYmFwa3RLZTd2cFRjamNGRTdqLTZJT1RoVWdUVmhn?oc=5",
     "channel": "news",
     "date": "2026-09-27",
@@ -13396,7 +13473,7 @@
     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiSkFVX3lxTFBlNWVQNGJaUEx1dWEtdU1hbnpYSTBKYW95LVFxUXBkMWxYdkdG"
    },
    {
-    "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - headlinejeju.co.kr",
+    "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - 헤드라인제주",
     "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBHY0N5QWxuVVdnNGQydlBvbWJ5enBUYk5ZRG9UN2RuOXdubmd4aXZmcDhjTlh1MVBkOUdTSWtxT1ViV2xqQjlfQTZKczZpWEZIQVBCVWRKV1VvSHBkQ3hxaGFIbUk1NXVpaWY1dFN3?oc=5",
     "channel": "news",
     "date": "2026-09-27",
@@ -13730,6 +13807,20 @@
      "침체"
     ],
     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DS0Nob3JQaWlyRVJBWHFVRWdsZDZDSFRHbThDSDU0OTB4RFBm"
+   },
+   {
+    "title": "제주 천지연폭포서 50대 관광객 추락해 숨져…야간개장 잠정 중단 - v.daum.net",
+    "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhUbUkyXzJqemxjdGVHOGVlR2VPVHVvMm5DTVNPODk4TjhnUW8?oc=5",
+    "channel": "news",
+    "date": "2026-09-28",
+    "category": "치안·안전",
+    "sentiment": "부정",
+    "reasons": [
+     "숨져",
+     "추락",
+     "침체"
+    ],
+    "desc": "<a href=\"https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhU"
    },
    {
     "title": "제주 천지연 폭포 사진 찍다 추락한 관광객 숨져",
@@ -14077,19 +14168,6 @@
      "불안"
     ],
     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE5kTUNYekpZRUJyNHppY05xdEJTWEpXXzdGN0xsV0VCejNMdGVY"
-   },
-   {
-    "title": "실종 불안 커진 제주… 1인 여행객 '안심여행기구' 만든다 - v.daum.net",
-    "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5RSkFkeERidEFLX3Y1d0dXa1U1bEpXa3RqOTJ1WnM1Z2tJbWY0eEdpMHVXRExtVkZPNEs0N212ZEF0V3JXdG4xU2kzTVBsMzg?oc=5",
-    "channel": "news",
-    "date": "2026-09-03",
-    "category": "정책·행정",
-    "sentiment": "중립",
-    "reasons": [
-     "실종",
-     "불안"
-    ],
-    "desc": "<a href=\"https://news.google.com/rss/articles/CBMiT0FVX3lxTE5RSkFkeERidEFLX3Y1d0dXa1U1bEpXa3RqOTJ1WnM1Z2tJbWY0"
    },
    {
     "title": "제주도 실종 사건에 중국인 연관설까지? 무비자 확대에 커지는 불안....",
@@ -14680,7 +14758,7 @@
     "name": "치안·안전",
     "policy": "관광객 안전·치안",
     "n": 324,
-    "share": 35.3
+    "share": 35.2
    },
    {
     "name": "정책·행정",
@@ -14691,8 +14769,8 @@
    {
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
-    "n": 132,
-    "share": 14.4
+    "n": 133,
+    "share": 14.5
    },
    {
     "name": "숙박",
@@ -14860,14 +14938,14 @@
    },
    {
     "label": "사망·변사",
-    "n": 75,
+    "n": 76,
     "media": 40,
     "from": "2026-09-01",
     "to": "2026-09-29",
     "days": 8,
     "spread": "확산",
     "categories": {
-     "치안·안전": 72,
+     "치안·안전": 73,
      "정책·행정": 2,
      "환경·청결": 1
     },
@@ -15511,7 +15589,7 @@
       "desc": "<a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTFA4NnAwMl80Z1RKckp3ZGJSWXNoMGlCdk43RDdqcURvQjdBaW8w"
      },
      {
-      "title": "제주소방서 민속오일시장 화재예방 캠페인 - 한라일보",
+      "title": "제주소방서 민속오일시장 화재예방 캠페인 - ihalla.com",
       "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBveXNGcU5TWG5PVXVxS19OQjhuMHR4S082S0ZwakhSbUY2TzhFNnBEYnN0ai11dVBWV1diN2g2Q0hHdVdqRTQyV282OVFXWUpwcUhqajNNQkQ3Z3RzMGtBRUZsTEw1cEE?oc=5",
       "channel": "news",
       "date": "2026-09-22",
@@ -15690,89 +15768,89 @@
   ]
  },
  "current": {
-  "total": 3406,
-  "neg": 4.3,
-  "pos": 43.0,
-  "neu": 52.8,
+  "total": 3622,
+  "neg": 4.1,
+  "pos": 42.7,
+  "neu": 53.2,
   "channels": {
-   "news": 523,
-   "blog": 2434,
-   "cafe": 449
+   "news": 544,
+   "blog": 2590,
+   "cafe": 488
   },
   "categories": {
    "응대·서비스": {
-    "n": 4,
+    "n": 5,
     "neg": 0.0,
     "share": 0.1
    },
    "비용·상거래": {
-    "n": 144,
-    "neg": 2.8,
+    "n": 152,
+    "neg": 2.6,
     "share": 4.2
    },
    "환경·청결": {
-    "n": 6,
+    "n": 9,
     "neg": 0.0,
     "share": 0.2
    },
    "이동·교통": {
-    "n": 457,
-    "neg": 0.4,
+    "n": 485,
+    "neg": 0.6,
     "share": 13.4
    },
    "숙박": {
-    "n": 866,
+    "n": 937,
     "neg": 0.1,
-    "share": 25.4
+    "share": 25.9
    },
    "먹거리": {
-    "n": 1026,
+    "n": 1079,
     "neg": 0.0,
-    "share": 30.1
+    "share": 29.8
    },
    "볼거리·체험": {
-    "n": 648,
+    "n": 692,
     "neg": 0.0,
-    "share": 19.0
+    "share": 19.1
    },
    "치안·안전": {
-    "n": 162,
-    "neg": 81.5,
-    "share": 4.8
+    "n": 164,
+    "neg": 81.1,
+    "share": 4.5
    },
    "정책·행정": {
-    "n": 28,
+    "n": 31,
     "neg": 0.0,
-    "share": 0.8
+    "share": 0.9
    }
   },
   "natures": {
    "불만·후기": {
-    "n": 2789,
-    "share": 81.9
+    "n": 2977,
+    "share": 82.2
    },
    "정보·소식": {
-    "n": 431,
-    "share": 12.7
+    "n": 456,
+    "share": 12.6
    },
    "사건사고": {
-    "n": 186,
-    "share": 5.5
+    "n": 189,
+    "share": 5.2
    }
   },
   "tracks": {
-   "info": 370,
-   "voice": 2843,
-   "risk": 193
+   "info": 387,
+   "voice": 3037,
+   "risk": 198
   }
  },
  "previous": {
-  "total": 3497,
+  "total": 3499,
   "neg": 6.3,
   "pos": 42.4,
   "neu": 51.3,
   "channels": {
-   "news": 671,
+   "news": 673,
    "blog": 2040,
    "cafe": 786
   },
@@ -15793,9 +15871,9 @@
     "share": 0.5
    },
    "이동·교통": {
-    "n": 540,
+    "n": 541,
     "neg": 4.1,
-    "share": 15.4
+    "share": 15.5
    },
    "숙박": {
     "n": 822,
@@ -15818,34 +15896,34 @@
     "share": 4.7
    },
    "정책·행정": {
-    "n": 103,
+    "n": 104,
     "neg": 8.7,
-    "share": 2.9
+    "share": 3.0
    }
   },
   "natures": {
    "불만·후기": {
-    "n": 2741,
-    "share": 78.4
+    "n": 2740,
+    "share": 78.3
    },
    "사건사고": {
-    "n": 181,
+    "n": 182,
     "share": 5.2
    },
    "정보·소식": {
-    "n": 575,
-    "share": 16.4
+    "n": 577,
+    "share": 16.5
    }
   },
   "tracks": {
-   "info": 493,
-   "risk": 193,
+   "info": 494,
+   "risk": 194,
    "voice": 2811
   }
  },
  "delta": {
-  "neg": -2.0,
-  "pos": 0.6
+  "neg": -2.2,
+  "pos": 0.3
  },
  "monthly": {
   "items": [
@@ -15858,18 +15936,18 @@
    },
    {
     "month": "2026-09",
-    "total": 10071,
-    "neg": 9.1,
-    "neu": 44.6,
-    "pos": 46.3
+    "total": 10289,
+    "neg": 8.9,
+    "neu": 45.0,
+    "pos": 46.1
    }
   ],
   "current": {
    "month": "2026-09",
-   "total": 10071,
-   "neg": 9.1,
-   "neu": 44.6,
-   "pos": 46.3
+   "total": 10289,
+   "neg": 8.9,
+   "neu": 45.0,
+   "pos": 46.1
   },
   "previous": {
    "month": "2026-08",
@@ -15881,24 +15959,24 @@
   "ready": true,
   "note": "",
   "delta": {
-   "neg": -32.7,
-   "pos": 9.4
+   "neg": -32.9,
+   "pos": 9.2
   }
  },
  "rank": [
   {
    "name": "치안·안전",
    "policy": "관광객 안전·치안",
-   "n": 162,
-   "neg_n": 132,
+   "n": 164,
+   "neg_n": 133,
    "pos_n": 0,
-   "neu_n": 30,
-   "share": 4.8,
-   "neg": 81.5,
+   "neu_n": 31,
+   "share": 4.5,
+   "neg": 81.1,
    "prev_neg": 71.2,
-   "delta": 10.3,
+   "delta": 9.9,
    "natures": {
-    "사건사고": 146,
+    "사건사고": 148,
     "불만·후기": 12,
     "정보·소식": 4
    },
@@ -16156,7 +16234,7 @@
      "desc": "8시32분쯤 서귀포시 천지연폭포에서 사진을 찍던 관광객이 물에 빠졌다는 신고가 119에 접수됐다. 신고를 받고 출동한 소방당국은 50대 관광객 A씨를 구조해 병원으로 옮겼으나 숨졌다. 경찰은 정확한"
     },
     {
-     "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - imaeil.com",
+     "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - 매일신문",
      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA2QWotWGpucUFfTGpySXlEMXZYMTNremNFMnU1eFgtV0lFTHljX3R4U3dLSkZ3WXhFRkpDbzFVWmdtMHJSYmFwa3RLZTd2cFRjamNGRTdqLTZJT1RoVWdUVmhn?oc=5",
      "channel": "news",
      "date": "2026-09-27",
@@ -16198,7 +16276,7 @@
      "desc": "<a href=\"https://news.google.com/rss/articles/CBMiSkFVX3lxTFBlNWVQNGJaUEx1dWEtdU1hbnpYSTBKYW95LVFxUXBkMWxYdkdG"
     },
     {
-     "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - headlinejeju.co.kr",
+     "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - 헤드라인제주",
      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBHY0N5QWxuVVdnNGQydlBvbWJ5enBUYk5ZRG9UN2RuOXdubmd4aXZmcDhjTlh1MVBkOUdTSWtxT1ViV2xqQjlfQTZKczZpWEZIQVBCVWRKV1VvSHBkQ3hxaGFIbUk1NXVpaWY1dFN3?oc=5",
      "channel": "news",
      "date": "2026-09-27",
@@ -16534,6 +16612,20 @@
      "desc": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DS0Nob3JQaWlyRVJBWHFVRWdsZDZDSFRHbThDSDU0OTB4RFBm"
     },
     {
+     "title": "제주 천지연폭포서 50대 관광객 추락해 숨져…야간개장 잠정 중단 - v.daum.net",
+     "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhUbUkyXzJqemxjdGVHOGVlR2VPVHVvMm5DTVNPODk4TjhnUW8?oc=5",
+     "channel": "news",
+     "date": "2026-09-28",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "숨져",
+      "추락",
+      "침체"
+     ],
+     "desc": "<a href=\"https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhU"
+    },
+    {
      "title": "제주 천지연 폭포 사진 찍다 추락한 관광객 숨져",
      "link": "https://blog.naver.com/dododo_007/224425370987",
      "channel": "blog",
@@ -16588,20 +16680,6 @@
       "침체"
      ],
      "desc": "연휴 기간 제주에서는 관광객이 천지연폭포에서 사진을 찍다가 추락해 숨졌고 경기 안산에서는 50대 딸이... 인천국제공항에서는 해외여행객 220여명이 탑승한 항공기에서 불이 나는 사고도 있었다. 24"
-    },
-    {
-     "title": "추석 연휴 전국서 화재·추락사고 잇따라…인명 피해 속출",
-     "link": "https://www.newspim.com/news/view/20260927000032",
-     "channel": "news",
-     "date": "2026-09-27",
-     "category": "치안·안전",
-     "sentiment": "부정",
-     "reasons": [
-      "추락",
-      "화재",
-      "침체"
-     ],
-     "desc": "추석 연휴 전국 곳곳에서 화재와 추락·수난 사고가 잇따랐다. 27일 소방당국 등에 따르면 이날 오전 8시... 제주에서는 관광객 추락사고가 발생했다. 제주소방안전본부 등에 따르면 지난 26일 오후 "
     },
     {
      "title": "\"사진 한 장 남기던 제주 여행이 비극으로…천지연폭포 50대 추락 사....",
@@ -16865,6 +16943,20 @@
      "desc": "전국 대부분 지역은 맑은 날씨가 예상되지만 제주만 날씨가 다소 다릅니다. 제주 여행객 필독 태풍 '수리개'도 계속 확인하세요 제26호 태풍 수리개는 오늘 강도가 더 강해질 것으로 예상되고 있습니다."
     },
     {
+     "title": "추석 연휴 전국서 화재·추락사고 잇따라…인명 피해 속출",
+     "link": "https://www.newspim.com/news/view/20260927000032",
+     "channel": "news",
+     "date": "2026-09-27",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "추락",
+      "화재",
+      "침체"
+     ],
+     "desc": "추석 연휴 전국 곳곳에서 화재와 추락·수난 사고가 잇따랐다. 27일 소방당국 등에 따르면 이날 오전 8시... 제주에서는 관광객 추락사고가 발생했다. 제주소방안전본부 등에 따르면 지난 26일 오후 "
+    },
+    {
      "title": "테마파크 사망자 8명 중 6명 어린이…곡성서도 2명 숨져",
      "link": "https://www.namdonews.com/news/articleView.html?idxno=924478",
      "channel": "news",
@@ -16967,37 +17059,24 @@
       "침체"
      ],
      "desc": "정상 야간관람 시간에 사진을 찍던 50대 관광객이 천지연폭포 물에 빠져 숨지자 서귀포시가 사고구간을 통제하고 야간개장을 잠정 중단했다. 8억4000만원을 투입해 조명시설을 전면 정비하고 지난 5월 "
-    },
-    {
-     "title": "천지연폭포서 사진 찍던 50대 관광객 추락사…야간개장 잠정 중단 - 세계뉴스통신",
-     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFA5emp6WnVsTXRWR1oweVVEbldYSF92dTdJWVZtZFdXYi1hVEFucXRaU2RtbjhDbktsQ0E0VGxUM3VkSUFCZWR1UkpvZS1yRVU5bVl1d1kzMlI2bGtyUzhyX19tMk5ITFVYbnlWVjBlTldYaHEw?oc=5",
-     "channel": "news",
-     "date": "2026-09-28",
-     "category": "치안·안전",
-     "sentiment": "부정",
-     "reasons": [
-      "추락",
-      "침체"
-     ],
-     "desc": "<a href=\"https://news.google.com/rss/articles/CBMidEFVX3lxTFA5emp6WnVsTXRWR1oweVVEbldYSF92dTdJWVZtZFdXYi1hVEFu"
     }
    ]
   },
   {
    "name": "비용·상거래",
    "policy": "관광 물가·요금 공정성",
-   "n": 144,
+   "n": 152,
    "neg_n": 4,
-   "pos_n": 25,
-   "neu_n": 115,
+   "pos_n": 27,
+   "neu_n": 121,
    "share": 4.2,
-   "neg": 2.8,
+   "neg": 2.6,
    "prev_neg": 6.2,
-   "delta": -3.4,
+   "delta": -3.6,
    "natures": {
     "사건사고": 1,
-    "불만·후기": 126,
-    "정보·소식": 17
+    "불만·후기": 132,
+    "정보·소식": 19
    },
    "top": [
     {
@@ -17034,7 +17113,7 @@
      "reasons": [
       "침체"
      ],
-     "desc": "이처럼 면세점 매출이 감소한 이유로는 코로나19가 진정 국면에 접어들면서 제주를 찾던 여행객들의 발길이 해외로 옮겨진 점, 상품구매 채널이 온라인으로 변화한 점, 소비자들이 구매 성향이 가성비 위주"
+     "desc": "이처럼 면세점 매출이 감소한 이유로는 코로나19가 진정 국면에 접어들면서 제주를 찾던 여행객들의... 29%로 10%포인트 이상 크게 줄었다\"며 \"제주도 방문객 및 면세점 이용자 감소에 대비한 면세"
     },
     {
      "title": "배에 육공이 싣기 비싸네요.",
@@ -17813,18 +17892,18 @@
   {
    "name": "이동·교통",
    "policy": "관광 교통·접근성",
-   "n": 457,
-   "neg_n": 2,
-   "pos_n": 146,
-   "neu_n": 309,
+   "n": 485,
+   "neg_n": 3,
+   "pos_n": 154,
+   "neu_n": 328,
    "share": 13.4,
-   "neg": 0.4,
+   "neg": 0.6,
    "prev_neg": 4.1,
-   "delta": -3.7,
+   "delta": -3.5,
    "natures": {
     "사건사고": 10,
-    "불만·후기": 395,
-    "정보·소식": 52
+    "불만·후기": 421,
+    "정보·소식": 54
    },
    "top": [
     {
@@ -17860,6 +17939,18 @@
      "sentiment": "긍정",
      "reasons": [],
      "desc": "♨️ #해미안녹차해수사우나 #해미안사우나 #제주사우나 #제주해수사우나 #제주오션뷰사우나 #제주노천탕 #제주목욕탕 #제주공항근처 #제주비오는날갈만한곳 #제주가볼만한곳 #제주여행 #제주힐링여행..."
+    },
+    {
+     "title": "10월 제주여행 3~4일, 성읍민속마을 그냥 지나치면 아쉬운 이유",
+     "link": "https://blog.naver.com/money_care_/224426645501",
+     "channel": "blog",
+     "date": "2026-09-30",
+     "category": "이동·교통",
+     "sentiment": "부정",
+     "reasons": [
+      "아쉬움"
+     ],
+     "desc": "성읍민속마을은 제주 동쪽 여행 일정 가운데 넣기 좋습니다. 오전에 따라비오름 쪽을 걷고, 점심 전후... 10월 제주여행, 숙소 지금 잡아야 할까? 전국체전·렌터카 변수까지 정리 10월 제주 억새,"
     },
     {
      "title": "\"휴게소서 신권 바꾸세요\"…은행권, 추석 귀성길 '달리는 이동점포' 가...",
@@ -18532,16 +18623,6 @@
      "desc": "국내 렌터카 비교 화면으로 연결됩니다. 여행 날짜와 운전자 조건을 직접 입력하고, 선택한 상품의 상세 조건을 확인하세요. 이미지 안내: 풍경과 차량 그림은 AI로 만든 참고 일러스트이며 실제 제주 "
     },
     {
-     "title": "돼집모의 제주 여행",
-     "link": "https://blog.naver.com/fall_1026_/224421898025",
-     "channel": "blog",
-     "date": "2026-09-24",
-     "category": "이동·교통",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "배고파 일단 바로 흑돼지 뿌수러 가자 흑돼지 고고 18:40 공항 도착 19:10 제주행 항공편 ~ 20:15 제주 도착 [저녁] - 제주고집 (흑돼지) 숙소도착 제주도에 9시 넘어서 도착,, 주변"
-    },
-    {
      "title": "목포 제주배편 제주도배편 제주차량탁송 제주올레전국탁송",
      "link": "https://cafe.naver.com/jejuolletakson/2992",
      "channel": "cafe",
@@ -18636,18 +18717,18 @@
   {
    "name": "숙박",
    "policy": "숙박 시설·거래 관행",
-   "n": 866,
+   "n": 937,
    "neg_n": 1,
-   "pos_n": 211,
-   "neu_n": 654,
-   "share": 25.4,
+   "pos_n": 231,
+   "neu_n": 705,
+   "share": 25.9,
    "neg": 0.1,
    "prev_neg": 1.9,
    "delta": -1.8,
    "natures": {
     "사건사고": 14,
-    "불만·후기": 723,
-    "정보·소식": 129
+    "불만·후기": 784,
+    "정보·소식": 139
    },
    "top": [
     {
@@ -19457,18 +19538,18 @@
   {
    "name": "먹거리",
    "policy": "음식점 품질·가격",
-   "n": 1026,
+   "n": 1079,
    "neg_n": 0,
-   "pos_n": 808,
-   "neu_n": 218,
-   "share": 30.1,
+   "pos_n": 849,
+   "neu_n": 230,
+   "share": 29.8,
    "neg": 0.0,
    "prev_neg": 0.8,
    "delta": -0.8,
    "natures": {
     "사건사고": 1,
-    "불만·후기": 921,
-    "정보·소식": 104
+    "불만·후기": 969,
+    "정보·소식": 109
    },
    "top": [
     {
@@ -20276,18 +20357,18 @@
   {
    "name": "볼거리·체험",
    "policy": "관광 콘텐츠·시설 운영",
-   "n": 648,
+   "n": 692,
    "neg_n": 0,
-   "pos_n": 209,
-   "neu_n": 439,
-   "share": 19.0,
+   "pos_n": 216,
+   "neu_n": 476,
+   "share": 19.1,
    "neg": 0.0,
    "prev_neg": 1.5,
    "delta": -1.5,
    "natures": {
-    "사건사고": 14,
-    "불만·후기": 546,
-    "정보·소식": 88
+    "사건사고": 15,
+    "불만·후기": 587,
+    "정보·소식": 90
    },
    "top": [
     {
@@ -20941,7 +21022,7 @@
      "desc": "광주·부산·제주 비엔날레까지 만날 수 있다. 무엇보다 국립현대미술관과 서울시립미술관 상당수 전시를... 해변의 휴가객과 관광지, 소비사회 풍경을 특유의 강렬한 색감과 유머로 포착해온 50년을 한꺼번"
     },
     {
-     "title": "제주관광협회, 추석 앞두고 우도 친환경·안전 관광환경 캠페인 - headlinejeju.co.kr",
+     "title": "제주관광협회, 추석 앞두고 우도 친환경·안전 관광환경 캠페인 - 헤드라인제주",
      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE12ZmVORHJzMTFZenJTS3ZITlozZHZBY21SRVBUVTZjNUdpVnZqRXNFeHc5UEZtUmRVYWhlUEVockV3NS1IWUZvSmxLc0JrNWViV2RXM0gxNmIxeWNyUE15b3NzUGpUS1hpOHR6aHh6eWd5VDg?oc=5",
      "channel": "news",
      "date": "2026-09-24",
@@ -21095,17 +21176,17 @@
   {
    "name": "정책·행정",
    "policy": "행정 소식",
-   "n": 28,
+   "n": 31,
    "neg_n": 0,
    "pos_n": 1,
-   "neu_n": 27,
-   "share": 0.8,
+   "neu_n": 30,
+   "share": 0.9,
    "neg": 0.0,
    "prev_neg": 8.7,
    "delta": -8.7,
    "natures": {
     "불만·후기": 1,
-    "정보·소식": 27
+    "정보·소식": 30
    },
    "top": [
     {
@@ -21387,22 +21468,52 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "내려온다면 망설임 없이 이곳을 다시 선택할 예정입니다. 여유로운 주차 공간까지 갖추고 있어 이동이 잦은 여행객에게도 최적의 선택지라 할 수 있습니다. #제주도풀빌라 #제주숙소 #제주여행 #가족여행 "
+    },
+    {
+     "title": "제주해녀 인류문화유산 등재 10년…'보는 유산'에서 '머무는 유산'으로",
+     "link": "https://www.news1.kr/local/jeju/6305102",
+     "channel": "news",
+     "date": "2026-09-30",
+     "category": "정책·행정",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "구좌마을여행사협동조합은 지난 5월 도와 공사의 '제주와의 약속' 파트너스 2기에 '김녕 런케이션'으로 선정됐다. 지난해에는 'MG희망나눔 청년로컬 지원사업'에 도내 최초로 선정되기도 했다. 무엇보다"
+    },
+    {
+     "title": "[오늘의 주요일정·30일] 한성숙 총리 범부처 주택신속공급 점검회의",
+     "link": "https://www.safetimes.co.kr/news/articleView.html?idxno=246108",
+     "channel": "news",
+     "date": "2026-09-30",
+     "category": "정책·행정",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "더불어민주당 제주 예산정책협의회(10:30 의원회관 306호) 김민석 당대표·한병도 원내대표, 2026... 제53회 관광의 날 기념식(11:00 더그랜드롯데) ▲ 문체부, 2026 콘텐츠 미래포럼"
+    },
+    {
+     "title": "제주 외국인 관광소비 상반기 44.4% 증가",
+     "link": "https://cafe.naver.com/allanswers/133",
+     "channel": "cafe",
+     "date": "2026-09-30",
+     "category": "정책·행정",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "✅ 시행 중 · 추진 중 · 시행 예정 · ⚪ 현황·통계 ⚪ 현황·통계 | 2026.09.29 제주관광공사가 공개한 「제주 소비 동향 브리프 : 2026년 2분기」에 따르면 올해 상반기 외국인 관광"
     }
    ]
   },
   {
    "name": "환경·청결",
    "policy": "관광지 환경·위생 관리",
-   "n": 6,
+   "n": 9,
    "neg_n": 0,
-   "pos_n": 2,
+   "pos_n": 5,
    "neu_n": 4,
    "share": 0.2,
    "neg": 0.0,
    "prev_neg": 22.2,
    "delta": -22.2,
    "natures": {
-    "불만·후기": 3,
+    "불만·후기": 6,
     "정보·소식": 3
    },
    "top": [
@@ -21465,23 +21576,53 @@
      "sentiment": "긍정",
      "reasons": [],
      "desc": "그림동화 - 버섯을 찾아봐 ☘️ 퍼포먼스 - 혼자옵서예 제주도 “혼저 옵서예~” 제주도 인사를 나누며 제주 여행을 떠나보았어요~ 돌하르방 할아버지를 꾸미며 우리만의 멋진 돌하르방을 만들어보고~ 나무"
+    },
+    {
+     "title": "제주 해안 쓰레기 발견하면 안전신문고로 신고하세요｜여행 중 발....",
+     "link": "https://blog.naver.com/ghtn1616174/224423381477",
+     "channel": "blog",
+     "date": "2026-09-30",
+     "category": "환경·청결",
+     "sentiment": "긍정",
+     "reasons": [],
+     "desc": "아름다운 제주 풍경입니다. 저도 제주 여행을 생각하면 예쁜 카페나 맛집도 떠오르지만, 사실 제주... 오히려 제주를 여행하면서 현장을 직접 본 사람이 문제를 발견하고 알려주는 것은 지역 환경 관리에"
+    },
+    {
+     "title": "제주 사모아모텔 총평 완벽한 위치와 깨끗함이 돋보이는 제주 여행 ....",
+     "link": "https://blog.naver.com/nightcap_stay/224420231394",
+     "channel": "blog",
+     "date": "2026-09-30",
+     "category": "환경·청결",
+     "sentiment": "긍정",
+     "reasons": [],
+     "desc": "항구에서도 가깝고, 제주를 돌아다니는 거점 숙소로 완벽하게 자리 잡은 느낌이 들었습니다. 기대 이상으로 청결했던 방과 상쾌한 냄새 사실 가격대비 큰 기대를 하지 않았는데, 실제로 묵어보니 청결 상태"
+    },
+    {
+     "title": "맛부터 배달까지 혁신… 고객만족도 12년째 정상",
+     "link": "https://www.donga.com/news/Economy/article/all/20260929/134750115/2",
+     "channel": "news",
+     "date": "2026-09-30",
+     "category": "환경·청결",
+     "sentiment": "긍정",
+     "reasons": [],
+     "desc": "2021년 피자 업계 최초로 드론 배달 서비스를 론칭해 2022년 제주 삼양해수욕장, 2023년 대구 수성못에서 드론... 위생과 안전에 만전을 기하고 있으며 피자 박스에 안심 배달 스티커를 부착해"
     }
    ]
   },
   {
    "name": "응대·서비스",
    "policy": "관광종사자 응대·서비스 품질",
-   "n": 4,
+   "n": 5,
    "neg_n": 0,
    "pos_n": 2,
-   "neu_n": 2,
+   "neu_n": 3,
    "share": 0.1,
    "neg": 0.0,
    "prev_neg": 37.9,
    "delta": -37.9,
    "natures": {
     "불만·후기": 2,
-    "정보·소식": 2
+    "정보·소식": 3
    },
    "top": [
     {
@@ -21523,6 +21664,16 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "앞전에도 말했듯이 제주도에 가면 항상 방문하는 \" 숨비스피커 \" 너무나도 애정하는 곳이어서... ㅎㅎ 제주도 여행 중이라면 무조건 꼭!! 가봐야 할 곳이라 할 수 있다. 하루에 2시간만 운영하고, "
+    },
+    {
+     "title": "[똑똑한케어] 코스맥스, 이니스프리, 유씨엘, 룰루랩, 컬리-아모레퍼시...",
+     "link": "https://www.ekn.kr/web/view.php?key=20260930023090233",
+     "channel": "news",
+     "date": "2026-09-30",
+     "category": "응대·서비스",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "'3X 레티놀 컴플렉스'와 '3X 제주 시카™'를 적용했으며 모공과 피지, 피부 진정 등을 한 번에 관리할 수... 최용준 룰루랩 대표는 “AI 개인화 서비스가 확대될수록 분석 정확도뿐 아니라 데이"
     }
    ]
   }
@@ -21566,44 +21717,44 @@
   },
   {
    "date": "2026-09-28",
-   "total": 514,
-   "neg_n": 66,
+   "total": 515,
+   "neg_n": 67,
    "neu_n": 264,
    "pos_n": 184,
-   "neg": 12.8,
-   "pos": 35.8
+   "neg": 13.0,
+   "pos": 35.7
   },
   {
    "date": "2026-09-29",
-   "total": 582,
+   "total": 586,
    "neg_n": 19,
-   "neu_n": 326,
-   "pos_n": 237,
-   "neg": 3.3,
-   "pos": 40.7
+   "neu_n": 329,
+   "pos_n": 238,
+   "neg": 3.2,
+   "pos": 40.6
   },
   {
    "date": "2026-09-30",
-   "total": 9,
-   "neg_n": 0,
-   "neu_n": 7,
-   "pos_n": 2,
-   "neg": 0.0,
-   "pos": 22.2
+   "total": 181,
+   "neg_n": 1,
+   "neu_n": 104,
+   "pos_n": 76,
+   "neg": 0.6,
+   "pos": 42.0
   }
  ],
  "reasons": [
   {
    "word": "침체",
-   "n": 77
+   "n": 78
   },
   {
    "word": "추락",
-   "n": 73
+   "n": 74
   },
   {
    "word": "숨져",
-   "n": 37
+   "n": 38
   },
   {
    "word": "구속",
@@ -21622,15 +21773,15 @@
    "n": 7
   },
   {
+   "word": "아쉬움",
+   "n": 5
+  },
+  {
    "word": "수사",
    "n": 5
   },
   {
    "word": "검거",
-   "n": 4
-  },
-  {
-   "word": "아쉬움",
    "n": 4
   }
  ],
@@ -21888,7 +22039,7 @@
    "desc": "8시32분쯤 서귀포시 천지연폭포에서 사진을 찍던 관광객이 물에 빠졌다는 신고가 119에 접수됐다. 신고를 받고 출동한 소방당국은 50대 관광객 A씨를 구조해 병원으로 옮겼으나 숨졌다. 경찰은 정확한"
   },
   {
-   "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - imaeil.com",
+   "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - 매일신문",
    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA2QWotWGpucUFfTGpySXlEMXZYMTNremNFMnU1eFgtV0lFTHljX3R4U3dLSkZ3WXhFRkpDbzFVWmdtMHJSYmFwa3RLZTd2cFRjamNGRTdqLTZJT1RoVWdUVmhn?oc=5",
    "channel": "news",
    "date": "2026-09-27",
@@ -22562,7 +22713,7 @@
    "desc": "8시32분쯤 서귀포시 천지연폭포에서 사진을 찍던 관광객이 물에 빠졌다는 신고가 119에 접수됐다. 신고를 받고 출동한 소방당국은 50대 관광객 A씨를 구조해 병원으로 옮겼으나 숨졌다. 경찰은 정확한"
   },
   {
-   "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - imaeil.com",
+   "title": "사진 찍다 2m 아래로…제주 천지연폭포서 50대 관광객 추락 사망 - 매일신문",
    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA2QWotWGpucUFfTGpySXlEMXZYMTNremNFMnU1eFgtV0lFTHljX3R4U3dLSkZ3WXhFRkpDbzFVWmdtMHJSYmFwa3RLZTd2cFRjamNGRTdqLTZJT1RoVWdUVmhn?oc=5",
    "channel": "news",
    "date": "2026-09-27",
@@ -22604,7 +22755,7 @@
    "desc": "<a href=\"https://news.google.com/rss/articles/CBMiSkFVX3lxTFBlNWVQNGJaUEx1dWEtdU1hbnpYSTBKYW95LVFxUXBkMWxYdkdG"
   },
   {
-   "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - headlinejeju.co.kr",
+   "title": "제주 천지연폭포서 사진 찍던 50대 추락해 숨져 - 헤드라인제주",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBHY0N5QWxuVVdnNGQydlBvbWJ5enBUYk5ZRG9UN2RuOXdubmd4aXZmcDhjTlh1MVBkOUdTSWtxT1ViV2xqQjlfQTZKczZpWEZIQVBCVWRKV1VvSHBkQ3hxaGFIbUk1NXVpaWY1dFN3?oc=5",
    "channel": "news",
    "date": "2026-09-27",
@@ -22940,6 +23091,20 @@
    "desc": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DS0Nob3JQaWlyRVJBWHFVRWdsZDZDSFRHbThDSDU0OTB4RFBm"
   },
   {
+   "title": "제주 천지연폭포서 50대 관광객 추락해 숨져…야간개장 잠정 중단 - v.daum.net",
+   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhUbUkyXzJqemxjdGVHOGVlR2VPVHVvMm5DTVNPODk4TjhnUW8?oc=5",
+   "channel": "news",
+   "date": "2026-09-28",
+   "category": "치안·안전",
+   "sentiment": "부정",
+   "reasons": [
+    "숨져",
+    "추락",
+    "침체"
+   ],
+   "desc": "<a href=\"https://news.google.com/rss/articles/CBMiT0FVX3lxTE1QQzZxSDVLaG5VNENmVVpwcEZvZUNsZ0JMTkg5ZlJLZmljSHhU"
+  },
+  {
    "title": "제주 천지연 폭포 사진 찍다 추락한 관광객 숨져",
    "link": "https://blog.naver.com/dododo_007/224425370987",
    "channel": "blog",
@@ -22994,20 +23159,6 @@
     "침체"
    ],
    "desc": "연휴 기간 제주에서는 관광객이 천지연폭포에서 사진을 찍다가 추락해 숨졌고 경기 안산에서는 50대 딸이... 인천국제공항에서는 해외여행객 220여명이 탑승한 항공기에서 불이 나는 사고도 있었다. 24"
-  },
-  {
-   "title": "추석 연휴 전국서 화재·추락사고 잇따라…인명 피해 속출",
-   "link": "https://www.newspim.com/news/view/20260927000032",
-   "channel": "news",
-   "date": "2026-09-27",
-   "category": "치안·안전",
-   "sentiment": "부정",
-   "reasons": [
-    "추락",
-    "화재",
-    "침체"
-   ],
-   "desc": "추석 연휴 전국 곳곳에서 화재와 추락·수난 사고가 잇따랐다. 27일 소방당국 등에 따르면 이날 오전 8시... 제주에서는 관광객 추락사고가 발생했다. 제주소방안전본부 등에 따르면 지난 26일 오후 "
   },
   {
    "title": "\"사진 한 장 남기던 제주 여행이 비극으로…천지연폭포 50대 추락 사....",
