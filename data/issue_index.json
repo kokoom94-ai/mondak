@@ -1,6 +1,6 @@
 {
  "meta": {
-  "updated": "2026-11-28 08:43",
+  "updated": "2026-11-28 17:03",
   "period": {
    "from": "2026-11-22",
    "to": "2026-11-28"
@@ -12,35 +12,35 @@
   "engine": "v14-20260826",
   "source": "네이버 검색 오픈API · Google News RSS",
   "note": "불만 구성비는 '모인 불만' 안에서의 비율입니다. 수집량이 전수가 아니므로 건수 자체는 지표로 쓰지 않습니다.",
-  "date_est_n": 9813,
+  "date_est_n": 9871,
   "date_est_note": "카페 글은 작성일이 제공되지 않아 수집일을 날짜로 씁니다. 30일 집계에는 포함하되 일별 추이에는 넣지 않습니다.",
   "disclaimer": "자체 수집·분류한 참고자료이며 일부 오류가 있을 수 있습니다.",
   "judge": {
    "version": "llm-v9",
    "model": "exaone-4.0-32b",
    "judged": 0,
-   "failed": 536,
+   "failed": 544,
    "dropped": 0,
    "audit_dropped": 0,
-   "updated": "2026-11-28 03:37"
+   "updated": "2026-11-28 12:02"
   }
  },
  "voice": {
-  "total": 3921,
-  "neg_n": 75,
+  "total": 4188,
+  "neg_n": 79,
   "neg_rate": 1.9,
   "channels": {
-   "blog": 2740,
-   "cafe": 1181
+   "blog": 2950,
+   "cafe": 1238
   },
   "mix": [
    {
     "name": "숙박",
     "policy": "숙박 시설·거래 관행",
-    "n": 21,
-    "share": 28.0,
+    "n": 23,
+    "share": 29.1,
     "prev": 32.3,
-    "delta": -4.3,
+    "delta": -3.2,
     "top": [
      {
       "title": "박지윤 카톡 논란에 최동석 댓글 송치까지, 두 사람에게 무슨 일이 ....",
@@ -248,6 +248,18 @@
       "desc": "요즘 이탈리아 밀라노 밀란 피에라 시티 여행 많이들 가시는데요~ 숙소 인근에 관광 명소는 무엇이... Massimo Ceva 380m - Desiree Parfum 410m - La Fungheri"
      },
      {
+      "title": "서귀포호텔 고르다 실수할 뻔한 내 경험담",
+      "link": "https://blog.naver.com/cjd871129/224495354184",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "숙박",
+      "sentiment": "부정",
+      "reasons": [
+       "불친절"
+      ],
+      "desc": "숙소 고르는 거 쉽다고 생각했다가 큰일 날 뻔했어요 제주 여행을 계획하면서 숙소 고민을 되게 오래... 응대가 불친절하면 그것만으로도 하루가 망해버리는 느낌인데, 여기는 그런 불편함이 없었어요 서귀"
+     },
+     {
       "title": "제주 요가 원데이 클래스 취다선리조트 BHC 동글락 치킨",
       "link": "https://blog.naver.com/175kate/224487863089",
       "channel": "blog",
@@ -294,16 +306,28 @@
        "실망"
       ],
       "desc": "생각보다 규모도 작고 시장 특유의 활기찬 느낌이 덜해서 살짝 실망스럽긴 했어요! ㅠㅠ 제가 방문했을... 제주밤산책 #제주태교여행 #애견동반제주도 #임산부여행 #새봄이맘 #내돈내산후기 #여행블로그"
+     },
+     {
+      "title": "[33주 임산부 제주 태교여행 EP7.] 내돈내산 제주 더 시에나 리조트 일....",
+      "link": "https://blog.naver.com/march__02/224494655233",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "숙박",
+      "sentiment": "부정",
+      "reasons": [
+       "실망"
+      ],
+      "desc": "안녕하세요 소뚱입니당 오늘 포스팅은 제주 더 시에나 리조트 일 캄포 조식 뷔페 솔직후기입니다... 약간 실망이었어요 ㅠ 맛없없조합인데,,,, 힝 제육볶음 돼지 잡내가 났음다 맥앤치즈와 생선구이인데 "
      }
     ]
    },
    {
     "name": "응대·서비스",
     "policy": "관광종사자 응대·서비스 품질",
-    "n": 19,
-    "share": 25.3,
+    "n": 21,
+    "share": 26.6,
     "prev": 22.6,
-    "delta": 2.7,
+    "delta": 4.0,
     "top": [
      {
       "title": "제주도여행  불친절하고 역대급으로 너무 지저분한 최악의 호텔!!!! ....",
@@ -524,6 +548,30 @@
       "desc": "저희가 다니던 데는 간호사랑 의사 분들이 불친절해서 별로 가고 싶지가 않아요..그래서 가격도 합리적이고 친절한 병원 추천해주세요..!!"
      },
      {
+      "title": "[서귀포/제주영어교육도시]일공공샤브&편백찜, 맛은 좋았지만 먹는 ....",
+      "link": "https://blog.naver.com/sunkw80/224495487987",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "응대·서비스",
+      "sentiment": "부정",
+      "reasons": [
+       "불친절"
+      ],
+      "desc": "2개가 불친절 얘기라 조금은 망설였는데 또 맛에 대한 내용은 없어서... 왜 후기에 불친절하다는 소리가 나왔는지 이해가 되는 장면 그래도... 욕쟁이할머니 등 불친절한 가게가 전국에 곳곳에 있는데 "
+     },
+     {
+      "title": "안도라Andorra...   눈 밭의 호수 트레킹Estany Primer de Pessons",
+      "link": "https://blog.naver.com/balgurac/224495404029",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "응대·서비스",
+      "sentiment": "부정",
+      "reasons": [
+       "불친절"
+      ],
+      "desc": "안도라는 제주도 1/4 크기의 작은 나라로 면적으로는 세계에서 16번 째로 작은 나라, 전체 10만 명도... 안도라 역시 캠핑카 여행객에게는 아주 불친절한 곳이다. 산악 국가이기에 트레킹, 하이킹"
+     },
+     {
       "title": "제주 오메기떡 내돈내산 후기｜함덕오메기떡방앗간 절대 추천하지 ....",
       "link": "https://blog.naver.com/bellasom/224486761556",
       "channel": "blog",
@@ -541,9 +589,9 @@
     "name": "먹거리",
     "policy": "음식점 품질·가격",
     "n": 9,
-    "share": 12.0,
+    "share": 11.4,
     "prev": 9.7,
-    "delta": 2.3,
+    "delta": 1.7,
     "top": [
      {
       "title": "하남미사 디저트 카페-이탈리아 정통 수제 젤라또 맛집 담금젤라또 ....",
@@ -659,9 +707,9 @@
     "name": "볼거리·체험",
     "policy": "관광 콘텐츠·시설 운영",
     "n": 7,
-    "share": 9.3,
+    "share": 8.9,
     "prev": 7.5,
-    "delta": 1.8,
+    "delta": 1.4,
     "top": [
      {
       "title": "한라산 드론 순찰, 탐방로 이탈 감시 확대",
@@ -753,9 +801,9 @@
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
     "n": 5,
-    "share": 6.7,
+    "share": 6.3,
     "prev": 5.4,
-    "delta": 1.3,
+    "delta": 0.9,
     "top": [
      {
       "title": "김해공항 사설 주차장 이용했는데, 완전 비추입니다.. 가람주차장...",
@@ -825,9 +873,9 @@
     "name": "비용·상거래",
     "policy": "관광 물가·요금 공정성",
     "n": 4,
-    "share": 5.3,
+    "share": 5.1,
     "prev": 9.7,
-    "delta": -4.4,
+    "delta": -4.6,
     "top": [
      {
       "title": "국내 겨울 여행지 추천 BEST 7, 12월부터 2월까지 돈 아깝지 않은 겨울....",
@@ -1174,21 +1222,33 @@
   ]
  },
  "risk": {
-  "total": 124,
-  "neg_n": 29,
+  "total": 127,
+  "neg_n": 30,
   "clusters": [
    {
     "label": "화재",
-    "n": 18,
+    "n": 19,
     "media": 10,
     "from": "2026-11-22",
-    "to": "2026-11-26",
-    "days": 4,
+    "to": "2026-11-27",
+    "days": 5,
     "spread": "확산",
     "categories": {
-     "치안·안전": 18
+     "치안·안전": 19
     },
     "top": [
+     {
+      "title": "회수동 관광지 매표소서 화재 - 제주일보",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5kQUY0TkJNemVVUDVIQ29xRE9SQXlGckFMV0xFVnVnN08zQjQ2c3BhY0FVcHZPb2gtMUhZQmtJcXlNSl9KX3VpNFlsVEQxUDZlSVExckNRLXZxTXZaUWJpQTctRkVJZGZuMVlhSQ?oc=5",
+      "channel": "news",
+      "date": "2026-11-27",
+      "category": "치안·안전",
+      "sentiment": "부정",
+      "reasons": [
+       "화재"
+      ],
+      "desc": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE5kQUY0TkJNemVVUDVIQ29xRE9SQXlGckFMV0xFVnVnN08zQjQ2"
+     },
      {
       "title": "[함께가자 우리ESG] 골프존문화재단, 안성 취약계층 350세대에 생필품 지...",
       "link": "http://www.newslock.co.kr/news/articleView.html?idxno=141046",
@@ -1272,18 +1332,6 @@
        "화재"
       ],
       "desc": "<a href=\"https://news.google.com/rss/articles/CBMiakFVX3lxTE1INjIxcWpzNDR4bmpKTUg5RlF2cXYyZTBrUWd1OF9BaWFrQnVy"
-     },
-     {
-      "title": "주택·골프장 등 화재 잇따라...3명 연기 흡입",
-      "link": "https://www.jibs.co.kr/news/replay/viewNewsReplayDetail/2026112316533558116?feed=na",
-      "channel": "news",
-      "date": "2026-11-23",
-      "category": "치안·안전",
-      "sentiment": "부정",
-      "reasons": [
-       "화재"
-      ],
-      "desc": "입었고, 소방서 추산 3천 4백여 만 원의 재산 피해가 발생했습니다. 오늘(23일) 새벽 3시 반쯤에는 제주시 애월읍의 한 골프장 클럽하우스에서 화재가 발생했지만, 스프링클러로 자체 진화되면서 인명"
      }
     ]
    },
@@ -1616,11 +1664,11 @@
   ]
  },
  "info": {
-  "total": 405
+  "total": 413
  },
  "window30": {
-  "total": 20345,
-  "neg_n": 605,
+  "total": 20623,
+  "neg_n": 609,
   "daily": [
    {
     "date": "2026-10-30",
@@ -1876,119 +1924,119 @@
    },
    {
     "date": "2026-11-27",
-    "total": 504,
-    "neg_n": 16,
+    "total": 503,
+    "neg_n": 17,
     "neu_n": 331,
-    "pos_n": 157,
-    "neg": 3.2,
-    "pos": 31.2
+    "pos_n": 155,
+    "neg": 3.4,
+    "pos": 30.8
    },
    {
     "date": "2026-11-28",
-    "total": 140,
-    "neg_n": 0,
-    "neu_n": 79,
-    "pos_n": 61,
-    "neg": 0.0,
-    "pos": 43.6
+    "total": 361,
+    "neg_n": 4,
+    "neu_n": 206,
+    "pos_n": 151,
+    "neg": 1.1,
+    "pos": 41.8
    }
   ],
   "from": "2026-10-30",
   "to": "2026-11-28",
   "stats": {
-   "total": 20218,
+   "total": 20495,
    "neg": 3.0,
-   "pos": 33.1,
+   "pos": 33.2,
    "neu": 63.9,
    "channels": {
-    "news": 2566,
-    "blog": 12819,
-    "cafe": 4833
+    "news": 2574,
+    "blog": 13030,
+    "cafe": 4891
    },
    "categories": {
     "응대·서비스": {
-     "n": 189,
-     "neg": 37.6,
+     "n": 192,
+     "neg": 38.0,
      "share": 0.9
     },
     "비용·상거래": {
-     "n": 1545,
+     "n": 1558,
      "neg": 1.9,
      "share": 7.6
     },
     "환경·청결": {
-     "n": 71,
-     "neg": 8.5,
+     "n": 72,
+     "neg": 8.3,
      "share": 0.4
     },
     "이동·교통": {
-     "n": 2500,
+     "n": 2539,
      "neg": 1.3,
      "share": 12.4
     },
     "숙박": {
-     "n": 6023,
+     "n": 6103,
      "neg": 2.8,
      "share": 29.8
     },
     "먹거리": {
-     "n": 4809,
+     "n": 4885,
      "neg": 0.9,
      "share": 23.8
     },
     "볼거리·체험": {
-     "n": 3824,
+     "n": 3880,
      "neg": 1.2,
      "share": 18.9
     },
     "치안·안전": {
-     "n": 297,
-     "neg": 35.7,
+     "n": 300,
+     "neg": 35.3,
      "share": 1.5
     },
     "정책·행정": {
-     "n": 488,
+     "n": 490,
      "neg": 3.1,
      "share": 2.4
     }
    },
    "natures": {
     "정보·소식": {
-     "n": 3075,
+     "n": 3107,
      "share": 15.2
     },
     "불만·후기": {
-     "n": 16693,
+     "n": 16936,
      "share": 82.6
     },
     "사건사고": {
-     "n": 450,
+     "n": 452,
      "share": 2.2
     }
    },
    "tracks": {
-    "info": 2236,
-    "voice": 17478,
-    "risk": 504
+    "info": 2244,
+    "voice": 17745,
+    "risk": 506
    }
   },
   "rank": [
    {
     "name": "숙박",
     "policy": "숙박 시설·거래 관행",
-    "n": 6023,
-    "neg_n": 169,
+    "n": 6103,
+    "neg_n": 171,
     "share": 29.8,
     "neg": 2.8,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 74,
-     "불만·후기": 5140,
-     "정보·소식": 809
+     "불만·후기": 5210,
+     "정보·소식": 819
     },
-    "pos_n": 1206,
-    "neu_n": 4648,
+    "pos_n": 1218,
+    "neu_n": 4714,
     "top": [
      {
       "title": "\"빅맨 나타났다\" 관광 타격 우려 오사카 리조트, 제주 대응은?",
@@ -2948,6 +2996,18 @@
       "desc": "제주도가 저임금과 고용 불안으로 이탈이 잦은 지역 관광업계 청년들의 장기근속을 돕기 위해 첫 중장기... 특히 같은 관광업계라도 호텔, 여행사, 카지노 등 업종마다 근무 형태와 애로사항이 크게 다른"
      },
      {
+      "title": "서귀포호텔 고르다 실수할 뻔한 내 경험담",
+      "link": "https://blog.naver.com/cjd871129/224495354184",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "숙박",
+      "sentiment": "부정",
+      "reasons": [
+       "불친절"
+      ],
+      "desc": "숙소 고르는 거 쉽다고 생각했다가 큰일 날 뻔했어요 제주 여행을 계획하면서 숙소 고민을 되게 오래... 응대가 불친절하면 그것만으로도 하루가 망해버리는 느낌인데, 여기는 그런 불편함이 없었어요 서귀"
+     },
+     {
       "title": "제주 홍마트 모슬포점 포장회 후기, 5만원대 활고등어회·참돔·문어....",
       "link": "https://blog.naver.com/vichinashop/224457744061",
       "channel": "blog",
@@ -3336,6 +3396,18 @@
       "desc": "생각보다 규모도 작고 시장 특유의 활기찬 느낌이 덜해서 살짝 실망스럽긴 했어요! ㅠㅠ 제가 방문했을... 제주밤산책 #제주태교여행 #애견동반제주도 #임산부여행 #새봄이맘 #내돈내산후기 #여행블로그"
      },
      {
+      "title": "[33주 임산부 제주 태교여행 EP7.] 내돈내산 제주 더 시에나 리조트 일....",
+      "link": "https://blog.naver.com/march__02/224494655233",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "숙박",
+      "sentiment": "부정",
+      "reasons": [
+       "실망"
+      ],
+      "desc": "안녕하세요 소뚱입니당 오늘 포스팅은 제주 더 시에나 리조트 일 캄포 조식 뷔페 솔직후기입니다... 약간 실망이었어요 ㅠ 맛없없조합인데,,,, 힝 제육볶음 돼지 잡내가 났음다 맥앤치즈와 생선구이인데 "
+     },
+     {
       "title": "제주 고기장 중문점 내돈내산｜원격줄서기부터 진정성 500g, 주차까....",
       "link": "https://blog.naver.com/khb4151/224459572080",
       "channel": "blog",
@@ -3392,45 +3464,25 @@
       "sentiment": "중립",
       "reasons": [],
       "desc": "여행의 동반자가 된 든든함 얼마 전 짧은 1박2일 제주도 여행을 다녀왔는데, 그때 이걸 처음 제대로 써봤어요. 원래는 캐리어 따로, 짐 가방 따로 들고 다녔는데, 이번에는 이 가방을 캐리어 손잡이에"
-     },
-     {
-      "title": "[해남/숙소] 분위기 좋고 깨끗한 글램핑장 추천",
-      "link": "https://blog.naver.com/ts0503n/224458420612",
-      "channel": "blog",
-      "date": "2026-10-30",
-      "category": "숙박",
-      "sentiment": "긍정",
-      "reasons": [],
-      "desc": "두달전쯤 목포로 1박2일 가족여행을 떠나게 되었다! 날씨가 너무 좋아서 가족들이 일반 호텔이나... (제주도 가는걸로 추정되는 커다란 배도 많이 지나감!!) 간만에 좋은 곳에서 제대로 힐링한 기분이"
-     },
-     {
-      "title": "제주 신라호텔 2박 3일 숙박 후기｜디럭스 더블 정원전망 객실·가격....",
-      "link": "https://blog.naver.com/thedanjilog/224458416266",
-      "channel": "blog",
-      "date": "2026-10-30",
-      "category": "숙박",
-      "sentiment": "중립",
-      "reasons": [],
-      "desc": "이번 제주 여행에서는 2박 3일 동안 제주 신라호텔에 머물렀다. 하필 여행 기간에 태풍 '참피'의 영향으로 첫날을 제외하고는 비가 계속 내리고 바람도 많이 불었다. 첫날은 하늘이 파랗고 날씨가 너무"
      }
     ]
    },
    {
     "name": "치안·안전",
     "policy": "관광객 안전·치안",
-    "n": 297,
+    "n": 300,
     "neg_n": 106,
     "share": 1.5,
-    "neg": 35.7,
+    "neg": 35.3,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 334,
-     "불만·후기": 77,
-     "정보·소식": 13
+     "사건사고": 336,
+     "불만·후기": 78,
+     "정보·소식": 14
     },
     "pos_n": 4,
-    "neu_n": 190,
+    "neu_n": 193,
     "top": [
      {
       "title": "제주서 자국 여성 감금·강도·성폭행 중국인 3명 재판행",
@@ -4779,6 +4831,26 @@
       "desc": "연장 결정 보도 정부는 관광객 유치를 말한다. 하지만 입국 문턱을 낮추는 정책의 성과를 입국자... 설명해야 할 책임이다. 작성 기준: 2026년 11월 27일. 범죄 사례와 제주 불법체류 통계는 "
      },
      {
+      "title": "11/28",
+      "link": "https://cafe.naver.com/zzangtong/85258",
+      "channel": "cafe",
+      "date": "2026-11-28",
+      "category": "치안·안전",
+      "sentiment": "중립",
+      "reasons": [],
+      "desc": "lgsltPaId=PRC_EF4A658CA79B4A509DC96D3AD6B886 관광 활성화라는 취지와 달리 제주 무사증 입국제도가 불법체류·불법취업과 외국인 범죄, 공공장소 기초질서 위반의 통로로"
+     },
+     {
+      "title": "[스포츠한길] 26년11월28일 FC안양vs제주SKFC 결장자 라인업 정보 라이브스코어....",
+      "link": "https://cafe.naver.com/drawhangil/26635",
+      "channel": "cafe",
+      "date": "2026-11-28",
+      "category": "치안·안전",
+      "sentiment": "중립",
+      "reasons": [],
+      "desc": "4 억 - - FW 오형준 19 - - FW 장정우 21 - - 제주SKFC 포지션 [ 제주SKFC ] 나이 Value 골 도움 결장 GK... 배추 #관광 #패딩 #코스피 #심정지 #사망 #리트이"
+     },
+     {
       "title": "제주공항 인근 건물서 화재…연기 치솟았지만 항공기 정상 운항 - 데일리안",
       "link": "https://news.google.com/rss/articles/CBMiowJBVV95cUxPby1Sal9PNEh2SkRBQnJDc1JxTFpQeWRUTWx4elBSSVg3NWRzdGxueEoxbWZUV2ZodUluSzVWNTVUZmtQVXhQMW9YSnA4V3BYYW9MUDlETnAwdHJ1ZDhSRXh0Nk1xVnh6enFobURJZUV3cDF5SW10X19EV2cxOWMtT0FGZVNLbDJWalp1QXJLVmFGb0x4NXRSRzFLcjZ3WnZ3VEJxalFjSDFTdHJIWWpkZGRyWlVuclFwVEdUTG5JblY1Y2YzUTlzVWdsWnNzZ1R6OXZCRkNpV2tqazBiQVJSMmFPc0kzLXVZYkFjVUFtT21fR1F5QnJtWXc2WUlQSGhWbVhUdmZaZmU0Sy1xMEQwMmgwY3VwUnAyRkR3SUdUZmdvOHc?oc=5",
       "channel": "news",
@@ -4837,49 +4909,25 @@
        "화재"
       ],
       "desc": "<a href=\"https://news.google.com/rss/articles/CBMib0FVX3lxTE9LeVFSWTI4eVZvU2s5M0NwZVV3dWE5RlBOdWhlS3ZqUFI0c2Jp"
-     },
-     {
-      "title": "제주공항 인근 식당 화재…항공기 운항은 정상 : 사회 - 재경일보",
-      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFB6SmJxblBwd09xcnR2MUk1X0t3c0xDV2RjTm8xNm5UOEs2UUpvWi12a3FEQXZ6WnEtTWNFWVlfeHBsVTREcHp3T0xudw?oc=5",
-      "channel": "news",
-      "date": "2026-11-10",
-      "category": "치안·안전",
-      "sentiment": "부정",
-      "reasons": [
-       "화재"
-      ],
-      "desc": "<a href=\"https://news.google.com/rss/articles/CBMiS0FVX3lxTFB6SmJxblBwd09xcnR2MUk1X0t3c0xDV2RjTm8xNm5UOEs2UUpv"
-     },
-     {
-      "title": "제주공항 인근 화재로 한때 연기…항공기 정상 운항 - 연합뉴스",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zZlFRNlY3QnROY3VBOEdCLTlHLUxDWW42NVpZRGpXV2VKNnhnSkE5VHE2WkpUaERvd0h2b0syQ28tcUVFWTJaUTl4amhGSVdIejFqQlpXdEFOSlhfdHdzY9IBYEFVX3lxTE4zZlFRNlY3QnROY3VBOEdCLTlHLUxDWW42NVpZRGpXV2VKNnhnSkE5VHE2WkpUaERvd0h2b0syQ28tcUVFWTJaUTl4amhGSVdIejFqQlpXdEFOSlhfdHdzYw?oc=5",
-      "channel": "news",
-      "date": "2026-11-10",
-      "category": "치안·안전",
-      "sentiment": "부정",
-      "reasons": [
-       "화재"
-      ],
-      "desc": "<a href=\"https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zZlFRNlY3QnROY3VBOEdCLTlHLUxDWW42NVpZRGpXV2VKNnhn"
      }
     ]
    },
    {
     "name": "응대·서비스",
     "policy": "관광종사자 응대·서비스 품질",
-    "n": 189,
-    "neg_n": 71,
+    "n": 192,
+    "neg_n": 73,
     "share": 0.9,
-    "neg": 37.6,
+    "neg": 38.0,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 5,
-     "불만·후기": 170,
+     "불만·후기": 173,
      "정보·소식": 14
     },
     "pos_n": 54,
-    "neu_n": 64,
+    "neu_n": 65,
     "top": [
      {
       "title": "제주도여행  불친절하고 역대급으로 너무 지저분한 최악의 호텔!!!! ....",
@@ -5949,6 +5997,16 @@
       "desc": "1,300,000동 원화 약 6만5천원 팁은 제가 따로 20만동 줬어요~ (넘 친절하고 잘 해주셔서) 결론적으로 푸꾸옥 좋았지만 일단 다낭보다 물가가 비쌈 우리나라 제주도 생각하면 딱 맞음 그리고 "
      },
      {
+      "title": "브롬톤타고 가을 제주 200km 도전하기 ♀️",
+      "link": "https://cafe.naver.com/brompton/371679",
+      "channel": "cafe",
+      "date": "2026-11-28",
+      "category": "응대·서비스",
+      "sentiment": "중립",
+      "reasons": [],
+      "desc": "ㅜㅜ 바쁜 일정에 후기 남기는게 늦어졌네요 \" \" \" (말주변이 없는편이라 인터뷰가 다시봐도 너무 횡설수설...... 앞으로는 혼자 제주도여행?! 제주도에서도 좋아하는 다이소 방문하기 홀로 동문시장"
+     },
+     {
       "title": "제주 연동 차백도 계화우롱라떼 솔직 후기,밀크티추천, 차지티 대신....",
       "link": "https://blog.naver.com/010_2977/224487210674",
       "channel": "blog",
@@ -6145,6 +6203,30 @@
       "desc": "체크아웃하고 제주도에서 늘 먹는 순옥이네 명가에 가려고 버스 시간을 알아봤다. 차가 없으면... 물회집 불친절하다는 후기가 걱정이었지만, 친절하지 않을 뿐이었고 (딱히 불친절하진 않았다) 물회가 양"
      },
      {
+      "title": "[서귀포/제주영어교육도시]일공공샤브&편백찜, 맛은 좋았지만 먹는 ....",
+      "link": "https://blog.naver.com/sunkw80/224495487987",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "응대·서비스",
+      "sentiment": "부정",
+      "reasons": [
+       "불친절"
+      ],
+      "desc": "2개가 불친절 얘기라 조금은 망설였는데 또 맛에 대한 내용은 없어서... 왜 후기에 불친절하다는 소리가 나왔는지 이해가 되는 장면 그래도... 욕쟁이할머니 등 불친절한 가게가 전국에 곳곳에 있는데 "
+     },
+     {
+      "title": "안도라Andorra...   눈 밭의 호수 트레킹Estany Primer de Pessons",
+      "link": "https://blog.naver.com/balgurac/224495404029",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "응대·서비스",
+      "sentiment": "부정",
+      "reasons": [
+       "불친절"
+      ],
+      "desc": "안도라는 제주도 1/4 크기의 작은 나라로 면적으로는 세계에서 16번 째로 작은 나라, 전체 10만 명도... 안도라 역시 캠핑카 여행객에게는 아주 불친절한 곳이다. 산악 국가이기에 트레킹, 하이킹"
+     },
+     {
       "title": "제주 오메기떡 내돈내산 후기｜함덕오메기떡방앗간 절대 추천하지 ....",
       "link": "https://blog.naver.com/bellasom/224486761556",
       "channel": "blog",
@@ -6195,43 +6277,13 @@
       "sentiment": "중립",
       "reasons": [],
       "desc": "셋째 날 제주에서의 일정이 끝나고 다시 인천으로 돌아오는데, 공항에 도착하자 주차대행 서비스가 어떻게 되어 있는지 궁금했어요.... 여행 중에는 작은 불편함이 큰 스트레스로 다가올 수 있는데, 그 "
-     },
-     {
-      "title": "내맘대로 제주여행        둘쨋날",
-      "link": "https://blog.naver.com/jjaung-ym/224459434149",
-      "channel": "blog",
-      "date": "2026-10-30",
-      "category": "응대·서비스",
-      "sentiment": "긍정",
-      "reasons": [],
-      "desc": "어느하나 실망할것이 없는 펜션.. 씩씩하고 친절하신 사장님... 행복한 여행 둘쨋날 마무리 쇠소깍에서 귤을 아주많이 부담스러울정도로 서비스로 주셨어요^^ #제주#성산일출봉#우도# 우도정원#분식김밥."
-     },
-     {
-      "title": "제주도남동미용실, 생각보다 좋았던 점 중심 후기",
-      "link": "https://blog.naver.com/r9rxkh3132/224459858447",
-      "channel": "blog",
-      "date": "2026-10-31",
-      "category": "응대·서비스",
-      "sentiment": "긍정",
-      "reasons": [],
-      "desc": "그러다 제주 여행 중에 지인이 알려준 미용실을 찾아갔는데, 생각보다 더 멋진 공간이어서 눈길이 갔어요. 처음 들어서는 은은한 조명과 편안한 분위기가 마음을 편안하게 해줬죠. 직원분들도 정말 친절하게"
-     },
-     {
-      "title": "대전시청 고기집 만전 내돈내산 후기_짚불 돼지모듬·룸 5인 예약·....",
-      "link": "https://blog.naver.com/sodah_/224459856107",
-      "channel": "blog",
-      "date": "2026-10-31",
-      "category": "응대·서비스",
-      "sentiment": "긍정",
-      "reasons": [],
-      "desc": "대전맛집 #대전룸식당 #대전룸고기집 #숙성돼지고기 #제주돼지 #훈연고기 #직원이구워주는고깃집 #대전신상맛집 #내돈내산 #육식공룡 #DINOSPICK #촌돼지김치찌개 #계란찜맛집 #대전돼지모듬 #둔산"
      }
     ]
    },
    {
     "name": "볼거리·체험",
     "policy": "관광 콘텐츠·시설 운영",
-    "n": 3824,
+    "n": 3880,
     "neg_n": 45,
     "share": 18.9,
     "neg": 1.2,
@@ -6239,11 +6291,11 @@
     "delta": null,
     "natures": {
      "사건사고": 53,
-     "불만·후기": 3090,
-     "정보·소식": 681
+     "불만·후기": 3140,
+     "정보·소식": 687
     },
-    "pos_n": 803,
-    "neu_n": 2976,
+    "pos_n": 818,
+    "neu_n": 3017,
     "top": [
      {
       "title": "제주도 비올 때 뽀로로 테마파크 두번째 방문 후기",
@@ -6440,6 +6492,16 @@
        "최악"
       ],
       "desc": "몇일 제주 해상날씨가 최악이어서 물은 뒤집어졌어도 시야는 괜찮네요 현 서귀포 중문 수온 21℃ 아주 양호합니다 따뜻합니다 제주도 힐링 바다수영 함께 가시죠~ Go Go 서귀포 중문 대표 관광지 \"대"
+     },
+     {
+      "title": "제주도 서귀포 가을 여행 일정 추천 | 가볼만한곳 및 맛집,카페",
+      "link": "https://blog.naver.com/omkwon721/224495499649",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "볼거리·체험",
+      "sentiment": "긍정",
+      "reasons": [],
+      "desc": "이번에도 역시나 제주도 여행후기의 대장정이 모두 끝났는데요. 마지막으로 이번 제주도 가을 여행... 사장님이 조금 불친절할뿐....... 야외 일정 마지막은 수제맥주로 여기 진짜 올레시장오면 꼭 와"
      },
      {
       "title": "2026 제주도 가볼만한곳 BEST 15 실패 없는 코스 협재해수욕장 애월 새....",
@@ -6858,6 +6920,16 @@
       "desc": "아 제주도 왔으면 고기국수 먹어줘야지~ 저번 제주 여행 때 공항 근처에서 고기국수를 먹었다가 살짝 실망했거든요 그래서 이번에는... 찾는다면 제주 동쪽 여행 중 점심 먹으러 들르기 좋을 듯! 특히."
      },
      {
+      "title": "11월 제주 여행 코스 :: 4~5일차 / 월정 보롬사진관, 바미아일랜드, 관....",
+      "link": "https://blog.naver.com/celina_on/224495625892",
+      "channel": "blog",
+      "date": "2026-11-28",
+      "category": "볼거리·체험",
+      "sentiment": "긍정",
+      "reasons": [],
+      "desc": "친구랑 다녀온 11월 제주 여행 4~5일차 일기예요 4일차는 이번 여행에서 날씨가 가장 좋았던 날이라 이... 만큼 실망했답니다.. 우무 동문시장점 다음에 제주 오면 꼭 먹겠다 생각하고 바로 옆 우"
+     },
+     {
       "title": "26년 제주 올레길 마지막 축제 후기, 감동과 아쉬움이 함께했던 마지....",
       "link": "https://blog.naver.com/mou2774/224468696473",
       "channel": "blog",
@@ -7184,26 +7256,6 @@
       "sentiment": "긍정",
       "reasons": [],
       "desc": "가족여행으로 왔을때도 본 듯? 계속 날라다니더니 완전 천장까지 올라가서 뛰어내림. 진짜 멋있었다! 물범이랑 돌고래도 만나고 아레나 공연 끝 ! 앞에 해적 공연이 너무 좋았어서 이건 좀 시시(?)했다"
-     },
-     {
-      "title": "오겹살 포장 상태, 그래서 고른 이호테우해변맛집",
-      "link": "https://blog.naver.com/pccgxwkfi/224458688391",
-      "channel": "blog",
-      "date": "2026-10-30",
-      "category": "볼거리·체험",
-      "sentiment": "긍정",
-      "reasons": [],
-      "desc": "오랜만에 제주 여행을 계획하면서 제주공항 근처에서 맛있는 돼지고기를 즐기고 싶다는 생각이... 시간이 정말 순삭이었는데, 이번 여행 덕분에 제주도에서도 이렇게 훌륭한 돼지고기구이 집을 발견하게 되다"
-     },
-     {
-      "title": "한라산 등산 후 맛집 추천, 제주 우진해장국 고사리육개장 후기",
-      "link": "https://blog.naver.com/garyski/224458685898",
-      "channel": "blog",
-      "date": "2026-10-30",
-      "category": "볼거리·체험",
-      "sentiment": "긍정",
-      "reasons": [],
-      "desc": "11 제주공항에서도 비교적 가까운 편이라 제주 여행을 시작하면서 들르거나, 여행 마지막 날 공항으로 이동하기 전에 식사하기에도 좋은 위치입니다. 한라산 등산 후 제주시 방향으로 이동하는 일정이라면 "
      },
      {
       "title": "좋은 아침입니다! 오늘 함덕 바다에서 음악축제가 시작됩니다",
@@ -7540,7 +7592,7 @@
    {
     "name": "먹거리",
     "policy": "음식점 품질·가격",
-    "n": 4809,
+    "n": 4885,
     "neg_n": 44,
     "share": 23.8,
     "neg": 0.9,
@@ -7548,11 +7600,11 @@
     "delta": null,
     "natures": {
      "사건사고": 16,
-     "불만·후기": 4303,
-     "정보·소식": 490
+     "불만·후기": 4374,
+     "정보·소식": 495
     },
-    "pos_n": 3400,
-    "neu_n": 1365,
+    "pos_n": 3457,
+    "neu_n": 1384,
     "top": [
      {
       "title": "[남양주맛집] 부모님 모시고 가기 좋은 뷰 맛집! 특허받은 소스와 국....",
@@ -8810,7 +8862,7 @@
    {
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
-    "n": 2500,
+    "n": 2539,
     "neg_n": 33,
     "share": 12.4,
     "neg": 1.3,
@@ -8818,11 +8870,11 @@
     "delta": null,
     "natures": {
      "사건사고": 46,
-     "불만·후기": 2119,
-     "정보·소식": 335
+     "불만·후기": 2153,
+     "정보·소식": 340
     },
-    "pos_n": 606,
-    "neu_n": 1861,
+    "pos_n": 618,
+    "neu_n": 1888,
     "top": [
      {
       "title": "두돌아기랑 제주여행 해피렌트카 추천.ᐟ",
@@ -10098,19 +10150,19 @@
    {
     "name": "비용·상거래",
     "policy": "관광 물가·요금 공정성",
-    "n": 1545,
+    "n": 1558,
     "neg_n": 30,
     "share": 7.6,
     "neg": 1.9,
     "prev_neg": null,
     "delta": null,
     "natures": {
-     "사건사고": 23,
-     "불만·후기": 1266,
-     "정보·소식": 256
+     "사건사고": 24,
+     "불만·후기": 1276,
+     "정보·소식": 258
     },
     "pos_n": 209,
-    "neu_n": 1306,
+    "neu_n": 1319,
     "top": [
      {
       "title": "70%가 운행을 멈추고 폐업 시작되었다＂ 택시 몰락의 이유",
@@ -11377,7 +11429,7 @@
    {
     "name": "정책·행정",
     "policy": "행정 소식",
-    "n": 488,
+    "n": 490,
     "neg_n": 15,
     "share": 2.4,
     "neg": 3.1,
@@ -11385,11 +11437,11 @@
     "delta": null,
     "natures": {
      "사건사고": 16,
-     "불만·후기": 59,
-     "정보·소식": 413
+     "불만·후기": 60,
+     "정보·소식": 414
     },
     "pos_n": 15,
-    "neu_n": 458,
+    "neu_n": 460,
     "top": [
      {
       "title": "“관광 위축 우려”·“철회해야”·“정쟁 도구로 삼지 말라”… 무사...",
@@ -12627,19 +12679,19 @@
    {
     "name": "환경·청결",
     "policy": "관광지 환경·위생 관리",
-    "n": 71,
+    "n": 72,
     "neg_n": 6,
     "share": 0.4,
-    "neg": 8.5,
+    "neg": 8.3,
     "prev_neg": null,
     "delta": null,
     "natures": {
      "사건사고": 8,
      "불만·후기": 50,
-     "정보·소식": 13
+     "정보·소식": 14
     },
     "pos_n": 13,
-    "neu_n": 52,
+    "neu_n": 53,
     "top": [
      {
       "title": "얼레벌레 10월도 후다닥",
@@ -13354,6 +13406,16 @@
       "desc": "청정 제주 바다는 해양생물의 삶의 터전이자 제주 관광과 수산업의 소중한 자산이다. 2030년까지 약 2020억 원을 투자하는 이번 해양생태계 보호계획이 실질적인 해양오염 감소와 해양생물 보호, 지속"
      },
      {
+      "title": "[2026 2학기 대학 글쓰기] 25 정책제안서 쓰기 2 – 모둠별 정책제안서 ....",
+      "link": "https://blog.naver.com/hjkim651127/224494855929",
+      "channel": "blog",
+      "date": "2026-11-27",
+      "category": "환경·청결",
+      "sentiment": "중립",
+      "reasons": [],
+      "desc": "#정책제안서 #정책제안서작성방법 #정책제안서쓰기 #정책제안서발표하기... ② 제주도 관광객 증가로 인한 환경오염 줄이기 ③ 제주시청 주도의 직업 체험 프로그램 운영 ④ 제주 청년·대학생 심야 안심."
+     },
+     {
       "title": "제주도 풀빌라에서 보내는 시간은 어떤 기억을 남기게 될까",
       "link": "https://blog.naver.com/7g9wyd01/224495298856",
       "channel": "blog",
@@ -13373,15 +13435,15 @@
    },
    {
     "word": "불친절",
-    "n": 112
+    "n": 115
    },
    {
     "word": "실망",
-    "n": 104
+    "n": 105
    },
    {
     "word": "화재",
-    "n": 57
+    "n": 58
    },
    {
     "word": "우려",
@@ -15666,20 +15728,20 @@
    {
     "name": "숙박",
     "policy": "숙박 시설·거래 관행",
-    "n": 169,
-    "share": 27.9
+    "n": 171,
+    "share": 28.1
    },
    {
     "name": "치안·안전",
     "policy": "관광객 안전·치안",
     "n": 106,
-    "share": 17.5
+    "share": 17.4
    },
    {
     "name": "응대·서비스",
     "policy": "관광종사자 응대·서비스 품질",
-    "n": 71,
-    "share": 11.7
+    "n": 73,
+    "share": 12.0
    },
    {
     "name": "볼거리·체험",
@@ -15691,19 +15753,19 @@
     "name": "먹거리",
     "policy": "음식점 품질·가격",
     "n": 44,
-    "share": 7.3
+    "share": 7.2
    },
    {
     "name": "이동·교통",
     "policy": "관광 교통·접근성",
     "n": 33,
-    "share": 5.5
+    "share": 5.4
    },
    {
     "name": "비용·상거래",
     "policy": "관광 물가·요금 공정성",
     "n": 30,
-    "share": 5.0
+    "share": 4.9
    },
    {
     "name": "정책·행정",
@@ -15721,14 +15783,14 @@
   "clusters": [
    {
     "label": "화재",
-    "n": 59,
+    "n": 60,
     "media": 23,
     "from": "2026-11-05",
-    "to": "2026-11-26",
-    "days": 13,
+    "to": "2026-11-27",
+    "days": 14,
     "spread": "확산",
     "categories": {
-     "치안·안전": 59
+     "치안·안전": 60
     },
     "top": [
      {
@@ -15756,6 +15818,18 @@
        "다친"
       ],
       "desc": "오늘(11일) 아침 6시 44분쯤 제주 서귀포시 대정읍 중앙시장 인근 도로에서 운행 중이던 승합차의 보닛에서 불이 치솟았습니다. 불은 화재 차량 1대를 전소시키고 신고 접수 10여 분 만인 아침 6"
+     },
+     {
+      "title": "회수동 관광지 매표소서 화재 - 제주일보",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5kQUY0TkJNemVVUDVIQ29xRE9SQXlGckFMV0xFVnVnN08zQjQ2c3BhY0FVcHZPb2gtMUhZQmtJcXlNSl9KX3VpNFlsVEQxUDZlSVExckNRLXZxTXZaUWJpQTctRkVJZGZuMVlhSQ?oc=5",
+      "channel": "news",
+      "date": "2026-11-27",
+      "category": "치안·안전",
+      "sentiment": "부정",
+      "reasons": [
+       "화재"
+      ],
+      "desc": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE5kQUY0TkJNemVVUDVIQ29xRE9SQXlGckFMV0xFVnVnN08zQjQ2"
      },
      {
       "title": "[함께가자 우리ESG] 골프존문화재단, 안성 취약계층 350세대에 생필품 지...",
@@ -15816,18 +15890,6 @@
        "화재"
       ],
       "desc": "제주에서 화재 사고가 잇따랐습니다. 오늘(23일) 새벽 3시 반쯤 제주시 애월읍의 한 골프장에서 불이 나 다친... 이보다 앞선 어제(22일) 오전 9시 50분쯤에는 서귀포시 서호동의 단 단독주택에"
-     },
-     {
-      "title": "골프장 클럽하우스·주택 난로에서 화재 잇따라",
-      "link": "https://news.kbs.co.kr/news/pc/view/view.do?ncd=8719665&ref=A",
-      "channel": "news",
-      "date": "2026-11-23",
-      "category": "치안·안전",
-      "sentiment": "부정",
-      "reasons": [
-       "화재"
-      ],
-      "desc": "오늘 새벽 3시 25분쯤, 제주시 애월읍의 한 골프장 클럽하우스 지하 기계실에서 불이 났습니다. 불은 스프링클러 작동으로 50여분 만에 자체 진화됐지만 골프 카트 여러대가 소실되는 피해가 났습니다."
      }
     ]
    },
@@ -16519,80 +16581,80 @@
   ]
  },
  "current": {
-  "total": 4450,
-  "neg": 2.7,
-  "pos": 34.4,
+  "total": 4728,
+  "neg": 2.6,
+  "pos": 34.5,
   "neu": 62.9,
   "channels": {
-   "blog": 2769,
-   "news": 491,
-   "cafe": 1190
+   "blog": 2980,
+   "news": 500,
+   "cafe": 1248
   },
   "categories": {
    "응대·서비스": {
-    "n": 38,
-    "neg": 50.0,
+    "n": 41,
+    "neg": 51.2,
     "share": 0.9
    },
    "비용·상거래": {
-    "n": 294,
+    "n": 307,
     "neg": 2.0,
-    "share": 6.6
+    "share": 6.5
    },
    "환경·청결": {
-    "n": 26,
-    "neg": 19.2,
+    "n": 27,
+    "neg": 18.5,
     "share": 0.6
    },
    "이동·교통": {
-    "n": 602,
-    "neg": 1.2,
-    "share": 13.5
+    "n": 641,
+    "neg": 1.1,
+    "share": 13.6
    },
    "숙박": {
-    "n": 1334,
-    "neg": 1.6,
-    "share": 30.0
+    "n": 1414,
+    "neg": 1.7,
+    "share": 29.9
    },
    "먹거리": {
-    "n": 1096,
+    "n": 1172,
     "neg": 0.8,
-    "share": 24.6
+    "share": 24.8
    },
    "볼거리·체험": {
-    "n": 802,
-    "neg": 1.0,
-    "share": 18.0
+    "n": 858,
+    "neg": 0.9,
+    "share": 18.1
    },
    "치안·안전": {
-    "n": 81,
-    "neg": 33.3,
+    "n": 85,
+    "neg": 32.9,
     "share": 1.8
    },
    "정책·행정": {
-    "n": 83,
+    "n": 85,
     "neg": 2.4,
-    "share": 1.9
+    "share": 1.8
    }
   },
   "natures": {
    "불만·후기": {
-    "n": 3683,
-    "share": 82.8
+    "n": 3926,
+    "share": 83.0
    },
    "정보·소식": {
-    "n": 655,
-    "share": 14.7
+    "n": 687,
+    "share": 14.5
    },
    "사건사고": {
-    "n": 112,
-    "share": 2.5
+    "n": 115,
+    "share": 2.4
    }
   },
   "tracks": {
-   "voice": 3921,
-   "info": 405,
-   "risk": 124
+   "voice": 4188,
+   "info": 413,
+   "risk": 127
   }
  },
  "previous": {
@@ -16673,8 +16735,8 @@
   }
  },
  "delta": {
-  "neg": -1.3,
-  "pos": 3.4
+  "neg": -1.4,
+  "pos": 3.5
  },
  "monthly": {
   "items": [
@@ -16694,18 +16756,18 @@
    },
    {
     "month": "2026-11",
-    "total": 18691,
+    "total": 18968,
     "neg": 3.0,
-    "neu": 64.1,
-    "pos": 32.9
+    "neu": 64.0,
+    "pos": 33.0
    }
   ],
   "current": {
    "month": "2026-11",
-   "total": 18691,
+   "total": 18968,
    "neg": 3.0,
-   "neu": 64.1,
-   "pos": 32.9
+   "neu": 64.0,
+   "pos": 33.0
   },
   "previous": {
    "month": "2026-10",
@@ -16718,25 +16780,25 @@
   "note": "",
   "delta": {
    "neg": 0.4,
-   "pos": -2.6
+   "pos": -2.5
   }
  },
  "rank": [
   {
    "name": "숙박",
    "policy": "숙박 시설·거래 관행",
-   "n": 1334,
-   "neg_n": 22,
-   "pos_n": 312,
-   "neu_n": 1000,
-   "share": 30.0,
-   "neg": 1.6,
+   "n": 1414,
+   "neg_n": 24,
+   "pos_n": 324,
+   "neu_n": 1066,
+   "share": 29.9,
+   "neg": 1.7,
    "prev_neg": 2.2,
-   "delta": -0.6,
+   "delta": -0.5,
    "natures": {
     "사건사고": 20,
-    "불만·후기": 1140,
-    "정보·소식": 174
+    "불만·후기": 1210,
+    "정보·소식": 184
    },
    "top": [
     {
@@ -16967,6 +17029,18 @@
      "desc": "제주도가 저임금과 고용 불안으로 이탈이 잦은 지역 관광업계 청년들의 장기근속을 돕기 위해 첫 중장기... 특히 같은 관광업계라도 호텔, 여행사, 카지노 등 업종마다 근무 형태와 애로사항이 크게 다른"
     },
     {
+     "title": "서귀포호텔 고르다 실수할 뻔한 내 경험담",
+     "link": "https://blog.naver.com/cjd871129/224495354184",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "불친절"
+     ],
+     "desc": "숙소 고르는 거 쉽다고 생각했다가 큰일 날 뻔했어요 제주 여행을 계획하면서 숙소 고민을 되게 오래... 응대가 불친절하면 그것만으로도 하루가 망해버리는 느낌인데, 여기는 그런 불편함이 없었어요 서귀"
+    },
+    {
      "title": "제주신라호텔만 3년 연속 가던 두 아이 엄마의 내돈내산 제주도 “....",
      "link": "https://blog.naver.com/biggong1014/224487678992",
      "channel": "blog",
@@ -17023,6 +17097,18 @@
       "실망"
      ],
      "desc": "생각보다 규모도 작고 시장 특유의 활기찬 느낌이 덜해서 살짝 실망스럽긴 했어요! ㅠㅠ 제가 방문했을... 제주밤산책 #제주태교여행 #애견동반제주도 #임산부여행 #새봄이맘 #내돈내산후기 #여행블로그"
+    },
+    {
+     "title": "[33주 임산부 제주 태교여행 EP7.] 내돈내산 제주 더 시에나 리조트 일....",
+     "link": "https://blog.naver.com/march__02/224494655233",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "숙박",
+     "sentiment": "부정",
+     "reasons": [
+      "실망"
+     ],
+     "desc": "안녕하세요 소뚱입니당 오늘 포스팅은 제주 더 시에나 리조트 일 캄포 조식 뷔페 솔직후기입니다... 약간 실망이었어요 ㅠ 맛없없조합인데,,,, 힝 제육볶음 돼지 잡내가 났음다 맥앤치즈와 생선구이인데 "
     },
     {
      "title": "제주신라 크리스마스 2026｜45만1천원부터, 산타 선물은 부모가 준비....",
@@ -17563,42 +17649,22 @@
      "sentiment": "긍정",
      "reasons": [],
      "desc": "제주자연힐링 #조용한숙소 #제주도경치좋은숙소 #수련회편의시설 #단체여행숙소 #제주특별수련회 #어피어유스호스텔행사 #수련회전용숙박 #제주수련회행사추천 #수련회식사제공 #제주관광수련회 #제주수련회혜택"
-    },
-    {
-     "title": "서귀포 워크샵장소 어디가 좋을까? 제주 기업 단체행사 추천",
-     "link": "https://blog.naver.com/tear25351/224474422900",
-     "channel": "blog",
-     "date": "2026-11-22",
-     "category": "숙박",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "서귀포단체여행 #제주숙소추천단체 #중강당있는연수원 #대규모행사장소 #제주관광연계워크샵 #제주도산책로 #자연속행사장 #바베큐파티장소제주 #제주매점있는연수원 #단체식당있는장소 #서귀포기업워크샵..."
-    },
-    {
-     "title": "2027 수능 수험생 할인, 이번 주말 끝나는 혜택부터 마감순 정리",
-     "link": "https://blog.naver.com/zymylife/224486434999",
-     "channel": "blog",
-     "date": "2026-11-22",
-     "category": "숙박",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "예약 제주신라호텔 저녁 뷔페 30% ~11/30 수험표 지참  호텔 뷔페는 대부분 11월 30일에 끝나고, 예약이... 코레일관광네트웍스 기차여행 패키지 등 20% ~12/31 패키지는 전화 예약,"
     }
    ]
   },
   {
    "name": "응대·서비스",
    "policy": "관광종사자 응대·서비스 품질",
-   "n": 38,
-   "neg_n": 19,
+   "n": 41,
+   "neg_n": 21,
    "pos_n": 10,
-   "neu_n": 9,
+   "neu_n": 10,
    "share": 0.9,
-   "neg": 50.0,
+   "neg": 51.2,
    "prev_neg": 41.2,
-   "delta": 8.8,
+   "delta": 10.0,
    "natures": {
-    "불만·후기": 35,
+    "불만·후기": 38,
     "정보·소식": 3
    },
    "top": [
@@ -17861,6 +17927,30 @@
      "desc": "저희가 다니던 데는 간호사랑 의사 분들이 불친절해서 별로 가고 싶지가 않아요..그래서 가격도 합리적이고 친절한 병원 추천해주세요..!!"
     },
     {
+     "title": "[서귀포/제주영어교육도시]일공공샤브&편백찜, 맛은 좋았지만 먹는 ....",
+     "link": "https://blog.naver.com/sunkw80/224495487987",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "응대·서비스",
+     "sentiment": "부정",
+     "reasons": [
+      "불친절"
+     ],
+     "desc": "2개가 불친절 얘기라 조금은 망설였는데 또 맛에 대한 내용은 없어서... 왜 후기에 불친절하다는 소리가 나왔는지 이해가 되는 장면 그래도... 욕쟁이할머니 등 불친절한 가게가 전국에 곳곳에 있는데 "
+    },
+    {
+     "title": "안도라Andorra...   눈 밭의 호수 트레킹Estany Primer de Pessons",
+     "link": "https://blog.naver.com/balgurac/224495404029",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "응대·서비스",
+     "sentiment": "부정",
+     "reasons": [
+      "불친절"
+     ],
+     "desc": "안도라는 제주도 1/4 크기의 작은 나라로 면적으로는 세계에서 16번 째로 작은 나라, 전체 10만 명도... 안도라 역시 캠핑카 여행객에게는 아주 불친절한 곳이다. 산악 국가이기에 트레킹, 하이킹"
+    },
+    {
      "title": "제주 오메기떡 내돈내산 후기｜함덕오메기떡방앗간 절대 추천하지 ....",
      "link": "https://blog.naver.com/bellasom/224486761556",
      "channel": "blog",
@@ -18021,24 +18111,34 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "풀어보고자해요 제주웨딩 스냅을 마치고 셀렉을 했는데 보정본을 받으려면 60일 정도가 소요된다고 하더라구요 내년 4월이 본식인 저희에게 앞으로 2달 뒤(1월중순..)에 보정본이 나오면 청첩장 모청 제"
+    },
+    {
+     "title": "브롬톤타고 가을 제주 200km 도전하기 ♀️",
+     "link": "https://cafe.naver.com/brompton/371679",
+     "channel": "cafe",
+     "date": "2026-11-28",
+     "category": "응대·서비스",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "ㅜㅜ 바쁜 일정에 후기 남기는게 늦어졌네요 \" \" \" (말주변이 없는편이라 인터뷰가 다시봐도 너무 횡설수설...... 앞으로는 혼자 제주도여행?! 제주도에서도 좋아하는 다이소 방문하기 홀로 동문시장"
     }
    ]
   },
   {
    "name": "치안·안전",
    "policy": "관광객 안전·치안",
-   "n": 81,
-   "neg_n": 27,
+   "n": 85,
+   "neg_n": 28,
    "pos_n": 0,
-   "neu_n": 54,
+   "neu_n": 57,
    "share": 1.8,
-   "neg": 33.3,
+   "neg": 32.9,
    "prev_neg": 63.5,
-   "delta": -30.2,
+   "delta": -30.6,
    "natures": {
-    "사건사고": 65,
-    "불만·후기": 15,
-    "정보·소식": 1
+    "사건사고": 67,
+    "불만·후기": 16,
+    "정보·소식": 2
    },
    "top": [
     {
@@ -18293,6 +18393,18 @@
       "마약"
      ],
      "desc": "제주 지역 마약 사건은 외국인·관광객 연계 수사가 섞이는 비중이 높습니다. 공항 유입과 타지역... 사업자등록 정보와 사이트 상호·대표자가 다르면 보류된다는 게 네이버 정책입니다. 분사무소를 따로."
+    },
+    {
+     "title": "회수동 관광지 매표소서 화재 - 제주일보",
+     "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5kQUY0TkJNemVVUDVIQ29xRE9SQXlGckFMV0xFVnVnN08zQjQ2c3BhY0FVcHZPb2gtMUhZQmtJcXlNSl9KX3VpNFlsVEQxUDZlSVExckNRLXZxTXZaUWJpQTctRkVJZGZuMVlhSQ?oc=5",
+     "channel": "news",
+     "date": "2026-11-27",
+     "category": "치안·안전",
+     "sentiment": "부정",
+     "reasons": [
+      "화재"
+     ],
+     "desc": "<a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE5kQUY0TkJNemVVUDVIQ29xRE9SQXlGckFMV0xFVnVnN08zQjQ2"
     },
     {
      "title": "붙잡지 못한 시간이 우박처럼 쏟아지는 계절",
@@ -18597,16 +18709,6 @@
      "desc": "여러 기관을 거치는 동안 소관 업무에 대한 설명은 이어졌지만 정작 제주도가 도민과 관광객의 안전을 위해 어떤 조치를 취하고 있는지에 대해서는 구체적인 답변을 들을 수 없었다. 제주해경은 법규 위반 "
     },
     {
-     "title": "ICC JEJU, 합동 소방 훈련 실시",
-     "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=602737",
-     "channel": "news",
-     "date": "2026-11-25",
-     "category": "치안·안전",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "최근 제주도가 각종 안전사고 예방과 안전관리 강화를 강조하고 있는 가운데, ICC JEJU도 이러한 기조에... ICC JEJU 임직원과 협력업체, 제주관광공사 중문면세점 상주직원 및 소방 관계자 "
-    },
-    {
      "title": "중국인 단체관광객 무비자 또 1년 연장…정부는 범죄 위험까지 검증....",
      "link": "https://blog.naver.com/growup630/224494295760",
      "channel": "blog",
@@ -18615,6 +18717,36 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "연장 결정 보도 정부는 관광객 유치를 말한다. 하지만 입국 문턱을 낮추는 정책의 성과를 입국자... 설명해야 할 책임이다. 작성 기준: 2026년 11월 27일. 범죄 사례와 제주 불법체류 통계는 "
+    },
+    {
+     "title": "11/28",
+     "link": "https://cafe.naver.com/zzangtong/85258",
+     "channel": "cafe",
+     "date": "2026-11-28",
+     "category": "치안·안전",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "lgsltPaId=PRC_EF4A658CA79B4A509DC96D3AD6B886 관광 활성화라는 취지와 달리 제주 무사증 입국제도가 불법체류·불법취업과 외국인 범죄, 공공장소 기초질서 위반의 통로로"
+    },
+    {
+     "title": "[스포츠한길] 26년11월28일 FC안양vs제주SKFC 결장자 라인업 정보 라이브스코어....",
+     "link": "https://cafe.naver.com/drawhangil/26635",
+     "channel": "cafe",
+     "date": "2026-11-28",
+     "category": "치안·안전",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "4 억 - - FW 오형준 19 - - FW 장정우 21 - - 제주SKFC 포지션 [ 제주SKFC ] 나이 Value 골 도움 결장 GK... 배추 #관광 #패딩 #코스피 #심정지 #사망 #리트이"
+    },
+    {
+     "title": "ICC JEJU, 합동 소방 훈련 실시",
+     "link": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=602737",
+     "channel": "news",
+     "date": "2026-11-25",
+     "category": "치안·안전",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "최근 제주도가 각종 안전사고 예방과 안전관리 강화를 강조하고 있는 가운데, ICC JEJU도 이러한 기조에... ICC JEJU 임직원과 협력업체, 제주관광공사 중문면세점 상주직원 및 소방 관계자 "
     },
     {
      "title": "BS한양 광양 ESS, 공사계약 2027년 7월로 연장···'연내 구축' 일정 변...",
@@ -18767,6 +18899,16 @@
      "desc": "2000만 관광객이 만든 기회 최근 한국 경제의 새로운 수출 동력으로 부상한 ‘K라이프노믹스’가 찬바람이... 과거 주로 서울과 수도권에 국한됐던 체류 지역도 넓어져 방한 외국인 5명 중 1명은 김"
     },
     {
+     "title": "[기자수첩] 넓어지는 한·중 하늘길, 깊어지는 무비자의 명암",
+     "link": "http://www.finomy.com/news/articleView.html?idxno=268068",
+     "channel": "news",
+     "date": "2026-11-26",
+     "category": "치안·안전",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "지난 9월에는 제주 무사증 입국 특례를 폐지하거나 전면 재검토해 달라는 청원이 올라오기도 했다. 청원인은 입국자 신원 확인 강화와 자치경찰의 인력·권한 확대도 요구했다. 관광객을 맞는 주민들에게 필"
+    },
+    {
      "title": "中대사 “韓에 난민 신청한 중국인 송환을” 이례적 요청",
      "link": "https://www.donga.com/news/Politics/article/all/20261127/135099447/2",
      "channel": "news",
@@ -18855,64 +18997,24 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "이번 3차 중앙계약시장은 ESS를 조기 확보하기 위해 역대 최대 규모인 육지 1100MW, 제주 80MW 등 총 1180MW의... ESS의 설비적 특성을 고려해 화재 안전성 및 산업경쟁력 기여도에"
-    },
-    {
-     "title": "다이빙 중국대사, 제주경찰청장 만나 ‘한국 난민 신청’ 왕하이 신병 ...",
-     "link": "https://www.seoul.co.kr/news/society/accident/2026/11/27/20261127500133?wlog_tag3=naver",
-     "channel": "news",
-     "date": "2026-11-27",
-     "category": "치안·안전",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "다이빙 대사는 중국인 관광객의 제주 방문이 활성화될 수 있도록 무사증 제도가 유지되기를 희망하는 한편, 중국인들의 카지노 이용을 유도하는 행위가 제주 관광 발전에 부정적 영향을 줄 수 있다고 우려했"
-    },
-    {
-     "title": "\"외국은 ESS로 돈 버는데\"…'배터리 강국' 한국은 언제쯤 [ESS 대전환 ⑤...",
-     "link": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202611270130&t=NN",
-     "channel": "news",
-     "date": "2026-11-27",
-     "category": "치안·안전",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "그런데 잇따른 화재 사고와 정부의 지원 축소가 시장을 위축시켰다. 대한상공회의소 등에 따르면 국내 ESS... 육지에 1,100MW, 제주에 80MW를 설치해 2029년 2월까지 전력망에 투입한다는"
-    },
-    {
-     "title": "대구경북 주말 기온 곤두박질, 일요일 아침 영하 4도까지",
-     "link": "https://www.kbsm.net/news/view.php?idx=543614",
-     "channel": "news",
-     "date": "2026-11-27",
-     "category": "치안·안전",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "안전사고 예방에 유의해야 한다.건조주의보가 발효 중인 경북 북부 동해안과 북동산지는 주말에도 대기가... 충청과 호남, 경기 남서부, 경상권 내륙, 제주 등에는 비 또는 눈이 내리겠으며 제주 산지에"
-    },
-    {
-     "title": "3차 ESS 입찰…삼성SDI 63% 휩쓸며 1위 수성, SK온 37% 확보",
-     "link": "http://www.srtimes.kr/news/articleView.html?idxno=218880",
-     "channel": "news",
-     "date": "2026-11-27",
-     "category": "치안·안전",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "(1,115MW)과 제주 2곳(80MW) 등 총 14개 사업지(약 1,195MW)의 우선협상대상자가 최종 선정됐다. 이번 3차 입찰은... 특히 중앙계약시장 평가에서 핵심 변수로 떠오른 화재 안전성"
     }
    ]
   },
   {
    "name": "먹거리",
    "policy": "음식점 품질·가격",
-   "n": 1096,
+   "n": 1172,
    "neg_n": 9,
-   "pos_n": 751,
-   "neu_n": 336,
-   "share": 24.6,
+   "pos_n": 808,
+   "neu_n": 355,
+   "share": 24.8,
    "neg": 0.8,
    "prev_neg": 0.8,
    "delta": 0.0,
    "natures": {
     "사건사고": 3,
-    "불만·후기": 980,
-    "정보·소식": 113
+    "불만·후기": 1051,
+    "정보·소식": 118
    },
    "top": [
     {
@@ -19738,18 +19840,18 @@
   {
    "name": "볼거리·체험",
    "policy": "관광 콘텐츠·시설 운영",
-   "n": 802,
+   "n": 858,
    "neg_n": 8,
-   "pos_n": 164,
-   "neu_n": 630,
-   "share": 18.0,
-   "neg": 1.0,
+   "pos_n": 179,
+   "neu_n": 671,
+   "share": 18.1,
+   "neg": 0.9,
    "prev_neg": 0.9,
-   "delta": 0.1,
+   "delta": 0.0,
    "natures": {
     "사건사고": 8,
-    "불만·후기": 646,
-    "정보·소식": 148
+    "불만·후기": 696,
+    "정보·소식": 154
    },
    "top": [
     {
@@ -19787,6 +19889,16 @@
       "최악"
      ],
      "desc": "몇일 제주 해상날씨가 최악이어서 물은 뒤집어졌어도 시야는 괜찮네요 현 서귀포 중문 수온 21℃ 아주 양호합니다 따뜻합니다 제주도 힐링 바다수영 함께 가시죠~ Go Go 서귀포 중문 대표 관광지 \"대"
+    },
+    {
+     "title": "제주도 서귀포 가을 여행 일정 추천 | 가볼만한곳 및 맛집,카페",
+     "link": "https://blog.naver.com/omkwon721/224495499649",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "볼거리·체험",
+     "sentiment": "긍정",
+     "reasons": [],
+     "desc": "이번에도 역시나 제주도 여행후기의 대장정이 모두 끝났는데요. 마지막으로 이번 제주도 가을 여행... 사장님이 조금 불친절할뿐....... 야외 일정 마지막은 수제맥주로 여기 진짜 올레시장오면 꼭 와"
     },
     {
      "title": "나혼산 유리 소금찜질방, 제주 솔트스파 직접 가보니",
@@ -19853,6 +19965,16 @@
      "sentiment": "긍정",
      "reasons": [],
      "desc": "아 제주도 왔으면 고기국수 먹어줘야지~ 저번 제주 여행 때 공항 근처에서 고기국수를 먹었다가 살짝 실망했거든요 그래서 이번에는... 찾는다면 제주 동쪽 여행 중 점심 먹으러 들르기 좋을 듯! 특히."
+    },
+    {
+     "title": "11월 제주 여행 코스 :: 4~5일차 / 월정 보롬사진관, 바미아일랜드, 관....",
+     "link": "https://blog.naver.com/celina_on/224495625892",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "볼거리·체험",
+     "sentiment": "긍정",
+     "reasons": [],
+     "desc": "친구랑 다녀온 11월 제주 여행 4~5일차 일기예요 4일차는 이번 여행에서 날씨가 가장 좋았던 날이라 이... 만큼 실망했답니다.. 우무 동문시장점 다음에 제주 오면 꼭 먹겠다 생각하고 바로 옆 우"
     },
     {
      "title": "제주여행 둘째날 :: 연돈 8:50에 줄서서 대기 14번",
@@ -20359,26 +20481,6 @@
      "desc": "위치  매장정보  참고할만한 게시글 ️ 해시태그 #스누피 #스누피가든 #제주도여행 #제주여행 #제주동쪽여행 #제주가볼만한곳 #제주아이와가볼만한곳 #제주가족여행 #블루보틀제주 #비자림 #세화리여행 #"
     },
     {
-     "title": "2026 11월 12월 국내여행지 추천 BEST 10, 겨울 가볼만한곳 총정리",
-     "link": "https://blog.naver.com/pickvoyager/224486735581",
-     "channel": "blog",
-     "date": "2026-11-22",
-     "category": "볼거리·체험",
-     "sentiment": "긍정",
-     "reasons": [],
-     "desc": "제주도 (겨울 검색 1위·동백 & 크리스마스 감성) 11~12월 국내여행 검색 1위. 12월 한림공원 애기동백... 무주 덕유산 (곤돌라로 편하게 만나는 설경) 등산 경험이 적어도 리조트 관광 곤돌"
-    },
-    {
-     "title": "한라산 등산 코스 비교, 11월엔 입산 마감부터 보고 고르세요",
-     "link": "https://blog.naver.com/hotelseogwipean/224476629787",
-     "channel": "blog",
-     "date": "2026-11-22",
-     "category": "볼거리·체험",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "• 주소: 제주시 조천읍 516로 1865 • 대피소: 속밭(무인), 진달래밭(유인) • 화장실: 성판악사무실... 제주도 동굴 가운데 가장 높은 곳에 있는 굴이라고 해요. 입구 휴게소에서는 식수,"
-    },
-    {
      "title": "전설의 포켓몬이 실제 지구에 산다면 어디에 서식 했을까?",
      "link": "https://cafe.naver.com/lfckorea/948149",
      "channel": "cafe",
@@ -20573,18 +20675,18 @@
   {
    "name": "이동·교통",
    "policy": "관광 교통·접근성",
-   "n": 602,
+   "n": 641,
    "neg_n": 7,
-   "pos_n": 161,
-   "neu_n": 434,
-   "share": 13.5,
-   "neg": 1.2,
+   "pos_n": 173,
+   "neu_n": 461,
+   "share": 13.6,
+   "neg": 1.1,
    "prev_neg": 1.3,
-   "delta": -0.1,
+   "delta": -0.2,
    "natures": {
     "사건사고": 4,
-    "불만·후기": 510,
-    "정보·소식": 88
+    "불만·후기": 544,
+    "정보·소식": 93
    },
    "top": [
     {
@@ -21408,18 +21510,18 @@
   {
    "name": "비용·상거래",
    "policy": "관광 물가·요금 공정성",
-   "n": 294,
+   "n": 307,
    "neg_n": 6,
    "pos_n": 43,
-   "neu_n": 245,
-   "share": 6.6,
+   "neu_n": 258,
+   "share": 6.5,
    "neg": 2.0,
    "prev_neg": 2.5,
    "delta": -0.5,
    "natures": {
-    "사건사고": 6,
-    "불만·후기": 242,
-    "정보·소식": 46
+    "사건사고": 7,
+    "불만·후기": 252,
+    "정보·소식": 48
    },
    "top": [
     {
@@ -22239,18 +22341,18 @@
   {
    "name": "환경·청결",
    "policy": "관광지 환경·위생 관리",
-   "n": 26,
+   "n": 27,
    "neg_n": 5,
    "pos_n": 6,
-   "neu_n": 15,
+   "neu_n": 16,
    "share": 0.6,
-   "neg": 19.2,
+   "neg": 18.5,
    "prev_neg": 0.0,
-   "delta": 19.2,
+   "delta": 18.5,
    "natures": {
     "사건사고": 4,
     "불만·후기": 19,
-    "정보·소식": 3
+    "정보·소식": 4
    },
    "top": [
     {
@@ -22514,6 +22616,16 @@
      "desc": "청정 제주 바다는 해양생물의 삶의 터전이자 제주 관광과 수산업의 소중한 자산이다. 2030년까지 약 2020억 원을 투자하는 이번 해양생태계 보호계획이 실질적인 해양오염 감소와 해양생물 보호, 지속"
     },
     {
+     "title": "[2026 2학기 대학 글쓰기] 25 정책제안서 쓰기 2 – 모둠별 정책제안서 ....",
+     "link": "https://blog.naver.com/hjkim651127/224494855929",
+     "channel": "blog",
+     "date": "2026-11-27",
+     "category": "환경·청결",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "#정책제안서 #정책제안서작성방법 #정책제안서쓰기 #정책제안서발표하기... ② 제주도 관광객 증가로 인한 환경오염 줄이기 ③ 제주시청 주도의 직업 체험 프로그램 운영 ④ 제주 청년·대학생 심야 안심."
+    },
+    {
      "title": "제주도 풀빌라에서 보내는 시간은 어떤 기억을 남기게 될까",
      "link": "https://blog.naver.com/7g9wyd01/224495298856",
      "channel": "blog",
@@ -22528,18 +22640,18 @@
   {
    "name": "정책·행정",
    "policy": "행정 소식",
-   "n": 83,
+   "n": 85,
    "neg_n": 2,
    "pos_n": 4,
-   "neu_n": 77,
-   "share": 1.9,
+   "neu_n": 79,
+   "share": 1.8,
    "neg": 2.4,
    "prev_neg": 2.9,
    "delta": -0.5,
    "natures": {
     "사건사고": 2,
-    "불만·후기": 9,
-    "정보·소식": 72
+    "불만·후기": 10,
+    "정보·소식": 73
    },
    "top": [
     {
@@ -23267,6 +23379,26 @@
      "desc": "스드메와 웨딩홀, 신혼여행이 따로 움직이다 보면 어디서 예산이... 경상도, 제주도 등 권역별로 나뉘어 정리되어 있습니다. 한 달에 전국... 이 과정이 후회를 줄이는 가장 확실한 방법입니다. 8."
     },
     {
+     "title": "3109.[이민역사교실 칼럼]이민의 역사가 일깨운 제주국제자유도시의 ....",
+     "link": "https://blog.naver.com/kwspeace/224495483702",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "정책·행정",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "당시 제주는 무사증 제도를 발판으로 외국인 관광객과 크루즈 방문객이 급증하던 역동적인... [1] 따라서 향후 제주의 외국인정책은 ‘환대와 질서’, 그리고 ‘포용과 상생’의 두 축이 조화를 이루어야"
+    },
+    {
+     "title": "제주 항공좌석 65만 석 감소, 철도 없는 섬의 하늘길 정리",
+     "link": "https://blog.naver.com/don_moa1025/224494310601",
+     "channel": "blog",
+     "date": "2026-11-28",
+     "category": "정책·행정",
+     "sentiment": "중립",
+     "reasons": [],
+     "desc": "관광 쪽 숫자를 보면 이런 대책이 왜 급한지 보입니다. 앞으로 확인할 3가지 6월 제주 관광객은 110만 9,646명(잠정)으로 7.6% 줄었고... 항공이동권 #제주김포 #제주관광 #제주부동산 #"
+    },
+    {
      "title": "정부는 제주 노선 증편 요구…항공사 운항 여력은 부족",
      "link": "https://www.mediapen.com/news/view/1140145",
      "channel": "news",
@@ -23325,26 +23457,6 @@
      "sentiment": "중립",
      "reasons": [],
      "desc": "제주 서귀포의 방치된 감귤밭을 국내 대표 자연주의 생태정원으로 탈바꿈시킨 기록인 『베케, 일곱 계절을... 이는 농가의 정원식물 생산 계획 수립, 지자체의 정원박람회 및 관광 정책 기획, 나아가 기"
-    },
-    {
-     "title": "제주관광대학교 앵커사업단, 제주시 새활용센터와 업무협약 체결 및 '탄소감소축제 감탄장' 성료 - 지금제주",
-     "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5hQkRyNlplZVV3c3d6YWFTaUlpVnJnSnhvblJaV1N2cmRaSThkcGJwTkFDdUtnRWtxblZfeGo1aDk3emFuM2hFR0RmUnNFMUxKa0hBXzZ0ZHFxMzFnMnRwTWQ5T0tycDNBdGRTbG1R?oc=5",
-     "channel": "news",
-     "date": "2026-11-26",
-     "category": "정책·행정",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "<a href=\"https://news.google.com/rss/articles/CBMibkFVX3lxTE5hQkRyNlplZVV3c3d6YWFTaUlpVnJnSnhvblJaV1N2cmRaSThk"
-    },
-    {
-     "title": "레미콘부터 아스콘까지 '친환경으로'…제주에 부는 '녹색바람'",
-     "link": "http://www.jejunews.com/news/articleView.html?idxno=2229074",
-     "channel": "news",
-     "date": "2026-11-26",
-     "category": "정책·행정",
-     "sentiment": "중립",
-     "reasons": [],
-     "desc": "본지는 제주특별자치도가 지속가능한 미래를 위해 추진 중인 친환경 정책을 세 차례 걸쳐 소개한다.... 아울러 1000여 명이 참여한 '제주 녹색소비 한마당'을 개최하고, 관광업계를 대상으로 친환경 "
     }
    ]
   }
@@ -23397,27 +23509,27 @@
   },
   {
    "date": "2026-11-27",
-   "total": 504,
-   "neg_n": 16,
+   "total": 503,
+   "neg_n": 17,
    "neu_n": 331,
-   "pos_n": 157,
-   "neg": 3.2,
-   "pos": 31.2
+   "pos_n": 155,
+   "neg": 3.4,
+   "pos": 30.8
   },
   {
    "date": "2026-11-28",
-   "total": 140,
-   "neg_n": 0,
-   "neu_n": 79,
-   "pos_n": 61,
-   "neg": 0.0,
-   "pos": 43.6
+   "total": 361,
+   "neg_n": 4,
+   "neu_n": 206,
+   "pos_n": 151,
+   "neg": 1.1,
+   "pos": 41.8
   }
  ],
  "reasons": [
   {
    "word": "불친절",
-   "n": 29
+   "n": 32
   },
   {
    "word": "이탈",
@@ -23425,11 +23537,11 @@
   },
   {
    "word": "실망",
-   "n": 17
+   "n": 18
   },
   {
    "word": "화재",
-   "n": 16
+   "n": 17
   },
   {
    "word": "논란",
